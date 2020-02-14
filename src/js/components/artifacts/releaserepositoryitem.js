@@ -22,8 +22,9 @@ export default class ReleaseRepositoryItem extends React.PureComponent {
   render() {
     const self = this;
     const { artifact, expanded, index, onEdit, onExpanded, onRowSelection } = self.props;
-    const compatible = artifact.device_types_compatible.join(', ');
     const artifactType = artifact.updates.reduce((accu, item) => (accu ? accu : item.type_info.type), '');
+    const compatible = artifact.device_types_compatible != null ? artifact.device_types_compatible.join(', ') : '';
+
     return (
       <div className="release-repo-item flexbox" ref={ref => (this.itemRef = ref)}>
         <div className="muted">{index + 1}</div>

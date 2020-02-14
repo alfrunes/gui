@@ -309,6 +309,8 @@ export function intersection(o1, o2) {
 }
 
 export const customSort = (direction, field) => (a, b) => {
+  if (a[field] == null) return direction ? -1 : 1;
+  if (b[field] == null) return direction ? 1 : -1;
   if (a[field] > b[field]) return direction ? -1 : 1;
   if (a[field] < b[field]) return direction ? 1 : -1;
   return 0;
