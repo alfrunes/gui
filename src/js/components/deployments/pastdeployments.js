@@ -25,20 +25,13 @@ import { advanceOnboarding } from '../../actions/onboardingActions';
 import { BEGINNING_OF_TIME, SORTING_OPTIONS, TIMEOUTS } from '../../constants/appConstants';
 import { DEPLOYMENT_STATES, DEPLOYMENT_TYPES } from '../../constants/deploymentConstants';
 import { onboardingSteps } from '../../constants/onboardingConstants';
-import { getISOStringBoundaries } from '../../helpers';
-import {
-  getDeploymentsSelectionState,
-  getDevicesById,
-  getGroupNames,
-  getIdAttribute,
-  getMappedDeploymentSelection,
-  getOnboardingState,
-  getUserCapabilities
-} from '../../selectors';
+import { getISOStringBoundaries, tryMapDeployments } from '../../helpers';
+import { getGroupNames, getIdAttribute, getOnboardingState, getUserCapabilities } from '../../selectors';
 import { useDebounce } from '../../utils/debouncehook';
 import { getOnboardingComponentFor } from '../../utils/onboardingmanager';
 import useWindowSize from '../../utils/resizehook';
 import { clearAllRetryTimers, clearRetryTimer, setRetryTimer } from '../../utils/retrytimer';
+import Loader from '../common/loader';
 import TimeframePicker from '../common/timeframe-picker';
 import TimerangePicker from '../common/timerange-picker';
 import { DeploymentSize, DeploymentStatus } from './deploymentitem';
@@ -74,12 +67,12 @@ export const Past = props => {
   const dispatch = useDispatch();
   const dispatchedSetSnackbar = (...args) => dispatch(setSnackbar(...args));
 
-  const { finished: pastSelectionState } = useSelector(getDeploymentsSelectionState);
-  const past = useSelector(state => getMappedDeploymentSelection(state, type));
+  const past = useSelector(state => state.deployments.selectionState.finished.selection.reduce(tryMapDeployments, { state, deployments: [] }).deployments);
   const { canConfigure, canDeploy } = useSelector(getUserCapabilities);
   const { attribute: idAttribute } = useSelector(getIdAttribute);
   const onboardingState = useSelector(getOnboardingState);
-  const devices = useSelector(getDevicesById);
+  const pastSelectionState = useSelector(state => state.deployments.selectionState.finished);
+  const devices = useSelector(state => state.devices.byId);
   const groupNames = useSelector(getGroupNames);
 
   const debouncedSearch = useDebounce(searchValue, TIMEOUTS.debounceDefault);
@@ -144,7 +137,7 @@ export const Past = props => {
           ? getOnboardingComponentFor(onboardingSteps.ONBOARDING_FINISHED_NOTIFICATION, onboardingState, { setSnackbar: dispatchedSetSnackbar }, notification)
           : notification;
       !!notification && dispatch(setSnackbar('open', TIMEOUTS.refreshDefault, '', notification, () => {}, true));
-    }, TIMEOUTS.debounceDefault);
+    }, 400);
   }, [past.length, onboardingState.complete]);
 
   useEffect(() => {
@@ -165,10 +158,8 @@ export const Past = props => {
   ) => {
     const roundedStartDate = Math.round(Date.parse(currentStartDate) / 1000);
     const roundedEndDate = Math.round(Date.parse(currentEndDate) / 1000);
-    setLoading(true);
     return dispatch(getDeploymentsByStatus(type, currentPage, currentPerPage, roundedStartDate, roundedEndDate, currentDeviceGroup, currentType))
       .then(deploymentsAction => {
-        setLoading(false);
         clearRetryTimer(type, dispatchedSetSnackbar);
         const { total, deploymentIds } = deploymentsAction[deploymentsAction.length - 1];
         if (total && !deploymentIds.length) {
@@ -249,6 +240,7 @@ export const Past = props => {
         />
       </div>
       <div className="deploy-table-contain">
+        <Loader show={loading} />
         {/* TODO: fix status retrieval for past deployments to decide what to show here - */}
         {!loading && !!past.length && !!onboardingComponent && !isShowingDetails && onboardingComponent}
         {!!past.length && (
@@ -256,16 +248,15 @@ export const Past = props => {
             {...props}
             canConfigure={canConfigure}
             canDeploy={canDeploy}
+            devices={devices}
+            idAttribute={idAttribute}
             componentClass="margin-left-small"
             count={count}
-            devices={devices}
             headers={headers}
-            idAttribute={idAttribute}
             items={past}
-            loading={loading}
-            onChangePage={page => dispatch(setDeploymentsState({ [DEPLOYMENT_STATES.finished]: { page } }))}
-            onChangeRowsPerPage={perPage => dispatch(setDeploymentsState({ [DEPLOYMENT_STATES.finished]: { page: 1, perPage } }))}
             page={page}
+            onChangeRowsPerPage={perPage => dispatch(setDeploymentsState({ [DEPLOYMENT_STATES.finished]: { page: 1, perPage } }))}
+            onChangePage={page => dispatch(setDeploymentsState({ [DEPLOYMENT_STATES.finished]: { page } }))}
             pageSize={perPage}
             rootRef={deploymentsRef}
             showPagination
