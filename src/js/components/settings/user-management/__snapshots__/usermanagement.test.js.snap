@@ -1,0 +1,565 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserManagement Component renders correctly 1`] = `
+.emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  font-family: Lato,sans-serif;
+  font-weight: 500;
+  font-size: 0.8125rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 16px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: #fff;
+  background-color: #337a87;
+  box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.emotion-0::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-0.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-0 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgb(35, 85, 94);
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+}
+
+@media (hover: none) {
+  .emotion-0:hover {
+    background-color: #337a87;
+  }
+}
+
+.emotion-0:active {
+  box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
+}
+
+.emotion-0.Mui-focusVisible {
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
+}
+
+.emotion-0.Mui-disabled {
+  color: rgba(0, 0, 0, 0.26);
+  box-shadow: none;
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.emotion-0:hover {
+  colors: #337a87;
+}
+
+.emotion-0.MuiButton-text {
+  color: rgba(10, 10, 11, 0.78);
+}
+
+.emotion-1 {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+}
+
+.emotion-2 {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.emotion-2 caption {
+  font-family: Lato,sans-serif;
+  font-weight: 400;
+  font-size: 0.8125rem;
+  line-height: 1.43;
+  padding: 16px;
+  color: rgba(0, 0, 0, 0.54);
+  text-align: left;
+  caption-side: bottom;
+}
+
+.emotion-3 {
+  display: table-header-group;
+}
+
+.emotion-3 .columnHeader {
+  display: table-cell;
+}
+
+.emotion-3 .columnHeader .sortIcon {
+  margin-bottom: -6px;
+}
+
+.emotion-3 .nonSortable {
+  cursor: initial;
+}
+
+.emotion-4 {
+  color: inherit;
+  display: table-row;
+  vertical-align: middle;
+  outline: 0;
+}
+
+.emotion-4.MuiTableRow-hover:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.emotion-4.Mui-selected {
+  background-color: rgba(51, 122, 135, 0.08);
+}
+
+.emotion-4.Mui-selected:hover {
+  background-color: rgba(51, 122, 135, 0.12);
+}
+
+.emotion-5 {
+  font-family: Lato,sans-serif;
+  font-weight: 500;
+  font-size: 0.8125rem;
+  line-height: 1.3929rem;
+  display: table-cell;
+  vertical-align: inherit;
+  border-bottom: 1px solid rgba(224, 224, 224, 1);
+  text-align: left;
+  padding: 16px;
+  color: rgba(10, 10, 11, 0.78);
+  padding: 0px 24px 0px 24px;
+  height: 48px;
+  height: 56px;
+  line-height: 1.15rem;
+}
+
+.emotion-10 {
+  display: table-row-group;
+}
+
+.emotion-12 {
+  font-family: Lato,sans-serif;
+  font-weight: 400;
+  font-size: 0.8125rem;
+  line-height: 1.43;
+  display: table-cell;
+  vertical-align: inherit;
+  border-bottom: 1px solid rgba(224, 224, 224, 1);
+  text-align: left;
+  padding: 16px;
+  color: rgba(10, 10, 11, 0.78);
+  padding: 0px 24px 0px 24px;
+  height: 48px;
+}
+
+.emotion-17 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.3929rem;
+}
+
+.emotion-17 iconButton {
+  margin-right: 8px;
+}
+
+.emotion-20 {
+  max-width: 100%;
+  font-family: Lato,sans-serif;
+  font-size: 0.7545rem;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  height: 24px;
+  color: rgba(10, 10, 11, 0.78);
+  background-color: rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  white-space: nowrap;
+  -webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  cursor: default;
+  outline: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  border: 0;
+  padding: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: 1px solid #f7f7f7;
+}
+
+.emotion-20.Mui-disabled {
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+.emotion-20 .MuiChip-avatar {
+  margin-left: 5px;
+  margin-right: -6px;
+  width: 24px;
+  height: 24px;
+  color: #bcbcbc;
+  font-size: 0.6964rem;
+}
+
+.emotion-20 .MuiChip-avatarColorPrimary {
+  color: #fff;
+  background-color: rgb(35, 85, 94);
+}
+
+.emotion-20 .MuiChip-avatarColorSecondary {
+  color: #fff;
+  background-color: rgb(65, 10, 46);
+}
+
+.emotion-20 .MuiChip-avatarSmall {
+  margin-left: 4px;
+  margin-right: -4px;
+  width: 18px;
+  height: 18px;
+  font-size: 0.5804rem;
+}
+
+.emotion-20 .MuiChip-icon {
+  margin-left: 4px;
+  margin-right: -4px;
+  font-size: 18px;
+  color: #bcbcbc;
+}
+
+.emotion-20 .MuiChip-deleteIcon {
+  -webkit-tap-highlight-color: transparent;
+  color: rgba(10, 10, 11, 0.26);
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 5px 0 -6px;
+  margin-right: 4px;
+  margin-left: -4px;
+}
+
+.emotion-20 .MuiChip-deleteIcon:hover {
+  color: rgba(10, 10, 11, 0.4);
+}
+
+.emotion-20.MuiChip-clickable:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.emotion-20.Mui-focusVisible {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.emotion-20 .MuiChip-avatar {
+  margin-left: 4px;
+}
+
+.emotion-20 .MuiChip-avatarSmall {
+  margin-left: 2px;
+}
+
+.emotion-20 .MuiChip-icon {
+  margin-left: 4px;
+}
+
+.emotion-20 .MuiChip-iconSmall {
+  margin-left: 2px;
+}
+
+.emotion-20 .MuiChip-deleteIcon {
+  margin-right: 5px;
+}
+
+.emotion-20 .MuiChip-deleteIconSmall {
+  margin-right: 3px;
+}
+
+.emotion-22 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 8px;
+  padding-right: 8px;
+  white-space: nowrap;
+}
+
+<div>
+  <div
+    class="flexbox centered space-between"
+    style="margin-left: 20px;"
+  >
+    <h2>
+      Users
+    </h2>
+    <button
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium emotion-0"
+      tabindex="0"
+      type="button"
+    >
+      Create new user
+      <span
+        class="MuiTouchRipple-root emotion-1"
+      />
+    </button>
+  </div>
+  <table
+    class="MuiTable-root margin-bottom  emotion-2"
+  >
+    <thead
+      class="MuiTableHead-root emotion-3"
+    >
+      <tr
+        class="MuiTableRow-root MuiTableRow-head emotion-4"
+      >
+        <th
+          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium columnHeader nonSortable emotion-5"
+          scope="col"
+        >
+          Email
+        </th>
+        <th
+          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium columnHeader nonSortable emotion-5"
+          scope="col"
+        >
+          Date created
+        </th>
+        <th
+          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium columnHeader nonSortable emotion-5"
+          scope="col"
+        >
+          Last updated
+        </th>
+        <th
+          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium columnHeader nonSortable emotion-5"
+          scope="col"
+        >
+          Role
+        </th>
+        <th
+          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium columnHeader nonSortable emotion-5"
+          scope="col"
+        >
+          Manage
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      class="MuiTableBody-root emotion-10"
+    >
+      <tr
+        class="MuiTableRow-root MuiTableRow-hover clickable emotion-4"
+      >
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-12"
+        >
+          <span>
+            a@b.com
+          </span>
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-12"
+        >
+          <time
+            datetime="2019-01-01T10:30:00+00:00"
+          >
+            2019-01-01 10:30
+          </time>
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-12"
+        >
+          <span
+            aria-label=""
+            class=""
+            data-mui-internal-clone-element="true"
+          >
+            <div
+              class=""
+            >
+              -
+            </div>
+          </span>
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-12"
+        >
+          Admin
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-12"
+        >
+          <div
+            class="bold flexbox center-aligned link-color margin-right-small uppercased"
+            style="white-space: nowrap;"
+          >
+            view details 
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-17"
+              data-testid="ArrowRightAltIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z"
+              />
+            </svg>
+          </div>
+        </td>
+      </tr>
+      <tr
+        class="MuiTableRow-root MuiTableRow-hover clickable emotion-4"
+      >
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-12"
+        >
+          <span>
+            a2@b.com
+          </span>
+          <div
+            class="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorDefault MuiChip-outlinedDefault margin-left-small emotion-20"
+          >
+            <svg
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiChip-icon MuiChip-iconSmall MuiChip-iconColorDefault emotion-17"
+              data-testid="CheckIcon"
+              focusable="false"
+              role="img"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+              />
+              <title>
+                2FA enabled
+              </title>
+            </svg>
+            <span
+              class="MuiChip-label MuiChip-labelSmall emotion-22"
+            >
+              2FA
+            </span>
+          </div>
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-12"
+        >
+          <time
+            datetime="2019-01-01T12:30:00+00:00"
+          >
+            2019-01-01 12:30
+          </time>
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-12"
+        >
+          <span
+            aria-label=""
+            class=""
+            data-mui-internal-clone-element="true"
+          >
+            <div
+              class=""
+            >
+              -
+            </div>
+          </span>
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-12"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-12"
+        >
+          <div
+            class="bold flexbox center-aligned link-color margin-right-small uppercased"
+            style="white-space: nowrap;"
+          >
+            view details 
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-17"
+              data-testid="ArrowRightAltIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z"
+              />
+            </svg>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
