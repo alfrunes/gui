@@ -16,7 +16,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { ChevronRight, Help as HelpIcon } from '@mui/icons-material';
-import { Button, Checkbox, Collapse, FormControlLabel } from '@mui/material';
+import { Button, Checkbox, FormControlLabel } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 
 import Cookies from 'universal-cookie';
@@ -215,16 +215,18 @@ export const Login = () => {
               ) : (
                 <div />
               )}
-              <Collapse in={has2FA}>
+              {has2FA ? (
                 <TextInput
                   hint="Two Factor Authentication Code"
                   label="Two Factor Authentication Code"
                   id="token2fa"
                   validations="isLength:6,isNumeric"
-                  required={has2FA}
+                  required={true}
                   controlRef={twoFARef}
                 />
-              </Collapse>
+              ) : (
+                <div />
+              )}
               <FormControlLabel control={<Checkbox color="primary" checked={noExpiry} onChange={onNoExpiryClick} />} label="Stay logged in" />
             </Form>
             {isHosted && twoFARef.current && (
