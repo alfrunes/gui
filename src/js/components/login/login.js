@@ -16,7 +16,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { ChevronRight, Help as HelpIcon } from '@mui/icons-material';
-import { Button, Checkbox, FormControlLabel } from '@mui/material';
+import { Button, Checkbox, Collapse, FormControlLabel } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 
 import Cookies from 'universal-cookie';
@@ -135,7 +135,6 @@ export const OAuthHeader = ({ buttonProps, type }) => (
 
 export const Login = () => {
   const [noExpiry, setNoExpiry] = useState(false);
-  const [refresh, setRefresh] = useState(false);
   const [has2FA, setHas2FA] = useState(false);
   const twoFARef = useRef();
   const dispatch = useDispatch();
@@ -174,14 +173,6 @@ export const Login = () => {
       });
     },
     [noExpiry]
-  );
-
-  const onSetRef = useCallback(
-    ref => {
-      twoFARef.current = ref;
-      setRefresh(!refresh);
-    },
-    [refresh]
   );
 
   const onOAuthClick = ({ target: { textContent } }) => {
@@ -224,18 +215,16 @@ export const Login = () => {
               ) : (
                 <div />
               )}
-              {has2FA ? (
+              <Collapse in={has2FA}>
                 <TextInput
                   hint="Two Factor Authentication Code"
                   label="Two Factor Authentication Code"
                   id="token2fa"
                   validations="isLength:6,isNumeric"
-                  required={true}
-                  setControlRef={onSetRef}
+                  required={has2FA}
+                  controlRef={twoFARef}
                 />
-              ) : (
-                <div />
-              )}
+              </Collapse>
               <FormControlLabel control={<Checkbox color="primary" checked={noExpiry} onChange={onNoExpiryClick} />} label="Stay logged in" />
             </Form>
             {isHosted && twoFARef.current && (
