@@ -27,7 +27,6 @@ import { makeStyles } from 'tss-react/mui';
 import moment from 'moment';
 import Cookies from 'universal-cookie';
 
-import AlvaldiLogo from '../../../assets/img/alvaldi-logo.svg';
 import { initializeAppData, setFirstLoginAfterSignup, setSearchState } from '../../actions/appActions';
 import { getOnboardingState } from '../../actions/onboardingActions';
 import { getUser, logoutUser, setHideAnnouncement, toggleHelptips } from '../../actions/userActions';
@@ -196,9 +195,6 @@ export const Header = () => {
       {showOffer && <OfferHeader docsVersion={docsVersion} onHide={setHideOffer} />}
       <div className="flexbox space-between">
         <div className="flexbox center-aligned">
-          <Link to="/">
-            <AlvaldiLogo id="logo" alt="Alvaldi logo" />
-          </Link>
           {demo && <DemoNotification iconClassName={classes.demoAnnouncementIcon} sectionClassName={classes.demoTrialAnnouncement} docsVersion={docsVersion} />}
           {organization.trial && (
             <TrialNotification
