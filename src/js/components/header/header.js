@@ -37,7 +37,7 @@ import { getUser, logoutUser, setHideAnnouncement, toggleHelptips } from '../../
 import { getToken } from '../../auth';
 import { TIMEOUTS } from '../../constants/appConstants';
 import * as UserConstants from '../../constants/userConstants';
-import { decodeSessionToken, extractErrorMessage } from '../../helpers';
+import { decodeSessionToken, extractErrorMessage, isDarkMode } from '../../helpers';
 import {
   getAcceptedDevices,
   getCurrentUser,
@@ -185,7 +185,7 @@ export const Header = ({ mode }) => {
   const showOffer =
     isHosted && moment().isBefore(currentOffer.expires) && (organization.trial ? currentOffer.trial : currentOffer[organization.plan]) && !hasOfferCookie;
 
-  const headerLogo = mode === 'dark' ? (isEnterprise ? whiteEnterpriseLogo : whiteLogo) : isEnterprise ? enterpriseLogo : logo;
+  const headerLogo = isDarkMode(mode) ? (isEnterprise ? whiteEnterpriseLogo : whiteLogo) : isEnterprise ? enterpriseLogo : logo;
 
   return (
     <Toolbar id="fixedHeader" className={showOffer ? `${classes.header} ${classes.banner}` : classes.header}>
