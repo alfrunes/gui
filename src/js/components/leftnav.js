@@ -22,25 +22,23 @@ import { makeStyles } from 'tss-react/mui';
 import copy from 'copy-to-clipboard';
 
 import { setSnackbar, setVersionInfo } from '../actions/appActions';
-import { TIMEOUTS, canAccess } from '../constants/appConstants';
+import { TIMEOUTS } from '../constants/appConstants';
 import { onboardingSteps } from '../constants/onboardingConstants';
-import { getDocsVersion, getFeatures, getOnboardingState, getTenantCapabilities, getUserCapabilities, getVersionInformation } from '../selectors';
+import { getFeatures, getOnboardingState, getTenantCapabilities, getUserCapabilities, getVersionInformation } from '../selectors';
 import { getOnboardingComponentFor } from '../utils/onboardingmanager';
 
 const listItems = [
-  { route: '/', text: 'Dashboard', canAccess },
   { route: '/devices', text: 'Devices', canAccess: ({ userCapabilities: { canReadDevices } }) => canReadDevices },
-  { route: '/releases', text: 'Releases', canAccess: ({ userCapabilities: { canReadReleases, canUploadReleases } }) => canReadReleases || canUploadReleases },
-  { route: '/deployments', text: 'Deployments', canAccess: ({ userCapabilities: { canDeploy, canReadDeployments } }) => canReadDeployments || canDeploy },
   {
     route: '/auditlog',
     text: 'Audit log',
-    canAccess: ({ tenantCapabilities: { hasAuditlogs }, userCapabilities: { canAuditlog } }) => hasAuditlogs && canAuditlog
-  }
+    canAccess: ({ userCapabilities: { canAuditlog } }) => canAuditlog
+  },
+  // as long as settings is not the part of RBAC and everyone can access it we set canAccess to true by default
+  { route: '/settings', text: 'Settings', canAccess: () => true }
 ];
 
 const useStyles = makeStyles()(theme => ({
-  licenseLink: { fontSize: '13px', position: 'relative', top: '6px', color: theme.palette.primary.main },
   infoList: { padding: 0, position: 'absolute', bottom: 30, left: 0, right: 0 },
   list: {
     backgroundColor: theme.palette.background.lightgrey,
@@ -132,21 +130,9 @@ export const LeftNav = () => {
   const releasesRef = useRef();
   const { classes } = useStyles();
 
-  const docsVersion = useSelector(getDocsVersion);
   const onboardingState = useSelector(getOnboardingState);
   const tenantCapabilities = useSelector(getTenantCapabilities);
   const userCapabilities = useSelector(getUserCapabilities);
-
-  const licenseLink = (
-    <a
-      className={classes.licenseLink}
-      href={`https://docs.mender.io/${docsVersion}release-information/open-source-licenses`}
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      License information
-    </a>
-  );
 
   let onboardingComponent;
   if (releasesRef.current) {
@@ -186,7 +172,7 @@ export const LeftNav = () => {
           <ListItemText primary="Help & support" />
         </ListItem>
         <ListItem className={classes.listItem}>
-          <ListItemText primary={<VersionInfo />} secondary={licenseLink} />
+          <ListItemText primary={<VersionInfo />} />
         </ListItem>
       </List>
     </div>
