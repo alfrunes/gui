@@ -27,17 +27,14 @@ import { makeStyles } from 'tss-react/mui';
 import moment from 'moment';
 import Cookies from 'universal-cookie';
 
-import enterpriseLogo from '../../../assets/img/headerlogo-enterprise.png';
-import logo from '../../../assets/img/headerlogo.png';
-import whiteEnterpriseLogo from '../../../assets/img/whiteheaderlogo-enterprise.png';
-import whiteLogo from '../../../assets/img/whiteheaderlogo.png';
+import AlvaldiLogo from '../../../assets/img/alvaldi-logo.svg';
 import { initializeAppData, setFirstLoginAfterSignup, setSearchState } from '../../actions/appActions';
 import { getOnboardingState } from '../../actions/onboardingActions';
 import { getUser, logoutUser, setHideAnnouncement, toggleHelptips } from '../../actions/userActions';
 import { getToken } from '../../auth';
 import { TIMEOUTS } from '../../constants/appConstants';
 import * as UserConstants from '../../constants/userConstants';
-import { decodeSessionToken, extractErrorMessage, isDarkMode } from '../../helpers';
+import { decodeSessionToken, extractErrorMessage } from '../../helpers';
 import {
   getAcceptedDevices,
   getCurrentUser,
@@ -103,7 +100,7 @@ const useStyles = makeStyles()(theme => ({
   }
 }));
 
-export const Header = ({ mode }) => {
+export const Header = () => {
   const { classes } = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   const [loggingOut, setLoggingOut] = useState(false);
@@ -185,8 +182,6 @@ export const Header = ({ mode }) => {
   const showOffer =
     isHosted && moment().isBefore(currentOffer.expires) && (organization.trial ? currentOffer.trial : currentOffer[organization.plan]) && !hasOfferCookie;
 
-  const headerLogo = isDarkMode(mode) ? (isEnterprise ? whiteEnterpriseLogo : whiteLogo) : isEnterprise ? enterpriseLogo : logo;
-
   return (
     <Toolbar id="fixedHeader" className={showOffer ? `${classes.header} ${classes.banner}` : classes.header}>
       {!!announcement && (
@@ -202,7 +197,7 @@ export const Header = ({ mode }) => {
       <div className="flexbox space-between">
         <div className="flexbox center-aligned">
           <Link to="/">
-            <img id="logo" src={headerLogo} />
+            <AlvaldiLogo id="logo" alt="Alvaldi logo" />
           </Link>
           {demo && <DemoNotification iconClassName={classes.demoAnnouncementIcon} sectionClassName={classes.demoTrialAnnouncement} docsVersion={docsVersion} />}
           {organization.trial && (
