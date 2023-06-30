@@ -15,7 +15,6 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import AuditLogs from '../components/auditlogs/auditlogs';
-import Dashboard from '../components/dashboard/dashboard';
 import Deployments from '../components/deployments/deployments';
 import Devices from '../components/devices/device-groups';
 import Help from '../components/help/help';
@@ -44,7 +43,7 @@ export const PrivateRoutes = () => (
     <Route path="help" element={<Help />}>
       <Route path=":section" element={null} />
     </Route>
-    <Route path="*" element={<Dashboard />} />
+    <Route path="*" element={<Devices />} />
   </Routes>
 );
 
