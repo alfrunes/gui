@@ -17,21 +17,12 @@ body {
   grid-template-columns: 200px 1fr;
   grid-template-rows: min-content 1fr;
   grid-template-areas:
-    'head head'
+    'nav head'
     'nav main';
   #fixedHeader {
     grid-area: head;
   }
-  .leftFixed.leftNav {
-    grid-area: nav;
-    min-height: 500px;
-    width: 200px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    ul {
-      margin-right: -1px;
-    }
-  }
+
   .rightFluid.container {
     grid-area: main;
     overflow: auto;
@@ -317,9 +308,13 @@ ul.link-list {
 
 /* Header */
 #logo {
-  min-width: 142px;
-  height: 48px;
-  margin-right: 25px;
+  display: block;
+  padding: 15px 16px 45px 27px;
+
+  svg {
+    min-width: 142px;
+    margin-right: 25px;
+  }
 }
 
 #announcement {
@@ -467,6 +462,74 @@ ul.link-list {
 
 .leftFixed {
   position: relative;
+
+  &.leftNav {
+    grid-area: nav;
+    min-height: 500px;
+    width: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: @surfacePrimary;
+
+    ul {
+      margin-right: -1px;
+    }
+
+    .leftNav-main {
+      a {
+        padding: 10px 0 10px 27px;
+        border: none;
+
+        svg {
+          display: inline-block;
+          margin-right: 8px;
+          color: @text;
+          font-size: 20px;
+        }
+
+        div, span {
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 20px;
+          color: @text;
+        }
+
+        &.active {
+          background: @surfaceBrand;
+
+          svg {
+            color: @surfacePrimary;
+          }
+
+          div, span {
+            color: @surfacePrimary;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+
+    .leftNav-bottom {
+      position: absolute;
+      bottom: 78px;
+
+      a, li {
+        padding: 10px 0 10px 27px;
+
+        * {
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 20px;
+          color: @text;
+        }
+      }
+    }
+  }
+}
+
+.versionsInfo {
+  display: grid;
+  grid-template-columns: max-content 60px;
 }
 
 .rightFluid {
@@ -1027,7 +1090,7 @@ div:focus {
   display: inline-block;
   position: relative;
   width: 100%;
-  vertical-align: middle; 
+  vertical-align: middle;
   overflow: hidden;
 }
 

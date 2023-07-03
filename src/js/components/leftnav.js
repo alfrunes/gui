@@ -15,41 +15,40 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 
+import { ListAlt as AuditLogIcon, DeveloperBoard as DeveloperBoardIcon, Settings as SettingsIcon } from '@mui/icons-material';
 // material ui
 import { List, ListItem, ListItemText, Tooltip } from '@mui/material';
-import { makeStyles } from 'tss-react/mui';
 
 import copy from 'copy-to-clipboard';
 
+import AlvaldiLogo from '../../assets/img/alvaldi-logo.svg';
 import { setSnackbar, setVersionInfo } from '../actions/appActions';
-import { TIMEOUTS, canAccess } from '../constants/appConstants';
+import { TIMEOUTS } from '../constants/appConstants';
 import { onboardingSteps } from '../constants/onboardingConstants';
-import { getDocsVersion, getFeatures, getOnboardingState, getTenantCapabilities, getUserCapabilities, getVersionInformation } from '../selectors';
+import { getFeatures, getOnboardingState, getTenantCapabilities, getUserCapabilities, getVersionInformation } from '../selectors';
 import { getOnboardingComponentFor } from '../utils/onboardingmanager';
 
 const listItems = [
-  { route: '/', text: 'Dashboard', canAccess },
-  { route: '/devices', text: 'Devices', canAccess: ({ userCapabilities: { canReadDevices } }) => canReadDevices },
-  { route: '/releases', text: 'Releases', canAccess: ({ userCapabilities: { canReadReleases, canUploadReleases } }) => canReadReleases || canUploadReleases },
-  { route: '/deployments', text: 'Deployments', canAccess: ({ userCapabilities: { canDeploy, canReadDeployments } }) => canReadDeployments || canDeploy },
+  {
+    route: '/devices',
+    text: 'Devices',
+    canAccess: ({ userCapabilities: { canReadDevices } }) => canReadDevices,
+    icon: <DeveloperBoardIcon />
+  },
   {
     route: '/auditlog',
     text: 'Audit log',
-    canAccess: ({ tenantCapabilities: { hasAuditlogs }, userCapabilities: { canAuditlog } }) => hasAuditlogs && canAuditlog
+    canAccess: ({ userCapabilities: { canAuditlog } }) => canAuditlog,
+    icon: <AuditLogIcon />
+  },
+  {
+    route: '/settings',
+    text: 'Settings',
+    // as long as settings is not the part of RBAC and everyone can access it we set canAccess to true by default
+    canAccess: () => true,
+    icon: <SettingsIcon />
   }
 ];
-
-const useStyles = makeStyles()(theme => ({
-  licenseLink: { fontSize: '13px', position: 'relative', top: '6px', color: theme.palette.primary.main },
-  infoList: { padding: 0, position: 'absolute', bottom: 30, left: 0, right: 0 },
-  list: {
-    backgroundColor: theme.palette.background.lightgrey,
-    borderRight: `1px solid ${theme.palette.grey[300]}`
-  },
-  navLink: { padding: '22px 16px 22px 42px' },
-  listItem: { padding: '16px 16px 16px 42px' },
-  versions: { display: 'grid', gridTemplateColumns: 'max-content 60px', columnGap: theme.spacing(), '>a': { color: theme.palette.grey[100] } }
-}));
 
 const linkables = {
   'Integration': 'integration',
@@ -61,7 +60,6 @@ const linkables = {
 const VersionInfo = () => {
   const [clicks, setClicks] = useState(0);
   const timer = useRef();
-  const { classes } = useStyles();
 
   const dispatch = useDispatch();
   const { isHosted } = useSelector(getFeatures);
@@ -80,7 +78,7 @@ const VersionInfo = () => {
   };
 
   const versions = (
-    <div className={classes.versions}>
+    <div className="versionsInfo">
       {Object.entries(versionInformation).reduce((accu, [key, version]) => {
         if (version) {
           accu.push(
@@ -130,23 +128,10 @@ const VersionInfo = () => {
 
 export const LeftNav = () => {
   const releasesRef = useRef();
-  const { classes } = useStyles();
 
-  const docsVersion = useSelector(getDocsVersion);
   const onboardingState = useSelector(getOnboardingState);
   const tenantCapabilities = useSelector(getTenantCapabilities);
   const userCapabilities = useSelector(getUserCapabilities);
-
-  const licenseLink = (
-    <a
-      className={classes.licenseLink}
-      href={`https://docs.mender.io/${docsVersion}release-information/open-source-licenses`}
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      License information
-    </a>
-  );
 
   let onboardingComponent;
   if (releasesRef.current) {
@@ -159,34 +144,38 @@ export const LeftNav = () => {
     });
   }
   return (
-    <div className={`leftFixed leftNav ${classes.list}`}>
-      <List style={{ padding: 0 }}>
+    <div className={`leftFixed leftNav`}>
+      <Link id="logo" to="/">
+        <AlvaldiLogo alt="Alvaldi logo" />
+      </Link>
+      <List className={'leftNav-main'} style={{ padding: 0 }}>
         {listItems.reduce((accu, item, index) => {
           if (!item.canAccess({ tenantCapabilities, userCapabilities })) {
             return accu;
           }
           accu.push(
             <ListItem
-              className={`navLink leftNav ${classes.navLink}`}
+              className={`navLink leftNav`}
               component={NavLink}
               end={item.route === '/'}
               key={index}
               ref={item.route === '/releases' ? releasesRef : null}
               to={item.route}
             >
-              <ListItemText primary={item.text} style={{ textTransform: 'uppercase' }} />
+              {item.icon}
+              <ListItemText primary={item.text} />
             </ListItem>
           );
           return accu;
         }, [])}
       </List>
       {onboardingComponent ? onboardingComponent : null}
-      <List className={classes.infoList}>
-        <ListItem className={`navLink leftNav ${classes.listItem}`} component={Link} to="/help">
+      <List className="leftNav-bottom">
+        <ListItem className={`navLink leftNav`} component={Link} to="/help">
           <ListItemText primary="Help & support" />
         </ListItem>
-        <ListItem className={classes.listItem}>
-          <ListItemText primary={<VersionInfo />} secondary={licenseLink} />
+        <ListItem>
+          <ListItemText primary={<VersionInfo />} />
         </ListItem>
       </List>
     </div>
