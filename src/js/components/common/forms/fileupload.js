@@ -15,7 +15,7 @@ import React, { useState } from 'react';
 import Dropzone from 'react-dropzone';
 
 // material ui
-import { Clear as ClearIcon, CloudUpload as FileIcon } from '@mui/icons-material';
+import { Clear as ClearIcon, CloudUploadOutlined as FileIcon } from '@mui/icons-material';
 import { IconButton, TextField } from '@mui/material';
 
 export const FileUpload = ({
@@ -69,9 +69,9 @@ export const FileUpload = ({
     <div style={style}>
       <Dropzone activeClassName="active" rejectClassName="active" multiple={false} onDrop={onDrop}>
         {({ getRootProps, getInputProps }) => (
-          <div {...getRootProps()} style={{ padding: 15 }} className="dropzone onboard dashboard-placeholder flexbox centered">
+          <div {...getRootProps()} className="dropzone onboard dashboard-placeholder flexbox centered">
             <input {...getInputProps()} />
-            <FileIcon className="icon" style={{ height: 24, width: 24, verticalAlign: 'middle', marginTop: '-2px' }} />
+            <FileIcon className="icon" style={{ fontSize: 20, verticalAlign: 'middle', marginTop: '-2px', color: '#424242' }} />
             <div className="margin-left-small" style={{ fontSize: '11pt' }}>
               {placeholder}
             </div>

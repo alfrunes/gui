@@ -46,8 +46,8 @@ const palette = {
   },
   secondary: {
     ...commonPalette.secondary,
-    lighter: '#8e577b',
-    main: '#5d0f43'
+    lighter: '#ececec',
+    main: '#fff'
   },
   tooltip: {
     ...commonPalette.tooltip,

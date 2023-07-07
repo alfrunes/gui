@@ -6,6 +6,21 @@
   box-sizing: border-box;
 }
 
+h2 {
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+  color: @text;
+  margin: 0;
+}
+
+button {
+  max-height: 36px;
+  border-radius: 4px !important;
+  padding: 6px 8px;
+}
+
 html,
 body {
   height: 100%;
@@ -196,6 +211,12 @@ ul.link-list {
 .margin-top-large {
   margin-top: 3 * @defaultGutterWidth;
 }
+.margin-top-xl {
+  margin-top: 4 * @defaultGutterWidth;
+}
+.margin-top-xxl {
+  margin-top: 5 * @defaultGutterWidth;
+}
 .margin-left {
   margin-left: 2 * @defaultGutterWidth;
 }
@@ -213,6 +234,12 @@ ul.link-list {
 }
 .margin-right-large {
   margin-right: 3 * @defaultGutterWidth;
+}
+.margin-right-xl {
+  margin-right: 4 * @defaultGutterWidth;
+}
+.margin-right-xxl {
+  margin-right: 5 * @defaultGutterWidth;
 }
 .margin-bottom {
   margin-bottom: 2 * @defaultGutterWidth;
@@ -280,6 +307,10 @@ ul.link-list {
 
 .muted {
   opacity: 0.54;
+}
+
+.greyed {
+  color: @textInactive;
 }
 
 .fadeIn {
@@ -1863,4 +1894,200 @@ div.waiting-inventory {
 }
 .twin-editing .editor.modified .monaco-editor-background {
   background-color: @placeholder;
+}
+
+.MuiButton-root {
+  text-transform: none;
+}
+
+.devicePage {
+  &-header {
+    padding-bottom: 15px;
+
+    h2 {
+      flex-grow: 1;
+      margin-left: 36px;
+    }
+  }
+
+  &-content {
+    border-top: 1px solid @bordercolor;
+
+    &_troubleshooting {
+      padding-top: 21px;
+      width: 720px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      max-height: calc(100vh - 160px);
+      padding-right: 16px;
+      flex-basis: 55%;
+
+      div.two-columns {
+        margin-top: 17px;
+        display: flex;
+
+        div, b {
+          font-size: 14px;
+          font-weight: 700;
+          line-height: 20px;
+          letter-spacing: 0.25px;
+          color: @grey800;
+          background: none;
+        }
+
+        b {
+          font-weight: 400;
+        }
+      }
+    }
+
+    &_info {
+      flex-grow: 1;
+      overflow-x: hidden;
+      overflow-y: auto;
+      max-height: calc(100vh - 160px);
+      min-height: calc(100vh - 154px);
+      border-left: 1px solid @bordercolor;
+      padding-left: 24px;
+      padding-top: 21px;
+      margin-left: 16px;
+
+      .two-columns {
+        div {
+          color: @textSecondary;
+        }
+
+        .key > b {
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px;
+          letter-spacing: 0.25px;
+          color: @textInactive;
+          background: none;
+        }
+      }
+      .auth-status {
+        h4 {
+          color: @text;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 20px;
+          letter-spacing: 0.25px;
+        }
+      }
+      .MuiAccordion-root {
+        background: none;
+      }
+    }
+  }
+
+  .authSetListWrapper {
+    width: 560px;
+    min-width: auto;
+    background: none;
+  }
+
+  h4 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    color: @text;
+  }
+
+  .xterm {
+    visibility: hidden;
+    padding: 10px;
+    &-viewport {
+      border-radius: 5px;
+    }
+  }
+
+  .device-connected {
+    .xterm {
+      visibility: visible;
+    }
+  }
+
+  .file-transfer-container {
+    display: block;
+    padding-top: 0;
+    padding-bottom: 50px;
+
+    .infotext, label {
+      color: @text;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 20px;
+      letter-spacing: 0.25px;
+      transform: none;
+    }
+
+    label {
+      letter-spacing: 0.1px;
+    }
+
+    .dropzone {
+      padding: 36px;
+    }
+
+    .copy-paste-button {
+      margin-left: -40px;
+    }
+
+    .upload-button {
+      margin-left: 20px;
+      margin-top: -15px;
+    }
+  }
+
+  .accordion {
+    &.Mui-expanded {
+      background: none;
+    }
+
+    &-summary {
+      justify-content: flex-start;
+
+      > div {
+        flex-grow: initial;
+      }
+    }
+  }
+}
+
+// custom scroll styles
+::-webkit-scrollbar {
+  width: 8px;
+
+  &-track {
+    background: none;
+  }
+
+  &-thumb {
+    background: #D9D9D9;
+    border-radius: 4px;
+
+    &:hover {
+      background: #c7c7c7;
+    }
+  }
+}
+
+.textLink, .textLink:hover {
+  color: @text;
+  font-weight: 500;
+}
+
+.MuiButton-textPrimary {
+  border-radius: 4px;
+  &:hover {
+    background-color: @surfacePrimary;
+  }
+  &.greyed {
+    color: @textInactive;
+    font-weight: 500;
+  }
 }

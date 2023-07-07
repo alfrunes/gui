@@ -65,7 +65,7 @@ const ValueColumn = ({ value = '', setSnackbar }) => {
 };
 
 const KeyColumn = ({ value, chipLikeKey }) => (
-  <div className={`align-right ${chipLikeKey ? 'key' : ''} muted`}>
+  <div className={`align-right ${chipLikeKey ? 'key' : ''}`}>
     <b>{value}</b>
   </div>
 );

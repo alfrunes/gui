@@ -23,10 +23,10 @@ const secondaryText = 'rgba(0, 0, 0, 0.54)';
  */
 export const palette = {
   primary: {
-    main: '#337a87'
+    main: '#14A452'
   },
   secondary: {
-    main: '#5d0f43'
+    main: '#FFFFFF'
   },
   error: {
     light: 'rgba(93, 15, 67, 0.075)',
@@ -47,6 +47,9 @@ export const palette = {
   brand: {
     mender: '#015969',
     northernTech: '#28aee4'
+  },
+  terminal: {
+    backgroundInactive: 'rgba(33, 36, 41, 0.25)'
   }
 };
 
