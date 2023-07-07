@@ -51,6 +51,7 @@ import {
   getLimitMaxed,
   getSelectedGroupInfo,
   getShowHelptips,
+  getSortedFilteringAttributes,
   getTenantCapabilities,
   getUserCapabilities
 } from '../../selectors';
@@ -81,10 +82,7 @@ export const DeviceGroups = () => {
   const { status: statusParam } = useParams();
 
   const { groupCount, selectedGroup, groupFilters = [] } = useSelector(getSelectedGroupInfo);
-  const filteringAttributes = useSelector(state => ({
-    ...state.devices.filteringAttributes,
-    identityAttributes: [...state.devices.filteringAttributes.identityAttributes, 'id']
-  }));
+  const filteringAttributes = useSelector(getSortedFilteringAttributes);
   const { canManageDevices } = useSelector(getUserCapabilities);
   const tenantCapabilities = useSelector(getTenantCapabilities);
   const { groupNames, ...groupsByType } = useSelector(getGroupsSelector);

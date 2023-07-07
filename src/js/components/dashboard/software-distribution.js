@@ -21,19 +21,30 @@ import {
   defaultReports,
   deriveReportsData,
   getDeviceAttributes,
+  getDevicesInBounds,
   getGroupDevices,
   getReportingLimits,
   getReportsData
 } from '../../actions/deviceActions';
 import { saveUserSettings } from '../../actions/userActions';
-import { DEVICE_STATES, UNGROUPED_GROUP } from '../../constants/deviceConstants';
 import { rootfsImageVersion, softwareTitleMap } from '../../constants/releaseConstants';
 import { isEmpty } from '../../helpers';
-import { getAttributesList, getFeatures, getIsEnterprise, getUserSettings } from '../../selectors';
+import {
+  getAcceptedDevices,
+  getAttributesList,
+  getDeviceReports,
+  getDeviceReportsForUser,
+  getDevicesById,
+  getFeatures,
+  getGroupNames,
+  getGroupsByIdWithoutUngrouped,
+  getIsEnterprise
+} from '../../selectors';
 import EnterpriseNotification from '../common/enterpriseNotification';
 import { extractSoftwareInformation } from '../devices/device-details/installedsoftware';
 import ChartAdditionWidget from './widgets/chart-addition';
 import DistributionReport from './widgets/distribution';
+import MapWrapper from './widgets/mapwidget';
 
 const reportTypes = {
   distribution: DistributionReport
@@ -82,19 +93,16 @@ const listSoftware = attributes => {
 export const SoftwareDistribution = () => {
   const dispatch = useDispatch();
 
-  const reports = useSelector(
-    state =>
-      getUserSettings(state).reports ||
-      state.users.globalSettings[`${state.users.currentUser}-reports`] ||
-      (Object.keys(state.devices.byId).length ? defaultReports : [])
-  );
-  // eslint-disable-next-line no-unused-vars
-  const { [UNGROUPED_GROUP.id]: ungrouped, ...groups } = useSelector(state => state.devices.groups.byId);
+  const reports = useSelector(getDeviceReportsForUser);
+  const groups = useSelector(getGroupsByIdWithoutUngrouped);
   const { hasReporting } = useSelector(getFeatures);
   const attributes = useSelector(getAttributesList);
-  const hasDevices = useSelector(state => state.devices.byStatus[DEVICE_STATES.accepted].total);
+  const { total } = useSelector(getAcceptedDevices);
+  const hasDevices = !!total;
   const isEnterprise = useSelector(getIsEnterprise);
-  const reportsData = useSelector(state => state.devices.reports);
+  const reportsData = useSelector(getDeviceReports);
+  const groupNames = useSelector(getGroupNames);
+  const devicesById = useSelector(getDevicesById);
 
   useEffect(() => {
     dispatch(getDeviceAttributes());
@@ -133,15 +141,23 @@ export const SoftwareDistribution = () => {
       </div>
     );
   }
+  const dispatchedGetGroupDevices = (...args) => dispatch(getGroupDevices(...args));
   return hasDevices ? (
     <div className="dashboard margin-bottom-large">
+      <MapWrapper
+        groups={groups}
+        groupNames={groupNames}
+        devicesById={devicesById}
+        getGroupDevices={dispatchedGetGroupDevices}
+        getDevicesInBounds={(...args) => dispatch(getDevicesInBounds(...args))}
+      />
       {reports.map((report, index) => {
         const Component = reportTypes[report.type || defaultReportType];
         return (
           <Component
             key={`report-${report.group}-${index}`}
             data={reportsData[index]}
-            getGroupDevices={(...args) => dispatch(getGroupDevices(...args))}
+            getGroupDevices={dispatchedGetGroupDevices}
             groups={groups}
             onClick={() => removeReport(report)}
             onSave={change => onSaveChangedReport(change, index)}

@@ -18,6 +18,7 @@ import * as DeviceConstants from '../constants/deviceConstants';
 import { rootfsImageVersion } from '../constants/releaseConstants';
 import { attributeDuplicateFilter, deepCompare, extractErrorMessage, getSnackbarMessage, mapDeviceAttributes } from '../helpers';
 import {
+  getDeviceById as getDeviceByIdSelector,
   getDeviceFilters,
   getDeviceTwinIntegrations,
   getGroups as getGroupsSelector,
@@ -311,7 +312,7 @@ const getLatestTs = (dateA = '', dateB = '') => (!dateA || !dateB ? dateA || dat
 const reduceReceivedDevices = (devices, ids, state, status) =>
   devices.reduce(
     (accu, device) => {
-      const stateDevice = state.devices.byId[device.id] || {};
+      const stateDevice = getDeviceByIdSelector(state, device.id);
       const {
         attributes: storedAttributes = {},
         identity_data: storedIdentity = {},
@@ -1155,7 +1156,7 @@ export const getSystemDevices =
   (dispatch, getState) => {
     const { page = defaultPage, perPage = defaultPerPage, sortOptions = [] } = options;
     const state = getState();
-    let device = state.devices.byId[id];
+    let device = getDeviceByIdSelector(state, id);
     const { attributes: deviceAttributes = {} } = device;
     const { mender_gateway_system_id = '' } = deviceAttributes;
     const { hasFullFiltering } = getTenantCapabilities(state);
@@ -1198,7 +1199,7 @@ export const getSystemDevices =
 
 export const getGatewayDevices = deviceId => (dispatch, getState) => {
   const state = getState();
-  let device = state.devices.byId[deviceId];
+  let device = getDeviceByIdSelector(state, deviceId);
   const { attributes = {} } = device;
   const { mender_gateway_system_id = '' } = attributes;
   const filters = [
