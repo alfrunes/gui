@@ -1,0 +1,272 @@
+// Copyright 2023 Northern.tech AS
+//
+//    Licensed under the Apache License, Version 2.0 (the "License");
+//    you may not use this file except in compliance with the License.
+//    You may obtain a copy of the License at
+//
+//        http://www.apache.org/licenses/LICENSE-2.0
+//
+//    Unless required by applicable law or agreed to in writing, software
+//    distributed under the License is distributed on an "AS IS" BASIS,
+//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//    See the License for the specific language governing permissions and
+//    limitations under the License.
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import Dropzone from 'react-dropzone';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { ExpandMore as ExpandIcon } from '@mui/icons-material';
+import { Accordion, AccordionDetails, AccordionSummary, Button, Divider } from '@mui/material';
+import { makeStyles } from 'tss-react/mui';
+
+import { mdiConsole as ConsoleIcon } from '@mdi/js';
+import moment from 'moment';
+import momentDurationFormatSetup from 'moment-duration-format';
+
+import { setSnackbar } from '../../../actions/appActions';
+import { deviceFileUpload, getDeviceFileDownloadLink } from '../../../actions/deviceActions';
+import { TIMEOUTS } from '../../../constants/appConstants';
+import { createDownload } from '../../../helpers';
+import { getFeatures, getIsEnterprise, getIsPreview, getUserCapabilities } from '../../../selectors';
+import { useSession } from '../../../utils/sockethook';
+import { TwoColumns } from '../../common/configurationobject';
+import MaterialDesignIcon from '../../common/materialdesignicon.js';
+import { MaybeTime } from '../../common/time';
+import { getCode } from '../dialogs/make-gateway-dialog';
+import FileTransfer from '../troubleshoot/filetransfer';
+import Terminal from '../troubleshoot/terminal';
+import ListOptions from '../widgets/listoptions';
+
+momentDurationFormatSetup(moment);
+
+const useStyles = makeStyles()(theme => ({
+  title: { marginRight: theme.spacing(0.5) },
+  connectionButton: { background: theme.palette.terminal.backgroundInactive, borderRadius: 5 },
+  connectedIcon: { color: theme.palette.success.main, marginLeft: theme.spacing(), fontSize: 18 },
+  disconnectedIcon: { color: theme.palette.error.main, marginLeft: theme.spacing(), fontSize: 18 },
+  sessionInfo: { maxWidth: 'max-content' },
+  terminalContent: {
+    minHeight: '480px',
+    display: 'grid',
+    gridTemplateRows: 'max-content 0',
+    flexGrow: 1,
+    '&.device-connected': {
+      gridTemplateRows: 'max-content minmax(min-content, 1fr)'
+    }
+  },
+  terminalStatePlaceholder: {
+    width: 280
+  }
+}));
+
+export const Troubleshoot = ({ device }) => {
+  const [downloadPath, setDownloadPath] = useState('');
+  const [elapsed, setElapsed] = useState(moment());
+  const [file, setFile] = useState();
+  const [socketInitialized, setSocketInitialized] = useState(false);
+  const [startTime, setStartTime] = useState();
+  const [uploadPath, setUploadPath] = useState('');
+  const [terminalInput, setTerminalInput] = useState('');
+  const [snackbarAlreadySet, setSnackbarAlreadySet] = useState(false);
+  const snackTimer = useRef();
+  const timer = useRef();
+  const termRef = useRef({ terminal: React.createRef(), terminalRef: React.createRef() });
+  const { classes } = useStyles();
+  const { isHosted } = useSelector(getFeatures);
+  const isEnterprise = useSelector(getIsEnterprise);
+  const canPreview = useSelector(getIsPreview);
+  const userCapabilities = useSelector(getUserCapabilities);
+  const { canTroubleshoot } = userCapabilities;
+  const dispatch = useDispatch();
+  const dispatchedSetSnackbar = (...args) => dispatch(setSnackbar(...args));
+
+  const [, updateState] = React.useState();
+  const forceUpdate = React.useCallback(() => updateState({}), []);
+
+  useEffect(() => {
+    if (socketInitialized === undefined) {
+      return;
+    }
+    clearInterval(timer.current);
+    if (socketInitialized) {
+      setStartTime(new Date());
+      timer.current = setInterval(() => setElapsed(moment()), TIMEOUTS.halfASecond);
+    } else {
+      close();
+    }
+    return () => {
+      clearInterval(timer.current);
+    };
+  }, [socketInitialized]);
+
+  useEffect(() => {
+    if (socketInitialized) {
+      return;
+    }
+
+    return () => close();
+  }, [device.id]);
+
+  const onConnectionToggle = () => {
+    if (!canTroubleshoot) {
+      dispatch(setSnackbar('You do not have enough permissions to connect to the device.', 5000));
+      return;
+    }
+
+    if (socketInitialized) {
+      close();
+    } else {
+      forceUpdate();
+      setSocketInitialized(false);
+      connect(device.id);
+    }
+  };
+
+  const onDrop = acceptedFiles => {
+    if (acceptedFiles.length === 1) {
+      setFile(acceptedFiles[0]);
+      setUploadPath(`/tmp/${acceptedFiles[0].name}`);
+    }
+  };
+
+  const onDownloadClick = path => {
+    setDownloadPath(path);
+    dispatch(getDeviceFileDownloadLink(device.id, path)).then(address => {
+      const filename = path.substring(path.lastIndexOf('/') + 1) || 'file';
+      createDownload(address, filename);
+    });
+  };
+
+  const onSocketOpen = () => {
+    setSocketInitialized(true);
+    dispatch(setSnackbar('Connection with the device established.', 5000));
+  };
+
+  const onNotify = content => {
+    setSnackbarAlreadySet(true);
+    dispatch(setSnackbar(content, 5000));
+    snackTimer.current = setTimeout(() => setSnackbarAlreadySet(false), TIMEOUTS.fiveSeconds + TIMEOUTS.debounceShort);
+  };
+
+  const onHealthCheckFailed = () => {
+    if (snackbarAlreadySet) {
+      return;
+    }
+    onNotify('Health check failed: connection with the device lost.');
+  };
+
+  const onSocketClose = event => {
+    if (snackbarAlreadySet) {
+      return;
+    }
+    if (event.wasClean) {
+      onNotify(`Connection with the device closed.`);
+    } else if (event.code == 1006) {
+      // 1006: abnormal closure
+      onNotify('Connection to the remote terminal is forbidden.');
+    } else {
+      onNotify('Connection with the device died.');
+    }
+  };
+
+  const onMessageReceived = useCallback(
+    message => {
+      if (!termRef.current.terminal) {
+        return;
+      }
+      termRef.current.terminal.write(new Uint8Array(message));
+    },
+    [termRef.current]
+  );
+
+  const [connect, sendMessage, close, sessionState, sessionId] = useSession({
+    onClose: onSocketClose,
+    onHealthCheckFailed,
+    onMessageReceived,
+    onNotify,
+    onOpen: onSocketOpen
+  });
+
+  useEffect(() => {
+    setSocketInitialized(sessionState === WebSocket.OPEN && sessionId);
+  }, [sessionId, sessionState]);
+
+  const onMakeGatewayClick = () => {
+    const code = getCode(canPreview);
+    setTerminalInput(code);
+  };
+
+  const commandHandlers = isHosted && isEnterprise ? [{ key: 'thing', onClick: onMakeGatewayClick, title: 'Promote to Mender gateway' }] : [];
+  const duration = moment.duration(elapsed.diff(moment(startTime)));
+  return (
+    <div>
+      <h2 className="flexbox center-aligned">
+        Terminal {<MaterialDesignIcon className={socketInitialized ? classes.connectedIcon : classes.disconnectedIcon} path={ConsoleIcon} />}
+      </h2>
+      <div className="flexbox column">
+        <div className={`${classes.terminalContent} ${socketInitialized ? 'device-connected' : ''}`}>
+          <TwoColumns
+            className={`margin-bottom-small ${classes.sessionInfo}`}
+            items={{
+              'Session status:': socketInitialized ? 'connected' : 'disconnected',
+              'Connection start:': <MaybeTime value={startTime} />,
+              'Duration:': socketInitialized ? `${duration.format('hh:mm:ss', { trim: false })}` : '-'
+            }}
+          />
+          <Dropzone activeClassName="active" rejectClassName="active" multiple={false} onDrop={onDrop} noClick>
+            {({ getRootProps }) => (
+              <div {...getRootProps()} style={{ position: 'relative' }}>
+                <Terminal
+                  onDownloadClick={onDownloadClick}
+                  sendMessage={sendMessage}
+                  sessionId={sessionId}
+                  setSnackbar={dispatchedSetSnackbar}
+                  socketInitialized={socketInitialized}
+                  style={{ position: 'absolute', width: '100%', height: '100%' }}
+                  textInput={terminalInput}
+                  xtermRef={termRef}
+                />
+              </div>
+            )}
+          </Dropzone>
+          {!socketInitialized && (
+            <div className={`flexbox centered ${classes.connectionButton}`}>
+              <Button variant="contained" color="secondary" onClick={onConnectionToggle}>
+                Connect Terminal
+              </Button>
+            </div>
+          )}
+        </div>
+      </div>
+      <div className="flexbox space-between margin-top-small">
+        <div>
+          <Button onClick={onConnectionToggle}>{socketInitialized ? 'Disconnect' : 'Connect'} Terminal</Button>
+        </div>
+        <div>{socketInitialized && !!commandHandlers.length && <ListOptions options={commandHandlers} title="Quick commands" />}</div>
+      </div>
+      <Divider className="margin-bottom-large" style={{ marginTop: 9 }} />
+      <Accordion className="accordion">
+        <AccordionSummary className="accordion-summary" expandIcon={<ExpandIcon style={{ fontSize: 24 }} />}>
+          <h2>File transfer</h2>
+        </AccordionSummary>
+        <AccordionDetails className="accordion-details">
+          <FileTransfer
+            deviceId={device.id}
+            downloadPath={downloadPath}
+            file={file}
+            onDownload={onDownloadClick}
+            onUpload={(...args) => dispatch(deviceFileUpload(...args))}
+            setDownloadPath={setDownloadPath}
+            setFile={setFile}
+            setSnackbar={dispatchedSetSnackbar}
+            setUploadPath={setUploadPath}
+            uploadPath={uploadPath}
+            userCapabilities={userCapabilities}
+          />
+        </AccordionDetails>
+      </Accordion>
+    </div>
+  );
+};
+
+export default Troubleshoot;
