@@ -17,6 +17,7 @@ import { Route, Routes } from 'react-router-dom';
 import AuditLogs from '../components/auditlogs/auditlogs';
 import Deployments from '../components/deployments/deployments';
 import Devices from '../components/devices/device-groups';
+import Device from '../components/devices/device.js';
 import Help from '../components/help/help';
 import Login from '../components/login/login';
 import Password from '../components/login/password';
@@ -31,6 +32,7 @@ export const PrivateRoutes = () => (
     <Route path="devices" element={<Devices />}>
       <Route path=":status" element={null} />
     </Route>
+    <Route path="devices/id/:id" element={<Device />} />
     <Route path="releases" element={<Releases />}>
       <Route path=":artifactVersion" element={null} />
     </Route>
