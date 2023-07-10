@@ -384,17 +384,7 @@ export const Authorized = ({
     setShowCustomization(false);
   };
 
-  const onExpandClick = (device = {}) => {
-    dispatchedSetSnackbar('');
-    const { attributes = {}, id, status } = device;
-    dispatch(setDeviceListState({ selectedId: deviceListState.selectedId === id ? undefined : id }));
-    if (!onboardingState.complete) {
-      dispatch(advanceOnboarding(onboardingSteps.DEVICES_PENDING_ONBOARDING));
-      if (status === DEVICE_STATES.accepted && Object.values(attributes).some(value => value)) {
-        dispatch(advanceOnboarding(onboardingSteps.DEVICES_ACCEPTED_ONBOARDING_NOTIFICATION));
-      }
-    }
-  };
+  const onExpandClick = (device = {}) => navigate(`/devices/${device.id}`);
 
   const onCreateDeploymentClick = devices => navigate(`/deployments?open=true&${devices.map(({ id }) => `deviceId=${id}`).join('&')}`);
 
