@@ -32,7 +32,8 @@ const useStyles = makeStyles()(theme => ({
   column: { maxWidth },
   inputWrapper: { display: 'grid', gridTemplateColumns: 'auto 0px max-content', flexGrow: 1 },
   tab: { alignItems: 'flex-start' },
-  fileDestination: { marginTop: theme.spacing(2) }
+  fileDestination: { marginTop: theme.spacing(2) },
+  copyPasteIcon: { color: theme.palette.greySecondary[600] }
 }));
 
 export const FileTransfer = ({
@@ -129,7 +130,7 @@ export const FileTransfer = ({
               />
               <Tooltip title="Paste" placement="top">
                 <IconButton className="copy-paste-button" onClick={onPasteUploadClick} size="large">
-                  <CopyPasteIcon style={{ color: '#616161' }} />
+                  <CopyPasteIcon className={classes.copyPasteIcon} />
                 </IconButton>
               </Tooltip>
               <div>
@@ -163,7 +164,7 @@ export const FileTransfer = ({
               />
               <Tooltip title="Paste" placement="top">
                 <IconButton className="copy-paste-button" onClick={onPasteDownloadClick} size="large">
-                  <CopyPasteIcon style={{ color: '#616161' }} />
+                  <CopyPasteIcon className={classes.copyPasteIcon} />
                 </IconButton>
               </Tooltip>
               <div>

@@ -43,6 +43,9 @@ const palette = {
     main: '#7d3f69'
   },
   grey,
+  greySecondary: {
+    '600': '#616161'
+  },
   background: {
     light: '#1d1f20',
     lightgrey: paper,

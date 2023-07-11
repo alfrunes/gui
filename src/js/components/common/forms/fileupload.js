@@ -17,6 +17,13 @@ import Dropzone from 'react-dropzone';
 // material ui
 import { Clear as ClearIcon, CloudUploadOutlined as FileIcon } from '@mui/icons-material';
 import { IconButton, TextField } from '@mui/material';
+import { makeStyles } from 'tss-react/mui';
+
+const useStyles = makeStyles()(theme => ({
+  textField: { justifyContent: 'flex-end', marginTop: theme.spacing(2) },
+  fileIcon: { fontSize: 20, verticalAlign: 'middle', marginTop: '-2px', color: theme.palette.text.secondary },
+  iconButton: { top: '6px' }
+}));
 
 export const FileUpload = ({
   enableContentReading = true,
@@ -28,7 +35,7 @@ export const FileUpload = ({
   style = {}
 }) => {
   const [filename, setFilename] = useState(fileNameSelection);
-
+  const { classes } = useStyles();
   const onDrop = (acceptedFiles, rejectedFiles) => {
     if (acceptedFiles.length) {
       if (enableContentReading) {
@@ -60,8 +67,8 @@ export const FileUpload = ({
 
   return filename ? (
     <div style={style}>
-      <TextField id="keyfile" value={filename} disabled={true} style={{ color: 'rgba(0, 0, 0, 0.8)', borderBottom: '1px solid rgb(224, 224, 224)' }} />
-      <IconButton style={{ top: '6px' }} onClick={onClear} size="large">
+      <TextField id="keyfile" value={filename} disabled={true} className={classes.textField} />
+      <IconButton className={classes.iconButton} onClick={onClear} size="large">
         <ClearIcon />
       </IconButton>
     </div>
@@ -71,7 +78,7 @@ export const FileUpload = ({
         {({ getRootProps, getInputProps }) => (
           <div {...getRootProps()} className="dropzone onboard dashboard-placeholder flexbox centered">
             <input {...getInputProps()} />
-            <FileIcon className="icon" style={{ fontSize: 20, verticalAlign: 'middle', marginTop: '-2px', color: '#424242' }} />
+            <FileIcon className={`icon ${classes.fileIcon}`} />
             <div className="margin-left-small" style={{ fontSize: '11pt' }}>
               {placeholder}
             </div>

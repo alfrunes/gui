@@ -30,12 +30,12 @@ import Authsetlist from './authsetlist';
 const useStyles = makeStyles()(theme => ({
   decommission: { justifyContent: 'flex-end', marginTop: theme.spacing(2) },
   wrapper: {
-    backgroundColor: theme.palette.grey[400],
     borderColor: theme.palette.grey[500],
     borderStyle: 'solid',
     borderWidth: 1,
     marginBottom: theme.spacing(2),
-    minWidth: 700,
+    minWidth: 'auto',
+    width: 560,
     padding: theme.spacing(2)
   }
 }));
@@ -77,7 +77,7 @@ export const Authsets = ({ decommission, device, deviceListRefresh, showHelptips
   const { canManageDevices } = userCapabilities;
   const { classes } = useStyles();
   return (
-    <div className={`${classes.wrapper} authSetListWrapper`}>
+    <div className={ classes.wrapper }>
       <div className="margin-bottom-small">
         {status === DEVICE_STATES.pending ? `Authorization ${pluralize('request', auth_sets.length)}` : 'Authorization sets'}
       </div>

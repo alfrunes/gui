@@ -36,6 +36,9 @@ const palette = {
   ...commonPalette,
   mode: LIGHT_MODE,
   grey,
+  greySecondary: {
+    '600': '#616161'
+  },
   background: {
     ...commonPalette.background,
     light: '#fdfdfd',
@@ -56,7 +59,8 @@ const palette = {
   text: {
     ...commonPalette.text,
     primary: 'rgba(10, 10, 11, 0.78)',
-    entryLink: '#7adce6'
+    entryLink: '#7adce6',
+    secondary: '#424242'
   }
 };
 
@@ -78,8 +82,7 @@ export const light = {
         root: {
           ...overrides.MuiAccordion.styleOverrides.root,
           [`&.${accordionClasses.expanded}`]: {
-            ...overrides.MuiAccordion.styleOverrides.root[`&.${accordionClasses.expanded}`],
-            backgroundColor: palette.grey[400]
+            ...overrides.MuiAccordion.styleOverrides.root[`&.${accordionClasses.expanded}`]
           }
         }
       }
