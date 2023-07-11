@@ -30,9 +30,10 @@ export const PrivateRoutes = () => (
   <Routes>
     <Route path="auditlog" element={<AuditLogs />} />
     <Route path="devices" element={<Devices />}>
-      <Route path=":status" element={null} />
+      <Route index element={<Devices />} />
+      <Route path=":id" element={<Device />} />
+      {Object.values(DEVICE_STATES).map(state => <Route key={state} path={state} element={null} />)}
     </Route>
-    <Route path="devices/id/:id" element={<Device />} />
     <Route path="releases" element={<Releases />}>
       <Route path=":artifactVersion" element={null} />
     </Route>
