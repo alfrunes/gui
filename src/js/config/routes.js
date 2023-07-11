@@ -25,15 +25,19 @@ import PasswordReset from '../components/login/passwordreset';
 import Signup from '../components/login/signup';
 import Releases from '../components/releases/releases';
 import Settings from '../components/settings/settings';
+import { DEVICE_STATES } from '../constants/deviceConstants.js';
 
 export const PrivateRoutes = () => (
   <Routes>
     <Route path="auditlog" element={<AuditLogs />} />
-    <Route path="devices" element={<Devices />}>
+    <Route path="devices" element={null}>
       <Route index element={<Devices />} />
       <Route path=":id" element={<Device />} />
-      {Object.values(DEVICE_STATES).map(state => <Route key={state} path={state} element={null} />)}
+      {Object.values(DEVICE_STATES).map(state => (
+        <Route key={state} path={state} element={<Devices />} />
+      ))}
     </Route>
+    <Route path="devices/:id" element={<Device />} />
     <Route path="releases" element={<Releases />}>
       <Route path=":artifactVersion" element={null} />
     </Route>
