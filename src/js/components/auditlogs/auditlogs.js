@@ -265,7 +265,7 @@ export const AuditLogs = props => {
       </div>
       <div className="flexbox center-aligned" style={{ justifyContent: 'flex-end' }}>
         <Loader show={csvLoading} />
-        <Button variant="contained" color="secondary" disabled={csvLoading || !total} onClick={createCsvDownload} style={{ marginLeft: 15 }}>
+        <Button variant="contained" color="primary" disabled={csvLoading || !total} onClick={createCsvDownload} style={{ marginLeft: 15 }}>
           Download results as csv
         </Button>
       </div>

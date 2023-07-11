@@ -12,12 +12,11 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 import React, { useMemo } from 'react';
-import { Link } from 'react-router-dom';
 
 import { ArrowRightAlt as ArrowRightAltIcon, Sort as SortIcon } from '@mui/icons-material';
 
 import { SORTING_OPTIONS, canAccess } from '../../constants/appConstants';
-import { DEPLOYMENT_ROUTES } from '../../constants/deploymentConstants';
+import DeviceLink from '../common/device-link';
 import DeviceIdentityDisplay from '../common/deviceidentity';
 import Loader from '../common/loader';
 import Pagination from '../common/pagination';
@@ -26,22 +25,11 @@ import EventDetailsDrawer from './eventdetailsdrawer';
 
 export const defaultRowsPerPage = 20;
 
-const ArtifactLink = ({ item }) => <Link to={`/releases/${item.object.artifact.name}`}>View artifact</Link>;
-const DeploymentLink = ({ item }) => <Link to={`${DEPLOYMENT_ROUTES.finished.route}?open=true&id=${item.object.id}`}>View deployment</Link>;
-const DeviceLink = ({ item }) => <Link to={`/devices?id=${item.object.id}`}>View device</Link>;
-const DeviceRejectedLink = ({ item }) => <Link to={`/devices/rejected?id=${item.object.id}`}>View device</Link>;
-const TerminalSessionLink = () => <a>View session log</a>;
-const UserChange = ({ item: { change = '-' } }) => {
-  const formatChange = change => {
-    const diff = change.split(/@@.*@@/);
-    return diff.length > 1 ? diff[1].trim() : diff;
-  };
-  return (
-    <div className="capitalized" style={{ alignItems: 'flex-start', whiteSpace: 'pre-line' }}>
-      {formatChange(change)}
-    </div>
-  );
-};
+const ViewDetailLink = ({ clickHandler }) => (
+  <a className="green800" onClick={() => clickHandler()}>
+    View detail <ArrowRightAltIcon />
+  </a>
+);
 
 const FallbackFormatter = props => {
   let result = '';
@@ -55,23 +43,26 @@ const FallbackFormatter = props => {
 
 const ArtifactFormatter = ({ artifact }) => <div>{artifact.name}</div>;
 const DeploymentFormatter = ({ deployment }) => <div>{deployment.name}</div>;
-const DeviceFormatter = ({ id }) => <DeviceIdentityDisplay device={{ id }} />;
+const DeviceFormatter = ({ id }) => (
+  <div className="flexbox center-aligned">
+    <DeviceIdentityDisplay device={{ id }} /> <DeviceLink className="margin-left-xs flexbox" id={id} />
+  </div>
+);
 const UserFormatter = ({ user }) => <div>{user.email}</div>;
 
 const defaultAccess = canAccess;
 const changeMap = {
-  default: { component: 'div', actionFormatter: FallbackFormatter, title: 'defaultTitle', accessCheck: defaultAccess },
-  artifact: { actionFormatter: ArtifactFormatter, component: ArtifactLink, accessCheck: ({ canReadReleases }) => canReadReleases },
+  default: { actionFormatter: FallbackFormatter, title: 'defaultTitle', accessCheck: defaultAccess },
+  artifact: { actionFormatter: ArtifactFormatter, accessCheck: ({ canReadReleases }) => canReadReleases },
   deployment: {
     actionFormatter: DeploymentFormatter,
-    component: DeploymentLink,
     accessCheck: ({ canReadDeployments }) => canReadDeployments
   },
-  deviceDecommissioned: { actionFormatter: DeviceFormatter, component: 'div', accessCheck: defaultAccess },
-  deviceRejected: { actionFormatter: DeviceFormatter, component: DeviceRejectedLink, accessCheck: ({ canReadDevices }) => canReadDevices },
-  deviceGeneral: { actionFormatter: DeviceFormatter, component: DeviceLink, accessCheck: ({ canReadDevices }) => canReadDevices },
-  deviceTerminalSession: { actionFormatter: DeviceFormatter, component: TerminalSessionLink, accessCheck: defaultAccess },
-  user: { component: UserChange, actionFormatter: UserFormatter, accessCheck: defaultAccess }
+  deviceDecommissioned: { actionFormatter: DeviceFormatter, accessCheck: defaultAccess },
+  deviceRejected: { actionFormatter: DeviceFormatter, accessCheck: ({ canReadDevices }) => canReadDevices },
+  deviceGeneral: { actionFormatter: DeviceFormatter, accessCheck: ({ canReadDevices }) => canReadDevices },
+  deviceTerminalSession: { actionFormatter: DeviceFormatter, accessCheck: defaultAccess },
+  user: { actionFormatter: UserFormatter, accessCheck: defaultAccess }
 };
 
 const mapChangeToContent = item => {
@@ -112,20 +103,20 @@ const ChangeDescriptor = (item, index) => {
   const FormatterComponent = mapChangeToContent(item).actionFormatter;
   return <FormatterComponent key={`${item.time}-${index}`} {...item.object} />;
 };
-const ChangeDetailsDescriptor = (item, index, userCapabilities) => {
-  const { component: Comp, accessCheck } = mapChangeToContent(item);
+const ChangeDetailsDescriptor = (item, index, userCapabilities, clickHandler) => {
+  const { accessCheck } = mapChangeToContent(item);
   const key = `${item.time}-${index}`;
-  return accessCheck(userCapabilities) ? <Comp key={key} item={item} /> : <div key={key} />;
+  return accessCheck(userCapabilities) ? <ViewDetailLink clickHandler={clickHandler} key={key} /> : <div key={key} />;
 };
 const TimeWrapper = (item, index) => <Time key={`${item.time}-${index}`} value={item.time} />;
 
 const auditLogColumns = [
+  { title: 'Time', sortable: true, render: TimeWrapper },
   { title: 'User', sortable: false, render: UserDescriptor },
   { title: 'Action', sortable: false, render: ActionDescriptor },
   { title: 'Type', sortable: false, render: TypeDescriptor },
-  { title: 'Changed', sortable: false, render: ChangeDescriptor },
-  { title: 'More details', sortable: false, render: ChangeDetailsDescriptor },
-  { title: 'Time', sortable: true, render: TimeWrapper }
+  { title: 'Affected', sortable: false, render: ChangeDescriptor },
+  { title: 'More detail', sortable: false, render: ChangeDetailsDescriptor }
 ];
 
 export const AuditLogsList = ({ items, loading, onChangePage, onChangeRowsPerPage, onChangeSorting, selectionState, setAuditlogsState, userCapabilities }) => {
@@ -145,7 +136,7 @@ export const AuditLogsList = ({ items, loading, onChangePage, onChangeRowsPerPag
   return (
     !!items.length && (
       <div className="fadeIn deploy-table-contain auditlogs-list">
-        <div className="auditlogs-list-item auditlogs-list-item-header muted">
+        <div className="auditlogs-list-item auditlogs-list-item-header">
           {auditLogColumns.map((column, index) => (
             <div
               className="columnHeader"
@@ -162,20 +153,10 @@ export const AuditLogsList = ({ items, loading, onChangePage, onChangeRowsPerPag
         <div className="auditlogs-list">
           {items.map(item => {
             const allowsExpansion = !!item.change || item.action.includes('terminal') || item.action.includes('portforward');
+            const clickHandler = () => onIssueSelection(allowsExpansion ? item : undefined);
             return (
-              <div
-                className={`auditlogs-list-item ${allowsExpansion ? 'clickable' : ''}`}
-                key={`event-${item.time}`}
-                onClick={() => onIssueSelection(allowsExpansion ? item : undefined)}
-              >
-                {auditLogColumns.map((column, index) => column.render(item, index, userCapabilities))}
-                {allowsExpansion ? (
-                  <div className="uppercased link-color bold">
-                    view details <ArrowRightAltIcon />
-                  </div>
-                ) : (
-                  <div />
-                )}
+              <div className="auditlogs-list-item" key={`event-${item.time}`}>
+                {auditLogColumns.map((column, index) => column.render(item, index, userCapabilities, clickHandler))}
               </div>
             );
           })}
