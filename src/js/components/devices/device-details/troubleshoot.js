@@ -80,9 +80,6 @@ export const Troubleshoot = ({ device }) => {
   const dispatch = useDispatch();
   const dispatchedSetSnackbar = (...args) => dispatch(setSnackbar(...args));
 
-  const [, updateState] = React.useState();
-  const forceUpdate = React.useCallback(() => updateState({}), []);
-
   useEffect(() => {
     if (socketInitialized === undefined) {
       return;
@@ -116,7 +113,6 @@ export const Troubleshoot = ({ device }) => {
     if (socketInitialized) {
       close();
     } else {
-      forceUpdate();
       setSocketInitialized(false);
       connect(device.id);
     }

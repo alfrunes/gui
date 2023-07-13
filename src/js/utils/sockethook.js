@@ -11,7 +11,7 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-import { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import msgpack5 from 'msgpack5';
 
@@ -37,6 +37,7 @@ export const useSession = ({ onClose, onHealthCheckFailed, onMessageReceived, on
   const [sessionId, setSessionId] = useState();
   const healthcheckTimeout = useRef();
   const socketRef = useRef();
+  const [socketRefInitialized, setSocketRefInitialized] = React.useState(false);
 
   useEffect(() => {
     if (!socketRef.current) {
@@ -147,7 +148,7 @@ export const useSession = ({ onClose, onHealthCheckFailed, onMessageReceived, on
     return () => {
       socketRef.current.removeEventListener('open', onOpen);
     };
-  }, [socketRef.current, onOpen]);
+  }, [socketRef.current, onOpen, socketRefInitialized]);
 
   const healthcheckFailed = () => {
     onHealthCheckFailed();
@@ -159,6 +160,7 @@ export const useSession = ({ onClose, onHealthCheckFailed, onMessageReceived, on
     setSessionId();
     try {
       socketRef.current = new WebSocket(uri);
+      setSocketRefInitialized(true);
     } catch (error) {
       console.log(error);
     }
