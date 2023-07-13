@@ -14,7 +14,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { useTheme } from '@mui/material/styles';
+import { makeStyles } from 'tss-react/mui';
 
 import moment from 'moment';
 import momentDurationFormatSetup from 'moment-duration-format';
@@ -28,8 +28,23 @@ import TerminalPlayer from './terminalplayer';
 
 momentDurationFormatSetup(moment);
 
+const useStyles = makeStyles()(theme => ({
+  terminalPlayer: {
+    maxWidth: 560,
+    '>div': {
+      borderRadius: 5,
+      overflow: 'hidden'
+    }
+  },
+  detailsWrapper: {
+    marginLeft: theme.spacing(5),
+    minWidth: 'min-content',
+    maxWidth: 400
+  }
+}));
+
 export const TerminalSession = ({ item, onClose }) => {
-  const theme = useTheme();
+  const { classes } = useStyles();
   const [sessionDetails, setSessionDetails] = useState();
   const dispatch = useDispatch();
   const { object = {} } = item;
@@ -60,11 +75,19 @@ export const TerminalSession = ({ item, onClose }) => {
   };
 
   return (
-    <div className="flexbox" style={{ flexWrap: 'wrap' }}>
-      <TerminalPlayer className="flexbox column margin-top" item={item} sessionInitialized={!!sessionDetails} />
-      <div className="flexbox column" style={{ margin: theme.spacing(3), minWidth: 'min-content' }}>
-        {canReadDevices && <DeviceDetails device={device} idAttribute={idAttribute} onClose={onClose} />}
-        <DetailInformation title="session" details={sessionMeta} />
+    <div>
+      <div className="flexbox" style={{ flexWrap: 'wrap' }}>
+        <div>
+          <h2>
+            Logged session from <Time value={sessionDetails.start} format="HH:mm" /> to <Time value={sessionDetails.end} format="HH:mm" /> on{' '}
+            <Time value={sessionDetails.start} format="MMMM Do YYYY" />
+          </h2>
+          <TerminalPlayer className={`flexbox column margin-top ${classes.terminalPlayer}`} item={item} sessionInitialized={!!sessionDetails} />
+        </div>
+        <div className={`flexbox column ${classes.detailsWrapper}`}>
+          {canReadDevices && <DeviceDetails device={device} idAttribute={idAttribute} onClose={onClose} />}
+          <DetailInformation className="margin-top-xxl" title="session" details={sessionMeta} />
+        </div>
       </div>
     </div>
   );
