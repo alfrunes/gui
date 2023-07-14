@@ -37,7 +37,7 @@ export const useSession = ({ onClose, onHealthCheckFailed, onMessageReceived, on
   const [sessionId, setSessionId] = useState();
   const healthcheckTimeout = useRef();
   const socketRef = useRef();
-  const [socketRefInitialized, setSocketRefInitialized] = React.useState(false);
+  const [socketRefInitialized, setSocketRefInitialized] = useState(false);
 
   useEffect(() => {
     if (!socketRef.current) {
