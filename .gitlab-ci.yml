@@ -8,8 +8,10 @@ stages:
   - publish
 
 variables:
-  DOCKER_REPOSITORY: alvaldi/gui
+  DOCKER_REPOSITORY: registry.mender.io/northerntech/alvaldi-gui
   DOCS_VERSION: development
+  MULTIPLATFORM_BUILD: "true"
+  MULTIPLATFORM_PLATFORMS: "linux/amd64,linux/arm64"
   GITHUB_STATUS_API_URL: "https://api.github.com/repos/NorthernTechHQ/$CI_PROJECT_NAME/statuses/$CI_COMMIT_SHA"
 
 include:
@@ -267,31 +269,10 @@ test:prep:
   tags:
     - mender-qa-worker-generic-light
 
-      #build:docker:
-      #  services:
-      #    - docker:dind
-      #  # unfortunately we can't just extend the after_script here as it would require rebuilding all layers of the image for the different build targets
-      #  script:
-      #    - echo "building ${CI_PROJECT_NAME} for ${DOCKER_BUILD_SERVICE_IMAGE}"
-      #    - apk add --no-cache git
-      #    - docker context create the-context
-      #    - docker buildx create --driver=docker-container --name=buildx-builder --use the-context
-      #    - docker buildx build
-      #      --build-arg GIT_COMMIT_TAG="${DOCKER_PUBLISH_COMMIT_TAG}"
-      #      --tag $DOCKER_BUILD_SERVICE_IMAGE
-      #      --output=type=docker,dest=- . > image.tar
-      #    - docker buildx build --tag ${DOCKER_REPOSITORY}:base
-      #      --target base
-      #      --output=type=docker,dest=- . > baseImage.tar
-      #    - docker buildx build --tag ${DOCKER_REPOSITORY}:unprivileged
-      #      --target unprivileged
-      #      --build-arg GIT_COMMIT_TAG="${DOCKER_PUBLISH_COMMIT_TAG}"
-      #      --output=type=docker,dest=- . > unprivilegedImage.tar
-      #  artifacts:
-      #    paths:
-      #      - baseImage.tar
-      #      - image.tar
-      #      - unprivilegedImage.tar
+# excludes non multiplatform build job
+build:docker:
+  rules:
+    - when: never
 
 .template:test:staging-deployment:
   image: mendersoftware/mender-test-containers:gui-e2e-testing
@@ -411,23 +392,11 @@ publish:disclaimer:
   tags:
     - mender-qa-worker-generic-light
 
-#publish:image:
-#  after_script:
-#    - *export_docker_vars
-#    - docker load -i unprivilegedImage.tar
-#    - docker tag $DOCKER_BUILD_SERVICE_IMAGE $DOCKER_REPOSITORY:${DOCKER_PUBLISH_TAG}-unprivileged
-#    - docker push $DOCKER_REPOSITORY:${DOCKER_PUBLISH_TAG}-unprivileged
-#
-#publish:image:mender:
-#  after_script:
-#    - *export_docker_vars
-#    - integration_versions=$(release_tool --integration-versions-including $CI_PROJECT_NAME --version $CI_COMMIT_REF_NAME | sed -e 's/origin\///')
-#    - docker load -i unprivilegedImage.tar
-#    - for version in $integration_versions; do
-#    - docker tag $DOCKER_BUILD_SERVICE_IMAGE $DOCKER_REPOSITORY:mender-${version}-unprivileged
-#    - docker push $DOCKER_REPOSITORY:mender-${version}-unprivileged
-#    - done
-#
+# excludes non multiplatform build job
+publish:image:
+  rules:
+    - when: never
+
 .coveralls:done:
   image: curlimages/curl
   stage: .post
@@ -435,3 +404,34 @@ publish:disclaimer:
     - curl "https://coveralls.io/webhook?repo_token=$COVERALLS_REPO_TOKEN" -d "payload[build_num]=$CI_PIPELINE_ID&payload[status]=done"
   tags:
     - mender-qa-worker-generic-light
+
+build:docker-multiplatform:
+  tags:
+    - mender-qa-worker-integration-tests
+  rules:
+    - if: $RUN_PIPELINE == "true"
+      when: always
+    - when: on_success
+  # by default alvaldi-gui uses the unprivileged mode
+  script:
+    - echo "building ${CI_PROJECT_NAME} for ${DOCKER_BUILD_SERVICE_IMAGE}"
+    - docker context create builder
+    - docker buildx create builder --use --driver-opt network=host --buildkitd-flags '--debug --allow-insecure-entitlement network.host'
+    - docker buildx build
+      --cache-to type=registry,ref=${CI_REGISTRY_IMAGE}:ci_cache,mode=max
+      --cache-from type=registry,ref=${CI_REGISTRY_IMAGE}:ci_cache
+      --tag ${CI_REGISTRY_IMAGE}:${CI_PIPELINE_ID}
+      --file ${DOCKER_DIR:-.}/${DOCKERFILE:-Dockerfile}
+      --build-arg GIT_COMMIT_TAG="${DOCKER_PUBLISH_COMMIT_TAG}"
+      --platform $MULTIPLATFORM_PLATFORMS
+      --provenance false
+      --target unprivileged
+      --push
+      ${DOCKER_DIR:-.}
+
+publish:image-multiplatform:
+  rules:
+    #- if: '$CI_COMMIT_BRANCH =~ /^(main|production)$/'
+    - if: $RUN_PIPELINE == "true"
+      when: always
+    - if: '$CI_COMMIT_BRANCH =~ /^(main|production|ALV-47-gui-ci)$/'
