@@ -6,6 +6,8 @@ stages:
   - build
   - e2e-test
   - publish
+  - version-bump
+ 
 
 variables:
   DOCKER_REPOSITORY: registry.mender.io/northerntech/alvaldi-gui
@@ -13,6 +15,11 @@ variables:
   MULTIPLATFORM_BUILD: "true"
   MULTIPLATFORM_PLATFORMS: "linux/amd64,linux/arm64"
   GITHUB_STATUS_API_URL: "https://api.github.com/repos/NorthernTechHQ/$CI_PROJECT_NAME/statuses/$CI_COMMIT_SHA"
+  CONTAINER: alvaldi-gui
+  DOCKER_PUBLISH_COMMIT_TAG: ${CI_COMMIT_REF_NAME}_${CI_COMMIT_SHA}
+  GITHUB_HELM_REPO: "github.com/NorthernTechHQ/alvaldi-helm.git"
+  CHART_DIR: "alvaldi"
+  MAIN_BRANCH: "main"
 
 include:
   - project: 'Northern.tech/Mender/mendertesting'
@@ -121,7 +128,7 @@ test:licenses:
   stage: e2e-test
   image: tiangolo/docker-with-compose
   needs:
-    - job: build:docker
+    - job: build:docker-multiplatform
       artifacts: true
   services:
     - docker:dind
@@ -372,7 +379,7 @@ publish:disclaimer:
   stage: publish
   image: docker:git
   needs:
-    - job: build:docker
+    - job: build:docker-multiplatform
       artifacts: true
   services:
     - docker:dind
@@ -408,10 +415,6 @@ publish:image:
 build:docker-multiplatform:
   tags:
     - mender-qa-worker-integration-tests
-  rules:
-    - if: $RUN_PIPELINE == "true"
-      when: always
-    - when: on_success
   # by default alvaldi-gui uses the unprivileged mode
   script:
     - echo "building ${CI_PROJECT_NAME} for ${DOCKER_BUILD_SERVICE_IMAGE}"
@@ -431,7 +434,36 @@ build:docker-multiplatform:
 
 publish:image-multiplatform:
   rules:
+    - if: '$CI_COMMIT_BRANCH =~ /^(main|production)$/'
+.trigger:helm-version-bump:
+  stage: version-bump
+  trigger:
+    project: Northern.tech/NorthernTechHQ/alvaldi-helm
+    strategy: depend
+  variables:
+    SYNC_CONTAINER_NAME: $CONTAINER_NAME
+    SYNC_IMAGE_TAG: $DOCKER_PUBLISH_COMMIT_TAG
+
+trigger:helm-version-bump:staging:
+  extends:
+    - .trigger:helm-version-bump
+  rules:
+    - if: '$CI_COMMIT_BRANCH =~ /^(main|production)$/'
+  needs:
+    - job: publish:image-multiplatform 
+  variables:
+    SYNC_ENVIRONMENT: staging
+    HELM_PATCH_VERSION: ${CI_PIPELINE_ID}-staging # pre-release version for trigger staging only deploy
+
+trigger:helm-version-bump:prod:
+  extends:
+    - .trigger:helm-version-bump
+  rules:
     #- if: '$CI_COMMIT_BRANCH =~ /^(main|production)$/'
-    - if: $RUN_PIPELINE == "true"
-      when: always
-    - if: '$CI_COMMIT_BRANCH =~ /^(main|production|ALV-47-gui-ci)$/'
+    - if: $CI_COMMIT_BRANCH == "production"
+      when: manual
+  variables:
+    SYNC_ENVIRONMENT: prod
+    HELM_PATCH_VERSION: ${CI_PIPELINE_ID}
+  needs:
+    - trigger:helm-version-bump:staging
