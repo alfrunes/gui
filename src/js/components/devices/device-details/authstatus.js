@@ -19,7 +19,6 @@ import { Chip, Icon } from '@mui/material';
 import pendingIcon from '../../../../assets/img/pending_status.png';
 import { DEVICE_STATES } from '../../../constants/deviceConstants';
 import { AuthButton } from '../../helptips/helptooltips';
-import Authsets from './authsets/authsets';
 import DeviceDataCollapse from './devicedatacollapse';
 
 const iconStyle = { margin: 12 };
@@ -32,7 +31,7 @@ const states = {
   preauthorized: <CheckIcon style={iconStyle} />
 };
 
-export const AuthStatus = ({ decommission, device, deviceListRefresh, showHelptips }) => {
+export const AuthStatus = ({ device, showHelptips }) => {
   const { auth_sets = [], status = DEVICE_STATES.accepted } = device;
 
   let hasPending = '';
@@ -48,9 +47,9 @@ export const AuthStatus = ({ decommission, device, deviceListRefresh, showHelpti
   return (
     <DeviceDataCollapse
       title={
-        <div className="flexbox center-aligned">
+        <div className="flexbox center-aligned auth-status">
           <h4>Authentication status</h4>
-          <div className="flexbox center-aligned margin-left margin-right">
+          <div className="flexbox center-aligned margin-left-large margin-right">
             <div className="capitalized">{status}</div>
             {statusIcon}
           </div>
@@ -61,7 +60,7 @@ export const AuthStatus = ({ decommission, device, deviceListRefresh, showHelpti
         </div>
       }
     >
-      <Authsets decommission={decommission} device={device} deviceListRefresh={deviceListRefresh} showHelptips={showHelptips} />
+      <div className="greyed">This device is managed through Azure.</div>
     </DeviceDataCollapse>
   );
 };

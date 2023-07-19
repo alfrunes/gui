@@ -46,12 +46,6 @@ export const DeviceTags = ({ device, setDeviceTags, setSnackbar, showHelptips, u
     setShouldUpdateEditor(toggle);
   }, [isEditing]);
 
-  useEffect(() => {
-    if (canWriteDevices) {
-      setIsEditing(!hasTags);
-    }
-  }, [hasTags, canWriteDevices]);
-
   const onCancel = () => {
     setIsEditing(false);
     setChangedTags(tags);
@@ -83,9 +77,9 @@ export const DeviceTags = ({ device, setDeviceTags, setSnackbar, showHelptips, u
       title={
         <div className="two-columns">
           <div className="flexbox center-aligned">
-            <h4 className="margin-right">Tags</h4>
+            <h4 className="margin-right-xl">Tags</h4>
             {!isEditing && canWriteDevices && (
-              <Button onClick={onStartEdit} startIcon={<EditIcon />} size="small">
+              <Button onClick={onStartEdit} className="greyed" endIcon={<EditIcon />} size="small">
                 Edit
               </Button>
             )}
