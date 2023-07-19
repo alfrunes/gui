@@ -363,7 +363,7 @@ test:staging-deployment:webkit:
   tags:
     - mender-qa-worker-generic-light
 
-publish:tests:
+.publish:tests:
   extends: .template:publish:tests
   rules:
     - if: $CI_COMMIT_BRANCH =~ /^(staging|saas-[a-zA-Z0-9.]+)$/
@@ -375,7 +375,7 @@ publish:tests:
     - export COVERALLS_FLAG_NAME=unittests
     - coveralls < coverage/lcov.info
 
-publish:e2e-tests:
+.publish:e2e-tests:
   extends: .template:publish:tests
   rules:
     - if: $CI_COMMIT_BRANCH =~ /^(master|main)$/
@@ -428,7 +428,7 @@ publish:disclaimer:
 #    - docker push $DOCKER_REPOSITORY:mender-${version}-unprivileged
 #    - done
 #
-coveralls:done:
+.coveralls:done:
   image: curlimages/curl
   stage: .post
   script:
