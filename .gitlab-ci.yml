@@ -247,7 +247,6 @@ test:docs-links:hosted:
   extends: test:docs-links
   rules:
     - if: $CI_COMMIT_BRANCH =~ /^(staging|saas-[a-zA-Z0-9.]+)$/
-  except: []
   variables:
     DOCS_VERSION: hosted
 
