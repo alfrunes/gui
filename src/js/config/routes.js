@@ -15,9 +15,9 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import AuditLogs from '../components/auditlogs/auditlogs';
-import Dashboard from '../components/dashboard/dashboard';
 import Deployments from '../components/deployments/deployments';
 import Devices from '../components/devices/device-groups';
+import Device from '../components/devices/device.js';
 import Help from '../components/help/help';
 import Login from '../components/login/login';
 import Password from '../components/login/password';
@@ -25,13 +25,19 @@ import PasswordReset from '../components/login/passwordreset';
 import Signup from '../components/login/signup';
 import Releases from '../components/releases/releases';
 import Settings from '../components/settings/settings';
+import { DEVICE_STATES } from '../constants/deviceConstants.js';
 
 export const PrivateRoutes = () => (
   <Routes>
     <Route path="auditlog" element={<AuditLogs />} />
-    <Route path="devices" element={<Devices />}>
-      <Route path=":status" element={null} />
+    <Route path="devices" element={null}>
+      <Route index element={<Devices />} />
+      <Route path=":id" element={<Device />} />
+      {Object.values(DEVICE_STATES).map(state => (
+        <Route key={state} path={state} element={<Devices />} />
+      ))}
     </Route>
+    <Route path="devices/:id" element={<Device />} />
     <Route path="releases" element={<Releases />}>
       <Route path=":artifactVersion" element={null} />
     </Route>
@@ -44,7 +50,7 @@ export const PrivateRoutes = () => (
     <Route path="help" element={<Help />}>
       <Route path=":section" element={null} />
     </Route>
-    <Route path="*" element={<Dashboard />} />
+    <Route path="*" element={<Devices />} />
   </Routes>
 );
 
