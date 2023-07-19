@@ -37,6 +37,7 @@ export const useSession = ({ onClose, onHealthCheckFailed, onMessageReceived, on
   const [sessionId, setSessionId] = useState();
   const healthcheckTimeout = useRef();
   const socketRef = useRef();
+  const [socketRefInitialized, setSocketRefInitialized] = useState(false);
 
   useEffect(() => {
     if (!socketRef.current) {
@@ -147,7 +148,7 @@ export const useSession = ({ onClose, onHealthCheckFailed, onMessageReceived, on
     return () => {
       socketRef.current.removeEventListener('open', onOpen);
     };
-  }, [socketRef.current, onOpen]);
+  }, [socketRef.current, onOpen, socketRefInitialized]);
 
   const healthcheckFailed = () => {
     onHealthCheckFailed();
@@ -159,6 +160,7 @@ export const useSession = ({ onClose, onHealthCheckFailed, onMessageReceived, on
     setSessionId();
     try {
       socketRef.current = new WebSocket(uri);
+      setSocketRefInitialized(true);
     } catch (error) {
       console.log(error);
     }

@@ -15,7 +15,7 @@ import { accordionClasses } from '@mui/material/Accordion';
 import { accordionSummaryClasses } from '@mui/material/AccordionSummary';
 import { listItemClasses } from '@mui/material/ListItem';
 
-const secondaryText = 'rgba(0, 0, 0, 0.54)';
+const secondaryText = '#424242';
 
 /**
  * @param qualitative if set is an ordered set of distinct colors availabe for programatic use.
@@ -23,10 +23,10 @@ const secondaryText = 'rgba(0, 0, 0, 0.54)';
  */
 export const palette = {
   primary: {
-    main: '#337a87'
+    main: '#14A452'
   },
   secondary: {
-    main: '#5d0f43'
+    main: '#FFFFFF'
   },
   error: {
     light: 'rgba(93, 15, 67, 0.075)',
@@ -47,6 +47,12 @@ export const palette = {
   brand: {
     mender: '#015969',
     northernTech: '#28aee4'
+  },
+  terminal: {
+    backgroundInactive: 'rgba(33, 36, 41, 0.25)'
+  },
+  surface: {
+    primary: '#F5F5F5'
   }
 };
 
@@ -137,6 +143,7 @@ export const overrides = {
     styleOverrides: {
       root: {
         marginBottom: 0,
+        justifyContent: 'flex-start',
         height: 48,
         [`&.${accordionSummaryClasses.expanded}`]: {
           height: 48,
@@ -144,6 +151,7 @@ export const overrides = {
         }
       },
       content: {
+        flexGrow: 'initial',
         alignItems: 'center',
         [`&.${accordionSummaryClasses.expanded}`]: {
           margin: 0
@@ -202,7 +210,8 @@ export const overrides = {
   MuiButton: {
     styleOverrides: {
       root: {
-        borderRadius: 2,
+        textTransform: 'none',
+        borderRadius: 4,
         fontSize: 14,
         fontWeight: 'bold',
         '&:hover': {
@@ -210,7 +219,10 @@ export const overrides = {
         }
       },
       text: {
-        padding: '10px 15px'
+        padding: '10px 15px',
+        '&:hover': {
+          background: palette.surface.primary
+        }
       }
     }
   },

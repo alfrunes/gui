@@ -30,9 +30,10 @@ const maxWidth = 400;
 
 const useStyles = makeStyles()(theme => ({
   column: { maxWidth },
-  inputWrapper: { display: 'grid', gridTemplateColumns: `${maxWidth}px max-content` },
+  inputWrapper: { display: 'grid', gridTemplateColumns: 'auto 0px max-content', flexGrow: 1 },
   tab: { alignItems: 'flex-start' },
-  fileDestination: { marginTop: theme.spacing(2) }
+  fileDestination: { marginTop: theme.spacing(2) },
+  copyPasteIcon: { color: theme.palette.greySecondary[600] }
 }));
 
 export const FileTransfer = ({
@@ -92,30 +93,29 @@ export const FileTransfer = ({
   };
 
   return (
-    <div className="tab-container with-sub-panels" style={{ minHeight: '95%' }}>
-      <Tabs orientation="vertical" className="leftFixed" onChange={(e, item) => setCurrentTab(item)} value={currentTab}>
+    <div className="tab-container file-transfer-container with-sub-panels" style={{ minHeight: '95%' }}>
+      <Tabs orientation="horizontal" className="leftFixed" onChange={(e, item) => setCurrentTab(item)} value={currentTab}>
         {availableTabs.map(({ key }) => (
           <Tab className={`${classes.tab} capitalized`} key={key} label={key} value={key} />
         ))}
       </Tabs>
-      <div className="rightFluid padding-right">
+      <div className="padding-right">
         {currentTab === 'upload' ? (
           <>
-            <InfoText className={classes.column}>Upload a file to the device</InfoText>
+            <InfoText className={`${classes.column} infotext`}>Upload a file to the device</InfoText>
             <FileUpload
               enableContentReading={false}
               fileNameSelection={file?.name}
               onFileChange={() => undefined}
               onFileSelect={onFileSelect}
               placeholder={
-                <>
-                  Drag here or <a>browse</a> to upload a file
-                </>
+                <div className="infotext">
+                  Drag here or browse to <a>upload</a> a file
+                </div>
               }
               setSnackbar={setSnackbar}
-              style={{ maxWidth }}
             />
-            <div className={classes.inputWrapper}>
+            <div style={{ alignItems: 'baseline' }} className={classes.inputWrapper}>
               <TextField
                 autoFocus={true}
                 error={!isValidDestination}
@@ -129,29 +129,29 @@ export const FileTransfer = ({
                 value={uploadPath}
               />
               <Tooltip title="Paste" placement="top">
-                <IconButton style={{ alignSelf: 'flex-end' }} onClick={onPasteUploadClick} size="large">
-                  <CopyPasteIcon />
+                <IconButton className="copy-paste-button" onClick={onPasteUploadClick} size="large">
+                  <CopyPasteIcon className={classes.copyPasteIcon} />
                 </IconButton>
               </Tooltip>
-            </div>
-            <div className={`flexbox margin-top ${classes.column}`} style={{ justifyContent: 'flex-end' }}>
-              <Button
-                variant="contained"
-                color="primary"
-                disabled={!(file && uploadPath && isValidDestination)}
-                onClick={() => onUpload(deviceId, uploadPath, file)}
-              >
-                Upload
-              </Button>
+              <div>
+                <Button
+                  className="upload-button"
+                  variant="contained"
+                  color="primary"
+                  disabled={!(file && uploadPath && isValidDestination)}
+                  onClick={() => onUpload(deviceId, uploadPath, file)}
+                >
+                  Upload
+                </Button>
+              </div>
             </div>
           </>
         ) : (
           <>
-            <InfoText>Download a file from the device</InfoText>
-            <div className={classes.inputWrapper}>
+            <InfoText className="infotext">Download a file from the device</InfoText>
+            <div style={{ alignItems: 'baseline' }} className={classes.inputWrapper}>
               <TextField
                 autoFocus={true}
-                className={classes.column}
                 error={!isValidDestination}
                 fullWidth
                 helperText={!isValidDestination && <div className="warning">Destination has to be an absolute path</div>}
@@ -163,21 +163,22 @@ export const FileTransfer = ({
                 value={downloadPath}
               />
               <Tooltip title="Paste" placement="top">
-                <IconButton style={{ alignSelf: 'flex-end' }} onClick={onPasteDownloadClick} size="large">
-                  <CopyPasteIcon />
+                <IconButton className="copy-paste-button" onClick={onPasteDownloadClick} size="large">
+                  <CopyPasteIcon className={classes.copyPasteIcon} />
                 </IconButton>
               </Tooltip>
-            </div>
-            <div className={`flexbox margin-top ${classes.column}`} style={{ justifyContent: 'flex-end' }}>
-              <Button
-                variant="contained"
-                color="primary"
-                disabled={!(downloadPath && isValidDestination)}
-                onClick={() => onDownload(downloadPath)}
-                style={{ alignSelf: 'flex-end' }}
-              >
-                Download
-              </Button>
+              <div>
+                <Button
+                  className="upload-button"
+                  variant="contained"
+                  color="primary"
+                  disabled={!(downloadPath && isValidDestination)}
+                  onClick={() => onDownload(downloadPath)}
+                  style={{ alignSelf: 'flex-end' }}
+                >
+                  Download
+                </Button>
+              </div>
             </div>
           </>
         )}

@@ -12,6 +12,9 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+import { ArrowForward as ArrowForwardIcon } from '@mui/icons-material';
 
 import { DEVICE_STATES } from '../../../constants/deviceConstants';
 import { TwoColumnData } from '../../common/configurationobject';
@@ -66,5 +69,8 @@ export const IdentityTab = ({ device, setDeviceTags, setSnackbar, showHelptips, 
     <DeviceIdentity device={device} setSnackbar={setSnackbar} />
     <AuthStatus device={device} decommission={onDecommissionDevice} deviceListRefresh={refreshDevices} showHelptips={showHelptips} />
     <DeviceTags device={device} setSnackbar={setSnackbar} setDeviceTags={setDeviceTags} showHelptips={showHelptips} userCapabilities={userCapabilities} />
+    <Link className="flexbox center-aligned textLink margin-top-xxl" to={`/auditlog?objectType=device&objectId=${device.id}`}>
+      View logs for this device <ArrowForwardIcon className="margin-left" />
+    </Link>
   </>
 );
