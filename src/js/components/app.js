@@ -11,7 +11,7 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useIdleTimer, workerTimers } from 'react-idle-timer';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -30,7 +30,7 @@ import SharedSnackbar from '../components/common/sharedsnackbar';
 import { PrivateRoutes, PublicRoutes } from '../config/routes';
 import { onboardingSteps } from '../constants/onboardingConstants';
 import ErrorBoundary from '../errorboundary';
-import { isDarkMode, toggle } from '../helpers';
+import { isDarkMode } from '../helpers';
 import { getOnboardingState, getUserSettings } from '../selectors';
 import { dark as darkTheme, light as lightTheme } from '../themes/Mender';
 import Tracking from '../tracking';
@@ -40,7 +40,6 @@ import DeviceConnectionDialog from './common/dialogs/deviceconnectiondialog';
 import Footer from './footer';
 import Header from './header/header';
 import LeftNav from './leftnav';
-import SearchResult from './search-result';
 import Uploads from './uploads';
 
 const activationPath = '/activate';
@@ -88,7 +87,6 @@ const useStyles = makeStyles()(() => ({
 }));
 
 export const AppRoot = () => {
-  const [showSearchResult, setShowSearchResult] = useState(false);
   const navigate = useNavigate();
   const { pathname = '', hash } = useLocation();
 
@@ -151,8 +149,6 @@ export const AppRoot = () => {
 
   useIdleTimer({ crossTab: true, onAction: updateMaxAge, onActive: updateMaxAge, onIdle, syncTimers: 400, timeout, timers: workerTimers });
 
-  const onToggleSearchResult = () => setShowSearchResult(toggle);
-
   const onboardingComponent = getOnboardingComponentFor(onboardingSteps.ARTIFACT_CREATION_DIALOG, onboardingState);
   const theme = createTheme(isDarkMode(mode) ? darkTheme : lightTheme);
 
@@ -168,7 +164,6 @@ export const AppRoot = () => {
             <LeftNav />
             <div className="rightFluid container">
               <ErrorBoundary>
-                <SearchResult onToggleSearchResult={onToggleSearchResult} open={showSearchResult} />
                 <PrivateRoutes />
               </ErrorBoundary>
             </div>
