@@ -1,4 +1,4 @@
-// Copyright 2020 Northern.tech AS
+// Copyright 2023 Northern.tech AS
 //
 //    Licensed under the Apache License, Version 2.0 (the "License");
 //    you may not use this file except in compliance with the License.
@@ -11,58 +11,168 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
+import { Search as SearchIcon } from '@mui/icons-material';
+import { Dialog, DialogContent, DialogTitle, InputAdornment, TextField, inputClasses, toolbarClasses } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import { makeStyles } from 'tss-react/mui';
 
-import { advanceOnboarding, setShowCreateArtifactDialog } from '../../../actions/onboardingActions';
-import { onboardingSteps } from '../../../constants/onboardingConstants';
-import { getOnboardingState } from '../../../selectors';
-import CopyCode from '../copy-code';
+import pluralize from 'pluralize';
 
-const file_modification = `cat >index.html <<EOF
-Hello World!
-EOF
-`;
+import { setSearchState } from '../../../actions/appActions.js';
+import { setDeviceInfoHighlight } from '../../../actions/deviceActions.js';
+import { SORTING_OPTIONS, TIMEOUTS } from '../../../constants/appConstants.js';
+import { getIdAttribute, getMappedDevicesList, getOnboardingState, getUserSettings } from '../../../selectors/index.js';
+import { useDebounce } from '../../../utils/debouncehook.js';
+import { getHeaders } from '../../devices/authorized-devices.js';
+import { routes } from '../../devices/base-devices.js';
+import DeviceList from '../../devices/devicelist.js';
+import Loader from '../loader.js';
 
-export const CreateArtifactDialog = () => {
+const endAdornment = (
+  <InputAdornment position="end">
+    <Loader show small style={{ marginTop: -10 }} />
+  </InputAdornment>
+);
+
+const useStyles = makeStyles()(theme => ({
+  DialogTitle: {
+    width: 648,
+    borderBottom: `1px solid ${theme.palette.border.colors.primary}`,
+    [`.${inputClasses.root}`]: {
+      [`&:before, &:hover:before, &.${inputClasses.focused}:after`]: {
+        border: 'none',
+        outline: 'none'
+      }
+    }
+  },
+  DeviceList: {
+    ['&.deviceList']: {
+      marginTop: 25,
+      paddingLeft: 0,
+      minWidth: 'auto',
+      gridTemplateColumns: '1fr 1fr 1fr 1fr !important'
+    },
+    [`.${toolbarClasses.root}`]: {
+      paddingLeft: 0
+    }
+  },
+  summary: {
+    marginTop: 13,
+    color: theme.palette.text.inactive
+  },
+  searchIcon: {
+    fontSize: 24
+  }
+}));
+
+export const SearchDialog = ({ open, handleClose }) => {
+  const theme = useTheme();
+  const { classes } = useStyles();
+  const [searchValue, setSearchValue] = useState('');
+  const searchState = useSelector(state => state.app.searchState);
+  const onSearchUpdated = ({ target: { value } }) => setSearchValue(value);
+
+  const onSearch = searchTerm => dispatch(setSearchState({ searchTerm, page: 1 }));
+  const debouncedSearchTerm = useDebounce(searchValue, TIMEOUTS.debounceDefault);
+
+  useEffect(() => {
+    onSearch(debouncedSearchTerm);
+    dispatch(setDeviceInfoHighlight(debouncedSearchTerm));
+  }, [debouncedSearchTerm]);
+
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
 
-  const { showCreateArtifactDialog } = useSelector(getOnboardingState);
+  const { columnSelection } = useSelector(getUserSettings);
+  const customColumnSizes = useSelector(state => state.users.customColumns);
+  const devices = useSelector(state => getMappedDevicesList(state, 'search'));
+  const idAttribute = useSelector(getIdAttribute);
+  const onboardingState = useSelector(getOnboardingState);
+  const [columnHeaders, setColumnHeaders] = useState(getHeaders(columnSelection, routes.devices.defaultSearchHeaders, idAttribute));
 
-  const onClose = () => {
-    navigate('/releases');
-    dispatch(setShowCreateArtifactDialog(false));
-    dispatch(advanceOnboarding(onboardingSteps.ARTIFACT_CREATION_DIALOG));
+  const { isSearching, searchTotal, sort = {} } = searchState;
+  const { direction: sortDown = SORTING_OPTIONS.desc, key: sortCol } = sort;
+
+  useEffect(() => {
+    const columnHeaders = getHeaders(columnSelection, routes.devices.defaultSearchHeaders, idAttribute);
+    setColumnHeaders(columnHeaders);
+  }, [columnSelection, idAttribute.attribute]);
+
+  const onDeviceSelect = device => {
+    close();
+    setTimeout(() => navigate(`/devices/${device.id}`), TIMEOUTS.debounceShort);
   };
 
+  const close = () => {
+    handleClose();
+    setSearchValue('');
+  };
+
+  const handlePageChange = page => {
+    dispatch(setSearchState({ page }));
+  };
+
+  const onSortChange = attribute => {
+    let changedSortCol = attribute.name;
+    let changedSortDown = sortDown === SORTING_OPTIONS.desc ? SORTING_OPTIONS.asc : SORTING_OPTIONS.desc;
+    if (changedSortCol !== sortCol) {
+      changedSortDown = SORTING_OPTIONS.desc;
+    }
+    dispatch(
+      setSearchState({
+        page: 1,
+        sort: { direction: changedSortDown, key: changedSortCol, scope: attribute.scope }
+      })
+    );
+  };
+  const adornment = isSearching ? { endAdornment } : {};
   return (
-    <Dialog open={showCreateArtifactDialog} fullWidth={true} maxWidth="sm">
-      <DialogTitle>Creating a new Release</DialogTitle>
-      <DialogContent className="onboard-dialog dialog-content">
-        <>
-          Now we&apos;ll make an update to the webserver demo running on your device, using a new Release that you will create yourself.
-          <p>
-            On your workstation, create a new <i>index.html</i> file with the simple contents &apos;Hello world&apos;. This will be the new web page after you
-            update the application, so you&apos;ll be able to easily see when your device has received the update. Copy and run the command to create the file:
-          </p>
-          <CopyCode code={file_modification} withDescription={true} />
-          <p>When you have done that, click &apos;Next&apos;</p>
-        </>
+    <Dialog open={open} onClose={close} maxWidth="md" BackdropProps={{ style: { backgroundColor: theme.palette.backdrop } }}>
+      <DialogTitle className={classes.DialogTitle}>
+        <TextField
+          autoFocus
+          InputProps={{
+            autoComplete: 'off',
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon color="primary" />
+              </InputAdornment>
+            ),
+            ...adornment
+          }}
+          onChange={onSearchUpdated}
+          size="small"
+          value={searchValue}
+          style={{ marginTop: 0 }}
+        />
+      </DialogTitle>
+      <DialogContent>
+        <div className={classes.summary}>{`${searchTotal ? searchTotal : 'No'} ${pluralize('device', searchTotal)} found for "${searchValue}"`}</div>
+        {!!searchTotal && (
+          <DeviceList
+            className={classes.DeviceList}
+            columnHeaders={columnHeaders}
+            customColumnSizes={customColumnSizes}
+            deviceListState={{ perPage: 10, sort: {} }}
+            devices={devices}
+            idAttribute={idAttribute}
+            onboardingState={onboardingState}
+            onSort={onSortChange}
+            PaginationProps={{ rowsPerPageOptions: [10] }}
+            pageTotal={searchTotal}
+            onPageChange={handlePageChange}
+            pageLoading={isSearching}
+            onExpandClick={onDeviceSelect}
+            highlight={searchValue}
+          />
+        )}
       </DialogContent>
-      <DialogActions>
-        <Button onClick={() => setShowCreateArtifactDialog(false)}>Cancel</Button>
-        <div style={{ flexGrow: 1 }} />
-        <Button variant="contained" onClick={onClose}>
-          Next
-        </Button>
-      </DialogActions>
     </Dialog>
   );
 };
 
-export default CreateArtifactDialog;
+export default SearchDialog;

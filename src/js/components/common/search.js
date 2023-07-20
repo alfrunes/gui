@@ -11,66 +11,59 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import { Search as SearchIcon } from '@mui/icons-material';
-import { InputAdornment, TextField } from '@mui/material';
+import { InputAdornment, TextField, inputClasses } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 
-import { TIMEOUTS } from '../../constants/appConstants';
-import { useDebounce } from '../../utils/debouncehook';
-import Loader from './loader';
+import SearchDialog from './dialogs/searchdialog.js';
 
-const useStyles = makeStyles()(() => ({
+const useStyles = makeStyles()(theme => ({
   root: {
     input: {
-      fontSize: '13px'
+      fontSize: '14px',
+      color: theme.palette.text.inactive,
+      ['::placeholder']: {
+        opacity: 1
+      }
+    },
+    [`.${inputClasses.root}`]: {
+      [`&:before, &:hover:before, &.${inputClasses.focused}:after, &.${inputClasses.focused}:before`]: {
+        border: 'none !important'
+      }
     }
+  },
+  searchIcon: {
+    color: theme.palette.text.inactive
   }
 }));
 
-const endAdornment = (
-  <InputAdornment position="end">
-    <Loader show small style={{ marginTop: -10 }} />
-  </InputAdornment>
-);
-
-const Search = ({ isSearching, onSearch, placeholder = 'Search devices', searchTerm, style = {} }) => {
-  const [searchValue, setSearchValue] = useState('');
+const Search = ({ placeholder = 'Search devices', style = {} }) => {
+  const [showDialog, setShowDialog] = useState(false);
   const { classes } = useStyles();
 
-  const debouncedSearchTerm = useDebounce(searchValue, TIMEOUTS.debounceDefault);
-
-  useEffect(() => {
-    onSearch(debouncedSearchTerm);
-  }, [debouncedSearchTerm]);
-
-  useEffect(() => {
-    if (!searchTerm) {
-      setSearchValue(searchTerm);
-    }
-  }, [searchTerm]);
-
-  const onSearchUpdated = ({ target: { value } }) => setSearchValue(value);
-
-  const adornment = isSearching ? { endAdornment } : {};
   return (
-    <TextField
-      className={classes.root}
-      InputProps={{
-        startAdornment: (
-          <InputAdornment position="start">
-            <SearchIcon color="disabled" fontSize="size" />
-          </InputAdornment>
-        ),
-        ...adornment
-      }}
-      onChange={onSearchUpdated}
-      placeholder={placeholder}
-      size="small"
-      style={style}
-      value={searchValue}
-    />
+    <div>
+      <TextField
+        onClick={() => setShowDialog(true)}
+        className={classes.root}
+        readOnly
+        InputProps={{
+          autoComplete: 'off',
+          readOnly: true,
+          startAdornment: (
+            <InputAdornment position="start">
+              <SearchIcon color="disabled" fontSize="size" className={classes.searchIcon} />
+            </InputAdornment>
+          )
+        }}
+        placeholder={placeholder}
+        size="small"
+        style={style}
+      />
+      <SearchDialog open={showDialog} handleClose={() => setShowDialog(false)} />
+    </div>
   );
 };
 
