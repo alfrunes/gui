@@ -173,7 +173,8 @@ export const DeviceList = ({
   onSelect,
   onSort,
   pageLoading,
-  pageTotal
+  pageTotal,
+  className
 }) => {
   const { page: pageNo = defaultPage, perPage: pageLength = defaultPerPage, selection: selectedRows = [], sort = {} } = deviceListState;
   const { direction: sortDown = SORTING_OPTIONS.desc, key: sortCol } = sort;
@@ -238,7 +239,7 @@ export const DeviceList = ({
 
   const numSelected = (selectedRows || []).length;
   return (
-    <div className={`deviceList ${selectable ? 'selectable' : ''}`} ref={deviceListRef}>
+    <div className={`deviceList ${selectable ? 'selectable' : ''} ${className}`} ref={deviceListRef}>
       <div className={`header ${classes.header}`}>
         <div className="deviceListRow">
           {selectable && (
