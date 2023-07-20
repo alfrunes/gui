@@ -54,7 +54,8 @@ export const palette = {
   },
   surface: {
     primary: '#F5F5F5'
-  }
+  },
+  backdrop: 'rgba(9, 9, 9, 0.8)'
 };
 
 const generatedColors = {
