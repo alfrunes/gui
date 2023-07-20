@@ -133,11 +133,10 @@ test:licenses:
   services:
     - docker:dind
   before_script:
-    - export DOCKER_TAG=${CI_COMMIT_REF_SLUG:-master}
-    - export SERVICE_IMAGE=${DOCKER_REPOSITORY}:${DOCKER_TAG}
     - apk add --no-cache bash git jq wget
     - git clone --no-tags --depth=1 --single-branch https://github.com/mendersoftware/integration.git
-    - docker load -i image.tar
+    - docker pull ${CI_REGISTRY_IMAGE}:${CI_PIPELINE_ID}
+    - docker tag ${CI_REGISTRY_IMAGE}:${CI_PIPELINE_ID} ${DOCKER_REPOSITORY}:pr
   artifacts:
     expire_in: 2w
     paths:
@@ -150,17 +149,18 @@ test:licenses:
         - junit/results.xml
     when: always
 
-test:acceptance:
+# todo: enable it specifically for the Alvaldi project
+.test:acceptance:
   extends: .template:test:acceptance
   rules:
     - if: $CI_COMMIT_BRANCH =~ /^(staging|saas-[a-zA-Z0-9.]+)$/
       when: never
   script:
-    - docker tag $SERVICE_IMAGE $DOCKER_REPOSITORY:pr
     - GUI_REPOSITORY=$(pwd) INTEGRATION_PATH=$(pwd)/integration ./tests/e2e_tests/run
     - docker rmi $DOCKER_REPOSITORY:pr
 
-test:acceptance:enterprise:
+# todo: enable it specifically for the Alvaldi project
+.test:acceptance:enterprise:
   extends: .template:test:acceptance
   rules:
     - if: $CI_COMMIT_BRANCH =~ /^(master|main)$/
@@ -170,32 +170,29 @@ test:acceptance:enterprise:
     - if [ -n "$REGISTRY_MENDER_IO_USERNAME" ]; then
     - docker login -u $REGISTRY_MENDER_IO_USERNAME -p $REGISTRY_MENDER_IO_PASSWORD registry.mender.io
     - fi
-    - docker tag $SERVICE_IMAGE $DOCKER_REPOSITORY:pr
     - GUI_REPOSITORY=$(pwd) INTEGRATION_PATH=$(pwd)/integration ./tests/e2e_tests/run --enterprise
     - docker rmi $DOCKER_REPOSITORY:pr
 
-test:acceptance:unprivileged:
+# no need: by default the build is unprivileged
+.test:acceptance:unprivileged:
   extends: .template:test:acceptance
   rules:
     - if: $CI_COMMIT_BRANCH =~ /^(master|main)$/
   script:
-    - docker load -i unprivilegedImage.tar
-    - docker tag ${DOCKER_REPOSITORY}:unprivileged $DOCKER_REPOSITORY:pr
     - GUI_REPOSITORY=$(pwd) INTEGRATION_PATH=$(pwd)/integration ./tests/e2e_tests/run --unprivileged
     - docker rmi $DOCKER_REPOSITORY:pr
 
-test:acceptance:enterprise-unprivileged:
+# no need: by default the build is unprivileged
+.test:acceptance:enterprise-unprivileged:
   extends: .template:test:acceptance
   rules:
     - if: $CI_COMMIT_BRANCH =~ /^(master|main)$/
   variables:
     TEST_ENVIRONMENT: enterprise
   script:
-    - docker load -i unprivilegedImage.tar
     - if [ -n "$REGISTRY_MENDER_IO_USERNAME" ]; then
     - docker login -u $REGISTRY_MENDER_IO_USERNAME -p $REGISTRY_MENDER_IO_PASSWORD registry.mender.io
     - fi
-    - docker tag ${DOCKER_REPOSITORY}:unprivileged $DOCKER_REPOSITORY:pr
     - GUI_REPOSITORY=$(pwd) INTEGRATION_PATH=$(pwd)/integration ./tests/e2e_tests/run --enterprise --unprivileged
     - docker rmi $DOCKER_REPOSITORY:pr
 
@@ -363,6 +360,7 @@ test:staging-deployment:webkit:
     - export COVERALLS_FLAG_NAME=unittests
     - coveralls < coverage/lcov.info
 
+# todo: enable it specifically for the Alvaldi project
 .publish:e2e-tests:
   extends: .template:publish:tests
   rules:
@@ -420,6 +418,12 @@ build:docker-multiplatform:
     - echo "building ${CI_PROJECT_NAME} for ${DOCKER_BUILD_SERVICE_IMAGE}"
     - docker context create builder
     - docker buildx create builder --use --driver-opt network=host --buildkitd-flags '--debug --allow-insecure-entitlement network.host'
+    # needed for the license generation step
+    - docker buildx build 
+      --tag ${DOCKER_REPOSITORY}:base
+      --target base
+      --output type=docker,dest=baseImage.tar 
+      ${DOCKER_DIR:-.}
     - docker buildx build
       --cache-to type=registry,ref=${CI_REGISTRY_IMAGE}:ci_cache,mode=max
       --cache-from type=registry,ref=${CI_REGISTRY_IMAGE}:ci_cache
@@ -431,6 +435,9 @@ build:docker-multiplatform:
       --target unprivileged
       --push
       ${DOCKER_DIR:-.}
+  artifacts:
+    paths:
+      - baseImage.tar
 
 publish:image-multiplatform:
   rules:
@@ -459,7 +466,6 @@ trigger:helm-version-bump:prod:
   extends:
     - .trigger:helm-version-bump
   rules:
-    #- if: '$CI_COMMIT_BRANCH =~ /^(main|production)$/'
     - if: $CI_COMMIT_BRANCH == "production"
       when: manual
   variables:
