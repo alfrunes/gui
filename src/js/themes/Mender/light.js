@@ -32,10 +32,15 @@ const grey = {
   '50': '#d4e9e7'
 };
 
+const green = {
+  '800': '#00813B'
+};
+
 const palette = {
   ...commonPalette,
   mode: LIGHT_MODE,
   grey,
+  green,
   greySecondary: {
     '600': '#616161'
   },
