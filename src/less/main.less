@@ -482,6 +482,9 @@ ul.link-list {
 }
 
 .two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: @defaultGutterWidth;
   &.column-data {
     max-width: 30 * @defaultGutterWidth;
     row-gap: 5px;

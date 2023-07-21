@@ -22,14 +22,16 @@ import copy from 'copy-to-clipboard';
 
 const useStyles = makeStyles()(theme => ({
   twoColumns: {
-    display: 'grid',
-    gridTemplateColumns: '1fr 2fr',
-    columnGap: theme.spacing(2),
-    rowGap: theme.spacing(1),
-    color: theme.palette.text.secondary,
-    '.key b': {
-      fontWeight: 400,
-      color: theme.palette.text.inactive
+    '&.two-columns': {
+      display: 'grid',
+      gridTemplateColumns: '1fr 2fr',
+      columnGap: theme.spacing(2),
+      rowGap: theme.spacing(1),
+      color: theme.palette.text.secondary,
+      '.key b': {
+        fontWeight: 400,
+        color: theme.palette.text.inactive
+      }
     }
   }
 }));
