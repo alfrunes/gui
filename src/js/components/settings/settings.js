@@ -33,6 +33,7 @@ import {
   getVersionInformation
 } from '../../selectors';
 import LeftNav from '../common/left-nav';
+import { useHelpStyles } from '../help/help.js';
 import SelfUserManagement from '../settings/user-management/selfusermanagement';
 import UserManagement from '../settings/user-management/usermanagement';
 import Global from './global';
@@ -84,7 +85,7 @@ export const Settings = () => {
   const userCapabilities = useSelector(getUserCapabilities);
   const userRoles = useSelector(getUserRoles);
   const { Integration: version } = useSelector(getVersionInformation);
-
+  const { classes } = useHelpStyles();
   const [loadingFinished, setLoadingFinished] = useState(!stripeAPIKey);
   const { section: sectionParam } = useParams();
 
@@ -130,7 +131,7 @@ export const Settings = () => {
   }
   const Component = section.component;
   return (
-    <div className="tab-container with-sub-panels" style={{ minHeight: '95%' }}>
+    <div className={`tab-container with-sub-panels ${classes.container}`} style={{ minHeight: '95%' }}>
       <LeftNav sections={[{ itemClass: 'settingsNav', items: links, title: 'Settings' }]} />
       <div className="rightFluid padding-right">
         {loadingFinished && (

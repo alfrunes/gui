@@ -44,7 +44,6 @@ body {
     border-left: none;
     display: flex;
     flex-direction: column;
-    padding-bottom: 0;
   }
   #offerHeader {
     justify-content: center;
@@ -565,6 +564,7 @@ ul.link-list {
 .rightFluid {
   padding: 2 * @defaultGutterWidth;
   border-left: 1px solid @lightergrey;
+  padding-top: 0;
 }
 
 .spaced-list > li {
@@ -817,11 +817,16 @@ ul.link-list {
 }
 
 .help-content {
-  font-size: @defaultGutterWidth;
   line-height: 1.5em;
+  padding-top: 2 * @defaultGutterWidth;
 
   h3 {
     margin-top: 2.5em;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.5px;
   }
 
   .note {
