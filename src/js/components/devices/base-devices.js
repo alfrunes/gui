@@ -16,11 +16,14 @@ import Highlighter from 'react-highlight-words';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { ArrowForward as ArrowForwardIcon } from '@mui/icons-material';
+
 import pluralize from 'pluralize';
 
 import preauthImage from '../../../assets/img/preauthorize.png';
 import { DEVICE_STATES } from '../../constants/deviceConstants';
 import { rootfsImageVersion } from '../../constants/releaseConstants';
+import DeviceLink from '../common/device-link.js';
 import Time, { ApproximateRelativeDate } from '../common/time';
 import DeviceStatus from './device-status';
 
@@ -182,10 +185,21 @@ export const defaultHeaders = {
     textRender: getDeviceTypeText
   },
   lastCheckIn: {
-    title: 'Last check-in',
+    title: 'Latest activity',
     attribute: { name: 'updated_ts', scope: 'system' },
     component: RelativeDeviceTime,
     sortable: true
+  },
+  viewDevice: {
+    title: 'View device',
+    component: ({ device }) => (
+      <div>
+        <DeviceLink className="flexbox centered" id={device.id}>
+          View details <ArrowForwardIcon style={{ fontSize: 16, marginLeft: 8 }} />
+        </DeviceLink>
+      </div>
+    ),
+    sortable: false
   }
 };
 
@@ -197,7 +211,7 @@ const acceptedDevicesRoute = {
   route: `${baseDevicesRoute}/${DEVICE_STATES.accepted}`,
   title: () => DEVICE_STATES.accepted,
   emptyState: AcceptedEmptyState,
-  defaultHeaders: [defaultHeaders.deviceType, defaultHeaders.currentSoftware, defaultHeaders.lastCheckIn],
+  defaultHeaders: [defaultHeaders.deviceType, defaultHeaders.lastCheckIn],
   defaultSearchHeaders: [defaultHeaders.deviceType, defaultHeaders.lastCheckIn]
 };
 

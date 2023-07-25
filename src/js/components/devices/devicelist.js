@@ -167,7 +167,6 @@ export const DeviceList = ({
   idAttribute,
   onChangeRowsPerPage,
   PaginationProps = {},
-  onExpandClick,
   onResizeColumns,
   onPageChange,
   onSelect,
@@ -272,7 +271,6 @@ export const DeviceList = ({
             idAttribute={idAttribute.attribute}
             index={index}
             key={device.id}
-            onClick={onExpandClick}
             onRowSelect={onRowSelection}
             selectable={selectable}
             selected={selectedRows.indexOf(index) !== -1}

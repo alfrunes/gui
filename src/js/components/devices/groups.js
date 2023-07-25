@@ -14,8 +14,9 @@
 import React from 'react';
 
 // material ui
-import { InfoOutlined as InfoIcon } from '@mui/icons-material';
-import { List, ListItem, ListItemIcon, ListItemText, ListSubheader } from '@mui/material';
+import { Info as InfoIcon } from '@mui/icons-material';
+import { List, ListItem, ListItemText, ListSubheader } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import { makeStyles } from 'tss-react/mui';
 
 import { ALL_DEVICES } from '../../constants/deviceConstants';
@@ -24,7 +25,9 @@ import { AddGroup } from '../helptips/helptooltips';
 const useStyles = makeStyles()(theme => ({
   header: {
     color: theme.palette.grey[800],
-    height: theme.spacing(6)
+    height: theme.spacing(6),
+    paddingLeft: theme.spacing(3),
+    fontWeight: 500
   },
   groupBorder: {
     background: theme.palette.grey[50]
@@ -37,27 +40,27 @@ const useStyles = makeStyles()(theme => ({
 export const GroupsSubheader = ({ heading }) => {
   const { classes } = useStyles();
   return (
-    <ListSubheader classes={{ root: 'heading-lined' }} className={classes.header} disableGutters disableSticky key="static-groups-sub">
+    <ListSubheader className={classes.header} disableGutters disableSticky key="static-groups-sub">
       <span className={classes.groupHeading}>{heading}</span>
-      <div className={classes.groupBorder}></div>
     </ListSubheader>
   );
 };
 
 export const GroupItem = ({ changeGroup, groupname, selectedGroup, name }) => (
   <ListItem classes={{ root: 'grouplist' }} button selected={name === selectedGroup || groupname === selectedGroup} onClick={() => changeGroup(name)}>
-    <ListItemText primary={decodeURIComponent(name)} />
+    <ListItemText classes={{ root: 'padding-left-large' }} primary={decodeURIComponent(name)} />
   </ListItem>
 );
 
 export const Groups = ({ acceptedCount, changeGroup, className, groups, openGroupDialog, selectedGroup, showHelptips }) => {
   const { dynamic: dynamicGroups, static: staticGroups, ungrouped } = groups;
+  const theme = useTheme();
   return (
     <div className={className}>
-      <div className="muted margin-bottom-small">Groups</div>
+      <div className="margin-bottom-small margin-left margin-top-small">Groups</div>
       <List>
         <ListItem classes={{ root: 'grouplist' }} button key="All" selected={!selectedGroup} onClick={() => changeGroup()}>
-          <ListItemText primary={ALL_DEVICES} />
+          <ListItemText classes={{ root: 'padding-left-large' }} primary={ALL_DEVICES} />
         </ListItem>
         {!!dynamicGroups.length && <GroupsSubheader heading="Dynamic" />}
         {dynamicGroups.map(({ groupId, name }, index) => (
@@ -71,10 +74,8 @@ export const Groups = ({ acceptedCount, changeGroup, className, groups, openGrou
           ungrouped.map(({ groupId, name }, index) => (
             <GroupItem changeGroup={changeGroup} groupname={name} key={name + index} name={groupId} selectedGroup={selectedGroup} />
           ))}
-        <ListItem button classes={{ root: 'grouplist' }} style={{ marginTop: 30 }} onClick={openGroupDialog}>
-          <ListItemIcon>
-            <InfoIcon />
-          </ListItemIcon>
+        <ListItem button classes={{ root: 'grouplist padding-left' }} style={{ marginTop: 30 }} onClick={openGroupDialog}>
+          <InfoIcon style={{ marginRight: theme.spacing() }} />
           <ListItemText primary="Create a group" />
         </ListItem>
       </List>
