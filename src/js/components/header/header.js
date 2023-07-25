@@ -27,7 +27,7 @@ import { makeStyles } from 'tss-react/mui';
 import moment from 'moment';
 import Cookies from 'universal-cookie';
 
-import { initializeAppData, setFirstLoginAfterSignup, setSearchState } from '../../actions/appActions';
+import { initializeAppData, setFirstLoginAfterSignup } from '../../actions/appActions';
 import { getOnboardingState } from '../../actions/onboardingActions';
 import { getUser, logoutUser, setHideAnnouncement, toggleHelptips } from '../../actions/userActions';
 import { getToken } from '../../auth';
@@ -120,7 +120,6 @@ export const Header = () => {
   const { isDemoMode: demo, hasMultitenancy, isHosted } = useSelector(getFeatures);
   const isSearching = useSelector(state => state.app.searchState.isSearching);
   const multitenancy = hasMultitenancy || isEnterprise || isHosted;
-  const searchTerm = useSelector(state => state.app.searchState.searchTerm);
   const showHelptips = useSelector(getShowHelptips);
   const { pending: pendingDevices } = useSelector(getDeviceCountsByStatus);
   const user = useSelector(getCurrentUser);
@@ -171,8 +170,6 @@ export const Header = () => {
     dispatch(logoutUser());
   };
 
-  const onSearch = searchTerm => dispatch(setSearchState({ searchTerm, page: 1 }));
-
   const setHideOffer = () => {
     cookies.set('offer', currentOffer.name, { path: '/', maxAge: 2629746 });
     setHasOfferCookie(true);
@@ -204,7 +201,7 @@ export const Header = () => {
             />
           )}
         </div>
-        <Search isSearching={isSearching} searchTerm={searchTerm} onSearch={onSearch} />
+        <Search isSearching={isSearching} />
         <div className="flexbox center-aligned">
           <DeviceNotifications pending={pendingDevices} total={acceptedDevices} limit={deviceLimit} />
           <DeploymentNotifications inprogress={inProgress} />

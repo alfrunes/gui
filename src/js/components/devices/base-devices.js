@@ -12,6 +12,8 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 import React from 'react';
+import Highlighter from 'react-highlight-words';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import pluralize from 'pluralize';
@@ -50,12 +52,18 @@ export const getDeviceIdentityText = ({ device = {}, idAttribute }) => {
   return identity_data[idAttribute] ?? identity_data[nonIdKey] ?? id;
 };
 
-const AttributeRenderer = ({ content, textContent }) => (
-  <div title={textContent}>
-    <div className="text-overflow">{content}</div>
-  </div>
-);
-
+export const AttributeRenderer = ({ content, textContent, style = {} }) => {
+  const highlight = useSelector(state => state.devices.highlight);
+  return (
+    <div style={style} title={textContent}>
+      {highlight ? (
+        <Highlighter style={style} highlightTag="b" searchWords={[highlight]} textToHighlight={content} />
+      ) : (
+        <div className="text-overflow">{content}</div>
+      )}
+    </div>
+  );
+};
 export const DefaultAttributeRenderer = ({ column, device, idAttribute }) => (
   <AttributeRenderer content={column.textRender({ device, column, idAttribute })} textContent={column.textRender({ device, column, idAttribute })} />
 );
@@ -189,7 +197,8 @@ const acceptedDevicesRoute = {
   route: `${baseDevicesRoute}/${DEVICE_STATES.accepted}`,
   title: () => DEVICE_STATES.accepted,
   emptyState: AcceptedEmptyState,
-  defaultHeaders: [defaultHeaders.deviceType, defaultHeaders.currentSoftware, defaultHeaders.lastCheckIn]
+  defaultHeaders: [defaultHeaders.deviceType, defaultHeaders.currentSoftware, defaultHeaders.lastCheckIn],
+  defaultSearchHeaders: [defaultHeaders.deviceType, defaultHeaders.lastCheckIn]
 };
 
 export const routes = {

@@ -119,6 +119,8 @@ export const SET_DEVICE_LIMIT = 'SET_DEVICE_LIMIT';
 
 export const SET_DEVICE_REPORTS = 'SET_DEVICE_REPORTS';
 
+export const SET_DEVICE_HIGHLIGHT = 'SET_DEVICE_HIGHLIGHT';
+
 export const EXTERNAL_PROVIDER = {
   'iot-core': {
     credentialsType: credentialTypes.aws,

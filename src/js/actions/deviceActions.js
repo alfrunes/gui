@@ -1220,3 +1220,9 @@ export const getGatewayDevices = deviceId => (dispatch, getState) => {
     return Promise.all(tasks);
   });
 };
+
+export const setDeviceInfoHighlight = highlight => dispatch =>
+  dispatch({
+    type: DeviceConstants.SET_DEVICE_HIGHLIGHT,
+    highlight
+  });

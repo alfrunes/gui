@@ -65,7 +65,13 @@ const palette = {
     ...commonPalette.text,
     primary: 'rgba(10, 10, 11, 0.78)',
     entryLink: '#7adce6',
-    secondary: '#424242'
+    secondary: '#424242',
+    inactive: '#616161'
+  },
+  border: {
+    colors: {
+      primary: '#E0E0E0'
+    }
   }
 };
 
