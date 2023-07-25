@@ -19,8 +19,8 @@ import { makeStyles } from 'tss-react/mui';
 import GatewayConnectionIcon from '../../../assets/img/gateway-connection.svg';
 import GatewayIcon from '../../../assets/img/gateway.svg';
 import { stringToBoolean } from '../../helpers';
-import { AttributeRenderer, getDeviceIdentityText } from '../devices/base-devices';
 import { getIdAttribute } from '../../selectors';
+import { AttributeRenderer, getDeviceIdentityText } from '../devices/base-devices';
 import DeviceNameInput from './devicenameinput';
 
 const useStyles = makeStyles()(theme => ({
