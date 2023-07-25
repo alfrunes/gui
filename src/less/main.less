@@ -65,6 +65,10 @@ body {
   color: @green;
 }
 
+.green800 {
+  color: @green800;
+}
+
 .red {
   color: @red;
 }
@@ -192,6 +196,9 @@ ul.link-list {
 .margin {
   margin: 2 * @defaultGutterWidth;
 }
+.margin-xs {
+  margin: @defaultGutterWidth * 0.65;
+}
 .margin-small {
   margin: @defaultGutterWidth;
 }
@@ -200,6 +207,9 @@ ul.link-list {
 }
 .margin-top {
   margin-top: 2 * @defaultGutterWidth;
+}
+.margin-top-xs {
+  margin-top: @defaultGutterWidth * 0.65;
 }
 .margin-top-small {
   margin-top: @defaultGutterWidth;
@@ -222,11 +232,17 @@ ul.link-list {
 .margin-left-small {
   margin-left: @defaultGutterWidth;
 }
+.margin-left-xs {
+  margin-left: @defaultGutterWidth * 0.65;
+}
 .margin-left-large {
   margin-left: 3 * @defaultGutterWidth;
 }
 .margin-right {
   margin-right: 2 * @defaultGutterWidth;
+}
+.margin-right-sx {
+  margin-right: @defaultGutterWidth * 0.65;
 }
 .margin-right-small {
   margin-right: @defaultGutterWidth;
@@ -242,6 +258,9 @@ ul.link-list {
 }
 .margin-bottom {
   margin-bottom: 2 * @defaultGutterWidth;
+}
+.margin-bottom-xs {
+  margin-bottom: @defaultGutterWidth * 0.65;
 }
 .margin-bottom-large {
   margin-bottom: 3 * @defaultGutterWidth;
@@ -851,6 +870,12 @@ table thead.clickable tr > th:first-child {
   cursor: pointer;
   display: flex;
   align-items: center;
+  color: @textInactive;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.1px;
   .sortIcon {
     visibility: hidden;
     margin-left: calc(@defaultGutterWidth / 3);
@@ -1079,39 +1104,15 @@ div:focus {
 }
 
 /* sign up */
-#signup-box .MuiFormControl-root {
-  margin-top: 0;
-  margin-bottom: 15px;
-}
-
 #signup-box {
   min-height: 870px;
   @media (max-width: 1064px) {
-    height: min-content;
-  }
-}
-
-#signup-box>div {
-  .right {
     grid-template-columns: auto;
-    padding: 60px;
-
-    >div {
-      max-width: 500px;
-    }
-  }
-  @media (max-width: 1064px) {
     padding: 80px 0 0;
-    grid-template-columns: 1fr;
-
-    &.full-height {
-      height: auto;
-    }
-    .right>div {
-      max-width: 420px;
+    >div{
+      grid-template-columns: minmax(min-content, 420px);
       text-align: center;
     }
-
   }
 }
 
@@ -1631,9 +1632,9 @@ div.waiting-inventory {
 
 .auditlogs-list .auditlogs-list-item {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 2fr 2fr 1.75fr 120px;
+  grid-template-columns: 1.5fr 2fr 2fr 1fr 2fr 1fr;
   grid-column-gap: 2 * @defaultGutterWidth;
-  padding: 5px @defaultGutterWidth;
+  padding: 23px @defaultGutterWidth;
   > * {
     display: flex;
     align-items: center;
@@ -1645,8 +1646,13 @@ div.waiting-inventory {
   }
   &.auditlogs-list-item-header {
     cursor: initial;
-    padding: 10px @defaultGutterWidth;
+    padding: 23px @defaultGutterWidth;
     position: relative;
+    border-bottom: 1px solid @bordercolor;
+    border-top: 1px solid @bordercolor;
+  }
+  a, svg {
+    font-weight: 400;
   }
 }
 
@@ -1985,10 +1991,6 @@ div.waiting-inventory {
 
   .xterm {
     visibility: hidden;
-    padding: 10px;
-    &-viewport {
-      border-radius: 5px;
-    }
   }
 
   .device-connected {
@@ -2058,4 +2060,11 @@ body {
 .textLink, .textLink:hover {
   color: @text;
   font-weight: 500;
+}
+
+.xterm {
+  padding: 10px;
+  &-viewport {
+    border-radius: 5px;
+  }
 }

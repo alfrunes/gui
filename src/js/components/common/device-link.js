@@ -1,4 +1,4 @@
-// Copyright 2019 Northern.tech AS
+// Copyright 2023 Northern.tech AS
 //
 //    Licensed under the Apache License, Version 2.0 (the "License");
 //    you may not use this file except in compliance with the License.
@@ -12,16 +12,16 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-import { undefineds } from '../../../../../tests/mockData';
-import { render } from '../../../../../tests/setupTests';
-import TextInput from './textinput';
+import { OpenInNew as OpenInNewIcon } from '@mui/icons-material';
 
-describe('TextInput Component', () => {
-  it('renders correctly', async () => {
-    const { baseElement } = render(<TextInput attachToForm={jest.fn} detachFromForm={jest.fn} />);
-    const view = baseElement.firstChild.firstChild;
-    expect(view).toMatchSnapshot();
-    expect(view).toEqual(expect.not.stringMatching(undefineds));
-  });
-});
+const DeviceLink = ({ id = '', children = <OpenInNewIcon style={{ fontSize: 20 }} />, className = '', style = {} }) => {
+  return (
+    <Link className={`flexbox ${className}`} style={style} to={`/devices/${id}`}>
+      {children}
+    </Link>
+  );
+};
+
+export default DeviceLink;

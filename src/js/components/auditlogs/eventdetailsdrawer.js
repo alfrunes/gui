@@ -13,9 +13,7 @@
 //    limitations under the License.
 import React from 'react';
 
-import { HelpOutline as HelpOutlineIcon } from '@mui/icons-material';
-import { Divider, Drawer } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
+import { Drawer } from '@mui/material';
 
 import { Code } from '../common/copy-code';
 import DeviceConfiguration from './eventdetails/deviceconfiguration';
@@ -50,7 +48,7 @@ const mapChangeToContent = item => {
   if (type === changeTypes.user) {
     content = { title: `${item.action}d user`, content: UserChange };
   } else if (type === changeTypes.device && item.action.includes('terminal')) {
-    content = { title: 'Remote session log', content: TerminalSession };
+    content = { title: null, content: TerminalSession }; // terminal session log added directly to the component
   } else if (type === changeTypes.device && item.action.includes('file')) {
     content = { title: 'File transfer', content: FileTransfer };
   } else if (type === changeTypes.device && item.action.includes('portforward')) {
@@ -64,17 +62,13 @@ const mapChangeToContent = item => {
 };
 
 export const EventDetailsDrawer = ({ eventItem = {}, onClose, open }) => {
-  const theme = useTheme();
   const { title, content: Component } = mapChangeToContent(eventItem);
   return (
     <Drawer className={`${open ? 'fadeIn' : 'fadeOut'}`} anchor="right" open={open} onClose={onClose}>
       <div className="flexbox space-between margin-top-small margin-bottom">
-        <b className="capitalized">{title}</b>
-        <HelpOutlineIcon />
+        <h2 className="capitalized">{title}</h2>
       </div>
-      <Divider />
       <Component item={eventItem} onClose={onClose} />
-      <Divider light style={{ marginTop: theme.spacing(2) }} />
     </Drawer>
   );
 };
