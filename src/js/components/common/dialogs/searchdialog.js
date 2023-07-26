@@ -13,9 +13,8 @@
 //    limitations under the License.
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
-import { Search as SearchIcon } from '@mui/icons-material';
+import { ArrowForward as ArrowForwardIcon, Search as SearchIcon } from '@mui/icons-material';
 import { Dialog, DialogContent, DialogTitle, InputAdornment, TextField, inputClasses, toolbarClasses } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { makeStyles } from 'tss-react/mui';
@@ -28,8 +27,9 @@ import { SORTING_OPTIONS, TIMEOUTS } from '../../../constants/appConstants.js';
 import { getIdAttribute, getMappedDevicesList, getOnboardingState, getUserSettings } from '../../../selectors/index.js';
 import { useDebounce } from '../../../utils/debouncehook.js';
 import { getHeaders } from '../../devices/authorized-devices.js';
-import { routes } from '../../devices/base-devices.js';
+import { defaultHeaders, routes } from '../../devices/base-devices.js';
 import DeviceList from '../../devices/devicelist.js';
+import DeviceLink from '../device-link.js';
 import Loader from '../loader.js';
 
 const endAdornment = (
@@ -40,7 +40,7 @@ const endAdornment = (
 
 const useStyles = makeStyles()(theme => ({
   DialogTitle: {
-    width: 648,
+    minWidth: 648,
     borderBottom: `1px solid ${theme.palette.border.colors.primary}`,
     [`.${inputClasses.root}`]: {
       [`&:before, &:hover:before, &.${inputClasses.focused}:after`]: {
@@ -54,7 +54,7 @@ const useStyles = makeStyles()(theme => ({
       marginTop: 25,
       paddingLeft: 0,
       minWidth: 'auto',
-      gridTemplateColumns: '1fr 1fr 1fr 1fr !important'
+      gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr !important'
     },
     [`.${toolbarClasses.root}`]: {
       paddingLeft: 0
@@ -84,7 +84,6 @@ export const SearchDialog = ({ open, handleClose }) => {
     dispatch(setDeviceInfoHighlight(debouncedSearchTerm));
   }, [debouncedSearchTerm]);
 
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const { columnSelection } = useSelector(getUserSettings);
@@ -98,14 +97,20 @@ export const SearchDialog = ({ open, handleClose }) => {
   const { direction: sortDown = SORTING_OPTIONS.desc, key: sortCol } = sort;
 
   useEffect(() => {
-    const columnHeaders = getHeaders(columnSelection, routes.devices.defaultSearchHeaders, idAttribute);
+    const columnHeaders = getHeaders(columnSelection, routes.devices.defaultSearchHeaders, idAttribute).map(header => {
+      if (header.title === defaultHeaders.viewDevice.title) {
+        header.component = ({ device }) => (
+          <div>
+            <DeviceLink onClickHandler={close} className="flexbox centered" id={device.id}>
+              View details <ArrowForwardIcon style={{ fontSize: 16, marginLeft: 8 }} />
+            </DeviceLink>
+          </div>
+        );
+      }
+      return header;
+    });
     setColumnHeaders(columnHeaders);
   }, [columnSelection, idAttribute.attribute]);
-
-  const onDeviceSelect = device => {
-    close();
-    setTimeout(() => navigate(`/devices/${device.id}`), TIMEOUTS.debounceShort);
-  };
 
   const close = () => {
     handleClose();
@@ -166,7 +171,6 @@ export const SearchDialog = ({ open, handleClose }) => {
             pageTotal={searchTotal}
             onPageChange={handlePageChange}
             pageLoading={isSearching}
-            onExpandClick={onDeviceSelect}
             highlight={searchValue}
           />
         )}
