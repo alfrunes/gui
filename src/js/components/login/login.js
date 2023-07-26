@@ -68,7 +68,7 @@ const useStyles = makeStyles()(theme => {
       }
     },
     background: {
-      background: theme.palette.background.darkBlue,
+      background: theme.palette.primary.main,
       padding: '40px 65px',
       borderTopLeftRadius: backgroundRadius,
       borderBottomRightRadius: backgroundRadius,
