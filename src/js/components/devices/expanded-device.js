@@ -44,7 +44,6 @@ import {
   getDeviceTwinIntegrations,
   getDevicesById,
   getDocsVersion,
-  getFeatures,
   getGlobalSettings,
   getSelectedGroupInfo,
   getShowHelptips,
@@ -215,7 +214,6 @@ export const ExpandedDevice = ({ actionCallbacks, deviceId, onClose, refreshDevi
   const { device, deviceConfigDeployment } = useSelector(state => getDeviceConfigDeployment(state, deviceId));
   const devicesById = useSelector(getDevicesById);
   const docsVersion = useSelector(getDocsVersion);
-  const features = useSelector(getFeatures);
   const integrations = useSelector(getDeviceTwinIntegrations);
   const showHelptips = useSelector(getShowHelptips);
   const tenantCapabilities = useSelector(getTenantCapabilities);
@@ -361,16 +359,7 @@ export const ExpandedDevice = ({ actionCallbacks, deviceId, onClose, refreshDevi
         ))}
       </Tabs>
       <SelectedTab {...commonProps} />
-      <DeviceQuickActions
-        actionCallbacks={actionCallbacks}
-        devices={[device]}
-        features={features}
-        isSingleDevice
-        selectedGroup={selectedStaticGroup}
-        selectedRows={[0]}
-        tenantCapabilities={tenantCapabilities}
-        userCapabilities={userCapabilities}
-      />
+      <DeviceQuickActions actionCallbacks={actionCallbacks} deviceId={device.id} selectedGroup={selectedStaticGroup} />
     </Drawer>
   );
 };
