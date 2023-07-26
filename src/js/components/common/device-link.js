@@ -16,9 +16,9 @@ import { Link } from 'react-router-dom';
 
 import { OpenInNew as OpenInNewIcon } from '@mui/icons-material';
 
-const DeviceLink = ({ id = '', children = <OpenInNewIcon style={{ fontSize: 20 }} />, className = '', style = {} }) => {
+const DeviceLink = ({ id = '', onClickHandler = () => {}, children = <OpenInNewIcon style={{ fontSize: 20 }} />, className = '', style = {} }) => {
   return (
-    <Link className={`flexbox ${className}`} style={style} to={`/devices/${id}`}>
+    <Link onClick={onClickHandler} className={`flexbox ${className}`} style={style} to={`/devices/${id}`}>
       {children}
     </Link>
   );

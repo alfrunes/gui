@@ -16,7 +16,6 @@ h2 {
 }
 
 button {
-  max-height: 36px;
   padding: 6px 8px;
 }
 
@@ -44,6 +43,10 @@ body {
     border-left: none;
     display: flex;
     flex-direction: column;
+    padding: 0;
+    >.tab-container {
+      padding: 0;
+    }
   }
   #offerHeader {
     justify-content: center;
@@ -300,6 +303,21 @@ ul.link-list {
 }
 .padding-left-none {
   padding-left: 0;
+}
+.padding-left-small {
+  padding-left: @defaultGutterWidth;;
+}
+.padding-left {
+  padding-left: 2 * @defaultGutterWidth;;
+}
+.padding-left-large {
+  padding-left: 3 * @defaultGutterWidth;;
+}
+.padding-left-xl {
+  padding-left: 4 * @defaultGutterWidth;;
+}
+.padding-left-xxl {
+  padding-left: 5 * @defaultGutterWidth;;
 }
 
 .inline-block {
@@ -1205,9 +1223,9 @@ div:focus {
 .deviceListItem,
 .deployment-item {
   border-bottom: 1px solid @bordercolor;
-  height: 3 * @defaultGutterWidth;
-  min-height: 3 * @defaultGutterWidth;
-  max-height: 3 * @defaultGutterWidth;
+  height: 4 * @defaultGutterWidth;
+  min-height: 4 * @defaultGutterWidth;
+  max-height: 4 * @defaultGutterWidth;
   align-items: center;
   &:last-of-type {
     border-bottom: transparent;
@@ -1233,9 +1251,9 @@ div:focus {
       display: contents;
       & > * {
         align-items: center;
-        height: 3 * @defaultGutterWidth;
-        min-height: 3 * @defaultGutterWidth;
-        max-height: 3 * @defaultGutterWidth;
+        height: 4 * @defaultGutterWidth;
+        min-height: 4 * @defaultGutterWidth;
+        max-height: 4 * @defaultGutterWidth;
         border-bottom: 1px solid @bordercolor;
         display: flex;
         padding-left: 1.5 * @defaultGutterWidth;
@@ -1247,7 +1265,6 @@ div:focus {
   }
   .header {
     height: 56px;
-    font-size: 0.8rem;
     user-select: none;
     .resize-handle {
       position: absolute;
@@ -1908,7 +1925,7 @@ div.waiting-inventory {
 
 .devicePage {
   &-header {
-    padding-bottom: 15px;
+    padding: 9px 0 9px 24px;
 
     h2 {
       flex-grow: 1;

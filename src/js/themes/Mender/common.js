@@ -244,6 +244,9 @@ export const overrides = {
         paddingBottom: 11,
         [`&.${listItemClasses.disabled}`]: {
           opacity: 1
+        },
+        [`&.${listItemClasses.selected}, &.${listItemClasses.selected}:hover, &:hover`]: {
+          backgroundColor: palette.surface.primary
         }
       }
     }

@@ -58,7 +58,6 @@ import ExpandedDevice from './expanded-device';
 import DeviceQuickActions from './widgets/devicequickactions';
 import Filters from './widgets/filters';
 import DeviceIssuesSelection from './widgets/issueselection';
-import ListOptions from './widgets/listoptions';
 
 const refreshDeviceLength = TIMEOUTS.refreshDefault;
 
@@ -123,7 +122,8 @@ export const getHeaders = (columnSelection = [], currentStateHeaders, idAttribut
       textRender: getDeviceIdentityText
     },
     ...headers,
-    defaultHeaders.deviceStatus
+    defaultHeaders.deviceStatus,
+    defaultHeaders.viewDevice
   ];
 };
 
@@ -382,8 +382,6 @@ export const Authorized = ({
     setShowCustomization(false);
   };
 
-  const onExpandClick = (device = {}) => navigate(`/devices/${device.id}`);
-
   const onCreateDeploymentClick = devices => navigate(`/deployments?open=true&${devices.map(({ id }) => `deviceId=${id}`).join('&')}`);
 
   const actionCallbacks = {
@@ -395,7 +393,6 @@ export const Authorized = ({
     onRemoveDevicesFromGroup
   };
 
-  const listOptionHandlers = [{ key: 'customize', title: 'Customize', onClick: onToggleCustomizationClick }];
   const devicePendingTip = getOnboardingComponentFor(onboardingSteps.DEVICES_PENDING_ONBOARDING_START, onboardingState);
 
   const EmptyState = currentSelectedState.emptyState;
@@ -407,9 +404,9 @@ export const Authorized = ({
   const openedDevice = useDebounce(selectedId, TIMEOUTS.debounceShort);
   return (
     <>
-      <div className="margin-left-small">
+      <div className="margin-left-small margin-bottom">
         <div className="flexbox">
-          <h3 className="margin-right">{isUngroupedGroup ? UNGROUPED_GROUP.name : groupLabel}</h3>
+          <h2 className="margin-right-xl">{isUngroupedGroup ? UNGROUPED_GROUP.name : groupLabel}</h2>
           <div className="flexbox space-between center-aligned" style={{ flexGrow: 1 }}>
             <div className="flexbox">
               <DeviceStateSelection onStateChange={onDeviceStateSelectionChange} selectedState={selectedState} states={states} />
@@ -430,7 +427,7 @@ export const Authorized = ({
             )}
           </div>
         </div>
-        <div className="flexbox space-between">
+        <div className="flexbox space-between margin-top">
           {!isUngroupedGroup && (
             <div className={`flexbox centered filter-header ${showFilters ? `${classes.filterCommon} filter-toggle` : ''}`}>
               <Button
@@ -444,7 +441,6 @@ export const Authorized = ({
               </Button>
             </div>
           )}
-          <ListOptions options={listOptionHandlers} title="Table options" />
         </div>
         <Filters
           className={classes.filterCommon}
@@ -465,7 +461,6 @@ export const Authorized = ({
               deviceListState={deviceListState}
               idAttribute={idAttribute}
               onChangeRowsPerPage={onPageLengthChange}
-              onExpandClick={onExpandClick}
               onPageChange={handlePageChange}
               onResizeColumns={columns => dispatch(updateUserColumnSettings(columns))}
               onSelect={onSelectionChange}

@@ -21,7 +21,7 @@ import { palette as commonPalette, overrides, typography } from './common';
 
 const grey = {
   '900': '#969696',
-  '800': '#a9a9a9',
+  '800': '#424242',
   '700': '#bcbcbc',
   '600': '#cfcfcf',
   '500': '#e9e9e9',
@@ -63,7 +63,7 @@ const palette = {
   },
   text: {
     ...commonPalette.text,
-    primary: 'rgba(10, 10, 11, 0.78)',
+    primary: '#212121',
     entryLink: '#7adce6',
     secondary: '#424242',
     inactive: '#616161'

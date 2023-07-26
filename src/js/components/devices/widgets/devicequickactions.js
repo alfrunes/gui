@@ -19,8 +19,7 @@ import {
   CheckCircle as CheckCircleIcon,
   HeightOutlined as HeightOutlinedIcon,
   HighlightOffOutlined as HighlightOffOutlinedIcon,
-  RemoveCircleOutline as RemoveCircleOutlineIcon,
-  Replay as ReplayIcon
+  RemoveCircleOutline as RemoveCircleOutlineIcon
 } from '@mui/icons-material';
 import { SpeedDial, SpeedDialAction, SpeedDialIcon } from '@mui/material';
 import { speedDialActionClasses } from '@mui/material/SpeedDialAction';
@@ -45,7 +44,7 @@ const defaultActions = {
       canWriteDevices && [DEVICE_STATES.pending, DEVICE_STATES.rejected].includes(device.status)
   },
   dismiss: {
-    icon: <RemoveCircleOutlineIcon className="red" />,
+    icon: <RemoveCircleOutlineIcon />,
     key: 'dismiss',
     title: pluralized => `Dismiss ${pluralized}`,
     action: ({ onDeviceDismiss, selection }) => onDeviceDismiss(selection),
@@ -53,7 +52,7 @@ const defaultActions = {
       canWriteDevices && [DEVICE_STATES.accepted, DEVICE_STATES.pending, DEVICE_STATES.preauth, DEVICE_STATES.rejected, 'noauth'].includes(device.status)
   },
   reject: {
-    icon: <HighlightOffOutlinedIcon className="red" />,
+    icon: <HighlightOffOutlinedIcon />,
     key: 'reject',
     title: pluralized => `Reject ${pluralized}`,
     action: ({ onAuthorizationChange, selection }) => onAuthorizationChange(selection, DEVICE_STATES.rejected),
@@ -88,14 +87,6 @@ const defaultActions = {
     action: ({ onPromoteGateway, selection }) => onPromoteGateway(selection),
     checkRelevance: ({ device, features, tenantCapabilities: { isEnterprise } }) =>
       features.isHosted && isEnterprise && !stringToBoolean(device.attributes?.mender_is_gateway) && device.status === DEVICE_STATES.accepted
-  },
-  createDeployment: {
-    icon: <ReplayIcon />,
-    key: 'create-deployment',
-    title: (pluralized, count) => `Create deployment for ${pluralize('this', count)} ${pluralized}`,
-    action: ({ onCreateDeployment, selection }) => onCreateDeployment(selection),
-    checkRelevance: ({ device, userCapabilities: { canDeploy, canReadReleases } }) =>
-      canDeploy && canReadReleases && device && device.status === DEVICE_STATES.accepted
   }
 };
 
