@@ -21,7 +21,7 @@ exports[`DeviceMonitoring Component renders correctly 1`] = `
       class="flexbox centered"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-fsedue-MuiButtonBase-root-MuiButton-root-addOnPill"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-qn6svl-MuiButtonBase-root-MuiButton-root-addOnPill"
         disabled=""
         tabindex="-1"
         type="button"
@@ -112,7 +112,7 @@ exports[`DeviceMonitoring Component renders correctly 1`] = `
     class="flexbox margin-top"
   >
     <div
-      class="MuiTablePagination-root flexbox margin-top margin-top-none css-1s8wd9s-MuiTablePagination-root"
+      class="MuiTablePagination-root flexbox margin-top margin-top-none css-1ub9kgf-MuiTablePagination-root"
     >
       <div
         class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular MuiTablePagination-toolbar css-78c6dr-MuiToolbar-root-MuiTablePagination-toolbar"
@@ -127,7 +127,7 @@ exports[`DeviceMonitoring Component renders correctly 1`] = `
           Rows
         </p>
         <div
-          class="MuiInputBase-root MuiInputBase-colorPrimary css-7kd4nt-MuiInputBase-root-MuiTablePagination-select"
+          class="MuiInputBase-root MuiInputBase-colorPrimary css-1y7ceb0-MuiInputBase-root-MuiTablePagination-select"
         >
           <div
             aria-expanded="false"
@@ -169,7 +169,7 @@ exports[`DeviceMonitoring Component renders correctly 1`] = `
             21-40 of 9001
           </div>
           <button
-            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeLarge css-13hun5h-MuiButtonBase-root-MuiIconButton-root"
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeLarge css-ky8r02-MuiButtonBase-root-MuiIconButton-root"
             tabindex="0"
             type="button"
           >
@@ -190,7 +190,7 @@ exports[`DeviceMonitoring Component renders correctly 1`] = `
           </button>
           <div>
             <button
-              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeLarge css-13hun5h-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeLarge css-ky8r02-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"
             >

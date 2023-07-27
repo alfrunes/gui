@@ -1,9 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DeviceInventory Component renders correctly 1`] = `
-.emotion-0 .key>b {
-  background-color: #f7f7f7;
-  color: rgba(0, 0, 0, 0.87);
+.emotion-0.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  -webkit-column-gap: 16px;
+  column-gap: 16px;
+  row-gap: 8px;
+  color: #424242;
+}
+
+.emotion-0.two-columns .key b {
+  font-weight: 400;
+  color: #616161;
 }
 
 .emotion-1 {
@@ -21,7 +30,7 @@ exports[`DeviceInventory Component renders correctly 1`] = `
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   font-size: 1.1607rem;
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-1 iconButton {
@@ -50,10 +59,10 @@ exports[`DeviceInventory Component renders correctly 1`] = `
       style="margin-bottom: 5px;"
     >
       <div
-        class="break-all two-columns emotion-0 compact column-data multiple"
+        class="break-all two-columns compact column-data multiple emotion-0"
       >
         <div
-          class="align-right key muted"
+          class="align-right key"
         >
           <b>
             device_type
@@ -83,10 +92,10 @@ exports[`DeviceInventory Component renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="break-all two-columns emotion-0 compact column-data multiple"
+        class="break-all two-columns compact column-data multiple emotion-0"
       >
         <div
-          class="align-right key muted"
+          class="align-right key"
         >
           <b>
             artifact_name
@@ -121,10 +130,10 @@ exports[`DeviceInventory Component renders correctly 1`] = `
     class="two-columns-multiple "
   >
     <div
-      class="break-all two-columns emotion-0 compact column-data multiple"
+      class="break-all two-columns compact column-data multiple emotion-0"
     >
       <div
-        class="align-right key muted"
+        class="align-right key"
       >
         <b>
           ipv4_wlan0

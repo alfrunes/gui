@@ -64,7 +64,7 @@ exports[`ConfigImportDialog Component renders correctly 1`] = `
 
 .emotion-3 {
   background-color: #fff;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   border-radius: 4px;
@@ -195,7 +195,7 @@ exports[`ConfigImportDialog Component renders correctly 1`] = `
   color: inherit;
   padding: 9px;
   border-radius: 50%;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
 }
 
 .emotion-8::-moz-focus-inner {
@@ -215,7 +215,7 @@ exports[`ConfigImportDialog Component renders correctly 1`] = `
 }
 
 .emotion-8:hover {
-  background-color: rgba(51, 122, 135, 0.04);
+  background-color: rgba(20, 164, 82, 0.04);
 }
 
 @media (hover: none) {
@@ -225,7 +225,7 @@ exports[`ConfigImportDialog Component renders correctly 1`] = `
 }
 
 .emotion-8.Mui-checked {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-8.Mui-disabled {
@@ -371,6 +371,10 @@ exports[`ConfigImportDialog Component renders correctly 1`] = `
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   font-size: 1.3929rem;
+  font-size: 20px;
+  vertical-align: middle;
+  margin-top: -2px;
+  color: #424242;
 }
 
 .emotion-23 iconButton {
@@ -443,8 +447,9 @@ exports[`ConfigImportDialog Component renders correctly 1`] = `
   border-radius: 4px;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  color: #337a87;
-  border-radius: 2px;
+  color: #14A452;
+  text-transform: none;
+  border-radius: 4px;
   font-size: 14px;
   font-weight: bold;
   padding: 10px 15px;
@@ -469,7 +474,7 @@ exports[`ConfigImportDialog Component renders correctly 1`] = `
 .emotion-25:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgba(51, 122, 135, 0.04);
+  background-color: rgba(20, 164, 82, 0.04);
 }
 
 @media (hover: none) {
@@ -483,11 +488,15 @@ exports[`ConfigImportDialog Component renders correctly 1`] = `
 }
 
 .emotion-25:hover {
-  colors: #337a87;
+  colors: #14A452;
 }
 
 .emotion-25.MuiButton-text {
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
+}
+
+.emotion-25:hover {
+  background: #F5F5F5;
 }
 
 .emotion-27 {
@@ -533,10 +542,11 @@ exports[`ConfigImportDialog Component renders correctly 1`] = `
   border-radius: 4px;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  color: #fff;
-  background-color: #5d0f43;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #fff;
   box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
-  border-radius: 2px;
+  text-transform: none;
+  border-radius: 4px;
   font-size: 14px;
   font-weight: bold;
 }
@@ -560,13 +570,13 @@ exports[`ConfigImportDialog Component renders correctly 1`] = `
 .emotion-27:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgb(65, 10, 46);
+  background-color: rgb(178, 178, 178);
   box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
 }
 
 @media (hover: none) {
   .emotion-27:hover {
-    background-color: #5d0f43;
+    background-color: #fff;
   }
 }
 
@@ -585,11 +595,11 @@ exports[`ConfigImportDialog Component renders correctly 1`] = `
 }
 
 .emotion-27:hover {
-  colors: #337a87;
+  colors: #14A452;
 }
 
 .emotion-27.MuiButton-text {
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
 }
 
 <div
@@ -735,7 +745,6 @@ exports[`ConfigImportDialog Component renders correctly 1`] = `
                 <div
                   class="dropzone onboard dashboard-placeholder flexbox centered"
                   role="presentation"
-                  style="padding: 15px;"
                   tabindex="0"
                 >
                   <input
@@ -746,13 +755,12 @@ exports[`ConfigImportDialog Component renders correctly 1`] = `
                   <svg
                     aria-hidden="true"
                     class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium icon emotion-23"
-                    data-testid="CloudUploadIcon"
+                    data-testid="CloudUploadOutlinedIcon"
                     focusable="false"
-                    style="height: 24px; width: 24px; vertical-align: middle; margin-top: -2px;"
                     viewBox="0 0 24 24"
                   >
                     <path
-                      d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"
+                      d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11c1.56.1 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3zM8 13h2.55v3h2.9v-3H16l-4-4z"
                     />
                   </svg>
                   <div

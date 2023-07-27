@@ -99,7 +99,7 @@ exports[`OnboardingTips Components WelcomeSnackTip renders correctly 1`] = `
   padding: 12px;
   font-size: 1.625rem;
   font-size: 1.2rem;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
 }
 
 .emotion-0::-moz-focus-inner {

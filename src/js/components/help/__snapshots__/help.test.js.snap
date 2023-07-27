@@ -325,7 +325,7 @@ exports[`Help Component renders correctly 1`] = `
 exports[`Help Component static components renders Downloads correctly 1`] = `
 .emotion-0 {
   background-color: #fff;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
@@ -385,7 +385,6 @@ exports[`Help Component static components renders Downloads correctly 1`] = `
 
 .emotion-0.Mui-expanded {
   margin: auto;
-  background-color: #f7f7f7;
 }
 
 .emotion-1 {
@@ -430,6 +429,10 @@ exports[`Help Component static components renders Downloads correctly 1`] = `
   -webkit-transition: min-height 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: min-height 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   margin-bottom: 0;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
   height: 48px;
 }
 
@@ -482,6 +485,10 @@ exports[`Help Component static components renders Downloads correctly 1`] = `
   margin: 12px 0;
   -webkit-transition: margin 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: margin 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  -webkit-box-flex: initial;
+  -webkit-flex-grow: initial;
+  -ms-flex-positive: initial;
+  flex-grow: initial;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -634,7 +641,7 @@ exports[`Help Component static components renders Downloads correctly 1`] = `
   -webkit-justify-content: center;
   justify-content: center;
   height: 32px;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   background-color: rgba(0, 0, 0, 0.08);
   border-radius: 16px;
   white-space: nowrap;
@@ -690,12 +697,12 @@ exports[`Help Component static components renders Downloads correctly 1`] = `
 
 .emotion-11 .MuiChip-avatarColorPrimary {
   color: #fff;
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
 }
 
 .emotion-11 .MuiChip-avatarColorSecondary {
-  color: #fff;
-  background-color: rgb(65, 10, 46);
+  color: rgba(0, 0, 0, 0.87);
+  background-color: rgb(178, 178, 178);
 }
 
 .emotion-11 .MuiChip-avatarSmall {
@@ -714,14 +721,14 @@ exports[`Help Component static components renders Downloads correctly 1`] = `
 
 .emotion-11 .MuiChip-deleteIcon {
   -webkit-tap-highlight-color: transparent;
-  color: rgba(10, 10, 11, 0.26);
+  color: rgba(33, 33, 33, 0.26);
   font-size: 22px;
   cursor: pointer;
   margin: 0 5px 0 -6px;
 }
 
 .emotion-11 .MuiChip-deleteIcon:hover {
-  color: rgba(10, 10, 11, 0.4);
+  color: rgba(33, 33, 33, 0.4);
 }
 
 .emotion-11.Mui-focusVisible {
@@ -850,7 +857,7 @@ exports[`Help Component static components renders Downloads correctly 1`] = `
   -webkit-justify-content: center;
   justify-content: center;
   height: 32px;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   background-color: rgba(0, 0, 0, 0.08);
   border-radius: 16px;
   white-space: nowrap;
@@ -904,12 +911,12 @@ exports[`Help Component static components renders Downloads correctly 1`] = `
 
 .emotion-91 .MuiChip-avatarColorPrimary {
   color: #fff;
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
 }
 
 .emotion-91 .MuiChip-avatarColorSecondary {
-  color: #fff;
-  background-color: rgb(65, 10, 46);
+  color: rgba(0, 0, 0, 0.87);
+  background-color: rgb(178, 178, 178);
 }
 
 .emotion-91 .MuiChip-avatarSmall {
@@ -928,14 +935,14 @@ exports[`Help Component static components renders Downloads correctly 1`] = `
 
 .emotion-91 .MuiChip-deleteIcon {
   -webkit-tap-highlight-color: transparent;
-  color: rgba(10, 10, 11, 0.26);
+  color: rgba(33, 33, 33, 0.26);
   font-size: 22px;
   cursor: pointer;
   margin: 0 5px 0 -6px;
 }
 
 .emotion-91 .MuiChip-deleteIcon:hover {
-  color: rgba(10, 10, 11, 0.4);
+  color: rgba(33, 33, 33, 0.4);
 }
 
 .emotion-91.Mui-focusVisible {
@@ -3967,95 +3974,15 @@ exports[`Help Component static components renders GettingStarted correctly 1`] =
   <h2>
     Getting started
   </h2>
-  <h3>
-    Get Started guide
-  </h3>
   <p>
-    To quickly get started with the common use cases of Mender, follow the
+    To quickly get started with the common use cases of Alvaldi, follow the
      
     <a
-      href="https://docs.mender.io/get-started"
+      href="https://docs.alvaldi.com/getting-started/"
       rel="noopener noreferrer"
       target="_blank"
     >
       Get Started chapter in our documentation 
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall emotion-0"
-        data-testid="LaunchIcon"
-        focusable="false"
-        style="vertical-align: text-bottom;"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
-        />
-      </svg>
-    </a>
-    .
-  </p>
-  <h3>
-    Installing Mender on your devices
-  </h3>
-  <p>
-    We support several ways of integrating your devices with Mender. For a detailed introduction read the
-     
-    <a
-      href="https://docs.mender.io/client-installation"
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      Client Installation documentation 
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall emotion-0"
-        data-testid="LaunchIcon"
-        focusable="false"
-        style="vertical-align: text-bottom;"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
-        />
-      </svg>
-    </a>
-    .
-  </p>
-  <p>
-    Integrations for different boards and operating systems can be found on
-     
-    <a
-      href="https://hub.mender.io/c/board-integrations/6"
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      Mender Hub 
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall emotion-0"
-        data-testid="LaunchIcon"
-        focusable="false"
-        style="vertical-align: text-bottom;"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
-        />
-      </svg>
-    </a>
-  </p>
-  <h3>
-    Creating Artifacts
-  </h3>
-  <p>
-    Everything you need to package your software for deployment with Mender can be found here:
-     
-    <a
-      href="https://docs.mender.io/artifact-creation"
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      Artifact Creation documentation 
       <svg
         aria-hidden="true"
         class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall emotion-0"
@@ -4172,27 +4099,6 @@ exports[`Help Component static components renders MenderHub correctly 1`] = `
 `;
 
 exports[`Help Component static components renders Support correctly 1`] = `
-.emotion-0 {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  fill: currentColor;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.1607rem;
-}
-
-.emotion-0 iconButton {
-  margin-right: 8px;
-}
-
 <div>
   <h2>
     Contact support
@@ -4204,17 +4110,17 @@ exports[`Help Component static components renders Support correctly 1`] = `
     Send an email to
      
     <a
-      href="mailto:support@mender.io"
+      href="mailto:support@northern.tech"
       rel="noopener noreferrer"
       target="_blank"
     >
-      support@mender.io
+      support@northern.tech
     </a>
     , including your organization name and how we can help you.
   </p>
-  <h4>
+  <h3>
     Reporting bugs
-  </h4>
+  </h3>
   <p>
     To help us best respond to bug reports, please include:
   </p>
@@ -4229,50 +4135,5 @@ exports[`Help Component static components renders Support correctly 1`] = `
       In case of a UI issue, any screenshots or screen recordings
     </li>
   </ul>
-  <h3>
-    Trial or open source users
-  </h3>
-  <div>
-    <p>
-      Find technical help at
-    </p>
-    <a
-      href="https://hub.mender.io"
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      <span>
-        <img
-          src="mender-hub-logo.png"
-          style="width: 50%;"
-        />
-      </span>
-    </a>
-    <p>
-      Mender Hub is a forum where you can find help, ask technical questions and start discussions with our active and knowledgeable community.
-    </p>
-    <a
-      href="https://hub.mender.io"
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      <span>
-        Ask a question at Mender Hub
-      </span>
-       
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall emotion-0"
-        data-testid="LaunchIcon"
-        focusable="false"
-        style="vertical-align: text-bottom;"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
-        />
-      </svg>
-    </a>
-  </div>
 </div>
 `;

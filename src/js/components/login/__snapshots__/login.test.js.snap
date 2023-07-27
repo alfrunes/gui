@@ -23,7 +23,7 @@ exports[`Login Component renders correctly 1`] = `
 }
 
 .emotion-1 {
-  background: #284d68;
+  background: #14A452;
   padding: 40px 65px;
   border-top-left-radius: 100px;
   border-bottom-right-radius: 100px;
@@ -105,9 +105,10 @@ exports[`Login Component renders correctly 1`] = `
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   color: #fff;
-  background-color: #337a87;
+  background-color: #14A452;
   box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
-  border-radius: 2px;
+  text-transform: none;
+  border-radius: 4px;
   font-size: 14px;
   font-weight: bold;
 }
@@ -131,13 +132,13 @@ exports[`Login Component renders correctly 1`] = `
 .emotion-3:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
   box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
 }
 
 @media (hover: none) {
   .emotion-3:hover {
-    background-color: #337a87;
+    background-color: #14A452;
   }
 }
 
@@ -156,11 +157,11 @@ exports[`Login Component renders correctly 1`] = `
 }
 
 .emotion-3:hover {
-  colors: #337a87;
+  colors: #14A452;
 }
 
 .emotion-3.MuiButton-text {
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
 }
 
 .emotion-4 {
@@ -237,14 +238,14 @@ exports[`Login Component renders correctly 1`] = `
 }
 
 .emotion-18 {
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   line-height: 1.4375em;
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
   padding: 0;
   position: relative;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   display: block;
   transform-origin: top left;
   white-space: nowrap;
@@ -263,7 +264,7 @@ exports[`Login Component renders correctly 1`] = `
 }
 
 .emotion-18.Mui-focused {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-18.Mui-disabled {
@@ -275,7 +276,7 @@ exports[`Login Component renders correctly 1`] = `
 }
 
 .emotion-18.Mui-focused {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-19 {
@@ -283,7 +284,7 @@ exports[`Login Component renders correctly 1`] = `
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   box-sizing: border-box;
   position: relative;
   cursor: text;
@@ -308,7 +309,7 @@ label+.emotion-19 {
 }
 
 .emotion-19:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
   content: "";
@@ -348,7 +349,7 @@ label+.emotion-19 {
 }
 
 .emotion-19:hover:not(.Mui-disabled, .Mui-error):before {
-  border-bottom: 2px solid rgba(10, 10, 11, 0.78);
+  border-bottom: 2px solid #212121;
 }
 
 @media (hover: none) {
@@ -366,11 +367,11 @@ label+.emotion-19 {
 }
 
 .emotion-19:hover:not($disabled):before {
-  border-bottom: 2px solid #337a87!important;
+  border-bottom: 2px solid #14A452!important;
 }
 
 .emotion-19:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
 }
 
 .emotion-20 {
@@ -478,7 +479,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-20:focus::-ms-input-
 }
 
 .emotion-21 {
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.6964rem;
@@ -561,7 +562,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-20:focus::-ms-input-
   padding: 12px;
   font-size: 1.625rem;
   font-size: 1.2rem;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
 }
 
 .emotion-27::-moz-focus-inner {
@@ -680,8 +681,8 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-20:focus::-ms-input-
   color: inherit;
   padding: 9px;
   border-radius: 50%;
-  color: rgba(0, 0, 0, 0.54);
-  color: rgba(10, 10, 11, 0.78);
+  color: #424242;
+  color: #212121;
 }
 
 .emotion-33::-moz-focus-inner {
@@ -701,7 +702,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-20:focus::-ms-input-
 }
 
 .emotion-33:hover {
-  background-color: rgba(51, 122, 135, 0.04);
+  background-color: rgba(20, 164, 82, 0.04);
 }
 
 @media (hover: none) {
@@ -712,7 +713,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-20:focus::-ms-input-
 
 .emotion-33.Mui-checked,
 .emotion-33.MuiCheckbox-indeterminate {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-33.Mui-disabled {

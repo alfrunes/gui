@@ -6,7 +6,7 @@ exports[`DeviceNameInput Component renders correctly 1`] = `
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   box-sizing: border-box;
   position: relative;
   cursor: text;
@@ -19,7 +19,7 @@ exports[`DeviceNameInput Component renders correctly 1`] = `
   -ms-flex-align: center;
   align-items: center;
   position: relative;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   font-size: 0.8125rem;
 }
 
@@ -29,7 +29,7 @@ exports[`DeviceNameInput Component renders correctly 1`] = `
 }
 
 .emotion-0:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
   content: "";
@@ -69,7 +69,7 @@ exports[`DeviceNameInput Component renders correctly 1`] = `
 }
 
 .emotion-0:hover:not(.Mui-disabled, .Mui-error):before {
-  border-bottom: 2px solid rgba(10, 10, 11, 0.78);
+  border-bottom: 2px solid #212121;
 }
 
 @media (hover: none) {
@@ -87,11 +87,11 @@ exports[`DeviceNameInput Component renders correctly 1`] = `
 }
 
 .emotion-0:hover:not($disabled):before {
-  border-bottom: 2px solid #337a87!important;
+  border-bottom: 2px solid #14A452!important;
 }
 
 .emotion-0:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
 }
 
 .emotion-1 {
@@ -261,7 +261,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-1:focus::-ms-input-p
   padding: 5px;
   font-size: 1.0446rem;
   font-size: 1.2rem;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
 }
 
 .emotion-3::-moz-focus-inner {

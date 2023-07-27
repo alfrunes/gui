@@ -14,7 +14,7 @@ exports[`Roles Component renders correctly 1`] = `
   font-size: 0.8125rem;
   line-height: 1.43;
   padding: 16px;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   text-align: left;
   caption-side: bottom;
 }
@@ -47,11 +47,11 @@ exports[`Roles Component renders correctly 1`] = `
 }
 
 .emotion-2.Mui-selected {
-  background-color: rgba(51, 122, 135, 0.08);
+  background-color: rgba(20, 164, 82, 0.08);
 }
 
 .emotion-2.Mui-selected:hover {
-  background-color: rgba(51, 122, 135, 0.12);
+  background-color: rgba(20, 164, 82, 0.12);
 }
 
 .emotion-3 {
@@ -64,7 +64,7 @@ exports[`Roles Component renders correctly 1`] = `
   border-bottom: 1px solid rgba(224, 224, 224, 1);
   text-align: left;
   padding: 16px;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   padding: 0px 24px 0px 24px;
   height: 48px;
   height: 56px;
@@ -85,7 +85,7 @@ exports[`Roles Component renders correctly 1`] = `
   border-bottom: 1px solid rgba(224, 224, 224, 1);
   text-align: left;
   padding: 16px;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   padding: 0px 24px 0px 24px;
   height: 48px;
 }
@@ -161,7 +161,7 @@ exports[`Roles Component renders correctly 1`] = `
   justify-content: center;
   height: 32px;
   color: #fff;
-  background-color: #337a87;
+  background-color: #14A452;
   border-radius: 16px;
   white-space: nowrap;
   -webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -214,12 +214,12 @@ exports[`Roles Component renders correctly 1`] = `
 
 .emotion-37 .MuiChip-avatarColorPrimary {
   color: #fff;
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
 }
 
 .emotion-37 .MuiChip-avatarColorSecondary {
-  color: #fff;
-  background-color: rgb(65, 10, 46);
+  color: rgba(0, 0, 0, 0.87);
+  background-color: rgb(178, 178, 178);
 }
 
 .emotion-37 .MuiChip-avatarSmall {
@@ -245,7 +245,7 @@ exports[`Roles Component renders correctly 1`] = `
 }
 
 .emotion-37 .MuiChip-deleteIcon:hover {
-  color: rgba(10, 10, 11, 0.4);
+  color: rgba(33, 33, 33, 0.4);
 }
 
 .emotion-37 .MuiChip-deleteIcon:hover,
@@ -267,7 +267,7 @@ exports[`Roles Component renders correctly 1`] = `
 
 .emotion-37:hover,
 .emotion-37.Mui-focusVisible {
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
 }
 
 .emotion-39 {

@@ -36,8 +36,8 @@ exports[`DeviceListItem Component renders correctly 1`] = `
   color: inherit;
   padding: 9px;
   border-radius: 50%;
-  color: rgba(0, 0, 0, 0.54);
-  color: rgba(10, 10, 11, 0.78);
+  color: #424242;
+  color: #212121;
 }
 
 .emotion-0::-moz-focus-inner {
@@ -57,7 +57,7 @@ exports[`DeviceListItem Component renders correctly 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: rgba(51, 122, 135, 0.04);
+  background-color: rgba(20, 164, 82, 0.04);
 }
 
 @media (hover: none) {
@@ -68,7 +68,7 @@ exports[`DeviceListItem Component renders correctly 1`] = `
 
 .emotion-0.Mui-checked,
 .emotion-0.MuiCheckbox-indeterminate {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-0.Mui-disabled {
@@ -122,7 +122,7 @@ exports[`DeviceListItem Component renders correctly 1`] = `
 }
 
 <div
-  class="deviceListRow deviceListItem clickable  "
+  class="deviceListRow deviceListItem  "
 >
   <div>
     <span
@@ -152,8 +152,14 @@ exports[`DeviceListItem Component renders correctly 1`] = `
   <div
     class="flexbox space-between"
   >
-    <div>
-      1
+    <div
+      title="1"
+    >
+      <div
+        class="text-overflow"
+      >
+        1
+      </div>
     </div>
   </div>
 </div>

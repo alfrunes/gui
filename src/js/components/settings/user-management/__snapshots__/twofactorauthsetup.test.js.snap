@@ -121,11 +121,11 @@ exports[`TwoFactorAuthSetup Component renders correctly 1`] = `
 }
 
 .emotion-1.Mui-checked {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-1.Mui-checked:hover {
-  background-color: rgba(51, 122, 135, 0.04);
+  background-color: rgba(20, 164, 82, 0.04);
 }
 
 @media (hover: none) {
@@ -135,11 +135,11 @@ exports[`TwoFactorAuthSetup Component renders correctly 1`] = `
 }
 
 .emotion-1.Mui-checked.Mui-disabled {
-  color: rgb(177, 204, 209);
+  color: rgb(165, 220, 189);
 }
 
 .emotion-1.Mui-checked+.MuiSwitch-track {
-  background-color: #337a87;
+  background-color: #14A452;
 }
 
 .emotion-2 {

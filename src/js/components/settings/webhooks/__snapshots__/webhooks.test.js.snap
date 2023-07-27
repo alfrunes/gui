@@ -35,7 +35,7 @@ exports[`Webhooks Component renders correctly with entries  1`] = `
   font-size: 0.8125rem;
   line-height: 1.43;
   padding: 16px;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   text-align: left;
   caption-side: bottom;
 }
@@ -68,11 +68,11 @@ exports[`Webhooks Component renders correctly with entries  1`] = `
 }
 
 .emotion-2.Mui-selected {
-  background-color: rgba(51, 122, 135, 0.08);
+  background-color: rgba(20, 164, 82, 0.08);
 }
 
 .emotion-2.Mui-selected:hover {
-  background-color: rgba(51, 122, 135, 0.12);
+  background-color: rgba(20, 164, 82, 0.12);
 }
 
 .emotion-3 {
@@ -85,7 +85,7 @@ exports[`Webhooks Component renders correctly with entries  1`] = `
   border-bottom: 1px solid rgba(224, 224, 224, 1);
   text-align: left;
   padding: 16px;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   padding: 0px 24px 0px 24px;
   height: 48px;
   height: 56px;
@@ -106,7 +106,7 @@ exports[`Webhooks Component renders correctly with entries  1`] = `
   border-bottom: 1px solid rgba(224, 224, 224, 1);
   text-align: left;
   padding: 16px;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   padding: 0px 24px 0px 24px;
   height: 48px;
 }
@@ -233,7 +233,7 @@ exports[`Webhooks Component static components renders WebhookActivity correctly 
 
 .emotion-0 .MuiAccordionSummary-content>time,
 .emotion-0 .MuiAccordionSummary-content>.trigger-type {
-  color: #5d0f43;
+  color: #fff;
 }
 
 .emotion-0 .MuiAccordionSummary-content>:last-child {
@@ -246,7 +246,7 @@ exports[`Webhooks Component static components renders WebhookActivity correctly 
 
 .emotion-1 {
   background-color: #fff;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
@@ -306,7 +306,6 @@ exports[`Webhooks Component static components renders WebhookActivity correctly 
 
 .emotion-1.Mui-expanded {
   margin: auto;
-  background-color: #f7f7f7;
 }
 
 .emotion-2 {
@@ -351,6 +350,10 @@ exports[`Webhooks Component static components renders WebhookActivity correctly 
   -webkit-transition: min-height 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: min-height 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   margin-bottom: 0;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
   height: 48px;
 }
 
@@ -403,6 +406,10 @@ exports[`Webhooks Component static components renders WebhookActivity correctly 
   margin: 12px 0;
   -webkit-transition: margin 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: margin 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  -webkit-box-flex: initial;
+  -webkit-flex-grow: initial;
+  -ms-flex-positive: initial;
+  flex-grow: initial;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -701,7 +708,7 @@ exports[`Webhooks Component static components renders WebhookCreation correctly 
 
 .emotion-2 {
   background-color: #fff;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   box-shadow: 0px 8px 10px -5px rgba(0,0,0,0.2),0px 16px 24px 2px rgba(0,0,0,0.14),0px 6px 30px 5px rgba(0,0,0,0.12);
@@ -773,7 +780,7 @@ exports[`Webhooks Component static components renders WebhookCreation correctly 
   -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   font-size: 1.2rem;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
 }
 
 .emotion-3::-moz-focus-inner {
@@ -900,14 +907,14 @@ exports[`Webhooks Component static components renders WebhookCreation correctly 
 }
 
 .emotion-11 {
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   line-height: 1.4375em;
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
   padding: 0;
   position: relative;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   display: block;
   transform-origin: top left;
   white-space: nowrap;
@@ -926,7 +933,7 @@ exports[`Webhooks Component static components renders WebhookCreation correctly 
 }
 
 .emotion-11.Mui-focused {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-11.Mui-disabled {
@@ -938,7 +945,7 @@ exports[`Webhooks Component static components renders WebhookCreation correctly 
 }
 
 .emotion-11.Mui-focused {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-12 {
@@ -946,7 +953,7 @@ exports[`Webhooks Component static components renders WebhookCreation correctly 
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   box-sizing: border-box;
   position: relative;
   cursor: text;
@@ -971,7 +978,7 @@ label+.emotion-12 {
 }
 
 .emotion-12:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
   content: "";
@@ -1011,7 +1018,7 @@ label+.emotion-12 {
 }
 
 .emotion-12:hover:not(.Mui-disabled, .Mui-error):before {
-  border-bottom: 2px solid rgba(10, 10, 11, 0.78);
+  border-bottom: 2px solid #212121;
 }
 
 @media (hover: none) {
@@ -1029,11 +1036,11 @@ label+.emotion-12 {
 }
 
 .emotion-12:hover:not($disabled):before {
-  border-bottom: 2px solid #337a87!important;
+  border-bottom: 2px solid #14A452!important;
 }
 
 .emotion-12:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
 }
 
 .emotion-13 {
@@ -1145,7 +1152,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-13:focus::-ms-input-
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   box-sizing: border-box;
   position: relative;
   cursor: text;
@@ -1171,7 +1178,7 @@ label+.emotion-16 {
 }
 
 .emotion-16:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
   content: "";
@@ -1211,7 +1218,7 @@ label+.emotion-16 {
 }
 
 .emotion-16:hover:not(.Mui-disabled, .Mui-error):before {
-  border-bottom: 2px solid rgba(10, 10, 11, 0.78);
+  border-bottom: 2px solid #212121;
 }
 
 @media (hover: none) {
@@ -1229,11 +1236,11 @@ label+.emotion-16 {
 }
 
 .emotion-16:hover:not($disabled):before {
-  border-bottom: 2px solid #337a87!important;
+  border-bottom: 2px solid #14A452!important;
 }
 
 .emotion-16:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
 }
 
 .emotion-17 {
@@ -1396,8 +1403,9 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-17:focus::-ms-input-
   border-radius: 4px;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  color: #337a87;
-  border-radius: 2px;
+  color: #14A452;
+  text-transform: none;
+  border-radius: 4px;
   font-size: 14px;
   font-weight: bold;
   padding: 10px 15px;
@@ -1422,7 +1430,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-17:focus::-ms-input-
 .emotion-24:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgba(51, 122, 135, 0.04);
+  background-color: rgba(20, 164, 82, 0.04);
 }
 
 @media (hover: none) {
@@ -1436,11 +1444,15 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-17:focus::-ms-input-
 }
 
 .emotion-24:hover {
-  colors: #337a87;
+  colors: #14A452;
 }
 
 .emotion-24.MuiButton-text {
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
+}
+
+.emotion-24:hover {
+  background: #F5F5F5;
 }
 
 <body
@@ -1571,7 +1583,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-17:focus::-ms-input-
               aria-hidden="true"
               class="MuiInputBase-input MuiInput-input Mui-disabled MuiInputBase-inputMultiline emotion-17"
               readonly=""
-              style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; transform: translateZ(0); padding: 0px; width: 100%;"
+              style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; transform: translateZ(0); padding-top: 0px; padding-bottom: 0px; width: 100%;"
               tabindex="-1"
             />
           </div>
@@ -1666,7 +1678,7 @@ exports[`Webhooks Component static components renders WebhookManagement correctl
 
 .emotion-2 {
   background-color: #fff;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   box-shadow: 0px 8px 10px -5px rgba(0,0,0,0.2),0px 16px 24px 2px rgba(0,0,0,0.14),0px 6px 30px 5px rgba(0,0,0,0.12);
@@ -1736,8 +1748,9 @@ exports[`Webhooks Component static components renders WebhookManagement correctl
   border-radius: 4px;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  color: #5d0f43;
-  border-radius: 2px;
+  color: #fff;
+  text-transform: none;
+  border-radius: 4px;
   font-size: 14px;
   font-weight: bold;
   padding: 10px 15px;
@@ -1762,7 +1775,7 @@ exports[`Webhooks Component static components renders WebhookManagement correctl
 .emotion-3:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgba(93, 15, 67, 0.04);
+  background-color: rgba(255, 255, 255, 0.04);
 }
 
 @media (hover: none) {
@@ -1776,11 +1789,15 @@ exports[`Webhooks Component static components renders WebhookManagement correctl
 }
 
 .emotion-3:hover {
-  colors: #337a87;
+  colors: #14A452;
 }
 
 .emotion-3.MuiButton-text {
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
+}
+
+.emotion-3:hover {
+  background: #F5F5F5;
 }
 
 .emotion-4 {
@@ -1840,7 +1857,7 @@ exports[`Webhooks Component static components renders WebhookManagement correctl
   -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   font-size: 1.2rem;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
 }
 
 .emotion-5::-moz-focus-inner {
@@ -1992,7 +2009,7 @@ exports[`Webhooks Component static components renders WebhookManagement correctl
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   text-transform: none;
 }
 
@@ -2013,7 +2030,7 @@ exports[`Webhooks Component static components renders WebhookManagement correctl
 }
 
 .emotion-12.Mui-selected {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-12.Mui-disabled {
@@ -2027,7 +2044,7 @@ exports[`Webhooks Component static components renders WebhookManagement correctl
   width: 100%;
   -webkit-transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  background-color: #337a87;
+  background-color: #14A452;
 }
 
 .emotion-17 {
@@ -2079,14 +2096,14 @@ exports[`Webhooks Component static components renders WebhookManagement correctl
 }
 
 .emotion-21 {
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   line-height: 1.4375em;
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
   padding: 0;
   position: relative;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   display: block;
   transform-origin: top left;
   white-space: nowrap;
@@ -2105,7 +2122,7 @@ exports[`Webhooks Component static components renders WebhookManagement correctl
 }
 
 .emotion-21.Mui-focused {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-21.Mui-disabled {
@@ -2117,7 +2134,7 @@ exports[`Webhooks Component static components renders WebhookManagement correctl
 }
 
 .emotion-21.Mui-focused {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-22 {
@@ -2125,7 +2142,7 @@ exports[`Webhooks Component static components renders WebhookManagement correctl
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   box-sizing: border-box;
   position: relative;
   cursor: text;
@@ -2150,7 +2167,7 @@ label+.emotion-22 {
 }
 
 .emotion-22:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
   content: "";
@@ -2190,7 +2207,7 @@ label+.emotion-22 {
 }
 
 .emotion-22:hover:not(.Mui-disabled, .Mui-error):before {
-  border-bottom: 2px solid rgba(10, 10, 11, 0.78);
+  border-bottom: 2px solid #212121;
 }
 
 @media (hover: none) {
@@ -2208,11 +2225,11 @@ label+.emotion-22 {
 }
 
 .emotion-22:hover:not($disabled):before {
-  border-bottom: 2px solid #337a87!important;
+  border-bottom: 2px solid #14A452!important;
 }
 
 .emotion-22:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
 }
 
 .emotion-23 {
@@ -2324,7 +2341,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-23:focus::-ms-input-
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   box-sizing: border-box;
   position: relative;
   cursor: text;
@@ -2350,7 +2367,7 @@ label+.emotion-26 {
 }
 
 .emotion-26:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
   content: "";
@@ -2390,7 +2407,7 @@ label+.emotion-26 {
 }
 
 .emotion-26:hover:not(.Mui-disabled, .Mui-error):before {
-  border-bottom: 2px solid rgba(10, 10, 11, 0.78);
+  border-bottom: 2px solid #212121;
 }
 
 @media (hover: none) {
@@ -2408,11 +2425,11 @@ label+.emotion-26 {
 }
 
 .emotion-26:hover:not($disabled):before {
-  border-bottom: 2px solid #337a87!important;
+  border-bottom: 2px solid #14A452!important;
 }
 
 .emotion-26:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
 }
 
 .emotion-27 {
@@ -2575,8 +2592,9 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-27:focus::-ms-input-
   border-radius: 4px;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  color: #337a87;
-  border-radius: 2px;
+  color: #14A452;
+  text-transform: none;
+  border-radius: 4px;
   font-size: 14px;
   font-weight: bold;
   padding: 10px 15px;
@@ -2601,7 +2619,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-27:focus::-ms-input-
 .emotion-34:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgba(51, 122, 135, 0.04);
+  background-color: rgba(20, 164, 82, 0.04);
 }
 
 @media (hover: none) {
@@ -2615,11 +2633,15 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-27:focus::-ms-input-
 }
 
 .emotion-34:hover {
-  colors: #337a87;
+  colors: #14A452;
 }
 
 .emotion-34.MuiButton-text {
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
+}
+
+.emotion-34:hover {
+  background: #F5F5F5;
 }
 
 <body
@@ -2814,7 +2836,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-27:focus::-ms-input-
               aria-hidden="true"
               class="MuiInputBase-input MuiInput-input Mui-disabled MuiInputBase-inputMultiline emotion-27"
               readonly=""
-              style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; transform: translateZ(0); padding: 0px; width: 100%;"
+              style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; transform: translateZ(0); padding-top: 0px; padding-bottom: 0px; width: 100%;"
               tabindex="-1"
             />
           </div>

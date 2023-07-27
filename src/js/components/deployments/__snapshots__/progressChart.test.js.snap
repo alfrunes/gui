@@ -57,7 +57,7 @@ exports[`ProgressChart Component renders correctly 1`] = `
 
 .emotion-0.stepped-progress .progress-step-total .progress-bar {
   background-color: #fff;
-  border: 1px solid #a9a9a9;
+  border: 1px solid #424242;
   border-radius: 2px;
   height: 12px;
 }

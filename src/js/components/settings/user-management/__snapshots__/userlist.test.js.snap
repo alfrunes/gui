@@ -14,7 +14,7 @@ exports[`UserList Component renders correctly 1`] = `
   font-size: 0.8125rem;
   line-height: 1.43;
   padding: 16px;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   text-align: left;
   caption-side: bottom;
 }
@@ -47,11 +47,11 @@ exports[`UserList Component renders correctly 1`] = `
 }
 
 .emotion-2.Mui-selected {
-  background-color: rgba(51, 122, 135, 0.08);
+  background-color: rgba(20, 164, 82, 0.08);
 }
 
 .emotion-2.Mui-selected:hover {
-  background-color: rgba(51, 122, 135, 0.12);
+  background-color: rgba(20, 164, 82, 0.12);
 }
 
 .emotion-3 {
@@ -64,7 +64,7 @@ exports[`UserList Component renders correctly 1`] = `
   border-bottom: 1px solid rgba(224, 224, 224, 1);
   text-align: left;
   padding: 16px;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   padding: 0px 24px 0px 24px;
   height: 48px;
   height: 56px;
