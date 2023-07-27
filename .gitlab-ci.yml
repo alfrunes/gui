@@ -6,11 +6,20 @@ stages:
   - build
   - e2e-test
   - publish
+  - version-bump
+ 
 
 variables:
-  DOCKER_REPOSITORY: alvaldi/gui
+  DOCKER_REPOSITORY: registry.mender.io/northerntech/alvaldi-gui
   DOCS_VERSION: development
+  MULTIPLATFORM_BUILD: "true"
+  MULTIPLATFORM_PLATFORMS: "linux/amd64,linux/arm64"
   GITHUB_STATUS_API_URL: "https://api.github.com/repos/NorthernTechHQ/$CI_PROJECT_NAME/statuses/$CI_COMMIT_SHA"
+  CONTAINER: alvaldi-gui
+  DOCKER_PUBLISH_COMMIT_TAG: ${CI_COMMIT_REF_NAME}_${CI_COMMIT_SHA}
+  GITHUB_HELM_REPO: "github.com/NorthernTechHQ/alvaldi-helm.git"
+  CHART_DIR: "alvaldi"
+  MAIN_BRANCH: "main"
 
 include:
   - project: 'Northern.tech/Mender/mendertesting'
@@ -119,16 +128,15 @@ test:licenses:
   stage: e2e-test
   image: tiangolo/docker-with-compose
   needs:
-    - job: build:docker
+    - job: build:docker-multiplatform
       artifacts: true
   services:
     - docker:dind
   before_script:
-    - export DOCKER_TAG=${CI_COMMIT_REF_SLUG:-master}
-    - export SERVICE_IMAGE=${DOCKER_REPOSITORY}:${DOCKER_TAG}
     - apk add --no-cache bash git jq wget
     - git clone --no-tags --depth=1 --single-branch https://github.com/mendersoftware/integration.git
-    - docker load -i image.tar
+    - docker pull ${CI_REGISTRY_IMAGE}:${CI_PIPELINE_ID}
+    - docker tag ${CI_REGISTRY_IMAGE}:${CI_PIPELINE_ID} ${DOCKER_REPOSITORY}:pr
   artifacts:
     expire_in: 2w
     paths:
@@ -141,17 +149,18 @@ test:licenses:
         - junit/results.xml
     when: always
 
-test:acceptance:
+# todo: enable it specifically for the Alvaldi project
+.test:acceptance:
   extends: .template:test:acceptance
   rules:
     - if: $CI_COMMIT_BRANCH =~ /^(staging|saas-[a-zA-Z0-9.]+)$/
       when: never
   script:
-    - docker tag $SERVICE_IMAGE $DOCKER_REPOSITORY:pr
     - GUI_REPOSITORY=$(pwd) INTEGRATION_PATH=$(pwd)/integration ./tests/e2e_tests/run
     - docker rmi $DOCKER_REPOSITORY:pr
 
-test:acceptance:enterprise:
+# todo: enable it specifically for the Alvaldi project
+.test:acceptance:enterprise:
   extends: .template:test:acceptance
   rules:
     - if: $CI_COMMIT_BRANCH =~ /^(master|main)$/
@@ -161,32 +170,29 @@ test:acceptance:enterprise:
     - if [ -n "$REGISTRY_MENDER_IO_USERNAME" ]; then
     - docker login -u $REGISTRY_MENDER_IO_USERNAME -p $REGISTRY_MENDER_IO_PASSWORD registry.mender.io
     - fi
-    - docker tag $SERVICE_IMAGE $DOCKER_REPOSITORY:pr
     - GUI_REPOSITORY=$(pwd) INTEGRATION_PATH=$(pwd)/integration ./tests/e2e_tests/run --enterprise
     - docker rmi $DOCKER_REPOSITORY:pr
 
-test:acceptance:unprivileged:
+# no need: by default the build is unprivileged
+.test:acceptance:unprivileged:
   extends: .template:test:acceptance
   rules:
     - if: $CI_COMMIT_BRANCH =~ /^(master|main)$/
   script:
-    - docker load -i unprivilegedImage.tar
-    - docker tag ${DOCKER_REPOSITORY}:unprivileged $DOCKER_REPOSITORY:pr
     - GUI_REPOSITORY=$(pwd) INTEGRATION_PATH=$(pwd)/integration ./tests/e2e_tests/run --unprivileged
     - docker rmi $DOCKER_REPOSITORY:pr
 
-test:acceptance:enterprise-unprivileged:
+# no need: by default the build is unprivileged
+.test:acceptance:enterprise-unprivileged:
   extends: .template:test:acceptance
   rules:
     - if: $CI_COMMIT_BRANCH =~ /^(master|main)$/
   variables:
     TEST_ENVIRONMENT: enterprise
   script:
-    - docker load -i unprivilegedImage.tar
     - if [ -n "$REGISTRY_MENDER_IO_USERNAME" ]; then
     - docker login -u $REGISTRY_MENDER_IO_USERNAME -p $REGISTRY_MENDER_IO_PASSWORD registry.mender.io
     - fi
-    - docker tag ${DOCKER_REPOSITORY}:unprivileged $DOCKER_REPOSITORY:pr
     - GUI_REPOSITORY=$(pwd) INTEGRATION_PATH=$(pwd)/integration ./tests/e2e_tests/run --enterprise --unprivileged
     - docker rmi $DOCKER_REPOSITORY:pr
 
@@ -267,31 +273,10 @@ test:prep:
   tags:
     - mender-qa-worker-generic-light
 
-      #build:docker:
-      #  services:
-      #    - docker:dind
-      #  # unfortunately we can't just extend the after_script here as it would require rebuilding all layers of the image for the different build targets
-      #  script:
-      #    - echo "building ${CI_PROJECT_NAME} for ${DOCKER_BUILD_SERVICE_IMAGE}"
-      #    - apk add --no-cache git
-      #    - docker context create the-context
-      #    - docker buildx create --driver=docker-container --name=buildx-builder --use the-context
-      #    - docker buildx build
-      #      --build-arg GIT_COMMIT_TAG="${DOCKER_PUBLISH_COMMIT_TAG}"
-      #      --tag $DOCKER_BUILD_SERVICE_IMAGE
-      #      --output=type=docker,dest=- . > image.tar
-      #    - docker buildx build --tag ${DOCKER_REPOSITORY}:base
-      #      --target base
-      #      --output=type=docker,dest=- . > baseImage.tar
-      #    - docker buildx build --tag ${DOCKER_REPOSITORY}:unprivileged
-      #      --target unprivileged
-      #      --build-arg GIT_COMMIT_TAG="${DOCKER_PUBLISH_COMMIT_TAG}"
-      #      --output=type=docker,dest=- . > unprivilegedImage.tar
-      #  artifacts:
-      #    paths:
-      #      - baseImage.tar
-      #      - image.tar
-      #      - unprivilegedImage.tar
+# excludes non multiplatform build job
+build:docker:
+  rules:
+    - when: never
 
 .template:test:staging-deployment:
   image: mendersoftware/mender-test-containers:gui-e2e-testing
@@ -375,6 +360,7 @@ test:staging-deployment:webkit:
     - export COVERALLS_FLAG_NAME=unittests
     - coveralls < coverage/lcov.info
 
+# todo: enable it specifically for the Alvaldi project
 .publish:e2e-tests:
   extends: .template:publish:tests
   rules:
@@ -391,7 +377,7 @@ publish:disclaimer:
   stage: publish
   image: docker:git
   needs:
-    - job: build:docker
+    - job: build:docker-multiplatform
       artifacts: true
   services:
     - docker:dind
@@ -411,23 +397,11 @@ publish:disclaimer:
   tags:
     - mender-qa-worker-generic-light
 
-#publish:image:
-#  after_script:
-#    - *export_docker_vars
-#    - docker load -i unprivilegedImage.tar
-#    - docker tag $DOCKER_BUILD_SERVICE_IMAGE $DOCKER_REPOSITORY:${DOCKER_PUBLISH_TAG}-unprivileged
-#    - docker push $DOCKER_REPOSITORY:${DOCKER_PUBLISH_TAG}-unprivileged
-#
-#publish:image:mender:
-#  after_script:
-#    - *export_docker_vars
-#    - integration_versions=$(release_tool --integration-versions-including $CI_PROJECT_NAME --version $CI_COMMIT_REF_NAME | sed -e 's/origin\///')
-#    - docker load -i unprivilegedImage.tar
-#    - for version in $integration_versions; do
-#    - docker tag $DOCKER_BUILD_SERVICE_IMAGE $DOCKER_REPOSITORY:mender-${version}-unprivileged
-#    - docker push $DOCKER_REPOSITORY:mender-${version}-unprivileged
-#    - done
-#
+# excludes non multiplatform build job
+publish:image:
+  rules:
+    - when: never
+
 .coveralls:done:
   image: curlimages/curl
   stage: .post
@@ -435,3 +409,67 @@ publish:disclaimer:
     - curl "https://coveralls.io/webhook?repo_token=$COVERALLS_REPO_TOKEN" -d "payload[build_num]=$CI_PIPELINE_ID&payload[status]=done"
   tags:
     - mender-qa-worker-generic-light
+
+build:docker-multiplatform:
+  tags:
+    - mender-qa-worker-integration-tests
+  # by default alvaldi-gui uses the unprivileged mode
+  script:
+    - echo "building ${CI_PROJECT_NAME} for ${DOCKER_BUILD_SERVICE_IMAGE}"
+    - docker context create builder
+    - docker buildx create builder --use --driver-opt network=host --buildkitd-flags '--debug --allow-insecure-entitlement network.host'
+    # needed for the license generation step
+    - docker buildx build 
+      --tag ${DOCKER_REPOSITORY}:base
+      --target base
+      --output type=docker,dest=baseImage.tar 
+      ${DOCKER_DIR:-.}
+    - docker buildx build
+      --cache-to type=registry,ref=${CI_REGISTRY_IMAGE}:ci_cache,mode=max
+      --cache-from type=registry,ref=${CI_REGISTRY_IMAGE}:ci_cache
+      --tag ${CI_REGISTRY_IMAGE}:${CI_PIPELINE_ID}
+      --file ${DOCKER_DIR:-.}/${DOCKERFILE:-Dockerfile}
+      --build-arg GIT_COMMIT_TAG="${DOCKER_PUBLISH_COMMIT_TAG}"
+      --platform $MULTIPLATFORM_PLATFORMS
+      --provenance false
+      --target unprivileged
+      --push
+      ${DOCKER_DIR:-.}
+  artifacts:
+    paths:
+      - baseImage.tar
+
+publish:image-multiplatform:
+  rules:
+    - if: '$CI_COMMIT_BRANCH =~ /^(main|production)$/'
+.trigger:helm-version-bump:
+  stage: version-bump
+  trigger:
+    project: Northern.tech/NorthernTechHQ/alvaldi-helm
+    strategy: depend
+  variables:
+    SYNC_CONTAINER_NAME: $CONTAINER_NAME
+    SYNC_IMAGE_TAG: $DOCKER_PUBLISH_COMMIT_TAG
+
+trigger:helm-version-bump:staging:
+  extends:
+    - .trigger:helm-version-bump
+  rules:
+    - if: '$CI_COMMIT_BRANCH =~ /^(main|production)$/'
+  needs:
+    - job: publish:image-multiplatform 
+  variables:
+    SYNC_ENVIRONMENT: staging
+    HELM_PATCH_VERSION: ${CI_PIPELINE_ID}-staging # pre-release version for trigger staging only deploy
+
+trigger:helm-version-bump:prod:
+  extends:
+    - .trigger:helm-version-bump
+  rules:
+    - if: $CI_COMMIT_BRANCH == "production"
+      when: manual
+  variables:
+    SYNC_ENVIRONMENT: prod
+    HELM_PATCH_VERSION: ${CI_PIPELINE_ID}
+  needs:
+    - trigger:helm-version-bump:staging
