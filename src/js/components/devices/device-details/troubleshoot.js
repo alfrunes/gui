@@ -227,17 +227,17 @@ export const Troubleshoot = ({ device }) => {
           </Dropzone>
           {!socketInitialized && (
             <div className={`flexbox centered ${classes.connectionButton}`}>
-              <Button variant="contained" color="secondary" onClick={onConnectionToggle}>
-                Connect Terminal
-              </Button>
+              {!device.isOffline && (
+                <Button variant="contained" color="secondary" onClick={onConnectionToggle}>
+                  Connect Terminal
+                </Button>
+              )}
             </div>
           )}
         </div>
       </div>
       <div className="flexbox space-between margin-top-small">
-        <div>
-          <Button onClick={onConnectionToggle}>{socketInitialized ? 'Disconnect' : 'Connect'} Terminal</Button>
-        </div>
+        <div>{!device.isOffline && <Button onClick={onConnectionToggle}>{socketInitialized ? 'Disconnect' : 'Connect'} Terminal</Button>}</div>
         <div>{socketInitialized && !!commandHandlers.length && <ListOptions options={commandHandlers} title="Quick commands" />}</div>
       </div>
       <Divider className="margin-bottom-large" style={{ marginTop: 9 }} />
