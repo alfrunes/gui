@@ -4,8 +4,14 @@ exports[`DeviceIdentityDisplay Component renders correctly 1`] = `
 <div
   class="flexbox space-between"
 >
-  <div>
-    dc:a6:32:12:ad:bf
+  <div
+    title="dc:a6:32:12:ad:bf"
+  >
+    <div
+      class="text-overflow"
+    >
+      dc:a6:32:12:ad:bf
+    </div>
   </div>
 </div>
 `;

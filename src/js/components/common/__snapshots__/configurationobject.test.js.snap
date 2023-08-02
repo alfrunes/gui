@@ -1,16 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ConfigurationObject Component renders correctly 1`] = `
-.emotion-0 .key>b {
-  background-color: #f7f7f7;
-  color: rgba(0, 0, 0, 0.87);
+.emotion-0.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  -webkit-column-gap: 16px;
+  column-gap: 16px;
+  row-gap: 8px;
+  color: #424242;
+}
+
+.emotion-0.two-columns .key b {
+  font-weight: 400;
+  color: #616161;
 }
 
 <div
-  class="break-all two-columns emotion-0  column-data "
+  class="break-all two-columns  column-data  emotion-0"
 >
   <div
-    class="align-right key muted"
+    class="align-right key"
   >
     <b>
       uiPasswordRequired
@@ -26,7 +35,7 @@ exports[`ConfigurationObject Component renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="align-right key muted"
+    class="align-right key"
   >
     <b>
       foo
@@ -42,7 +51,7 @@ exports[`ConfigurationObject Component renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="align-right key muted"
+    class="align-right key"
   >
     <b>
       timezone

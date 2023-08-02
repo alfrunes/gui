@@ -173,7 +173,7 @@ exports[`CreateDeployment Component smaller components renders Devices correctly
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   box-sizing: border-box;
   position: relative;
   cursor: text;
@@ -199,7 +199,7 @@ label+.emotion-3 {
 }
 
 .emotion-3:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
   content: "";
@@ -239,7 +239,7 @@ label+.emotion-3 {
 }
 
 .emotion-3:hover:not(.Mui-disabled, .Mui-error):before {
-  border-bottom: 2px solid rgba(10, 10, 11, 0.78);
+  border-bottom: 2px solid #212121;
 }
 
 @media (hover: none) {
@@ -257,11 +257,11 @@ label+.emotion-3 {
 }
 
 .emotion-3:hover:not($disabled):before {
-  border-bottom: 2px solid #337a87!important;
+  border-bottom: 2px solid #14A452!important;
 }
 
 .emotion-3:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
 }
 
 .emotion-4 {
@@ -419,7 +419,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
   -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   font-size: 1.2rem;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   padding: 2px;
   margin-right: -2px;
 }
@@ -726,7 +726,7 @@ exports[`CreateDeployment Component smaller components renders Devices correctly
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   box-sizing: border-box;
   position: relative;
   cursor: text;
@@ -752,7 +752,7 @@ label+.emotion-3 {
 }
 
 .emotion-3:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
   content: "";
@@ -792,7 +792,7 @@ label+.emotion-3 {
 }
 
 .emotion-3:hover:not(.Mui-disabled, .Mui-error):before {
-  border-bottom: 2px solid rgba(10, 10, 11, 0.78);
+  border-bottom: 2px solid #212121;
 }
 
 @media (hover: none) {
@@ -810,11 +810,11 @@ label+.emotion-3 {
 }
 
 .emotion-3:hover:not($disabled):before {
-  border-bottom: 2px solid #337a87!important;
+  border-bottom: 2px solid #14A452!important;
 }
 
 .emotion-3:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
 }
 
 .emotion-4 {
@@ -972,7 +972,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
   -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   font-size: 1.2rem;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   padding: 2px;
   margin-right: -2px;
 }
@@ -1170,8 +1170,8 @@ exports[`CreateDeployment Component smaller components renders ForceDeploy corre
   color: inherit;
   padding: 9px;
   border-radius: 50%;
-  color: rgba(0, 0, 0, 0.54);
-  color: rgba(10, 10, 11, 0.78);
+  color: #424242;
+  color: #212121;
 }
 
 .emotion-1::-moz-focus-inner {
@@ -1191,7 +1191,7 @@ exports[`CreateDeployment Component smaller components renders ForceDeploy corre
 }
 
 .emotion-1:hover {
-  background-color: rgba(51, 122, 135, 0.04);
+  background-color: rgba(20, 164, 82, 0.04);
 }
 
 @media (hover: none) {
@@ -1202,7 +1202,7 @@ exports[`CreateDeployment Component smaller components renders ForceDeploy corre
 
 .emotion-1.Mui-checked,
 .emotion-1.MuiCheckbox-indeterminate {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-1.Mui-disabled {
@@ -1367,8 +1367,8 @@ exports[`CreateDeployment Component smaller components renders ForceDeploy corre
   color: inherit;
   padding: 9px;
   border-radius: 50%;
-  color: rgba(0, 0, 0, 0.54);
-  color: rgba(10, 10, 11, 0.78);
+  color: #424242;
+  color: #212121;
 }
 
 .emotion-1::-moz-focus-inner {
@@ -1388,7 +1388,7 @@ exports[`CreateDeployment Component smaller components renders ForceDeploy corre
 }
 
 .emotion-1:hover {
-  background-color: rgba(51, 122, 135, 0.04);
+  background-color: rgba(20, 164, 82, 0.04);
 }
 
 @media (hover: none) {
@@ -1399,7 +1399,7 @@ exports[`CreateDeployment Component smaller components renders ForceDeploy corre
 
 .emotion-1.Mui-checked,
 .emotion-1.MuiCheckbox-indeterminate {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-1.Mui-disabled {
@@ -1829,7 +1829,7 @@ exports[`CreateDeployment Component smaller components renders Retries correctly
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   box-sizing: border-box;
   position: relative;
   cursor: text;
@@ -1855,7 +1855,7 @@ label+.emotion-5 {
 }
 
 .emotion-5:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
   content: "";
@@ -1895,7 +1895,7 @@ label+.emotion-5 {
 }
 
 .emotion-5:hover:not(.Mui-disabled, .Mui-error):before {
-  border-bottom: 2px solid rgba(10, 10, 11, 0.78);
+  border-bottom: 2px solid #212121;
 }
 
 @media (hover: none) {
@@ -1913,11 +1913,11 @@ label+.emotion-5 {
 }
 
 .emotion-5:hover:not($disabled):before {
-  border-bottom: 2px solid #337a87!important;
+  border-bottom: 2px solid #14A452!important;
 }
 
 .emotion-5:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
 }
 
 .emotion-6 {
@@ -2086,8 +2086,8 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
   color: inherit;
   padding: 9px;
   border-radius: 50%;
-  color: rgba(0, 0, 0, 0.54);
-  color: rgba(10, 10, 11, 0.78);
+  color: #424242;
+  color: #212121;
 }
 
 .emotion-8::-moz-focus-inner {
@@ -2107,7 +2107,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
 }
 
 .emotion-8:hover {
-  background-color: rgba(51, 122, 135, 0.04);
+  background-color: rgba(20, 164, 82, 0.04);
 }
 
 @media (hover: none) {
@@ -2118,7 +2118,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
 
 .emotion-8.Mui-checked,
 .emotion-8.MuiCheckbox-indeterminate {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-8.Mui-disabled {
@@ -2503,7 +2503,7 @@ exports[`CreateDeployment Component smaller components renders Retries correctly
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   box-sizing: border-box;
   position: relative;
   cursor: text;
@@ -2529,7 +2529,7 @@ label+.emotion-5 {
 }
 
 .emotion-5:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
   content: "";
@@ -2569,7 +2569,7 @@ label+.emotion-5 {
 }
 
 .emotion-5:hover:not(.Mui-disabled, .Mui-error):before {
-  border-bottom: 2px solid rgba(10, 10, 11, 0.78);
+  border-bottom: 2px solid #212121;
 }
 
 @media (hover: none) {
@@ -2587,11 +2587,11 @@ label+.emotion-5 {
 }
 
 .emotion-5:hover:not($disabled):before {
-  border-bottom: 2px solid #337a87!important;
+  border-bottom: 2px solid #14A452!important;
 }
 
 .emotion-5:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
 }
 
 .emotion-6 {
@@ -2760,8 +2760,8 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
   color: inherit;
   padding: 9px;
   border-radius: 50%;
-  color: rgba(0, 0, 0, 0.54);
-  color: rgba(10, 10, 11, 0.78);
+  color: #424242;
+  color: #212121;
 }
 
 .emotion-8::-moz-focus-inner {
@@ -2781,7 +2781,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
 }
 
 .emotion-8:hover {
-  background-color: rgba(51, 122, 135, 0.04);
+  background-color: rgba(20, 164, 82, 0.04);
 }
 
 @media (hover: none) {
@@ -2792,7 +2792,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
 
 .emotion-8.Mui-checked,
 .emotion-8.MuiCheckbox-indeterminate {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-8.Mui-disabled {
@@ -3034,8 +3034,8 @@ exports[`CreateDeployment Component smaller components renders RolloutOptions co
   color: inherit;
   padding: 9px;
   border-radius: 50%;
-  color: rgba(0, 0, 0, 0.54);
-  color: rgba(10, 10, 11, 0.78);
+  color: #424242;
+  color: #212121;
 }
 
 .emotion-1::-moz-focus-inner {
@@ -3055,7 +3055,7 @@ exports[`CreateDeployment Component smaller components renders RolloutOptions co
 }
 
 .emotion-1:hover {
-  background-color: rgba(51, 122, 135, 0.04);
+  background-color: rgba(20, 164, 82, 0.04);
 }
 
 @media (hover: none) {
@@ -3066,7 +3066,7 @@ exports[`CreateDeployment Component smaller components renders RolloutOptions co
 
 .emotion-1.Mui-checked,
 .emotion-1.MuiCheckbox-indeterminate {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-1.Mui-disabled {
@@ -3153,7 +3153,7 @@ exports[`CreateDeployment Component smaller components renders RolloutOptions co
   -webkit-justify-content: center;
   justify-content: center;
   height: 32px;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   background-color: rgba(0, 0, 0, 0.08);
   border-radius: 16px;
   white-space: nowrap;
@@ -3188,12 +3188,12 @@ exports[`CreateDeployment Component smaller components renders RolloutOptions co
 
 .emotion-8 .MuiChip-avatarColorPrimary {
   color: #fff;
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
 }
 
 .emotion-8 .MuiChip-avatarColorSecondary {
-  color: #fff;
-  background-color: rgb(65, 10, 46);
+  color: rgba(0, 0, 0, 0.87);
+  background-color: rgb(178, 178, 178);
 }
 
 .emotion-8 .MuiChip-avatarSmall {
@@ -3212,14 +3212,14 @@ exports[`CreateDeployment Component smaller components renders RolloutOptions co
 
 .emotion-8 .MuiChip-deleteIcon {
   -webkit-tap-highlight-color: transparent;
-  color: rgba(10, 10, 11, 0.26);
+  color: rgba(33, 33, 33, 0.26);
   font-size: 22px;
   cursor: pointer;
   margin: 0 5px 0 -6px;
 }
 
 .emotion-8 .MuiChip-deleteIcon:hover {
-  color: rgba(10, 10, 11, 0.4);
+  color: rgba(33, 33, 33, 0.4);
 }
 
 .emotion-8.MuiChip-clickable:hover {
@@ -3273,14 +3273,14 @@ exports[`CreateDeployment Component smaller components renders RolloutOptions co
 }
 
 .emotion-12 {
-  background-color: rgba(0, 0, 0, 0.54);
+  background-color: #424242;
   height: 3px;
   width: 100%;
   margin-right: -8px;
 }
 
 .emotion-12 svg {
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
 }
 
 .emotion-28 {
@@ -3577,8 +3577,8 @@ exports[`CreateDeployment Component smaller components renders RolloutOptions co
   color: inherit;
   padding: 9px;
   border-radius: 50%;
-  color: rgba(0, 0, 0, 0.54);
-  color: rgba(10, 10, 11, 0.78);
+  color: #424242;
+  color: #212121;
 }
 
 .emotion-1::-moz-focus-inner {
@@ -3598,7 +3598,7 @@ exports[`CreateDeployment Component smaller components renders RolloutOptions co
 }
 
 .emotion-1:hover {
-  background-color: rgba(51, 122, 135, 0.04);
+  background-color: rgba(20, 164, 82, 0.04);
 }
 
 @media (hover: none) {
@@ -3609,7 +3609,7 @@ exports[`CreateDeployment Component smaller components renders RolloutOptions co
 
 .emotion-1.Mui-checked,
 .emotion-1.MuiCheckbox-indeterminate {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-1.Mui-disabled {
@@ -3708,7 +3708,7 @@ exports[`CreateDeployment Component smaller components renders RolloutOptions co
   -webkit-justify-content: center;
   justify-content: center;
   height: 32px;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   background-color: rgba(0, 0, 0, 0.08);
   border-radius: 16px;
   white-space: nowrap;
@@ -3743,12 +3743,12 @@ exports[`CreateDeployment Component smaller components renders RolloutOptions co
 
 .emotion-9 .MuiChip-avatarColorPrimary {
   color: #fff;
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
 }
 
 .emotion-9 .MuiChip-avatarColorSecondary {
-  color: #fff;
-  background-color: rgb(65, 10, 46);
+  color: rgba(0, 0, 0, 0.87);
+  background-color: rgb(178, 178, 178);
 }
 
 .emotion-9 .MuiChip-avatarSmall {
@@ -3767,14 +3767,14 @@ exports[`CreateDeployment Component smaller components renders RolloutOptions co
 
 .emotion-9 .MuiChip-deleteIcon {
   -webkit-tap-highlight-color: transparent;
-  color: rgba(10, 10, 11, 0.26);
+  color: rgba(33, 33, 33, 0.26);
   font-size: 22px;
   cursor: pointer;
   margin: 0 5px 0 -6px;
 }
 
 .emotion-9 .MuiChip-deleteIcon:hover {
-  color: rgba(10, 10, 11, 0.4);
+  color: rgba(33, 33, 33, 0.4);
 }
 
 .emotion-9.MuiChip-clickable:hover {
@@ -3828,14 +3828,14 @@ exports[`CreateDeployment Component smaller components renders RolloutOptions co
 }
 
 .emotion-13 {
-  background-color: rgba(0, 0, 0, 0.54);
+  background-color: #424242;
   height: 3px;
   width: 100%;
   margin-right: -8px;
 }
 
 .emotion-13 svg {
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
 }
 
 .emotion-15 {
@@ -3895,7 +3895,7 @@ exports[`CreateDeployment Component smaller components renders RolloutOptions co
   justify-content: center;
   height: 32px;
   color: #fff;
-  background-color: #337a87;
+  background-color: #14A452;
   border-radius: 16px;
   white-space: nowrap;
   -webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -3950,12 +3950,12 @@ exports[`CreateDeployment Component smaller components renders RolloutOptions co
 
 .emotion-16 .MuiChip-avatarColorPrimary {
   color: #fff;
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
 }
 
 .emotion-16 .MuiChip-avatarColorSecondary {
-  color: #fff;
-  background-color: rgb(65, 10, 46);
+  color: rgba(0, 0, 0, 0.87);
+  background-color: rgb(178, 178, 178);
 }
 
 .emotion-16 .MuiChip-avatarSmall {
@@ -3981,7 +3981,7 @@ exports[`CreateDeployment Component smaller components renders RolloutOptions co
 }
 
 .emotion-16 .MuiChip-deleteIcon:hover {
-  color: rgba(10, 10, 11, 0.4);
+  color: rgba(33, 33, 33, 0.4);
 }
 
 .emotion-16 .MuiChip-deleteIcon:hover,
@@ -4003,7 +4003,7 @@ exports[`CreateDeployment Component smaller components renders RolloutOptions co
 
 .emotion-16:hover,
 .emotion-16.Mui-focusVisible {
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
 }
 
 .emotion-17 {
@@ -4363,8 +4363,8 @@ exports[`CreateDeployment Component smaller components renders RolloutPatternSel
   color: inherit;
   padding: 9px;
   border-radius: 50%;
-  color: rgba(0, 0, 0, 0.54);
-  color: rgba(10, 10, 11, 0.78);
+  color: #424242;
+  color: #212121;
 }
 
 .emotion-1::-moz-focus-inner {
@@ -4384,7 +4384,7 @@ exports[`CreateDeployment Component smaller components renders RolloutPatternSel
 }
 
 .emotion-1:hover {
-  background-color: rgba(51, 122, 135, 0.04);
+  background-color: rgba(20, 164, 82, 0.04);
 }
 
 @media (hover: none) {
@@ -4395,7 +4395,7 @@ exports[`CreateDeployment Component smaller components renders RolloutPatternSel
 
 .emotion-1.Mui-checked,
 .emotion-1.MuiCheckbox-indeterminate {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-1.Mui-disabled {
@@ -4490,7 +4490,7 @@ exports[`CreateDeployment Component smaller components renders RolloutPatternSel
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   box-sizing: border-box;
   position: relative;
   cursor: text;
@@ -4516,7 +4516,7 @@ label+.emotion-9 {
 }
 
 .emotion-9:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
   content: "";
@@ -4556,7 +4556,7 @@ label+.emotion-9 {
 }
 
 .emotion-9:hover:not(.Mui-disabled, .Mui-error):before {
-  border-bottom: 2px solid rgba(10, 10, 11, 0.78);
+  border-bottom: 2px solid #212121;
 }
 
 @media (hover: none) {
@@ -4574,11 +4574,11 @@ label+.emotion-9 {
 }
 
 .emotion-9:hover:not($disabled):before {
-  border-bottom: 2px solid #337a87!important;
+  border-bottom: 2px solid #14A452!important;
 }
 
 .emotion-9:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
 }
 
 .emotion-10 {
@@ -4953,8 +4953,8 @@ exports[`CreateDeployment Component smaller components renders RolloutPatternSel
   color: inherit;
   padding: 9px;
   border-radius: 50%;
-  color: rgba(0, 0, 0, 0.54);
-  color: rgba(10, 10, 11, 0.78);
+  color: #424242;
+  color: #212121;
 }
 
 .emotion-1::-moz-focus-inner {
@@ -4974,7 +4974,7 @@ exports[`CreateDeployment Component smaller components renders RolloutPatternSel
 }
 
 .emotion-1:hover {
-  background-color: rgba(51, 122, 135, 0.04);
+  background-color: rgba(20, 164, 82, 0.04);
 }
 
 @media (hover: none) {
@@ -4985,7 +4985,7 @@ exports[`CreateDeployment Component smaller components renders RolloutPatternSel
 
 .emotion-1.Mui-checked,
 .emotion-1.MuiCheckbox-indeterminate {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-1.Mui-disabled {
@@ -5092,7 +5092,7 @@ exports[`CreateDeployment Component smaller components renders RolloutPatternSel
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   box-sizing: border-box;
   position: relative;
   cursor: text;
@@ -5118,7 +5118,7 @@ label+.emotion-10 {
 }
 
 .emotion-10:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
   content: "";
@@ -5158,7 +5158,7 @@ label+.emotion-10 {
 }
 
 .emotion-10:hover:not(.Mui-disabled, .Mui-error):before {
-  border-bottom: 2px solid rgba(10, 10, 11, 0.78);
+  border-bottom: 2px solid #212121;
 }
 
 @media (hover: none) {
@@ -5176,11 +5176,11 @@ label+.emotion-10 {
 }
 
 .emotion-10:hover:not($disabled):before {
-  border-bottom: 2px solid #337a87!important;
+  border-bottom: 2px solid #14A452!important;
 }
 
 .emotion-10:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
 }
 
 .emotion-11 {
@@ -5465,7 +5465,7 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
 
 .emotion-1 {
   background-color: #fff;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   border-radius: 4px;
@@ -5633,7 +5633,7 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   margin-right: -12px;
   font-size: 1.2rem;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
 }
 
 .emotion-11::-moz-focus-inner {
@@ -5738,7 +5738,7 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   margin-left: -12px;
   font-size: 1.2rem;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
 }
 
 .emotion-14::-moz-focus-inner {
@@ -5814,7 +5814,7 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
 }
 
 .emotion-25 {
@@ -5913,7 +5913,7 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
   border-radius: 50%;
   padding: 0;
   background-color: transparent;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   margin: 0 2px;
   opacity: 0;
   pointer-events: none;
@@ -5921,22 +5921,22 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
 
 @media (pointer: fine) {
   .emotion-28:hover {
-    background-color: rgba(51, 122, 135, 0.04);
+    background-color: rgba(20, 164, 82, 0.04);
   }
 }
 
 .emotion-28:focus {
-  background-color: rgba(51, 122, 135, 0.12);
+  background-color: rgba(20, 164, 82, 0.12);
 }
 
 .emotion-28:focus.Mui-selected {
   will-change: background-color;
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
 }
 
 .emotion-28.Mui-selected {
   color: #fff;
-  background-color: #337a87;
+  background-color: #14A452;
   font-weight: 500;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -5944,7 +5944,7 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
 
 .emotion-28.Mui-selected:hover {
   will-change: background-color;
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
 }
 
 .emotion-28.Mui-disabled:not(.Mui-selected) {
@@ -5997,7 +5997,7 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
   border-radius: 50%;
   padding: 0;
   background-color: transparent;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   margin: 0 2px;
 }
 
@@ -6019,22 +6019,22 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
 
 @media (pointer: fine) {
   .emotion-30:hover {
-    background-color: rgba(51, 122, 135, 0.04);
+    background-color: rgba(20, 164, 82, 0.04);
   }
 }
 
 .emotion-30:focus {
-  background-color: rgba(51, 122, 135, 0.12);
+  background-color: rgba(20, 164, 82, 0.12);
 }
 
 .emotion-30:focus.Mui-selected {
   will-change: background-color;
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
 }
 
 .emotion-30.Mui-selected {
   color: #fff;
-  background-color: #337a87;
+  background-color: #14A452;
   font-weight: 500;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -6042,7 +6042,7 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
 
 .emotion-30.Mui-selected:hover {
   will-change: background-color;
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
 }
 
 .emotion-30.Mui-disabled:not(.Mui-selected) {
@@ -6095,7 +6095,7 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
   border-radius: 50%;
   padding: 0;
   background-color: transparent;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   margin: 0 2px;
 }
 
@@ -6117,22 +6117,22 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
 
 @media (pointer: fine) {
   .emotion-44:hover {
-    background-color: rgba(51, 122, 135, 0.04);
+    background-color: rgba(20, 164, 82, 0.04);
   }
 }
 
 .emotion-44:focus {
-  background-color: rgba(51, 122, 135, 0.12);
+  background-color: rgba(20, 164, 82, 0.12);
 }
 
 .emotion-44:focus.Mui-selected {
   will-change: background-color;
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
 }
 
 .emotion-44.Mui-selected {
   color: #fff;
-  background-color: #337a87;
+  background-color: #14A452;
   font-weight: 500;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -6140,7 +6140,7 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
 
 .emotion-44.Mui-selected:hover {
   will-change: background-color;
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
 }
 
 .emotion-44.Mui-disabled:not(.Mui-selected) {
@@ -6152,7 +6152,7 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
 }
 
 .emotion-44:not(.Mui-selected) {
-  border: 1px solid rgba(0, 0, 0, 0.54);
+  border: 1px solid #424242;
 }
 
 .emotion-67 {
@@ -6322,20 +6322,20 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
 }
 
 .emotion-70.Mui-selected {
-  background-color: rgba(51, 122, 135, 0.08);
+  background-color: rgba(20, 164, 82, 0.08);
 }
 
 .emotion-70.Mui-selected.Mui-focusVisible {
-  background-color: rgba(51, 122, 135, 0.2);
+  background-color: rgba(20, 164, 82, 0.2);
 }
 
 .emotion-70.Mui-selected:hover {
-  background-color: rgba(51, 122, 135, 0.12);
+  background-color: rgba(20, 164, 82, 0.12);
 }
 
 @media (hover: none) {
   .emotion-70.Mui-selected:hover {
-    background-color: rgba(51, 122, 135, 0.08);
+    background-color: rgba(20, 164, 82, 0.08);
   }
 }
 
@@ -6380,21 +6380,21 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
 }
 
 .emotion-70:hover {
-  background-color: rgba(51, 122, 135, 0.04);
+  background-color: rgba(20, 164, 82, 0.04);
 }
 
 .emotion-70.Mui-selected {
-  background-color: #337a87;
+  background-color: #14A452;
   color: #fff;
 }
 
 .emotion-70.Mui-selected:focus-visible,
 .emotion-70.Mui-selected:hover {
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
 }
 
 .emotion-70.Mui-focusVisible {
-  background-color: rgba(51, 122, 135, 0.12);
+  background-color: rgba(20, 164, 82, 0.12);
 }
 
 .emotion-107 {
@@ -6474,8 +6474,9 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
   border-radius: 4px;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  color: #337a87;
-  border-radius: 2px;
+  color: #14A452;
+  text-transform: none;
+  border-radius: 4px;
   font-size: 14px;
   font-weight: bold;
   padding: 10px 15px;
@@ -6500,7 +6501,7 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
 .emotion-109:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgba(51, 122, 135, 0.04);
+  background-color: rgba(20, 164, 82, 0.04);
 }
 
 @media (hover: none) {
@@ -6514,11 +6515,15 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
 }
 
 .emotion-109:hover {
-  colors: #337a87;
+  colors: #14A452;
 }
 
 .emotion-109.MuiButton-text {
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
+}
+
+.emotion-109:hover {
+  background: #F5F5F5;
 }
 
 .emotion-110 {
@@ -7510,7 +7515,7 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
 
 .emotion-1 {
   background-color: #fff;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   border-radius: 4px;
@@ -7678,7 +7683,7 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   margin-right: -12px;
   font-size: 1.2rem;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
 }
 
 .emotion-11::-moz-focus-inner {
@@ -7783,7 +7788,7 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   margin-left: -12px;
   font-size: 1.2rem;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
 }
 
 .emotion-14::-moz-focus-inner {
@@ -7859,7 +7864,7 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
 }
 
 .emotion-25 {
@@ -7958,7 +7963,7 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
   border-radius: 50%;
   padding: 0;
   background-color: transparent;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   margin: 0 2px;
   opacity: 0;
   pointer-events: none;
@@ -7966,22 +7971,22 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
 
 @media (pointer: fine) {
   .emotion-28:hover {
-    background-color: rgba(51, 122, 135, 0.04);
+    background-color: rgba(20, 164, 82, 0.04);
   }
 }
 
 .emotion-28:focus {
-  background-color: rgba(51, 122, 135, 0.12);
+  background-color: rgba(20, 164, 82, 0.12);
 }
 
 .emotion-28:focus.Mui-selected {
   will-change: background-color;
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
 }
 
 .emotion-28.Mui-selected {
   color: #fff;
-  background-color: #337a87;
+  background-color: #14A452;
   font-weight: 500;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -7989,7 +7994,7 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
 
 .emotion-28.Mui-selected:hover {
   will-change: background-color;
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
 }
 
 .emotion-28.Mui-disabled:not(.Mui-selected) {
@@ -8042,7 +8047,7 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
   border-radius: 50%;
   padding: 0;
   background-color: transparent;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   margin: 0 2px;
 }
 
@@ -8064,22 +8069,22 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
 
 @media (pointer: fine) {
   .emotion-30:hover {
-    background-color: rgba(51, 122, 135, 0.04);
+    background-color: rgba(20, 164, 82, 0.04);
   }
 }
 
 .emotion-30:focus {
-  background-color: rgba(51, 122, 135, 0.12);
+  background-color: rgba(20, 164, 82, 0.12);
 }
 
 .emotion-30:focus.Mui-selected {
   will-change: background-color;
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
 }
 
 .emotion-30.Mui-selected {
   color: #fff;
-  background-color: #337a87;
+  background-color: #14A452;
   font-weight: 500;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -8087,7 +8092,7 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
 
 .emotion-30.Mui-selected:hover {
   will-change: background-color;
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
 }
 
 .emotion-30.Mui-disabled:not(.Mui-selected) {
@@ -8140,7 +8145,7 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
   border-radius: 50%;
   padding: 0;
   background-color: transparent;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   margin: 0 2px;
 }
 
@@ -8162,22 +8167,22 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
 
 @media (pointer: fine) {
   .emotion-44:hover {
-    background-color: rgba(51, 122, 135, 0.04);
+    background-color: rgba(20, 164, 82, 0.04);
   }
 }
 
 .emotion-44:focus {
-  background-color: rgba(51, 122, 135, 0.12);
+  background-color: rgba(20, 164, 82, 0.12);
 }
 
 .emotion-44:focus.Mui-selected {
   will-change: background-color;
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
 }
 
 .emotion-44.Mui-selected {
   color: #fff;
-  background-color: #337a87;
+  background-color: #14A452;
   font-weight: 500;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -8185,7 +8190,7 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
 
 .emotion-44.Mui-selected:hover {
   will-change: background-color;
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
 }
 
 .emotion-44.Mui-disabled:not(.Mui-selected) {
@@ -8197,7 +8202,7 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
 }
 
 .emotion-44:not(.Mui-selected) {
-  border: 1px solid rgba(0, 0, 0, 0.54);
+  border: 1px solid #424242;
 }
 
 .emotion-67 {
@@ -8367,20 +8372,20 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
 }
 
 .emotion-70.Mui-selected {
-  background-color: rgba(51, 122, 135, 0.08);
+  background-color: rgba(20, 164, 82, 0.08);
 }
 
 .emotion-70.Mui-selected.Mui-focusVisible {
-  background-color: rgba(51, 122, 135, 0.2);
+  background-color: rgba(20, 164, 82, 0.2);
 }
 
 .emotion-70.Mui-selected:hover {
-  background-color: rgba(51, 122, 135, 0.12);
+  background-color: rgba(20, 164, 82, 0.12);
 }
 
 @media (hover: none) {
   .emotion-70.Mui-selected:hover {
-    background-color: rgba(51, 122, 135, 0.08);
+    background-color: rgba(20, 164, 82, 0.08);
   }
 }
 
@@ -8425,21 +8430,21 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
 }
 
 .emotion-70:hover {
-  background-color: rgba(51, 122, 135, 0.04);
+  background-color: rgba(20, 164, 82, 0.04);
 }
 
 .emotion-70.Mui-selected {
-  background-color: #337a87;
+  background-color: #14A452;
   color: #fff;
 }
 
 .emotion-70.Mui-selected:focus-visible,
 .emotion-70.Mui-selected:hover {
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
 }
 
 .emotion-70.Mui-focusVisible {
-  background-color: rgba(51, 122, 135, 0.12);
+  background-color: rgba(20, 164, 82, 0.12);
 }
 
 .emotion-107 {
@@ -8519,8 +8524,9 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
   border-radius: 4px;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  color: #337a87;
-  border-radius: 2px;
+  color: #14A452;
+  text-transform: none;
+  border-radius: 4px;
   font-size: 14px;
   font-weight: bold;
   padding: 10px 15px;
@@ -8545,7 +8551,7 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
 .emotion-109:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgba(51, 122, 135, 0.04);
+  background-color: rgba(20, 164, 82, 0.04);
 }
 
 @media (hover: none) {
@@ -8559,11 +8565,15 @@ exports[`CreateDeployment Component smaller components renders ScheduleRollout c
 }
 
 .emotion-109:hover {
-  colors: #337a87;
+  colors: #14A452;
 }
 
 .emotion-109.MuiButton-text {
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
+}
+
+.emotion-109:hover {
+  background: #F5F5F5;
 }
 
 .emotion-110 {
@@ -9719,7 +9729,7 @@ exports[`CreateDeployment Component smaller components renders Software correctl
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   box-sizing: border-box;
   position: relative;
   cursor: text;
@@ -9745,7 +9755,7 @@ label+.emotion-3 {
 }
 
 .emotion-3:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
   content: "";
@@ -9785,7 +9795,7 @@ label+.emotion-3 {
 }
 
 .emotion-3:hover:not(.Mui-disabled, .Mui-error):before {
-  border-bottom: 2px solid rgba(10, 10, 11, 0.78);
+  border-bottom: 2px solid #212121;
 }
 
 @media (hover: none) {
@@ -9803,11 +9813,11 @@ label+.emotion-3 {
 }
 
 .emotion-3:hover:not($disabled):before {
-  border-bottom: 2px solid #337a87!important;
+  border-bottom: 2px solid #14A452!important;
 }
 
 .emotion-3:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
 }
 
 .emotion-4 {
@@ -10175,7 +10185,7 @@ exports[`CreateDeployment Component smaller components renders Software correctl
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   box-sizing: border-box;
   position: relative;
   cursor: text;
@@ -10201,7 +10211,7 @@ label+.emotion-3 {
 }
 
 .emotion-3:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
   content: "";
@@ -10241,7 +10251,7 @@ label+.emotion-3 {
 }
 
 .emotion-3:hover:not(.Mui-disabled, .Mui-error):before {
-  border-bottom: 2px solid rgba(10, 10, 11, 0.78);
+  border-bottom: 2px solid #212121;
 }
 
 @media (hover: none) {
@@ -10259,11 +10269,11 @@ label+.emotion-3 {
 }
 
 .emotion-3:hover:not($disabled):before {
-  border-bottom: 2px solid #337a87!important;
+  border-bottom: 2px solid #14A452!important;
 }
 
 .emotion-3:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
 }
 
 .emotion-4 {

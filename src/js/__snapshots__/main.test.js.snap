@@ -29,7 +29,7 @@ exports[`Main Component renders correctly 1`] = `
         />
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-tsicd0-MuiSvgIcon-root-demoAnnouncementIcon"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-xoiq4u-MuiSvgIcon-root-demoAnnouncementIcon"
           data-testid="CloseIcon"
           focusable="false"
           style="margin-left: 4px; cursor: pointer;"
@@ -45,114 +45,53 @@ exports[`Main Component renders correctly 1`] = `
       >
         <div
           class="flexbox center-aligned"
-        >
-          <a
-            href="/"
-          >
-            <img
-              id="logo"
-              src="headerlogo.png"
-            />
-          </a>
-        </div>
-        <div
-          class="MuiFormControl-root MuiTextField-root mui-j8sktw-MuiFormControl-root-MuiTextField-root-root"
-        >
+        />
+        <div>
           <div
-            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart mui-s15sbk-MuiInputBase-root-MuiInput-root"
+            class="MuiFormControl-root MuiTextField-root mui-vlhsld-MuiFormControl-root-MuiTextField-root-root"
+            readonly=""
           >
             <div
-              class="MuiInputAdornment-root MuiInputAdornment-positionStart MuiInputAdornment-standard MuiInputAdornment-sizeSmall mui-ittuaa-MuiInputAdornment-root"
+              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart Mui-readOnly MuiInputBase-readOnly mui-1g73vl4-MuiInputBase-root-MuiInput-root"
             >
-              <span
-                class="notranslate"
+              <div
+                class="MuiInputAdornment-root MuiInputAdornment-positionStart MuiInputAdornment-standard MuiInputAdornment-sizeSmall mui-ittuaa-MuiInputAdornment-root"
               >
-                ​
-              </span>
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-colorDisabled MuiSvgIcon-fontSizeSize mui-8zz2bg-MuiSvgIcon-root"
-                data-testid="SearchIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-                />
-              </svg>
+                <span
+                  class="notranslate"
+                >
+                  ​
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-colorDisabled MuiSvgIcon-fontSizeSize mui-8antmw-MuiSvgIcon-root-searchIcon"
+                  data-testid="SearchIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                  />
+                </svg>
+              </div>
+              <input
+                aria-invalid="false"
+                autocomplete="off"
+                class="MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart Mui-readOnly MuiInputBase-readOnly mui-nqgi9r-MuiInputBase-input-MuiInput-input"
+                
+                placeholder="Search devices"
+                readonly=""
+                type="text"
+                value=""
+              />
             </div>
-            <input
-              aria-invalid="false"
-              class="MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart mui-nqgi9r-MuiInputBase-input-MuiInput-input"
-              
-              placeholder="Search devices"
-              type="text"
-              value=""
-            />
           </div>
         </div>
         <div
           class="flexbox center-aligned"
         >
-          <div
-            class="header-section"
-            data-mui-internal-clone-element="true"
-          >
-            <a
-              class=""
-              href="/devices"
-            >
-              <span>
-                2
-              </span>
-              <span
-                id="limit"
-              >
-                /
-                500
-              </span>
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
-                data-testid="DeveloperBoardIcon"
-                focusable="false"
-                style="margin: 0px 7px 0px 10px; font-size: 20px;"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M22 9V7h-2V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-2h2v-2h-2v-2h2v-2h-2V9h2zm-4 10H4V5h14v14zM6 13h5v4H6zm6-6h4v3h-4zM6 7h5v5H6zm6 4h4v6h-4z"
-                />
-              </svg>
-            </a>
-            <a
-              href="/devices/pending"
-              style="margin-left: 7px;"
-            >
-              1
-               pending
-            </a>
-          </div>
-          <a
-            class="header-section"
-            href="/deployments/active"
-          >
-            <span>
-              2
-            </span>
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium flip-horizontal mui-18cdzti-MuiSvgIcon-root-icon"
-              data-testid="RefreshIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
-              />
-            </svg>
-          </a>
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium header-dropdown mui-12pkhju-MuiButtonBase-root-MuiButton-root-dropDown"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium header-dropdown mui-1uyor13-MuiButtonBase-root-MuiButton-root-dropDown"
             tabindex="0"
             type="button"
           >
@@ -195,34 +134,38 @@ exports[`Main Component renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="leftFixed leftNav mui-vketa7-list"
+      class="leftFixed leftNav"
     >
+      <a
+        href="/"
+        id="logo"
+      >
+        <svg
+          alt="Alvaldi logo"
+          id="Alvaldilogo"
+        />
+      </a>
       <ul
-        class="MuiList-root MuiList-padding mui-h4y409-MuiList-root"
+        class="MuiList-root MuiList-padding leftNav-main mui-h4y409-MuiList-root"
         style="padding: 0px;"
       >
         <a
-          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding navLink leftNav mui-s9istv-MuiListItem-root-navLink"
-          href="/"
-        >
-          <div
-            class="MuiListItemText-root mui-924vb1-MuiListItemText-root"
-            style="text-transform: uppercase;"
-          >
-            <span
-              class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-mon4qq-MuiTypography-root"
-            >
-              Dashboard
-            </span>
-          </div>
-        </a>
-        <a
-          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding navLink leftNav mui-s9istv-MuiListItem-root-navLink"
+          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding navLink leftNav mui-17l2y7o-MuiListItem-root"
           href="/devices"
         >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+            data-testid="DeveloperBoardIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M22 9V7h-2V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-2h2v-2h-2v-2h2v-2h-2V9h2zm-4 10H4V5h14v14zM6 13h5v4H6zm6-6h4v3h-4zM6 7h5v5H6zm6 4h4v6h-4z"
+            />
+          </svg>
           <div
-            class="MuiListItemText-root mui-924vb1-MuiListItemText-root"
-            style="text-transform: uppercase;"
+            class="MuiListItemText-root mui-1lghudc-MuiListItemText-root"
           >
             <span
               class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-mon4qq-MuiTypography-root"
@@ -232,45 +175,65 @@ exports[`Main Component renders correctly 1`] = `
           </div>
         </a>
         <a
-          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding navLink leftNav mui-s9istv-MuiListItem-root-navLink"
-          href="/releases"
+          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding navLink leftNav mui-17l2y7o-MuiListItem-root"
+          href="/auditlog"
         >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+            data-testid="ListAltIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19 5v14H5V5h14m1.1-2H3.9c-.5 0-.9.4-.9.9v16.2c0 .4.4.9.9.9h16.2c.4 0 .9-.5.9-.9V3.9c0-.5-.5-.9-.9-.9zM11 7h6v2h-6V7zm0 4h6v2h-6v-2zm0 4h6v2h-6zM7 7h2v2H7zm0 4h2v2H7zm0 4h2v2H7z"
+            />
+          </svg>
           <div
-            class="MuiListItemText-root mui-924vb1-MuiListItemText-root"
-            style="text-transform: uppercase;"
+            class="MuiListItemText-root mui-1lghudc-MuiListItemText-root"
           >
             <span
               class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-mon4qq-MuiTypography-root"
             >
-              Releases
+              Audit log
             </span>
           </div>
         </a>
         <a
-          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding navLink leftNav mui-s9istv-MuiListItem-root-navLink"
-          href="/deployments"
+          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding navLink leftNav mui-17l2y7o-MuiListItem-root"
+          href="/settings"
         >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+            data-testid="SettingsIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"
+            />
+          </svg>
           <div
-            class="MuiListItemText-root mui-924vb1-MuiListItemText-root"
-            style="text-transform: uppercase;"
+            class="MuiListItemText-root mui-1lghudc-MuiListItemText-root"
           >
             <span
               class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-mon4qq-MuiTypography-root"
             >
-              Deployments
+              Settings
             </span>
           </div>
         </a>
       </ul>
       <ul
-        class="MuiList-root MuiList-padding mui-anvol5-MuiList-root-infoList"
+        class="MuiList-root MuiList-padding leftNav-bottom mui-h4y409-MuiList-root"
       >
         <a
-          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding navLink leftNav mui-16kmypy-MuiListItem-root-listItem"
+          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding navLink leftNav mui-17l2y7o-MuiListItem-root"
           href="/help"
         >
           <div
-            class="MuiListItemText-root mui-924vb1-MuiListItemText-root"
+            class="MuiListItemText-root mui-1lghudc-MuiListItemText-root"
           >
             <span
               class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-mon4qq-MuiTypography-root"
@@ -280,10 +243,10 @@ exports[`Main Component renders correctly 1`] = `
           </div>
         </a>
         <li
-          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding mui-16kmypy-MuiListItem-root-listItem"
+          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding mui-17l2y7o-MuiListItem-root"
         >
           <div
-            class="MuiListItemText-root MuiListItemText-multiline mui-1d3wby6-MuiListItemText-root"
+            class="MuiListItemText-root mui-1lghudc-MuiListItemText-root"
           >
             <span
               class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-mon4qq-MuiTypography-root"
@@ -295,18 +258,6 @@ exports[`Main Component renders correctly 1`] = `
                 Version: master
               </div>
             </span>
-            <p
-              class="MuiTypography-root MuiTypography-body2 MuiListItemText-secondary mui-6djxp6-MuiTypography-root"
-            >
-              <a
-                class="mui-9ca4f1-licenseLink"
-                href="https://docs.mender.io/development/release-information/open-source-licenses"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                License information
-              </a>
-            </p>
           </div>
         </li>
       </ul>
@@ -314,586 +265,795 @@ exports[`Main Component renders correctly 1`] = `
     <div
       class="rightFluid container"
     >
-      <h4
-        class="margin-left-small"
-      >
-        Dashboard
-      </h4>
       <div
-        class="mui-1g6rhfz-board"
+        class="tab-container with-sub-panels"
+        style="padding: 0px; min-height: initial;"
       >
         <div
-          class="mui-1vfij3o-left"
+          class="flexbox space-between"
         >
           <div
-            class="dashboard"
+            class="clickable margin-right onboard mui-klxwo1-default"
           >
-            <div
-              class="widget "
+            <span
+              class="mui-10smx4s-default "
             >
-              <div
-                class="flexbox widgetHeader"
-              >
-                <div
-                  class="flexbox center-aligned"
-                >
-                  Accepted devices 
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium margin-left-small green mui-1lqc678-MuiSvgIcon-root"
-                    data-testid="CheckCircleIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-                    />
-                  </svg>
-                </div>
-              </div>
-              <div
-                class="flexbox column widgetMainContent"
-              >
-                <div
-                  class="counter"
-                >
-                  2
-                </div>
-              </div>
-            </div>
-            <div
-              class="widget mui-169u0zx-widget"
+              1
+               
+              device
+               
+              is
+               
+              pending authorization
+            </span>
+            <b
+              class="margin-left-small link link-color"
             >
-              <div
-                class="flexbox widgetHeader"
-              >
-                Devices with issues
-              </div>
-              <div
-                class="widgetMainContent"
-              >
-                <a
-                  class="flexbox center-aligned column mui-1i32ysv-issueType green"
-                  href="/devices?issues=offline"
-                >
-                  <div
-                    class="relative mui-1donq9n-issueContainer"
-                  >
-                    <div
-                      class="mui-1uwsjn9-issueCounter"
-                    >
-                      0
-                    </div>
-                    <div
-                      class="absolute mui-wx993p-issueWrapper"
-                    >
-                      <div
-                        class="relative"
-                      >
-                        <div
-                          class="absolute"
-                        />
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall absolute mui-1cwsc1r-MuiSvgIcon-root"
-                          data-testid="WifiOffIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M22.99 9C19.15 5.16 13.8 3.76 8.84 4.78l2.52 2.52c3.47-.17 6.99 1.05 9.63 3.7l2-2zm-4 4c-1.29-1.29-2.84-2.13-4.49-2.56l3.53 3.53.96-.97zM2 3.05 5.07 6.1C3.6 6.82 2.22 7.78 1 9l1.99 2c1.24-1.24 2.67-2.16 4.2-2.77l2.24 2.24C7.81 10.89 6.27 11.73 5 13v.01L6.99 15c1.36-1.36 3.14-2.04 4.92-2.06L18.98 20l1.27-1.26L3.29 1.79 2 3.05zM9 17l3 3 3-3c-1.65-1.66-4.34-1.66-6 0z"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <p
-                    class="align-center slightly-smaller"
-                  >
-                    Offline
-                  </p>
-                </a>
-                <a
-                  class="flexbox center-aligned column mui-1i32ysv-issueType green"
-                  href="/devices?issues=authRequests"
-                >
-                  <div
-                    class="relative mui-1donq9n-issueContainer"
-                  >
-                    <div
-                      class="mui-1uwsjn9-issueCounter"
-                    >
-                      0
-                    </div>
-                    <div
-                      class="absolute mui-wx993p-issueWrapper"
-                    >
-                      <div
-                        class="relative"
-                      >
-                        <div
-                          class="absolute"
-                        />
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall absolute mui-1cwsc1r-MuiSvgIcon-root"
-                          data-testid="VpnKeyOutlinedIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M22 19h-6v-4h-2.68c-1.14 2.42-3.6 4-6.32 4-3.86 0-7-3.14-7-7s3.14-7 7-7c2.72 0 5.17 1.58 6.32 4H24v6h-2v4zm-4-2h2v-4h2v-2H11.94l-.23-.67C11.01 8.34 9.11 7 7 7c-2.76 0-5 2.24-5 5s2.24 5 5 5c2.11 0 4.01-1.34 4.71-3.33l.23-.67H18v4zM7 15c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3zm0-4c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <p
-                    class="align-center slightly-smaller"
-                  >
-                    Authentication requests
-                  </p>
-                </a>
-              </div>
-            </div>
-            <div
-              class="widget flexbox centered"
-            >
-              <p
-                class="muted"
-                style="max-width: 200px;"
-              >
-                + connect more devices
-              </p>
-            </div>
+              View 
+              device
+            </b>
           </div>
+        </div>
+      </div>
+      <div
+        class="tab-container with-sub-panels"
+        style="padding: 0px; height: 100%;"
+      >
+        <div
+          class="leftFixed"
+        >
           <div
-            class="flexbox centered"
+            class="margin-bottom-small margin-left margin-top-small"
           >
-            <p
-              class="mui-10smx4s-default icon flexbox center-aligned mui-urjt41-default "
+            Groups
+          </div>
+          <ul
+            class="MuiList-root MuiList-padding mui-h4y409-MuiList-root"
+          >
+            <div
+              class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button Mui-selected mui-4cezzb-MuiButtonBase-root-MuiListItem-root"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiListItemText-root padding-left-large mui-1lghudc-MuiListItemText-root"
+              >
+                <span
+                  class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-mon4qq-MuiTypography-root"
+                >
+                  All devices
+                </span>
+              </div>
+              <span
+                class="MuiTouchRipple-root mui-8je8zh-MuiTouchRipple-root"
+              />
+            </div>
+            <li
+              class="MuiListSubheader-root mui-1yjxp81-MuiListSubheader-root-header"
+            >
+              <span
+                class="mui-1nyp150-groupHeading"
+              >
+                Dynamic
+              </span>
+            </li>
+            <div
+              class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button mui-4cezzb-MuiButtonBase-root-MuiListItem-root"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiListItemText-root padding-left-large mui-1lghudc-MuiListItemText-root"
+              >
+                <span
+                  class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-mon4qq-MuiTypography-root"
+                >
+                  testGroupDynamic
+                </span>
+              </div>
+              <span
+                class="MuiTouchRipple-root mui-8je8zh-MuiTouchRipple-root"
+              />
+            </div>
+            <li
+              class="MuiListSubheader-root mui-1yjxp81-MuiListSubheader-root-header"
+            >
+              <span
+                class="mui-1nyp150-groupHeading"
+              >
+                Static
+              </span>
+            </li>
+            <div
+              class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button mui-4cezzb-MuiButtonBase-root-MuiListItem-root"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiListItemText-root padding-left-large mui-1lghudc-MuiListItemText-root"
+              >
+                <span
+                  class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-mon4qq-MuiTypography-root"
+                >
+                  testGroup
+                </span>
+              </div>
+              <span
+                class="MuiTouchRipple-root mui-8je8zh-MuiTouchRipple-root"
+              />
+            </div>
+            <div
+              class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button mui-4cezzb-MuiButtonBase-root-MuiListItem-root"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiListItemText-root padding-left-large mui-1lghudc-MuiListItemText-root"
+              >
+                <span
+                  class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-mon4qq-MuiTypography-root"
+                >
+                  Unassigned
+                </span>
+              </div>
+              <span
+                class="MuiTouchRipple-root mui-8je8zh-MuiTouchRipple-root"
+              />
+            </div>
+            <div
+              class="MuiButtonBase-root MuiListItem-root grouplist padding-left MuiListItem-gutters MuiListItem-padding MuiListItem-button mui-4cezzb-MuiButtonBase-root-MuiListItem-root"
+              role="button"
+              style="margin-top: 30px;"
+              tabindex="0"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mui-1cwsc1r-MuiSvgIcon-root"
-                data-testid="InfoOutlinedIcon"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+                data-testid="InfoIcon"
+                focusable="false"
+                style="margin-right: 8px;"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                />
+              </svg>
+              <div
+                class="MuiListItemText-root mui-1lghudc-MuiListItemText-root"
+              >
+                <span
+                  class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-mon4qq-MuiTypography-root"
+                >
+                  Create a group
+                </span>
+              </div>
+              <span
+                class="MuiTouchRipple-root mui-8je8zh-MuiTouchRipple-root"
+              />
+            </div>
+          </ul>
+        </div>
+        <div
+          class="rightFluid relative"
+          style="padding-top: 32px;"
+        >
+          <div
+            class="margin-left-small margin-bottom"
+          >
+            <div
+              class="flexbox"
+            >
+              <h2
+                class="margin-right-xl"
+              >
+                All devices
+              </h2>
+              <div
+                class="flexbox space-between center-aligned"
+                style="flex-grow: 1;"
+              >
+                <div
+                  class="flexbox"
+                >
+                  <div
+                    class="flexbox centered"
+                  >
+                    Status:
+                    <div
+                      class="MuiInputBase-root MuiInput-root MuiInputBase-colorPrimary  mui-1n7u1wx-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                      style="font-size: 13px; margin-left: 8px; margin-top: 2px;"
+                    >
+                      <div
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input mui-emq5k1-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                        role="button"
+                        tabindex="0"
+                      >
+                        accepted
+                      </div>
+                      <input
+                        aria-hidden="true"
+                        aria-invalid="false"
+                        class="MuiSelect-nativeInput mui-yf8vq0-MuiSelect-nativeInput"
+                        tabindex="-1"
+                        value="accepted"
+                      />
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard mui-dwvfc1-MuiSvgIcon-root-MuiSelect-icon"
+                        data-testid="ArrowDropDownIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M7 10l5 5 5-5z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flexbox space-between margin-top"
+            >
+              <div
+                class="flexbox centered filter-header "
+              >
+                <button
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textSecondary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textSecondary MuiButton-sizeMedium MuiButton-textSizeMedium mui-m4scur-MuiButtonBase-root-MuiButton-root"
+                  style="background-color: transparent;"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-startIcon MuiButton-iconSizeMedium mui-gcc2o7-MuiButton-startIcon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+                      data-testid="FilterListIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"
+                      />
+                    </svg>
+                  </span>
+                  Filters
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="loaderContainer shrunk"
+          >
+            <div
+              class="  loader"
+            >
+              <span
+                class="dot dot_1"
+              />
+              <span
+                class="dot dot_2"
+              />
+              <span
+                class="dot dot_3"
+              />
+              <span
+                class="dot dot_4"
+              />
+            </div>
+          </div>
+          <div
+            class="padding-bottom"
+          >
+            <div
+              class="deviceList selectable undefined"
+              style="grid-template-columns: 52px minmax(250px, 1fr) minmax(150px, 1.5fr) minmax(150px, 1.5fr) minmax(150px, 1.5fr) minmax(150px, max-content);"
+            >
+              <div
+                class="header mui-15itsyh-header"
+              >
+                <div
+                  class="deviceListRow"
+                >
+                  <div>
+                    <span
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary mui-1mqafh3-MuiButtonBase-root-MuiCheckbox-root"
+                    >
+                      <input
+                        class="PrivateSwitchBase-input mui-1m9pwf3"
+                        data-indeterminate="false"
+                        type="checkbox"
+                      />
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+                        data-testid="CheckBoxOutlineBlankIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                        />
+                      </svg>
+                      <span
+                        class="MuiTouchRipple-root mui-8je8zh-MuiTouchRipple-root"
+                      />
+                    </span>
+                  </div>
+                  <div
+                    class="columnHeader flexbox space-between relative"
+                  >
+                    <div
+                      class="flexbox center-aligned"
+                    >
+                      mac
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium sortIcon  true mui-1lqc678-MuiSvgIcon-root"
+                        data-testid="SortIcon"
+                        focusable="false"
+                        style="font-size: 16px;"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
+                        />
+                      </svg>
+                    </div>
+                    <div
+                      class="flexbox center-aligned"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+                        data-testid="SettingsIcon"
+                        focusable="false"
+                        style="font-size: 16px; margin-right: 4px;"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div
+                    class="columnHeader flexbox space-between relative"
+                  >
+                    <div
+                      class="flexbox center-aligned"
+                    >
+                      Device type
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium sortIcon  true mui-1lqc678-MuiSvgIcon-root"
+                        data-testid="SortIcon"
+                        focusable="false"
+                        style="font-size: 16px;"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
+                        />
+                      </svg>
+                    </div>
+                    <div
+                      class="flexbox center-aligned"
+                    >
+                      <span
+                        class="resize-handle mui-1bzlqzi-resizeHandle "
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="columnHeader flexbox space-between relative"
+                  >
+                    <div
+                      class="flexbox center-aligned"
+                    >
+                      Latest activity
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium sortIcon  true mui-1lqc678-MuiSvgIcon-root"
+                        data-testid="SortIcon"
+                        focusable="false"
+                        style="font-size: 16px;"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
+                        />
+                      </svg>
+                    </div>
+                    <div
+                      class="flexbox center-aligned"
+                    >
+                      <span
+                        class="resize-handle mui-1bzlqzi-resizeHandle "
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="columnHeader flexbox space-between relative"
+                  >
+                    <div
+                      class="flexbox center-aligned"
+                    >
+                      Status
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium sortIcon  true mui-1lqc678-MuiSvgIcon-root"
+                        data-testid="SortIcon"
+                        focusable="false"
+                        style="font-size: 16px;"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
+                        />
+                      </svg>
+                    </div>
+                    <div
+                      class="flexbox center-aligned"
+                    />
+                  </div>
+                  <div
+                    class="columnHeader flexbox space-between relative"
+                  >
+                    <div
+                      class="flexbox center-aligned"
+                    >
+                      View device
+                    </div>
+                    <div
+                      class="flexbox center-aligned"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="body"
+              >
+                <div
+                  class="deviceListRow deviceListItem  "
+                >
+                  <div>
+                    <span
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary mui-1mqafh3-MuiButtonBase-root-MuiCheckbox-root"
+                    >
+                      <input
+                        class="PrivateSwitchBase-input mui-1m9pwf3"
+                        data-indeterminate="false"
+                        type="checkbox"
+                      />
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+                        data-testid="CheckBoxOutlineBlankIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                        />
+                      </svg>
+                      <span
+                        class="MuiTouchRipple-root mui-8je8zh-MuiTouchRipple-root"
+                      />
+                    </span>
+                  </div>
+                  <div
+                    class="flexbox space-between"
+                  >
+                    <div
+                      title="dc:a6:32:12:ad:bf"
+                    >
+                      <div
+                        class="text-overflow"
+                      >
+                        dc:a6:32:12:ad:bf
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    title="raspberrypi4"
+                  >
+                    <div
+                      class="text-overflow"
+                    >
+                      raspberrypi4
+                    </div>
+                  </div>
+                  <div>
+                    <time
+                      datetime="2019-01-01"
+                    >
+                      12 days ago
+                    </time>
+                  </div>
+                  <div>
+                    <div
+                      aria-label="This device has not communicated with the Mender backend for a while. Click on the row to see more details"
+                      class="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorDefault MuiChip-outlinedDefault deviceStatus margin-right-small mui-1r0kvnv-MuiChip-root"
+                      data-mui-internal-clone-element="true"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root [object Object] MuiSvgIcon-fontSizeMedium MuiChip-icon MuiChip-iconSmall MuiChip-iconColorDefault mui-1lqc678-MuiSvgIcon-root"
+                        data-testid="ReportProblemOutlinedIcon"
+                        focusable="false"
+                        style="margin-left: 5px;"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12 5.99 19.53 19H4.47L12 5.99M12 2 1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"
+                        />
+                      </svg>
+                      <span
+                        class="MuiChip-label MuiChip-labelSmall mui-wjsjww-MuiChip-label"
+                      >
+                        <div
+                          class="uppercased"
+                        >
+                          offline
+                        </div>
+                      </span>
+                    </div>
+                  </div>
+                  <div>
+                    <a
+                      class="flexbox flexbox centered"
+                      href="/devices/a1"
+                    >
+                      View details 
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+                        data-testid="ArrowForwardIcon"
+                        focusable="false"
+                        style="font-size: 16px; margin-left: 8px;"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <div
+                  class="deviceListRow deviceListItem  "
+                >
+                  <div>
+                    <span
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary mui-1mqafh3-MuiButtonBase-root-MuiCheckbox-root"
+                    >
+                      <input
+                        class="PrivateSwitchBase-input mui-1m9pwf3"
+                        data-indeterminate="false"
+                        type="checkbox"
+                      />
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+                        data-testid="CheckBoxOutlineBlankIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                        />
+                      </svg>
+                      <span
+                        class="MuiTouchRipple-root mui-8je8zh-MuiTouchRipple-root"
+                      />
+                    </span>
+                  </div>
+                  <div
+                    class="flexbox space-between"
+                  >
+                    <div
+                      title="dc:a6:32:12:ad:bf"
+                    >
+                      <div
+                        class="text-overflow"
+                      >
+                        dc:a6:32:12:ad:bf
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    title="raspberrypi4"
+                  >
+                    <div
+                      class="text-overflow"
+                    >
+                      raspberrypi4
+                    </div>
+                  </div>
+                  <div>
+                    <time
+                      datetime="2019-01-01"
+                    >
+                      12 days ago
+                    </time>
+                  </div>
+                  <div>
+                    <div
+                      aria-label="This device has not communicated with the Mender backend for a while. Click on the row to see more details"
+                      class="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorDefault MuiChip-outlinedDefault deviceStatus margin-right-small mui-1r0kvnv-MuiChip-root"
+                      data-mui-internal-clone-element="true"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root [object Object] MuiSvgIcon-fontSizeMedium MuiChip-icon MuiChip-iconSmall MuiChip-iconColorDefault mui-1lqc678-MuiSvgIcon-root"
+                        data-testid="ReportProblemOutlinedIcon"
+                        focusable="false"
+                        style="margin-left: 5px;"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12 5.99 19.53 19H4.47L12 5.99M12 2 1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"
+                        />
+                      </svg>
+                      <span
+                        class="MuiChip-label MuiChip-labelSmall mui-wjsjww-MuiChip-label"
+                      >
+                        <div
+                          class="uppercased"
+                        >
+                          offline
+                        </div>
+                      </span>
+                    </div>
+                  </div>
+                  <div>
+                    <a
+                      class="flexbox flexbox centered"
+                      href="/devices/a1"
+                    >
+                      View details 
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+                        data-testid="ArrowForwardIcon"
+                        focusable="false"
+                        style="font-size: 16px; margin-left: 8px;"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="footer flexbox margin-top"
+              >
+                <div
+                  class="MuiTablePagination-root flexbox margin-top margin-top-none mui-1ub9kgf-MuiTablePagination-root"
+                >
+                  <div
+                    class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular MuiTablePagination-toolbar mui-78c6dr-MuiToolbar-root-MuiTablePagination-toolbar"
+                  >
+                    <div
+                      class="MuiTablePagination-spacer flexbox no-basis mui-1psng7p-MuiTablePagination-spacer"
+                    />
+                    <p
+                      class="MuiTablePagination-selectLabel mui-1ecnf2s-MuiTablePagination-selectLabel"
+                      
+                    >
+                      Rows
+                    </p>
+                    <div
+                      class="MuiInputBase-root MuiInputBase-colorPrimary mui-1y7ceb0-MuiInputBase-root-MuiTablePagination-select"
+                    >
+                      <div
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        
+                        class="MuiSelect-select MuiTablePagination-select MuiSelect-standard MuiInputBase-input mui-194a1fa-MuiSelect-select-MuiInputBase-input"
+                        
+                        role="button"
+                        tabindex="0"
+                      >
+                        20
+                      </div>
+                      <input
+                        aria-hidden="true"
+                        aria-invalid="false"
+                        class="MuiSelect-nativeInput mui-yf8vq0-MuiSelect-nativeInput"
+                        tabindex="-1"
+                        value="20"
+                      />
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiTablePagination-selectIcon MuiSelect-iconStandard mui-dwvfc1-MuiSvgIcon-root-MuiSelect-icon"
+                        data-testid="ArrowDropDownIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M7 10l5 5 5-5z"
+                        />
+                      </svg>
+                    </div>
+                    <p
+                      class="MuiTablePagination-displayedRows mui-cmytl3-MuiTablePagination-displayedRows"
+                    />
+                    <div
+                      class="flexbox center-aligned"
+                    >
+                      <div>
+                        1-2 of 2
+                      </div>
+                      <button
+                        class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeLarge mui-ky8r02-MuiButtonBase-root-MuiIconButton-root"
+                        disabled=""
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+                          data-testid="KeyboardArrowLeftIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M15.41 16.59 10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+                          />
+                        </svg>
+                      </button>
+                      <div>
+                        <button
+                          class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeLarge mui-ky8r02-MuiButtonBase-root-MuiIconButton-root"
+                          disabled=""
+                          tabindex="-1"
+                          type="button"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+                            data-testid="KeyboardArrowRightIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="tooltip help"
+              data-mui-internal-clone-element="true"
+              style="right: 45px;"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+                data-testid="HelpIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
                 />
               </svg>
-              <span>
-                With a more advanced commercial Mender plan you get access to actionable insights into the devices you are updating with Mender. Get an overview of the Mender plans on the 
-                <a
-                  href="https://mender.io/plans/features"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  features page
-                </a>
-                .
-              </span>
-            </p>
-          </div>
-        </div>
-        <div
-          class="mui-1lmf2ic-right deployments"
-        >
-          <div
-            class="dashboard flexbox column"
-            style="grid-template-columns: 1fr; row-gap: 10px;"
-          >
-            <h4
-              class="margin-bottom-none margin-left-small"
-            >
-              Recent deployments
-            </h4>
-            <h5
-              class="margin-bottom-none"
-            >
-              Pending
-            </h5>
-            <div
-              class="clickable mui-14kqbng-base"
-            >
-              <div>
-                <div>
-                  r1
-                </div>
-                <div
-                  class=""
-                  title="test deployment"
-                >
-                  test deployment
-                </div>
-              </div>
-              <div
-                class="flexbox center-aligned"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit mui-1kjkxoc-MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,10.5A1.5,1.5 0 0,1 13.5,12A1.5,1.5 0 0,1 12,13.5A1.5,1.5 0 0,1 10.5,12A1.5,1.5 0 0,1 12,10.5M7.5,10.5A1.5,1.5 0 0,1 9,12A1.5,1.5 0 0,1 7.5,13.5A1.5,1.5 0 0,1 6,12A1.5,1.5 0 0,1 7.5,10.5M16.5,10.5A1.5,1.5 0 0,1 18,12A1.5,1.5 0 0,1 16.5,13.5A1.5,1.5 0 0,1 15,12A1.5,1.5 0 0,1 16.5,10.5Z"
-                  />
-                </svg>
-                <span
-                  class="margin-left-small"
-                >
-                  Queued to start
-                </span>
-              </div>
             </div>
-            <div
-              class="clickable mui-14kqbng-base"
-            >
-              <div>
-                <div>
-                  r1
-                </div>
-                <div
-                  class=""
-                  title="test deployment 2"
-                >
-                  test deployment 2
-                </div>
-              </div>
-              <div
-                class="flexbox center-aligned"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit mui-1kjkxoc-MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,10.5A1.5,1.5 0 0,1 13.5,12A1.5,1.5 0 0,1 12,13.5A1.5,1.5 0 0,1 10.5,12A1.5,1.5 0 0,1 12,10.5M7.5,10.5A1.5,1.5 0 0,1 9,12A1.5,1.5 0 0,1 7.5,13.5A1.5,1.5 0 0,1 6,12A1.5,1.5 0 0,1 7.5,10.5M16.5,10.5A1.5,1.5 0 0,1 18,12A1.5,1.5 0 0,1 16.5,13.5A1.5,1.5 0 0,1 15,12A1.5,1.5 0 0,1 16.5,10.5Z"
-                  />
-                </svg>
-                <span
-                  class="margin-left-small"
-                >
-                  Queued to start
-                </span>
-              </div>
-            </div>
-            <h5
-              class="margin-bottom-none"
-            >
-              In Progress
-            </h5>
-            <div
-              class="clickable mui-14kqbng-base"
-            >
-              <div>
-                <div>
-                  r1
-                </div>
-                <div
-                  class=""
-                  title="test deployment"
-                >
-                  test deployment
-                </div>
-              </div>
-              <div
-                class="relative mui-f0yq8v-container minimal "
-              >
-                <div
-                  class="chart-container"
-                >
-                  <div
-                    class="progress-chart relative detailed"
-                  >
-                    <div
-                      class="progress-step"
-                      style="left: 0%; width: 100%;"
-                    >
-                      <div
-                        class="progress-bar"
-                        style="width: 100%; background-color: rgb(170, 170, 170);"
-                      />
-                      <div
-                        style="display: contents;"
-                      >
-                        <div
-                          class="progress-bar green"
-                          style="width: 0%;"
-                        />
-                        <div
-                          class="progress-bar warning"
-                          style="left: 0%; width: 0%;"
-                        />
-                      </div>
-                    </div>
-                    <div
-                      class="progress-step relative flexbox progress-step-total"
-                    >
-                      <div
-                        class="progress-bar"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="clickable mui-14kqbng-base"
-            >
-              <div>
-                <div>
-                  r1
-                </div>
-                <div
-                  class=""
-                  title="test deployment 2"
-                >
-                  test deployment 2
-                </div>
-              </div>
-              <div
-                class="flexbox center-aligned"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit mui-1kjkxoc-MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,10.5A1.5,1.5 0 0,1 13.5,12A1.5,1.5 0 0,1 12,13.5A1.5,1.5 0 0,1 10.5,12A1.5,1.5 0 0,1 12,10.5M7.5,10.5A1.5,1.5 0 0,1 9,12A1.5,1.5 0 0,1 7.5,13.5A1.5,1.5 0 0,1 6,12A1.5,1.5 0 0,1 7.5,10.5M16.5,10.5A1.5,1.5 0 0,1 18,12A1.5,1.5 0 0,1 16.5,13.5A1.5,1.5 0 0,1 15,12A1.5,1.5 0 0,1 16.5,10.5Z"
-                  />
-                </svg>
-                <span
-                  class="margin-left-small"
-                >
-                  Queued to start
-                </span>
-              </div>
-            </div>
-            <h5
-              class="margin-bottom-none"
-            >
-              Finished
-            </h5>
-            <div
-              class="mui-g32kg5-wrapper"
-            >
-              <time
-                class="muted slightly-smaller"
-                datetime="2019-01-13T13:00:00+00:00"
-              >
-                2019-01-13 13:00
-              </time>
-              <div
-                class="clickable mui-14kqbng-base"
-              >
-                <div>
-                  <div>
-                    r1
-                  </div>
-                  <div
-                    class=""
-                    title="test deployment"
-                  >
-                    test deployment
-                  </div>
-                </div>
-                <div
-                  class="mui-bkzd8c-finished"
-                >
-                  <div
-                    class="flexbox mui-kxl8gn-resultsStatus "
-                  >
-                    <div
-                      aria-label="Skipped"
-                      class="flexbox centered disabled"
-                      data-mui-internal-clone-element="true"
-                    >
-                      <img
-                        src="skipped_status.png"
-                      />
-                      <div
-                        class="status"
-                      >
-                        0
-                      </div>
-                    </div>
-                    <div
-                      aria-label="Pending"
-                      class="flexbox centered disabled"
-                      data-mui-internal-clone-element="true"
-                    >
-                      <img
-                        src="pending_status.png"
-                      />
-                      <div
-                        class="status"
-                      >
-                        0
-                      </div>
-                    </div>
-                    <div
-                      aria-label="In progress"
-                      class="flexbox centered "
-                      data-mui-internal-clone-element="true"
-                    >
-                      <img
-                        src="progress_status.png"
-                      />
-                      <div
-                        class="status"
-                      >
-                        1
-                      </div>
-                    </div>
-                    <div
-                      aria-label="Successful"
-                      class="flexbox centered disabled"
-                      data-mui-internal-clone-element="true"
-                    >
-                      <img
-                        src="success_status.png"
-                      />
-                      <div
-                        class="status"
-                      >
-                        0
-                      </div>
-                    </div>
-                    <div
-                      aria-label="Failed"
-                      class="flexbox centered disabled"
-                      data-mui-internal-clone-element="true"
-                    >
-                      <img
-                        src="error_status.png"
-                      />
-                      <div
-                        class="status"
-                      >
-                        0
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="mui-g32kg5-wrapper"
-            >
-              <time
-                class="muted slightly-smaller"
-                datetime="2019-01-13T13:00:00+00:00"
-              >
-                2019-01-13 13:00
-              </time>
-              <div
-                class="clickable mui-14kqbng-base"
-              >
-                <div>
-                  <div>
-                    r1
-                  </div>
-                  <div
-                    class=""
-                    title="test deployment 2"
-                  >
-                    test deployment 2
-                  </div>
-                </div>
-                <div
-                  class="mui-bkzd8c-finished"
-                >
-                  <div
-                    class="flexbox mui-kxl8gn-resultsStatus "
-                  >
-                    <div
-                      aria-label="Skipped"
-                      class="flexbox centered disabled"
-                      data-mui-internal-clone-element="true"
-                    >
-                      <img
-                        src="skipped_status.png"
-                      />
-                      <div
-                        class="status"
-                      >
-                        0
-                      </div>
-                    </div>
-                    <div
-                      aria-label="Pending"
-                      class="flexbox centered "
-                      data-mui-internal-clone-element="true"
-                    >
-                      <img
-                        src="pending_status.png"
-                      />
-                      <div
-                        class="status"
-                      >
-                        1
-                      </div>
-                    </div>
-                    <div
-                      aria-label="In progress"
-                      class="flexbox centered disabled"
-                      data-mui-internal-clone-element="true"
-                    >
-                      <img
-                        src="progress_status.png"
-                      />
-                      <div
-                        class="status"
-                      >
-                        0
-                      </div>
-                    </div>
-                    <div
-                      aria-label="Successful"
-                      class="flexbox centered disabled"
-                      data-mui-internal-clone-element="true"
-                    >
-                      <img
-                        src="success_status.png"
-                      />
-                      <div
-                        class="status"
-                      >
-                        0
-                      </div>
-                    </div>
-                    <div
-                      aria-label="Failed"
-                      class="flexbox centered disabled"
-                      data-mui-internal-clone-element="true"
-                    >
-                      <img
-                        src="error_status.png"
-                      />
-                      <div
-                        class="status"
-                      >
-                        0
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <a
-              class="margin-top"
-              href="/deployments"
-            >
-              See all deployments
-            </a>
           </div>
         </div>
       </div>

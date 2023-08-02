@@ -45,9 +45,10 @@ exports[`DeviceConnection Component renders correctly 1`] = `
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   color: #fff;
-  background-color: #337a87;
+  background-color: #14A452;
   box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
-  border-radius: 2px;
+  text-transform: none;
+  border-radius: 4px;
   font-size: 14px;
   font-weight: bold;
   margin-right: 16px;
@@ -74,13 +75,13 @@ exports[`DeviceConnection Component renders correctly 1`] = `
 .emotion-0:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
   box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
 }
 
 @media (hover: none) {
   .emotion-0:hover {
-    background-color: #337a87;
+    background-color: #14A452;
   }
 }
 
@@ -99,11 +100,11 @@ exports[`DeviceConnection Component renders correctly 1`] = `
 }
 
 .emotion-0:hover {
-  colors: #337a87;
+  colors: #14A452;
 }
 
 .emotion-0.MuiButton-text {
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
 }
 
 .emotion-1 {
@@ -250,9 +251,10 @@ exports[`DeviceConnection Component renders correctly when connected 1`] = `
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   color: #fff;
-  background-color: #337a87;
+  background-color: #14A452;
   box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
-  border-radius: 2px;
+  text-transform: none;
+  border-radius: 4px;
   font-size: 14px;
   font-weight: bold;
   margin-right: 16px;
@@ -279,13 +281,13 @@ exports[`DeviceConnection Component renders correctly when connected 1`] = `
 .emotion-0:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
   box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
 }
 
 @media (hover: none) {
   .emotion-0:hover {
-    background-color: #337a87;
+    background-color: #14A452;
   }
 }
 
@@ -304,11 +306,11 @@ exports[`DeviceConnection Component renders correctly when connected 1`] = `
 }
 
 .emotion-0:hover {
-  colors: #337a87;
+  colors: #14A452;
 }
 
 .emotion-0.MuiButton-text {
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
 }
 
 .emotion-1 {
@@ -354,8 +356,9 @@ exports[`DeviceConnection Component renders correctly when connected 1`] = `
   border-radius: 4px;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  color: #337a87;
-  border-radius: 2px;
+  color: #14A452;
+  text-transform: none;
+  border-radius: 4px;
   font-size: 14px;
   font-weight: bold;
   padding: 10px 15px;
@@ -380,7 +383,7 @@ exports[`DeviceConnection Component renders correctly when connected 1`] = `
 .emotion-1:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgba(51, 122, 135, 0.04);
+  background-color: rgba(20, 164, 82, 0.04);
 }
 
 @media (hover: none) {
@@ -394,11 +397,15 @@ exports[`DeviceConnection Component renders correctly when connected 1`] = `
 }
 
 .emotion-1:hover {
-  colors: #337a87;
+  colors: #14A452;
 }
 
 .emotion-1.MuiButton-text {
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
+}
+
+.emotion-1:hover {
+  background: #F5F5F5;
 }
 
 .emotion-2 {
@@ -646,9 +653,10 @@ exports[`DeviceConnection Component renders correctly when disconnected 1`] = `
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   color: #fff;
-  background-color: #337a87;
+  background-color: #14A452;
   box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
-  border-radius: 2px;
+  text-transform: none;
+  border-radius: 4px;
   font-size: 14px;
   font-weight: bold;
   margin-right: 16px;
@@ -675,13 +683,13 @@ exports[`DeviceConnection Component renders correctly when disconnected 1`] = `
 .emotion-0:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
   box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
 }
 
 @media (hover: none) {
   .emotion-0:hover {
-    background-color: #337a87;
+    background-color: #14A452;
   }
 }
 
@@ -700,11 +708,11 @@ exports[`DeviceConnection Component renders correctly when disconnected 1`] = `
 }
 
 .emotion-0:hover {
-  colors: #337a87;
+  colors: #14A452;
 }
 
 .emotion-0.MuiButton-text {
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
 }
 
 .emotion-1 {
@@ -867,7 +875,7 @@ exports[`tiny DeviceConnection components renders DeviceConnectionMissingNote co
       Please
        
       <a
-        href="https://docs.mender.io/add-ons/remote-terminal"
+        href="https://docs.mender.io/undefinedadd-ons/remote-terminal"
         rel="noopener noreferrer"
         target="_blank"
       >
@@ -941,7 +949,7 @@ exports[`tiny DeviceConnection components renders DeviceDisconnectedNote correct
       Please
        
       <a
-        href="https://docs.mender.io/add-ons/remote-terminal"
+        href="https://docs.mender.io/undefinedadd-ons/remote-terminal"
         rel="noopener noreferrer"
         target="_blank"
       >
@@ -980,7 +988,7 @@ exports[`tiny DeviceConnection components renders PortForwardLink correctly 1`] 
   <a
     class="flexbox centered margin-left"
     data-mui-internal-clone-element="true"
-    href="https://docs.mender.io/add-ons/port-forward"
+    href="https://docs.mender.io/undefinedadd-ons/port-forward"
     rel="noopener noreferrer"
     target="_blank"
   >

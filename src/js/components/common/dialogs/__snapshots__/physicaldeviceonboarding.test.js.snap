@@ -158,14 +158,14 @@ exports[`PhysicalDeviceOnboarding Component renders correctly 1`] = `
 }
 
 .emotion-2 {
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   line-height: 1.4375em;
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
   padding: 0;
   position: relative;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   display: block;
   transform-origin: top left;
   white-space: nowrap;
@@ -184,7 +184,7 @@ exports[`PhysicalDeviceOnboarding Component renders correctly 1`] = `
 }
 
 .emotion-2.Mui-focused {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-2.Mui-disabled {
@@ -196,7 +196,7 @@ exports[`PhysicalDeviceOnboarding Component renders correctly 1`] = `
 }
 
 .emotion-2.Mui-focused {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-3 {
@@ -204,7 +204,7 @@ exports[`PhysicalDeviceOnboarding Component renders correctly 1`] = `
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   box-sizing: border-box;
   position: relative;
   cursor: text;
@@ -230,7 +230,7 @@ label+.emotion-3 {
 }
 
 .emotion-3:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
   content: "";
@@ -270,7 +270,7 @@ label+.emotion-3 {
 }
 
 .emotion-3:hover:not(.Mui-disabled, .Mui-error):before {
-  border-bottom: 2px solid rgba(10, 10, 11, 0.78);
+  border-bottom: 2px solid #212121;
 }
 
 @media (hover: none) {
@@ -288,11 +288,11 @@ label+.emotion-3 {
 }
 
 .emotion-3:hover:not($disabled):before {
-  border-bottom: 2px solid #337a87!important;
+  border-bottom: 2px solid #14A452!important;
 }
 
 .emotion-3:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
 }
 
 .emotion-4 {
@@ -450,7 +450,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
   -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   font-size: 1.2rem;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   margin-right: -2px;
   padding: 4px;
   visibility: hidden;
@@ -811,14 +811,14 @@ exports[`PhysicalDeviceOnboarding Component tiny onboarding tips renders DeviceT
 }
 
 .emotion-2 {
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   line-height: 1.4375em;
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
   padding: 0;
   position: relative;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   display: block;
   transform-origin: top left;
   white-space: nowrap;
@@ -837,7 +837,7 @@ exports[`PhysicalDeviceOnboarding Component tiny onboarding tips renders DeviceT
 }
 
 .emotion-2.Mui-focused {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-2.Mui-disabled {
@@ -849,7 +849,7 @@ exports[`PhysicalDeviceOnboarding Component tiny onboarding tips renders DeviceT
 }
 
 .emotion-2.Mui-focused {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-3 {
@@ -857,7 +857,7 @@ exports[`PhysicalDeviceOnboarding Component tiny onboarding tips renders DeviceT
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   box-sizing: border-box;
   position: relative;
   cursor: text;
@@ -883,7 +883,7 @@ label+.emotion-3 {
 }
 
 .emotion-3:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
   content: "";
@@ -923,7 +923,7 @@ label+.emotion-3 {
 }
 
 .emotion-3:hover:not(.Mui-disabled, .Mui-error):before {
-  border-bottom: 2px solid rgba(10, 10, 11, 0.78);
+  border-bottom: 2px solid #212121;
 }
 
 @media (hover: none) {
@@ -941,11 +941,11 @@ label+.emotion-3 {
 }
 
 .emotion-3:hover:not($disabled):before {
-  border-bottom: 2px solid #337a87!important;
+  border-bottom: 2px solid #14A452!important;
 }
 
 .emotion-3:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
 }
 
 .emotion-4 {
@@ -1103,7 +1103,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
   -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   font-size: 1.2rem;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   margin-right: -2px;
   padding: 4px;
   visibility: hidden;
@@ -1506,8 +1506,9 @@ exports[`PhysicalDeviceOnboarding Component tiny onboarding tips renders Install
   border-radius: 4px;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  color: #337a87;
-  border-radius: 2px;
+  color: #14A452;
+  text-transform: none;
+  border-radius: 4px;
   font-size: 14px;
   font-weight: bold;
   padding: 10px 15px;
@@ -1532,7 +1533,7 @@ exports[`PhysicalDeviceOnboarding Component tiny onboarding tips renders Install
 .emotion-1:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgba(51, 122, 135, 0.04);
+  background-color: rgba(20, 164, 82, 0.04);
 }
 
 @media (hover: none) {
@@ -1546,11 +1547,15 @@ exports[`PhysicalDeviceOnboarding Component tiny onboarding tips renders Install
 }
 
 .emotion-1:hover {
-  colors: #337a87;
+  colors: #14A452;
 }
 
 .emotion-1.MuiButton-text {
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
+}
+
+.emotion-1:hover {
+  background: #F5F5F5;
 }
 
 .emotion-2 {

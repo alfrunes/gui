@@ -44,8 +44,9 @@ exports[`Configuration Component renders correctly 1`] = `
   border-radius: 4px;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  color: #337a87;
-  border-radius: 2px;
+  color: #14A452;
+  text-transform: none;
+  border-radius: 4px;
   font-size: 14px;
   font-weight: bold;
   padding: 10px 15px;
@@ -70,7 +71,7 @@ exports[`Configuration Component renders correctly 1`] = `
 .emotion-0:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgba(51, 122, 135, 0.04);
+  background-color: rgba(20, 164, 82, 0.04);
 }
 
 @media (hover: none) {
@@ -84,11 +85,15 @@ exports[`Configuration Component renders correctly 1`] = `
 }
 
 .emotion-0:hover {
-  colors: #337a87;
+  colors: #14A452;
 }
 
 .emotion-0.MuiButton-text {
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
+}
+
+.emotion-0:hover {
+  background: #F5F5F5;
 }
 
 .emotion-1 {
@@ -178,9 +183,10 @@ exports[`Configuration Component renders correctly 1`] = `
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   color: #fff;
-  background-color: #337a87;
+  background-color: #14A452;
   box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
-  border-radius: 2px;
+  text-transform: none;
+  border-radius: 4px;
   font-size: 14px;
   font-weight: bold;
   margin-right: 16px;
@@ -207,13 +213,13 @@ exports[`Configuration Component renders correctly 1`] = `
 .emotion-4:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
   box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
 }
 
 @media (hover: none) {
   .emotion-4:hover {
-    background-color: #337a87;
+    background-color: #14A452;
   }
 }
 
@@ -232,16 +238,25 @@ exports[`Configuration Component renders correctly 1`] = `
 }
 
 .emotion-4:hover {
-  colors: #337a87;
+  colors: #14A452;
 }
 
 .emotion-4.MuiButton-text {
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
 }
 
-.emotion-5 .key>b {
-  background-color: #f7f7f7;
-  color: rgba(0, 0, 0, 0.87);
+.emotion-5.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  -webkit-column-gap: 16px;
+  column-gap: 16px;
+  row-gap: 8px;
+  color: #424242;
+}
+
+.emotion-5.two-columns .key b {
+  font-weight: 400;
+  color: #616161;
 }
 
 .emotion-7 {
@@ -323,10 +338,10 @@ exports[`Configuration Component renders correctly 1`] = `
     class="relative"
   >
     <div
-      class="break-all two-columns emotion-5  column-data "
+      class="break-all two-columns  column-data  emotion-5"
     >
       <div
-        class="align-right key muted"
+        class="align-right key"
       >
         <b>
           uiPasswordRequired
@@ -342,7 +357,7 @@ exports[`Configuration Component renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="align-right key muted"
+        class="align-right key"
       >
         <b>
           foo
@@ -358,7 +373,7 @@ exports[`Configuration Component renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="align-right key muted"
+        class="align-right key"
       >
         <b>
           timezone
@@ -478,8 +493,8 @@ exports[`tiny components renders ConfigEditingActions correctly 1`] = `
   color: inherit;
   padding: 9px;
   border-radius: 50%;
-  color: rgba(0, 0, 0, 0.54);
-  color: rgba(10, 10, 11, 0.78);
+  color: #424242;
+  color: #212121;
 }
 
 .emotion-1::-moz-focus-inner {
@@ -499,7 +514,7 @@ exports[`tiny components renders ConfigEditingActions correctly 1`] = `
 }
 
 .emotion-1:hover {
-  background-color: rgba(51, 122, 135, 0.04);
+  background-color: rgba(20, 164, 82, 0.04);
 }
 
 @media (hover: none) {
@@ -510,7 +525,7 @@ exports[`tiny components renders ConfigEditingActions correctly 1`] = `
 
 .emotion-1.Mui-checked,
 .emotion-1.MuiCheckbox-indeterminate {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-1.Mui-disabled {
@@ -615,9 +630,10 @@ exports[`tiny components renders ConfigEditingActions correctly 1`] = `
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   color: #fff;
-  background-color: #337a87;
+  background-color: #14A452;
   box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
-  border-radius: 2px;
+  text-transform: none;
+  border-radius: 4px;
   font-size: 14px;
   font-weight: bold;
 }
@@ -641,13 +657,13 @@ exports[`tiny components renders ConfigEditingActions correctly 1`] = `
 .emotion-6:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
   box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
 }
 
 @media (hover: none) {
   .emotion-6:hover {
-    background-color: #337a87;
+    background-color: #14A452;
   }
 }
 
@@ -666,11 +682,11 @@ exports[`tiny components renders ConfigEditingActions correctly 1`] = `
 }
 
 .emotion-6:hover {
-  colors: #337a87;
+  colors: #14A452;
 }
 
 .emotion-6.MuiButton-text {
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
 }
 
 <div>
@@ -893,8 +909,9 @@ exports[`tiny components renders ConfigUpdateFailureActions correctly 1`] = `
   border-radius: 4px;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  color: #5d0f43;
-  border-radius: 2px;
+  color: #fff;
+  text-transform: none;
+  border-radius: 4px;
   font-size: 14px;
   font-weight: bold;
   padding: 10px 15px;
@@ -919,7 +936,7 @@ exports[`tiny components renders ConfigUpdateFailureActions correctly 1`] = `
 .emotion-0:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgba(93, 15, 67, 0.04);
+  background-color: rgba(255, 255, 255, 0.04);
 }
 
 @media (hover: none) {
@@ -933,11 +950,15 @@ exports[`tiny components renders ConfigUpdateFailureActions correctly 1`] = `
 }
 
 .emotion-0:hover {
-  colors: #337a87;
+  colors: #14A452;
 }
 
 .emotion-0.MuiButton-text {
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
+}
+
+.emotion-0:hover {
+  background: #F5F5F5;
 }
 
 .emotion-1 {

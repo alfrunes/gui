@@ -3,11 +3,11 @@
 exports[`DeviceList Component renders correctly 1`] = `
 "<div>
   <div
-    class="deviceList "
+    class="deviceList  undefined"
     style="grid-template-columns: minmax(250px, 1fr) minmax(150px, 1.5fr) minmax(150px, 1.5fr) minmax(150px, max-content);"
   >
     <div
-      class="header css-nsqcrh-header"
+      class="header css-15itsyh-header"
     >
       <div
         class="deviceListRow"
@@ -65,7 +65,7 @@ exports[`DeviceList Component renders correctly 1`] = `
       class="footer flexbox margin-top"
     >
       <div
-        class="MuiTablePagination-root flexbox margin-top margin-top-none css-1s8wd9s-MuiTablePagination-root"
+        class="MuiTablePagination-root flexbox margin-top margin-top-none css-1ub9kgf-MuiTablePagination-root"
       >
         <div
           class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular MuiTablePagination-toolbar css-78c6dr-MuiToolbar-root-MuiTablePagination-toolbar"
@@ -80,7 +80,7 @@ exports[`DeviceList Component renders correctly 1`] = `
             Rows
           </p>
           <div
-            class="MuiInputBase-root MuiInputBase-colorPrimary css-7kd4nt-MuiInputBase-root-MuiTablePagination-select"
+            class="MuiInputBase-root MuiInputBase-colorPrimary css-1y7ceb0-MuiInputBase-root-MuiTablePagination-select"
           >
             <div
               aria-expanded="false"
@@ -122,7 +122,7 @@ exports[`DeviceList Component renders correctly 1`] = `
               1-20 of 50
             </div>
             <button
-              class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeLarge css-13hun5h-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeLarge css-ky8r02-MuiButtonBase-root-MuiIconButton-root"
               disabled=""
               tabindex="-1"
               type="button"
@@ -141,7 +141,7 @@ exports[`DeviceList Component renders correctly 1`] = `
             </button>
             <div>
               <button
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeLarge css-13hun5h-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeLarge css-ky8r02-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
                 type="button"
               >

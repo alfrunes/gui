@@ -44,11 +44,11 @@ exports[`Devices Component renders correctly 1`] = `
 }
 
 .emotion-2.red {
-  color: #5d0f43;
+  color: #fff;
 }
 
 .emotion-2.green {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-3 {

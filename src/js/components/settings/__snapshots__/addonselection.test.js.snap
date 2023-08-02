@@ -69,8 +69,8 @@ exports[`AddOnSelection component renders correctly 1`] = `
   color: inherit;
   padding: 9px;
   border-radius: 50%;
-  color: rgba(0, 0, 0, 0.54);
-  color: rgba(10, 10, 11, 0.78);
+  color: #424242;
+  color: #212121;
 }
 
 .emotion-1::-moz-focus-inner {
@@ -90,7 +90,7 @@ exports[`AddOnSelection component renders correctly 1`] = `
 }
 
 .emotion-1:hover {
-  background-color: rgba(51, 122, 135, 0.04);
+  background-color: rgba(20, 164, 82, 0.04);
 }
 
 @media (hover: none) {
@@ -101,7 +101,7 @@ exports[`AddOnSelection component renders correctly 1`] = `
 
 .emotion-1.Mui-checked,
 .emotion-1.MuiCheckbox-indeterminate {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-1.Mui-disabled {

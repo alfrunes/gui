@@ -158,14 +158,14 @@ exports[`GroupDefinition Component renders correctly 1`] = `
 }
 
 .emotion-2 {
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   line-height: 1.4375em;
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
   padding: 0;
   position: relative;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   display: block;
   transform-origin: top left;
   white-space: nowrap;
@@ -184,7 +184,7 @@ exports[`GroupDefinition Component renders correctly 1`] = `
 }
 
 .emotion-2.Mui-focused {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-2.Mui-disabled {
@@ -196,7 +196,7 @@ exports[`GroupDefinition Component renders correctly 1`] = `
 }
 
 .emotion-2.Mui-focused {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-3 {
@@ -204,7 +204,7 @@ exports[`GroupDefinition Component renders correctly 1`] = `
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   box-sizing: border-box;
   position: relative;
   cursor: text;
@@ -230,7 +230,7 @@ label+.emotion-3 {
 }
 
 .emotion-3:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
   content: "";
@@ -270,7 +270,7 @@ label+.emotion-3 {
 }
 
 .emotion-3:hover:not(.Mui-disabled, .Mui-error):before {
-  border-bottom: 2px solid rgba(10, 10, 11, 0.78);
+  border-bottom: 2px solid #212121;
 }
 
 @media (hover: none) {
@@ -288,11 +288,11 @@ label+.emotion-3 {
 }
 
 .emotion-3:hover:not($disabled):before {
-  border-bottom: 2px solid #337a87!important;
+  border-bottom: 2px solid #14A452!important;
 }
 
 .emotion-3:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
 }
 
 .emotion-4 {
@@ -400,7 +400,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
 }
 
 .emotion-5 {
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.6964rem;

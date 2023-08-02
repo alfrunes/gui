@@ -20,7 +20,31 @@ exports[`Search Component renders correctly 1`] = `
 }
 
 .emotion-0 input {
-  font-size: 13px;
+  font-size: 14px;
+  color: #616161;
+}
+
+.emotion-0 input::-webkit-input-placeholder {
+  opacity: 1;
+}
+
+.emotion-0 input::-moz-placeholder {
+  opacity: 1;
+}
+
+.emotion-0 input:-ms-input-placeholder {
+  opacity: 1;
+}
+
+.emotion-0 input::placeholder {
+  opacity: 1;
+}
+
+.emotion-0 .MuiInput-root:before,
+.emotion-0 .MuiInput-root:hover:before,
+.emotion-0 .MuiInput-root.Mui-focused:after,
+.emotion-0 .MuiInput-root.Mui-focused:before {
+  border: none!important;
 }
 
 .emotion-1 {
@@ -28,7 +52,7 @@ exports[`Search Component renders correctly 1`] = `
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   box-sizing: border-box;
   position: relative;
   cursor: text;
@@ -53,7 +77,7 @@ label+.emotion-1 {
 }
 
 .emotion-1:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
   content: "";
@@ -93,7 +117,7 @@ label+.emotion-1 {
 }
 
 .emotion-1:hover:not(.Mui-disabled, .Mui-error):before {
-  border-bottom: 2px solid rgba(10, 10, 11, 0.78);
+  border-bottom: 2px solid #212121;
 }
 
 @media (hover: none) {
@@ -111,11 +135,11 @@ label+.emotion-1 {
 }
 
 .emotion-1:hover:not($disabled):before {
-  border-bottom: 2px solid #337a87!important;
+  border-bottom: 2px solid #14A452!important;
 }
 
 .emotion-1:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
 }
 
 .emotion-2 {
@@ -149,6 +173,7 @@ label+.emotion-1 {
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   color: rgba(0, 0, 0, 0.26);
+  color: #616161;
 }
 
 .emotion-3 iconButton {
@@ -260,80 +285,44 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
   animation-name: mui-auto-fill;
 }
 
-.emotion-5 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 0.01em;
-  max-height: 2em;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  white-space: nowrap;
-  color: rgba(0, 0, 0, 0.54);
-  margin-left: 8px;
-}
-
-<div
-  class="MuiFormControl-root MuiTextField-root emotion-0"
->
+<div>
   <div
-    class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd emotion-1"
+    class="MuiFormControl-root MuiTextField-root emotion-0"
+    readonly=""
   >
     <div
-      class="MuiInputAdornment-root MuiInputAdornment-positionStart MuiInputAdornment-standard MuiInputAdornment-sizeSmall emotion-2"
-    >
-      <span
-        class="notranslate"
-      >
-        ​
-      </span>
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root MuiSvgIcon-colorDisabled MuiSvgIcon-fontSizeSize emotion-3"
-        data-testid="SearchIcon"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-        />
-      </svg>
-    </div>
-    <input
-      aria-invalid="false"
-      class="MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd emotion-4"
-      id="mui-1"
-      placeholder="Search devices"
-      type="text"
-      value=""
-    />
-    <div
-      class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-standard MuiInputAdornment-sizeSmall emotion-5"
+      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart Mui-readOnly MuiInputBase-readOnly emotion-1"
     >
       <div
-        class="loaderContainer"
-        style="margin-top: -10px;"
+        class="MuiInputAdornment-root MuiInputAdornment-positionStart MuiInputAdornment-standard MuiInputAdornment-sizeSmall emotion-2"
       >
-        <div
-          class="small  loader"
+        <span
+          class="notranslate"
         >
-          <span
-            class="dot dot_1"
+          ​
+        </span>
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-colorDisabled MuiSvgIcon-fontSizeSize emotion-3"
+          data-testid="SearchIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
           />
-          <span
-            class="dot dot_2"
-          />
-          <span
-            class="dot dot_3"
-          />
-          <span
-            class="dot dot_4"
-          />
-        </div>
+        </svg>
       </div>
+      <input
+        aria-invalid="false"
+        autocomplete="off"
+        class="MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart Mui-readOnly MuiInputBase-readOnly emotion-4"
+        id="mui-1"
+        placeholder="Search devices"
+        readonly=""
+        type="text"
+        value=""
+      />
     </div>
   </div>
 </div>

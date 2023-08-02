@@ -52,7 +52,7 @@ exports[`PendingDevices Component renders correctly 1`] = `
   color: rgba(0, 0, 0, 0.87);
   background-color: #e6f2f1;
   color: #fff;
-  background-color: #337a87;
+  background-color: #14A452;
   top: -28px;
   right: 16px;
   z-index: 1;
@@ -95,12 +95,12 @@ exports[`PendingDevices Component renders correctly 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
 }
 
 @media (hover: none) {
   .emotion-0:hover {
-    background-color: #337a87;
+    background-color: #14A452;
   }
 }
 

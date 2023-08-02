@@ -64,7 +64,7 @@ exports[`TroubleshootDialog Component renders correctly 1`] = `
 
 .emotion-3 {
   background-color: #fff;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   border-radius: 4px;
@@ -215,7 +215,7 @@ exports[`TroubleshootDialog Component renders correctly 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   text-transform: none;
 }
 
@@ -236,7 +236,7 @@ exports[`TroubleshootDialog Component renders correctly 1`] = `
 }
 
 .emotion-10.Mui-selected {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-10.Mui-disabled {
@@ -285,7 +285,7 @@ exports[`TroubleshootDialog Component renders correctly 1`] = `
   width: 100%;
   -webkit-transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  background-color: #337a87;
+  background-color: #14A452;
 }
 
 .emotion-16 {
@@ -302,19 +302,28 @@ exports[`TroubleshootDialog Component renders correctly 1`] = `
   grid-template-rows: max-content minmax(min-content, 1fr);
 }
 
-.emotion-17 .key>b {
-  background-color: #f7f7f7;
-  color: rgba(0, 0, 0, 0.87);
-}
-
-.emotion-18 {
+.emotion-17 {
   max-width: -webkit-max-content;
   max-width: -moz-max-content;
   max-width: max-content;
 }
 
+.emotion-18.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  -webkit-column-gap: 16px;
+  column-gap: 16px;
+  row-gap: 8px;
+  color: #424242;
+}
+
+.emotion-18.two-columns .key b {
+  font-weight: 400;
+  color: #616161;
+}
+
 .emotion-19 {
-  background: rgba(10, 10, 11, 0.78);
+  background: #212121;
 }
 
 .emotion-20 {
@@ -360,10 +369,11 @@ exports[`TroubleshootDialog Component renders correctly 1`] = `
   border-radius: 4px;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  color: #fff;
-  background-color: #5d0f43;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #fff;
   box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
-  border-radius: 2px;
+  text-transform: none;
+  border-radius: 4px;
   font-size: 14px;
   font-weight: bold;
 }
@@ -387,13 +397,13 @@ exports[`TroubleshootDialog Component renders correctly 1`] = `
 .emotion-20:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgb(65, 10, 46);
+  background-color: rgb(178, 178, 178);
   box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
 }
 
 @media (hover: none) {
   .emotion-20:hover {
-    background-color: #5d0f43;
+    background-color: #fff;
   }
 }
 
@@ -412,11 +422,11 @@ exports[`TroubleshootDialog Component renders correctly 1`] = `
 }
 
 .emotion-20:hover {
-  colors: #337a87;
+  colors: #14A452;
 }
 
 .emotion-20.MuiButton-text {
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
 }
 
 .emotion-22 {
@@ -485,8 +495,9 @@ exports[`TroubleshootDialog Component renders correctly 1`] = `
   border-radius: 4px;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  color: #337a87;
-  border-radius: 2px;
+  color: #14A452;
+  text-transform: none;
+  border-radius: 4px;
   font-size: 14px;
   font-weight: bold;
   padding: 10px 15px;
@@ -511,7 +522,7 @@ exports[`TroubleshootDialog Component renders correctly 1`] = `
 .emotion-23:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgba(51, 122, 135, 0.04);
+  background-color: rgba(20, 164, 82, 0.04);
 }
 
 @media (hover: none) {
@@ -525,11 +536,15 @@ exports[`TroubleshootDialog Component renders correctly 1`] = `
 }
 
 .emotion-23:hover {
-  colors: #337a87;
+  colors: #14A452;
 }
 
 .emotion-23.MuiButton-text {
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
+}
+
+.emotion-23:hover {
+  background: #F5F5F5;
 }
 
 <div
@@ -568,8 +583,14 @@ exports[`TroubleshootDialog Component renders correctly 1`] = `
         <div
           class="flexbox space-between"
         >
-          <div>
-            a1
+          <div
+            title="a1"
+          >
+            <div
+              class="text-overflow"
+            >
+              a1
+            </div>
           </div>
         </div>
       </h2>
@@ -636,10 +657,10 @@ exports[`TroubleshootDialog Component renders correctly 1`] = `
           class="emotion-16  "
         >
           <div
-            class="break-all two-columns emotion-17  margin-top-small margin-bottom-small emotion-18"
+            class="break-all two-columns  margin-top-small margin-bottom-small emotion-17 emotion-18"
           >
             <div
-              class="align-right key muted"
+              class="align-right key"
             >
               <b>
                 Session status
@@ -655,7 +676,7 @@ exports[`TroubleshootDialog Component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="align-right key muted"
+              class="align-right key"
             >
               <b>
                 Connection start
@@ -671,7 +692,7 @@ exports[`TroubleshootDialog Component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="align-right key muted"
+              class="align-right key"
             >
               <b>
                 Duration
@@ -698,7 +719,6 @@ exports[`TroubleshootDialog Component renders correctly 1`] = `
               <div
                 class="terminal xterm"
                 dir="ltr"
-                tabindex="0"
               >
                 <div
                   class="xterm-viewport"

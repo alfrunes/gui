@@ -6,7 +6,7 @@ exports[`DeviceIssuesSelection Component renders correctly 1`] = `
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   box-sizing: border-box;
   position: relative;
   cursor: text;
@@ -266,20 +266,20 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-1:focus::-ms-input-p
 }
 
 .emotion-2.Mui-selected {
-  background-color: rgba(51, 122, 135, 0.08);
+  background-color: rgba(20, 164, 82, 0.08);
 }
 
 .emotion-2.Mui-selected.Mui-focusVisible {
-  background-color: rgba(51, 122, 135, 0.2);
+  background-color: rgba(20, 164, 82, 0.2);
 }
 
 .emotion-2.Mui-selected:hover {
-  background-color: rgba(51, 122, 135, 0.12);
+  background-color: rgba(20, 164, 82, 0.12);
 }
 
 @media (hover: none) {
   .emotion-2.Mui-selected:hover {
-    background-color: rgba(51, 122, 135, 0.08);
+    background-color: rgba(20, 164, 82, 0.08);
   }
 }
 

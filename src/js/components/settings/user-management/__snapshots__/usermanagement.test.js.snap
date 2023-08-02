@@ -45,9 +45,10 @@ exports[`UserManagement Component renders correctly 1`] = `
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   color: #fff;
-  background-color: #337a87;
+  background-color: #14A452;
   box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
-  border-radius: 2px;
+  text-transform: none;
+  border-radius: 4px;
   font-size: 14px;
   font-weight: bold;
 }
@@ -71,13 +72,13 @@ exports[`UserManagement Component renders correctly 1`] = `
 .emotion-0:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
   box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
 }
 
 @media (hover: none) {
   .emotion-0:hover {
-    background-color: #337a87;
+    background-color: #14A452;
   }
 }
 
@@ -96,11 +97,11 @@ exports[`UserManagement Component renders correctly 1`] = `
 }
 
 .emotion-0:hover {
-  colors: #337a87;
+  colors: #14A452;
 }
 
 .emotion-0.MuiButton-text {
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
 }
 
 .emotion-1 {
@@ -128,7 +129,7 @@ exports[`UserManagement Component renders correctly 1`] = `
   font-size: 0.8125rem;
   line-height: 1.43;
   padding: 16px;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   text-align: left;
   caption-side: bottom;
 }
@@ -161,11 +162,11 @@ exports[`UserManagement Component renders correctly 1`] = `
 }
 
 .emotion-4.Mui-selected {
-  background-color: rgba(51, 122, 135, 0.08);
+  background-color: rgba(20, 164, 82, 0.08);
 }
 
 .emotion-4.Mui-selected:hover {
-  background-color: rgba(51, 122, 135, 0.12);
+  background-color: rgba(20, 164, 82, 0.12);
 }
 
 .emotion-5 {
@@ -178,7 +179,7 @@ exports[`UserManagement Component renders correctly 1`] = `
   border-bottom: 1px solid rgba(224, 224, 224, 1);
   text-align: left;
   padding: 16px;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   padding: 0px 24px 0px 24px;
   height: 48px;
   height: 56px;
@@ -199,7 +200,7 @@ exports[`UserManagement Component renders correctly 1`] = `
   border-bottom: 1px solid rgba(224, 224, 224, 1);
   text-align: left;
   padding: 16px;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   padding: 0px 24px 0px 24px;
   height: 48px;
 }
@@ -242,7 +243,7 @@ exports[`UserManagement Component renders correctly 1`] = `
   -webkit-justify-content: center;
   justify-content: center;
   height: 24px;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   background-color: rgba(0, 0, 0, 0.08);
   border-radius: 16px;
   white-space: nowrap;
@@ -276,12 +277,12 @@ exports[`UserManagement Component renders correctly 1`] = `
 
 .emotion-20 .MuiChip-avatarColorPrimary {
   color: #fff;
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
 }
 
 .emotion-20 .MuiChip-avatarColorSecondary {
-  color: #fff;
-  background-color: rgb(65, 10, 46);
+  color: rgba(0, 0, 0, 0.87);
+  background-color: rgb(178, 178, 178);
 }
 
 .emotion-20 .MuiChip-avatarSmall {
@@ -301,7 +302,7 @@ exports[`UserManagement Component renders correctly 1`] = `
 
 .emotion-20 .MuiChip-deleteIcon {
   -webkit-tap-highlight-color: transparent;
-  color: rgba(10, 10, 11, 0.26);
+  color: rgba(33, 33, 33, 0.26);
   font-size: 16px;
   cursor: pointer;
   margin: 0 5px 0 -6px;
@@ -310,7 +311,7 @@ exports[`UserManagement Component renders correctly 1`] = `
 }
 
 .emotion-20 .MuiChip-deleteIcon:hover {
-  color: rgba(10, 10, 11, 0.4);
+  color: rgba(33, 33, 33, 0.4);
 }
 
 .emotion-20.MuiChip-clickable:hover {

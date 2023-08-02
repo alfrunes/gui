@@ -20,7 +20,7 @@ exports[`Auditlogs Component renders correctly 1`] = `
           class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-lzl4b9-MuiFormControl-root-MuiTextField-root"
         >
           <label
-            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard css-1diiyoc-MuiFormLabel-root-MuiInputLabel-root"
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard css-1fsyucu-MuiFormLabel-root-MuiInputLabel-root"
             data-shrink="true"
             for="audit-log-user-selection"
             id="audit-log-user-selection-label"
@@ -28,7 +28,7 @@ exports[`Auditlogs Component renders correctly 1`] = `
             Filter by user
           </label>
           <div
-            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiAutocomplete-inputRoot css-1wsxxsk-MuiInputBase-root-MuiInput-root"
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiAutocomplete-inputRoot css-1pv7xv3-MuiInputBase-root-MuiInput-root"
           >
             <input
               aria-autocomplete="list"
@@ -55,7 +55,7 @@ exports[`Auditlogs Component renders correctly 1`] = `
           class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-lzl4b9-MuiFormControl-root-MuiTextField-root"
         >
           <label
-            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard css-1diiyoc-MuiFormLabel-root-MuiInputLabel-root"
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard css-1fsyucu-MuiFormLabel-root-MuiInputLabel-root"
             data-shrink="true"
             for="audit-log-type-selection"
             id="audit-log-type-selection-label"
@@ -63,7 +63,7 @@ exports[`Auditlogs Component renders correctly 1`] = `
             Filter by change
           </label>
           <div
-            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1wsxxsk-MuiInputBase-root-MuiInput-root"
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1pv7xv3-MuiInputBase-root-MuiInput-root"
           >
             <input
               aria-autocomplete="list"
@@ -84,7 +84,7 @@ exports[`Auditlogs Component renders correctly 1`] = `
             >
               <button
                 aria-label="Open"
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-1xk1zqq-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-11imvxr-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
                 tabindex="-1"
                 title="Open"
                 type="button"
@@ -116,7 +116,7 @@ exports[`Auditlogs Component renders correctly 1`] = `
           class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-lzl4b9-MuiFormControl-root-MuiTextField-root"
         >
           <div
-            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl MuiAutocomplete-inputRoot css-1wsxxsk-MuiInputBase-root-MuiInput-root"
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl MuiAutocomplete-inputRoot css-1pv7xv3-MuiInputBase-root-MuiInput-root"
           >
             <input
               aria-autocomplete="list"
@@ -183,7 +183,7 @@ exports[`Auditlogs Component renders correctly 1`] = `
           class="MuiFormControl-root MuiTextField-root css-1x6hzm-MuiFormControl-root-MuiTextField-root"
         >
           <label
-            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard css-1diiyoc-MuiFormLabel-root-MuiInputLabel-root"
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard css-1fsyucu-MuiFormLabel-root-MuiInputLabel-root"
             data-shrink="true"
             for="mui-2"
             id="mui-2-label"
@@ -191,7 +191,7 @@ exports[`Auditlogs Component renders correctly 1`] = `
             From
           </label>
           <div
-            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-s15sbk-MuiInputBase-root-MuiInput-root"
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-1g73vl4-MuiInputBase-root-MuiInput-root"
           >
             <input
               aria-invalid="false"
@@ -208,7 +208,7 @@ exports[`Auditlogs Component renders correctly 1`] = `
             >
               <button
                 aria-label="Choose date, selected date is Jan 13, 2019"
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-188h89-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-awj7d2-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
                 type="button"
               >
@@ -234,7 +234,7 @@ exports[`Auditlogs Component renders correctly 1`] = `
           class="MuiFormControl-root MuiTextField-root margin-left-small css-1x6hzm-MuiFormControl-root-MuiTextField-root"
         >
           <label
-            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard css-1diiyoc-MuiFormLabel-root-MuiInputLabel-root"
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard css-1fsyucu-MuiFormLabel-root-MuiInputLabel-root"
             data-shrink="true"
             for="mui-4"
             id="mui-4-label"
@@ -242,7 +242,7 @@ exports[`Auditlogs Component renders correctly 1`] = `
             To
           </label>
           <div
-            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-s15sbk-MuiInputBase-root-MuiInput-root"
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-1g73vl4-MuiInputBase-root-MuiInput-root"
           >
             <input
               aria-invalid="false"
@@ -259,7 +259,7 @@ exports[`Auditlogs Component renders correctly 1`] = `
             >
               <button
                 aria-label="Choose date, selected date is Jan 13, 2019"
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-188h89-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-awj7d2-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
                 type="button"
               >
@@ -308,7 +308,7 @@ exports[`Auditlogs Component renders correctly 1`] = `
         </div>
       </div>
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1fxol34-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-h4cczj-MuiButtonBase-root-MuiButton-root"
         style="margin-left: 15px;"
         tabindex="0"
         type="button"
@@ -323,8 +323,24 @@ exports[`Auditlogs Component renders correctly 1`] = `
       class="fadeIn deploy-table-contain auditlogs-list"
     >
       <div
-        class="auditlogs-list-item auditlogs-list-item-header muted"
+        class="auditlogs-list-item auditlogs-list-item-header"
       >
+        <div
+          class="columnHeader"
+        >
+          Time
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium sortIcon selected false css-1lqc678-MuiSvgIcon-root"
+            data-testid="SortIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
+            />
+          </svg>
+        </div>
         <div
           class="columnHeader"
           style="cursor: initial;"
@@ -347,29 +363,13 @@ exports[`Auditlogs Component renders correctly 1`] = `
           class="columnHeader"
           style="cursor: initial;"
         >
-          Changed
+          Affected
         </div>
         <div
           class="columnHeader"
           style="cursor: initial;"
         >
-          More details
-        </div>
-        <div
-          class="columnHeader"
-        >
-          Time
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium sortIcon selected false css-1lqc678-MuiSvgIcon-root"
-            data-testid="SortIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
-            />
-          </svg>
+          More detail
         </div>
         <div />
       </div>
@@ -377,8 +377,13 @@ exports[`Auditlogs Component renders correctly 1`] = `
         class="auditlogs-list"
       >
         <div
-          class="auditlogs-list-item clickable"
+          class="auditlogs-list-item"
         >
+          <time
+            datetime="2019-01-01T12:10:22+00:00"
+          >
+            2019-01-01 12:10
+          </time>
           <div>
             string@example.com
           </div>
@@ -395,21 +400,10 @@ exports[`Auditlogs Component renders correctly 1`] = `
           <div>
             user@acme.com
           </div>
-          <div
-            class="capitalized"
-            style="align-items: flex-start; white-space: pre-line;"
+          <a
+            class="green800"
           >
-            change1
-          </div>
-          <time
-            datetime="2019-01-01T12:10:22+00:00"
-          >
-            2019-01-01 12:10
-          </time>
-          <div
-            class="uppercased link-color bold"
-          >
-            view details 
+            View detail 
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1lqc678-MuiSvgIcon-root"
@@ -421,11 +415,16 @@ exports[`Auditlogs Component renders correctly 1`] = `
                 d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z"
               />
             </svg>
-          </div>
+          </a>
         </div>
         <div
-          class="auditlogs-list-item clickable"
+          class="auditlogs-list-item"
         >
+          <time
+            datetime="2019-01-01T12:16:22+00:00"
+          >
+            2019-01-01 12:16
+          </time>
           <div>
             string
           </div>
@@ -443,19 +442,9 @@ exports[`Auditlogs Component renders correctly 1`] = `
             production
           </div>
           <a
-            href="/deployments/finished?open=true&id=string"
+            class="green800"
           >
-            View deployment
-          </a>
-          <time
-            datetime="2019-01-01T12:16:22+00:00"
-          >
-            2019-01-01 12:16
-          </time>
-          <div
-            class="uppercased link-color bold"
-          >
-            view details 
+            View detail 
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1lqc678-MuiSvgIcon-root"
@@ -467,11 +456,16 @@ exports[`Auditlogs Component renders correctly 1`] = `
                 d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z"
               />
             </svg>
-          </div>
+          </a>
         </div>
         <div
-          class="auditlogs-list-item clickable"
+          class="auditlogs-list-item"
         >
+          <time
+            datetime="2019-01-01T12:10:22+00:00"
+          >
+            2019-01-01 12:10
+          </time>
           <div>
             string@example.com
           </div>
@@ -486,24 +480,44 @@ exports[`Auditlogs Component renders correctly 1`] = `
             device
           </div>
           <div
-            class="flexbox space-between"
+            class="flexbox center-aligned"
           >
-            <div>
-              a1
+            <div
+              class="flexbox space-between"
+            >
+              <div
+                title="a1"
+              >
+                <div
+                  class="text-overflow"
+                >
+                  a1
+                </div>
+              </div>
             </div>
+             
+            <a
+              class="flexbox margin-left-xs flexbox"
+              href="/devices/a1"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1lqc678-MuiSvgIcon-root"
+                data-testid="OpenInNewIcon"
+                focusable="false"
+                style="font-size: 20px;"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+                />
+              </svg>
+            </a>
           </div>
-          <a>
-            View session log
-          </a>
-          <time
-            datetime="2019-01-01T12:10:22+00:00"
+          <a
+            class="green800"
           >
-            2019-01-01 12:10
-          </time>
-          <div
-            class="uppercased link-color bold"
-          >
-            view details 
+            View detail 
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1lqc678-MuiSvgIcon-root"
@@ -515,71 +529,107 @@ exports[`Auditlogs Component renders correctly 1`] = `
                 d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z"
               />
             </svg>
-          </div>
+          </a>
         </div>
       </div>
       <div
-        class="flexbox margin-top"
+        class="loaderContainer"
       >
         <div
-          class="MuiTablePagination-root flexbox margin-top margin-top-none css-1s8wd9s-MuiTablePagination-root"
+          class="  loader"
+        >
+          <span
+            class="dot dot_1"
+          />
+          <span
+            class="dot dot_2"
+          />
+          <span
+            class="dot dot_3"
+          />
+          <span
+            class="dot dot_4"
+          />
+        </div>
+      </div>
+      <div
+        class="MuiTablePagination-root flexbox margin-top  css-1ub9kgf-MuiTablePagination-root"
+      >
+        <div
+          class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular MuiTablePagination-toolbar css-78c6dr-MuiToolbar-root-MuiTablePagination-toolbar"
         >
           <div
-            class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular MuiTablePagination-toolbar css-78c6dr-MuiToolbar-root-MuiTablePagination-toolbar"
+            class="MuiTablePagination-spacer flexbox no-basis css-1psng7p-MuiTablePagination-spacer"
+          />
+          <p
+            class="MuiTablePagination-selectLabel css-1ecnf2s-MuiTablePagination-selectLabel"
+            
+          >
+            Rows
+          </p>
+          <div
+            class="MuiInputBase-root MuiInputBase-colorPrimary css-1y7ceb0-MuiInputBase-root-MuiTablePagination-select"
           >
             <div
-              class="MuiTablePagination-spacer flexbox no-basis css-1psng7p-MuiTablePagination-spacer"
-            />
-            <p
-              class="MuiTablePagination-selectLabel css-1ecnf2s-MuiTablePagination-selectLabel"
+              aria-expanded="false"
+              aria-haspopup="listbox"
               
+              class="MuiSelect-select MuiTablePagination-select MuiSelect-standard MuiInputBase-input css-194a1fa-MuiSelect-select-MuiInputBase-input"
+              
+              role="button"
+              tabindex="0"
             >
-              Rows
-            </p>
-            <div
-              class="MuiInputBase-root MuiInputBase-colorPrimary css-7kd4nt-MuiInputBase-root-MuiTablePagination-select"
+              20
+            </div>
+            <input
+              aria-hidden="true"
+              aria-invalid="false"
+              class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              tabindex="-1"
+              value="20"
+            />
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiTablePagination-selectIcon MuiSelect-iconStandard css-dwvfc1-MuiSvgIcon-root-MuiSelect-icon"
+              data-testid="ArrowDropDownIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
             >
-              <div
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                
-                class="MuiSelect-select MuiTablePagination-select MuiSelect-standard MuiInputBase-input css-194a1fa-MuiSelect-select-MuiInputBase-input"
-                
-                role="button"
-                tabindex="0"
-              >
-                20
-              </div>
-              <input
-                aria-hidden="true"
-                aria-invalid="false"
-                class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                tabindex="-1"
-                value="20"
+              <path
+                d="M7 10l5 5 5-5z"
               />
+            </svg>
+          </div>
+          <p
+            class="MuiTablePagination-displayedRows css-cmytl3-MuiTablePagination-displayedRows"
+          />
+          <div
+            class="flexbox center-aligned"
+          >
+            <div>
+              1-3 of 3
+            </div>
+            <button
+              class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeLarge css-ky8r02-MuiButtonBase-root-MuiIconButton-root"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiTablePagination-selectIcon MuiSelect-iconStandard css-dwvfc1-MuiSvgIcon-root-MuiSelect-icon"
-                data-testid="ArrowDropDownIcon"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1lqc678-MuiSvgIcon-root"
+                data-testid="KeyboardArrowLeftIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="M7 10l5 5 5-5z"
+                  d="M15.41 16.59 10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
                 />
               </svg>
-            </div>
-            <p
-              class="MuiTablePagination-displayedRows css-cmytl3-MuiTablePagination-displayedRows"
-            />
-            <div
-              class="flexbox center-aligned"
-            >
-              <div>
-                1-3 of 3
-              </div>
+            </button>
+            <div>
               <button
-                class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeLarge css-13hun5h-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeLarge css-ky8r02-MuiButtonBase-root-MuiIconButton-root"
                 disabled=""
                 tabindex="-1"
                 type="button"
@@ -587,56 +637,16 @@ exports[`Auditlogs Component renders correctly 1`] = `
                 <svg
                   aria-hidden="true"
                   class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1lqc678-MuiSvgIcon-root"
-                  data-testid="KeyboardArrowLeftIcon"
+                  data-testid="KeyboardArrowRightIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M15.41 16.59 10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+                    d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
                   />
                 </svg>
               </button>
-              <div>
-                <button
-                  class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeLarge css-13hun5h-MuiButtonBase-root-MuiIconButton-root"
-                  disabled=""
-                  tabindex="-1"
-                  type="button"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1lqc678-MuiSvgIcon-root"
-                    data-testid="KeyboardArrowRightIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
-                    />
-                  </svg>
-                </button>
-              </div>
             </div>
-          </div>
-        </div>
-        <div
-          class="loaderContainer"
-        >
-          <div
-            class="small  loader"
-          >
-            <span
-              class="dot dot_1"
-            />
-            <span
-              class="dot dot_2"
-            />
-            <span
-              class="dot dot_3"
-            />
-            <span
-              class="dot dot_4"
-            />
           </div>
         </div>
       </div>
