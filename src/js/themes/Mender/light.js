@@ -70,7 +70,8 @@ const palette = {
   },
   border: {
     colors: {
-      primary: '#E0E0E0'
+      primary: '#E0E0E0',
+      button: '#9E9E9E'
     }
   }
 };
