@@ -9,7 +9,7 @@ exports[`DeviceNotifications Component renders correctly 1`] = `
 
 .emotion-0.red,
 .emotion-0.green {
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
 }
 
 .emotion-0.bordered {
@@ -133,7 +133,7 @@ exports[`tiny components renders DeviceOfflineHeaderNotification correctly 1`] =
 
 .emotion-0.red,
 .emotion-0.green {
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
 }
 
 .emotion-0.bordered {
@@ -217,7 +217,7 @@ exports[`tiny components renders LastConnection correctly 1`] = `
 
 .emotion-0.red,
 .emotion-0.green {
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
 }
 
 .emotion-0.bordered {
@@ -301,7 +301,7 @@ exports[`tiny components renders NoAlertsHeaderNotification correctly 1`] = `
 
 .emotion-0.red,
 .emotion-0.green {
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
 }
 
 .emotion-0.bordered {
@@ -374,7 +374,7 @@ exports[`tiny components renders ServiceNotification correctly 1`] = `
 
 .emotion-0.red,
 .emotion-0.green {
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
 }
 
 .emotion-0.bordered {

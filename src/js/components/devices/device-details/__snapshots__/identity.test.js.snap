@@ -1,9 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DeviceIdentity Component renders correctly 1`] = `
-.emotion-0 .key>b {
-  background-color: #f7f7f7;
-  color: rgba(0, 0, 0, 0.87);
+.emotion-0.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  -webkit-column-gap: 16px;
+  column-gap: 16px;
+  row-gap: 8px;
+  color: #424242;
+}
+
+.emotion-0.two-columns .key b {
+  font-weight: 400;
+  color: #616161;
 }
 
 .emotion-1 {
@@ -11,7 +20,7 @@ exports[`DeviceIdentity Component renders correctly 1`] = `
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   box-sizing: border-box;
   position: relative;
   cursor: text;
@@ -24,7 +33,7 @@ exports[`DeviceIdentity Component renders correctly 1`] = `
   -ms-flex-align: center;
   align-items: center;
   position: relative;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   font-size: 0.8125rem;
 }
 
@@ -74,7 +83,7 @@ exports[`DeviceIdentity Component renders correctly 1`] = `
 }
 
 .emotion-1:hover:not(.Mui-disabled, .Mui-error):before {
-  border-bottom: 2px solid rgba(10, 10, 11, 0.78);
+  border-bottom: 2px solid #212121;
 }
 
 @media (hover: none) {
@@ -266,7 +275,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-2:focus::-ms-input-p
   padding: 5px;
   font-size: 1.0446rem;
   font-size: 1.2rem;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
 }
 
 .emotion-4::-moz-focus-inner {
@@ -374,7 +383,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-2:focus::-ms-input-p
   </div>
   <div>
     <div
-      class="break-all two-columns emotion-0 compact column-data "
+      class="break-all two-columns compact column-data  emotion-0"
       style="max-width: 80%; grid-template-columns: minmax(max-content, 150px) max-content; margin-bottom: 5px; align-items: center;"
     >
       <div
@@ -423,7 +432,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-2:focus::-ms-input-p
     </div>
   </div>
   <div
-    class="break-all two-columns emotion-0 compact column-data "
+    class="break-all two-columns compact column-data  emotion-0"
     style="max-width: 80%; grid-template-columns: minmax(max-content, 150px) auto;"
   >
     <div
@@ -495,9 +504,9 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-2:focus::-ms-input-p
       class="flexbox clickable"
     >
       <time
-        datetime="2019-01-13T08:25:00+02:00"
+        datetime="2019-01-13T06:25:00+00:00"
       >
-        2019-01-13 08:25
+        2019-01-13 06:25
       </time>
       <svg
         aria-hidden="true"
@@ -518,9 +527,18 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-2:focus::-ms-input-p
 `;
 
 exports[`DeviceIdentity Component renders correctly without a mac 1`] = `
-.emotion-0 .key>b {
-  background-color: #f7f7f7;
-  color: rgba(0, 0, 0, 0.87);
+.emotion-0.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  -webkit-column-gap: 16px;
+  column-gap: 16px;
+  row-gap: 8px;
+  color: #424242;
+}
+
+.emotion-0.two-columns .key b {
+  font-weight: 400;
+  color: #616161;
 }
 
 .emotion-1 {
@@ -528,7 +546,7 @@ exports[`DeviceIdentity Component renders correctly without a mac 1`] = `
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   box-sizing: border-box;
   position: relative;
   cursor: text;
@@ -541,7 +559,7 @@ exports[`DeviceIdentity Component renders correctly without a mac 1`] = `
   -ms-flex-align: center;
   align-items: center;
   position: relative;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   font-size: 0.8125rem;
 }
 
@@ -551,7 +569,7 @@ exports[`DeviceIdentity Component renders correctly without a mac 1`] = `
 }
 
 .emotion-1:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
   content: "";
@@ -591,7 +609,7 @@ exports[`DeviceIdentity Component renders correctly without a mac 1`] = `
 }
 
 .emotion-1:hover:not(.Mui-disabled, .Mui-error):before {
-  border-bottom: 2px solid rgba(10, 10, 11, 0.78);
+  border-bottom: 2px solid #212121;
 }
 
 @media (hover: none) {
@@ -609,11 +627,11 @@ exports[`DeviceIdentity Component renders correctly without a mac 1`] = `
 }
 
 .emotion-1:hover:not($disabled):before {
-  border-bottom: 2px solid #337a87!important;
+  border-bottom: 2px solid #14A452!important;
 }
 
 .emotion-1:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
 }
 
 .emotion-2 {
@@ -783,7 +801,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-2:focus::-ms-input-p
   padding: 5px;
   font-size: 1.0446rem;
   font-size: 1.2rem;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
 }
 
 .emotion-4::-moz-focus-inner {
@@ -866,7 +884,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-2:focus::-ms-input-p
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   font-size: 1.1607rem;
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-8 iconButton {
@@ -891,11 +909,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-2:focus::-ms-input-p
   </div>
   <div>
     <div
-      class="break-all two-columns emotion-0 compact column-data "
+      class="break-all two-columns compact column-data  emotion-0"
       style="max-width: 80%; grid-template-columns: minmax(max-content, 150px) max-content; margin-bottom: 5px; align-items: center;"
     >
       <div
-        class="align-right key muted"
+        class="align-right key"
       >
         <b>
           Name
@@ -940,11 +958,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-2:focus::-ms-input-p
     </div>
   </div>
   <div
-    class="break-all two-columns emotion-0 compact column-data "
+    class="break-all two-columns compact column-data  emotion-0"
     style="max-width: 80%; grid-template-columns: minmax(max-content, 150px) auto;"
   >
     <div
-      class="align-right key muted"
+      class="align-right key"
     >
       <b>
         ID

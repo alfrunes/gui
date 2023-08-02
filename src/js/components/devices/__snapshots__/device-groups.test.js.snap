@@ -3,53 +3,13 @@
 exports[`DeviceGroups Component renders correctly 1`] = `
 "<div>
   <div
-    class="tab-container with-sub-panels margin-bottom-small"
+    class="tab-container with-sub-panels"
     style="padding: 0px; min-height: initial;"
   >
-    <h3
-      style="margin-bottom: 0px;"
-    >
-      Devices
-    </h3>
     <div
-      class="flexbox space-between margin-left-large margin-right center-aligned padding-bottom padding-top-small"
+      class="flexbox space-between"
     >
       <div />
-      <div
-        class="MuiButtonGroup-root MuiButtonGroup-outlined muted device-addition-widget css-iajp3t-MuiButtonGroup-root"
-        role="group"
-      >
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1m1nv3s-MuiButtonBase-root-MuiButton-root-buttonStyle"
-          tabindex="0"
-          type="button"
-        >
-          Connect a new device
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
-        </button>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall css-6b0d5c-MuiButtonBase-root-MuiButton-root-buttonStyle"
-          tabindex="0"
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1lqc678-MuiSvgIcon-root"
-            data-testid="ArrowDropDownIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="m7 10 5 5 5-5z"
-            />
-          </svg>
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
-        </button>
-      </div>
     </div>
   </div>
   <div
@@ -60,7 +20,7 @@ exports[`DeviceGroups Component renders correctly 1`] = `
       class="leftFixed"
     >
       <div
-        class="muted margin-bottom-small"
+        class="margin-bottom-small margin-left margin-top-small"
       >
         Groups
       </div>
@@ -68,12 +28,12 @@ exports[`DeviceGroups Component renders correctly 1`] = `
         class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
       >
         <div
-          class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button css-1ckued1-MuiButtonBase-root-MuiListItem-root"
+          class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button css-4cezzb-MuiButtonBase-root-MuiListItem-root"
           role="button"
           tabindex="0"
         >
           <div
-            class="MuiListItemText-root css-924vb1-MuiListItemText-root"
+            class="MuiListItemText-root padding-left-large css-1lghudc-MuiListItemText-root"
           >
             <span
               class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-mon4qq-MuiTypography-root"
@@ -86,24 +46,21 @@ exports[`DeviceGroups Component renders correctly 1`] = `
           />
         </div>
         <li
-          class="MuiListSubheader-root heading-lined css-1aj8t4d-MuiListSubheader-root-header"
+          class="MuiListSubheader-root css-1yjxp81-MuiListSubheader-root-header"
         >
           <span
             class="css-1nyp150-groupHeading"
           >
             Dynamic
           </span>
-          <div
-            class="css-1qij3wx-groupBorder"
-          />
         </li>
         <div
-          class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button css-1ckued1-MuiButtonBase-root-MuiListItem-root"
+          class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button css-4cezzb-MuiButtonBase-root-MuiListItem-root"
           role="button"
           tabindex="0"
         >
           <div
-            class="MuiListItemText-root css-924vb1-MuiListItemText-root"
+            class="MuiListItemText-root padding-left-large css-1lghudc-MuiListItemText-root"
           >
             <span
               class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-mon4qq-MuiTypography-root"
@@ -116,24 +73,21 @@ exports[`DeviceGroups Component renders correctly 1`] = `
           />
         </div>
         <li
-          class="MuiListSubheader-root heading-lined css-1aj8t4d-MuiListSubheader-root-header"
+          class="MuiListSubheader-root css-1yjxp81-MuiListSubheader-root-header"
         >
           <span
             class="css-1nyp150-groupHeading"
           >
             Static
           </span>
-          <div
-            class="css-1qij3wx-groupBorder"
-          />
         </li>
         <div
-          class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button Mui-selected css-1ckued1-MuiButtonBase-root-MuiListItem-root"
+          class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button Mui-selected css-4cezzb-MuiButtonBase-root-MuiListItem-root"
           role="button"
           tabindex="0"
         >
           <div
-            class="MuiListItemText-root css-924vb1-MuiListItemText-root"
+            class="MuiListItemText-root padding-left-large css-1lghudc-MuiListItemText-root"
           >
             <span
               class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-mon4qq-MuiTypography-root"
@@ -146,28 +100,25 @@ exports[`DeviceGroups Component renders correctly 1`] = `
           />
         </div>
         <div
-          class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button css-1ckued1-MuiButtonBase-root-MuiListItem-root"
+          class="MuiButtonBase-root MuiListItem-root grouplist padding-left MuiListItem-gutters MuiListItem-padding MuiListItem-button css-4cezzb-MuiButtonBase-root-MuiListItem-root"
           role="button"
           style="margin-top: 30px;"
           tabindex="0"
         >
-          <div
-            class="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1lqc678-MuiSvgIcon-root"
+            data-testid="InfoIcon"
+            focusable="false"
+            style="margin-right: 8px;"
+            viewBox="0 0 24 24"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1lqc678-MuiSvgIcon-root"
-              data-testid="InfoOutlinedIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-              />
-            </svg>
-          </div>
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+            />
+          </svg>
           <div
-            class="MuiListItemText-root css-924vb1-MuiListItemText-root"
+            class="MuiListItemText-root css-1lghudc-MuiListItemText-root"
           >
             <span
               class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-mon4qq-MuiTypography-root"
@@ -183,19 +134,19 @@ exports[`DeviceGroups Component renders correctly 1`] = `
     </div>
     <div
       class="rightFluid relative"
-      style="padding-top: 0px;"
+      style="padding-top: 32px;"
     >
       <div
-        class="margin-left-small"
+        class="margin-left-small margin-bottom"
       >
         <div
           class="flexbox"
         >
-          <h3
-            class="margin-right"
+          <h2
+            class="margin-right-xl"
           >
             testGroup
-          </h3>
+          </h2>
           <div
             class="flexbox space-between center-aligned"
             style="flex-grow: 1;"
@@ -208,7 +159,7 @@ exports[`DeviceGroups Component renders correctly 1`] = `
               >
                 Status:
                 <div
-                  class="MuiInputBase-root MuiInput-root MuiInputBase-colorPrimary  css-9qara2-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                  class="MuiInputBase-root MuiInput-root MuiInputBase-colorPrimary  css-1n7u1wx-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                   style="font-size: 13px; margin-left: 8px; margin-top: 2px;"
                 >
                   <div
@@ -260,7 +211,7 @@ exports[`DeviceGroups Component renders correctly 1`] = `
               </div>
             </div>
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-xrc3fm-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1888mpj-MuiButtonBase-root-MuiButton-root"
               tabindex="0"
               type="button"
             >
@@ -287,13 +238,13 @@ exports[`DeviceGroups Component renders correctly 1`] = `
           </div>
         </div>
         <div
-          class="flexbox space-between"
+          class="flexbox space-between margin-top"
         >
           <div
             class="flexbox centered filter-header "
           >
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textSecondary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textSecondary MuiButton-sizeMedium MuiButton-textSizeMedium css-qkdycn-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textSecondary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textSecondary MuiButton-sizeMedium MuiButton-textSizeMedium css-m4scur-MuiButtonBase-root-MuiButton-root"
               style="background-color: transparent;"
               tabindex="0"
               type="button"
@@ -316,32 +267,6 @@ exports[`DeviceGroups Component renders correctly 1`] = `
               Filters
             </button>
           </div>
-          <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-xrc3fm-MuiButtonBase-root-MuiButton-root"
-            style="text-transform: none;"
-            tabindex="0"
-            type="button"
-          >
-            Table options
-            <span
-              class="MuiButton-endIcon MuiButton-iconSizeMedium css-1gnd1fd-MuiButton-endIcon"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1lqc678-MuiSvgIcon-root"
-                data-testid="ArrowDropDownIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="m7 10 5 5 5-5z"
-                />
-              </svg>
-            </span>
-            <span
-              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-            />
-          </button>
         </div>
       </div>
       <div
@@ -368,18 +293,18 @@ exports[`DeviceGroups Component renders correctly 1`] = `
         class="padding-bottom"
       >
         <div
-          class="deviceList selectable"
+          class="deviceList selectable undefined"
           style="grid-template-columns: 52px minmax(250px, 1fr) minmax(150px, 1.5fr) minmax(150px, 1.5fr) minmax(150px, 1.5fr) minmax(150px, max-content);"
         >
           <div
-            class="header css-nsqcrh-header"
+            class="header css-15itsyh-header"
           >
             <div
               class="deviceListRow"
             >
               <div>
                 <span
-                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-1c5ytc8-MuiButtonBase-root-MuiCheckbox-root"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-1mqafh3-MuiButtonBase-root-MuiCheckbox-root"
                 >
                   <input
                     class="PrivateSwitchBase-input css-1m9pwf3"
@@ -473,7 +398,7 @@ exports[`DeviceGroups Component renders correctly 1`] = `
                 <div
                   class="flexbox center-aligned"
                 >
-                  Current software
+                  Latest activity
                   <svg
                     aria-hidden="true"
                     class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium sortIcon  true css-1lqc678-MuiSvgIcon-root"
@@ -501,7 +426,7 @@ exports[`DeviceGroups Component renders correctly 1`] = `
                 <div
                   class="flexbox center-aligned"
                 >
-                  Latest activity
+                  Status
                   <svg
                     aria-hidden="true"
                     class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium sortIcon  true css-1lqc678-MuiSvgIcon-root"
@@ -525,19 +450,7 @@ exports[`DeviceGroups Component renders correctly 1`] = `
                 <div
                   class="flexbox center-aligned"
                 >
-                  Status
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium sortIcon  true css-1lqc678-MuiSvgIcon-root"
-                    data-testid="SortIcon"
-                    focusable="false"
-                    style="font-size: 16px;"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
-                    />
-                  </svg>
+                  View device
                 </div>
                 <div
                   class="flexbox center-aligned"
@@ -549,11 +462,11 @@ exports[`DeviceGroups Component renders correctly 1`] = `
             class="body"
           >
             <div
-              class="deviceListRow deviceListItem clickable  "
+              class="deviceListRow deviceListItem  "
             >
               <div>
                 <span
-                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-1c5ytc8-MuiButtonBase-root-MuiCheckbox-root"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-1mqafh3-MuiButtonBase-root-MuiCheckbox-root"
                 >
                   <input
                     class="PrivateSwitchBase-input css-1m9pwf3"
@@ -579,8 +492,14 @@ exports[`DeviceGroups Component renders correctly 1`] = `
               <div
                 class="flexbox space-between"
               >
-                <div>
-                  a1
+                <div
+                  title="a1"
+                >
+                  <div
+                    class="text-overflow"
+                  >
+                    a1
+                  </div>
                 </div>
               </div>
               <div
@@ -592,15 +511,6 @@ exports[`DeviceGroups Component renders correctly 1`] = `
                   raspberrypi4
                 </div>
               </div>
-              <div
-                title="-"
-              >
-                <div
-                  class="text-overflow"
-                >
-                  -
-                </div>
-              </div>
               <div>
                 <time
                   datetime="2019-01-01"
@@ -615,13 +525,33 @@ exports[`DeviceGroups Component renders correctly 1`] = `
                   accepted
                 </div>
               </div>
+              <div>
+                <a
+                  class="flexbox flexbox centered"
+                  href="/devices/a1"
+                >
+                  View details 
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1lqc678-MuiSvgIcon-root"
+                    data-testid="ArrowForwardIcon"
+                    focusable="false"
+                    style="font-size: 16px; margin-left: 8px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    />
+                  </svg>
+                </a>
+              </div>
             </div>
             <div
-              class="deviceListRow deviceListItem clickable  "
+              class="deviceListRow deviceListItem  "
             >
               <div>
                 <span
-                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-1c5ytc8-MuiButtonBase-root-MuiCheckbox-root"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-1mqafh3-MuiButtonBase-root-MuiCheckbox-root"
                 >
                   <input
                     class="PrivateSwitchBase-input css-1m9pwf3"
@@ -647,8 +577,14 @@ exports[`DeviceGroups Component renders correctly 1`] = `
               <div
                 class="flexbox space-between"
               >
-                <div>
-                  b1
+                <div
+                  title="b1"
+                >
+                  <div
+                    class="text-overflow"
+                  >
+                    b1
+                  </div>
                 </div>
               </div>
               <div
@@ -658,15 +594,6 @@ exports[`DeviceGroups Component renders correctly 1`] = `
                   class="text-overflow"
                 >
                   qemux86-64
-                </div>
-              </div>
-              <div
-                title="-"
-              >
-                <div
-                  class="text-overflow"
-                >
-                  -
                 </div>
               </div>
               <div>
@@ -683,13 +610,33 @@ exports[`DeviceGroups Component renders correctly 1`] = `
                   accepted
                 </div>
               </div>
+              <div>
+                <a
+                  class="flexbox flexbox centered"
+                  href="/devices/b1"
+                >
+                  View details 
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1lqc678-MuiSvgIcon-root"
+                    data-testid="ArrowForwardIcon"
+                    focusable="false"
+                    style="font-size: 16px; margin-left: 8px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
           <div
             class="footer flexbox margin-top"
           >
             <div
-              class="MuiTablePagination-root flexbox margin-top margin-top-none css-1s8wd9s-MuiTablePagination-root"
+              class="MuiTablePagination-root flexbox margin-top margin-top-none css-1ub9kgf-MuiTablePagination-root"
             >
               <div
                 class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular MuiTablePagination-toolbar css-78c6dr-MuiToolbar-root-MuiTablePagination-toolbar"
@@ -704,7 +651,7 @@ exports[`DeviceGroups Component renders correctly 1`] = `
                   Rows
                 </p>
                 <div
-                  class="MuiInputBase-root MuiInputBase-colorPrimary css-7kd4nt-MuiInputBase-root-MuiTablePagination-select"
+                  class="MuiInputBase-root MuiInputBase-colorPrimary css-1y7ceb0-MuiInputBase-root-MuiTablePagination-select"
                 >
                   <div
                     aria-expanded="false"
@@ -746,7 +693,7 @@ exports[`DeviceGroups Component renders correctly 1`] = `
                     1-0 of 0
                   </div>
                   <button
-                    class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeLarge css-13hun5h-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeLarge css-ky8r02-MuiButtonBase-root-MuiIconButton-root"
                     disabled=""
                     tabindex="-1"
                     type="button"
@@ -765,7 +712,7 @@ exports[`DeviceGroups Component renders correctly 1`] = `
                   </button>
                   <div>
                     <button
-                      class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeLarge css-13hun5h-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeLarge css-ky8r02-MuiButtonBase-root-MuiIconButton-root"
                       disabled=""
                       tabindex="-1"
                       type="button"

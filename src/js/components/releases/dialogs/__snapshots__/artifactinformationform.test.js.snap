@@ -21,14 +21,14 @@ exports[`ArtifactInformationForm Component renders correctly 1`] = `
 }
 
 .emotion-1 {
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   line-height: 1.4375em;
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
   padding: 0;
   position: relative;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   display: block;
   transform-origin: top left;
   white-space: nowrap;
@@ -47,7 +47,7 @@ exports[`ArtifactInformationForm Component renders correctly 1`] = `
 }
 
 .emotion-1.Mui-focused {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-1.Mui-disabled {
@@ -59,7 +59,7 @@ exports[`ArtifactInformationForm Component renders correctly 1`] = `
 }
 
 .emotion-1.Mui-focused {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-2 {
@@ -67,7 +67,7 @@ exports[`ArtifactInformationForm Component renders correctly 1`] = `
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   box-sizing: border-box;
   position: relative;
   cursor: text;
@@ -93,7 +93,7 @@ label+.emotion-2 {
 }
 
 .emotion-2:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
   content: "";
@@ -133,7 +133,7 @@ label+.emotion-2 {
 }
 
 .emotion-2:hover:not(.Mui-disabled, .Mui-error):before {
-  border-bottom: 2px solid rgba(10, 10, 11, 0.78);
+  border-bottom: 2px solid #212121;
 }
 
 @media (hover: none) {
@@ -151,11 +151,11 @@ label+.emotion-2 {
 }
 
 .emotion-2:hover:not($disabled):before {
-  border-bottom: 2px solid #337a87!important;
+  border-bottom: 2px solid #14A452!important;
 }
 
 .emotion-2:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
 }
 
 .emotion-3 {
@@ -281,14 +281,14 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-3:focus::-ms-input-p
 }
 
 .emotion-5 {
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   line-height: 1.4375em;
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
   padding: 0;
   position: relative;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   display: block;
   transform-origin: top left;
   white-space: nowrap;
@@ -307,7 +307,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-3:focus::-ms-input-p
 }
 
 .emotion-5.Mui-focused {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-5.Mui-disabled {
@@ -319,7 +319,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-3:focus::-ms-input-p
 }
 
 .emotion-5.Mui-focused {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-6 {
@@ -348,7 +348,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-3:focus::-ms-input-p
   font-family: Lato,sans-serif;
   font-weight: 400;
   font-size: 0.9286rem;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   box-sizing: border-box;
   position: relative;
   cursor: text;
@@ -373,7 +373,7 @@ label+.emotion-7 {
 }
 
 .emotion-7:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
   content: "";
@@ -413,7 +413,7 @@ label+.emotion-7 {
 }
 
 .emotion-7:hover:not(.Mui-disabled, .Mui-error):before {
-  border-bottom: 2px solid rgba(10, 10, 11, 0.78);
+  border-bottom: 2px solid #212121;
 }
 
 @media (hover: none) {
@@ -431,11 +431,11 @@ label+.emotion-7 {
 }
 
 .emotion-7:hover:not($disabled):before {
-  border-bottom: 2px solid #337a87!important;
+  border-bottom: 2px solid #14A452!important;
 }
 
 .emotion-7:after {
-  border-bottom: 2px solid #337a87;
+  border-bottom: 2px solid #14A452;
 }
 
 .emotion-9.Mui-focused .MuiAutocomplete-clearIndicator {

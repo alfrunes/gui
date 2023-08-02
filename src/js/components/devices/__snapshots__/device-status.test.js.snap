@@ -18,7 +18,7 @@ exports[`DeviceStatus Component renders correctly 1`] = `
   -webkit-justify-content: center;
   justify-content: center;
   height: 24px;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
   background-color: rgba(0, 0, 0, 0.08);
   border-radius: 16px;
   white-space: nowrap;
@@ -52,12 +52,12 @@ exports[`DeviceStatus Component renders correctly 1`] = `
 
 .emotion-0 .MuiChip-avatarColorPrimary {
   color: #fff;
-  background-color: rgb(35, 85, 94);
+  background-color: rgb(14, 114, 57);
 }
 
 .emotion-0 .MuiChip-avatarColorSecondary {
-  color: #fff;
-  background-color: rgb(65, 10, 46);
+  color: rgba(0, 0, 0, 0.87);
+  background-color: rgb(178, 178, 178);
 }
 
 .emotion-0 .MuiChip-avatarSmall {
@@ -77,7 +77,7 @@ exports[`DeviceStatus Component renders correctly 1`] = `
 
 .emotion-0 .MuiChip-deleteIcon {
   -webkit-tap-highlight-color: transparent;
-  color: rgba(10, 10, 11, 0.26);
+  color: rgba(33, 33, 33, 0.26);
   font-size: 16px;
   cursor: pointer;
   margin: 0 5px 0 -6px;
@@ -86,7 +86,7 @@ exports[`DeviceStatus Component renders correctly 1`] = `
 }
 
 .emotion-0 .MuiChip-deleteIcon:hover {
-  color: rgba(10, 10, 11, 0.4);
+  color: rgba(33, 33, 33, 0.4);
 }
 
 .emotion-0.MuiChip-clickable:hover {

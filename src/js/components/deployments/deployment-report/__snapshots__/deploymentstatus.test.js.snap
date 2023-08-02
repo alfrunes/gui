@@ -102,9 +102,18 @@ exports[`DeploymentStatus Component renders correctly 1`] = `
   padding: 16px 64px 16px;
 }
 
-.emotion-1 .key>b {
-  background-color: #f7f7f7;
-  color: rgba(0, 0, 0, 0.87);
+.emotion-1.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  -webkit-column-gap: 16px;
+  column-gap: 16px;
+  row-gap: 8px;
+  color: #424242;
+}
+
+.emotion-1.two-columns .key b {
+  font-weight: 400;
+  color: #616161;
 }
 
 <div>
@@ -228,11 +237,11 @@ exports[`DeploymentStatus Component renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="break-all two-columns emotion-1  column-data "
+      class="break-all two-columns  column-data  emotion-1"
       style="align-items: center; align-self: flex-start; grid-template-columns: max-content 1fr; max-width: 25vw;"
     >
       <div
-        class="align-right  muted"
+        class="align-right "
       >
         <b>
           Max attempts per device
@@ -248,7 +257,7 @@ exports[`DeploymentStatus Component renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="align-right  muted"
+        class="align-right "
       >
         <b>
           Maximum number of devices

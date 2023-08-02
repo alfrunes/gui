@@ -36,11 +36,11 @@ exports[`ExpandableAttribute Component renders correctly 1`] = `
 }
 
 .emotion-0.Mui-selected {
-  background-color: rgba(51, 122, 135, 0.08);
+  background-color: rgba(20, 164, 82, 0.08);
 }
 
 .emotion-0.Mui-selected.Mui-focusVisible {
-  background-color: rgba(51, 122, 135, 0.2);
+  background-color: rgba(20, 164, 82, 0.2);
 }
 
 .emotion-0.Mui-disabled {
@@ -49,6 +49,12 @@ exports[`ExpandableAttribute Component renders correctly 1`] = `
 
 .emotion-0.Mui-disabled {
   opacity: 1;
+}
+
+.emotion-0.Mui-selected,
+.emotion-0.Mui-selected:hover,
+.emotion-0:hover {
+  background-color: #F5F5F5;
 }
 
 .emotion-0.active {
@@ -74,7 +80,7 @@ exports[`ExpandableAttribute Component renders correctly 1`] = `
   margin-bottom: 4px;
   margin-top: 0;
   margin-bottom: 0;
-  color: rgba(10, 10, 11, 0.78);
+  color: #212121;
 }
 
 .emotion-2 {
@@ -83,7 +89,7 @@ exports[`ExpandableAttribute Component renders correctly 1`] = `
   font-weight: 400;
   font-size: 0.8125rem;
   line-height: 1.43;
-  color: rgba(0, 0, 0, 0.54);
+  color: #424242;
   display: block;
 }
 
