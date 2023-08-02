@@ -16,13 +16,13 @@ import { useSelector } from 'react-redux';
 import { Navigate, useLocation, useParams } from 'react-router-dom';
 
 import { Launch as LaunchIcon } from '@mui/icons-material';
-import { ListItemIcon, useTheme } from '@mui/material';
+import { ListItemIcon, listItemTextClasses, useTheme } from '@mui/material';
+import { makeStyles } from 'tss-react/mui';
 
 import { getDocsVersion, getFeatures } from '../../selectors';
 import LeftNav from '../common/left-nav';
 import Downloads from './downloads';
 import GetStarted from './getting-started';
-import MenderHub from './mender-hub';
 import Support from './support';
 
 const components = {
@@ -39,13 +39,9 @@ const components = {
     title: 'Contact support',
     component: Support
   },
-  'mender-hub': {
-    title: 'Mender Hub',
-    component: MenderHub
-  },
   documentation: {
     title: 'Documentation',
-    url: `https://docs.mender.io/`
+    url: `https://docs.alvaldi.com/`
   }
 };
 
@@ -80,13 +76,43 @@ const eachRecursive = (obj, path, level, accu, isHosted, spacing) =>
     return bag;
   }, accu);
 
+export const useHelpStyles = makeStyles()(theme => ({
+  container: {
+    '.leftFixed': {
+      color: theme.palette.text.secondary,
+      'li': {
+        fontSize: 14,
+        fontWeight: 700
+      },
+      [`.${listItemTextClasses.primary}`]: {
+        fontSize: 14,
+        marginLeft: 10,
+        color: theme.palette.primary.secondary,
+        ['&:hover']: {
+          color: theme.palette.primary.secondary
+        }
+      },
+      '.active': {
+        background: theme.palette.surface.primary,
+        fontWeight: 700,
+        [`.${listItemTextClasses.primary}`]: {
+          fontWeight: 700
+        }
+      }
+    },
+    '.rightFluid': {
+      paddingTop: 24
+    }
+  }
+}));
+
 const helpPath = 'help/';
 export const Help = () => {
   const theme = useTheme();
   const [links, setLinks] = useState([]);
   const { pathname } = useLocation();
   const { section } = useParams();
-
+  const { classes } = useHelpStyles();
   const docsVersion = useSelector(getDocsVersion);
   const { isHosted } = useSelector(getFeatures);
 
@@ -100,7 +126,6 @@ export const Help = () => {
   }
 
   let ComponentToShow = GetStarted;
-  let breadcrumbs = '';
   let routeParams = pathname.includes(helpPath) ? pathname.substring(pathname.indexOf(helpPath) + helpPath.length) : '';
   if (routeParams) {
     let splitsplat = routeParams.split('/');
@@ -113,16 +138,12 @@ export const Help = () => {
         copyOfComponents = copyOfComponents[splitsplat[i]];
       }
     }
-
-    breadcrumbs = splitsplat[0] ? '  >  ' + components[splitsplat[0]].title : '';
-    breadcrumbs = splitsplat[1] ? breadcrumbs + '  >  ' + components[splitsplat[0]][splitsplat[1]].title : breadcrumbs;
   }
 
   return (
-    <div className="help-container">
+    <div className={`help-container ${classes.container}`}>
       <LeftNav sections={[{ itemClass: 'helpNav', items: links, title: 'Help & support' }]} />
       <div style={{ maxWidth: contentWidth }}>
-        <p className="muted">Help & support {breadcrumbs}</p>
         <div className="help-content relative margin-top-small">
           <ComponentToShow docsVersion={docsVersion} />
         </div>

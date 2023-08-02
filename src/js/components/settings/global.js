@@ -14,7 +14,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Button, Checkbox, FormControl, FormControlLabel, FormHelperText, InputLabel, MenuItem, Select, Switch, TextField } from '@mui/material';
+import { Button, Checkbox, FormControl, FormControlLabel, FormHelperText, InputLabel, MenuItem, Select, TextField } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 
 import { getDeviceAttributes } from '../../actions/deviceActions';
@@ -36,7 +36,6 @@ import {
 } from '../../selectors';
 import { useDebounce } from '../../utils/debouncehook';
 import InfoHint from '../common/info-hint';
-import ArtifactGenerationSettings from './artifactgeneration';
 import ReportingLimits from './reportinglimits';
 
 const maxWidth = 750;
@@ -128,9 +127,7 @@ export const GlobalSettingsDialog = ({
   onSaveClick,
   saveGlobalSettings,
   selectedAttribute,
-  settings,
-  tenantCapabilities,
-  userCapabilities
+  tenantCapabilities
 }) => {
   const [channelSettings, setChannelSettings] = useState(notificationChannelSettings);
   const [currentInterval, setCurrentInterval] = useState(offlineThresholdSettings.interval);
@@ -140,9 +137,7 @@ export const GlobalSettingsDialog = ({
   const debouncedIntervalUnit = useDebounce(currentIntervalUnit, TIMEOUTS.debounceShort);
   const timer = useRef(false);
   const { classes } = useStyles();
-  const { needsDeploymentConfirmation = false } = settings;
-  const { canDelta, hasMonitor } = tenantCapabilities;
-  const { canManageReleases } = userCapabilities;
+  const { hasMonitor } = tenantCapabilities;
 
   useEffect(() => {
     setChannelSettings(notificationChannelSettings);
@@ -181,10 +176,6 @@ export const GlobalSettingsDialog = ({
     setIntervalErrorText('Please enter a valid number between 1 and 1000.');
   };
 
-  const toggleDeploymentConfirmation = () => {
-    saveGlobalSettings({ needsDeploymentConfirmation: !needsDeploymentConfirmation });
-  };
-
   return (
     <div style={{ maxWidth }} className="margin-top-small">
       <h2 className="margin-top-small">Global settings</h2>
@@ -197,14 +188,6 @@ export const GlobalSettingsDialog = ({
         selectedAttribute={selectedAttribute}
       />
       {hasReporting && <ReportingLimits />}
-      <InputLabel className="margin-top" shrink>
-        Deployments
-      </InputLabel>
-      <div className="clickable flexbox center-aligned" onClick={toggleDeploymentConfirmation}>
-        <p className="help-content">Require confirmation on deployment creation</p>
-        <Switch checked={needsDeploymentConfirmation} />
-      </div>
-      {canManageReleases && canDelta && <ArtifactGenerationSettings />}
       {isAdmin &&
         hasMonitor &&
         Object.keys(alertChannels).map(channel => (

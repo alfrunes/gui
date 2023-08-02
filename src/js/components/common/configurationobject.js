@@ -21,10 +21,17 @@ import { makeStyles } from 'tss-react/mui';
 import copy from 'copy-to-clipboard';
 
 const useStyles = makeStyles()(theme => ({
-  root: {
-    ['.key > b']: {
-      backgroundColor: theme.palette.grey[400],
-      color: theme.palette.getContrastText(theme.palette.grey[400])
+  twoColumns: {
+    '&.two-columns': {
+      display: 'grid',
+      gridTemplateColumns: '1fr 2fr',
+      columnGap: theme.spacing(2),
+      rowGap: theme.spacing(1),
+      color: theme.palette.text.secondary,
+      '.key b': {
+        fontWeight: 400,
+        color: theme.palette.text.inactive
+      }
     }
   }
 }));
@@ -85,7 +92,7 @@ export const TwoColumns = ({
 }) => {
   const { classes } = useStyles();
   return (
-    <div className={`break-all two-columns ${classes.root} ${compact ? 'compact' : ''} ${className}`} style={style}>
+    <div className={`break-all two-columns ${compact ? 'compact' : ''} ${className} ${classes.twoColumns}`} style={style}>
       {children
         ? children
         : Object.entries(items).map(([key, value]) => (

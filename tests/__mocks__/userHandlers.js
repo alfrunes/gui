@@ -86,6 +86,8 @@ export const userHandlers = [
       return res(ctx.status(401));
     } else if (user.includes('limited')) {
       return res(ctx.status(200), ctx.json('limitedToken'));
+    } else if (user.includes('2fa')) {
+      return res(ctx.status(401), ctx.json({ error: '2fa needed' }));
     }
     return res(ctx.status(200), ctx.json(token));
   }),
@@ -130,7 +132,7 @@ export const userHandlers = [
     return res(ctx.status(563));
   }),
   rest.post(`${useradmApiUrl}/users`, ({ body: { email, password } }, res, ctx) => {
-    if ([email, password].every(value => value)) {
+    if (email === 'test@test.com' || [email, password].every(value => value)) {
       return res(ctx.status(200), ctx.json(defaultState.users.byId.a1));
     }
     return res(ctx.status(564));

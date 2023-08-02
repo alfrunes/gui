@@ -11,7 +11,7 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-import React, { memo, useCallback, useState } from 'react';
+import React, { memo, useState } from 'react';
 
 // material ui
 import { Checkbox } from '@mui/material';
@@ -30,29 +30,18 @@ const useStyles = makeStyles()(theme => ({
   }
 }));
 
-const DeviceListItem = ({ columnHeaders, device, deviceListState, idAttribute, index, onClick, onRowSelect, selectable, selected }) => {
+const DeviceListItem = ({ columnHeaders, device, idAttribute, index, onRowSelect, selectable, selected }) => {
   const [isHovering, setIsHovering] = useState(false);
   const { classes } = useStyles();
 
   const onMouseOut = () => setIsHovering(false);
   const onMouseOver = () => setIsHovering(true);
 
-  const handleOnClick = useCallback(
-    event => {
-      if (event && event.target.closest('input')?.hasOwnProperty('checked')) {
-        return;
-      }
-      onClick(device);
-    },
-    [device.id, onClick, deviceListState.selectedId]
-  );
-
   const handleRowSelect = () => onRowSelect(index);
 
   return (
     <div
-      className={`deviceListRow deviceListItem clickable ${isHovering ? classes.active : ''} ${device.status === DEVICE_STATES.pending ? classes.active : ''}`}
-      onClick={handleOnClick}
+      className={`deviceListRow deviceListItem ${isHovering ? classes.active : ''} ${device.status === DEVICE_STATES.pending ? classes.active : ''}`}
       onMouseEnter={onMouseOver}
       onMouseLeave={onMouseOut}
     >
@@ -65,7 +54,7 @@ const DeviceListItem = ({ columnHeaders, device, deviceListState, idAttribute, i
           <Checkbox checked={selected} onChange={handleRowSelect} />
         </div>
       )}
-      <DeviceIdentityDisplay device={device} idAttribute={idAttribute} isHovered={isHovering} />
+      <DeviceIdentityDisplay device={device} isHovered={isHovering} />
       {/* we'll skip the first column, since this is the id and that gets resolved differently in the lines above */}
       {columnHeaders.slice(1).map((column, index) => {
         let Component = column.component ? column.component : DefaultAttributeRenderer;

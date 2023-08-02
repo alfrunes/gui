@@ -17,6 +17,7 @@ import { useParams } from 'react-router-dom';
 
 import { AddCircle as AddIcon } from '@mui/icons-material';
 import { Dialog, DialogContent, DialogTitle } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 import pluralize from 'pluralize';
 
@@ -34,7 +35,6 @@ import {
   setDeviceListState,
   updateDynamicGroup
 } from '../../actions/deviceActions';
-import { setShowConnectingDialog } from '../../actions/userActions';
 import { SORTING_OPTIONS, TIMEOUTS } from '../../constants/appConstants';
 import { DEVICE_FILTERING_OPTIONS, DEVICE_ISSUE_OPTIONS, DEVICE_STATES, emptyFilter } from '../../constants/deviceConstants';
 import { toggle } from '../../helpers';
@@ -51,8 +51,7 @@ import {
   getLimitMaxed,
   getSelectedGroupInfo,
   getShowHelptips,
-  getTenantCapabilities,
-  getUserCapabilities
+  getTenantCapabilities
 } from '../../selectors';
 import { useLocationParams } from '../../utils/liststatehook';
 import Global from '../settings/global';
@@ -64,7 +63,6 @@ import CreateGroup from './group-management/create-group';
 import CreateGroupExplainer from './group-management/create-group-explainer';
 import RemoveGroup from './group-management/remove-group';
 import Groups from './groups';
-import DeviceAdditionWidget from './widgets/deviceadditionwidget';
 
 const refreshLength = TIMEOUTS.refreshDefault;
 
@@ -85,7 +83,6 @@ export const DeviceGroups = () => {
     ...state.devices.filteringAttributes,
     identityAttributes: [...state.devices.filteringAttributes.identityAttributes, 'id']
   }));
-  const { canManageDevices } = useSelector(getUserCapabilities);
   const tenantCapabilities = useSelector(getTenantCapabilities);
   const { groupNames, ...groupsByType } = useSelector(getGroupsSelector);
   const groups = groupNames;
@@ -246,12 +243,11 @@ export const DeviceGroups = () => {
   const toggleGroupRemoval = () => setRemoveGroup(toggle);
 
   const toggleMakeGatewayClick = () => setShowMakeGateway(toggle);
-
+  const theme = useTheme();
   return (
     <>
-      <div className="tab-container with-sub-panels margin-bottom-small" style={{ padding: 0, minHeight: 'initial' }}>
-        <h3 style={{ marginBottom: 0 }}>Devices</h3>
-        <div className="flexbox space-between margin-left-large margin-right center-aligned padding-bottom padding-top-small">
+      <div className="tab-container with-sub-panels" style={{ padding: 0, minHeight: 'initial' }}>
+        <div className="flexbox space-between">
           {hasReporting && !!authRequestCount && (
             <a className="flexbox center-aligned margin-right-large" onClick={onShowAuthRequestDevicesClick}>
               <AddIcon fontSize="small" style={{ marginRight: 6 }} />
@@ -262,16 +258,6 @@ export const DeviceGroups = () => {
             <DeviceStatusNotification deviceCount={pendingCount} state={DEVICE_STATES.pending} onClick={onShowDeviceStateClick} />
           ) : (
             <div />
-          )}
-          {canManageDevices && (
-            <DeviceAdditionWidget
-              docsVersion={docsVersion}
-              features={features}
-              onConnectClick={() => dispatch(setShowConnectingDialog(true))}
-              onMakeGatewayClick={toggleMakeGatewayClick}
-              onPreauthClick={setOpenPreauth}
-              tenantCapabilities={tenantCapabilities}
-            />
           )}
         </div>
       </div>
@@ -285,7 +271,7 @@ export const DeviceGroups = () => {
           selectedGroup={selectedGroup}
           showHelptips={showHelptips}
         />
-        <div className="rightFluid relative" style={{ paddingTop: 0 }}>
+        <div className="rightFluid relative" style={{ paddingTop: theme.spacing(4) }}>
           {limitMaxed && <DeviceLimitWarning acceptedDevices={acceptedCount} deviceLimit={deviceLimit} />}
           <AuthorizedDevices
             addDevicesToGroup={addDevicesToGroup}

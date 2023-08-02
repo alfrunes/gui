@@ -16,7 +16,6 @@ h2 {
 }
 
 button {
-  max-height: 36px;
   padding: 6px 8px;
 }
 
@@ -44,7 +43,10 @@ body {
     border-left: none;
     display: flex;
     flex-direction: column;
-    padding-bottom: 0;
+    padding: 0;
+    >.tab-container {
+      padding: 0;
+    }
   }
   #offerHeader {
     justify-content: center;
@@ -63,6 +65,10 @@ body {
 
 .green {
   color: @green;
+}
+
+.green800 {
+  color: @green800;
 }
 
 .red {
@@ -192,6 +198,9 @@ ul.link-list {
 .margin {
   margin: 2 * @defaultGutterWidth;
 }
+.margin-xs {
+  margin: @defaultGutterWidth * 0.65;
+}
 .margin-small {
   margin: @defaultGutterWidth;
 }
@@ -200,6 +209,9 @@ ul.link-list {
 }
 .margin-top {
   margin-top: 2 * @defaultGutterWidth;
+}
+.margin-top-xs {
+  margin-top: @defaultGutterWidth * 0.65;
 }
 .margin-top-small {
   margin-top: @defaultGutterWidth;
@@ -222,11 +234,17 @@ ul.link-list {
 .margin-left-small {
   margin-left: @defaultGutterWidth;
 }
+.margin-left-xs {
+  margin-left: @defaultGutterWidth * 0.65;
+}
 .margin-left-large {
   margin-left: 3 * @defaultGutterWidth;
 }
 .margin-right {
   margin-right: 2 * @defaultGutterWidth;
+}
+.margin-right-sx {
+  margin-right: @defaultGutterWidth * 0.65;
 }
 .margin-right-small {
   margin-right: @defaultGutterWidth;
@@ -242,6 +260,9 @@ ul.link-list {
 }
 .margin-bottom {
   margin-bottom: 2 * @defaultGutterWidth;
+}
+.margin-bottom-xs {
+  margin-bottom: @defaultGutterWidth * 0.65;
 }
 .margin-bottom-large {
   margin-bottom: 3 * @defaultGutterWidth;
@@ -282,6 +303,21 @@ ul.link-list {
 }
 .padding-left-none {
   padding-left: 0;
+}
+.padding-left-small {
+  padding-left: @defaultGutterWidth;;
+}
+.padding-left {
+  padding-left: 2 * @defaultGutterWidth;;
+}
+.padding-left-large {
+  padding-left: 3 * @defaultGutterWidth;;
+}
+.padding-left-xl {
+  padding-left: 4 * @defaultGutterWidth;;
+}
+.padding-left-xxl {
+  padding-left: 5 * @defaultGutterWidth;;
 }
 
 .inline-block {
@@ -565,6 +601,7 @@ ul.link-list {
 .rightFluid {
   padding: 2 * @defaultGutterWidth;
   border-left: 1px solid @lightergrey;
+  padding-top: 0;
 }
 
 .spaced-list > li {
@@ -817,11 +854,16 @@ ul.link-list {
 }
 
 .help-content {
-  font-size: @defaultGutterWidth;
   line-height: 1.5em;
+  padding-top: 2 * @defaultGutterWidth;
 
   h3 {
     margin-top: 2.5em;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.5px;
   }
 
   .note {
@@ -851,6 +893,12 @@ table thead.clickable tr > th:first-child {
   cursor: pointer;
   display: flex;
   align-items: center;
+  color: @textInactive;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.1px;
   .sortIcon {
     visibility: hidden;
     margin-left: calc(@defaultGutterWidth / 3);
@@ -1079,39 +1127,15 @@ div:focus {
 }
 
 /* sign up */
-#signup-box .MuiFormControl-root {
-  margin-top: 0;
-  margin-bottom: 15px;
-}
-
 #signup-box {
   min-height: 870px;
   @media (max-width: 1064px) {
-    height: min-content;
-  }
-}
-
-#signup-box>div {
-  .right {
     grid-template-columns: auto;
-    padding: 60px;
-
-    >div {
-      max-width: 500px;
-    }
-  }
-  @media (max-width: 1064px) {
     padding: 80px 0 0;
-    grid-template-columns: 1fr;
-
-    &.full-height {
-      height: auto;
-    }
-    .right>div {
-      max-width: 420px;
+    >div{
+      grid-template-columns: minmax(min-content, 420px);
       text-align: center;
     }
-
   }
 }
 
@@ -1199,9 +1223,9 @@ div:focus {
 .deviceListItem,
 .deployment-item {
   border-bottom: 1px solid @bordercolor;
-  height: 3 * @defaultGutterWidth;
-  min-height: 3 * @defaultGutterWidth;
-  max-height: 3 * @defaultGutterWidth;
+  height: 4 * @defaultGutterWidth;
+  min-height: 4 * @defaultGutterWidth;
+  max-height: 4 * @defaultGutterWidth;
   align-items: center;
   &:last-of-type {
     border-bottom: transparent;
@@ -1227,9 +1251,9 @@ div:focus {
       display: contents;
       & > * {
         align-items: center;
-        height: 3 * @defaultGutterWidth;
-        min-height: 3 * @defaultGutterWidth;
-        max-height: 3 * @defaultGutterWidth;
+        height: 4 * @defaultGutterWidth;
+        min-height: 4 * @defaultGutterWidth;
+        max-height: 4 * @defaultGutterWidth;
         border-bottom: 1px solid @bordercolor;
         display: flex;
         padding-left: 1.5 * @defaultGutterWidth;
@@ -1241,7 +1265,6 @@ div:focus {
   }
   .header {
     height: 56px;
-    font-size: 0.8rem;
     user-select: none;
     .resize-handle {
       position: absolute;
@@ -1631,9 +1654,9 @@ div.waiting-inventory {
 
 .auditlogs-list .auditlogs-list-item {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 2fr 2fr 1.75fr 120px;
+  grid-template-columns: 1.5fr 2fr 2fr 1fr 2fr 1fr;
   grid-column-gap: 2 * @defaultGutterWidth;
-  padding: 5px @defaultGutterWidth;
+  padding: 23px @defaultGutterWidth;
   > * {
     display: flex;
     align-items: center;
@@ -1645,8 +1668,13 @@ div.waiting-inventory {
   }
   &.auditlogs-list-item-header {
     cursor: initial;
-    padding: 10px @defaultGutterWidth;
+    padding: 23px @defaultGutterWidth;
     position: relative;
+    border-bottom: 1px solid @bordercolor;
+    border-top: 1px solid @bordercolor;
+  }
+  a, svg {
+    font-weight: 400;
   }
 }
 
@@ -1897,7 +1925,7 @@ div.waiting-inventory {
 
 .devicePage {
   &-header {
-    padding-bottom: 15px;
+    padding: 9px 0 9px 24px;
 
     h2 {
       flex-grow: 1;
@@ -1985,10 +2013,6 @@ div.waiting-inventory {
 
   .xterm {
     visibility: hidden;
-    padding: 10px;
-    &-viewport {
-      border-radius: 5px;
-    }
   }
 
   .device-connected {
@@ -2058,4 +2082,11 @@ body {
 .textLink, .textLink:hover {
   color: @text;
   font-weight: 500;
+}
+
+.xterm {
+  padding: 10px;
+  &-viewport {
+    border-radius: 5px;
+  }
 }

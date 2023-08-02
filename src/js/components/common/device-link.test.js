@@ -1,4 +1,4 @@
-// Copyright 2019 Northern.tech AS
+// Copyright 2023 Northern.tech AS
 //
 //    Licensed under the Apache License, Version 2.0 (the "License");
 //    you may not use this file except in compliance with the License.
@@ -15,13 +15,22 @@ import React from 'react';
 
 import { undefineds } from '../../../../tests/mockData';
 import { render } from '../../../../tests/setupTests';
-import Devices from './devices';
+import DeviceLink from './device-link.js';
 
-describe('Devices Component', () => {
+const deviceId = 'device-id';
+describe('Device link component', () => {
   it('renders correctly', async () => {
-    const { baseElement } = render(<Devices getAllDevicesByStatus={jest.fn()} />);
-    const view = baseElement.firstChild.firstChild;
+    const { baseElement: view } = render(<DeviceLink id={deviceId} />);
     expect(view).toMatchSnapshot();
     expect(view).toEqual(expect.not.stringMatching(undefineds));
+  });
+  it('correct link', async () => {
+    const { baseElement: view } = render(<DeviceLink id={deviceId} />);
+    expect(view.querySelector('a')).toHaveAttribute('href', `/devices/${deviceId}`);
+  });
+  it('child element passed to the link', async () => {
+    const linkText = 'link text';
+    const { baseElement: view } = render(<DeviceLink id={deviceId}>{linkText}</DeviceLink>);
+    expect(view.querySelector('a')).toHaveTextContent(linkText);
   });
 });

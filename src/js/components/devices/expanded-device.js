@@ -40,12 +40,11 @@ import { TIMEOUTS, yes } from '../../constants/appConstants';
 import { DEVICE_STATES, EXTERNAL_PROVIDER } from '../../constants/deviceConstants';
 import { getDemoDeviceAddress, stringToBoolean } from '../../helpers';
 import {
+  getDeviceConfigDeployment,
   getDeviceTwinIntegrations,
   getDevicesById,
   getDocsVersion,
-  getFeatures,
   getGlobalSettings,
-  getIdAttribute,
   getSelectedGroupInfo,
   getShowHelptips,
   getTenantCapabilities,
@@ -95,7 +94,7 @@ const useStyles = makeStyles()(theme => ({
 
 const refreshDeviceLength = TIMEOUTS.refreshDefault;
 
-const GatewayConnectionNotification = ({ gatewayDevices, idAttribute, onClick }) => {
+const GatewayConnectionNotification = ({ gatewayDevices, onClick }) => {
   const { classes } = useStyles();
 
   const onGatewayClick = () => {
@@ -110,11 +109,7 @@ const GatewayConnectionNotification = ({ gatewayDevices, idAttribute, onClick })
       title={
         <div style={{ maxWidth: 350 }}>
           Connected to{' '}
-          {gatewayDevices.length > 1 ? (
-            'multiple devices'
-          ) : (
-            <DeviceIdentityDisplay device={gatewayDevices[0]} idAttribute={idAttribute} isEditable={false} hasAdornment={false} />
-          )}
+          {gatewayDevices.length > 1 ? 'multiple devices' : <DeviceIdentityDisplay device={gatewayDevices[0]} isEditable={false} hasAdornment={false} />}
         </div>
       }
     >
@@ -216,17 +211,9 @@ export const ExpandedDevice = ({ actionCallbacks, deviceId, onClose, refreshDevi
   const { selectedGroup, groupFilters = [] } = useSelector(getSelectedGroupInfo);
   const { columnSelection = [] } = useSelector(getUserSettings);
   const { defaultDeviceConfig: defaultConfig } = useSelector(getGlobalSettings);
-  const { device, deviceConfigDeployment } = useSelector(state => {
-    const device = state.devices.byId[deviceId] || {};
-    const { config = {} } = device;
-    const { deployment_id: configDeploymentId } = config;
-    const deviceConfigDeployment = state.deployments.byId[configDeploymentId] || {};
-    return { device, deviceConfigDeployment };
-  });
+  const { device, deviceConfigDeployment } = useSelector(state => getDeviceConfigDeployment(state, deviceId));
   const devicesById = useSelector(getDevicesById);
   const docsVersion = useSelector(getDocsVersion);
-  const features = useSelector(getFeatures);
-  const idAttribute = useSelector(getIdAttribute);
   const integrations = useSelector(getDeviceTwinIntegrations);
   const showHelptips = useSelector(getShowHelptips);
   const tenantCapabilities = useSelector(getTenantCapabilities);
@@ -344,8 +331,7 @@ export const ExpandedDevice = ({ actionCallbacks, deviceId, onClose, refreshDevi
       <div className="flexbox center-aligned space-between">
         <div className="flexbox center-aligned">
           <h3 className="flexbox">
-            Device information for{' '}
-            {<DeviceIdentityDisplay device={device} idAttribute={idAttribute} isEditable={false} hasAdornment={false} style={{ marginLeft: 4 }} />}
+            Device information for {<DeviceIdentityDisplay device={device} isEditable={false} hasAdornment={false} style={{ marginLeft: 4 }} />}
           </h3>
           <IconButton onClick={copyLinkToClipboard} size="large">
             <LinkIcon />
@@ -354,11 +340,7 @@ export const ExpandedDevice = ({ actionCallbacks, deviceId, onClose, refreshDevi
         <div className="flexbox center-aligned">
           {isGateway && <GatewayNotification device={device} docsVersion={docsVersion} onClick={() => scrollToDeviceSystem()} />}
           {!!gatewayIds.length && (
-            <GatewayConnectionNotification
-              gatewayDevices={gatewayIds.map(gatewayId => devicesById[gatewayId])}
-              idAttribute={idAttribute}
-              onClick={scrollToDeviceSystem}
-            />
+            <GatewayConnectionNotification gatewayDevices={gatewayIds.map(gatewayId => devicesById[gatewayId])} onClick={scrollToDeviceSystem} />
           )}
           <div className={`${isOffline ? 'red' : 'muted'} margin-left margin-right flexbox`}>
             <div className="margin-right-small">Last check-in:</div>
@@ -377,16 +359,7 @@ export const ExpandedDevice = ({ actionCallbacks, deviceId, onClose, refreshDevi
         ))}
       </Tabs>
       <SelectedTab {...commonProps} />
-      <DeviceQuickActions
-        actionCallbacks={actionCallbacks}
-        devices={[device]}
-        features={features}
-        isSingleDevice
-        selectedGroup={selectedStaticGroup}
-        selectedRows={[0]}
-        tenantCapabilities={tenantCapabilities}
-        userCapabilities={userCapabilities}
-      />
+      <DeviceQuickActions actionCallbacks={actionCallbacks} deviceId={device.id} selectedGroup={selectedStaticGroup} />
     </Drawer>
   );
 };

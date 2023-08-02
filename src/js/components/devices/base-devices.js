@@ -12,13 +12,18 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 import React from 'react';
+import Highlighter from 'react-highlight-words';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+import { ArrowForward as ArrowForwardIcon } from '@mui/icons-material';
 
 import pluralize from 'pluralize';
 
 import preauthImage from '../../../assets/img/preauthorize.png';
 import { DEVICE_STATES } from '../../constants/deviceConstants';
 import { rootfsImageVersion } from '../../constants/releaseConstants';
+import DeviceLink from '../common/device-link.js';
 import Time, { ApproximateRelativeDate } from '../common/time';
 import DeviceStatus from './device-status';
 
@@ -42,21 +47,26 @@ export const getDeviceIdentityText = ({ device = {}, idAttribute }) => {
   // eslint-disable-next-line no-unused-vars
   const { status, ...remainingIds } = identity_data;
   const nonIdKey = Object.keys(remainingIds)[0];
-  let text = id;
   if (!idAttribute || idAttribute === 'id' || idAttribute === 'Device ID') {
-    return text;
+    return id;
   } else if (idAttribute === 'name') {
     return tags[idAttribute] ?? `${id.substring(0, 6)}...`;
   }
-  return identity_data[idAttribute] ?? identity_data[nonIdKey];
+  return identity_data[idAttribute] ?? identity_data[nonIdKey] ?? id;
 };
 
-const AttributeRenderer = ({ content, textContent }) => (
-  <div title={textContent}>
-    <div className="text-overflow">{content}</div>
-  </div>
-);
-
+export const AttributeRenderer = ({ content, textContent, style = {} }) => {
+  const highlight = useSelector(state => state.devices.highlight);
+  return (
+    <div style={style} title={textContent}>
+      {highlight ? (
+        <Highlighter style={style} highlightTag="b" searchWords={[highlight]} textToHighlight={content} />
+      ) : (
+        <div className="text-overflow">{content}</div>
+      )}
+    </div>
+  );
+};
 export const DefaultAttributeRenderer = ({ column, device, idAttribute }) => (
   <AttributeRenderer content={column.textRender({ device, column, idAttribute })} textContent={column.textRender({ device, column, idAttribute })} />
 );
@@ -175,10 +185,21 @@ export const defaultHeaders = {
     textRender: getDeviceTypeText
   },
   lastCheckIn: {
-    title: 'Last check-in',
+    title: 'Latest activity',
     attribute: { name: 'updated_ts', scope: 'system' },
     component: RelativeDeviceTime,
     sortable: true
+  },
+  viewDevice: {
+    title: 'View device',
+    component: ({ device }) => (
+      <div>
+        <DeviceLink className="flexbox centered" id={device.id}>
+          View details <ArrowForwardIcon style={{ fontSize: 16, marginLeft: 8 }} />
+        </DeviceLink>
+      </div>
+    ),
+    sortable: false
   }
 };
 
@@ -190,7 +211,8 @@ const acceptedDevicesRoute = {
   route: `${baseDevicesRoute}/${DEVICE_STATES.accepted}`,
   title: () => DEVICE_STATES.accepted,
   emptyState: AcceptedEmptyState,
-  defaultHeaders: [defaultHeaders.deviceType, defaultHeaders.currentSoftware, defaultHeaders.lastCheckIn]
+  defaultHeaders: [defaultHeaders.deviceType, defaultHeaders.lastCheckIn],
+  defaultSearchHeaders: [defaultHeaders.deviceType, defaultHeaders.lastCheckIn]
 };
 
 export const routes = {

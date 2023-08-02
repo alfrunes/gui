@@ -106,7 +106,7 @@ export const Device = () => {
 
   return (
     <div className="devicePage">
-      <div className="flexbox devicePage-header">
+      <div className="flexbox devicePage-header padding-left">
         <Button component={Link} to="/devices">
           <ArrowCircleLeftIcon /> All devices
         </Button>
@@ -121,7 +121,7 @@ export const Device = () => {
           </div>
         </div>
       </div>
-      <div className="flexbox devicePage-content">
+      <div className="flexbox devicePage-content padding-left">
         <div className="devicePage-content_troubleshooting">
           <Troubleshoot device={device} />
         </div>

@@ -68,7 +68,8 @@ export const initialState = {
       // dynamo: { deviceIds: [], total: 3, filters: [{ a: 1 }] }
     },
     selectedGroup: undefined
-  }
+  },
+  highlight: ''
 };
 
 const deviceReducer = (state = initialState, action) => {
@@ -256,6 +257,13 @@ const deviceReducer = (state = initialState, action) => {
             ...device
           }
         }
+      };
+    }
+    case DeviceConstants.SET_DEVICE_HIGHLIGHT: {
+      const { highlight } = action;
+      return {
+        ...state,
+        highlight
       };
     }
     default:

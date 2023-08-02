@@ -27,7 +27,7 @@ import { makeStyles } from 'tss-react/mui';
 import moment from 'moment';
 import Cookies from 'universal-cookie';
 
-import { initializeAppData, setFirstLoginAfterSignup, setSearchState } from '../../actions/appActions';
+import { initializeAppData, setFirstLoginAfterSignup } from '../../actions/appActions';
 import { getOnboardingState } from '../../actions/onboardingActions';
 import { getUser, logoutUser, setHideAnnouncement, toggleHelptips } from '../../actions/userActions';
 import { getToken } from '../../auth';
@@ -35,10 +35,7 @@ import { TIMEOUTS } from '../../constants/appConstants';
 import * as UserConstants from '../../constants/userConstants';
 import { decodeSessionToken, extractErrorMessage } from '../../helpers';
 import {
-  getAcceptedDevices,
   getCurrentUser,
-  getDeviceCountsByStatus,
-  getDeviceLimit,
   getDocsVersion,
   getFeatures,
   getIsEnterprise,
@@ -52,8 +49,6 @@ import { useDebounce } from '../../utils/debouncehook';
 import Search from '../common/search';
 import Announcement from './announcement';
 import DemoNotification from './demonotification';
-import DeploymentNotifications from './deploymentnotifications';
-import DeviceNotifications from './devicenotifications';
 import OfferHeader from './offerheader';
 import TrialNotification from './trialnotification';
 
@@ -109,20 +104,15 @@ export const Header = () => {
 
   const organization = useSelector(getOrganization);
   const { canManageUsers: allowUserManagement } = useSelector(getUserCapabilities);
-  const { total: acceptedDevices = 0 } = useSelector(getAcceptedDevices);
   const announcement = useSelector(state => state.app.hostedAnnouncement);
-  const deviceLimit = useSelector(getDeviceLimit);
   const docsVersion = useSelector(getDocsVersion);
   const firstLoginAfterSignup = useSelector(state => state.app.firstLoginAfterSignup);
   const { trackingConsentGiven: hasTrackingEnabled } = useSelector(getUserSettings);
-  const inProgress = useSelector(state => state.deployments.byStatus.inprogress.total);
   const isEnterprise = useSelector(getIsEnterprise);
   const { isDemoMode: demo, hasMultitenancy, isHosted } = useSelector(getFeatures);
   const isSearching = useSelector(state => state.app.searchState.isSearching);
   const multitenancy = hasMultitenancy || isEnterprise || isHosted;
-  const searchTerm = useSelector(state => state.app.searchState.searchTerm);
   const showHelptips = useSelector(getShowHelptips);
-  const { pending: pendingDevices } = useSelector(getDeviceCountsByStatus);
   const user = useSelector(getCurrentUser);
   const dispatch = useDispatch();
 
@@ -171,8 +161,6 @@ export const Header = () => {
     dispatch(logoutUser());
   };
 
-  const onSearch = searchTerm => dispatch(setSearchState({ searchTerm, page: 1 }));
-
   const setHideOffer = () => {
     cookies.set('offer', currentOffer.name, { path: '/', maxAge: 2629746 });
     setHasOfferCookie(true);
@@ -204,10 +192,8 @@ export const Header = () => {
             />
           )}
         </div>
-        <Search isSearching={isSearching} searchTerm={searchTerm} onSearch={onSearch} />
+        <Search isSearching={isSearching} />
         <div className="flexbox center-aligned">
-          <DeviceNotifications pending={pendingDevices} total={acceptedDevices} limit={deviceLimit} />
-          <DeploymentNotifications inprogress={inProgress} />
           <Button
             className={`header-dropdown ${classes.dropDown}`}
             onClick={e => setAnchorEl(e.currentTarget)}

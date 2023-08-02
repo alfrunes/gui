@@ -11,15 +11,15 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-import React, { forwardRef, memo, useMemo, useState } from 'react';
+import React, { forwardRef, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import {
   AddCircle as AddCircleIcon,
   CheckCircle as CheckCircleIcon,
   HeightOutlined as HeightOutlinedIcon,
   HighlightOffOutlined as HighlightOffOutlinedIcon,
-  RemoveCircleOutline as RemoveCircleOutlineIcon,
-  Replay as ReplayIcon
+  RemoveCircleOutline as RemoveCircleOutlineIcon
 } from '@mui/icons-material';
 import { SpeedDial, SpeedDialAction, SpeedDialIcon } from '@mui/material';
 import { speedDialActionClasses } from '@mui/material/SpeedDialAction';
@@ -30,7 +30,8 @@ import pluralize from 'pluralize';
 
 import GatewayIcon from '../../../../assets/img/gateway.svg';
 import { DEVICE_STATES, UNGROUPED_GROUP } from '../../../constants/deviceConstants';
-import { deepCompare, stringToBoolean } from '../../../helpers';
+import { stringToBoolean } from '../../../helpers';
+import { getDeviceById, getFeatures, getMappedDevicesList, getTenantCapabilities, getUserCapabilities } from '../../../selectors';
 import MaterialDesignIcon from '../../common/materialdesignicon';
 
 const defaultActions = {
@@ -43,7 +44,7 @@ const defaultActions = {
       canWriteDevices && [DEVICE_STATES.pending, DEVICE_STATES.rejected].includes(device.status)
   },
   dismiss: {
-    icon: <RemoveCircleOutlineIcon className="red" />,
+    icon: <RemoveCircleOutlineIcon />,
     key: 'dismiss',
     title: pluralized => `Dismiss ${pluralized}`,
     action: ({ onDeviceDismiss, selection }) => onDeviceDismiss(selection),
@@ -51,7 +52,7 @@ const defaultActions = {
       canWriteDevices && [DEVICE_STATES.accepted, DEVICE_STATES.pending, DEVICE_STATES.preauth, DEVICE_STATES.rejected, 'noauth'].includes(device.status)
   },
   reject: {
-    icon: <HighlightOffOutlinedIcon className="red" />,
+    icon: <HighlightOffOutlinedIcon />,
     key: 'reject',
     title: pluralized => `Reject ${pluralized}`,
     action: ({ onAuthorizationChange, selection }) => onAuthorizationChange(selection, DEVICE_STATES.rejected),
@@ -86,14 +87,6 @@ const defaultActions = {
     action: ({ onPromoteGateway, selection }) => onPromoteGateway(selection),
     checkRelevance: ({ device, features, tenantCapabilities: { isEnterprise } }) =>
       features.isHosted && isEnterprise && !stringToBoolean(device.attributes?.mender_is_gateway) && device.status === DEVICE_STATES.accepted
-  },
-  createDeployment: {
-    icon: <ReplayIcon />,
-    key: 'create-deployment',
-    title: (pluralized, count) => `Create deployment for ${pluralize('this', count)} ${pluralized}`,
-    action: ({ onCreateDeployment, selection }) => onCreateDeployment(selection),
-    checkRelevance: ({ device, userCapabilities: { canDeploy, canReadReleases } }) =>
-      canDeploy && canReadReleases && device && device.status === DEVICE_STATES.accepted
   }
 };
 
@@ -119,28 +112,28 @@ const useStyles = makeStyles()(theme => ({
   }
 }));
 
-export const DeviceQuickActions = (
-  { actionCallbacks, devices, features, isSingleDevice = false, selectedGroup, selectedRows, tenantCapabilities, userCapabilities },
-  ref
-) => {
+export const DeviceQuickActions = ({ actionCallbacks, deviceId, selectedGroup }, ref) => {
   const [showActions, setShowActions] = useState(false);
+  const features = useSelector(getFeatures);
+  const tenantCapabilities = useSelector(getTenantCapabilities);
+  const userCapabilities = useSelector(getUserCapabilities);
+  const { selection: selectedRows } = useSelector(state => state.devices.deviceList);
+  const singleDevice = useSelector(state => getDeviceById(state, deviceId));
+  const devices = useSelector(state => getMappedDevicesList(state, 'deviceList'));
   const { classes } = useStyles();
 
-  const { actions, selectedDevices } = useMemo(() => {
-    const selectedDevices = selectedRows.map(row => devices[row]);
-    const actions = Object.values(defaultActions).reduce((accu, action) => {
-      if (selectedDevices.every(device => device && action.checkRelevance({ device, features, selectedGroup, tenantCapabilities, userCapabilities }))) {
-        accu.push(action);
-      }
-      return accu;
-    }, []);
-    return { actions, selectedDevices };
-  }, [devices, isSingleDevice, selectedRows, selectedGroup, JSON.stringify(tenantCapabilities), JSON.stringify(userCapabilities)]);
+  const selectedDevices = deviceId ? [singleDevice] : selectedRows.map(row => devices[row]);
+  const actions = Object.values(defaultActions).reduce((accu, action) => {
+    if (selectedDevices.every(device => device && action.checkRelevance({ device, features, selectedGroup, tenantCapabilities, userCapabilities }))) {
+      accu.push(action);
+    }
+    return accu;
+  }, []);
 
   const pluralized = pluralize('devices', selectedDevices.length);
   return (
     <div className={classes.container} ref={ref}>
-      <div className={classes.label}>{isSingleDevice ? 'Device actions' : `${selectedDevices.length} ${pluralized} selected`}</div>
+      <div className={classes.label}>{deviceId ? 'Device actions' : `${selectedDevices.length} ${pluralized} selected`}</div>
       <SpeedDial
         className={classes.fab}
         ariaLabel="device-actions"
@@ -164,15 +157,4 @@ export const DeviceQuickActions = (
   );
 };
 
-const areEqual = (prevProps, nextProps) => {
-  if (prevProps.selectedGroup != nextProps.selectedGroup) {
-    return false;
-  }
-  return (
-    deepCompare(prevProps.tenantCapabilities, nextProps.tenantCapabilities) &&
-    deepCompare(prevProps.userCapabilities, nextProps.userCapabilities) &&
-    deepCompare(prevProps.selectedRows, nextProps.selectedRows)
-  );
-};
-
-export default memo(forwardRef(DeviceQuickActions), areEqual);
+export default forwardRef(DeviceQuickActions);

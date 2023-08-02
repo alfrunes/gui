@@ -1,4 +1,4 @@
-// Copyright 2019 Northern.tech AS
+// Copyright 2023 Northern.tech AS
 //
 //    Licensed under the Apache License, Version 2.0 (the "License");
 //    you may not use this file except in compliance with the License.
@@ -12,16 +12,16 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-import { undefineds } from '../../../../../tests/mockData';
-import { render } from '../../../../../tests/setupTests';
-import FormCheckbox from './formcheckbox';
+import { OpenInNew as OpenInNewIcon } from '@mui/icons-material';
 
-describe('FormCheckbox Component', () => {
-  it('renders correctly', async () => {
-    const { baseElement } = render(<FormCheckbox attachToForm={jest.fn} detachFromForm={jest.fn} label="testbox" />);
-    const view = baseElement.firstChild.firstChild;
-    expect(view).toMatchSnapshot();
-    expect(view).toEqual(expect.not.stringMatching(undefineds));
-  });
-});
+const DeviceLink = ({ id = '', onClickHandler = () => {}, children = <OpenInNewIcon style={{ fontSize: 20 }} />, className = '', style = {} }) => {
+  return (
+    <Link onClick={onClickHandler} className={`flexbox ${className}`} style={style} to={`/devices/${id}`}>
+      {children}
+    </Link>
+  );
+};
+
+export default DeviceLink;

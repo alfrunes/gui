@@ -42,7 +42,8 @@ export const palette = {
      */
     primary: 'rgba(10, 10, 11, 0.78)',
     secondary: secondaryText,
-    hint: secondaryText
+    hint: secondaryText,
+    inactive: '#616161'
   },
   brand: {
     mender: '#015969',
@@ -53,7 +54,8 @@ export const palette = {
   },
   surface: {
     primary: '#F5F5F5'
-  }
+  },
+  backdrop: 'rgba(9, 9, 9, 0.8)'
 };
 
 const generatedColors = {
@@ -242,6 +244,9 @@ export const overrides = {
         paddingBottom: 11,
         [`&.${listItemClasses.disabled}`]: {
           opacity: 1
+        },
+        [`&.${listItemClasses.selected}, &.${listItemClasses.selected}:hover, &:hover`]: {
+          backgroundColor: palette.surface.primary
         }
       }
     }

@@ -167,13 +167,13 @@ export const DeviceList = ({
   idAttribute,
   onChangeRowsPerPage,
   PaginationProps = {},
-  onExpandClick,
   onResizeColumns,
   onPageChange,
   onSelect,
   onSort,
   pageLoading,
-  pageTotal
+  pageTotal,
+  className
 }) => {
   const { page: pageNo = defaultPage, perPage: pageLength = defaultPerPage, selection: selectedRows = [], sort = {} } = deviceListState;
   const { direction: sortDown = SORTING_OPTIONS.desc, key: sortCol } = sort;
@@ -238,7 +238,7 @@ export const DeviceList = ({
 
   const numSelected = (selectedRows || []).length;
   return (
-    <div className={`deviceList ${selectable ? 'selectable' : ''}`} ref={deviceListRef}>
+    <div className={`deviceList ${selectable ? 'selectable' : ''} ${className}`} ref={deviceListRef}>
       <div className={`header ${classes.header}`}>
         <div className="deviceListRow">
           {selectable && (
@@ -271,7 +271,6 @@ export const DeviceList = ({
             idAttribute={idAttribute.attribute}
             index={index}
             key={device.id}
-            onClick={onExpandClick}
             onRowSelect={onRowSelection}
             selectable={selectable}
             selected={selectedRows.indexOf(index) !== -1}

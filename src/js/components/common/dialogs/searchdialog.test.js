@@ -1,4 +1,4 @@
-// Copyright 2019 Northern.tech AS
+// Copyright 2023 Northern.tech AS
 //
 //    Licensed under the Apache License, Version 2.0 (the "License");
 //    you may not use this file except in compliance with the License.
@@ -12,15 +12,32 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 import React from 'react';
+import { Provider } from 'react-redux';
 
-import { undefineds } from '../../../../../tests/mockData';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+
+import { defaultState, undefineds } from '../../../../../tests/mockData';
 import { render } from '../../../../../tests/setupTests';
-import TextInput from './textinput';
+import SearchDialog from './searchdialog.js';
 
-describe('TextInput Component', () => {
+const mockStore = configureStore([thunk]);
+
+describe('Search dialog component', () => {
+  let store;
+  beforeEach(() => {
+    store = mockStore({
+      ...defaultState
+    });
+  });
+
   it('renders correctly', async () => {
-    const { baseElement } = render(<TextInput attachToForm={jest.fn} detachFromForm={jest.fn} />);
-    const view = baseElement.firstChild.firstChild;
+    const { baseElement } = render(
+      <Provider store={store}>
+        <SearchDialog open={true} />
+      </Provider>
+    );
+    const view = baseElement;
     expect(view).toMatchSnapshot();
     expect(view).toEqual(expect.not.stringMatching(undefineds));
   });

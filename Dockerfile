@@ -1,4 +1,6 @@
-FROM node:20.4.0-alpine AS base
+# using fixed platform  in the base target
+# since the result is always static files
+FROM --platform=linux/amd64 node:20.4.0-alpine AS base
 WORKDIR /usr/src/app
 COPY package-lock.json package.json ./
 RUN npm ci
@@ -11,7 +13,8 @@ COPY . ./
 RUN npm run build
 
 
-FROM nginxinc/nginx-unprivileged:1.25.1-alpine AS unprivileged
+FROM --platform=$BUILDPLATFORM nginxinc/nginx-unprivileged:1.25.1-alpine AS unprivileged
+ARG TARGETPLATFORM
 EXPOSE 8090
 WORKDIR /var/www/mender-gui/dist
 ARG GIT_COMMIT_TAG
@@ -25,7 +28,8 @@ HEALTHCHECK --interval=8s --timeout=15s --start-period=120s --retries=128 CMD wg
 CMD ["nginx"]
 
 
-FROM nginx:1.25.1-alpine AS production
+FROM --platform=$BUILDPLATFORM nginx:1.25.1-alpine AS production
+ARG TARGETPLATFORM
 EXPOSE 8080
 WORKDIR /var/www/mender-gui/dist
 ARG GIT_COMMIT_TAG
