@@ -246,21 +246,6 @@ export const DeviceGroups = () => {
   const theme = useTheme();
   return (
     <>
-      <div className="tab-container with-sub-panels" style={{ padding: 0, minHeight: 'initial' }}>
-        <div className="flexbox space-between">
-          {hasReporting && !!authRequestCount && (
-            <a className="flexbox center-aligned margin-right-large" onClick={onShowAuthRequestDevicesClick}>
-              <AddIcon fontSize="small" style={{ marginRight: 6 }} />
-              {authRequestCount} new device authentication {pluralize('request', authRequestCount)}
-            </a>
-          )}
-          {!!pendingCount && !selectedGroup && selectedState !== DEVICE_STATES.pending ? (
-            <DeviceStatusNotification deviceCount={pendingCount} state={DEVICE_STATES.pending} onClick={onShowDeviceStateClick} />
-          ) : (
-            <div />
-          )}
-        </div>
-      </div>
       <div className="tab-container with-sub-panels" style={{ padding: 0, height: '100%' }}>
         <Groups
           className="leftFixed"
@@ -272,6 +257,21 @@ export const DeviceGroups = () => {
           showHelptips={showHelptips}
         />
         <div className="rightFluid relative" style={{ paddingTop: theme.spacing(4) }}>
+          <div className="tab-container margin-bottom with-sub-panels" style={{ padding: 0, minHeight: 'initial' }}>
+            <div className="flexbox space-between">
+              {hasReporting && !!authRequestCount && (
+                <a className="flexbox center-aligned margin-right-large" onClick={onShowAuthRequestDevicesClick}>
+                  <AddIcon fontSize="small" style={{ marginRight: 6 }} />
+                  {authRequestCount} new device authentication {pluralize('request', authRequestCount)}
+                </a>
+              )}
+              {!!pendingCount && !selectedGroup && selectedState !== DEVICE_STATES.pending ? (
+                <DeviceStatusNotification deviceCount={pendingCount} state={DEVICE_STATES.pending} onClick={onShowDeviceStateClick} />
+              ) : (
+                <div />
+              )}
+            </div>
+          </div>
           {limitMaxed && <DeviceLimitWarning acceptedDevices={acceptedCount} deviceLimit={deviceLimit} />}
           <AuthorizedDevices
             addDevicesToGroup={addDevicesToGroup}

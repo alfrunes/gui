@@ -36,6 +36,7 @@ import DeviceIdentityDisplay from '../common/deviceidentity.js';
 import { RelativeTime } from '../common/time.js';
 import DeviceInventory from './device-details/deviceinventory.js';
 import { IdentityTab } from './device-details/identity.js';
+import DeviceNotifications from './device-details/notifications.js';
 import Troubleshoot from './device-details/troubleshoot.js';
 
 const deviceStatusCheck = ({ device: { status = DEVICE_STATES.accepted } }, states = [DEVICE_STATES.accepted]) => states.includes(status);
@@ -78,7 +79,7 @@ export const Device = () => {
       clearInterval(timer.current);
     };
   }, [deviceId, device.status]);
-
+  const { latest: latestAlerts = [] } = useSelector(state => state.monitor.alerts.byDeviceId[deviceId]) || {};
   const availableTabs = tabs.reduce((accu, tab) => {
     if (tab.isApplicable({ device, integrations, tenantCapabilities, userCapabilities })) {
       accu.push(tab);
@@ -93,6 +94,7 @@ export const Device = () => {
     abortDeployment: id => dispatch(abortDeployment(id)),
     device,
     docsVersion,
+    latestAlerts,
     getDeviceLog: (...args) => dispatch(getDeviceLog(...args)),
     getSingleDeployment: id => dispatch(getSingleDeployment(id)),
     integrations,
@@ -123,6 +125,7 @@ export const Device = () => {
       </div>
       <div className="flexbox devicePage-content padding-left">
         <div className="devicePage-content_troubleshooting">
+          <DeviceNotifications alerts={latestAlerts} device={device} isOffline={device.isOffline} />
           <Troubleshoot device={device} />
         </div>
         <div className="devicePage-content_info">
