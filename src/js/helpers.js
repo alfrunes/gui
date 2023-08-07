@@ -14,6 +14,7 @@
 import React from 'react';
 
 import jwtDecode from 'jwt-decode';
+import moment from 'moment';
 import pluralize from 'pluralize';
 
 import { getToken } from './auth';
@@ -528,9 +529,12 @@ export const createDownload = (target, filename) => {
 
 export const createFileDownload = (content, filename) => createDownload('data:text/plain;charset=utf-8,' + encodeURIComponent(content), filename);
 
-export const getISOStringBoundaries = currentDate => {
-  const date = [currentDate.getUTCFullYear(), `0${currentDate.getUTCMonth() + 1}`.slice(-2), `0${currentDate.getUTCDate()}`.slice(-2)].join('-');
-  return { start: `${date}T00:00:00.000Z`, end: `${date}T23:59:59.999Z` };
+export const getISOStringBoundaries = (currentDate, daysToSubtract = 0) => {
+  const format = 'YYYY-MM-DD HH:mm:ss.SSS';
+  return {
+    start: moment(currentDate).utc().subtract(daysToSubtract, 'days').startOf('day').format(format),
+    end: moment(currentDate).utc().endOf('day').format(format)
+  };
 };
 
 export const isDarkMode = mode => mode === DARK_MODE;

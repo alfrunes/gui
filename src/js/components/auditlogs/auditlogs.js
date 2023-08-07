@@ -15,7 +15,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { Autocomplete, Button, TextField } from '@mui/material';
+import { Close as CloseIcon } from '@mui/icons-material';
+import { Autocomplete, Button, TextField, inputClasses } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 
 import moment from 'moment';
@@ -31,17 +32,49 @@ import { useDebounce } from '../../utils/debouncehook';
 import { useLocationParams } from '../../utils/liststatehook';
 import Loader from '../common/loader';
 import TimeframePicker from '../common/timeframe-picker';
-import TimerangePicker from '../common/timerange-picker';
 import AuditLogsList from './auditlogslist';
 
 const detailsMap = {
   Deployment: 'to device group',
-  User: 'email'
+  User: 'email',
+  Device: 'device id'
 };
 
 const useStyles = makeStyles()(theme => ({
   filters: {
-    backgroundColor: theme.palette.background.lightgrey
+    backgroundColor: theme.palette.background.lightgrey,
+    position: 'relative',
+    alignItems: 'flex-end'
+  },
+  clear: {
+    position: 'absolute',
+    top: 9,
+    right: 11,
+    display: 'flex',
+    cursor: 'pointer',
+    alignItems: 'center',
+    fontWeight: 500
+  },
+  textField: {
+    minWidth: 180,
+    [`.${inputClasses.root}`]: {
+      padding: '13px 13px',
+      '&:before': {
+        borderColor: theme.palette.border.colors.button
+      },
+      '&::placeholder': {
+        color: theme.palette.text.primary
+      }
+    },
+    [`.${inputClasses.input}`]: {
+      '&::placeholder': {
+        opacity: 0.8
+      }
+    },
+    label: {
+      transform: 'none',
+      marginBottom: 13
+    }
   }
 }));
 
@@ -61,7 +94,7 @@ export const AuditLogs = props => {
   const navigate = useNavigate();
   const [csvLoading, setCsvLoading] = useState(false);
 
-  const [date] = useState(getISOStringBoundaries(new Date()));
+  const [date] = useState(getISOStringBoundaries(new Date(), 30));
   const { start: today, end: tonight } = date;
 
   const [detailValue, setDetailValue] = useState(null);
@@ -203,36 +236,27 @@ export const AuditLogs = props => {
 
   return (
     <div className="fadeIn margin-left flexbox column" style={{ marginRight: '5%' }}>
-      <h3>Audit log</h3>
+      <h2 className="margin-top margin-bottom">Audit log</h2>
       <div className={`auditlogs-filters margin-bottom margin-top-small ${classes.filters}`}>
-        <Autocomplete
-          {...autoSelectProps}
-          id="audit-log-user-selection"
-          freeSolo
-          options={Object.values(users)}
-          onChange={onUserFilterChange}
-          isOptionEqualToValue={({ email, id }, value) => id === value || email === value || email === value.email}
-          value={userValue}
-          renderInput={params => (
-            <TextField
-              {...params}
-              label="Filter by user"
-              placeholder="Select a user"
-              InputLabelProps={{ shrink: true }}
-              InputProps={{ ...params.InputProps }}
-            />
-          )}
-          style={{ maxWidth: 250 }}
-        />
+        <div style={{ display: 'flex' }}>
+          <TimeframePicker onChange={onTimeFilterChange} endDate={endDate} startDate={startDate} tonight={tonight} />
+        </div>
         <Autocomplete
           {...autoSelectProps}
           id="audit-log-type-selection"
           onChange={onTypeFilterChange}
           options={AUDIT_LOGS_TYPES}
           renderInput={params => (
-            <TextField {...params} label="Filter by change" placeholder="Type" InputLabelProps={{ shrink: true }} InputProps={{ ...params.InputProps }} />
+            <TextField
+              className={classes.textField}
+              {...params}
+              label="Affected"
+              placeholder="Type"
+              InputLabelProps={{ shrink: true }}
+              InputProps={{ ...params.InputProps }}
+            />
           )}
-          style={{ marginLeft: 7.5 }}
+          style={{ marginLeft: 7.5, marginRight: 12 }}
           value={typeValue}
         />
         <Autocomplete
@@ -244,17 +268,34 @@ export const AuditLogs = props => {
           value={detailValue}
           onInputChange={onDetailFilterChange}
           options={detailOptions}
-          renderInput={params => <TextField {...params} placeholder={detailsMap[type] || '-'} InputProps={{ ...params.InputProps }} />}
-          style={{ marginRight: 15, marginTop: 16 }}
+          renderInput={params => (
+            <TextField className={classes.textField} {...params} placeholder={detailsMap[typeValue?.title] || 'Value'} InputProps={{ ...params.InputProps }} />
+          )}
+          style={{ margin: '16px 32px 0 0' }}
+        />
+        <Autocomplete
+          {...autoSelectProps}
+          id="audit-log-user-selection"
+          options={Object.values(users)}
+          onChange={onUserFilterChange}
+          isOptionEqualToValue={({ email, id }, value) => id === value || email === value || email === value.email}
+          value={userValue}
+          renderInput={params => (
+            <TextField
+              className={classes.textField}
+              {...params}
+              label="User"
+              placeholder="Select a user"
+              InputLabelProps={{ shrink: true }}
+              InputProps={{ ...params.InputProps }}
+            />
+          )}
+          style={{ maxWidth: 250 }}
         />
         <div />
-        <TimerangePicker endDate={endDate} onChange={onTimeFilterChange} startDate={startDate} />
-        <div style={{ gridColumnStart: 2, gridColumnEnd: 4, marginLeft: 7.5 }}>
-          <TimeframePicker onChange={onTimeFilterChange} endDate={endDate} startDate={startDate} tonight={tonight} />
-        </div>
         {!!(user || type || detail || startDate !== today || endDate !== tonight) && (
-          <span className="link margin-bottom-small" onClick={reset} style={{ alignSelf: 'flex-end' }}>
-            clear filter
+          <span className={classes.clear} onClick={reset}>
+            <CloseIcon style={{ fontSize: 20 }} /> Clear filter
           </span>
         )}
       </div>

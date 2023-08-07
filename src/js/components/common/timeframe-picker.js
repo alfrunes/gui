@@ -14,10 +14,40 @@
 import React, { memo, useEffect, useState } from 'react';
 
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { makeStyles } from 'tss-react/mui';
 
 import moment from 'moment';
 
+const useStyles = makeStyles()(theme => ({
+  datePicker: {
+    position: 'relative',
+    minWidth: 180,
+    marginRight: theme.spacing(2),
+    border: `1px solid ${theme.palette.border.colors.button}`,
+    borderRadius: 4,
+    padding: '12px 16px',
+    label: {
+      color: theme.palette.text.secondary,
+      position: 'absolute',
+      top: -9,
+      left: theme.spacing(),
+      background: theme.palette.surface.primary,
+      zIndex: 2,
+      display: 'inline-block',
+      padding: '0 4px',
+      fontSize: 12,
+      fontWeight: 500,
+      letterSpacing: 0.5,
+      transform: 'none'
+    },
+    'label+div': {
+      margin: 0
+    }
+  }
+}));
+
 export const TimeframePicker = ({ onChange, ...props }) => {
+  const { classes } = useStyles();
   const [tonight] = useState(moment().endOf('day'));
   const [endDate, setEndDate] = useState(moment(props.endDate) > tonight ? tonight : moment(props.endDate));
   const [startDate, setStartDate] = useState(moment(props.startDate));
@@ -48,10 +78,29 @@ export const TimeframePicker = ({ onChange, ...props }) => {
   };
 
   return (
-    <>
-      <DatePicker onChange={handleChangeStartDate} label="From" format="MMMM Do" value={startDate} maxDate={props.endDate ? endDate : tonight} />
-      <DatePicker className="margin-left-small" onChange={handleChangeEndDate} label="To" format="MMMM Do" value={endDate} maxDate={tonight} />
-    </>
+    <div style={{ display: 'flex', flexWrap: 'wrap', maxWidth: 440 }}>
+      <div>Date and time range</div>
+      <div className="flexbox">
+        <DatePicker
+          className={classes.datePicker}
+          onChange={handleChangeStartDate}
+          label="Start"
+          format="D/M/Y"
+          value={startDate}
+          maxDate={props.endDate ? endDate : tonight}
+          slotProps={{ textField: { InputProps: { disableUnderline: true } } }}
+        />
+        <DatePicker
+          className={classes.datePicker}
+          onChange={handleChangeEndDate}
+          slotProps={{ textField: { InputProps: { disableUnderline: true } } }}
+          label="End"
+          format="D/M/Y"
+          value={endDate}
+          maxDate={tonight}
+        />
+      </div>
+    </div>
   );
 };
 
