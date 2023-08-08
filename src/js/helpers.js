@@ -530,7 +530,7 @@ export const createDownload = (target, filename) => {
 export const createFileDownload = (content, filename) => createDownload('data:text/plain;charset=utf-8,' + encodeURIComponent(content), filename);
 
 export const getISOStringBoundaries = (currentDate, daysToSubtract = 0) => {
-  const format = 'YYYY-MM-DD HH:mm:ss.SSS';
+  const format = 'YYYY-MM-DD HH:mm:ss.SSSZ';
   return {
     start: moment(currentDate).utc().subtract(daysToSubtract, 'days').startOf('day').format(format),
     end: moment(currentDate).utc().endOf('day').format(format)
