@@ -13,9 +13,9 @@
 //    limitations under the License.
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-import { Close as CloseIcon } from '@mui/icons-material';
+import { Close as CloseIcon, ErrorOutline as ErrorOutlineIcon } from '@mui/icons-material';
 import { Autocomplete, Button, TextField, inputClasses } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 
@@ -27,7 +27,7 @@ import { getUserList } from '../../actions/userActions';
 import { SORTING_OPTIONS, TIMEOUTS } from '../../constants/appConstants';
 import { AUDIT_LOGS_TYPES } from '../../constants/organizationConstants';
 import { createDownload, getISOStringBoundaries } from '../../helpers';
-import { getGroupNames, getTenantCapabilities, getUserCapabilities } from '../../selectors';
+import { getGroupNames, getLogsDaysLimit, getTenantCapabilities, getUserCapabilities } from '../../selectors';
 import { useDebounce } from '../../utils/debouncehook';
 import { useLocationParams } from '../../utils/liststatehook';
 import Loader from '../common/loader';
@@ -75,6 +75,14 @@ const useStyles = makeStyles()(theme => ({
       transform: 'none',
       marginBottom: 13
     }
+  },
+  upgradeLink: {
+    color: theme.palette.orange,
+    display: 'flex',
+    '&:hover': {
+      color: theme.palette.orange,
+      opacity: 0.9
+    }
   }
 }));
 
@@ -93,14 +101,17 @@ const autoSelectProps = {
 export const AuditLogs = props => {
   const navigate = useNavigate();
   const [csvLoading, setCsvLoading] = useState(false);
-
-  const [date] = useState(getISOStringBoundaries(new Date(), 30));
-  const { start: today, end: tonight } = date;
-
+  const logsDaysLimit = useSelector(getLogsDaysLimit);
+  const [date] = useState(getISOStringBoundaries(new Date(), logsDaysLimit || 7));
+  const { start: startingDay, end: tonight } = date;
   const [detailValue, setDetailValue] = useState(null);
   const [userValue, setUserValue] = useState(null);
   const [typeValue, setTypeValue] = useState(null);
-  const [locationParams, setLocationParams] = useLocationParams('auditlogs', { today, tonight, defaults: { sort: { direction: SORTING_OPTIONS.desc } } });
+  const [locationParams, setLocationParams] = useLocationParams('auditlogs', {
+    today: startingDay,
+    tonight,
+    defaults: { sort: { direction: SORTING_OPTIONS.desc } }
+  });
   const { classes } = useStyles();
   const dispatch = useDispatch();
   const events = useSelector(state => state.organization.auditlog.events);
@@ -116,7 +127,7 @@ export const AuditLogs = props => {
   const debouncedType = useDebounce(typeValue, TIMEOUTS.debounceDefault);
   const debouncedUser = useDebounce(userValue, TIMEOUTS.debounceDefault);
 
-  const { detail, isLoading, perPage, endDate, user, reset: resetList, sort, startDate, total, type } = selectionState;
+  const { detail, isLoading, perPage, endDate, user, reset: resetList, sort, startDate, minDate, total, type } = selectionState;
 
   useEffect(() => {
     if (!hasAuditlogs) {
@@ -137,6 +148,20 @@ export const AuditLogs = props => {
   }, [hasAuditlogs]);
 
   useEffect(() => {
+    if (!logsDaysLimit) {
+      return;
+    }
+    const { start } = getISOStringBoundaries(new Date(), logsDaysLimit || 7);
+    dispatch(
+      setAuditlogsState({
+        ...selectionState,
+        minDate: startingDay,
+        startDate: start
+      })
+    );
+  }, [logsDaysLimit]);
+
+  useEffect(() => {
     if (!hasAuditlogs) {
       return;
     }
@@ -154,7 +179,7 @@ export const AuditLogs = props => {
       return;
     }
     setLocationParams({ pageState: selectionState });
-  }, [detail, endDate, hasAuditlogs, JSON.stringify(sort), perPage, selectionState.page, selectionState.selectedId, startDate, type, user]);
+  }, [detail, endDate, hasAuditlogs, JSON.stringify(sort), perPage, minDate, selectionState.page, selectionState.selectedId, startDate, type, user]);
 
   useEffect(() => {
     const user = users[debouncedUser];
@@ -171,7 +196,7 @@ export const AuditLogs = props => {
         endDate: tonight,
         page: 1,
         reset: !resetList,
-        startDate: today,
+        startDate: startingDay,
         type: null,
         user: null
       })
@@ -239,7 +264,7 @@ export const AuditLogs = props => {
       <h2 className="margin-top margin-bottom">Audit log</h2>
       <div className={`auditlogs-filters margin-bottom margin-top-small ${classes.filters}`}>
         <div style={{ display: 'flex' }}>
-          <TimeframePicker onChange={onTimeFilterChange} endDate={endDate} startDate={startDate} tonight={tonight} />
+          <TimeframePicker onChange={onTimeFilterChange} endDate={endDate} minDate={minDate} startDate={startDate} tonight={tonight} />
         </div>
         <Autocomplete
           {...autoSelectProps}
@@ -293,13 +318,19 @@ export const AuditLogs = props => {
           style={{ maxWidth: 250 }}
         />
         <div />
-        {!!(user || type || detail || startDate !== today || endDate !== tonight) && (
+        {!!(user || type || detail || startDate !== startingDay || endDate !== tonight) && (
           <span className={classes.clear} onClick={reset}>
             <CloseIcon style={{ fontSize: 20 }} /> Clear filter
           </span>
         )}
       </div>
-      <div className="flexbox center-aligned" style={{ justifyContent: 'flex-end' }}>
+      <div className="flexbox center-aligned" style={{ justifyContent: 'space-between' }}>
+        {logsDaysLimit && (
+          <Link className={classes.upgradeLink} to="/settings/upgrade">
+            <ErrorOutlineIcon className="margin-right-sx" />
+            You are only seeing audit log entries from the last {logsDaysLimit} days, upgrade to plan B to see full history.
+          </Link>
+        )}
         <Loader show={csvLoading} />
         <Button variant="contained" color="primary" disabled={csvLoading || !total} onClick={createCsvDownload} style={{ marginLeft: 15 }}>
           Download results as csv

@@ -67,7 +67,8 @@ export const PLANS = {
     offerprice: '$23/month for first 50 devices',
     price2: 'for first 6 months;\n$29/month thereafter',
     features: ['Basic OTA features'],
-    value: 'os'
+    value: 'os',
+    logsDaysLimit: 2
   },
   professional: {
     name: 'Professional',
@@ -77,14 +78,16 @@ export const PLANS = {
     offerprice: '$200/month for first 50 devices',
     price2: 'for first 6 months;\n$249/month thereafter',
     features: ['+ Advanced OTA features', '+ Standard support'],
-    value: 'professional'
+    value: 'professional',
+    logsDaysLimit: 2
   },
   enterprise: {
     name: 'Enterprise',
     price: 'Custom pricing',
     deviceCount: 'unlimited devices',
     features: ['+ Enterprise-grade OTA features', '+ Premium support'],
-    value: 'enterprise'
+    value: 'enterprise',
+    logsDaysLimit: null
   }
 };
 // the needs names need to be aligned with the name of the features in the appReducer, as they will be checked in the addonselection

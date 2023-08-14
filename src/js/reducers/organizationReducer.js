@@ -40,6 +40,7 @@ export const initialState = {
       ...DEVICE_LIST_DEFAULTS,
       detail: null,
       endDate: undefined,
+      minDate: null,
       reset: false,
       selectedIssue: undefined,
       sort: { direction: SORTING_OPTIONS.desc },

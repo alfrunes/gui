@@ -41,6 +41,7 @@ const palette = {
   mode: LIGHT_MODE,
   grey,
   green,
+  orange: '#E27E00',
   greySecondary: {
     '600': '#616161'
   },

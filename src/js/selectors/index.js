@@ -245,6 +245,8 @@ export const getIsEnterprise = createSelector(
   ({ plan = PLANS.os.value }, { isEnterprise, isHosted }) => isEnterprise || (isHosted && plan === PLANS.enterprise.value)
 );
 
+export const getLogsDaysLimit = createSelector([getOrganization], ({ plan }) => PLANS[plan]?.logsDaysLimit || null);
+
 export const getAttributesList = createSelector(
   [getFilteringAttributes, getFilteringAttributesFromConfig],
   ({ identityAttributes = [], inventoryAttributes = [] }, { identity = [], inventory = [] }) =>

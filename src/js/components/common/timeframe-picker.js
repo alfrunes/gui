@@ -51,6 +51,7 @@ export const TimeframePicker = ({ onChange, ...props }) => {
   const [tonight] = useState(moment().endOf('day'));
   const [endDate, setEndDate] = useState(moment(props.endDate) > tonight ? tonight : moment(props.endDate));
   const [startDate, setStartDate] = useState(moment(props.startDate));
+  const minDate = moment(props.minDate);
 
   useEffect(() => {
     setEndDate(moment(props.endDate) > tonight ? tonight : moment(props.endDate));
@@ -63,7 +64,12 @@ export const TimeframePicker = ({ onChange, ...props }) => {
       currentEndDate = date;
       currentEndDate.endOf('day');
     }
-    date.startOf('day');
+
+    if (date < minDate) {
+      // does nothing if selected date less than min data
+      return;
+    }
+
     onChange(date.toISOString(), currentEndDate.toISOString());
   };
 
@@ -72,6 +78,10 @@ export const TimeframePicker = ({ onChange, ...props }) => {
     if (date < currentStartDate) {
       currentStartDate = date;
       currentStartDate.startOf('day');
+    }
+    if (date < minDate) {
+      // does nothing if selected date less than min data
+      return;
     }
     date.endOf('day');
     onChange(currentStartDate.toISOString(), date.toISOString());
@@ -88,12 +98,14 @@ export const TimeframePicker = ({ onChange, ...props }) => {
           format="D/M/Y"
           value={startDate}
           maxDate={props.endDate ? endDate : tonight}
+          minDate={moment(props.minDate)}
           slotProps={{ textField: { InputProps: { disableUnderline: true } } }}
         />
         <DatePicker
           className={classes.datePicker}
           onChange={handleChangeEndDate}
           slotProps={{ textField: { InputProps: { disableUnderline: true } } }}
+          minDate={moment(props.minDate)}
           label="End"
           format="D/M/Y"
           value={endDate}
@@ -105,7 +117,7 @@ export const TimeframePicker = ({ onChange, ...props }) => {
 };
 
 const areEqual = (prevProps, nextProps) => {
-  return !(prevProps.endDate != nextProps.endDate || prevProps.startDate != nextProps.startDate);
+  return !(prevProps.endDate != nextProps.endDate || prevProps.startDate != nextProps.startDate || prevProps.minDate != nextProps.minDate);
 };
 
 export default memo(TimeframePicker, areEqual);
