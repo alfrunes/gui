@@ -259,13 +259,6 @@ const appInitActions = [
       }
     }
   },
-  {
-    type: RECEIVE_EXTERNAL_DEVICE_INTEGRATIONS,
-    value: [
-      { connection_string: 'something_else', id: 1, provider: EXTERNAL_PROVIDER['iot-hub'].provider },
-      { id: 2, provider: 'aws', something: 'new' }
-    ]
-  },
   { type: RECEIVE_RELEASES, releases: defaultState.releases.byId },
   { type: SET_ONBOARDING_ARTIFACT_INCLUDED, value: true },
   {
@@ -300,6 +293,13 @@ const appInitActions = [
   },
   { type: SET_DEVICE_LIMIT, limit: 500 },
   { type: RECEIVED_PERMISSION_SETS, value: receivedPermissionSets },
+  {
+    type: RECEIVE_EXTERNAL_DEVICE_INTEGRATIONS,
+    value: [
+      { connection_string: 'something_else', id: 1, provider: EXTERNAL_PROVIDER['iot-hub'].provider },
+      { id: 2, provider: 'aws', something: 'new' }
+    ]
+  },
   { type: RECEIVED_ROLES, value: receivedRoles },
   {
     type: RECEIVE_DEVICES,
@@ -343,9 +343,9 @@ const appInitActions = [
     total: defaultState.devices.byStatus.accepted.total
   },
   { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings } },
-  { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings, showHelptips: true } },
   { type: SET_GLOBAL_SETTINGS, settings: { '2fa': 'enabled', previousFilters: [] } },
   offlineThreshold,
+  { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings, showHelptips: true } },
   { type: SET_GLOBAL_SETTINGS, settings: { '2fa': 'enabled', previousFilters: [] } },
   {
     type: RECEIVE_DEVICES,

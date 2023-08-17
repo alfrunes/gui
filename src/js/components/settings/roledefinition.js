@@ -426,9 +426,6 @@ export const RoleDefinition = ({
           values={userManagementPermissions}
         />
         <PermissionsItem disabled={disableEdit} area={uiPermissionsByArea.auditlog} onChange={setAuditlogPermissions} values={auditlogPermissions} />
-        {!hasReleaseTags && (
-          <PermissionsItem disabled={disableEdit} area={uiPermissionsByArea.releases} onChange={setReleasesPermissions} values={releasesPermissions} />
-        )}
       </div>
       {(!disableEdit || !!releaseTagSelections.length) && hasReleaseTags && (
         <ItemSelection

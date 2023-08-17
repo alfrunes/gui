@@ -13,7 +13,6 @@
 //    limitations under the License.
 import { SORTING_OPTIONS } from '../src/js/constants/appConstants';
 import * as DeviceConstants from '../src/js/constants/deviceConstants';
-import { ALL_RELEASES } from '../src/js/constants/releaseConstants';
 import {
   defaultPermissionSets,
   emptyRole,
@@ -594,7 +593,7 @@ export const permissionSets = [
     supported_scope_types: ['DeviceGroups']
   },
   {
-    ...defaultPermissionSets.ConnectToDevices,
+    ...defaultPermissionSets.RemoteTerminal,
     action: 'Connect',
     object: permissionSetObjectTypes.groups,
     description: 'Set of permissions which allows user to use remote terminal and file transfer',
@@ -611,16 +610,6 @@ export const permissionSets = [
     object: permissionSetObjectTypes.any,
     description: 'Set of permissions which allows user to do anything',
     permissions: [{ action: 'any', object: { type: 'any', value: 'any' } }]
-  },
-  {
-    ...defaultPermissionSets.UploadArtifacts,
-    action: 'Upload',
-    object: permissionSetObjectTypes.artifacts,
-    description: 'Set of permissions which allows user to upload artifacts',
-    permissions: [
-      { action: 'http', object: { type: 'POST', value: commonEndpoints.artifacts } },
-      { action: 'http', object: { type: 'POST', value: '^/api/management/v1/deployments/artifacts/generate' } }
-    ]
   },
   {
     ...defaultPermissionSets.ReadDevices,
@@ -646,17 +635,6 @@ export const permissionSets = [
       { action: 'http', object: { type: 'DELETE', value: commonEndpoints.deviceManagement } }
     ],
     supported_scope_types: ['DeviceGroups']
-  },
-  {
-    ...defaultPermissionSets.ReadReleases,
-    action: uiPermissionsById.read.title,
-    object: permissionSetObjectTypes.releases,
-    description: 'Set of permissions which allows user to view releases',
-    permissions: [
-      { action: 'http', object: { type: 'GET', value: commonEndpoints.artifacts } },
-      { action: 'http', object: { type: 'GET', value: commonEndpoints.artifactDetails } },
-      { action: 'http', object: { type: 'GET', value: '^/api/management/v1/deployments/artifacts/[^/]+/download' } }
-    ]
   }
 ];
 
@@ -680,8 +658,7 @@ const expectedParsedRoles = {
     isCustom: true,
     uiPermissions: {
       ...emptyUiPermissions,
-      deployments: [uiPermissionsById.deploy.value],
-      groups: { dyn: [uiPermissionsById.read.value, uiPermissionsById.deploy.value] }
+      groups: { dyn: [uiPermissionsById.read.value] }
     }
   },
   kljlkk: {
@@ -691,11 +668,10 @@ const expectedParsedRoles = {
   },
   yyyyy: {
     editable: true,
-    isCustom: undefined,
+    isCustom: false,
     uiPermissions: {
       ...emptyUiPermissions,
-      groups: { dockerclient: [uiPermissionsById.read.value, uiPermissionsById.manage.value] },
-      releases: { [ALL_RELEASES]: [uiPermissionsById.manage.value] }
+      groups: { dockerclient: [uiPermissionsById.read.value, uiPermissionsById.manage.value] }
     }
   }
 };

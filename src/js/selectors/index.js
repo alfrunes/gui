@@ -269,9 +269,9 @@ export const getUserRoles = createSelector(
 const hasPermission = (thing, permission) => Object.values(thing).some(permissions => permissions.includes(permission));
 
 export const getUserCapabilities = createSelector([getUserRoles], ({ uiPermissions }) => {
-  const canManageReleases = hasPermission(uiPermissions.releases, uiPermissionsById.manage.value);
-  const canReadReleases = canManageReleases || hasPermission(uiPermissions.releases, uiPermissionsById.read.value);
-  const canUploadReleases = canManageReleases || hasPermission(uiPermissions.releases, uiPermissionsById.upload.value);
+  const canManageReleases = false;
+  const canReadReleases = false;
+  const canUploadReleases = false;
 
   const canAuditlog = uiPermissions.auditlog.includes(uiPermissionsById.read.value);
 
@@ -283,11 +283,12 @@ export const getUserCapabilities = createSelector([getUserRoles], ({ uiPermissio
     groupPermissions => groupPermissions.includes(uiPermissionsById.read.value) && groupPermissions.length > 1
   );
   const canTroubleshoot = hasPermission(uiPermissions.groups, uiPermissionsById.connect.value);
+  const canTransferFiles = hasPermission(uiPermissions.groups, uiPermissionsById.fileTransfer.value);
   const canManageDevices = hasPermission(uiPermissions.groups, uiPermissionsById.manage.value);
-  const canConfigure = hasPermission(uiPermissions.groups, uiPermissionsById.configure.value);
+  const canConfigure = false;
 
-  const canDeploy = uiPermissions.deployments.includes(uiPermissionsById.deploy.value) || hasPermission(uiPermissions.groups, uiPermissionsById.deploy.value);
-  const canReadDeployments = uiPermissions.deployments.includes(uiPermissionsById.read.value);
+  const canDeploy = false;
+  const canReadDeployments = false;
 
   return {
     canAuditlog,
@@ -301,6 +302,7 @@ export const getUserCapabilities = createSelector([getUserRoles], ({ uiPermissio
     canReadReleases,
     canReadUsers,
     canTroubleshoot,
+    canTransferFiles,
     canUploadReleases,
     canWriteDevices,
     groupsPermissions: uiPermissions.groups,

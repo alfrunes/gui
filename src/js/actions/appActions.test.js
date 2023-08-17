@@ -146,27 +146,6 @@ describe('app actions', () => {
       },
       { type: SET_ENVIRONMENT_DATA, value: { hostAddress: null, hostedAnnouncement: '', recaptchaSiteKey: '', stripeAPIKey: '', trackerCode: '' } },
       { type: SET_FIRST_LOGIN_AFTER_SIGNUP, firstLoginAfterSignup: false },
-      {
-        type: SET_VERSION_INFORMATION,
-        docsVersion: '',
-        value: {
-          GUI: latestSaasReleaseTag,
-          Integration: '1.2.3',
-          'Mender-Artifact': '1.3.7',
-          'Mender-Client': '3.2.1',
-          backend: latestSaasReleaseTag,
-          latestRelease: {
-            releaseDate: '2022-02-02',
-            repos: {
-              integration: '1.2.3',
-              mender: '3.2.1',
-              'mender-artifact': '1.3.7',
-              'other-service': '1.1.0',
-              service: '3.0.0'
-            }
-          }
-        }
-      },
       { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings } },
       { type: SET_GLOBAL_SETTINGS, settings: { ...defaultState.users.globalSettings } },
       { type: SET_OFFLINE_THRESHOLD, value: '2019-01-12T13:00:00.900Z' },
@@ -287,13 +266,6 @@ describe('app actions', () => {
           }
         }
       },
-      {
-        type: RECEIVE_EXTERNAL_DEVICE_INTEGRATIONS,
-        value: [
-          { connection_string: 'something_else', id: 1, provider: EXTERNAL_PROVIDER['iot-hub'].provider },
-          { id: 2, provider: 'aws', something: 'new' }
-        ]
-      },
       { type: RECEIVE_RELEASES, releases: defaultState.releases.byId },
       { type: SET_ONBOARDING_ARTIFACT_INCLUDED, value: true },
       {
@@ -302,9 +274,37 @@ describe('app actions', () => {
       },
       { type: SET_DEVICE_LIMIT, limit: 500 },
       { type: RECEIVED_PERMISSION_SETS, value: receivedPermissionSets },
-      { type: RECEIVED_ROLES, value: receivedRoles },
       { type: SET_ORGANIZATION, organization: defaultState.organization.organization },
       { type: SET_ANNOUNCEMENT, announcement: tenantDataDivergedMessage },
+      {
+        type: SET_VERSION_INFORMATION,
+        docsVersion: '',
+        value: {
+          GUI: latestSaasReleaseTag,
+          Integration: '1.2.3',
+          'Mender-Artifact': '1.3.7',
+          'Mender-Client': '3.2.1',
+          backend: latestSaasReleaseTag,
+          latestRelease: {
+            releaseDate: '2022-02-02',
+            repos: {
+              integration: '1.2.3',
+              mender: '3.2.1',
+              'mender-artifact': '1.3.7',
+              'other-service': '1.1.0',
+              service: '3.0.0'
+            }
+          }
+        }
+      },
+      {
+        type: RECEIVE_EXTERNAL_DEVICE_INTEGRATIONS,
+        value: [
+          { connection_string: 'something_else', id: 1, provider: EXTERNAL_PROVIDER['iot-hub'].provider },
+          { id: 2, provider: 'aws', something: 'new' }
+        ]
+      },
+      { type: RECEIVED_ROLES, value: receivedRoles },
       {
         type: RECEIVE_DEVICES,
         devicesById: { [expectedDevice.id]: { ...defaultState.devices.byId.a1, isOffline: true, monitor: {}, tags: {} } }
