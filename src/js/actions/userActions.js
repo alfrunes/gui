@@ -22,7 +22,6 @@ import { cleanUp, logout } from '../auth';
 import * as AppConstants from '../constants/appConstants';
 import { ALL_DEVICES } from '../constants/deviceConstants';
 import * as OnboardingConstants from '../constants/onboardingConstants';
-import { ALL_RELEASES } from '../constants/releaseConstants';
 import * as UserConstants from '../constants/userConstants';
 import { duplicateFilter, extractErrorMessage, preformatWithRequestID } from '../helpers';
 import { getCurrentUser, getOnboardingState, getUserSettings as getUserSettingsSelector } from '../selectors';
@@ -259,13 +258,7 @@ const mapHttpPermission = permission =>
 
 const permissionActionTypes = {
   any: mapHttpPermission,
-  CREATE_DEPLOYMENT: permission =>
-    permission.type === PermissionTypes.DeviceGroup
-      ? {
-          deployments: [uiPermissionsById.deploy.value],
-          groups: { [permission.value]: [uiPermissionsById.deploy.value] }
-        }
-      : {},
+  CREATE_DEPLOYMENT: () => {},
   http: mapHttpPermission,
   REMOTE_TERMINAL: permission =>
     permission.type === PermissionTypes.DeviceGroup
@@ -291,7 +284,7 @@ const combinePermissions = (existingPermissions, additionalPermissions = {}) =>
 const mergePermissions = (existingPermissions = { ...emptyUiPermissions }, addedPermissions) =>
   Object.entries(existingPermissions).reduce((accu, [key, value]) => {
     let values;
-    if (!addedPermissions[key]) {
+    if (addedPermissions && !addedPermissions[key]) {
       accu[key] = value;
       return accu;
     }
@@ -345,7 +338,7 @@ const parseRolePermissions = ({ permission_sets_with_scope = [], permissions = [
         uiPermissions: mergePermissions(accu.uiPermissions, processor.result)
       };
     },
-    { isCustom: false, uiPermissions: { ...emptyUiPermissions, groups: {}, releases: {} } }
+    { isCustom: false, uiPermissions: { ...emptyUiPermissions, groups: {} } }
   );
   return permissions.reduce(customPermissionHandler, preliminaryResult);
 };
@@ -358,8 +351,7 @@ export const normalizeRbacRoles = (roles, rolesById, permissionSets) =>
       if (rolesById[role.name]) {
         normalizedPermissions = {
           ...rolesById[role.name].uiPermissions,
-          groups: { ...rolesById[role.name].uiPermissions.groups },
-          releases: { ...rolesById[role.name].uiPermissions.releases }
+          groups: { ...rolesById[role.name].uiPermissions.groups }
         };
       } else {
         const result = parseRolePermissions(role, permissionSets);
@@ -394,8 +386,7 @@ export const mapUserRolesToUiPermissions = (userRoles, roles) =>
   );
 
 const scopedPermissionAreas = {
-  groups: { key: 'groups', excessiveAccessSelector: ALL_DEVICES },
-  releases: { key: 'releases', excessiveAccessSelector: ALL_RELEASES }
+  groups: { key: 'groups', excessiveAccessSelector: ALL_DEVICES }
 };
 
 export const getPermissionSets = () => (dispatch, getState) =>
@@ -499,7 +490,7 @@ const transformRoleDataToRole = (roleData, roleState = {}) => {
     },
     { maybeUiPermissions: {}, remainderKeys: [] }
   );
-  const { permissionSetsWithScope, roleUiPermissions } = Object.keys(remainderKeys).reduce(
+  const { permissionSetsWithScope, roleUiPermissions } = remainderKeys.reduce(
     (accu, area) => {
       const areaPermissions = role.uiPermissions[area];
       if (!Array.isArray(areaPermissions)) {

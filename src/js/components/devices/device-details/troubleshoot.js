@@ -76,7 +76,7 @@ export const Troubleshoot = ({ device }) => {
   const isEnterprise = useSelector(getIsEnterprise);
   const canPreview = useSelector(getIsPreview);
   const userCapabilities = useSelector(getUserCapabilities);
-  const { canTroubleshoot } = userCapabilities;
+  const { canTroubleshoot, canTransferFiles } = userCapabilities;
   const dispatch = useDispatch();
   const dispatchedSetSnackbar = (...args) => dispatch(setSnackbar(...args));
 
@@ -240,27 +240,31 @@ export const Troubleshoot = ({ device }) => {
         <div>{!device.isOffline && <Button onClick={onConnectionToggle}>{socketInitialized ? 'Disconnect' : 'Connect'} Terminal</Button>}</div>
         <div>{socketInitialized && !!commandHandlers.length && <ListOptions options={commandHandlers} title="Quick commands" />}</div>
       </div>
-      <Divider className="margin-bottom-large" style={{ marginTop: 9 }} />
-      <Accordion className="accordion">
-        <AccordionSummary className="accordion-summary" expandIcon={<ExpandIcon style={{ fontSize: 24 }} />}>
-          <h2>File transfer</h2>
-        </AccordionSummary>
-        <AccordionDetails className="accordion-details">
-          <FileTransfer
-            deviceId={device.id}
-            downloadPath={downloadPath}
-            file={file}
-            onDownload={onDownloadClick}
-            onUpload={(...args) => dispatch(deviceFileUpload(...args))}
-            setDownloadPath={setDownloadPath}
-            setFile={setFile}
-            setSnackbar={dispatchedSetSnackbar}
-            setUploadPath={setUploadPath}
-            uploadPath={uploadPath}
-            userCapabilities={userCapabilities}
-          />
-        </AccordionDetails>
-      </Accordion>
+      {canTransferFiles && (
+        <>
+          <Divider className="margin-bottom-large" style={{ marginTop: 9 }} />
+          <Accordion className="accordion">
+            <AccordionSummary className="accordion-summary" expandIcon={<ExpandIcon style={{ fontSize: 24 }} />}>
+              <h2>File transfer</h2>
+            </AccordionSummary>
+            <AccordionDetails className="accordion-details">
+              <FileTransfer
+                deviceId={device.id}
+                downloadPath={downloadPath}
+                file={file}
+                onDownload={onDownloadClick}
+                onUpload={(...args) => dispatch(deviceFileUpload(...args))}
+                setDownloadPath={setDownloadPath}
+                setFile={setFile}
+                setSnackbar={dispatchedSetSnackbar}
+                setUploadPath={setUploadPath}
+                uploadPath={uploadPath}
+                userCapabilities={userCapabilities}
+              />
+            </AccordionDetails>
+          </Accordion>
+        </>
+      )}
     </div>
   );
 };
