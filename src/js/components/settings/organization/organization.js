@@ -21,20 +21,12 @@ import { Button, Checkbox, Collapse, FormControlLabel, List } from '@mui/materia
 import { makeStyles } from 'tss-react/mui';
 
 import copy from 'copy-to-clipboard';
-import moment from 'moment';
 
 import { setSnackbar } from '../../../actions/appActions';
-import {
-  changeSamlConfig,
-  deleteSamlConfig,
-  downloadLicenseReport,
-  getSamlConfigs,
-  getUserOrganization,
-  storeSamlConfig
-} from '../../../actions/organizationActions';
+import { changeSamlConfig, deleteSamlConfig, getSamlConfigs, getUserOrganization, storeSamlConfig } from '../../../actions/organizationActions';
 import { TIMEOUTS } from '../../../constants/appConstants';
-import { createFileDownload, toggle } from '../../../helpers';
-import { getFeatures, getIsEnterprise, getIsPreview, getOrganization, getUserRoles } from '../../../selectors';
+import { toggle } from '../../../helpers';
+import { getFeatures, getIsEnterprise, getOrganization, getUserRoles } from '../../../selectors';
 import ExpandableAttribute from '../../common/expandable-attribute';
 import { MenderTooltipClickable } from '../../common/mendertooltip';
 import Billing from './billing';
@@ -99,7 +91,6 @@ export const Organization = () => {
   const [isConfiguringSSO, setIsConfiguringSSO] = useState(false);
   const isEnterprise = useSelector(getIsEnterprise);
   const { isAdmin } = useSelector(getUserRoles);
-  const canPreview = useSelector(getIsPreview);
   const { isHosted } = useSelector(getFeatures);
   const org = useSelector(getOrganization);
   const samlConfigs = useSelector(state => state.organization.samlConfigs);
@@ -147,9 +138,6 @@ export const Organization = () => {
     },
     [isResettingSSO, changeSamlConfig, deleteSamlConfig, storeSamlConfig]
   );
-
-  const onDownloadReportClick = () =>
-    dispatch(downloadLicenseReport()).then(report => createFileDownload(report, `Mender-license-report-${moment().format(moment.HTML5_FMT.DATE)}`));
 
   const onTenantInfoClick = () => {
     copy(`Organization: ${org.name}, Tenant ID: ${org.id}`);
@@ -210,11 +198,6 @@ export const Organization = () => {
         <SAMLConfig configs={samlConfigs} onSave={onSaveSSOSettings} onCancel={onCancelSSOSettings} setSnackbar={message => dispatch(setSnackbar(message))} />
       </Collapse>
       {isHosted && <Billing />}
-      {(canPreview || !isHosted) && isEnterprise && isAdmin && (
-        <Button className="margin-top" onClick={onDownloadReportClick} variant="contained">
-          Download license report
-        </Button>
-      )}
     </div>
   );
 };
