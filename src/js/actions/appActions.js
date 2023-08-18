@@ -90,7 +90,6 @@ export const parseEnvironmentInfo = () => (dispatch, getState) => {
       integrationVersion,
       isDemoMode,
       menderVersion,
-      menderArtifactVersion,
       metaMenderVersion,
       recaptchaSiteKey,
       services = {},
@@ -115,8 +114,7 @@ export const parseEnvironmentInfo = () => (dispatch, getState) => {
       docs: isNaN(integrationVersion.charAt(0)) ? '' : integrationVersion.split('.').slice(0, 2).join('.'),
       remainder: {
         Integration: getComparisonCompatibleVersion(integrationVersion),
-        'Mender-Client': getComparisonCompatibleVersion(menderVersion),
-        'Mender-Artifact': menderArtifactVersion,
+        'Alvaldi-Client': getComparisonCompatibleVersion(menderVersion),
         'Meta-Mender': metaMenderVersion,
         Deployments: services.deploymentsVersion,
         Deviceauth: services.deviceauthVersion,

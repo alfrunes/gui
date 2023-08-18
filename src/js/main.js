@@ -47,17 +47,17 @@ export const AppProviders = () => (
   </React.StrictMode>
 );
 
-const welcomeMessage = `Welcome to the Mender project!
+const welcomeMessage = `Welcome to the Alvaldi project!
 
 Does this page need fixes or improvements?
 
 Open an issue, or contribute a fix to:
 
-- https://github.com/mendersoftware/gui
+- https://github.com/NorthernTechHQ/alvaldi-gui
 
-🤝 Contribute to Mender: https://github.com/mendersoftware/mender/blob/master/CONTRIBUTING.md
-🔎 Ask about problems, and report issues: https://hub.mender.io
-🚀 We like your curiosity! Help us improve Mender by joining the team: https://northern.tech/careers
+🤝 Contribute to Alvaldi: https://github.com/NorthernTechHQ/alvaldi
+🔎 Ask about problems, and report issues: https://alvaldi.com
+🚀 We like your curiosity! Help us improve Alvaldi by joining the team: https://northern.tech/careers
 `;
 
 export const Main = () => {

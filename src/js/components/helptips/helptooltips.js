@@ -71,9 +71,6 @@ const AuthButtonComponent = ({ highlightHelp, toggleHelptips }) => (
           Expand this section to view the authentication options for this device. You can decide whether to accept it, reject it, or just dismiss this device
           for now.
         </p>
-        <p>
-          See the documentation for more on <DocsLink path="overview/device-authentication" title="Device authentication" />.
-        </p>
         <HideHelptipsButton toggleHelptips={toggleHelptips} />
       </div>
     }

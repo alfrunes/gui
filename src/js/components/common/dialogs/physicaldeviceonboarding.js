@@ -36,7 +36,7 @@ const types = [
 
 export const ConvertedImageNote = ({ docsVersion }) => (
   <p>
-    We prepared an image, ready for Mender, for you to start with. You can find it in the{' '}
+    We prepared an image, ready for Alvaldi, for you to start with. You can find it in the{' '}
     <a href={`https://docs.mender.io/${docsVersion}get-started/preparation/prepare-a-raspberry-pi-device`} target="_blank" rel="noopener noreferrer">
       Prepare a Raspberry Pi device
     </a>{' '}
@@ -163,12 +163,12 @@ export const InstallationStep = ({ advanceOnboarding, selection, onboardingState
   const codeToCopy = getDebConfigurationCode({ ...remainingProps, deviceType: selection, isOnboarding: !onboardingState.complete });
   return (
     <>
-      <h4>Log into your device and install the Mender client</h4>
+      <h4>Log into your device and install the Alvaldi client</h4>
       <p>
         Copy & paste and run this command <b>on your device</b>:
       </p>
       <CopyCode code={codeToCopy} onCopy={() => advanceOnboarding(onboardingSteps.DASHBOARD_ONBOARDING_START)} withDescription={true} />
-      <p>This downloads the Mender client on the device, sets the configuration and starts the client.</p>
+      <p>This downloads the Alvaldi client on the device, sets the configuration and starts the client.</p>
       <p>
         Once the client has started, your device will attempt to connect to the server. It will then appear in your Pending devices tab and you can continue.
       </p>

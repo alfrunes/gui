@@ -179,7 +179,7 @@ export const Signup = () => {
           <div className={classes.promo}>
             <h2>Connect up to 10 devices free for 12 months – no credit card required.</h2>
             <p>
-              Mender provides a complete over-the-air update infrastructure for all device software. Whether in the field or the factory, you can remotely and
+              Alvaldi provides a complete over-the-air update infrastructure for all device software. Whether in the field or the factory, you can remotely and
               easily manage device software without the need for manual labor.
             </p>
             <div className="svg-container margin-top">
