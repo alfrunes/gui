@@ -35,7 +35,10 @@ import { TIMEOUTS } from '../../constants/appConstants';
 import * as UserConstants from '../../constants/userConstants';
 import { decodeSessionToken, extractErrorMessage } from '../../helpers';
 import {
+  getAcceptedDevices,
   getCurrentUser,
+  getDeviceCountsByStatus,
+  getDeviceLimit,
   getDocsVersion,
   getFeatures,
   getIsEnterprise,
@@ -49,6 +52,7 @@ import { useDebounce } from '../../utils/debouncehook';
 import Search from '../common/search';
 import Announcement from './announcement';
 import DemoNotification from './demonotification';
+import DeviceNotifications from './devicenotifications.js';
 import OfferHeader from './offerheader';
 import TrialNotification from './trialnotification';
 
@@ -70,7 +74,7 @@ const useStyles = makeStyles()(theme => ({
     paddingLeft: theme.spacing(4),
     paddingRight: theme.spacing(5),
     width: '100%',
-    borderBottom: `1px solid ${theme.palette.grey[100]}`,
+    borderBottom: `1px solid ${theme.palette.surface.primary}`,
     display: 'grid'
   },
   banner: { gridTemplateRows: `1fr ${theme.mixins.toolbar.minHeight}px` },
@@ -114,6 +118,9 @@ export const Header = () => {
   const multitenancy = hasMultitenancy || isEnterprise || isHosted;
   const showHelptips = useSelector(getShowHelptips);
   const user = useSelector(getCurrentUser);
+  const { pending: pendingDevices } = useSelector(getDeviceCountsByStatus);
+  const { total: acceptedDevices = 0 } = useSelector(getAcceptedDevices);
+  const deviceLimit = useSelector(getDeviceLimit);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -184,6 +191,9 @@ export const Header = () => {
       <div className="flexbox space-between">
         <div className="flexbox center-aligned">
           {demo && <DemoNotification iconClassName={classes.demoAnnouncementIcon} sectionClassName={classes.demoTrialAnnouncement} docsVersion={docsVersion} />}
+        </div>
+        <Search isSearching={isSearching} />
+        <div className="flexbox center-aligned">
           {organization.trial && (
             <TrialNotification
               expiration={organization.trial_expiration}
@@ -191,9 +201,7 @@ export const Header = () => {
               sectionClassName={classes.demoTrialAnnouncement}
             />
           )}
-        </div>
-        <Search isSearching={isSearching} />
-        <div className="flexbox center-aligned">
+          <DeviceNotifications pending={pendingDevices} total={acceptedDevices} limit={deviceLimit} />
           <Button
             className={`header-dropdown ${classes.dropDown}`}
             onClick={e => setAnchorEl(e.currentTarget)}

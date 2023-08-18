@@ -16,17 +16,32 @@ import { Link } from 'react-router-dom';
 
 // material ui
 import { DeveloperBoard as DeveloperBoardIcon } from '@mui/icons-material';
+import { makeStyles } from 'tss-react/mui';
 
 import pluralize from 'pluralize';
 
 import { MenderTooltipClickable } from '../common/mendertooltip';
 
+const useStyles = makeStyles()(theme => ({
+  link: {
+    color: theme.palette.text.secondary,
+    fontSize: 14,
+    fontWeight: 400,
+    letterSpacing: '0.25px',
+    lineHeight: '20px',
+    '&:hover': {
+      color: theme.palette.text.secondary
+    }
+  }
+}));
+
 const DeviceNotifications = ({ total, limit, pending }) => {
+  const { classes } = useStyles();
   const approaching = limit && total / limit > 0.8;
   const warning = limit && limit <= total;
   const content = (
     <>
-      <Link to="/devices" className={warning ? 'warning' : approaching ? 'approaching' : ''}>
+      <Link to="/devices" className={warning ? 'warning' : approaching ? 'approaching' : classes.link}>
         <span>{total.toLocaleString()}</span>
         {limit ? <span id="limit">/{limit.toLocaleString()}</span> : null}
 
@@ -59,12 +74,13 @@ const DeviceNotifications = ({ total, limit, pending }) => {
             </p>
           )}
           <p>
-            If you need a higher device limit, you can contact us by email at <a href="mailto:support@mender.io">support@mender.io</a> to change your plan.
+            If you need a higher device limit, you can contact us by email at <a href="mailto:contact@northern.tech">contact@northern.tech</a> to change your
+            plan.
           </p>
           <p>
             Learn about the different plans available by visiting{' '}
-            <a href="https://mender.io/pricing" target="_blank" rel="noopener noreferrer">
-              mender.io/pricing
+            <a href="https://alvaldi.com/pricing" target="_blank" rel="noopener noreferrer">
+              alvaldi.com/pricing
             </a>
           </p>
         </>
