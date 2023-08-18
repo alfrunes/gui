@@ -43,7 +43,6 @@ cat >/var/www/mender-gui/dist/env.js <<EOF
     stripeAPIKey: "$STRIPE_API_KEY",
     integrationVersion: "$INTEGRATION_VERSION",
     menderVersion: "$MENDER_VERSION",
-    menderArtifactVersion: "$MENDER_ARTIFACT_VERSION",
     metaMenderVersion: "$META_MENDER_VERSION",
     services: {
       deploymentsVersion: "$MENDER_DEPLOYMENTS_VERSION",
