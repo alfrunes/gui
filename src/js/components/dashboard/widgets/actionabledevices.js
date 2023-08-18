@@ -15,7 +15,7 @@ import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 
 // material ui
-import { CancelOutlined as FailureIcon, VpnKeyOutlined as KeyIcon, WifiOff as OfflineIcon, WarningAmber as WarningIcon } from '@mui/icons-material';
+import { VpnKeyOutlined as KeyIcon, WifiOff as OfflineIcon } from '@mui/icons-material';
 import { makeStyles } from 'tss-react/mui';
 
 import { DEVICE_ISSUE_OPTIONS } from '../../../constants/deviceConstants';
@@ -28,20 +28,6 @@ const issueTypes = [
     icon: OfflineIcon,
     target: `/devices?issues=${DEVICE_ISSUE_OPTIONS.offline.key}`,
     alwaysShown: true
-  },
-  {
-    key: DEVICE_ISSUE_OPTIONS.failedLastUpdate.key,
-    title: 'Failed last update',
-    icon: FailureIcon,
-    target: `/devices?issues=${DEVICE_ISSUE_OPTIONS.failedLastUpdate.key}`,
-    alwaysShown: false
-  },
-  {
-    key: DEVICE_ISSUE_OPTIONS.monitoring.key,
-    title: 'Monitoring',
-    icon: WarningIcon,
-    target: `/devices?issues=${DEVICE_ISSUE_OPTIONS.monitoring.key}`,
-    alwaysShown: false
   },
   {
     key: DEVICE_ISSUE_OPTIONS.authRequests.key,
