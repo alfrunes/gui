@@ -20,18 +20,23 @@ import { toggle } from '../../helpers';
 
 export const MenderTooltip = withStyles(Tooltip, ({ palette, shadows }) => ({
   arrow: {
-    color: palette.secondary.main
+    color: palette.text.secondary
   },
   tooltip: {
-    backgroundColor: palette.secondary.main,
+    backgroundColor: palette.text.secondary,
     boxShadow: shadows[1],
-    color: palette.tooltip.text,
-    fontSize: 'small',
+    color: palette.white,
+    fontSize: 12,
     maxWidth: 600,
     info: {
       maxWidth: 300,
       color: palette.text.hint,
       backgroundColor: palette.grey[500]
+    },
+    'a, a:hover': {
+      fontSize: 12,
+      color: palette.white,
+      borderBottom: `1px solid ${palette.white}`
     }
   }
 }));

@@ -30,7 +30,7 @@ const useStyles = makeStyles()(theme => ({
   trialChip: {
     color: theme.palette.green[800],
     background: theme.palette.green[200],
-    fontSize: 12,
+    fontSize: '12px',
     lineHeight: '16px',
     padding: '4px 6px',
     borderRadius: 2

@@ -32,7 +32,8 @@ const useStyles = makeStyles()(theme => ({
   divider: { marginTop: theme.spacing(4) },
   leftButton: { marginRight: theme.spacing(2) },
   oauthIcon: { fontSize: '36px', marginRight: 10 },
-  widthLimit: { maxWidth: 500 }
+  widthLimit: { maxWidth: 500 },
+  twoColumns: { '&.two-columns.column-data': { maxWidth: 470 } }
 }));
 
 export const getUserSSOState = user => {
@@ -113,7 +114,7 @@ export const UserDefinition = ({ currentUser, isEnterprise, onCancel, onSubmit, 
 
   const { isOAuth2, provider } = getUserSSOState(selectedUser);
   return (
-    <Drawer anchor="right" open={!!id} PaperProps={{ style: { minWidth: 600, width: '50vw' } }}>
+    <Drawer anchor="right" open={!!id} PaperProps={{ style: { minWidth: 600, width: '50vw' } }} onClose={onCancel}>
       <div className="flexbox margin-bottom-small space-between">
         <h3>Edit user</h3>
         <div className="flexbox center-aligned">
@@ -155,10 +156,10 @@ export const UserDefinition = ({ currentUser, isEnterprise, onCancel, onSubmit, 
               Role permissions
             </InputLabel>
           )}
-          <TwoColumnData config={areas} />
+          <TwoColumnData className={classes.twoColumns} config={areas} />
           {!!Object.keys(groups).length && (
             <>
-              <div className="slightly-smaller text-muted">Device groups</div>
+              <div className="slightly-smaller text-muted margin-top">Device groups</div>
               <TwoColumnData config={groups} />
             </>
           )}

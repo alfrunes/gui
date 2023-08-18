@@ -600,8 +600,9 @@ ul.link-list {
 
 .rightFluid {
   padding: 2 * @defaultGutterWidth;
-  border-left: 1px solid @lightergrey;
+  border-left: 1px solid @surfacePrimary;
   padding-top: 0;
+  min-height: calc(100vh - 64px);
 }
 
 .spaced-list > li {
@@ -1052,7 +1053,7 @@ form .required.file {
       .animation(bouncedownup 1.3s infinite);
     }
     .dashboard-placeholder {
-      color: @textlight;
+      color: @textInactive;
     }
     border-width: 2px;
   }
@@ -1383,8 +1384,8 @@ div.waiting-inventory {
 /* Dashboard */
 
 .dashboard-placeholder {
-  font-size: 16px;
-  color: @grey;
+  font-size: 14px;
+  color: @textInactive;
   text-align: center;
   padding: @defaultGutterWidth 2 * @defaultGutterWidth;
   .animation(fadein 0.2s 1);

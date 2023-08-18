@@ -22,6 +22,7 @@ const secondaryText = '#424242';
  * @example Chart dataset colors
  */
 export const palette = {
+  white: '#FFFFFF',
   primary: {
     main: '#14A452'
   },
@@ -115,7 +116,7 @@ export const overrides = {
   MuiSnackbarContent: {
     styleOverrides: {
       action: {
-        color: '#9E6F8E'
+        color: palette.primary.main
       }
     }
   },
@@ -175,7 +176,7 @@ export const overrides = {
     styleOverrides: {
       underline: {
         '&:before': {
-          borderBottom: '1px solid rgb(224, 224, 224)'
+          borderBottom: `1px solid ${palette.surface.primary}`
         },
         '&:hover:not($disabled):before': {
           borderBottom: `2px solid ${palette.primary.main} !important`
