@@ -11,7 +11,8 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-import React, { memo, useState } from 'react';
+import React, { memo, useCallback, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // material ui
 import { Checkbox } from '@mui/material';
@@ -36,12 +37,23 @@ const DeviceListItem = ({ columnHeaders, device, idAttribute, index, onRowSelect
 
   const onMouseOut = () => setIsHovering(false);
   const onMouseOver = () => setIsHovering(true);
+  const navigate = useNavigate();
+  const handleOnClick = useCallback(
+    event => {
+      if (event && event.target.closest('input')?.hasOwnProperty('checked')) {
+        return;
+      }
+      navigate(`/devices/${device.id}`);
+    },
+    [device.id]
+  );
 
   const handleRowSelect = () => onRowSelect(index);
 
   return (
     <div
-      className={`deviceListRow deviceListItem ${isHovering ? classes.active : ''} ${device.status === DEVICE_STATES.pending ? classes.active : ''}`}
+      onClick={handleOnClick}
+      className={`deviceListRow deviceListItem clickable ${isHovering ? classes.active : ''} ${device.status === DEVICE_STATES.pending ? classes.active : ''}`}
       onMouseEnter={onMouseOver}
       onMouseLeave={onMouseOut}
     >
