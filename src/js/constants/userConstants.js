@@ -15,7 +15,6 @@
 //    limitations under the License.
 import { apiUrl } from '../api/general-api';
 import { ALL_DEVICES } from './deviceConstants';
-import { ALL_RELEASES } from './releaseConstants';
 
 export const useradmApiUrlv1 = `${apiUrl.v1}/useradm`;
 export const useradmApiUrlv2 = `${apiUrl.v2}/useradm`;
@@ -24,9 +23,8 @@ export { useradmApiUrlv1 as useradmApiUrl };
 const staticRolesByName = {
   admin: 'RBAC_ROLE_PERMIT_ALL',
   readOnly: 'RBAC_ROLE_OBSERVER',
-  ci: 'RBAC_ROLE_CI',
-  deploymentsManager: 'RBAC_ROLE_DEPLOYMENTS_MANAGER',
-  terminalAccess: 'RBAC_ROLE_REMOTE_TERMINAL'
+  terminalAccess: 'RBAC_ROLE_TERMINAL',
+  fileTransferAccess: 'RBAC_ROLE_FILE_TRANSFER'
 };
 
 export const PermissionTypes = {
@@ -43,53 +41,42 @@ export const PermissionTypes = {
 const permissionSetIds = {
   Basic: 'Basic',
   ConfigureDevices: 'ConfigureDevices',
-  ConnectToDevices: 'ConnectToDevices',
+  ConnectToDevices: 'RemoteTerminal',
+  FileTransfer: 'FileTransfer',
   DeployToDevices: 'DeployToDevices',
   ManageDevices: 'ManageDevices',
-  ManageReleases: 'ManageReleases',
   ManageUsers: 'ManageUsers',
   ReadAuditLogs: 'ReadAuditLogs',
   ReadDevices: 'ReadDevices',
-  ReadReleases: 'ReadReleases',
   ReadUsers: 'ReadUsers',
   SuperUser: 'SuperUser',
   UploadArtifacts: 'UploadArtifacts'
 };
 
 export const uiPermissionsById = {
-  configure: {
-    explanations: { groups: `'Configure' allows the user to use mender-configure features and apply configurations.` },
-    permissionLevel: 2,
-    permissionSets: { groups: permissionSetIds.ConfigureDevices },
-    title: 'Configure',
-    value: 'configure',
-    verbs: [PermissionTypes.Get, PermissionTypes.Put, PermissionTypes.Post]
-  },
   connect: {
-    explanations: { groups: `'Connect' allows the user to use mender-connect features and Troubleshoot add-ons.` },
+    explanations: { groups: `'Connect' allows the user to connect to the remote terminal.` },
     permissionLevel: 2,
     permissionSets: { groups: permissionSetIds.ConnectToDevices },
     title: 'Connect',
     value: 'connect',
     verbs: [PermissionTypes.Get, PermissionTypes.Put]
   },
-  deploy: {
-    explanations: { groups: `'Deploy' allows the user to deploy software or configuration updates to devices.` },
+  fileTransfer: {
+    explanations: { groups: `'File transfer' allows the user to transfer files to / from devices.` },
     permissionLevel: 2,
-    permissionSets: { groups: permissionSetIds.DeployToDevices },
-    title: 'Deploy',
-    value: 'deploy',
-    verbs: [PermissionTypes.Post]
+    permissionSets: { groups: permissionSetIds.FileTransfer },
+    title: 'File transfer',
+    value: 'fileTransfer',
+    verbs: [PermissionTypes.Get, PermissionTypes.Post]
   },
   manage: {
     explanations: {
-      groups: `'Manage' allows the user to edit device name, notes, and manage authentication status. For 'All devices' it also allows the user to edit and create device groups.`,
-      releases: `'Manage' allows the user to upload new artifacts, edit release descriptions and remove artifacts.`
+      groups: `'Manage' allows the user to edit device name, notes, and manage authentication status. For 'All devices' it also allows the user to edit and create device groups.`
     },
     permissionLevel: 2,
     permissionSets: {
       groups: permissionSetIds.ManageDevices,
-      releases: permissionSetIds.ManageReleases,
       userManagement: permissionSetIds.ManageUsers
     },
     title: 'Manage',
@@ -102,21 +89,11 @@ export const uiPermissionsById = {
     permissionSets: {
       auditlog: permissionSetIds.ReadAuditLogs,
       groups: permissionSetIds.ReadDevices,
-      releases: permissionSetIds.ReadReleases,
       userManagement: permissionSetIds.ReadUsers
     },
     title: 'Read',
     value: 'read',
     verbs: [PermissionTypes.Get, PermissionTypes.Post]
-  },
-  upload: {
-    explanations: { groups: `'Upload' allows the user to upload new Artifacts.` },
-    unscopedOnly: { releases: true },
-    permissionLevel: 1,
-    permissionSets: { releases: permissionSetIds.UploadArtifacts },
-    title: 'Upload',
-    value: 'upload',
-    verbs: [PermissionTypes.Post, PermissionTypes.Put, PermissionTypes.Patch]
   }
 };
 
@@ -135,46 +112,16 @@ export const defaultPermissionSets = {
       auditlog: [uiPermissionsById.read.value]
     }
   },
-  [permissionSetIds.ReadReleases]: {
-    name: permissionSetIds.ReadReleases,
-    result: {
-      releases: { [ALL_RELEASES]: [uiPermissionsById.read.value] }
-    }
-  },
   [permissionSetIds.ReadUsers]: {
     name: permissionSetIds.ReadUsers,
     result: {
       userManagement: [uiPermissionsById.read.value]
     }
   },
-  [permissionSetIds.UploadArtifacts]: {
-    name: permissionSetIds.UploadArtifacts,
-    result: {
-      releases: { [ALL_RELEASES]: [uiPermissionsById.upload.value] }
-    }
-  },
-  [permissionSetIds.ManageReleases]: {
-    name: permissionSetIds.ManageReleases,
-    result: {
-      releases: { [ALL_RELEASES]: [uiPermissionsById.manage.value] }
-    }
-  },
-  [permissionSetIds.ConfigureDevices]: {
-    name: permissionSetIds.ConfigureDevices,
-    result: {
-      groups: { [ALL_DEVICES]: [uiPermissionsById.configure.value] }
-    }
-  },
   [permissionSetIds.ConnectToDevices]: {
     name: permissionSetIds.ConnectToDevices,
     result: {
       groups: { [ALL_DEVICES]: [uiPermissionsById.connect.value] }
-    }
-  },
-  [permissionSetIds.DeployToDevices]: {
-    name: permissionSetIds.DeployToDevices,
-    result: {
-      groups: { [ALL_DEVICES]: [uiPermissionsById.deploy.value] }
     }
   },
   [permissionSetIds.ManageDevices]: {
@@ -199,19 +146,9 @@ export const defaultPermissionSets = {
 export const uiPermissionsByArea = {
   auditlog: {
     endpoints: [{ path: /\/(auditlog)/i, types: [PermissionTypes.Get], uiPermissions: [uiPermissionsById.read] }],
-    explanation:
-      'Granting access to the audit log will allow tracing changes to devices, releases and user accounts, as well as providing information about deployments.',
+    explanation: 'Granting access to the audit log will allow tracing changes to devices and user accounts.',
     uiPermissions: [uiPermissionsById.read],
     title: 'System audit log'
-  },
-  deployments: {
-    endpoints: [
-      { path: /\/(deployments\/deployments)/i, types: [PermissionTypes.Post, PermissionTypes.Put], uiPermissions: [uiPermissionsById.deploy] },
-      { path: /\/(deployments\/deployments)/i, types: [PermissionTypes.Get], uiPermissions: [uiPermissionsById.read] }
-    ],
-    explanation: 'Providing deploy permissions will allow deployments to be created using the releases and devices a user has access to.',
-    uiPermissions: [uiPermissionsById.read, uiPermissionsById.deploy],
-    title: 'Deployments'
   },
   groups: {
     endpoints: [
@@ -226,27 +163,8 @@ export const uiPermissionsByArea = {
     ],
     explanation: 'Device group management permissions control the degree to which devices in a group can be accessed and moved to other groups.',
     scope: 'DeviceGroups',
-    uiPermissions: [uiPermissionsById.read, uiPermissionsById.manage, uiPermissionsById.deploy, uiPermissionsById.configure, uiPermissionsById.connect],
+    uiPermissions: [uiPermissionsById.read, uiPermissionsById.manage, uiPermissionsById.connect, uiPermissionsById.fileTransfer],
     title: 'Group Management'
-  },
-  releases: {
-    endpoints: [
-      { path: /\/(deployments\/artifacts|deployments\/deployments\/releases)/i, types: [PermissionTypes.Get], uiPermissions: [uiPermissionsById.read] },
-      {
-        path: /\/(deployments\/artifacts|deployments\/deployments\/releases)/i,
-        types: [PermissionTypes.Post, PermissionTypes.Put],
-        uiPermissions: [uiPermissionsById.read, uiPermissionsById.upload]
-      },
-      {
-        path: /\/(deployments\/artifacts|deployments\/deployments\/releases)/i,
-        types: [PermissionTypes.Delete],
-        uiPermissions: [uiPermissionsById.read, uiPermissionsById.manage]
-      }
-    ],
-    explanation: 'Release permissions can be granted to allow artifact & release modifications, as well as the creation of new releases.',
-    scope: 'ReleaseTags',
-    uiPermissions: [uiPermissionsById.read, uiPermissionsById.manage, uiPermissionsById.upload],
-    title: 'Releases'
   },
   userManagement: {
     endpoints: [
@@ -262,9 +180,7 @@ export const uiPermissionsByArea = {
 
 export const emptyUiPermissions = Object.freeze({
   auditlog: [],
-  deployments: [],
   groups: Object.freeze({}),
-  releases: Object.freeze({}),
   userManagement: []
 });
 
@@ -294,55 +210,40 @@ export const rolesById = Object.freeze({
     uiPermissions: {
       ...emptyUiPermissions,
       auditlog: uiPermissionsByArea.auditlog.uiPermissions.map(permissionMapper),
-      deployments: uiPermissionsByArea.deployments.uiPermissions.map(permissionMapper),
       groups: { [ALL_DEVICES]: uiPermissionsByArea.groups.uiPermissions.map(permissionMapper) },
-      releases: { [ALL_RELEASES]: uiPermissionsByArea.releases.uiPermissions.map(permissionMapper) },
       userManagement: uiPermissionsByArea.userManagement.uiPermissions.map(permissionMapper)
     }
   },
   [staticRolesByName.readOnly]: {
     name: 'Read Access',
     value: staticRolesByName.readOnly,
-    description: '',
+    description: 'Intended for team leaders or limited tech support accounts, this role can see all Devices but cannot make any changes.',
     permissions: [],
     uiPermissions: {
       ...emptyUiPermissions,
-      deployments: [uiPermissionsById.read.value],
       groups: { [ALL_DEVICES]: [uiPermissionsById.read.value] },
-      releases: { [ALL_RELEASES]: [uiPermissionsById.read.value] },
       userManagement: [uiPermissionsById.read.value]
     }
   },
-  [staticRolesByName.ci]: {
-    name: 'Releases Manager',
-    value: staticRolesByName.ci,
-    description: '',
-    permissions: [],
-    uiPermissions: {
-      ...emptyUiPermissions,
-      releases: { [ALL_RELEASES]: uiPermissionsByArea.releases.uiPermissions.map(permissionMapper) }
-    }
-  },
-  [staticRolesByName.deploymentsManager]: {
-    name: 'Deployments Manager',
-    value: staticRolesByName.deploymentsManager,
-    description: '',
-    permissions: [],
-    uiPermissions: {
-      ...emptyUiPermissions,
-      deployments: uiPermissionsByArea.deployments.uiPermissions.map(permissionMapper),
-      groups: { [ALL_DEVICES]: [uiPermissionsById.deploy.value] },
-      releases: { [ALL_RELEASES]: [uiPermissionsById.read.value] }
-    }
-  },
   [staticRolesByName.terminalAccess]: {
-    name: 'Troubleshooting',
+    name: 'Terminal access',
     value: staticRolesByName.terminalAccess,
-    description: 'Access to the troubleshooting features: Remote Terminal, File Transfer, Port Forwarding',
+    description:
+      'Intended for engineers who need to troubleshoot and be able to make changes to devices, this role can open the remote terminal and run user-specified commands on all devices. ',
     permissions: [],
     uiPermissions: {
       ...emptyUiPermissions,
       groups: { [ALL_DEVICES]: [uiPermissionsById.connect.value] }
+    }
+  },
+  [staticRolesByName.fileTransferAccess]: {
+    name: 'File transfer access',
+    value: staticRolesByName.terminalAccess,
+    description: 'Commonly used together with the Terminal access role, enabling file transfer to / from devices (upload / download).\n',
+    permissions: [],
+    uiPermissions: {
+      ...emptyUiPermissions,
+      groups: { [ALL_DEVICES]: [uiPermissionsById.fileTransfer.value] }
     }
   }
 });
@@ -374,7 +275,6 @@ export const OWN_USER_ID = 'me';
 
 export const rolesByName = {
   ...staticRolesByName,
-  deploymentCreation: { action: 'CREATE_DEPLOYMENT', object: { type: 'DEVICE_GROUP', value: undefined } },
   groupAccess: { action: 'VIEW_DEVICE', object: { type: 'DEVICE_GROUP', value: undefined } },
   userManagement: { action: 'http', object: { type: 'any', value: `${useradmApiUrlv1}/.*` } }
 };

@@ -25,14 +25,12 @@ import {
   SET_VERSION_INFORMATION,
   TIMEOUTS
 } from '../constants/appConstants';
-import { DEPLOYMENT_STATES } from '../constants/deploymentConstants';
 import { DEVICE_STATES } from '../constants/deviceConstants';
 import { onboardingSteps } from '../constants/onboardingConstants';
 import { SET_SHOW_HELP } from '../constants/userConstants';
 import { deepCompare, extractErrorMessage, preformatWithRequestID, stringToBoolean } from '../helpers';
 import { getCurrentUser, getOfflineThresholdSettings, getUserSettings as getUserSettingsSelector } from '../selectors';
 import { getOnboardingComponentFor } from '../utils/onboardingmanager';
-import { getDeploymentsByStatus } from './deploymentActions';
 import {
   getDeviceAttributes,
   getDeviceById,
@@ -44,8 +42,7 @@ import {
   setDeviceListState
 } from './deviceActions';
 import { setDemoArtifactPort, setOnboardingComplete } from './onboardingActions';
-import { getIntegrations, getUserOrganization } from './organizationActions';
-import { getReleases } from './releaseActions';
+import { getUserOrganization } from './organizationActions';
 import { getGlobalSettings, getRoles, getUserSettings, saveGlobalSettings, saveUserSettings } from './userActions';
 
 const cookies = new Cookies();
@@ -179,16 +176,12 @@ export const initializeAppData = () => (dispatch, getState) => {
     dispatch(getUserSettings()),
     dispatch(getGlobalSettings()),
     dispatch(getDeviceAttributes()),
-    dispatch(getDeploymentsByStatus(DEPLOYMENT_STATES.finished, undefined, undefined, undefined, undefined, undefined, undefined, false)),
-    dispatch(getDeploymentsByStatus(DEPLOYMENT_STATES.inprogress)),
     dispatch(getDevicesByStatus(DEVICE_STATES.accepted)),
     dispatch(getDevicesByStatus(DEVICE_STATES.pending)),
     dispatch(getDevicesByStatus(DEVICE_STATES.preauth)),
     dispatch(getDevicesByStatus(DEVICE_STATES.rejected)),
     dispatch(getDynamicGroups()),
     dispatch(getGroups()),
-    dispatch(getIntegrations()),
-    dispatch(getReleases()),
     dispatch(getDeviceLimit()),
     dispatch(getRoles()),
     dispatch(setFirstLoginAfterSignup(cookies.get('firstLoginAfterSignup')))
