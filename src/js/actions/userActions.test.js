@@ -132,8 +132,6 @@ const appInitActions = [
       GUI: undefined,
       Integration: 'master',
       Inventory: null,
-      'Mender-Artifact': undefined,
-      'Mender-Client': 'next',
       'Meta-Mender': 'saas-123.34'
     }
   },

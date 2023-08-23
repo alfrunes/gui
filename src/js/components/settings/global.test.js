@@ -47,7 +47,6 @@ const preloadedState = {
 describe('GlobalSettings Component', () => {
   it('renders correctly', async () => {
     const { baseElement } = render(<Global />, { preloadedState });
-    await waitFor(() => expect(screen.getByText(/xDelta3/i)).toBeVisible());
     const view = baseElement.firstChild.firstChild;
     expect(view).toMatchSnapshot();
     expect(view).toEqual(expect.not.stringMatching(undefineds));

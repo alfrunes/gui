@@ -286,9 +286,7 @@ const getLatestRelease = thing => {
 };
 
 const repoKeyMap = {
-  integration: 'Integration',
-  mender: 'Mender-Client',
-  'mender-artifact': 'Mender-Artifact'
+  integration: 'Integration'
 };
 
 const deductSaasState = (latestRelease, guiTags, saasReleases) => {

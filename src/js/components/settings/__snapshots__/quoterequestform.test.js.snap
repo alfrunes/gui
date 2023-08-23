@@ -145,7 +145,7 @@ label+.emotion-3 {
 }
 
 .emotion-3:before {
-  border-bottom: 1px solid rgb(224, 224, 224);
+  border-bottom: 1px solid #F5F5F5;
 }
 
 .emotion-3:hover:not($disabled):before {
@@ -379,7 +379,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
       Plan: 
       Upgrade to 
       <b>
-        Enterprise
+        Alvaldi Professional
       </b>
     </p>
   </div>

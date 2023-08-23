@@ -80,7 +80,6 @@ describe('DeviceList Component', () => {
 
   it('works as expected', async () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
-    const onExpandClickMock = jest.fn();
     const onResizeColumns = jest.fn();
     const onPageChange = jest.fn();
     const onSelect = jest.fn();
@@ -97,7 +96,6 @@ describe('DeviceList Component', () => {
         selectedRows={[]}
         headerKeys="1-2-3-4"
         idAttribute="id"
-        onExpandClick={onExpandClickMock}
         onResizeColumns={onResizeColumns}
         onPageChange={onPageChange}
         onSelect={onSelect}
@@ -108,7 +106,6 @@ describe('DeviceList Component', () => {
     );
     render(ui);
     await user.click(screen.getByText(devices[0].id));
-    expect(onExpandClickMock).toHaveBeenCalled();
 
     await user.click(screen.getAllByRole('checkbox')[0]);
     expect(onSelect).toHaveBeenCalledWith([0, 1]);

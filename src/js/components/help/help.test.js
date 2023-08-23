@@ -15,11 +15,14 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 
+import { ThemeProvider, createTheme } from '@mui/material';
+
 import { render as testingLibRender } from '@testing-library/react';
 
 import { defaultState, undefineds } from '../../../../tests/mockData';
 import { render } from '../../../../tests/setupTests';
 import { getConfiguredStore } from '../../reducers';
+import { light as lightTheme } from '../../themes/Mender';
 import { Downloads } from './downloads';
 import GettingStarted from './getting-started';
 import Help from './help';
@@ -39,16 +42,19 @@ const preloadedState = {
 describe('Help Component', () => {
   it('renders correctly', async () => {
     const store = getConfiguredStore({ preloadedState });
+    const theme = createTheme(lightTheme);
     const { baseElement } = testingLibRender(
-      <Provider store={store}>
-        <MemoryRouter initialEntries={['/help/get-started']}>
-          <Routes>
-            <Route path="help" element={<Help />}>
-              <Route path=":section" element={null} />
-            </Route>
-          </Routes>
-        </MemoryRouter>
-      </Provider>
+      <ThemeProvider theme={theme}>
+        <Provider store={store}>
+          <MemoryRouter initialEntries={['/help/get-started']}>
+            <Routes>
+              <Route path="help" element={<Help />}>
+                <Route path=":section" element={null} />
+              </Route>
+            </Routes>
+          </MemoryRouter>
+        </Provider>
+      </ThemeProvider>
     );
     const view = baseElement.firstChild.firstChild;
     expect(view).toMatchSnapshot();

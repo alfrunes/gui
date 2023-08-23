@@ -518,7 +518,7 @@ label+.emotion-15 {
 }
 
 .emotion-15:before {
-  border-bottom: 1px solid rgb(224, 224, 224);
+  border-bottom: 1px solid #F5F5F5;
 }
 
 .emotion-15:hover:not($disabled):before {

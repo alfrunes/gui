@@ -65,8 +65,6 @@ export const initialState = {
   offlineThreshold: getYesterday(),
   versionInformation: {
     Integration: '',
-    'Mender-Client': '',
-    'Mender-Artifact': '',
     'Meta-Mender': '',
     Deployments: '',
     Deviceauth: '',

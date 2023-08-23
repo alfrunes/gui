@@ -874,7 +874,7 @@ label+.emotion-36 {
 }
 
 .emotion-36:before {
-  border-bottom: 1px solid rgb(224, 224, 224);
+  border-bottom: 1px solid #F5F5F5;
 }
 
 .emotion-36:hover:not($disabled):before {
@@ -1357,7 +1357,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-37:focus::-ms-input-
 }
 
 .emotion-51:before {
-  border-bottom: 1px solid rgb(224, 224, 224);
+  border-bottom: 1px solid #F5F5F5;
 }
 
 .emotion-51:hover:not($disabled):before {

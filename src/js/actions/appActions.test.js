@@ -134,18 +134,35 @@ describe('app actions', () => {
         type: SET_VERSION_INFORMATION,
         docsVersion: '',
         value: {
+          'Alvaldi-Client': 'next',
           Deployments: '1.2.3',
           Deviceauth: null,
           GUI: undefined,
           Integration: 'master',
           Inventory: null,
-          'Mender-Artifact': undefined,
-          'Mender-Client': 'next',
           'Meta-Mender': 'saas-123.34'
         }
       },
       { type: SET_ENVIRONMENT_DATA, value: { hostAddress: null, hostedAnnouncement: '', recaptchaSiteKey: '', stripeAPIKey: '', trackerCode: '' } },
       { type: SET_FIRST_LOGIN_AFTER_SIGNUP, firstLoginAfterSignup: false },
+      {
+        type: SET_VERSION_INFORMATION,
+        docsVersion: '',
+        value: {
+          GUI: latestSaasReleaseTag,
+          Integration: '1.2.3',
+          backend: latestSaasReleaseTag,
+          latestRelease: {
+            releaseDate: '2022-02-02',
+            repos: {
+              integration: '1.2.3',
+              mender: '3.2.1',
+              'other-service': '1.1.0',
+              service: '3.0.0'
+            }
+          }
+        }
+      },
       { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings } },
       { type: SET_GLOBAL_SETTINGS, settings: { ...defaultState.users.globalSettings } },
       { type: SET_OFFLINE_THRESHOLD, value: '2019-01-12T13:00:00.900Z' },
@@ -422,7 +439,7 @@ describe('app actions', () => {
     const expectedActions = [
       {
         type: SET_VERSION_INFORMATION,
-        value: { backend: latestSaasReleaseTag, GUI: latestSaasReleaseTag, Integration: '1.2.3', 'Mender-Client': '3.2.1', 'Mender-Artifact': '1.3.7' }
+        value: { backend: latestSaasReleaseTag, GUI: latestSaasReleaseTag, Integration: '1.2.3' }
       }
     ];
     await store.dispatch(getLatestReleaseInfo());

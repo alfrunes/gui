@@ -122,7 +122,7 @@ exports[`DeviceListItem Component renders correctly 1`] = `
 }
 
 <div
-  class="deviceListRow deviceListItem  "
+  class="deviceListRow deviceListItem clickable  "
 >
   <div>
     <span

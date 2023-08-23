@@ -17,6 +17,34 @@ exports[`TimeframePicker Component renders correctly 1`] = `
   vertical-align: top;
   margin-top: 18px;
   min-width: 240px;
+  position: relative;
+  min-width: 180px;
+  margin-right: 16px;
+  border: 1px solid #9E9E9E;
+  border-radius: 4px;
+  padding: 12px 16px;
+}
+
+.emotion-0 label {
+  color: #424242;
+  position: absolute;
+  top: -9px;
+  left: 8px;
+  background: #F5F5F5;
+  z-index: 2;
+  display: inline-block;
+  padding: 0 4px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  transform: none;
+}
+
+.emotion-0 label+div {
+  margin: 0;
 }
 
 .emotion-1 {
@@ -88,72 +116,6 @@ exports[`TimeframePicker Component renders correctly 1`] = `
 
 label+.emotion-2 {
   margin-top: 16px;
-}
-
-.emotion-2:after {
-  border-bottom: 2px solid #14A452;
-  left: 0;
-  bottom: 0;
-  content: "";
-  position: absolute;
-  right: 0;
-  -webkit-transform: scaleX(0);
-  -moz-transform: scaleX(0);
-  -ms-transform: scaleX(0);
-  transform: scaleX(0);
-  -webkit-transition: -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  pointer-events: none;
-}
-
-.emotion-2.Mui-focused:after {
-  -webkit-transform: scaleX(1) translateX(0);
-  -moz-transform: scaleX(1) translateX(0);
-  -ms-transform: scaleX(1) translateX(0);
-  transform: scaleX(1) translateX(0);
-}
-
-.emotion-2.Mui-error:before,
-.emotion-2.Mui-error:after {
-  border-bottom-color: #ab1000;
-}
-
-.emotion-2:before {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
-  left: 0;
-  bottom: 0;
-  content: "\\00a0";
-  position: absolute;
-  right: 0;
-  -webkit-transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  pointer-events: none;
-}
-
-.emotion-2:hover:not(.Mui-disabled, .Mui-error):before {
-  border-bottom: 2px solid #212121;
-}
-
-@media (hover: none) {
-  .emotion-2:hover:not(.Mui-disabled, .Mui-error):before {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.42);
-  }
-}
-
-.emotion-2.Mui-disabled:before {
-  border-bottom-style: dotted;
-}
-
-.emotion-2:before {
-  border-bottom: 1px solid rgb(224, 224, 224);
-}
-
-.emotion-2:hover:not($disabled):before {
-  border-bottom: 2px solid #14A452!important;
-}
-
-.emotion-2:after {
-  border-bottom: 2px solid #14A452;
 }
 
 .emotion-3 {
@@ -391,104 +353,115 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-3:focus::-ms-input-p
 
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root emotion-0"
+    style="display: flex; flex-wrap: wrap; max-width: 440px;"
   >
-    <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard emotion-1"
-      data-shrink="true"
-      for="mui-2"
-      id="mui-2-label"
-    >
-      From
-    </label>
-    <div
-      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd emotion-2"
-    >
-      <input
-        aria-invalid="false"
-        autocomplete="off"
-        class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd emotion-3"
-        id="mui-2"
-        inputmode="text"
-        placeholder="MMMM DD"
-        type="text"
-        value="January 13th"
-      />
-      <div
-        class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-standard MuiInputAdornment-sizeMedium emotion-4"
-      >
-        <button
-          aria-label="Choose date, selected date is Jan 13, 2019"
-          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium emotion-5"
-          tabindex="0"
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-6"
-            data-testid="CalendarIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
-            />
-          </svg>
-          <span
-            class="MuiTouchRipple-root emotion-7"
-          />
-        </button>
-      </div>
+    <div>
+      Date and time range
     </div>
-  </div>
-  <div
-    class="MuiFormControl-root MuiTextField-root margin-left-small emotion-0"
-  >
-    <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard emotion-1"
-      data-shrink="true"
-      for="mui-4"
-      id="mui-4-label"
-    >
-      To
-    </label>
     <div
-      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd emotion-2"
+      class="flexbox"
     >
-      <input
-        aria-invalid="false"
-        autocomplete="off"
-        class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd emotion-3"
-        id="mui-4"
-        inputmode="text"
-        placeholder="MMMM DD"
-        type="text"
-        value="January 13th"
-      />
       <div
-        class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-standard MuiInputAdornment-sizeMedium emotion-4"
+        class="MuiFormControl-root MuiTextField-root emotion-0"
       >
-        <button
-          aria-label="Choose date, selected date is Jan 13, 2019"
-          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium emotion-5"
-          tabindex="0"
-          type="button"
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard emotion-1"
+          data-shrink="true"
+          for="mui-2"
+          id="mui-2-label"
         >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-6"
-            data-testid="CalendarIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
-            />
-          </svg>
-          <span
-            class="MuiTouchRipple-root emotion-7"
+          Start
+        </label>
+        <div
+          class="MuiInputBase-root MuiInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd emotion-2"
+        >
+          <input
+            aria-invalid="false"
+            autocomplete="off"
+            class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd emotion-3"
+            id="mui-2"
+            inputmode="text"
+            placeholder="DD/MM/YYYY"
+            type="text"
+            value="13/01/2019"
           />
-        </button>
+          <div
+            class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-standard MuiInputAdornment-sizeMedium emotion-4"
+          >
+            <button
+              aria-label="Choose date, selected date is Jan 13, 2019"
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium emotion-5"
+              tabindex="0"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-6"
+                data-testid="CalendarIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root emotion-7"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root emotion-0"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard emotion-1"
+          data-shrink="true"
+          for="mui-4"
+          id="mui-4-label"
+        >
+          End
+        </label>
+        <div
+          class="MuiInputBase-root MuiInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd emotion-2"
+        >
+          <input
+            aria-invalid="false"
+            autocomplete="off"
+            class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd emotion-3"
+            id="mui-4"
+            inputmode="text"
+            placeholder="DD/MM/YYYY"
+            type="text"
+            value="13/01/2019"
+          />
+          <div
+            class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-standard MuiInputAdornment-sizeMedium emotion-4"
+          >
+            <button
+              aria-label="Choose date, selected date is Jan 13, 2019"
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium emotion-5"
+              tabindex="0"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-6"
+                data-testid="CalendarIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root emotion-7"
+              />
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -34,12 +34,6 @@ exports[`ScheduledDeployments Component renders correctly 1`] = `
     <p>
       Scheduled deployments will appear here. 
     </p>
-    <p>
-      <a>
-        Create a deployment
-      </a>
-       to get started
-    </p>
     <svg
       aria-hidden="true"
       class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium flip-horizontal emotion-0"

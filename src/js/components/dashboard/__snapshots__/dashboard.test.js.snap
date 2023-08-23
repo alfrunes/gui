@@ -84,11 +84,11 @@ exports[`Dashboard Component renders correctly 1`] = `
 }
 
 .emotion-4.red {
-  color: #5d0f43;
+  color: #fff;
 }
 
 .emotion-4.green {
-  color: #337a87;
+  color: #14A452;
 }
 
 .emotion-5 {
@@ -290,7 +290,7 @@ exports[`Dashboard Component renders correctly 1`] = `
 
 .emotion-23.stepped-progress .progress-step-total .progress-bar {
   background-color: #fff;
-  border: 1px solid #a9a9a9;
+  border: 1px solid #424242;
   border-radius: 2px;
   height: 12px;
 }

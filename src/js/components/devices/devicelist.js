@@ -173,7 +173,7 @@ export const DeviceList = ({
   onSort,
   pageLoading,
   pageTotal,
-  className
+  className = ''
 }) => {
   const { page: pageNo = defaultPage, perPage: pageLength = defaultPerPage, selection: selectedRows = [], sort = {} } = deviceListState;
   const { direction: sortDown = SORTING_OPTIONS.desc, key: sortCol } = sort;

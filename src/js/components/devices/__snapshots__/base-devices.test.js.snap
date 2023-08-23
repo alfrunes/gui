@@ -80,7 +80,7 @@ exports[`smaller components renders PendingEmptyState correctly 1`] = `
     >
       Help section
     </a>
-     to learn how to connect devices to the Mender server.
+     to learn how to connect devices to Alvaldi.
   </p>
 </div>
 `;

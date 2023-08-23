@@ -1032,7 +1032,7 @@ label+.emotion-12 {
 }
 
 .emotion-12:before {
-  border-bottom: 1px solid rgb(224, 224, 224);
+  border-bottom: 1px solid #F5F5F5;
 }
 
 .emotion-12:hover:not($disabled):before {
@@ -1232,7 +1232,7 @@ label+.emotion-16 {
 }
 
 .emotion-16:before {
-  border-bottom: 1px solid rgb(224, 224, 224);
+  border-bottom: 1px solid #F5F5F5;
 }
 
 .emotion-16:hover:not($disabled):before {
@@ -2221,7 +2221,7 @@ label+.emotion-22 {
 }
 
 .emotion-22:before {
-  border-bottom: 1px solid rgb(224, 224, 224);
+  border-bottom: 1px solid #F5F5F5;
 }
 
 .emotion-22:hover:not($disabled):before {
@@ -2421,7 +2421,7 @@ label+.emotion-26 {
 }
 
 .emotion-26:before {
-  border-bottom: 1px solid rgb(224, 224, 224);
+  border-bottom: 1px solid #F5F5F5;
 }
 
 .emotion-26:hover:not($disabled):before {
