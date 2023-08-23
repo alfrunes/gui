@@ -114,7 +114,9 @@ const PermissionsSelect = ({ disabled, label, onChange, options, permissionsArea
         {editablePermissions.map(uiPermission => (
           <MenuItem disabled={uiPermission.disabled} key={uiPermission.value} value={uiPermission.value}>
             <Checkbox className={classes.permissionSelect} checked={uiPermission.enabled} disabled={uiPermission.disabled} />
-            <div className={uiPermission.disabled ? 'text-muted' : ''}>{uiPermission.title}</div>
+            <Tooltip disableInteractive arrow title={uiPermission.explanations[permissionsArea]}>
+              <div className={uiPermission.disabled ? 'text-muted' : ''}>{uiPermission.title}</div>
+            </Tooltip>
           </MenuItem>
         ))}
         <MenuItem value="">None</MenuItem>
