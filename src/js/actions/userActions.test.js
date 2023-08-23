@@ -28,16 +28,9 @@ import {
   SORTING_OPTIONS
 } from '../constants/appConstants';
 import {
-  RECEIVE_DEPLOYMENTS,
-  RECEIVE_FINISHED_DEPLOYMENTS,
-  RECEIVE_INPROGRESS_DEPLOYMENTS,
-  SELECT_INPROGRESS_DEPLOYMENTS
-} from '../constants/deploymentConstants';
-import {
   ADD_DYNAMIC_GROUP,
   DEVICE_LIST_DEFAULTS,
   DEVICE_STATES,
-  EXTERNAL_PROVIDER,
   RECEIVE_DEVICES,
   RECEIVE_DYNAMIC_GROUPS,
   RECEIVE_GROUPS,
@@ -50,9 +43,7 @@ import {
   SET_REJECTED_DEVICES,
   UNGROUPED_GROUP
 } from '../constants/deviceConstants';
-import { SET_DEMO_ARTIFACT_PORT, SET_ONBOARDING_ARTIFACT_INCLUDED, SET_ONBOARDING_COMPLETE, SET_SHOW_ONBOARDING_HELP } from '../constants/onboardingConstants';
-import { RECEIVE_EXTERNAL_DEVICE_INTEGRATIONS } from '../constants/organizationConstants';
-import { RECEIVE_RELEASES, SET_RELEASES_LIST_STATE } from '../constants/releaseConstants';
+import { SET_DEMO_ARTIFACT_PORT, SET_ONBOARDING_COMPLETE, SET_SHOW_ONBOARDING_HELP } from '../constants/onboardingConstants';
 import {
   CREATED_ROLE,
   CREATED_USER,
@@ -165,25 +156,6 @@ const appInitActions = [
       tagAttributes: []
     }
   },
-  { type: RECEIVE_DEPLOYMENTS, deployments: defaultState.deployments.byId },
-  {
-    type: RECEIVE_FINISHED_DEPLOYMENTS,
-    deploymentIds: Object.keys(defaultState.deployments.byId),
-    status: 'finished',
-    total: Object.keys(defaultState.deployments.byId).length
-  },
-  { type: RECEIVE_DEPLOYMENTS, deployments: defaultState.deployments.byId },
-  {
-    type: RECEIVE_INPROGRESS_DEPLOYMENTS,
-    deploymentIds: Object.keys(defaultState.deployments.byId),
-    status: 'inprogress',
-    total: Object.keys(defaultState.deployments.byId).length
-  },
-  {
-    type: SELECT_INPROGRESS_DEPLOYMENTS,
-    deploymentIds: Object.keys(defaultState.deployments.byId),
-    status: 'inprogress'
-  },
   {
     type: RECEIVE_DEVICES,
     devicesById: {
@@ -257,47 +229,16 @@ const appInitActions = [
       }
     }
   },
-  { type: RECEIVE_RELEASES, releases: defaultState.releases.byId },
-  { type: SET_ONBOARDING_ARTIFACT_INCLUDED, value: true },
-  {
-    type: SET_RELEASES_LIST_STATE,
-    value: {
-      ...defaultState.releases.releasesList,
-      releaseIds: [
-        'release-999',
-        'release-998',
-        'release-997',
-        'release-996',
-        'release-995',
-        'release-994',
-        'release-993',
-        'release-992',
-        'release-991',
-        'release-990',
-        'release-99',
-        'release-989',
-        'release-988',
-        'release-987',
-        'release-986',
-        'release-985',
-        'release-984',
-        'release-983',
-        'release-982',
-        'release-981'
-      ],
-      page: 1,
-      total: 5000
-    }
-  },
+  // { type: SET_ONBOARDING_ARTIFACT_INCLUDED, value: true },
   { type: SET_DEVICE_LIMIT, limit: 500 },
   { type: RECEIVED_PERMISSION_SETS, value: receivedPermissionSets },
-  {
-    type: RECEIVE_EXTERNAL_DEVICE_INTEGRATIONS,
-    value: [
-      { connection_string: 'something_else', id: 1, provider: EXTERNAL_PROVIDER['iot-hub'].provider },
-      { id: 2, provider: 'aws', something: 'new' }
-    ]
-  },
+  // {
+  //   type: RECEIVE_EXTERNAL_DEVICE_INTEGRATIONS,
+  //   value: [
+  //     { connection_string: 'something_else', id: 1, provider: EXTERNAL_PROVIDER['iot-hub'].provider },
+  //     { id: 2, provider: 'aws', something: 'new' }
+  //   ]
+  // },
   { type: RECEIVED_ROLES, value: receivedRoles },
   {
     type: RECEIVE_DEVICES,
@@ -341,9 +282,9 @@ const appInitActions = [
     total: defaultState.devices.byStatus.accepted.total
   },
   { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings } },
+  { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings, showHelptips: true } },
   { type: SET_GLOBAL_SETTINGS, settings: { '2fa': 'enabled', previousFilters: [] } },
   offlineThreshold,
-  { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings, showHelptips: true } },
   { type: SET_GLOBAL_SETTINGS, settings: { '2fa': 'enabled', previousFilters: [] } },
   {
     type: RECEIVE_DEVICES,

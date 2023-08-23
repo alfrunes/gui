@@ -274,7 +274,7 @@ export const deviceHandlers = [
   }),
   rest.post(`${deviceConfig}/:deviceId/deploy`, ({ params: { deviceId } }, res, ctx) => {
     if (defaultState.devices.byId[deviceId]) {
-      return res(ctx.status(200), ctx.json({ deployment_id: defaultState.deployments.byId.d1.id }));
+      return res(ctx.status(200), ctx.json({}));
     }
     return res(ctx.status(514));
   }),
@@ -294,13 +294,13 @@ export const deviceHandlers = [
   }),
   rest.get(`${iotManagerBaseURL}/devices/:deviceId/state`, ({ params: { deviceId } }, res, ctx) => {
     if (defaultState.devices.byId[deviceId]) {
-      return res(ctx.status(200), ctx.json({ deployment_id: defaultState.deployments.byId.d1.id }));
+      return res(ctx.status(200), ctx.json({}));
     }
     return res(ctx.status(515));
   }),
   rest.put(`${iotManagerBaseURL}/devices/:deviceId/state/:integrationId`, ({ params: { deviceId }, body }, res, ctx) => {
     if (defaultState.devices.byId[deviceId] && body) {
-      return res(ctx.status(200), ctx.json({ deployment_id: defaultState.deployments.byId.d1.id }));
+      return res(ctx.status(200), ctx.json({}));
     }
     return res(ctx.status(516));
   }),

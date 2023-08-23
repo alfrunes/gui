@@ -122,12 +122,13 @@ describe('user reducer', () => {
   });
   it('should handle UPDATED_ROLE', async () => {
     expect(
-      reducer(undefined, { type: UserConstants.UPDATED_ROLE, roleId: 'RBAC_ROLE_CI', role: { description: newDescription } }).rolesById.RBAC_ROLE_CI.name
-    ).toEqual('Releases Manager');
-    expect(
-      reducer({ ...initialState }, { type: UserConstants.UPDATED_ROLE, roleId: 'RBAC_ROLE_CI', role: { description: newDescription } }).rolesById.RBAC_ROLE_CI
+      reducer(undefined, { type: UserConstants.UPDATED_ROLE, roleId: 'RBAC_ROLE_TERMINAL', role: { description: newDescription } }).rolesById.RBAC_ROLE_TERMINAL
         .name
-    ).toEqual('Releases Manager');
+    ).toEqual('Terminal access');
+    expect(
+      reducer({ ...initialState }, { type: UserConstants.UPDATED_ROLE, roleId: 'RBAC_ROLE_TERMINAL', role: { description: newDescription } }).rolesById
+        .RBAC_ROLE_TERMINAL.name
+    ).toEqual('Terminal access');
   });
   it('should handle SET_CUSTOM_COLUMNS', async () => {
     expect(reducer(undefined, { type: UserConstants.SET_CUSTOM_COLUMNS, value: 'test' }).customColumns).toEqual('test');

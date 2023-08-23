@@ -15,7 +15,6 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import AuditLogs from '../components/auditlogs/auditlogs';
-import Deployments from '../components/deployments/deployments';
 import Devices from '../components/devices/device-groups';
 import Device from '../components/devices/device.js';
 import Help from '../components/help/help';
@@ -23,7 +22,6 @@ import Login from '../components/login/login';
 import Password from '../components/login/password';
 import PasswordReset from '../components/login/passwordreset';
 import Signup from '../components/login/signup';
-import Releases from '../components/releases/releases';
 import Settings from '../components/settings/settings';
 import { DEVICE_STATES } from '../constants/deviceConstants.js';
 
@@ -38,12 +36,6 @@ export const PrivateRoutes = () => (
       ))}
     </Route>
     <Route path="devices/:id" element={<Device />} />
-    <Route path="releases" element={<Releases />}>
-      <Route path=":artifactVersion" element={null} />
-    </Route>
-    <Route path="deployments" element={<Deployments />}>
-      <Route path=":tab" element={null} />
-    </Route>
     <Route path="settings" element={<Settings />}>
       <Route path=":section" element={null} />
     </Route>

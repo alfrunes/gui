@@ -9,7 +9,6 @@ import { inventoryDevice } from '../../../tests/__mocks__/deviceHandlers';
 import { defaultState } from '../../../tests/mockData';
 import { mockAbortController } from '../../../tests/setupTests';
 import { SET_SNACKBAR, UPLOAD_PROGRESS } from '../constants/appConstants';
-import * as DeploymentConstants from '../constants/deploymentConstants';
 import * as DeviceConstants from '../constants/deviceConstants';
 import {
   addDevicesToGroup,
@@ -889,7 +888,7 @@ describe('device config ', () => {
   });
   it('should allow single device config deployment', async () => {
     const store = mockStore({ ...defaultState });
-    const expectedActions = [{ type: DeploymentConstants.RECEIVE_DEPLOYMENT, deployment: { ...defaultState.deployments.byId.d1, name: 'undefined' } }];
+    const expectedActions = [];
     await store.dispatch(applyDeviceConfig(defaultState.devices.byId.a1.id), { something: 'asdl' });
     const storeActions = store.getActions();
     expect(storeActions.length).toEqual(expectedActions.length);

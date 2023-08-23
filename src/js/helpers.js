@@ -19,13 +19,6 @@ import pluralize from 'pluralize';
 
 import { getToken } from './auth';
 import { DARK_MODE } from './constants/appConstants';
-import {
-  DEPLOYMENT_STATES,
-  defaultStats,
-  deploymentDisplayStates,
-  deploymentStatesToSubstates,
-  deploymentStatesToSubstatesWithSkipped
-} from './constants/deploymentConstants';
 import { ATTRIBUTE_SCOPES, DEVICE_FILTERING_OPTIONS } from './constants/deviceConstants';
 
 const isEncoded = uri => {
@@ -38,54 +31,6 @@ export const fullyDecodeURI = uri => {
     uri = decodeURIComponent(uri);
   }
   return uri;
-};
-
-export const groupDeploymentDevicesStats = deployment => {
-  const deviceStatCollector = (deploymentStates, devices) =>
-    Object.values(devices).reduce((accu, device) => (deploymentStates.includes(device.status) ? accu + 1 : accu), 0);
-
-  const inprogress = deviceStatCollector(deploymentStatesToSubstates.inprogress, deployment.devices);
-  const pending = deviceStatCollector(deploymentStatesToSubstates.pending, deployment.devices);
-  const successes = deviceStatCollector(deploymentStatesToSubstates.successes, deployment.devices);
-  const failures = deviceStatCollector(deploymentStatesToSubstates.failures, deployment.devices);
-  const paused = deviceStatCollector(deploymentStatesToSubstates.paused, deployment.devices);
-  return { inprogress, paused, pending, successes, failures };
-};
-
-export const statCollector = (items, statistics) => items.reduce((accu, property) => accu + Number(statistics[property] || 0), 0);
-export const groupDeploymentStats = (deployment, withSkipped) => {
-  const { statistics = {} } = deployment;
-  const { status = {} } = statistics;
-  const stats = { ...defaultStats, ...status };
-  let groupStates = deploymentStatesToSubstates;
-  let result = {};
-  if (withSkipped) {
-    groupStates = deploymentStatesToSubstatesWithSkipped;
-    result.skipped = statCollector(groupStates.skipped, stats);
-  }
-  result = {
-    ...result,
-    // don't include 'pending' as inprogress, as all remaining devices will be pending - we don't discriminate based on phase membership
-    inprogress: statCollector(groupStates.inprogress, stats),
-    pending: (deployment.max_devices ? deployment.max_devices - deployment.device_count : 0) + statCollector(groupStates.pending, stats),
-    successes: statCollector(groupStates.successes, stats),
-    failures: statCollector(groupStates.failures, stats),
-    paused: statCollector(groupStates.paused, stats)
-  };
-  return result;
-};
-
-export const getDeploymentState = deployment => {
-  const { status: deploymentStatus = DEPLOYMENT_STATES.pending } = deployment;
-  const { inprogress: currentProgressCount, paused } = groupDeploymentStats(deployment);
-
-  let status = deploymentDisplayStates[deploymentStatus];
-  if (deploymentStatus === DEPLOYMENT_STATES.pending && currentProgressCount === 0) {
-    status = 'queued';
-  } else if (paused > 0) {
-    status = deploymentDisplayStates.paused;
-  }
-  return status;
 };
 
 export const decodeSessionToken = token => {
@@ -402,38 +347,10 @@ export const getRemainderPercent = phases => {
   return phases.reduce((accu, phase) => (phase.batch_size ? accu - phase.batch_size : accu), 100);
 };
 
-export const validatePhases = (phases, deploymentDeviceCount, hasFilter) => {
-  if (!phases?.length) {
-    return true;
-  }
-  const remainder = getRemainderPercent(phases);
-  return phases.reduce((accu, phase) => {
-    if (!accu) {
-      return accu;
-    }
-    const deviceCount = Math.floor((deploymentDeviceCount / 100) * (phase.batch_size || remainder));
-    return deviceCount >= 1 || hasFilter;
-  }, true);
-};
-
 export const getPhaseDeviceCount = (numberDevices = 1, batchSize, remainder, isLastPhase) =>
   isLastPhase ? Math.ceil((numberDevices / 100) * (batchSize || remainder)) : Math.floor((numberDevices / 100) * (batchSize || remainder));
 
 export const startTimeSort = (a, b) => (b.created > a.created) - (b.created < a.created);
-
-export const standardizePhases = phases =>
-  phases.map((phase, index) => {
-    let standardizedPhase = { batch_size: phase.batch_size, start_ts: index };
-    if (phase.delay) {
-      standardizedPhase.delay = phase.delay;
-      standardizedPhase.delayUnit = phase.delayUnit || 'hours';
-    }
-    if (index === 0) {
-      // delete the start timestamp from a deployment pattern, to default to starting without delay
-      delete standardizedPhase.start_ts;
-    }
-    return standardizedPhase;
-  });
 
 const getInstallScriptArgs = ({ isHosted, isPreRelease }) => {
   let installScriptArgs = '--demo';
@@ -529,12 +446,9 @@ export const createDownload = (target, filename) => {
 
 export const createFileDownload = (content, filename) => createDownload('data:text/plain;charset=utf-8,' + encodeURIComponent(content), filename);
 
-export const getISOStringBoundaries = (currentDate, daysToSubtract = 0) => {
-  const format = 'YYYY-MM-DD HH:mm:ss.SSSZ';
-  return {
-    start: moment(currentDate).utc().subtract(daysToSubtract, 'days').startOf('day').format(format),
-    end: moment(currentDate).utc().endOf('day').format(format)
-  };
-};
+export const getISOStringBoundaries = (currentDate, daysToSubtract = 0) => ({
+  start: moment(currentDate).utc().subtract(daysToSubtract, 'days').startOf('day').toISOString(),
+  end: moment(currentDate).utc().endOf('day').toISOString()
+});
 
 export const isDarkMode = mode => mode === DARK_MODE;

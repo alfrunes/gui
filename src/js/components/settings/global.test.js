@@ -13,8 +13,6 @@
 //    limitations under the License.
 import React from 'react';
 
-import { screen, waitFor } from '@testing-library/react';
-
 import { defaultState, undefineds } from '../../../../tests/mockData';
 import { render } from '../../../../tests/setupTests';
 import Global from './global';
@@ -29,17 +27,6 @@ const preloadedState = {
       hasMultitenancy: true,
       isEnterprise: true,
       isHosted: true
-    }
-  },
-  deployments: {
-    ...defaultState.deployments,
-    config: {
-      ...defaultState.deployments.config,
-      binaryDelta: {
-        ...defaultState.deployments.config.binaryDelta,
-        timeout: 5
-      },
-      hasDelta: true
     }
   }
 };

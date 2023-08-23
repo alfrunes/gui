@@ -21,7 +21,7 @@ import { Chip } from '@mui/material';
 import { getDynamicGroups, getGroups } from '../../actions/deviceActions';
 import { createRole, editRole, getRoles, removeRole } from '../../actions/userActions';
 import { emptyRole, rolesById } from '../../constants/userConstants';
-import { getFeatures, getGroupsByIdWithoutUngrouped, getReleaseTagsById, getRolesList } from '../../selectors';
+import { getFeatures, getGroupsByIdWithoutUngrouped, getRolesList } from '../../selectors';
 import DetailsTable from '../common/detailstable';
 import RoleDefinition from './roledefinition';
 
@@ -46,7 +46,6 @@ export const RoleManagement = () => {
   const dispatch = useDispatch();
   const features = useSelector(getFeatures);
   const groups = useSelector(getGroupsByIdWithoutUngrouped);
-  const releaseTags = useSelector(getReleaseTagsById);
   const roles = useSelector(getRolesList);
 
   useEffect(() => {
@@ -110,7 +109,6 @@ export const RoleManagement = () => {
         removeRole={name => dispatch(removeRole(name))}
         selectedRole={role}
         stateGroups={groups}
-        stateReleaseTags={releaseTags}
       />
     </div>
   );

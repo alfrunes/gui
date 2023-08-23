@@ -229,7 +229,7 @@ export const rolesById = Object.freeze({
     name: 'Terminal access',
     value: staticRolesByName.terminalAccess,
     description:
-      'Intended for engineers who need to troubleshoot and be able to make changes to devices, this role can open the remote terminal and run user-specified commands on all devices. ',
+      'Intended for engineers who need to troubleshoot and be able to make changes to devices, this role can open the remote terminal and run user-specified commands on all devices.',
     permissions: [],
     uiPermissions: {
       ...emptyUiPermissions,

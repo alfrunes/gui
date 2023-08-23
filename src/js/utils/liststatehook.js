@@ -17,17 +17,11 @@ import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import {
   commonProcessor,
   formatAuditlogs,
-  formatDeployments,
   formatDeviceSearch,
   formatPageState,
-  formatReleases,
-  generateDeploymentsPath,
   generateDevicePath,
-  generateReleasesPath,
   parseAuditlogsQuery,
-  parseDeploymentsQuery,
-  parseDeviceQuery,
-  parseReleasesQuery
+  parseDeviceQuery
 } from './locationutils';
 
 const processors = {
@@ -41,20 +35,10 @@ const processors = {
     locate: () => undefined,
     parse: commonProcessor
   },
-  deployments: {
-    format: formatDeployments,
-    locate: generateDeploymentsPath,
-    parse: parseDeploymentsQuery
-  },
   devices: {
     format: formatDeviceSearch,
     locate: generateDevicePath,
     parse: parseDeviceQuery
-  },
-  releases: {
-    format: formatReleases,
-    locate: generateReleasesPath,
-    parse: parseReleasesQuery
   }
 };
 

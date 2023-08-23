@@ -13,13 +13,12 @@
 //    limitations under the License.
 import React from 'react';
 
-import { act, screen, waitFor } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { defaultState, undefineds } from '../../../../tests/mockData';
 import { render } from '../../../../tests/setupTests';
 import * as DeviceActions from '../../actions/deviceActions';
-import * as UserActions from '../../actions/userActions';
 import Authorized from './authorized-devices';
 import { routes } from './base-devices';
 
@@ -48,10 +47,7 @@ describe('AuthorizedDevices Component', () => {
   it('behaves as expected', async () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const setListStateSpy = jest.spyOn(DeviceActions, 'setDeviceListState');
-    const setUserSettingsSpy = jest.spyOn(UserActions, 'saveUserSettings');
-    const setColumnsSpy = jest.spyOn(UserActions, 'updateUserColumnSettings');
 
-    const testKey = 'testKey';
     const attributeNames = {
       artifact: 'rootfs-image.version',
       deviceType: 'device_type',

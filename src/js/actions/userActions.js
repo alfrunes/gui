@@ -89,7 +89,7 @@ export const loginUser = (userData, stayLoggedIn) => dispatch =>
     });
 
 export const logoutUser = reason => (dispatch, getState) => {
-  if (getState().releases.uploadProgress) {
+  if (getState().app.uploadProgress) {
     return Promise.reject();
   }
   let tasks = [dispatch({ type: UserConstants.USER_LOGOUT })];
