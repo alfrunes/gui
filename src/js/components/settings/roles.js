@@ -56,7 +56,7 @@ export const RoleManagement = () => {
     dispatch(getDynamicGroups());
     dispatch(getGroups());
     dispatch(getRoles());
-  }, []);
+  }, [dispatch, JSON.stringify(groups)]);
 
   const addRole = () => {
     setAdding(true);
