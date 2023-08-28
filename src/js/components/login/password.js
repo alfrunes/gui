@@ -38,11 +38,11 @@ export const PasswordScreenContainer = ({ children, title }) => (
 const texts = {
   confirmation: [
     `Thanks - we're sending you an email now!`,
-    `If there is a Mender account with that address, you'll receive an email with a link and instructions to reset your password.`
+    `If there is a Alvaldi account with that address, you'll receive an email with a link and instructions to reset your password.`
   ],
   request: [
     `If you've forgotten your password, you can request to reset it.`,
-    `Enter the email address you use to sign in to Mender, and we'll send you a reset link.`
+    `Enter the email address you use to sign in to Alvaldi, and we'll send you a reset link.`
   ]
 };
 

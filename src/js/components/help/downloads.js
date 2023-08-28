@@ -341,7 +341,7 @@ export const Downloads = () => {
   return (
     <div>
       <h2>Downloads</h2>
-      <p>To get the most out of Mender, download the tools listed below.</p>
+      <p>To get the most out of Alvaldi, download the tools listed below.</p>
       {availableTools.map(tool => (
         <DownloadSection
           docsVersion={docsVersion}
@@ -361,7 +361,7 @@ export const Downloads = () => {
         ))}
       </Menu>
       <p>
-        To learn more about the tools availabe for Mender, read the{' '}
+        To learn more about the tools availabe for Alvaldi, read the{' '}
         <DocsLink docsVersion={docsVersion} path="downloads" title="Downloads section in our documentation" />.
       </p>
     </div>

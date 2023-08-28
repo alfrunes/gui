@@ -14,8 +14,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { InfoOutlined as InfoIcon, Payment } from '@mui/icons-material';
-import { Button } from '@mui/material';
+import { makeStyles } from 'tss-react/mui';
 
 import moment from 'moment';
 import momentDurationFormatSetup from 'moment-duration-format';
@@ -27,44 +26,54 @@ momentDurationFormatSetup(moment);
 
 const today = new Date();
 
+const useStyles = makeStyles()(theme => ({
+  trialChip: {
+    color: theme.palette.green[800],
+    background: theme.palette.green[200],
+    fontSize: '12px',
+    lineHeight: '16px',
+    padding: '4px 6px',
+    borderRadius: 2
+  }
+}));
+
 const TrialInformation = () => (
   <>
-    <h3>Trial plan</h3>
-    <p>You&apos;re using the trial version of Mender – it&apos;s free for up to 10 devices for 12 months.</p>
+    <h3>Free trial</h3>
+    <p>You&apos;re using the trial version of Alvaldi – it&apos;s free for up to 10 devices for 6 months.</p>
     <p>
-      <Link to="/settings/upgrade">Upgrade to a plan</Link> to add more devices and continue using Mender after the trial expires.
+      <Link to="/settings/upgrade">Upgrade to a plan</Link> to add more devices and continue using Alvaldi after the trial expires.
     </p>
     <p>
       Or compare the plans at{' '}
-      <a href={`https://mender.io/plans/pricing`} target="_blank" rel="noopener noreferrer">
-        mender.io/plans/pricing
+      <a href={`https://alvaldi.com/pricing`} target="_blank" rel="noopener noreferrer">
+        alvaldi.com/pricing
       </a>
-      .
     </p>
   </>
 );
 
-const TrialNotification = ({ iconClassName, sectionClassName, expiration }) => {
-  const expirationDate = moment(expiration);
+const TrialNotification = ({ sectionClassName, expiration }) => {
+  const expirationDate = moment().add('days', 59);
   const duration = moment.duration(expirationDate.diff(moment(today)));
   const daysLeft = Math.floor(duration.asDays());
+  const { classes } = useStyles();
   return (
     <div className={`flexbox centered ${sectionClassName}`}>
-      <MenderTooltipClickable className="flexbox center-aligned muted margin-right-small" disableHoverListener={false} title={<TrialInformation />}>
+      <MenderTooltipClickable
+        className={`flexbox center-aligned margin-right-small ${classes.trialChip}`}
+        disableHoverListener={false}
+        title={<TrialInformation />}
+      >
         <>
-          <InfoIcon className={iconClassName} style={{ marginRight: 2 }} />
-          Trial plan
+          Free trial{' '}
+          {expiration && daysLeft < 60 && daysLeft >= 0 && (
+            <span>
+              : {daysLeft} {pluralize('day', daysLeft)} left
+            </span>
+          )}
         </>
       </MenderTooltipClickable>
-      <Button className={iconClassName} component={Link} startIcon={<Payment />} to="/settings/upgrade">
-        Upgrade now
-      </Button>
-
-      {expiration && daysLeft <= 100 && daysLeft >= 0 && (
-        <div className="muted">
-          You have {daysLeft} {pluralize('day', daysLeft)} remaining on the trial plan
-        </div>
-      )}
     </div>
   );
 };

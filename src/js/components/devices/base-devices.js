@@ -107,9 +107,9 @@ export const AcceptedEmptyState = ({ allCount }) => (
     <p>No devices found</p>
     {!allCount && (
       <>
-        <p>No devices have been authorized to connect to the Mender server yet.</p>
+        <p>No devices have been authorized to connect to the Alvaldi yet.</p>
         <p>
-          Visit the <Link to="/help/get-started">Help section</Link> to learn how to connect devices to the Mender server.
+          Visit the <Link to="/help/get-started">Help & support</Link> to learn how to connect devices to Alvaldi.
         </p>
       </>
     )}
@@ -138,7 +138,7 @@ export const PendingEmptyState = ({ filters, highlightHelp }) => (
     </p>
     {highlightHelp ? (
       <p>
-        Visit the <Link to="/help/get-started">Help section</Link> to learn how to connect devices to the Mender server.
+        Visit the <Link to="/help/get-started">Help section</Link> to learn how to connect devices to Alvaldi.
       </p>
     ) : null}
   </div>

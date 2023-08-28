@@ -52,8 +52,7 @@ const listItems = [
 
 const linkables = {
   'Integration': 'integration',
-  'Mender-Client': 'mender',
-  'Mender-Artifact': 'mender-artifact',
+  'Alvaldi-Client': 'mender',
   'GUI': 'gui'
 };
 

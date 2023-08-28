@@ -39,6 +39,10 @@ const endAdornment = (
 );
 
 const useStyles = makeStyles()(theme => ({
+  Dialog: {
+    position: 'absolute',
+    top: `calc(${theme.mixins.toolbar.minHeight}px + ${theme.spacing(3)})`
+  },
   DialogTitle: {
     minWidth: 648,
     borderBottom: `1px solid ${theme.palette.border.colors.primary}`,
@@ -136,7 +140,13 @@ export const SearchDialog = ({ open, handleClose }) => {
   };
   const adornment = isSearching ? { endAdornment } : {};
   return (
-    <Dialog open={open} onClose={close} maxWidth="md" BackdropProps={{ style: { backgroundColor: theme.palette.backdrop } }}>
+    <Dialog
+      classes={{ paper: classes.Dialog }}
+      open={open}
+      onClose={close}
+      maxWidth="md"
+      BackdropProps={{ style: { backgroundColor: theme.palette.backdrop } }}
+    >
       <DialogTitle className={classes.DialogTitle}>
         <TextField
           autoFocus

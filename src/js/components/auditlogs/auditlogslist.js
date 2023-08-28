@@ -26,7 +26,7 @@ import EventDetailsDrawer from './eventdetailsdrawer';
 export const defaultRowsPerPage = 20;
 
 const ViewDetailLink = ({ clickHandler }) => (
-  <a className="green800" onClick={() => clickHandler()}>
+  <a onClick={clickHandler}>
     View detail <ArrowRightAltIcon />
   </a>
 );
