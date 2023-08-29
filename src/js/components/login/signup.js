@@ -183,8 +183,7 @@ export const Signup = () => {
           <div className={classes.promo}>
             <h2>Connect up to 10 devices with 2 user accounts free for 6 months.</h2>
             <p>
-              {/* eslint-disable-next-line react/no-unescaped-entities */}
-              Alvaldi provides a secure way to remotely access and efficiently troubleshoot issues on your devices. Whether they are in customer's homes,
+              Alvaldi provides a secure way to remotely access and efficiently troubleshoot issues on your devices. Whether they are in customer&#39;s homes,
               factories, or geographically remote locations, you have a tested way of resolving issues.
             </p>
             <div className={classes.svgContainer}>

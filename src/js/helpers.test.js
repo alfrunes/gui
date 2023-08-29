@@ -143,7 +143,7 @@ describe('getDebConfigurationCode function', () => {
     beforeEach(() => {
       window.location = {
         ...window.location,
-        hostname: 'hosted.mender.io'
+        hostname: 'hosted.alvaldi.com'
       };
       jest.clearAllMocks();
       const cookies = new Cookies();
@@ -157,7 +157,7 @@ describe('getDebConfigurationCode function', () => {
       expect(code).toMatch(
         `JWT_TOKEN="omnomnom"
 TENANT_TOKEN="token"
-wget -O- https://get.mender.io | sudo bash -s -- --demo --commercial --jwt-token $JWT_TOKEN -- --quiet --device-type "raspberrypi3" --tenant-token $TENANT_TOKEN --demo --server-url https://hosted.mender.io --server-cert=""`
+wget -O- https://get.mender.io | sudo bash -s -- --demo --commercial --jwt-token $JWT_TOKEN -- --quiet --device-type "raspberrypi3" --tenant-token $TENANT_TOKEN --demo --server-url https://hosted.alvaldi.com --server-cert=""`
       );
     });
   });
@@ -165,7 +165,7 @@ wget -O- https://get.mender.io | sudo bash -s -- --demo --commercial --jwt-token
     beforeEach(() => {
       window.location = {
         ...window.location,
-        hostname: 'staging.hosted.mender.io'
+        hostname: 'staging.hosted.alvaldi.com'
       };
       jest.clearAllMocks();
       const cookies = new Cookies();
@@ -179,7 +179,7 @@ wget -O- https://get.mender.io | sudo bash -s -- --demo --commercial --jwt-token
       expect(code).toMatch(
         `JWT_TOKEN="omnomnom"
 TENANT_TOKEN="token"
-wget -O- https://get.mender.io/staging | sudo bash -s -- --demo -c experimental --commercial --jwt-token $JWT_TOKEN -- --quiet --device-type "raspberrypi3" --tenant-token $TENANT_TOKEN --demo --server-url https://staging.hosted.mender.io --server-cert=""`
+wget -O- https://get.mender.io/staging | sudo bash -s -- --demo -c experimental --commercial --jwt-token $JWT_TOKEN -- --quiet --device-type "raspberrypi3" --tenant-token $TENANT_TOKEN --demo --server-url https://staging.hosted.alvaldi.com --server-cert=""`
       );
     });
   });
