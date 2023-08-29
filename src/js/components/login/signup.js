@@ -20,7 +20,7 @@ import { makeStyles } from 'tss-react/mui';
 
 import Cookies from 'universal-cookie';
 
-import LoginLogo from '../../../assets/img/loginlogo.svg';
+import LoginLogo from '../../../assets/img/alvaldi-logo.svg';
 import SignupHero from '../../../assets/img/signuphero.svg';
 import { setSnackbar } from '../../actions/appActions';
 import { createOrganizationTrial } from '../../actions/organizationActions';
@@ -58,11 +58,15 @@ const useStyles = makeStyles()(theme => ({
   },
   orgData: { display: 'grid', placeContent: 'center', gridTemplateColumns: 'min-content' },
   promo: {
-    background: theme.palette.grey[400],
+    background: theme.palette.green[100],
     gridTemplateRows: 'min-content min-content min-content',
     padding: '80px 0'
   },
-  logo: { marginLeft: '5vw', marginTop: 45, maxHeight: 50 }
+  logo: { marginLeft: '5vw', marginTop: 45, maxHeight: 50 },
+  svgContainer: {
+    width: 'fit-content',
+    margin: '45px auto'
+  }
 }));
 
 export const Signup = () => {
@@ -177,12 +181,13 @@ export const Signup = () => {
         </div>
         {isStarting && (
           <div className={classes.promo}>
-            <h2>Connect up to 10 devices free for 12 months – no credit card required.</h2>
+            <h2>Connect up to 10 devices with 2 user accounts free for 6 months.</h2>
             <p>
-              Alvaldi provides a complete over-the-air update infrastructure for all device software. Whether in the field or the factory, you can remotely and
-              easily manage device software without the need for manual labor.
+              {/* eslint-disable-next-line react/no-unescaped-entities */}
+              Alvaldi provides a secure way to remotely access and efficiently troubleshoot issues on your devices. Whether they are in customer's homes,
+              factories, or geographically remote locations, you have a tested way of resolving issues.
             </p>
-            <div className="svg-container margin-top">
+            <div className={classes.svgContainer}>
               <SignupHero />
             </div>
           </div>
