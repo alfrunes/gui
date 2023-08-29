@@ -43,7 +43,7 @@ export const DetailInformation = ({ title, details, titleEnding = 'details', cla
 const deviceAuditlogType = AUDIT_LOGS_TYPES.find(type => type.value === 'device');
 
 export const DeviceDetails = ({ device, idAttribute, onClose }) => {
-  const { name, device_type: deviceTypes, artifact_name } = device.attributes;
+  const { name, device_type: deviceTypes, artifact_name } = device.attributes || {};
   const usesId = !idAttribute || idAttribute === 'id' || idAttribute === 'Device ID';
   const nameContainer = name ? { Name: name } : {};
   const deviceDetails = {
