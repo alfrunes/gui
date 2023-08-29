@@ -61,10 +61,12 @@ const generateHtml = (versions, content) => {
           font-family: 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Helvetica, Arial, sans-serif;
         }
         h2 {
-          color: #24444a;
+          color: #212121;
+          font-size: 22px;
+          font-weight: 700;
         }
         button {
-          background-color: #921267;
+          background-color: #14A452;
           padding: 1.3em 3.4em;
           color: #fff;
           font-weight: 700;
@@ -74,8 +76,12 @@ const generateHtml = (versions, content) => {
           cursor: pointer;
         }
         .disabled {
-          background-color: lightgrey;
-          opacity: 0.4;
+          color: rgba(0, 0, 0, 0.26);
+          background-color: rgba(0, 0, 0, 0.12);
+          cursor: initial;
+        }
+        .xterm-screen {
+          padding: 10px;
         }
       </style>
     </head>
