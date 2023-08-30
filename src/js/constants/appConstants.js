@@ -55,8 +55,8 @@ export const TIMEOUTS = {
   refreshDefault: 10 * oneSecond
 };
 export const locations = {
-  eu: { key: 'eu', title: 'EU', location: 'eu.hosted.mender.io', icon: FlagEU },
-  us: { key: 'us', title: 'US', location: 'hosted.mender.io', icon: FlagUS }
+  eu: { key: 'eu', title: 'EU', location: 'eu.hosted.alvaldi.com', icon: FlagEU },
+  us: { key: 'us', title: 'US', location: 'hosted.alvaldi.com', icon: FlagUS }
 };
 export const PLANS = {
   os: {

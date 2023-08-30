@@ -765,7 +765,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-20:focus::-ms-input-
     <div
       class="margin-left-small"
     >
-      You are logging into the 
+      You are logging into the
       <b
         style="margin-left: 4px;"
       >
@@ -776,11 +776,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-20:focus::-ms-input-
     </div>
     <a
       class="flexbox center-aligned margin-left-small"
-      href="https://eu.hosted.mender.io/ui/"
+      href="https://eu.hosted.alvaldi.com/ui/"
     >
-      Change to 
+      Change to
       EU
-       
+
       <svg
         aria-hidden="true"
         class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall emotion-0"
@@ -1072,7 +1072,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-20:focus::-ms-input-
           href="/signup"
         >
           Sign up here
-           
+
           <svg
             aria-hidden="true"
             class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall emotion-0"
