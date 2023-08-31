@@ -74,7 +74,7 @@ export const Upgrade = () => {
         <a href="https://alvaldi.com/plans/pricing" target="_blank" rel="noopener noreferrer">
           alvaldi.com/plans/pricing
         </a>
-        . Prices change according to number of users and devices, please see our{' '}
+        . Prices change according to the number of users and devices, please see our{' '}
         <a href="https://alvaldi.com/plans/pricing#calculator" target="_blank" rel="noopener noreferrer">
           price calculator
         </a>{' '}
