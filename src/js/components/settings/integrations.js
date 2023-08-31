@@ -144,7 +144,7 @@ export const IntegrationConfiguration = ({ integration, isLast, onCancel, onDele
   const onDeleteConfirm = () => {
     onDelete(integration);
     setIsDeleting(false);
-  }
+  };
   const onEditClick = () => setIsEditing(true);
   const onSaveClick = () =>
     onSave({

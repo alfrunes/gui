@@ -130,7 +130,9 @@ export const PlanSelection = ({ currentPlan = 'os', isTrial, offerValid, offerTa
                     </li>
                   ))}
                 </ul>
-                <div><b>{item?.additionalFeatures}</b></div>
+                <div>
+                  <b>{item?.additionalFeatures}</b>
+                </div>
                 {item?.info && (
                   <div className={classes.info}>
                     <InfoOutlineIcon style={{ fontSize: 16, marginRight: 4 }} />
