@@ -20,7 +20,6 @@ import { defaultState, undefineds } from '../../../../tests/mockData';
 import { render, selectMaterialUiSelectOption } from '../../../../tests/setupTests';
 import * as UserActions from '../../actions/userActions';
 import { ALL_DEVICES } from '../../constants/deviceConstants';
-import { ALL_RELEASES } from '../../constants/releaseConstants';
 import Roles from './roles';
 
 describe('Roles Component', () => {
@@ -67,7 +66,7 @@ describe('Roles Component', () => {
     await user.click(listItem);
     const submitButton = screen.getByRole('button', { name: /submit/i, hidden: true });
     expect(submitButton).toBeDisabled();
-    listItem = within(listbox).getByText(/deploy/i);
+    listItem = within(listbox).getByText(/connect/i);
     await user.click(listItem);
     expect(submitButton).not.toBeDisabled();
     await user.click(submitButton);
@@ -79,10 +78,10 @@ describe('Roles Component', () => {
       uiPermissions: {
         auditlog: [],
         groups: [
-          { disableEdit: false, item: ALL_DEVICES, uiPermissions: ['deploy'] },
+          { disableEdit: false, item: ALL_DEVICES, uiPermissions: ['connect'] },
           { disableEdit: false, item: '', uiPermissions: [] }
         ],
-        releases: [{ item: ALL_RELEASES, uiPermissions: [] }],
+        releases: [],
         userManagement: []
       },
       source: { ...defaultState.users.rolesById.test, id: defaultState.users.rolesById.test.name }

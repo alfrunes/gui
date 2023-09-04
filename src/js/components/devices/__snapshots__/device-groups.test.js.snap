@@ -4,16 +4,6 @@ exports[`DeviceGroups Component renders correctly 1`] = `
 "<div>
   <div
     class="tab-container with-sub-panels"
-    style="padding: 0px; min-height: initial;"
-  >
-    <div
-      class="flexbox space-between"
-    >
-      <div />
-    </div>
-  </div>
-  <div
-    class="tab-container with-sub-panels"
     style="padding: 0px; height: 100%;"
   >
     <div
@@ -136,6 +126,16 @@ exports[`DeviceGroups Component renders correctly 1`] = `
       class="rightFluid relative"
       style="padding-top: 32px;"
     >
+      <div
+        class="tab-container margin-bottom with-sub-panels"
+        style="padding: 0px; min-height: initial;"
+      >
+        <div
+          class="flexbox space-between"
+        >
+          <div />
+        </div>
+      </div>
       <div
         class="margin-left-small margin-bottom"
       >
@@ -293,7 +293,7 @@ exports[`DeviceGroups Component renders correctly 1`] = `
         class="padding-bottom"
       >
         <div
-          class="deviceList selectable undefined"
+          class="deviceList selectable "
           style="grid-template-columns: 52px minmax(250px, 1fr) minmax(150px, 1.5fr) minmax(150px, 1.5fr) minmax(150px, 1.5fr) minmax(150px, max-content);"
         >
           <div
@@ -462,7 +462,7 @@ exports[`DeviceGroups Component renders correctly 1`] = `
             class="body"
           >
             <div
-              class="deviceListRow deviceListItem  "
+              class="deviceListRow deviceListItem clickable  "
             >
               <div>
                 <span
@@ -547,7 +547,7 @@ exports[`DeviceGroups Component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="deviceListRow deviceListItem  "
+              class="deviceListRow deviceListItem clickable  "
             >
               <div>
                 <span

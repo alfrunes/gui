@@ -97,7 +97,7 @@ exports[`DeviceIdentity Component renders correctly 1`] = `
 }
 
 .emotion-1:before {
-  border-bottom: 1px solid rgb(224, 224, 224);
+  border-bottom: 1px solid #F5F5F5;
 }
 
 .emotion-1:hover:not($disabled):before {
@@ -623,7 +623,7 @@ exports[`DeviceIdentity Component renders correctly without a mac 1`] = `
 }
 
 .emotion-1:before {
-  border-bottom: 1px solid rgb(224, 224, 224);
+  border-bottom: 1px solid #F5F5F5;
 }
 
 .emotion-1:hover:not($disabled):before {

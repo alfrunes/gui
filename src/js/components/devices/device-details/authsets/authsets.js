@@ -77,7 +77,7 @@ export const Authsets = ({ decommission, device, deviceListRefresh, showHelptips
   const { canManageDevices } = userCapabilities;
   const { classes } = useStyles();
   return (
-    <div className={ classes.wrapper }>
+    <div className={classes.wrapper}>
       <div className="margin-bottom-small">
         {status === DEVICE_STATES.pending ? `Authorization ${pluralize('request', auth_sets.length)}` : 'Authorization sets'}
       </div>

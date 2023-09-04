@@ -284,7 +284,7 @@ label+.emotion-3 {
 }
 
 .emotion-3:before {
-  border-bottom: 1px solid rgb(224, 224, 224);
+  border-bottom: 1px solid #F5F5F5;
 }
 
 .emotion-3:hover:not($disabled):before {
@@ -638,8 +638,8 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
 exports[`PhysicalDeviceOnboarding Component tiny onboarding tips renders ConvertedImageNote correctly 1`] = `
 <div>
   <p>
-    We prepared an image, ready for Mender, for you to start with. You can find it in the
-
+    We prepared an image, ready for Alvaldi, for you to start with. You can find it in the
+     
     <a
       href="https://docs.mender.io/get-started/preparation/prepare-a-raspberry-pi-device"
       rel="noopener noreferrer"
@@ -647,7 +647,7 @@ exports[`PhysicalDeviceOnboarding Component tiny onboarding tips renders Convert
     >
       Prepare a Raspberry Pi device
     </a>
-
+     
     documentation, which also contains instructions for initial device setup. Once you're done flashing you can go ahead and proceed to the next step.
   </p>
 </div>
@@ -937,7 +937,7 @@ label+.emotion-3 {
 }
 
 .emotion-3:before {
-  border-bottom: 1px solid rgb(224, 224, 224);
+  border-bottom: 1px solid #F5F5F5;
 }
 
 .emotion-3:hover:not($disabled):before {
@@ -1307,8 +1307,8 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
     </div>
   </div>
   <p>
-    We prepared an image, ready for Mender, for you to start with. You can find it in the
-
+    We prepared an image, ready for Alvaldi, for you to start with. You can find it in the
+     
     <a
       href="https://docs.mender.io/get-started/preparation/prepare-a-raspberry-pi-device"
       rel="noopener noreferrer"
@@ -1316,7 +1316,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
     >
       Prepare a Raspberry Pi device
     </a>
-
+     
     documentation, which also contains instructions for initial device setup. Once you're done flashing you can go ahead and proceed to the next step.
   </p>
 </div>
@@ -1603,10 +1603,10 @@ exports[`PhysicalDeviceOnboarding Component tiny onboarding tips renders Install
 
 <div>
   <h4>
-    Log into your device and install the Mender client
+    Log into your device and install the Alvaldi client
   </h4>
   <p>
-    Copy & paste and run this command
+    Copy & paste and run this command 
     <b>
       on your device
     </b>
@@ -1651,7 +1651,7 @@ wget -O- https://get.mender.io | sudo bash -s -- --demo --commercial --jwt-token
   </div>
   <p />
   <p>
-    This downloads the Mender client on the device, sets the configuration and starts the client.
+    This downloads the Alvaldi client on the device, sets the configuration and starts the client.
   </p>
   <p>
     Once the client has started, your device will attempt to connect to the server. It will then appear in your Pending devices tab and you can continue.

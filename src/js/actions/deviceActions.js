@@ -6,10 +6,8 @@ import { isCancel } from 'axios';
 import pluralize from 'pluralize';
 import { v4 as uuid } from 'uuid';
 
-import { commonErrorFallback, commonErrorHandler, setSnackbar } from '../actions/appActions';
-import { getSingleDeployment } from '../actions/deploymentActions';
+import { cleanUpUpload, commonErrorFallback, commonErrorHandler, progress, setSnackbar } from '../actions/appActions';
 import { auditLogsApiUrl } from '../actions/organizationActions';
-import { cleanUpUpload, progress } from '../actions/releaseActions';
 import { saveGlobalSettings } from '../actions/userActions';
 import GeneralApi, { MAX_PAGE_SIZE, apiUrl, headerNames } from '../api/general-api';
 import { routes, sortingAlternatives } from '../components/devices/base-devices';
@@ -706,9 +704,6 @@ export const getAllDevicesByStatus = status => (dispatch, getState) => {
         devicesById: deviceAccu.devicesById
       });
       const total = Number(res.headers[headerNames.total]);
-      if (total > state.deployments.deploymentDeviceLimit) {
-        return Promise.resolve();
-      }
       if (total > perPage * page) {
         return getAllDevices(perPage, page + 1, deviceAccu.ids);
       }
@@ -1063,8 +1058,8 @@ export const setDeviceConfig = (deviceId, config) => dispatch =>
 export const applyDeviceConfig = (deviceId, configDeploymentConfiguration, isDefault, config) => (dispatch, getState) =>
   GeneralApi.post(`${deviceConfig}/${deviceId}/deploy`, configDeploymentConfiguration)
     .catch(err => commonErrorHandler(err, `There was an error deploying the configuration to device ${deviceId}.`, dispatch, commonErrorFallback))
-    .then(({ data }) => {
-      let tasks = [dispatch(getSingleDeployment(data.deployment_id))];
+    .then(() => {
+      let tasks = [];
       if (isDefault) {
         const { previous } = getState().users.globalSettings.defaultDeviceConfig;
         tasks.push(dispatch(saveGlobalSettings({ defaultDeviceConfig: { current: config, previous } })));

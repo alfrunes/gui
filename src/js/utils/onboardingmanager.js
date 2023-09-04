@@ -45,7 +45,6 @@ import {
   WelcomeSnackTip
 } from '../components/helptips/onboardingtips';
 import { yes } from '../constants/appConstants';
-import { DEPLOYMENT_STATES } from '../constants/deploymentConstants';
 import { onboardingSteps as stepNames } from '../constants/onboardingConstants';
 
 export const onboardingSteps = {
@@ -144,7 +143,7 @@ export const onboardingSteps = {
     progress: 2
   },
   [stepNames.DEPLOYMENTS_PAST]: {
-    condition: { min: stepNames.DEPLOYMENTS_INPROGRESS, extra: () => !window.location.pathname.includes(DEPLOYMENT_STATES.finished) },
+    condition: { min: stepNames.DEPLOYMENTS_INPROGRESS },
     component: DeploymentsPast,
     progress: 3
   },

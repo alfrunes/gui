@@ -81,31 +81,4 @@ describe('Dashboard Component', () => {
     expect(screen.getByText(/accepted devices route/i)).toBeVisible();
     reportsSpy.mockClear();
   });
-
-  it('allows navigating to deployments', async () => {
-    const preloadedState = {
-      ...defaultState,
-      deployments: {
-        ...defaultState.deployments,
-        byStatus: {
-          ...defaultState.deployments.byStatus,
-          inprogress: { deploymentIds: ['d2'], total: 1 }
-        }
-      }
-    };
-    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
-    const ui = (
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/deployments/*" element={<div>deployments route</div>} />
-      </Routes>
-    );
-    const { rerender } = render(ui, { preloadedState });
-    await waitFor(() => expect(reportsSpy).toHaveBeenCalled());
-    await waitFor(() => rerender(ui));
-    await user.click(screen.getAllByText('test deployment 2')[0]);
-    await waitFor(() => screen.queryByText(/deployments route/i));
-    expect(screen.getByText(/deployments route/i)).toBeVisible();
-    reportsSpy.mockClear();
-  });
 });

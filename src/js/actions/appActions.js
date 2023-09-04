@@ -23,7 +23,8 @@ import {
   SET_SEARCH_STATE,
   SET_SNACKBAR,
   SET_VERSION_INFORMATION,
-  TIMEOUTS
+  TIMEOUTS,
+  UPLOAD_PROGRESS
 } from '../constants/appConstants';
 import { DEVICE_STATES } from '../constants/deviceConstants';
 import { onboardingSteps } from '../constants/onboardingConstants';
@@ -286,9 +287,7 @@ const getLatestRelease = thing => {
 };
 
 const repoKeyMap = {
-  integration: 'Integration',
-  mender: 'Mender-Client',
-  'mender-artifact': 'Mender-Artifact'
+  integration: 'Integration'
 };
 
 const deductSaasState = (latestRelease, guiTags, saasReleases) => {
@@ -361,4 +360,23 @@ export const setSearchState = searchState => (dispatch, getState) => {
   }
   tasks.push(dispatch({ type: SET_SEARCH_STATE, state: nextState }));
   return Promise.all(tasks);
+};
+
+export const progress = (e, uploadId) => (dispatch, getState) => {
+  let uploadProgress = (e.loaded / e.total) * 100;
+  uploadProgress = uploadProgress < 50 ? Math.ceil(uploadProgress) : Math.round(uploadProgress);
+  const uploads = { ...getState().app.uploadsById, [uploadId]: { ...getState().app.uploadsById[uploadId], uploadProgress } };
+  return dispatch({ type: UPLOAD_PROGRESS, uploads });
+};
+
+export const cleanUpUpload = uploadId => (dispatch, getState) => {
+  // eslint-disable-next-line no-unused-vars
+  const { [uploadId]: current, ...remainder } = getState().app.uploadsById;
+  return Promise.resolve(dispatch({ type: UPLOAD_PROGRESS, uploads: remainder }));
+};
+
+export const cancelFileUpload = id => (dispatch, getState) => {
+  const { [id]: current, ...remainder } = getState().app.uploadsById;
+  current.cancelSource.abort();
+  return Promise.resolve(dispatch({ type: UPLOAD_PROGRESS, uploads: remainder }));
 };

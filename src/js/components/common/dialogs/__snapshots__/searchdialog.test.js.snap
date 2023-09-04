@@ -81,6 +81,8 @@ exports[`Search dialog component renders correctly 1`] = `
   flex-direction: column;
   max-height: calc(100% - 64px);
   max-width: 900px;
+  position: absolute;
+  top: calc(56px + 24px);
 }
 
 @media print {
@@ -219,7 +221,7 @@ label+.emotion-6 {
 }
 
 .emotion-6:before {
-  border-bottom: 1px solid rgb(224, 224, 224);
+  border-bottom: 1px solid #F5F5F5;
 }
 
 .emotion-6:hover:not($disabled):before {

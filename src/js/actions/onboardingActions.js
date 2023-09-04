@@ -80,8 +80,8 @@ export const getOnboardingState = () => (dispatch, getState) => {
       devicesById: store.devices.byId,
       devicesByStatus: store.devices.byStatus,
       onboardingState,
-      pastDeployments: store.deployments.byStatus.finished.deploymentIds,
-      releases: Object.values(store.releases.byId),
+      pastDeployments: [],
+      releases: [],
       userCapabilities: getUserCapabilities(store),
       userId
     });

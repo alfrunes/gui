@@ -20,7 +20,7 @@ import { makeStyles } from 'tss-react/mui';
 
 import pluralize from 'pluralize';
 
-import { cancelFileUpload } from '../actions/releaseActions';
+import { cancelFileUpload } from '../actions/appActions';
 import { FileSize } from '../helpers';
 
 const useStyles = makeStyles()(theme => ({

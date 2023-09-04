@@ -50,7 +50,7 @@ describe('onboarding actions', () => {
     const expectedActions = [
       { type: OnboardingConstants.SET_ONBOARDING_COMPLETE, complete: true },
       { type: OnboardingConstants.SET_SHOW_ONBOARDING_HELP, show: false },
-      { type: OnboardingConstants.SET_ONBOARDING_PROGRESS, value: 'onboarding-finished-notification' },
+      { type: OnboardingConstants.SET_ONBOARDING_PROGRESS, value: OnboardingConstants.onboardingSteps.ONBOARDING_FINISHED_NOTIFICATION },
       { type: UserConstants.SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings } },
       {
         type: UserConstants.SET_USER_SETTINGS,
@@ -219,13 +219,33 @@ describe('onboarding actions', () => {
     const stepNames = Object.keys(onboardingSteps);
     await store.dispatch(getOnboardingState(stepNames[0]));
     const expectedActions = [
-      { type: OnboardingConstants.SET_ONBOARDING_COMPLETE, complete: false },
+      { type: OnboardingConstants.SET_ONBOARDING_COMPLETE, complete: true },
+      { type: OnboardingConstants.SET_SHOW_ONBOARDING_HELP, show: false },
+      { type: OnboardingConstants.SET_ONBOARDING_PROGRESS, value: OnboardingConstants.onboardingSteps.ONBOARDING_FINISHED_NOTIFICATION },
       { type: OnboardingConstants.SET_ONBOARDING_DEVICE_TYPE, value: ['raspberrypi4'] },
       { type: OnboardingConstants.SET_ONBOARDING_APPROACH, value: 'physical' },
       { type: OnboardingConstants.SET_ONBOARDING_ARTIFACT_INCLUDED, value: null },
       { type: OnboardingConstants.SET_SHOW_ONBOARDING_HELP, show: true },
-      { type: OnboardingConstants.SET_ONBOARDING_PROGRESS, value: 'application-update-reminder-tip' },
+      { type: OnboardingConstants.SET_ONBOARDING_PROGRESS, value: OnboardingConstants.onboardingSteps.APPLICATION_UPDATE_REMINDER_TIP },
       { type: OnboardingConstants.SET_SHOW_CREATE_ARTIFACT, show: false },
+      { type: UserConstants.SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings } },
+      {
+        type: UserConstants.SET_USER_SETTINGS,
+        settings: {
+          ...defaultState.users.userSettings,
+          onboarding: {
+            approach: null,
+            artifactIncluded: null,
+            complete: true,
+            demoArtifactPort: 85,
+            deviceType: null,
+            progress: OnboardingConstants.onboardingSteps.ONBOARDING_FINISHED_NOTIFICATION,
+            showConnectDeviceDialog: false,
+            showTips: null,
+            something: 'here'
+          }
+        }
+      },
       { type: UserConstants.SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings } },
       {
         type: UserConstants.SET_USER_SETTINGS,
@@ -235,9 +255,9 @@ describe('onboarding actions', () => {
             address: 'http://192.168.10.141:85',
             approach: 'physical',
             artifactIncluded: null,
-            complete: false,
+            complete: true,
             deviceType: ['raspberrypi4'],
-            progress: 'application-update-reminder-tip',
+            progress: OnboardingConstants.onboardingSteps.APPLICATION_UPDATE_REMINDER_TIP,
             showArtifactCreation: false,
             showTips: true,
             something: 'here'

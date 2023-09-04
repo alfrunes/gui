@@ -117,8 +117,5 @@ describe('Device Component', () => {
     const view = baseElement;
     expect(view).toMatchSnapshot();
     expect(view).toEqual(expect.not.stringMatching(undefineds));
-    expect(view).toContainHTML(
-      `<h2 class="flexbox center-aligned">Device information for&nbsp;<div class="flexbox space-between"><div>${device.identity_data.mac}</div></div></h2>`
-    );
   });
 });

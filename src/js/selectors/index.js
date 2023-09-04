@@ -16,7 +16,6 @@ import { createSelector } from '@reduxjs/toolkit';
 import { defaultReports } from '../actions/deviceActions';
 import { mapUserRolesToUiPermissions } from '../actions/userActions';
 import { PLANS } from '../constants/appConstants';
-import { DEPLOYMENT_STATES } from '../constants/deploymentConstants';
 import {
   ALL_DEVICES,
   ATTRIBUTE_SCOPES,
@@ -55,12 +54,7 @@ const getOnboarding = state => state.onboarding;
 export const getShowHelptips = state => state.users.showHelptips;
 export const getGlobalSettings = state => state.users.globalSettings;
 const getIssueCountsByType = state => state.monitor.issueCounts.byType;
-export const getReleasesById = state => state.releases.byId;
-const getReleaseTags = state => state.releases.releaseTags;
-const getListedReleases = state => state.releases.releasesList.releaseIds;
 export const getExternalIntegrations = state => state.organization.externalDeviceIntegrations;
-const getDeploymentsById = state => state.deployments.byId;
-export const getDeploymentsByStatus = state => state.deployments.byStatus;
 export const getVersionInformation = state => state.app.versionInformation;
 const getCurrentUserId = state => state.users.currentUser;
 export const getUsersById = state => state.users.byId;
@@ -68,29 +62,6 @@ export const getUsersLimit = state => state.users.limit;
 export const getCurrentUser = createSelector([getUsersById, getCurrentUserId], (usersById, userId) => usersById[userId] ?? {});
 export const getUserSettings = state => state.users.userSettings;
 export const getIsPreview = createSelector([getVersionInformation], ({ Integration }) => versionCompare(Integration, 'next') > -1);
-
-export const getDeploymentsSelectionState = state => state.deployments.selectionState;
-
-export const getMappedDeploymentSelection = createSelector(
-  [getDeploymentsSelectionState, (_, deploymentsState) => deploymentsState, getDeploymentsById],
-  (selectionState, deploymentsState, deploymentsById) => {
-    const { selection = [] } = selectionState[deploymentsState] ?? {};
-    return selection.reduce((accu, id) => {
-      if (deploymentsById[id]) {
-        accu.push(deploymentsById[id]);
-      }
-      return accu;
-    }, []);
-  }
-);
-
-export const getDeploymentRelease = createSelector(
-  [getDeploymentsById, getDeploymentsSelectionState, getReleasesById],
-  (deploymentsById, { selectedId }, releasesById) => {
-    const deployment = deploymentsById[selectedId] || {};
-    return deployment.artifact_name && releasesById[deployment.artifact_name] ? releasesById[deployment.artifact_name] : { device_types_compatible: [] };
-  }
-);
 
 export const getHas2FA = createSelector(
   [getCurrentUser],
@@ -136,13 +107,6 @@ export const getDeviceCountsByStatus = createSelector([getDevicesByStatus], bySt
 );
 
 export const getDeviceById = createSelector([getDevicesById, (_, deviceId) => deviceId], (devicesById, deviceId = '') => devicesById[deviceId] ?? {});
-
-export const getDeviceConfigDeployment = createSelector([getDeviceById, getDeploymentsById], (device, deploymentsById) => {
-  const { config = {} } = device;
-  const { deployment_id: configDeploymentId } = config;
-  const deviceConfigDeployment = deploymentsById[configDeploymentId] || {};
-  return { device, deviceConfigDeployment };
-});
 
 export const getSelectedGroupInfo = createSelector(
   [getAcceptedDevices, getGroupsById, getSelectedGroup],
@@ -389,31 +353,3 @@ export const getGroupNames = createSelector([getGroupsById, getUserRoles, (_, op
     }, uiPermissions.groups)
   ).sort();
 });
-
-const getReleaseMappingDefaults = () => ({});
-export const getReleasesList = createSelector([getReleasesById, getListedReleases, getReleaseMappingDefaults], listItemMapper);
-
-export const getReleaseTagsById = createSelector([getReleaseTags], releaseTags => releaseTags.reduce((accu, key) => ({ ...accu, [key]: key }), {}));
-
-const relevantDeploymentStates = [DEPLOYMENT_STATES.pending, DEPLOYMENT_STATES.inprogress, DEPLOYMENT_STATES.finished];
-export const DEPLOYMENT_CUTOFF = 3;
-export const getRecentDeployments = createSelector([getDeploymentsById, getDeploymentsByStatus], (deploymentsById, deploymentsByStatus) =>
-  Object.entries(deploymentsByStatus).reduce(
-    (accu, [state, byStatus]) => {
-      if (!relevantDeploymentStates.includes(state) || !byStatus.deploymentIds.length) {
-        return accu;
-      }
-      accu[state] = byStatus.deploymentIds
-        .reduce((accu, id) => {
-          if (deploymentsById[id]) {
-            accu.push(deploymentsById[id]);
-          }
-          return accu;
-        }, [])
-        .slice(0, DEPLOYMENT_CUTOFF);
-      accu.total += byStatus.total;
-      return accu;
-    },
-    { total: 0 }
-  )
-);

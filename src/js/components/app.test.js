@@ -19,7 +19,6 @@ import Cookies from 'universal-cookie';
 
 import { defaultState, mockDate, token, undefineds } from '../../../tests/mockData';
 import { render } from '../../../tests/setupTests';
-import * as DeviceActions from '../actions/deviceActions';
 import { TIMEOUTS } from '../constants/appConstants';
 import App, { timeout } from './app';
 
@@ -33,22 +32,8 @@ const preloadedState = {
     versionInformation: {
       Integration: 'next'
     }
-  },
-  deployments: {
-    ...defaultState.deployments,
-    byId: {},
-    byStatus: {
-      ...defaultState.deployments.byStatus,
-      inprogress: {
-        ...defaultState.deployments.byStatus.inprogress,
-        total: 0
-      }
-    },
-    deploymentDeviceLimit: null
   }
 };
-
-const reportsSpy = jest.spyOn(DeviceActions, 'deriveReportsData');
 
 describe('App Component', () => {
   let cookies;
@@ -64,18 +49,15 @@ describe('App Component', () => {
 
       const ui = <App />;
       const { asFragment, rerender } = render(ui, { preloadedState });
-      await waitFor(() => expect(screen.queryByText(/see all deployments/i)).toBeInTheDocument(), { timeout: TIMEOUTS.fiveSeconds });
       await act(async () => {
         jest.runOnlyPendingTimers();
         jest.runAllTicks();
         return new Promise(resolve => resolve(), TIMEOUTS.threeSeconds);
       });
-      await waitFor(() => expect(reportsSpy).toHaveBeenCalled(), { timeout: TIMEOUTS.fiveSeconds });
       await waitFor(() => rerender(ui));
       const view = asFragment();
       expect(view).toMatchSnapshot();
       expect(view).toEqual(expect.not.stringMatching(undefineds));
-      reportsSpy.mockClear();
     },
     10 * TIMEOUTS.oneSecond
   );
@@ -99,7 +81,6 @@ describe('App Component', () => {
         jest.runAllTicks();
       });
       cookies.get.mockReturnValue('');
-      await waitFor(() => expect(reportsSpy).toHaveBeenCalled(), { timeout: TIMEOUTS.threeSeconds });
       await waitFor(() => rerender(ui));
       await act(async () => {
         jest.runOnlyPendingTimers();
@@ -113,7 +94,6 @@ describe('App Component', () => {
         jest.runOnlyPendingTimers();
         jest.runAllTicks();
       });
-      reportsSpy.mockClear();
     },
     10 * TIMEOUTS.oneSecond
   );
