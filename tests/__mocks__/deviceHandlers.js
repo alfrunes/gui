@@ -106,7 +106,7 @@ const searchHandler = ({ body: { page, per_page, filters } }, res, ctx) => {
     if (filters.find(filter => filter.attribute === 'group' && filter.value.includes(Object.keys(defaultState.devices.groups.byId)[0]))) {
       return res(ctx.set(headerNames.total, 2), ctx.json([inventoryDevice]));
     }
-    if (filters.find(filter => filter.scope === 'monitor' && ['failed_last_update', 'alerts', 'auth_request'].includes(filter.attribute))) {
+    if (filters.find(filter => filter.scope === 'monitor' && ['failed_last_update', 'alerts', 'auth_requests'].includes(filter.attribute))) {
       return res(ctx.set(headerNames.total, 4), ctx.json([inventoryDevice]));
     }
     return res(ctx.set(headerNames.total, 0), ctx.json([]));
