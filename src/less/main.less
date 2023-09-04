@@ -277,6 +277,9 @@ ul.link-list {
 .padding {
   padding: 2 * @defaultGutterWidth;
 }
+.padding-none {
+  padding: 0;
+}
 .padding-small {
   padding: @defaultGutterWidth;
 }
@@ -580,14 +583,13 @@ ul.link-list {
       bottom: 78px;
 
       a, li {
-        padding: 10px 0 10px 27px;
-
-        * {
-          font-size: 14px;
-          font-weight: 500;
-          line-height: 20px;
-          color: @text;
-        }
+        padding: 0 0 15px 27px;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+      }
+      li {
+        color: @text;
       }
     }
   }

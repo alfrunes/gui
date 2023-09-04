@@ -15,17 +15,18 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 
-import { ListAlt as AuditLogIcon, DeveloperBoard as DeveloperBoardIcon, Settings as SettingsIcon } from '@mui/icons-material';
+import { ListAlt as AuditLogIcon, DeveloperBoard as DeveloperBoardIcon, OpenInNew as OpenInNewIcon, Settings as SettingsIcon } from '@mui/icons-material';
 // material ui
 import { List, ListItem, ListItemText, Tooltip } from '@mui/material';
+import { makeStyles } from 'tss-react/mui';
 
 import copy from 'copy-to-clipboard';
 
 import AlvaldiLogo from '../../assets/img/alvaldi-logo.svg';
 import { setSnackbar, setVersionInfo } from '../actions/appActions';
-import { TIMEOUTS } from '../constants/appConstants';
+import { FEEDBACK_LINK_DATA, TIMEOUTS } from '../constants/appConstants';
 import { onboardingSteps } from '../constants/onboardingConstants';
-import { getFeatures, getOnboardingState, getTenantCapabilities, getUserCapabilities, getVersionInformation } from '../selectors';
+import { getCurrentUser, getFeatures, getOnboardingState, getTenantCapabilities, getUserCapabilities, getVersionInformation } from '../selectors';
 import { getOnboardingComponentFor } from '../utils/onboardingmanager';
 
 const listItems = [
@@ -118,10 +119,36 @@ const VersionInfo = () => {
   }
   return (
     <Tooltip title={versions} placement="top">
-      <div className="clickable slightly-smaller" onClick={onClick}>
+      <div className="clickable" onClick={onClick}>
         {title}
       </div>
     </Tooltip>
+  );
+};
+
+const useStyles = makeStyles()(theme => ({
+  feedbackLink: {
+    color: `${theme.palette.primary.main}`
+  },
+  feedbackIcon: {
+    fontSize: 20,
+    marginLeft: 4
+  }
+}));
+
+const FeedbackLink = () => {
+  const { email } = useSelector(getCurrentUser);
+  const { classes } = useStyles();
+
+  return (
+    <a
+      className={`${classes.feedbackLink} flexbox center-aligned padding-none`}
+      target="_blank"
+      rel="noreferrer"
+      href={encodeURI(`mailto:${FEEDBACK_LINK_DATA.mailTo}?subject=${FEEDBACK_LINK_DATA.subject}&body=${FEEDBACK_LINK_DATA.body(email)}`)}
+    >
+      Feedback <OpenInNewIcon color="primary" className={classes.feedbackIcon} />
+    </a>
   );
 };
 
@@ -176,6 +203,7 @@ export const LeftNav = () => {
         <ListItem>
           <ListItemText primary={<VersionInfo />} />
         </ListItem>
+        <FeedbackLink />
       </List>
     </div>
   );
