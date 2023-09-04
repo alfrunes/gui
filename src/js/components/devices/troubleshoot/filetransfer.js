@@ -139,7 +139,7 @@ export const FileTransfer = ({
                   variant="contained"
                   color="primary"
                   disabled={!(file && uploadPath && isValidDestination)}
-                  onClick={() => onUpload(deviceId, uploadPath, file)}
+                  onClick={() => onUpload(deviceId, uploadPath, file).then(() => onFileSelect())} // clears the upload form after successful uploading
                 >
                   Upload
                 </Button>
