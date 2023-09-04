@@ -19,17 +19,13 @@ import { makeStyles } from 'tss-react/mui';
 
 import { setSnackbar } from '../../../actions/appActions';
 import { editUser, saveUserSettings } from '../../../actions/userActions';
-import { getToken } from '../../../auth';
 import * as UserConstants from '../../../constants/userConstants';
 import { toggle } from '../../../helpers';
 import { getCurrentUser, getFeatures, getIsEnterprise, getUserSettings } from '../../../selectors';
-import ExpandableAttribute from '../../common/expandable-attribute';
 import Form from '../../common/forms/form';
 import PasswordInput from '../../common/forms/passwordinput';
 import TextInput from '../../common/forms/textinput';
 import InfoText from '../../common/infotext';
-import AccessTokenManagement from '../accesstokenmanagement';
-import { CopyTextToClipboard } from '../organization/organization';
 import TwoFactorAuthSetup from './twofactorauthsetup';
 import { getUserSSOState } from './userdefinition';
 
@@ -134,26 +130,10 @@ export const SelfUserManagement = () => {
           </div>
         </div>
       )}
-      <div className="flexbox space-between margin-top-large">
-        <div className={classes.jwt}>
-          <div className="help-content">Session token</div>
-          <ExpandableAttribute
-            component="div"
-            disableGutters
-            dividerDisabled
-            secondary={getToken()}
-            textClasses={{ secondary: 'inventory-text tenant-token-text' }}
-          />
-        </div>
-        <div className="flexbox center-aligned">
-          <CopyTextToClipboard token={getToken()} />
-        </div>
-      </div>
-      {!isOAuth2 && <AccessTokenManagement />}
       {isEnterprise && hasTracking && (
         <div className="margin-top">
           <div className="clickable flexbox space-between" onClick={() => dispatch(saveUserSettings({ trackingConsentGiven: !hasTrackingConsent }))}>
-            <p className="help-content">Help us improve Mender</p>
+            <p className="help-content">Help us improve Alvaldi</p>
             <Switch checked={!!hasTrackingConsent} />
           </div>
           <InfoText className={classes.infoText}>Enable usage data and errors to be sent to help us improve our service.</InfoText>

@@ -14,7 +14,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Button, Checkbox, FormControl, FormControlLabel, FormHelperText, InputLabel, MenuItem, Select, TextField } from '@mui/material';
+import { Button, FormControl, FormHelperText, InputLabel, MenuItem, Select, TextField } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 
 import { getDeviceAttributes } from '../../actions/deviceActions';
@@ -22,7 +22,6 @@ import { changeNotificationSetting } from '../../actions/monitorActions';
 import { getGlobalSettings, saveGlobalSettings } from '../../actions/userActions';
 import { TIMEOUTS } from '../../constants/appConstants';
 import { offlineThresholds } from '../../constants/deviceConstants';
-import { alertChannels } from '../../constants/monitorConstants';
 import { settingsKeys } from '../../constants/userConstants';
 import {
   getDocsVersion,
@@ -36,7 +35,6 @@ import {
 } from '../../selectors';
 import { useDebounce } from '../../utils/debouncehook';
 import InfoHint from '../common/info-hint';
-import ReportingLimits from './reportinglimits';
 
 const maxWidth = 750;
 
@@ -118,18 +116,12 @@ export const IdAttributeSelection = ({ attributes, dialog, docsVersion, onCloseC
 export const GlobalSettingsDialog = ({
   attributes,
   docsVersion,
-  hasReporting,
-  isAdmin,
-  notificationChannelSettings,
   offlineThresholdSettings,
-  onChangeNotificationSetting,
   onCloseClick,
   onSaveClick,
   saveGlobalSettings,
-  selectedAttribute,
-  tenantCapabilities
+  selectedAttribute
 }) => {
-  const [channelSettings, setChannelSettings] = useState(notificationChannelSettings);
   const [currentInterval, setCurrentInterval] = useState(offlineThresholdSettings.interval);
   const [currentIntervalUnit, setCurrentIntervalUnit] = useState(offlineThresholdSettings.intervalUnit);
   const [intervalErrorText, setIntervalErrorText] = useState('');
@@ -137,11 +129,6 @@ export const GlobalSettingsDialog = ({
   const debouncedIntervalUnit = useDebounce(currentIntervalUnit, TIMEOUTS.debounceShort);
   const timer = useRef(false);
   const { classes } = useStyles();
-  const { hasMonitor } = tenantCapabilities;
-
-  useEffect(() => {
-    setChannelSettings(notificationChannelSettings);
-  }, [notificationChannelSettings]);
 
   useEffect(() => {
     setCurrentInterval(offlineThresholdSettings.interval);
@@ -161,11 +148,6 @@ export const GlobalSettingsDialog = ({
       clearTimeout(initTimer);
     };
   }, []);
-
-  const onNotificationSettingsClick = ({ target: { checked } }, channel) => {
-    setChannelSettings({ ...channelSettings, channel: { enabled: !checked } });
-    onChangeNotificationSetting(!checked, channel);
-  };
 
   const onChangeOfflineIntervalUnit = ({ target: { value } }) => setCurrentIntervalUnit(value);
   const onChangeOfflineInterval = ({ target: { validity, value } }) => {
@@ -187,24 +169,6 @@ export const GlobalSettingsDialog = ({
         onSaveClick={onSaveClick}
         selectedAttribute={selectedAttribute}
       />
-      {hasReporting && <ReportingLimits />}
-      {isAdmin &&
-        hasMonitor &&
-        Object.keys(alertChannels).map(channel => (
-          <FormControl key={channel}>
-            <InputLabel className="capitalized-start" shrink id={`${channel}-notifications`}>
-              {channel} notifications
-            </InputLabel>
-            <FormControlLabel
-              control={<Checkbox checked={!channelSettings[channel].enabled} onChange={e => onNotificationSettingsClick(e, channel)} />}
-              label={`Mute ${channel} notifications`}
-            />
-            <FormHelperText className="info" component="div">
-              Mute {channel} notifications for deployment and monitoring issues for all users
-            </FormHelperText>
-          </FormControl>
-        ))}
-
       <InputLabel className="margin-top" shrink id="offline-theshold">
         Offline threshold
       </InputLabel>
