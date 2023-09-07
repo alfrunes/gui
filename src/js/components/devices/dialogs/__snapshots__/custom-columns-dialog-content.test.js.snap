@@ -76,11 +76,6 @@ exports[`ColumnCustomizationDialogContent Component renders correctly 1`] = `
   border-bottom: 1px solid #d4e9e7;
 }
 
-.emotion-1.navLink,
-.emotion-1.navLink .MuiListItemText-root {
-  color: #969696;
-}
-
 .emotion-2 {
   -webkit-user-select: none;
   -moz-user-select: none;

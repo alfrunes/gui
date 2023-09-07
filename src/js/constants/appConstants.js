@@ -153,3 +153,15 @@ export const canAccess = yes;
 
 export const DARK_MODE = 'dark';
 export const LIGHT_MODE = 'light';
+
+export const FEEDBACK_LINK_DATA = {
+  mailTo: 'feedback@alvaldi.com',
+  subject: 'Feedback on Alvaldi',
+  body: userEmail => `Write your feedback here...
+
+---
+
+Please note that this is only for product feedback.
+If you need help, or have a question, open a support case at support.northern.tech.
+Alvaldi user: ${userEmail}`
+};

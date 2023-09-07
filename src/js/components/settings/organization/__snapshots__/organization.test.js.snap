@@ -72,11 +72,6 @@ exports[`MyOrganization Component renders correctly 1`] = `
   border-bottom: 1px solid #d4e9e7;
 }
 
-.emotion-1.navLink,
-.emotion-1.navLink .MuiListItemText-root {
-  color: #969696;
-}
-
 .emotion-2 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
@@ -237,11 +232,6 @@ exports[`MyOrganization Component renders correctly 1`] = `
 .emotion-14.leftNav.active {
   border-top: 1px solid #d4e9e7;
   border-bottom: 1px solid #d4e9e7;
-}
-
-.emotion-14.navLink,
-.emotion-14.navLink .MuiListItemText-root {
-  color: #969696;
 }
 
 .emotion-15 {

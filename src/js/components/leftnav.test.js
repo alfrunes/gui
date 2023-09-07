@@ -13,7 +13,7 @@
 //    limitations under the License.
 import React from 'react';
 
-import { undefineds } from '../../../tests/mockData';
+import { defaultState, undefineds } from '../../../tests/mockData';
 import { render } from '../../../tests/setupTests';
 import LeftNav from './leftnav';
 
@@ -23,5 +23,20 @@ describe('LeftNav Component', () => {
     const view = baseElement.firstChild.firstChild;
     expect(view).toMatchSnapshot();
     expect(view).toEqual(expect.not.stringMatching(undefineds));
+  });
+});
+
+describe('FeedbackLink Component', () => {
+  it('presented in the Left navigation', async () => {
+    const { getByText } = render(<LeftNav />);
+    const feedbackLink = getByText('Feedback');
+    expect(feedbackLink).toBeInTheDocument();
+  });
+  it('contains proper user email address in the link', async () => {
+    const currentUserEmail = defaultState.users.byId[defaultState.users.currentUser].email;
+    const { getByText } = render(<LeftNav />);
+    const feedbackLink = getByText('Feedback');
+    const hrefAttribute = feedbackLink.getAttribute('href');
+    expect(hrefAttribute).toContain(currentUserEmail);
   });
 });

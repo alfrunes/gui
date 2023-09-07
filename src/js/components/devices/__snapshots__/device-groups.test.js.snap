@@ -18,7 +18,7 @@ exports[`DeviceGroups Component renders correctly 1`] = `
         class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
       >
         <div
-          class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button css-4cezzb-MuiButtonBase-root-MuiListItem-root"
+          class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button css-6i4nb8-MuiButtonBase-root-MuiListItem-root"
           role="button"
           tabindex="0"
         >
@@ -45,7 +45,7 @@ exports[`DeviceGroups Component renders correctly 1`] = `
           </span>
         </li>
         <div
-          class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button css-4cezzb-MuiButtonBase-root-MuiListItem-root"
+          class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button css-6i4nb8-MuiButtonBase-root-MuiListItem-root"
           role="button"
           tabindex="0"
         >
@@ -72,7 +72,7 @@ exports[`DeviceGroups Component renders correctly 1`] = `
           </span>
         </li>
         <div
-          class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button Mui-selected css-4cezzb-MuiButtonBase-root-MuiListItem-root"
+          class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button Mui-selected css-6i4nb8-MuiButtonBase-root-MuiListItem-root"
           role="button"
           tabindex="0"
         >
@@ -90,7 +90,7 @@ exports[`DeviceGroups Component renders correctly 1`] = `
           />
         </div>
         <div
-          class="MuiButtonBase-root MuiListItem-root grouplist padding-left MuiListItem-gutters MuiListItem-padding MuiListItem-button css-4cezzb-MuiButtonBase-root-MuiListItem-root"
+          class="MuiButtonBase-root MuiListItem-root grouplist padding-left MuiListItem-gutters MuiListItem-padding MuiListItem-button css-6i4nb8-MuiButtonBase-root-MuiListItem-root"
           role="button"
           style="margin-top: 30px;"
           tabindex="0"

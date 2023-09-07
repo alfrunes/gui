@@ -188,7 +188,7 @@ exports[`Main Component renders correctly 1`] = `
         style="padding: 0px;"
       >
         <a
-          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding navLink leftNav mui-17l2y7o-MuiListItem-root"
+          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding navLink leftNav mui-v52pvc-MuiListItem-root"
           href="/devices"
         >
           <svg
@@ -213,7 +213,7 @@ exports[`Main Component renders correctly 1`] = `
           </div>
         </a>
         <a
-          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding navLink leftNav mui-17l2y7o-MuiListItem-root"
+          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding navLink leftNav mui-v52pvc-MuiListItem-root"
           href="/auditlog"
         >
           <svg
@@ -238,7 +238,7 @@ exports[`Main Component renders correctly 1`] = `
           </div>
         </a>
         <a
-          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding navLink leftNav mui-17l2y7o-MuiListItem-root"
+          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding navLink leftNav mui-v52pvc-MuiListItem-root"
           href="/settings"
         >
           <svg
@@ -267,7 +267,7 @@ exports[`Main Component renders correctly 1`] = `
         class="MuiList-root MuiList-padding leftNav-bottom mui-h4y409-MuiList-root"
       >
         <a
-          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding navLink leftNav mui-17l2y7o-MuiListItem-root"
+          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding navLink leftNav mui-v52pvc-MuiListItem-root"
           href="/help"
         >
           <div
@@ -281,7 +281,7 @@ exports[`Main Component renders correctly 1`] = `
           </div>
         </a>
         <li
-          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding mui-17l2y7o-MuiListItem-root"
+          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding mui-v52pvc-MuiListItem-root"
         >
           <div
             class="MuiListItemText-root mui-1lghudc-MuiListItemText-root"
@@ -290,7 +290,7 @@ exports[`Main Component renders correctly 1`] = `
               class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-mon4qq-MuiTypography-root"
             >
               <div
-                class="clickable slightly-smaller"
+                class="clickable"
                 data-mui-internal-clone-element="true"
               >
                 Version: master
@@ -298,6 +298,25 @@ exports[`Main Component renders correctly 1`] = `
             </span>
           </div>
         </li>
+        <a
+          class="mui-bzui6l-feedbackLink flexbox center-aligned padding-none"
+          href="mailto:feedback@alvaldi.com?subject=Feedback%20on%20Alvaldi&body=Write%20your%20feedback%20here...%0A%0A---%0A%0APlease%20note%20that%20this%20is%20only%20for%20product%20feedback.%0AIf%20you%20need%20help,%20or%20have%20a%20question,%20open%20a%20support%20case%20at%20support.northern.tech.%0AAlvaldi%20user:%20a2@b.com"
+          rel="noreferrer"
+          target="_blank"
+        >
+          Feedback 
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeMedium mui-aus2gd-MuiSvgIcon-root-feedbackIcon"
+            data-testid="OpenInNewIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+            />
+          </svg>
+        </a>
       </ul>
     </div>
     <div
@@ -319,7 +338,7 @@ exports[`Main Component renders correctly 1`] = `
             class="MuiList-root MuiList-padding mui-h4y409-MuiList-root"
           >
             <div
-              class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button Mui-selected mui-4cezzb-MuiButtonBase-root-MuiListItem-root"
+              class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button Mui-selected mui-6i4nb8-MuiButtonBase-root-MuiListItem-root"
               role="button"
               tabindex="0"
             >
@@ -346,7 +365,7 @@ exports[`Main Component renders correctly 1`] = `
               </span>
             </li>
             <div
-              class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button mui-4cezzb-MuiButtonBase-root-MuiListItem-root"
+              class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button mui-6i4nb8-MuiButtonBase-root-MuiListItem-root"
               role="button"
               tabindex="0"
             >
@@ -373,7 +392,7 @@ exports[`Main Component renders correctly 1`] = `
               </span>
             </li>
             <div
-              class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button mui-4cezzb-MuiButtonBase-root-MuiListItem-root"
+              class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button mui-6i4nb8-MuiButtonBase-root-MuiListItem-root"
               role="button"
               tabindex="0"
             >
@@ -391,7 +410,7 @@ exports[`Main Component renders correctly 1`] = `
               />
             </div>
             <div
-              class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button mui-4cezzb-MuiButtonBase-root-MuiListItem-root"
+              class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button mui-6i4nb8-MuiButtonBase-root-MuiListItem-root"
               role="button"
               tabindex="0"
             >
@@ -409,7 +428,7 @@ exports[`Main Component renders correctly 1`] = `
               />
             </div>
             <div
-              class="MuiButtonBase-root MuiListItem-root grouplist padding-left MuiListItem-gutters MuiListItem-padding MuiListItem-button mui-4cezzb-MuiButtonBase-root-MuiListItem-root"
+              class="MuiButtonBase-root MuiListItem-root grouplist padding-left MuiListItem-gutters MuiListItem-padding MuiListItem-button mui-6i4nb8-MuiButtonBase-root-MuiListItem-root"
               role="button"
               style="margin-top: 30px;"
               tabindex="0"
@@ -1071,6 +1090,26 @@ exports[`Main Component renders correctly 1`] = `
                         </button>
                       </div>
                     </div>
+                  </div>
+                </div>
+                <div
+                  class="loaderContainer"
+                >
+                  <div
+                    class="small  loader"
+                  >
+                    <span
+                      class="dot dot_1"
+                    />
+                    <span
+                      class="dot dot_2"
+                    />
+                    <span
+                      class="dot dot_3"
+                    />
+                    <span
+                      class="dot dot_4"
+                    />
                   </div>
                 </div>
               </div>

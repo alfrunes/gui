@@ -111,11 +111,6 @@ exports[`Settings Component renders correctly 1`] = `
   border-bottom: 1px solid #d4e9e7;
 }
 
-.emotion-3.navLink,
-.emotion-3.navLink .MuiListItemText-root {
-  color: #969696;
-}
-
 .emotion-3.navLink .MuiListItemText-root {
   color: #969696;
 }
