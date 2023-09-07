@@ -88,6 +88,20 @@ export const PLANS = {
     additionalFeatures: '...and everything in Alvaldi Basic'
   }
 };
+
+export const TRIAL_DATA = {
+  name: 'Free trial',
+  isTrial: true,
+  offer: true,
+  price: '6 months free',
+  deviceCount: '10 devices',
+  usersCount: '2 users',
+  features: [{ feature: 'Access to core features of Alvaldi' }],
+  value: 'os',
+  logsDaysLimit: 2,
+  info: 'Upgrade to a paid plan for additional users or devices'
+};
+
 // the needs names need to be aligned with the name of the features in the appReducer, as they will be checked in the addonselection
 export const ADDONS = {
   configure: {
