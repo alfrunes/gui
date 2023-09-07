@@ -192,11 +192,6 @@ exports[`SamlConfig Component renders correctly 1`] = `
   border-bottom: 1px solid #d4e9e7;
 }
 
-.emotion-4.navLink,
-.emotion-4.navLink .MuiListItemText-root {
-  color: #969696;
-}
-
 .emotion-5 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;

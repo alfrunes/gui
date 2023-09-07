@@ -135,11 +135,6 @@ exports[`Groups Component renders GroupItem correctly 1`] = `
   border-bottom: 1px solid #d4e9e7;
 }
 
-.emotion-0.navLink,
-.emotion-0.navLink .MuiListItemText-root {
-  color: #969696;
-}
-
 .emotion-1 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
@@ -365,11 +360,6 @@ exports[`Groups Component renders correctly 1`] = `
 .emotion-1.leftNav.active {
   border-top: 1px solid #d4e9e7;
   border-bottom: 1px solid #d4e9e7;
-}
-
-.emotion-1.navLink,
-.emotion-1.navLink .MuiListItemText-root {
-  color: #969696;
 }
 
 .emotion-2 {
