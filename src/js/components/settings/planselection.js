@@ -86,7 +86,7 @@ export const useStyles = makeStyles()(theme => ({
   }
 }));
 
-export const PlanSelection = ({ currentPlan = 'os', isTrial, offerValid, offerTag }) => {
+export const PlanSelection = ({ currentPlan = PLANS.professional.value, isTrial, offerValid, offerTag }) => {
   const { classes } = useStyles();
   return (
     <>
