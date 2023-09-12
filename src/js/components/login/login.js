@@ -50,7 +50,12 @@ const useStyles = makeStyles()(theme => {
   return {
     entryLink: {
       color: theme.palette.background.paper,
-      a: { color: theme.palette.text.entryLink }
+      a: {
+        color: theme.palette.text.entryLink,
+        '&:hover': {
+          color: theme.palette.white
+        }
+      }
     },
     form: { maxWidth: 400 },
     reset: {
@@ -90,7 +95,7 @@ const entryText = {
 
 export const EntryLink = ({ className = '', target = 'signup' }) => (
   <div className={`margin-top margin-bottom flexbox centered ${className}`}>
-    <div className="muted margin-right">{entryText[target].question}</div>
+    <div className="margin-right">{entryText[target].question}</div>
     <Link className="flexbox center-aligned" to={entryText[target].target}>
       {entryText[target].linkText} <ChevronRight fontSize="small" />
     </Link>
@@ -196,7 +201,6 @@ export const Login = () => {
   const { classes } = useStyles();
   return (
     <>
-      {isHosted ? <LocationWarning /> : <div />}
       <div className={`content ${classes.background}`}>
         <div className={`flexbox column centered ${classes.reset}`}>
           <LoginLogo alt="mender-logo" id="login-logo" className="margin-bottom" />

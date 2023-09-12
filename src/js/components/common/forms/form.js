@@ -15,6 +15,7 @@ import React from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 
 import { Button } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 import validator from 'validator';
 
@@ -110,6 +111,7 @@ export const Form = ({
   submitLabel
 }) => {
   const methods = useForm({ mode: 'onChange', defaultValues });
+  const theme = useTheme();
   const {
     handleSubmit,
     formState: { isValid }
@@ -119,7 +121,7 @@ export const Form = ({
       <form autoComplete={autocomplete} className={className} id={id} noValidate onSubmit={handleSubmit(onSubmit)}>
         {children}
         {!!showButtons && (
-          <div className="flexbox" style={{ justifyContent: 'flex-end', height: 'min-content', marginTop: 32 }}>
+          <div className="flexbox" style={{ justifyContent: 'flex-end', height: 'min-content', marginTop: theme.spacing(3) }}>
             {!!handleCancel && (
               <Button key="cancel" onClick={handleCancel} style={{ marginRight: 10, display: 'inline-block' }}>
                 Cancel
