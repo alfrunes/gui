@@ -183,7 +183,7 @@ export const initializeAppData = () => (dispatch, getState) => {
     dispatch(getGroups()),
     dispatch(getDeviceLimit()),
     dispatch(getRoles()),
-    dispatch(setFirstLoginAfterSignup(cookies.get('firstLoginAfterSignup')))
+    dispatch(setFirstLoginAfterSignup(stringToBoolean(cookies.get('firstLoginAfterSignup'))))
   ];
   const multitenancy = getState().app.features.hasMultitenancy || getState().app.features.isEnterprise || getState().app.features.isHosted;
   if (multitenancy) {
@@ -241,7 +241,7 @@ export const setSnackbar = (message, autoHideDuration, action, children, onClick
   });
 
 export const setFirstLoginAfterSignup = firstLoginAfterSignup => dispatch => {
-  cookies.set('firstLoginAfterSignup', !!firstLoginAfterSignup, { maxAge: 60, path: '/', domain: '.mender.io', sameSite: false });
+  cookies.set('firstLoginAfterSignup', !!firstLoginAfterSignup, { maxAge: 60, path: '/', domain: '.alvaldi.com', sameSite: false });
   dispatch({ type: SET_FIRST_LOGIN_AFTER_SIGNUP, firstLoginAfterSignup: !!firstLoginAfterSignup });
 };
 

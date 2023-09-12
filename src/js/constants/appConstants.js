@@ -165,3 +165,8 @@ Please note that this is only for product feedback.
 If you need help, or have a question, open a support case at support.northern.tech.
 Alvaldi user: ${userEmail}`
 };
+
+/**
+ * @todo [ALV-137] replace the link when the module will be published
+ */
+export const EDGE_MODULE_LINK = 'https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=alvaldi&page=1';

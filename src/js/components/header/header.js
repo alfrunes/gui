@@ -50,6 +50,7 @@ import {
 import Tracking from '../../tracking';
 import { useDebounce } from '../../utils/debouncehook';
 import Search from '../common/search';
+import { EnableAzureIntegration } from '../common/set-up-guide.js';
 import Announcement from './announcement';
 import DemoNotification from './demonotification';
 import DeviceNotifications from './devicenotifications.js';
@@ -104,8 +105,8 @@ export const Header = () => {
   const [loggingOut, setLoggingOut] = useState(false);
   const [gettingUser, setGettingUser] = useState(false);
   const [hasOfferCookie, setHasOfferCookie] = useState(false);
+  const [showEnableAzureDialog, setShowEnableAzureDialog] = useState(false);
   const sessionId = useDebounce(getToken(), TIMEOUTS.debounceDefault);
-
   const organization = useSelector(getOrganization);
   const { canManageUsers: allowUserManagement } = useSelector(getUserCapabilities);
   const announcement = useSelector(state => state.app.hostedAnnouncement);
@@ -137,6 +138,13 @@ export const Header = () => {
       }
     }
   }, [sessionId, user.id, user.email, gettingUser, loggingOut]);
+
+  useEffect(() => {
+    if (firstLoginAfterSignup) {
+      setShowEnableAzureDialog(true);
+      dispatch(setFirstLoginAfterSignup(false));
+    }
+  }, [firstLoginAfterSignup]);
 
   useEffect(() => {
     // updateUsername();
@@ -254,6 +262,7 @@ export const Header = () => {
           </Menu>
         </div>
       </div>
+      {showEnableAzureDialog && <EnableAzureIntegration />}
     </Toolbar>
   );
 };
