@@ -20,6 +20,8 @@ export const useradmApiUrlv1 = `${apiUrl.v1}/useradm`;
 export const useradmApiUrlv2 = `${apiUrl.v2}/useradm`;
 export { useradmApiUrlv1 as useradmApiUrl };
 
+export const SET_USER_LIMIT = 'SET_USER_LIMIT';
+
 const staticRolesByName = {
   admin: 'RBAC_ROLE_PERMIT_ALL',
   readOnly: 'RBAC_ROLE_OBSERVER',

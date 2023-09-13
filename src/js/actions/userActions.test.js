@@ -59,6 +59,7 @@ import {
   SET_GLOBAL_SETTINGS,
   SET_SHOW_CONNECT_DEVICE,
   SET_SHOW_HELP,
+  SET_USER_LIMIT,
   SET_USER_SETTINGS,
   SUCCESSFULLY_LOGGED_IN,
   UPDATED_ROLE,
@@ -80,6 +81,7 @@ import {
   getRoles,
   getTokens,
   getUser,
+  getUserLimit,
   getUserList,
   loginUser,
   logoutUser,
@@ -728,6 +730,14 @@ describe('user actions', () => {
     const expectedActions = [{ type: UPDATED_USER, userId: 'a1', user: { tokens: accessTokens } }];
     const store = mockStore({ ...defaultState });
     await store.dispatch(revokeToken({ id: 'some-id-1' }));
+    const storeActions = store.getActions();
+    expect(storeActions.length).toEqual(expectedActions.length);
+    expectedActions.map((action, index) => expect(storeActions[index]).toMatchObject(action));
+  });
+  it('should allow limit retrieval', async () => {
+    const store = mockStore({ ...defaultState });
+    const expectedActions = [{ type: SET_USER_LIMIT, limit: defaultState.users.limit }];
+    await store.dispatch(getUserLimit());
     const storeActions = store.getActions();
     expect(storeActions.length).toEqual(expectedActions.length);
     expectedActions.map((action, index) => expect(storeActions[index]).toMatchObject(action));

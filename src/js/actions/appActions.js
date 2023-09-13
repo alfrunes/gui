@@ -44,7 +44,7 @@ import {
 } from './deviceActions';
 import { setDemoArtifactPort, setOnboardingComplete } from './onboardingActions';
 import { getUserOrganization } from './organizationActions';
-import { getGlobalSettings, getRoles, getUserSettings, saveGlobalSettings, saveUserSettings } from './userActions';
+import { getGlobalSettings, getRoles, getUserLimit, getUserSettings, saveGlobalSettings, saveUserSettings } from './userActions';
 
 const cookies = new Cookies();
 
@@ -182,6 +182,7 @@ export const initializeAppData = () => (dispatch, getState) => {
     dispatch(getDynamicGroups()),
     dispatch(getGroups()),
     dispatch(getDeviceLimit()),
+    dispatch(getUserLimit()),
     dispatch(getRoles()),
     dispatch(setFirstLoginAfterSignup(cookies.get('firstLoginAfterSignup')))
   ];

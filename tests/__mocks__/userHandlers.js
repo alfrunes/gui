@@ -198,5 +198,6 @@ export const userHandlers = [
     }
     return res(ctx.status(576));
   }),
-  rest.get(`${useradmApiUrlv2}/permission_sets`, (req, res, ctx) => res(ctx.json(permissionSets)))
+  rest.get(`${useradmApiUrlv2}/permission_sets`, (req, res, ctx) => res(ctx.json(permissionSets))),
+  rest.get(`${useradmApiUrl}/limits`, (req, res, ctx) => res(ctx.json(defaultState.users.limit)))
 ];
