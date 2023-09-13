@@ -1,6 +1,6 @@
 # using fixed platform  in the base target
 # since the result is always static files
-FROM node:20.5.0-alpine AS base
+FROM node:20.5.1-alpine AS base
 WORKDIR /usr/src/app
 COPY package-lock.json package.json ./
 RUN npm ci
