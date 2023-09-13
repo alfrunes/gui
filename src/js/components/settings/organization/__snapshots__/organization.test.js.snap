@@ -1192,7 +1192,7 @@ exports[`MyOrganization Component renders correctly 1`] = `
             <span
               class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary emotion-3"
             >
-              Users: 2/5
+              Users: 2/2
             </span>
             <div
               class="MuiTypography-root MuiTypography-body2 MuiListItemText-secondary emotion-4"
@@ -1200,13 +1200,13 @@ exports[`MyOrganization Component renders correctly 1`] = `
               <span
                 aria-valuemax="100"
                 aria-valuemin="0"
-                aria-valuenow="40"
+                aria-valuenow="100"
                 class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-determinate emotion-53"
                 role="progressbar"
               >
                 <span
                   class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Determinate emotion-54"
-                  style="transform: translateX(-60%);"
+                  style="transform: translateX(0%);"
                 />
               </span>
             </div>
