@@ -11,22 +11,20 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-import { Button, Divider, MenuItem, Select, TextField } from '@mui/material';
+import { Button, Divider, TextField } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 
 import { changeIntegration, createIntegration, deleteIntegration, getIntegrations } from '../../actions/organizationActions';
 import { TIMEOUTS } from '../../constants/appConstants';
 import { EXTERNAL_PROVIDER } from '../../constants/deviceConstants';
-import { customSort } from '../../helpers';
 import { getExternalIntegrations, getIsPreview } from '../../selectors';
 import { useDebounce } from '../../utils/debouncehook';
 import Confirm from '../common/confirm';
 import InfoHint from '../common/info-hint';
-import { WebhookCreation } from './webhooks/configuration';
-import Webhooks from './webhooks/webhooks';
 
 const maxWidth = 750;
 
@@ -93,7 +91,7 @@ const ConnectionStringInput = ({ connectionConfig, isEditing, setConnectionConfi
   const { classes } = useStyles();
 
   useEffect(() => {
-    setConnectionConfig({ connection_string: debouncedValue });
+    setConnectionConfig({ connection_string: debouncedValue || '' });
   }, [debouncedValue]);
 
   useEffect(() => {
@@ -143,7 +141,10 @@ export const IntegrationConfiguration = ({ integration, isLast, onCancel, onDele
     onCancel(integration);
   };
   const onDeleteClick = () => setIsDeleting(true);
-  const onDeleteConfirm = () => onDelete(integration);
+  const onDeleteConfirm = () => {
+    onDelete(integration);
+    setIsDeleting(false);
+  };
   const onEditClick = () => setIsEditing(true);
   const onSaveClick = () =>
     onSave({
@@ -188,90 +189,43 @@ export const IntegrationConfiguration = ({ integration, isLast, onCancel, onDele
   );
 };
 
-const determineAvailableIntegrations = (integrations, isPreRelease) =>
-  Object.values(EXTERNAL_PROVIDER).reduce((accu, provider) => {
-    const hasIntegrationConfigured = integrations.some(integration => integration.provider == provider.provider);
-    if (provider.title && (provider.enabled || isPreRelease) && !hasIntegrationConfigured) {
-      accu.push(provider);
-    }
-    return accu;
-  }, []);
-
 export const Integrations = () => {
-  const [availableIntegrations, setAvailableIntegrations] = useState([]);
-  const [configuredIntegrations, setConfiguredIntegrations] = useState([]);
-  const [isConfiguringWebhook, setIsConfiguringWebhook] = useState(false);
+  const [iotHubIntegration, setIotHubIntegration] = useState({ ...EXTERNAL_PROVIDER['iot-hub'], id: 'new' });
   const integrations = useSelector(getExternalIntegrations) ?? [];
   const isPreRelease = useSelector(getIsPreview);
   const dispatch = useDispatch();
 
-  const { classes } = useStyles();
-
   useEffect(() => {
-    const available = determineAvailableIntegrations(integrations, isPreRelease);
-    setAvailableIntegrations(integrations.length ? [] : available);
-    setConfiguredIntegrations(integrations.filter(integration => integration.provider !== EXTERNAL_PROVIDER.webhook.provider));
+    setIotHubIntegration(
+      integrations.find(integration => integration.provider === EXTERNAL_PROVIDER['iot-hub'].provider) || { ...EXTERNAL_PROVIDER['iot-hub'], id: 'new' }
+    );
   }, [integrations, isPreRelease]);
 
   useEffect(() => {
     dispatch(getIntegrations());
   }, []);
 
-  const onConfigureIntegration = ({ target: { value: provider = '' } }) => {
-    if (provider === EXTERNAL_PROVIDER.webhook.provider) {
-      return setIsConfiguringWebhook(true);
-    }
-    setConfiguredIntegrations([...configuredIntegrations, { id: 'new', provider }]);
-    setAvailableIntegrations(integrations => integrations.filter(integration => integration.provider !== provider));
-  };
-
-  const onCancelClick = ({ id, provider }) => {
-    if (id === 'new') {
-      setAvailableIntegrations(current => [...current, EXTERNAL_PROVIDER[provider]].sort(customSort(true, 'provider')));
-      setConfiguredIntegrations(current =>
-        current.filter(
-          integration => !(integration.id === id && integration.provider === provider && integration.provider !== EXTERNAL_PROVIDER.webhook.provider)
-        )
-      );
-    }
-    setIsConfiguringWebhook(false);
-  };
-
   const onSaveClick = integration => {
     if (integration.id === 'new') {
-      setIsConfiguringWebhook(false);
       return dispatch(createIntegration(integration));
     }
     dispatch(changeIntegration(integration));
   };
-
-  const configuredWebhook = useMemo(() => integrations.find(integration => integration.provider === EXTERNAL_PROVIDER.webhook.provider), [integrations]);
   return (
     <div>
       <h2 className="margin-top-small">Integrations</h2>
-      {configuredIntegrations.map((integration, index) => (
-        <IntegrationConfiguration
-          key={integration.provider}
-          integration={integration}
-          isLast={configuredIntegrations.length === index + 1}
-          onCancel={onCancelClick}
-          onDelete={integration => dispatch(deleteIntegration(integration))}
-          onSave={onSaveClick}
-        />
-      ))}
-      {!configuredWebhook && !!availableIntegrations.length && (
-        <Select className={classes.select} displayEmpty onChange={onConfigureIntegration} value="">
-          <MenuItem value="">Add new integration</MenuItem>
-          {availableIntegrations.map(item => (
-            <MenuItem key={item.provider} value={item.provider}>
-              {item.title}
-            </MenuItem>
-          ))}
-          <MenuItem value="webhook">Webhooks</MenuItem>
-        </Select>
-      )}
-      {!!configuredWebhook && <Webhooks webhook={configuredWebhook} />}
-      <WebhookCreation adding={isConfiguringWebhook} onCancel={onCancelClick} onSubmit={onSaveClick} />
+      <div className="margin-top">
+        Enabling the integration with Azure IoT Hub allows Alvaldi to synchronize device information. This does not automatically install the Alvaldi client on
+        your devices. For more information about how to set up Alvaldi, read our <Link to="/help/get-started">getting started guide</Link>.
+      </div>
+
+      <IntegrationConfiguration
+        key={iotHubIntegration.provider}
+        integration={iotHubIntegration}
+        isLast={true}
+        onDelete={integration => dispatch(deleteIntegration(integration))}
+        onSave={onSaveClick}
+      />
     </div>
   );
 };

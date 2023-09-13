@@ -28,16 +28,9 @@ import {
   SORTING_OPTIONS
 } from '../constants/appConstants';
 import {
-  RECEIVE_DEPLOYMENTS,
-  RECEIVE_FINISHED_DEPLOYMENTS,
-  RECEIVE_INPROGRESS_DEPLOYMENTS,
-  SELECT_INPROGRESS_DEPLOYMENTS
-} from '../constants/deploymentConstants';
-import {
   ADD_DYNAMIC_GROUP,
   DEVICE_LIST_DEFAULTS,
   DEVICE_STATES,
-  EXTERNAL_PROVIDER,
   RECEIVE_DEVICES,
   RECEIVE_DYNAMIC_GROUPS,
   RECEIVE_GROUPS,
@@ -50,9 +43,8 @@ import {
   SET_REJECTED_DEVICES,
   UNGROUPED_GROUP
 } from '../constants/deviceConstants';
-import { SET_DEMO_ARTIFACT_PORT, SET_ONBOARDING_ARTIFACT_INCLUDED, SET_ONBOARDING_COMPLETE } from '../constants/onboardingConstants';
-import { RECEIVE_EXTERNAL_DEVICE_INTEGRATIONS, SET_ORGANIZATION } from '../constants/organizationConstants';
-import { RECEIVE_RELEASES, SET_RELEASES_LIST_STATE } from '../constants/releaseConstants';
+import { SET_DEMO_ARTIFACT_PORT, SET_ONBOARDING_COMPLETE } from '../constants/onboardingConstants';
+import { SET_ORGANIZATION } from '../constants/organizationConstants';
 import { RECEIVED_PERMISSION_SETS, RECEIVED_ROLES, SET_GLOBAL_SETTINGS, SET_SHOW_HELP, SET_USER_SETTINGS } from '../constants/userConstants';
 import {
   commonErrorHandler,
@@ -122,8 +114,7 @@ describe('app actions', () => {
     const store = mockStore({
       ...defaultState,
       app: { ...defaultState.app, features: { ...defaultState.app.features, isHosted: true } },
-      users: { ...defaultState.users, globalSettings: { ...defaultState.users.globalSettings, id_attribute: { attribute: 'mac', scope: 'identity' } } },
-      releases: { ...defaultState.releases, releasesList: { ...defaultState.releases.releasesList, page: 42 } }
+      users: { ...defaultState.users, globalSettings: { ...defaultState.users.globalSettings, id_attribute: { attribute: 'mac', scope: 'identity' } } }
     });
 
     const expectedActions = [
@@ -134,18 +125,35 @@ describe('app actions', () => {
         type: SET_VERSION_INFORMATION,
         docsVersion: '',
         value: {
+          'Alvaldi-Client': 'next',
           Deployments: '1.2.3',
           Deviceauth: null,
           GUI: undefined,
           Integration: 'master',
           Inventory: null,
-          'Mender-Artifact': undefined,
-          'Mender-Client': 'next',
           'Meta-Mender': 'saas-123.34'
         }
       },
       { type: SET_ENVIRONMENT_DATA, value: { hostAddress: null, hostedAnnouncement: '', recaptchaSiteKey: '', stripeAPIKey: '', trackerCode: '' } },
       { type: SET_FIRST_LOGIN_AFTER_SIGNUP, firstLoginAfterSignup: false },
+      {
+        type: SET_VERSION_INFORMATION,
+        docsVersion: '',
+        value: {
+          GUI: latestSaasReleaseTag,
+          Integration: '1.2.3',
+          backend: latestSaasReleaseTag,
+          latestRelease: {
+            releaseDate: '2022-02-02',
+            repos: {
+              integration: '1.2.3',
+              mender: '3.2.1',
+              'other-service': '1.1.0',
+              service: '3.0.0'
+            }
+          }
+        }
+      },
       { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings } },
       { type: SET_GLOBAL_SETTINGS, settings: { ...defaultState.users.globalSettings } },
       { type: SET_OFFLINE_THRESHOLD, value: '2019-01-12T13:00:00.900Z' },
@@ -173,25 +181,6 @@ describe('app actions', () => {
           systemAttributes: ['created_ts', 'updated_ts', 'group'],
           tagAttributes: []
         }
-      },
-      { type: RECEIVE_DEPLOYMENTS, deployments: defaultState.deployments.byId },
-      {
-        type: RECEIVE_FINISHED_DEPLOYMENTS,
-        deploymentIds: Object.keys(defaultState.deployments.byId),
-        status: 'finished',
-        total: Object.keys(defaultState.deployments.byId).length
-      },
-      { type: RECEIVE_DEPLOYMENTS, deployments: defaultState.deployments.byId },
-      {
-        type: RECEIVE_INPROGRESS_DEPLOYMENTS,
-        deploymentIds: Object.keys(defaultState.deployments.byId),
-        status: 'inprogress',
-        total: Object.keys(defaultState.deployments.byId).length
-      },
-      {
-        type: SELECT_INPROGRESS_DEPLOYMENTS,
-        deploymentIds: Object.keys(defaultState.deployments.byId),
-        status: 'inprogress'
       },
       {
         type: RECEIVE_DEVICES,
@@ -266,45 +255,11 @@ describe('app actions', () => {
           }
         }
       },
-      { type: RECEIVE_RELEASES, releases: defaultState.releases.byId },
-      { type: SET_ONBOARDING_ARTIFACT_INCLUDED, value: true },
-      {
-        type: SET_RELEASES_LIST_STATE,
-        value: { ...defaultState.releases.releasesList, releaseIds: [defaultState.releases.byId.r1.Name], page: 42 }
-      },
       { type: SET_DEVICE_LIMIT, limit: 500 },
       { type: RECEIVED_PERMISSION_SETS, value: receivedPermissionSets },
+      { type: RECEIVED_ROLES, value: receivedRoles },
       { type: SET_ORGANIZATION, organization: defaultState.organization.organization },
       { type: SET_ANNOUNCEMENT, announcement: tenantDataDivergedMessage },
-      {
-        type: SET_VERSION_INFORMATION,
-        docsVersion: '',
-        value: {
-          GUI: latestSaasReleaseTag,
-          Integration: '1.2.3',
-          'Mender-Artifact': '1.3.7',
-          'Mender-Client': '3.2.1',
-          backend: latestSaasReleaseTag,
-          latestRelease: {
-            releaseDate: '2022-02-02',
-            repos: {
-              integration: '1.2.3',
-              mender: '3.2.1',
-              'mender-artifact': '1.3.7',
-              'other-service': '1.1.0',
-              service: '3.0.0'
-            }
-          }
-        }
-      },
-      {
-        type: RECEIVE_EXTERNAL_DEVICE_INTEGRATIONS,
-        value: [
-          { connection_string: 'something_else', id: 1, provider: EXTERNAL_PROVIDER['iot-hub'].provider },
-          { id: 2, provider: 'aws', something: 'new' }
-        ]
-      },
-      { type: RECEIVED_ROLES, value: receivedRoles },
       {
         type: RECEIVE_DEVICES,
         devicesById: { [expectedDevice.id]: { ...defaultState.devices.byId.a1, isOffline: true, monitor: {}, tags: {} } }
@@ -422,7 +377,7 @@ describe('app actions', () => {
     const expectedActions = [
       {
         type: SET_VERSION_INFORMATION,
-        value: { backend: latestSaasReleaseTag, GUI: latestSaasReleaseTag, Integration: '1.2.3', 'Mender-Client': '3.2.1', 'Mender-Artifact': '1.3.7' }
+        value: { backend: latestSaasReleaseTag, GUI: latestSaasReleaseTag, Integration: '1.2.3' }
       }
     ];
     await store.dispatch(getLatestReleaseInfo());

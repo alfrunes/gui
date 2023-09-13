@@ -13,8 +13,6 @@
 //    limitations under the License.
 import React from 'react';
 
-import { screen, waitFor } from '@testing-library/react';
-
 import { defaultState, undefineds } from '../../../../tests/mockData';
 import { render } from '../../../../tests/setupTests';
 import Global from './global';
@@ -30,24 +28,12 @@ const preloadedState = {
       isEnterprise: true,
       isHosted: true
     }
-  },
-  deployments: {
-    ...defaultState.deployments,
-    config: {
-      ...defaultState.deployments.config,
-      binaryDelta: {
-        ...defaultState.deployments.config.binaryDelta,
-        timeout: 5
-      },
-      hasDelta: true
-    }
   }
 };
 
 describe('GlobalSettings Component', () => {
   it('renders correctly', async () => {
     const { baseElement } = render(<Global />, { preloadedState });
-    await waitFor(() => expect(screen.getByText(/xDelta3/i)).toBeVisible());
     const view = baseElement.firstChild.firstChild;
     expect(view).toMatchSnapshot();
     expect(view).toEqual(expect.not.stringMatching(undefineds));

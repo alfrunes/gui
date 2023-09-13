@@ -21,7 +21,6 @@ import {
   defaultReports,
   deriveReportsData,
   getDeviceAttributes,
-  getDevicesInBounds,
   getGroupDevices,
   getReportingLimits,
   getReportsData
@@ -34,9 +33,7 @@ import {
   getAttributesList,
   getDeviceReports,
   getDeviceReportsForUser,
-  getDevicesById,
   getFeatures,
-  getGroupNames,
   getGroupsByIdWithoutUngrouped,
   getIsEnterprise
 } from '../../selectors';
@@ -44,7 +41,6 @@ import EnterpriseNotification from '../common/enterpriseNotification';
 import { extractSoftwareInformation } from '../devices/device-details/installedsoftware';
 import ChartAdditionWidget from './widgets/chart-addition';
 import DistributionReport from './widgets/distribution';
-import MapWrapper from './widgets/mapwidget';
 
 const reportTypes = {
   distribution: DistributionReport
@@ -101,8 +97,6 @@ export const SoftwareDistribution = () => {
   const hasDevices = !!total;
   const isEnterprise = useSelector(getIsEnterprise);
   const reportsData = useSelector(getDeviceReports);
-  const groupNames = useSelector(getGroupNames);
-  const devicesById = useSelector(getDevicesById);
 
   useEffect(() => {
     dispatch(getDeviceAttributes());
@@ -144,13 +138,6 @@ export const SoftwareDistribution = () => {
   const dispatchedGetGroupDevices = (...args) => dispatch(getGroupDevices(...args));
   return hasDevices ? (
     <div className="dashboard margin-bottom-large">
-      <MapWrapper
-        groups={groups}
-        groupNames={groupNames}
-        devicesById={devicesById}
-        getGroupDevices={dispatchedGetGroupDevices}
-        getDevicesInBounds={(...args) => dispatch(getDevicesInBounds(...args))}
-      />
       {reports.map((report, index) => {
         const Component = reportTypes[report.type || defaultReportType];
         return (

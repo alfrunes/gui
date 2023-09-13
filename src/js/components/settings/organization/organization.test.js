@@ -18,7 +18,7 @@ import userEvent from '@testing-library/user-event';
 
 import { defaultState, undefineds } from '../../../../../tests/mockData';
 import { render } from '../../../../../tests/setupTests';
-import { CancelSubscriptionAlert, CancelSubscriptionButton, DeviceLimitExpansionNotification, TrialExpirationNote } from './billing';
+import { CancelSubscriptionAlert, CancelSubscriptionButton, LimitExpansionNotification, TrialExpirationNote } from './billing';
 import MyOrganization, { OrgHeader } from './organization';
 
 describe('MyOrganization Component', () => {
@@ -119,7 +119,7 @@ describe('MyOrganization Component', () => {
 });
 
 describe('smaller components', () => {
-  [OrgHeader, TrialExpirationNote, DeviceLimitExpansionNotification, CancelSubscriptionAlert, CancelSubscriptionButton].forEach(Component => {
+  [OrgHeader, TrialExpirationNote, LimitExpansionNotification, CancelSubscriptionAlert, CancelSubscriptionButton].forEach(Component => {
     it(`renders ${Component.displayName || Component.name} correctly`, () => {
       const { baseElement } = render(
         <Component

@@ -55,7 +55,7 @@ const permissionSetIds = {
 
 export const uiPermissionsById = {
   connect: {
-    explanations: { groups: `'Connect' allows the user to connect to the remote terminal.` },
+    explanations: { groups: `Troubleshooting access to the devices, requires Read.` },
     permissionLevel: 2,
     permissionSets: { groups: permissionSetIds.ConnectToDevices },
     title: 'Connect',
@@ -63,7 +63,7 @@ export const uiPermissionsById = {
     verbs: [PermissionTypes.Get, PermissionTypes.Put]
   },
   fileTransfer: {
-    explanations: { groups: `'File transfer' allows the user to transfer files to / from devices.` },
+    explanations: { groups: `Access to transfer files to / from devices, requires Read.` },
     permissionLevel: 2,
     permissionSets: { groups: permissionSetIds.FileTransfer },
     title: 'File transfer',
@@ -72,7 +72,7 @@ export const uiPermissionsById = {
   },
   manage: {
     explanations: {
-      groups: `'Manage' allows the user to edit device name, notes, and manage authentication status. For 'All devices' it also allows the user to edit and create device groups.`
+      groups: `Allows to edit device name. For 'All devices' it also allows the user to edit and create device groups, requires Read.`
     },
     permissionLevel: 2,
     permissionSets: {
@@ -84,7 +84,7 @@ export const uiPermissionsById = {
     verbs: [PermissionTypes.Post, PermissionTypes.Put, PermissionTypes.Patch]
   },
   read: {
-    explanations: { groups: `'Read' allows the user to view devices.` },
+    explanations: { groups: 'Access to see devices and information about them, but not make changes.' },
     permissionLevel: 1,
     permissionSets: {
       auditlog: permissionSetIds.ReadAuditLogs,
@@ -229,7 +229,7 @@ export const rolesById = Object.freeze({
     name: 'Terminal access',
     value: staticRolesByName.terminalAccess,
     description:
-      'Intended for engineers who need to troubleshoot and be able to make changes to devices, this role can open the remote terminal and run user-specified commands on all devices. ',
+      'Intended for engineers who need to troubleshoot and be able to make changes to devices, this role can open the remote terminal and run user-specified commands on all devices.',
     permissions: [],
     uiPermissions: {
       ...emptyUiPermissions,

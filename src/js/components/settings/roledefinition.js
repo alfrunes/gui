@@ -38,7 +38,6 @@ import { makeStyles } from 'tss-react/mui';
 import validator from 'validator';
 
 import { ALL_DEVICES } from '../../constants/deviceConstants';
-import { ALL_RELEASES } from '../../constants/releaseConstants';
 import { emptyRole, emptyUiPermissions, itemUiPermissionsReducer, rolesById, uiPermissionsByArea, uiPermissionsById } from '../../constants/userConstants';
 import { deepCompare, isEmpty, toggle } from '../../helpers';
 
@@ -114,7 +113,9 @@ const PermissionsSelect = ({ disabled, label, onChange, options, permissionsArea
         {editablePermissions.map(uiPermission => (
           <MenuItem disabled={uiPermission.disabled} key={uiPermission.value} value={uiPermission.value}>
             <Checkbox className={classes.permissionSelect} checked={uiPermission.enabled} disabled={uiPermission.disabled} />
-            <div className={uiPermission.disabled ? 'text-muted' : ''}>{uiPermission.title}</div>
+            <Tooltip disableInteractive arrow title={uiPermission.explanations[permissionsArea]}>
+              <div className={uiPermission.disabled ? 'text-muted' : ''}>{uiPermission.title}</div>
+            </Tooltip>
           </MenuItem>
         ))}
         <MenuItem value="">None</MenuItem>
@@ -150,8 +151,6 @@ const groupsFilter = stateGroups =>
     [ALL_DEVICES]
   );
 
-const releasesFilter = stateReleaseTags => [ALL_RELEASES, ...Object.keys(stateReleaseTags)];
-
 const scopedPermissionAreas = {
   groups: {
     key: 'groups',
@@ -160,15 +159,6 @@ const scopedPermissionAreas = {
     excessiveAccessConfig: {
       selector: ALL_DEVICES,
       warning: `For 'All devices', users with the Manage permission may also create, edit and delete devices groups.`
-    }
-  },
-  releases: {
-    key: 'releases',
-    filter: releasesFilter,
-    placeholder: 'Search release tags',
-    excessiveAccessConfig: {
-      selector: ALL_RELEASES,
-      warning: `For 'All releases', users with the Manage permission may also upload and delete releases.`
     }
   }
 };
@@ -285,8 +275,6 @@ const deriveItemsAndPermissions = (stateItems, roleItems, options = {}) => {
   return { filtered: filteredStateItems, selections: itemSelections };
 };
 
-const permissionCompatibilityReducer = (accu, permission) => ({ [ALL_RELEASES]: [...accu[ALL_RELEASES], permission] });
-
 const DeleteRoleDialog = ({ dismiss, open, submit, name }) => (
   <Dialog open={open}>
     <DialogTitle>Delete role?</DialogTitle>
@@ -308,20 +296,9 @@ const DeleteRoleDialog = ({ dismiss, open, submit, name }) => (
   </Dialog>
 );
 
-export const RoleDefinition = ({
-  adding,
-  editing,
-  features,
-  stateGroups,
-  stateReleaseTags,
-  onCancel,
-  onSubmit,
-  removeRole,
-  selectedRole = { ...emptyRole }
-}) => {
+export const RoleDefinition = ({ adding, editing, features, stateGroups, onCancel, onSubmit, removeRole, selectedRole = { ...emptyRole } }) => {
   const [description, setDescription] = useState(selectedRole.description);
   const [groups, setGroups] = useState([]);
-  const [releases, setReleases] = useState([]);
   const [name, setName] = useState(selectedRole.name);
   const [nameError, setNameError] = useState(false);
   const [auditlogPermissions, setAuditlogPermissions] = useState([]);
@@ -335,7 +312,7 @@ export const RoleDefinition = ({
 
   useEffect(() => {
     const { name: roleName = '', description: roleDescription = '' } = selectedRole;
-    const { auditlog, groups: roleGroups = {}, releases: roleReleases = {}, userManagement } = { ...emptyUiPermissions, ...selectedRole.uiPermissions };
+    const { auditlog, groups: roleGroups = {}, userManagement } = { ...emptyUiPermissions, ...selectedRole.uiPermissions };
     const disableEdit = editing && Boolean(rolesById[roleName] || !selectedRole.editable);
     setName(roleName);
     setDescription(roleDescription);
@@ -348,22 +325,9 @@ export const RoleDefinition = ({
     });
     setGroups(filteredStateGroups);
     setGroupSelections(groupSelections);
-    const { filtered: filteredReleases, selections: releaseTagSelections } = deriveItemsAndPermissions(stateReleaseTags, roleReleases, {
-      adding,
-      disableEdit,
-      filter: scopedPermissionAreas.releases.filter
-    });
-    setReleases(filteredReleases);
     setReleaseTagSelections(releaseTagSelections);
-    setReleasesPermissions(
-      releaseTagSelections.reduce((accu, { item, uiPermissions }) => {
-        if (item === ALL_RELEASES) {
-          return [...accu, ...uiPermissions];
-        }
-        return accu;
-      }, [])
-    );
-  }, [adding, editing, selectedRole, stateGroups, stateReleaseTags]);
+    setReleasesPermissions([]);
+  }, [adding, editing, selectedRole, stateGroups]);
 
   const validateNameChange = ({ target: { value } }) => {
     setNameError(!(value && validator.isWhitelisted(value, 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-')));
@@ -380,7 +344,7 @@ export const RoleDefinition = ({
       uiPermissions: {
         auditlog: auditlogPermissions,
         groups: groupSelections,
-        releases: hasReleaseTags ? releaseTagSelections : [{ item: ALL_RELEASES, uiPermissions: releasesPermissions }],
+        releases: hasReleaseTags ? releaseTagSelections : [],
         userManagement: userManagementPermissions
       }
     };
@@ -401,10 +365,7 @@ export const RoleDefinition = ({
       ...emptyUiPermissions,
       auditlog: auditlogPermissions,
       userManagement: userManagementPermissions,
-      groups: groupSelections.reduce(itemUiPermissionsReducer, {}),
-      releases: hasReleaseTags
-        ? releaseTagSelections.reduce(itemUiPermissionsReducer, {})
-        : releasesPermissions.reduce(permissionCompatibilityReducer, { [ALL_RELEASES]: [] })
+      groups: groupSelections.reduce(itemUiPermissionsReducer, {})
     };
     const { hasPartiallyDefinedAreas, hasAreaPermissions } = [...groupSelections, ...releaseTagSelections].reduce(
       (accu, { item, uiPermissions }) => {
@@ -474,17 +435,6 @@ export const RoleDefinition = ({
         />
         <PermissionsItem disabled={disableEdit} area={uiPermissionsByArea.auditlog} onChange={setAuditlogPermissions} values={auditlogPermissions} />
       </div>
-      {(!disableEdit || !!releaseTagSelections.length) && hasReleaseTags && (
-        <ItemSelection
-          disableEdit={disableEdit}
-          excessiveAccessConfig={scopedPermissionAreas.releases.excessiveAccessConfig}
-          items={releases}
-          itemsSelection={releaseTagSelections}
-          permissionsArea={scopedPermissionAreas.releases.key}
-          placeholder={scopedPermissionAreas.releases.placeholder}
-          setter={setReleaseTagSelections}
-        />
-      )}
       {(!disableEdit || !!groupSelections.length) && (
         <ItemSelection
           disableEdit={disableEdit}

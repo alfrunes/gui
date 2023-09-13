@@ -23,12 +23,10 @@ import {
   uiPermissionsById
 } from '../src/js/constants/userConstants';
 import { initialState as initialAppState } from '../src/js/reducers/appReducer';
-import { initialState as initialDeploymentsState } from '../src/js/reducers/deploymentReducer';
 import { initialState as initialDevicesState } from '../src/js/reducers/deviceReducer';
 import { initialState as initialMonitorState } from '../src/js/reducers/monitorReducer';
 import { initialState as initialOnboardingState } from '../src/js/reducers/onboardingReducer';
 import { initialState as initialOrganizationState } from '../src/js/reducers/organizationReducer';
-import { initialState as initialReleasesState } from '../src/js/reducers/releaseReducer';
 import { initialState as initialUsersState } from '../src/js/reducers/userReducer';
 import { roles as rbacRoles } from '../tests/__mocks__/userHandlers';
 
@@ -124,97 +122,6 @@ export const defaultState = {
     snackbar: {},
     uploadsById: {},
     versionInformation: {}
-  },
-  deployments: {
-    ...initialDeploymentsState,
-    byId: {
-      d1: {
-        id: 'd1',
-        name: 'test deployment',
-        artifact_name: 'r1',
-        artifacts: ['123'],
-        created: '2019-01-01T12:30:00.000Z',
-        device_count: 1,
-        devices: {
-          a1: {
-            attributes: {},
-            id: 'a1',
-            image: { size: 123 },
-            status: 'installing'
-          }
-        },
-        statistics: {
-          status: {
-            downloading: 0,
-            decommissioned: 0,
-            failure: 0,
-            installing: 1,
-            noartifact: 0,
-            pending: 0,
-            rebooting: 0,
-            success: 0,
-            'already-installed': 0
-          },
-          total_size: 1234
-        }
-      },
-      d2: {
-        id: 'd2',
-        name: 'test deployment 2',
-        artifact_name: 'r1',
-        artifacts: ['123'],
-        created: '2019-01-01T12:25:00.000Z',
-        device_count: 1,
-        devices: {
-          b1: {
-            attributes: {},
-            id: 'b1',
-            status: 'pending'
-          }
-        },
-        statistics: {
-          status: {
-            downloading: 0,
-            decommissioned: 0,
-            failure: 0,
-            installing: 0,
-            noartifact: 0,
-            pending: 1,
-            rebooting: 0,
-            success: 0,
-            'already-installed': 0
-          }
-        }
-      }
-    },
-    byStatus: {
-      finished: { deploymentIds: ['d1'], total: 1 },
-      inprogress: { deploymentIds: ['d1'], total: 1 },
-      pending: { deploymentIds: ['d2'], total: 1 },
-      scheduled: { deploymentIds: ['d2'], total: 1 }
-    },
-    deploymentDeviceLimit: 500,
-    selectedDeviceIds: [],
-    selectionState: {
-      finished: {
-        ...DeviceConstants.DEVICE_LIST_DEFAULTS,
-        selection: ['d1'],
-        endDate: undefined,
-        search: '',
-        total: 1,
-        type: ''
-      },
-      inprogress: { ...DeviceConstants.DEVICE_LIST_DEFAULTS, selection: ['d1'], total: 1 },
-      pending: { ...DeviceConstants.DEVICE_LIST_DEFAULTS, selection: ['d2'], total: 1 },
-      scheduled: { ...DeviceConstants.DEVICE_LIST_DEFAULTS, selection: ['d2'], total: 1 },
-      general: {
-        state: 'active',
-        showCreationDialog: false,
-        showReportDialog: false,
-        reportType: null
-      },
-      selectedId: 'd1'
-    }
   },
   devices: {
     ...initialDevicesState,
@@ -452,48 +359,6 @@ export const defaultState = {
       trial: false
     }
   },
-  releases: {
-    ...initialReleasesState,
-    byId: {
-      r1: {
-        Name: 'r1',
-        Artifacts: [
-          {
-            id: 'art1',
-            description: 'test description',
-            device_types_compatible: [deviceTypes.qemu],
-            modified: '2020-09-10T12:16:22.667Z',
-            updates: [{ type_info: 'testtype' }],
-            artifact_depends: {
-              device_type: [deviceTypes.qemu]
-            },
-            artifact_provides: {
-              artifact_name: 'myapp',
-              'data-partition.myapp.version': 'v2020.10',
-              list_of_fancy: [deviceTypes.qemu, 'x172']
-            },
-            clears_artifact_provides: ['data-partition.myapp.*']
-          }
-        ],
-        device_types_compatible: [deviceTypes.qemu],
-        modified: '2020-09-10T12:16:22.667Z',
-        metaData: {}
-      }
-    },
-    releasesList: {
-      ...DeviceConstants.DEVICE_LIST_DEFAULTS,
-      searchedIds: [],
-      isLoading: false,
-      releaseIds: ['r1'],
-      sort: {
-        direction: SORTING_OPTIONS.desc,
-        key: 'Name'
-      },
-      searchTerm: '',
-      searchTotal: 0,
-      total: 1
-    }
-  },
   users: {
     ...initialUsersState,
     byId: {
@@ -521,7 +386,6 @@ export const defaultState = {
 };
 
 export const releasesList = Array.from({ length: 5000 }, (x, i) => ({
-  ...defaultState.releases.byId.r1,
   Name: `release-${i + 1}`,
   modified: i
 }));

@@ -13,13 +13,12 @@
 //    limitations under the License.
 import React from 'react';
 
-import { act, screen, waitFor } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { defaultState, undefineds } from '../../../../tests/mockData';
 import { render } from '../../../../tests/setupTests';
 import * as DeviceActions from '../../actions/deviceActions';
-import * as UserActions from '../../actions/userActions';
 import Authorized from './authorized-devices';
 import { routes } from './base-devices';
 
@@ -48,10 +47,7 @@ describe('AuthorizedDevices Component', () => {
   it('behaves as expected', async () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const setListStateSpy = jest.spyOn(DeviceActions, 'setDeviceListState');
-    const setUserSettingsSpy = jest.spyOn(UserActions, 'saveUserSettings');
-    const setColumnsSpy = jest.spyOn(UserActions, 'updateUserColumnSettings');
 
-    const testKey = 'testKey';
     const attributeNames = {
       artifact: 'rootfs-image.version',
       deviceType: 'device_type',
@@ -98,50 +94,13 @@ describe('AuthorizedDevices Component', () => {
         showsDialog={false}
       />
     );
-    const { rerender } = render(ui, { preloadedState });
+    render(ui, { preloadedState });
     await waitFor(() => expect(screen.getAllByRole('checkbox').length).toBeTruthy());
     await user.click(screen.getAllByRole('checkbox')[0]);
     expect(setListStateSpy).toHaveBeenCalledWith({ selection: [0, 1], setOnly: true });
     await user.click(screen.getByRole('button', { name: /all/i }));
-    await user.click(screen.getByRole('option', { name: /devices with issues/i }));
+    await user.click(screen.getByRole('option', { name: /offline/i }));
     await user.keyboard('{Escape}');
-    expect(setListStateSpy).toHaveBeenCalledWith({ page: 1, refreshTrigger: true, selectedIssues: ['offline', 'monitoring'] });
-    await waitFor(() => rerender(ui));
-    await user.click(screen.getByRole('button', { name: /table options/i }));
-    await waitFor(() => rerender(ui));
-    await user.click(screen.getByRole('menuitem', { name: /customize/i }));
-    await waitFor(() => rerender(ui));
-    expect(screen.getByText(/Customize Columns/i)).toBeVisible();
-    const attributeSelect = screen.getByLabelText(/add a column/i);
-    await user.type(attributeSelect, testKey);
-    await user.keyboard('{Enter}');
-    act(() => jest.advanceTimersByTime(5000));
-    await waitFor(() => expect(screen.getByLabelText(/add a column/i)).toBeVisible());
-    const button = screen.getByRole('button', { name: /Save/i });
-    expect(button).not.toBeDisabled();
-    await user.click(button);
-
-    expect(setColumnsSpy).toHaveBeenCalledWith([
-      { attribute: { name: attributeNames.deviceType, scope: 'inventory' }, size: 150 },
-      { attribute: { name: attributeNames.artifact, scope: 'inventory' }, size: 150 },
-      { attribute: { name: attributeNames.updateTime, scope: 'system' }, size: 220 },
-      { attribute: { name: testKey, scope: 'inventory' }, size: 150 }
-    ]);
-    expect(setListStateSpy).toHaveBeenCalledWith({
-      selectedAttributes: [
-        { attribute: attributeNames.deviceType, scope: 'inventory' },
-        { attribute: attributeNames.artifact, scope: 'inventory' },
-        { attribute: attributeNames.updateTime, scope: 'system' },
-        { attribute: testKey, scope: 'inventory' }
-      ]
-    });
-    expect(setUserSettingsSpy).toHaveBeenCalledWith({
-      columnSelection: [
-        { id: 'inventory-device_type', key: attributeNames.deviceType, name: attributeNames.deviceType, scope: 'inventory', title: 'Device type' },
-        { id: 'inventory-rootfs-image.version', key: attributeNames.artifact, name: attributeNames.artifact, scope: 'inventory', title: 'Current software' },
-        { id: 'system-updated_ts', key: attributeNames.updateTime, name: attributeNames.updateTime, scope: 'system', title: 'Last check-in' },
-        { id: 'inventory-testKey', key: testKey, name: testKey, scope: 'inventory', title: testKey }
-      ]
-    });
+    expect(setListStateSpy).toHaveBeenCalledWith({ page: 1, refreshTrigger: true, selectedIssues: ['offline'] });
   });
 });

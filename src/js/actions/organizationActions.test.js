@@ -15,7 +15,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import { defaultState, webhookEvents } from '../../../tests/mockData';
-import { SET_ANNOUNCEMENT, SET_FIRST_LOGIN_AFTER_SIGNUP, SET_SNACKBAR } from '../constants/appConstants';
+import { PLANS, SET_ANNOUNCEMENT, SET_FIRST_LOGIN_AFTER_SIGNUP, SET_SNACKBAR } from '../constants/appConstants';
 import { EXTERNAL_PROVIDER } from '../constants/deviceConstants';
 import {
   RECEIVE_AUDIT_LOGS,
@@ -145,8 +145,8 @@ describe('organization actions', () => {
     await store
       .dispatch(
         requestPlanChange(defaultState.organization.organization.id, {
-          current_plan: 'Basic',
-          requested_plan: 'Enterprise',
+          current_plan: PLANS.professional.name,
+          requested_plan: PLANS.enterprise.name,
           current_addons: 'something,extra',
           requested_addons: 'something,extra,special',
           user_message: 'more please'

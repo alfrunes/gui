@@ -30,7 +30,6 @@ const releasesSample = {
         repos: [
           { name: 'integration', version: '1.2.3' },
           { name: 'mender', version: '3.2.1' },
-          { name: 'mender-artifact', version: '1.3.7' },
           { name: 'service', version: '3.0.0' },
           { name: 'other-service', version: '1.1.0' }
         ]

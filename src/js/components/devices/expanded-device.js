@@ -24,7 +24,6 @@ import copy from 'copy-to-clipboard';
 import GatewayConnectionIcon from '../../../assets/img/gateway-connection.svg';
 import GatewayIcon from '../../../assets/img/gateway.svg';
 import { setSnackbar } from '../../actions/appActions';
-import { abortDeployment, getDeviceDeployments, getDeviceLog, getSingleDeployment, resetDeviceDeployments } from '../../actions/deploymentActions';
 import {
   applyDeviceConfig,
   decommissionDevice,
@@ -40,7 +39,7 @@ import { TIMEOUTS, yes } from '../../constants/appConstants';
 import { DEVICE_STATES, EXTERNAL_PROVIDER } from '../../constants/deviceConstants';
 import { getDemoDeviceAddress, stringToBoolean } from '../../helpers';
 import {
-  getDeviceConfigDeployment,
+  getDeviceById,
   getDeviceTwinIntegrations,
   getDevicesById,
   getDocsVersion,
@@ -55,9 +54,7 @@ import Tracking from '../../tracking';
 import DeviceIdentityDisplay from '../common/deviceidentity';
 import { MenderTooltipClickable } from '../common/mendertooltip';
 import { RelativeTime } from '../common/time';
-import DeviceConfiguration from './device-details/configuration';
 import { TroubleshootTab } from './device-details/connection';
-import Deployments from './device-details/deployments';
 import DeviceInventory from './device-details/deviceinventory';
 import DeviceSystem from './device-details/devicesystem';
 import { IntegrationTab } from './device-details/devicetwin';
@@ -156,19 +153,6 @@ const tabs = [
     isApplicable: deviceStatusCheck
   },
   {
-    component: Deployments,
-    title: () => 'Deployments',
-    value: 'deployments',
-    isApplicable: deviceStatusCheck
-  },
-  {
-    component: DeviceConfiguration,
-    title: () => 'Configuration',
-    value: 'configuration',
-    isApplicable: ({ tenantCapabilities: { hasDeviceConfig }, userCapabilities: { canConfigure }, ...rest }) =>
-      hasDeviceConfig && canConfigure && deviceStatusCheck(rest, [DEVICE_STATES.accepted, DEVICE_STATES.preauth])
-  },
-  {
     component: MonitoringTab,
     title: () => 'Monitoring',
     value: 'monitor',
@@ -211,7 +195,7 @@ export const ExpandedDevice = ({ actionCallbacks, deviceId, onClose, refreshDevi
   const { selectedGroup, groupFilters = [] } = useSelector(getSelectedGroupInfo);
   const { columnSelection = [] } = useSelector(getUserSettings);
   const { defaultDeviceConfig: defaultConfig } = useSelector(getGlobalSettings);
-  const { device, deviceConfigDeployment } = useSelector(state => getDeviceConfigDeployment(state, deviceId));
+  const device = useSelector(state => getDeviceById(state, deviceId));
   const devicesById = useSelector(getDevicesById);
   const docsVersion = useSelector(getDocsVersion);
   const integrations = useSelector(getDeviceTwinIntegrations);
@@ -294,24 +278,18 @@ export const ExpandedDevice = ({ actionCallbacks, deviceId, onClose, refreshDevi
   const { component: SelectedTab, value: selectedTab } = availableTabs.find(tab => tab.value === tabSelection) ?? tabs[0];
 
   const commonProps = {
-    abortDeployment: id => dispatch(abortDeployment(id)),
     applyDeviceConfig: (...args) => dispatch(applyDeviceConfig(...args)),
     classes,
     columnSelection,
     defaultConfig,
     device,
-    deviceConfigDeployment,
     docsVersion,
-    getDeviceDeployments: (...args) => dispatch(getDeviceDeployments(...args)),
-    getDeviceLog: (...args) => dispatch(getDeviceLog(...args)),
     getDeviceTwin: (...args) => dispatch(getDeviceTwin(...args)),
-    getSingleDeployment: id => dispatch(getSingleDeployment(id)),
     integrations,
     latestAlerts,
     launchTroubleshoot,
     onDecommissionDevice,
     refreshDevices,
-    resetDeviceDeployments: id => dispatch(resetDeviceDeployments(id)),
     saveGlobalSettings: settings => dispatch(saveGlobalSettings(settings)),
     setDetailsTab,
     setDeviceConfig: (...args) => dispatch(setDeviceConfig(...args)),

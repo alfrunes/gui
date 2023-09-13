@@ -19,7 +19,6 @@ import { ArrowCircleLeftOutlined as ArrowCircleLeftIcon } from '@mui/icons-mater
 import { Button, Tab, Tabs } from '@mui/material';
 
 import { setSnackbar } from '../../actions/appActions.js';
-import { abortDeployment, getDeviceLog, getSingleDeployment } from '../../actions/deploymentActions.js';
 import { getDeviceInfo, setDeviceTags } from '../../actions/deviceActions.js';
 import { saveGlobalSettings } from '../../actions/userActions.js';
 import { TIMEOUTS, yes } from '../../constants/appConstants.js';
@@ -91,12 +90,9 @@ export const Device = () => {
   const { component: SelectedTab, value: selectedTab } = availableTabs.find(tab => tab.value === tabSelection) ?? tabs[0];
 
   const commonProps = {
-    abortDeployment: id => dispatch(abortDeployment(id)),
     device,
     docsVersion,
     latestAlerts,
-    getDeviceLog: (...args) => dispatch(getDeviceLog(...args)),
-    getSingleDeployment: id => dispatch(getSingleDeployment(id)),
     integrations,
     saveGlobalSettings: settings => dispatch(saveGlobalSettings(settings)),
     setDeviceTags: (...args) => dispatch(setDeviceTags(...args)),

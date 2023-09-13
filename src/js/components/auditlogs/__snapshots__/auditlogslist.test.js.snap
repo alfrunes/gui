@@ -83,9 +83,7 @@ exports[`Auditlogs Component renders correctly 1`] = `
         <div>
           user@acme.com
         </div>
-        <a
-          class="green800"
-        >
+        <a>
           View detail 
           <svg
             aria-hidden="true"
@@ -124,9 +122,7 @@ exports[`Auditlogs Component renders correctly 1`] = `
         <div>
           production
         </div>
-        <a
-          class="green800"
-        >
+        <a>
           View detail 
           <svg
             aria-hidden="true"
@@ -197,9 +193,7 @@ exports[`Auditlogs Component renders correctly 1`] = `
             </svg>
           </a>
         </div>
-        <a
-          class="green800"
-        >
+        <a>
           View detail 
           <svg
             aria-hidden="true"

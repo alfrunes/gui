@@ -22,16 +22,6 @@ import Header from './header';
 
 const preloadedState = {
   ...defaultState,
-  deployments: {
-    ...defaultState.deployments,
-    byStatus: {
-      ...defaultState.deployments.byStatus,
-      inprogress: {
-        ...defaultState.deployments.byStatus.inprogress,
-        total: 0
-      }
-    }
-  },
   users: {
     ...defaultState.users,
     globalSettings: {

@@ -2,177 +2,383 @@
 
 exports[`PlanSelection component renders correctly 1`] = `
 .emotion-0 {
-  border-color: #f7f7f7;
+  border-color: #e6f2f1;
 }
 
-.emotion-0.active,
-.emotion-0:hover {
-  border-color: #d4e9e7;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
+.emotion-0.planPanel {
+  padding: 0;
+  max-width: 205px;
+  margin-right: 18px;
 }
 
-.emotion-0.active {
-  background-color: #f7f7f7;
+.emotion-0.trial .title {
+  background: #616161;
 }
 
-.emotion-0.addon {
+.emotion-1 {
+  background: #14A452;
+  color: #F5F5F5;
+  text-align: center;
+  margin: 0;
+  padding: 11px 0px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.emotion-2 {
+  padding: 11px 23px 25px 23px;
+}
+
+.emotion-3 {
+  margin: 0 auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-column-gap: 10px;
-  column-gap: 10px;
-  display: grid;
-  grid-template-columns: max-content minmax(150px, min-content) 1fr max-content;
-  height: initial;
-  margin-top: 10px;
-  min-width: 550px;
-  width: initial;
 }
 
-.emotion-0.addon.upgrade {
-  grid-template-columns: max-content minmax(120px, min-content) minmax(120px, min-content) 1fr max-content;
+.emotion-4 b {
+  font-size: 18px;
+  letter-spacing: 0.15px;
 }
 
-.emotion-1 {
-  margin-bottom: -11px;
-  font-size: smaller;
+.emotion-4 span {
+  font-size: 12px;
+  color: #616161;
+  letter-spacing: 0.5px;
+  margin-right: 8px;
 }
 
-.emotion-2 {
-  font-size: 1rem;
+.emotion-6 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.3929rem;
+  color: #14A452;
+  font-size: 16px;
+  margin-right: 4px;
 }
 
-.emotion-3 {
-  color: rgba(0, 0, 0, 0.38);
-  margin: 15px 0;
+.emotion-6 iconButton {
+  margin-right: 8px;
+}
+
+.emotion-8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.emotion-22 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.emotion-22 iconButton {
+  margin-right: 8px;
 }
 
 <div>
-  <h3
-    class="margin-top"
+  <h2
+    class="margin-top-xl margin-bottom"
   >
-    Plans
-  </h3>
+    Our plans
+  </h2>
   <div
-    class="flexbox space-between"
+    class="margin-bottom-small"
+  >
+    Your current plan: 
+    Free trial
+  </div>
+  <div
+    class="flexbox"
     style="padding-bottom: 15px;"
   >
     <div
-      class="planPanel emotion-0  "
+      class="planPanel emotion-0 "
     >
-      <div
-        class="uppercased align-center muted emotion-1"
+      <h4
+        class="emotion-1 title"
       >
-        current plan
-      </div>
-      <h4>
-        Basic
+        Alvaldi Basic
          
       </h4>
-      <div>
-        <div
-          class="link-color bold emotion-2"
-        >
-          $32/month
-        </div>
+      <div
+        class="emotion-2"
+      >
         <div>
-          for first 50 devices
+          <div
+            class="emotion-3 emotion-4"
+          >
+            <span>
+              From
+            </span>
+             
+            <b
+              class="price"
+            >
+              3$ / month
+            </b>
+          </div>
+          <div
+            class="emotion-3"
+            style="margin-top: 17px; margin-bottom: 30px;"
+          >
+            <div
+              class="flexbox center-aligned"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-6"
+                data-testid="PersonIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                />
+              </svg>
+              2+ users
+            </div>
+            <div
+              class="margin-top-xs flexbox center-aligned"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-6"
+                data-testid="DeveloperBoardIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M22 9V7h-2V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-2h2v-2h-2v-2h2v-2h-2V9h2zm-4 10H4V5h14v14zM6 13h5v4H6zm6-6h4v3h-4zM6 7h5v5H6zm6 4h4v6h-4z"
+                />
+              </svg>
+               
+              10+ devices
+            </div>
+          </div>
+        </div>
+        <ul
+          class="unstyled"
+        >
+          <li>
+            <div
+              class="emotion-8"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-6"
+                data-testid="CheckIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                />
+              </svg>
+              Access to core features of Alvaldi
+            </div>
+          </li>
+          <li>
+            <div
+              class="emotion-8"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-6"
+                data-testid="CheckIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                />
+              </svg>
+              Technical support
+            </div>
+          </li>
+        </ul>
+        <div>
+          <b />
         </div>
       </div>
-      <ul
-        class="unstyled"
-      >
-        <li>
-          <span
-            class="emotion-3 "
-          >
-            Basic OTA features
-          </span>
-        </li>
-      </ul>
     </div>
     <div
-      class="planPanel emotion-0  "
+      class="planPanel emotion-0 "
     >
-      <div
-        class="uppercased align-center muted emotion-1"
+      <h4
+        class="emotion-1 title"
       >
-        upgrade
-      </div>
-      <h4>
-        Professional
+        Alvaldi Professional
          
       </h4>
-      <div>
-        <div
-          class="link-color bold emotion-2"
-        >
-          $269/month
-        </div>
-        <div>
-          for first 250 devices
-        </div>
-      </div>
-      <ul
-        class="unstyled"
-      >
-        <li>
-          <span
-            class="emotion-3 "
-          >
-            + Advanced OTA features
-          </span>
-        </li>
-        <li>
-          <span
-            class="emotion-3 "
-          >
-            + Standard support
-          </span>
-        </li>
-      </ul>
-    </div>
-    <div
-      class="planPanel emotion-0 active "
-    >
       <div
-        class="uppercased align-center muted emotion-1"
+        class="emotion-2"
       >
-        upgrade
-      </div>
-      <h4>
-        Enterprise
-         
-      </h4>
-      <div>
-        <div
-          class="link-color bold emotion-2"
-        >
-          Custom pricing
-        </div>
         <div>
-          unlimited devices
+          <div
+            class="emotion-3 emotion-4"
+          >
+            <span>
+              From
+            </span>
+             
+            <b
+              class="price"
+            >
+              8$ / month
+            </b>
+          </div>
+          <div
+            class="emotion-3"
+            style="margin-top: 17px; margin-bottom: 30px;"
+          >
+            <div
+              class="flexbox center-aligned"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-6"
+                data-testid="PersonIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                />
+              </svg>
+              5+ users
+            </div>
+            <div
+              class="margin-top-xs flexbox center-aligned"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-6"
+                data-testid="DeveloperBoardIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M22 9V7h-2V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-2h2v-2h-2v-2h2v-2h-2V9h2zm-4 10H4V5h14v14zM6 13h5v4H6zm6-6h4v3h-4zM6 7h5v5H6zm6 4h4v6h-4z"
+                />
+              </svg>
+               
+              10+ devices
+            </div>
+          </div>
+        </div>
+        <ul
+          class="unstyled"
+        >
+          <li>
+            <div
+              class="emotion-8"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-6"
+                data-testid="CheckIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                />
+              </svg>
+              Full audit log
+              <svg
+                aria-hidden="true"
+                aria-label="Audit logs are kept accessible for 90 days and you have the option of exporting them regularly to retain them longer, according to your requirements."
+                class="MuiSvgIcon-root MuiSvgIcon-fontSize16 margin-left-small muted emotion-22"
+                data-mui-internal-clone-element="true"
+                data-testid="HelpOutlineIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"
+                />
+              </svg>
+            </div>
+          </li>
+          <li>
+            <div
+              class="emotion-8"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-6"
+                data-testid="CheckIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                />
+              </svg>
+              Data localization guaranteed
+              <svg
+                aria-hidden="true"
+                aria-label="You can choose whether you want your data to be stored and processed in the EU or US."
+                class="MuiSvgIcon-root MuiSvgIcon-fontSize16 margin-left-small muted emotion-22"
+                data-mui-internal-clone-element="true"
+                data-testid="HelpOutlineIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"
+                />
+              </svg>
+            </div>
+          </li>
+        </ul>
+        <div>
+          <b>
+            ...and everything in Alvaldi Basic
+          </b>
         </div>
       </div>
-      <ul
-        class="unstyled"
-      >
-        <li>
-          <span
-            class="emotion-3 "
-          >
-            + Enterprise-grade OTA features
-          </span>
-        </li>
-        <li>
-          <span
-            class="emotion-3 "
-          >
-            + Premium support
-          </span>
-        </li>
-      </ul>
     </div>
   </div>
 </div>

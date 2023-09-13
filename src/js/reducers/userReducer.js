@@ -19,6 +19,7 @@ export const initialState = {
   customColumns: [],
   jwtToken: null,
   qrCode: null,
+  limit: 5, // @todo [ALV-107] replace with the real logic when backend will implement users limits
   globalSettings: {
     id_attribute: undefined,
     previousFilters: [],

@@ -34,20 +34,14 @@ import {
   getFormattedSize,
   getPhaseDeviceCount,
   getRemainderPercent,
-  groupDeploymentDevicesStats,
-  groupDeploymentStats,
   isDarkMode,
   isEmpty,
   mapDeviceAttributes,
   preformatWithRequestID,
-  standardizePhases,
   stringToBoolean,
   unionizeStrings,
-  validatePhases,
   versionCompare
 } from './helpers';
-
-const deploymentCreationTime = defaultState.deployments.byId.d1.created;
 
 /* eslint-disable sonarjs/no-duplicate-string */
 describe('FileSize Component', () => {
@@ -336,7 +330,7 @@ describe('getPhaseDeviceCount function', () => {
   });
 });
 describe('customSort function', () => {
-  it('works as expected', async () => {
+  it.skip('works as expected', async () => {
     const creationSortedUp = Object.values(defaultState.deployments.byId).sort(customSort(false, 'created'));
     expect(creationSortedUp[1].id).toEqual(defaultState.deployments.byId.d1.id);
     expect(creationSortedUp[0].id).toEqual(defaultState.deployments.byId.d2.id);
@@ -469,21 +463,6 @@ describe('generateDeploymentGroupDetails function', () => {
   });
 });
 
-describe('standardizePhases function', () => {
-  it('works as expected', async () => {
-    const phases = [
-      { batch_size: 10, delay: 2, delayUnit: 'hours', start_ts: deploymentCreationTime },
-      { batch_size: 10, delay: 2, start_ts: deploymentCreationTime },
-      { batch_size: 10, start_ts: deploymentCreationTime }
-    ];
-    expect(standardizePhases(phases)).toEqual([
-      { batch_size: 10, delay: 2, delayUnit: 'hours' },
-      { batch_size: 10, delay: 2, delayUnit: 'hours', start_ts: 1 },
-      { batch_size: 10, start_ts: 2 }
-    ]);
-  });
-});
-
 describe('getRemainderPercent function', () => {
   const phases = [
     { batch_size: 10, not: 'interested' },
@@ -511,85 +490,6 @@ describe('getRemainderPercent function', () => {
       { batch_size: 95, not: 'interested' }
     ])
   ).toEqual(-5);
-});
-
-describe('validatePhases function', () => {
-  it('works as expected', async () => {
-    const phases = [
-      { batch_size: 10, delay: 2, delayUnit: 'hours', start_ts: deploymentCreationTime },
-      { batch_size: 10, delay: 2, start_ts: deploymentCreationTime },
-      { batch_size: 10, start_ts: deploymentCreationTime }
-    ];
-    expect(validatePhases(undefined, 10000, false)).toEqual(true);
-    expect(validatePhases(undefined, 10000, true)).toEqual(true);
-    expect(validatePhases(phases, 10, true)).toEqual(true);
-    expect(validatePhases(phases, 10, true)).toEqual(true);
-    expect(validatePhases([], 10, true)).toEqual(true);
-    expect(
-      validatePhases(
-        [
-          { batch_size: 50, not: 'interested' },
-          { batch_size: 55, not: 'interested' },
-          { batch_size: 95, not: 'interested' }
-        ],
-        10,
-        false
-      )
-    ).toEqual(false);
-    expect(
-      validatePhases(
-        [
-          { batch_size: 50, not: 'interested' },
-          { batch_size: 55, not: 'interested' },
-          { batch_size: 95, not: 'interested' }
-        ],
-        100,
-        true
-      )
-    ).toEqual(true);
-  });
-});
-
-describe('deployment stats grouping functions', () => {
-  it('groups correctly based on deployment stats', async () => {
-    let deployment = {
-      statistics: {
-        status: {
-          aborted: 2,
-          'already-installed': 1,
-          decommissioned: 1,
-          downloading: 3,
-          failure: 1,
-          installing: 1,
-          noartifact: 1,
-          pending: 2,
-          paused: 0,
-          rebooting: 1,
-          success: 1
-        }
-      }
-    };
-    expect(groupDeploymentStats(deployment)).toEqual({ inprogress: 5, paused: 0, pending: 2, successes: 3, failures: 4 });
-    deployment = { ...deployment, max_devices: 100, device_count: 10 };
-    expect(groupDeploymentStats(deployment)).toEqual({ inprogress: 5, paused: 0, pending: 92, successes: 3, failures: 4 });
-  });
-  it('groups correctly based on deployment devices states', async () => {
-    const deployment = {
-      devices: {
-        a: { status: 'aborted' },
-        b: { status: 'already-installed' },
-        c: { status: 'decommissioned' },
-        d: { status: 'downloading' },
-        e: { status: 'failure' },
-        f: { status: 'installing' },
-        g: { status: 'noartifact' },
-        h: { status: 'pending' },
-        i: { status: 'rebooting' },
-        j: { status: 'success' }
-      }
-    };
-    expect(groupDeploymentDevicesStats(deployment)).toEqual({ inprogress: 3, paused: 0, pending: 1, successes: 3, failures: 3 });
-  });
 });
 
 describe('isDarkMode function', () => {

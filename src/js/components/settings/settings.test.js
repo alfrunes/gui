@@ -15,10 +15,13 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 
+import { ThemeProvider, createTheme } from '@mui/material';
+
 import { render as testingLibRender } from '@testing-library/react';
 
 import { defaultState, undefineds } from '../../../../tests/mockData';
 import { getConfiguredStore } from '../../reducers';
+import { light as lightTheme } from '../../themes/Mender';
 import Settings from './settings';
 
 describe('Settings Component', () => {
@@ -44,16 +47,19 @@ describe('Settings Component', () => {
   });
 
   it('renders correctly', async () => {
+    const theme = createTheme(lightTheme);
     const { baseElement } = testingLibRender(
-      <MemoryRouter initialEntries={['/settings/my-profile']}>
-        <Provider store={store}>
-          <Routes>
-            <Route path="settings" element={<Settings />}>
-              <Route path=":section" element={null} />
-            </Route>
-          </Routes>
-        </Provider>
-      </MemoryRouter>
+      <ThemeProvider theme={theme}>
+        <MemoryRouter initialEntries={['/settings/my-profile']}>
+          <Provider store={store}>
+            <Routes>
+              <Route path="settings" element={<Settings />}>
+                <Route path=":section" element={null} />
+              </Route>
+            </Routes>
+          </Provider>
+        </MemoryRouter>
+      </ThemeProvider>
     );
     const view = baseElement.firstChild.firstChild;
     expect(view).toMatchSnapshot();

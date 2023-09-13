@@ -106,7 +106,7 @@ const searchHandler = ({ body: { page, per_page, filters } }, res, ctx) => {
     if (filters.find(filter => filter.attribute === 'group' && filter.value.includes(Object.keys(defaultState.devices.groups.byId)[0]))) {
       return res(ctx.set(headerNames.total, 2), ctx.json([inventoryDevice]));
     }
-    if (filters.find(filter => filter.scope === 'monitor' && ['failed_last_update', 'alerts', 'auth_request'].includes(filter.attribute))) {
+    if (filters.find(filter => filter.scope === 'monitor' && ['failed_last_update', 'alerts', 'auth_requests'].includes(filter.attribute))) {
       return res(ctx.set(headerNames.total, 4), ctx.json([inventoryDevice]));
     }
     return res(ctx.set(headerNames.total, 0), ctx.json([]));
@@ -274,7 +274,7 @@ export const deviceHandlers = [
   }),
   rest.post(`${deviceConfig}/:deviceId/deploy`, ({ params: { deviceId } }, res, ctx) => {
     if (defaultState.devices.byId[deviceId]) {
-      return res(ctx.status(200), ctx.json({ deployment_id: defaultState.deployments.byId.d1.id }));
+      return res(ctx.status(200), ctx.json({}));
     }
     return res(ctx.status(514));
   }),
@@ -294,13 +294,13 @@ export const deviceHandlers = [
   }),
   rest.get(`${iotManagerBaseURL}/devices/:deviceId/state`, ({ params: { deviceId } }, res, ctx) => {
     if (defaultState.devices.byId[deviceId]) {
-      return res(ctx.status(200), ctx.json({ deployment_id: defaultState.deployments.byId.d1.id }));
+      return res(ctx.status(200), ctx.json({}));
     }
     return res(ctx.status(515));
   }),
   rest.put(`${iotManagerBaseURL}/devices/:deviceId/state/:integrationId`, ({ params: { deviceId }, body }, res, ctx) => {
     if (defaultState.devices.byId[deviceId] && body) {
-      return res(ctx.status(200), ctx.json({ deployment_id: defaultState.deployments.byId.d1.id }));
+      return res(ctx.status(200), ctx.json({}));
     }
     return res(ctx.status(516));
   }),

@@ -15,9 +15,6 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useParams } from 'react-router-dom';
 
-// material ui
-import { Payment as PaymentIcon } from '@mui/icons-material';
-
 import { Elements } from '@stripe/react-stripe-js';
 
 import { TIMEOUTS, canAccess } from '../../constants/appConstants';
@@ -69,8 +66,7 @@ const sectionMap = {
   },
   upgrade: {
     component: Upgrade,
-    icon: <PaymentIcon />,
-    text: ({ isTrial }) => (isTrial ? 'Upgrade to a plan' : 'Upgrades and add-ons'),
+    text: () => 'Upgrade your plan',
     canAccess: ({ hasMultitenancy }) => hasMultitenancy
   }
 };

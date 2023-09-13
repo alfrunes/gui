@@ -405,7 +405,7 @@ label+.emotion-9 {
 }
 
 .emotion-9:before {
-  border-bottom: 1px solid rgb(224, 224, 224);
+  border-bottom: 1px solid #F5F5F5;
 }
 
 .emotion-9:hover:not($disabled):before {

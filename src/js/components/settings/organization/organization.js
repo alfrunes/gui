@@ -26,7 +26,7 @@ import { setSnackbar } from '../../../actions/appActions';
 import { changeSamlConfig, deleteSamlConfig, getSamlConfigs, getUserOrganization, storeSamlConfig } from '../../../actions/organizationActions';
 import { TIMEOUTS } from '../../../constants/appConstants';
 import { toggle } from '../../../helpers';
-import { getFeatures, getIsEnterprise, getOrganization, getUserRoles } from '../../../selectors';
+import { getIsEnterprise, getOrganization, getUserRoles } from '../../../selectors';
 import ExpandableAttribute from '../../common/expandable-attribute';
 import { MenderTooltipClickable } from '../../common/mendertooltip';
 import Billing from './billing';
@@ -91,7 +91,6 @@ export const Organization = () => {
   const [isConfiguringSSO, setIsConfiguringSSO] = useState(false);
   const isEnterprise = useSelector(getIsEnterprise);
   const { isAdmin } = useSelector(getUserRoles);
-  const { isHosted } = useSelector(getFeatures);
   const org = useSelector(getOrganization);
   const samlConfigs = useSelector(state => state.organization.samlConfigs);
   const dispatch = useDispatch();
@@ -197,7 +196,7 @@ export const Organization = () => {
       <Collapse className="margin-left-large" in={isConfiguringSSO}>
         <SAMLConfig configs={samlConfigs} onSave={onSaveSSOSettings} onCancel={onCancelSSOSettings} setSnackbar={message => dispatch(setSnackbar(message))} />
       </Collapse>
-      {isHosted && <Billing />}
+      <Billing />
     </div>
   );
 };

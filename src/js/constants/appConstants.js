@@ -58,36 +58,48 @@ export const locations = {
   eu: { key: 'eu', title: 'EU', location: 'eu.hosted.alvaldi.com', icon: FlagEU },
   us: { key: 'us', title: 'US', location: 'hosted.alvaldi.com', icon: FlagUS }
 };
+/**
+ * @todo [ALV-106] PLANS will be changed on the backend and should be adjusted here after the changes
+ */
 export const PLANS = {
   os: {
-    name: 'Basic',
+    name: 'Free trial',
+    isTrial: true,
     offer: true,
-    price: '$32/month',
-    deviceCount: startingDeviceCount.os,
-    offerprice: '$23/month for first 50 devices',
-    price2: 'for first 6 months;\n$29/month thereafter',
-    features: ['Basic OTA features'],
+    price: '6 months free',
+    deviceCount: '10 devices',
+    usersCount: '2 users',
+    features: [{ feature: 'Access to core features of Alvaldi' }],
     value: 'os',
-    logsDaysLimit: 2
+    logsDaysLimit: 2,
+    info: 'Upgrade to a paid plan for additional users or devices'
   },
   professional: {
-    name: 'Professional',
+    name: 'Alvaldi Basic',
     offer: true,
-    price: '$269/month',
-    deviceCount: startingDeviceCount.professional,
-    offerprice: '$200/month for first 50 devices',
-    price2: 'for first 6 months;\n$249/month thereafter',
-    features: ['+ Advanced OTA features', '+ Standard support'],
+    price: '3$ / month',
+    deviceCount: '10+ devices',
+    usersCount: '2+ users',
+    features: [{ feature: 'Access to core features of Alvaldi' }, { feature: 'Technical support' }],
     value: 'professional',
     logsDaysLimit: 2
   },
   enterprise: {
-    name: 'Enterprise',
-    price: 'Custom pricing',
-    deviceCount: 'unlimited devices',
-    features: ['+ Enterprise-grade OTA features', '+ Premium support'],
+    name: 'Alvaldi Professional',
+    price: '8$ / month',
+    deviceCount: '10+ devices',
+    usersCount: '5+ users',
+    features: [
+      {
+        feature: 'Full audit log',
+        explanation:
+          'Audit logs are kept accessible for 90 days and you have the option of exporting them regularly to retain them longer, according to your requirements.'
+      },
+      { feature: 'Data localization guaranteed', explanation: 'You can choose whether you want your data to be stored and processed in the EU or US.' }
+    ],
     value: 'enterprise',
-    logsDaysLimit: null
+    logsDaysLimit: null,
+    additionalFeatures: '...and everything in Alvaldi Basic'
   }
 };
 // the needs names need to be aligned with the name of the features in the appReducer, as they will be checked in the addonselection

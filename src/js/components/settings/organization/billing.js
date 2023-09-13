@@ -11,21 +11,22 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // material ui
-import { Error as ErrorIcon, OpenInNew as OpenInNewIcon } from '@mui/icons-material';
-import { LinearProgress, List } from '@mui/material';
+import { Error as ErrorIcon } from '@mui/icons-material';
+import { Button, LinearProgress, List } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 
 import moment from 'moment';
 
 import { cancelRequest } from '../../../actions/organizationActions';
-import { ADDONS, PLANS } from '../../../constants/appConstants';
+import { getUserList } from '../../../actions/userActions.js';
+import { PLANS } from '../../../constants/appConstants';
 import { toggle } from '../../../helpers';
-import { getAcceptedDevices, getDeviceLimit, getIsEnterprise, getOrganization, getUserRoles } from '../../../selectors';
+import { getAcceptedDevices, getDeviceLimit, getIsEnterprise, getOrganization, getUserRoles, getUsersById, getUsersLimit } from '../../../selectors';
 import Alert from '../../common/alert';
 import CancelRequestDialog from '../dialogs/cancelrequest';
 import OrganizationPaymentSettings from './organizationpaymentsettings';
@@ -50,19 +51,13 @@ export const TrialExpirationNote = ({ trial_expiration }) => (
   </div>
 );
 
-export const DeviceLimitExpansionNotification = ({ isTrial }) => (
+export const LimitExpansionNotification = ({ type }) => (
   <div className="flexbox centered">
     <ErrorIcon className="muted margin-right-small" fontSize="small" />
     <div className="muted" style={{ marginRight: 4 }}>
-      To increase your device limit,{' '}
+      To add more {type},{' '}
     </div>
-    {isTrial ? (
-      <Link to="/settings/upgrade">upgrade to a paid plan</Link>
-    ) : (
-      <a href="mailto:contact@mender.io" target="_blank" rel="noopener noreferrer">
-        contact our sales team
-      </a>
-    )}
+    <Link to="/settings/upgrade">upgrade to a paid plan</Link>
     <div className="muted">.</div>
   </div>
 );
@@ -81,9 +76,9 @@ export const CancelSubscriptionAlert = () => (
 
 export const CancelSubscriptionButton = ({ handleCancelSubscription, isTrial }) => (
   <p className="margin-left-small margin-right-small" style={{ maxWidth }}>
-    <a href="" onClick={handleCancelSubscription}>
+    <Button variant="contained" color="secondary" onClick={handleCancelSubscription}>
       {isTrial ? 'End trial' : 'Cancel subscription'} and deactivate account
-    </a>
+    </Button>
   </p>
 );
 
@@ -92,29 +87,20 @@ export const Billing = () => {
   const [cancelSubscriptionConfirmation, setCancelSubscriptionConfirmation] = useState(false);
   const { isAdmin } = useSelector(getUserRoles);
   const { total: acceptedDevices = 0 } = useSelector(getAcceptedDevices);
+  const registeredUsersCount = Object.keys(useSelector(getUsersById)).length;
   const deviceLimit = useSelector(getDeviceLimit);
+  const usersLimit = useSelector(getUsersLimit);
   const isEnterprise = useSelector(getIsEnterprise);
   const organization = useSelector(getOrganization);
   const { plan: currentPlan = 'os' } = organization;
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { classes } = useStyles();
 
-  const planName = PLANS[currentPlan].name;
+  useEffect(() => {
+    dispatch(getUserList());
+  }, []);
 
-  const enabledAddOns =
-    organization.addons?.reduce((accu, addon) => {
-      if (addon.enabled) {
-        const { title } = ADDONS[addon.name];
-        let addonPrice = '';
-        if (!organization.trial && !isEnterprise) {
-          const planAddon = ADDONS[addon.name][currentPlan] ? ADDONS[addon.name][currentPlan] : ADDONS[addon.name].os;
-          addonPrice = ` - ${planAddon.price}`;
-        }
-        accu.push(`${title}${addonPrice}`);
-      }
-      return accu;
-    }, []) || [];
+  const planName = PLANS[currentPlan].name;
 
   const cancelSubscriptionSubmit = async reason =>
     dispatch(cancelRequest(organization.id, reason)).then(() => {
@@ -136,35 +122,27 @@ export const Billing = () => {
         <OrganizationSettingsItem
           title="Current plan"
           content={{
-            action: { title: 'Compare product plans', internal: false, target: 'https://mender.io/plans/pricing' },
+            action: { title: 'Compare product plans', internal: false, target: 'https://alvaldi.com/plans/pricing' },
             description: organization.trial ? 'Trial' : planName
           }}
           notification={organization.trial ? <TrialExpirationNote trial_expiration={organization.trial_expiration} /> : null}
         />
         {deviceLimit > 0 && (
           <OrganizationSettingsItem
-            title={`Device limit: ${acceptedDevices}/${deviceLimit}`}
+            title={`Devices: ${acceptedDevices}/${deviceLimit}`}
             content={{}}
             secondary={<LinearProgress className={classes.deviceLimitBar} variant="determinate" value={(acceptedDevices * 100) / deviceLimit} />}
-            notification={<DeviceLimitExpansionNotification isTrial={organization.trial} />}
+            notification={<LimitExpansionNotification type="devices" />}
           />
         )}
-        <OrganizationSettingsItem
-          title="Current add-ons"
-          content={{
-            action: { title: 'Purchase an add-on', internal: true, action: () => navigate('/settings/upgrade') },
-            description: enabledAddOns.length ? enabledAddOns.join(', ') : `You currently don't have any add-ons`
-          }}
-          notification={organization.trial && <TrialExpirationNote trial_expiration={organization.trial_expiration} />}
-          sideBarContent={
-            <div className="margin-left-small margin-bottom">
-              <a className="flexbox center-aligned" href="https://mender.io/plans/pricing" target="_blank" rel="noopener noreferrer">
-                <div style={{ maxWidth: 200 }}>Compare plans and add-ons at mender.io</div>
-                <OpenInNewIcon fontSize="small" />
-              </a>
-            </div>
-          }
-        />
+        {usersLimit > 0 && (
+          <OrganizationSettingsItem
+            title={`Users: ${registeredUsersCount}/${usersLimit}`}
+            content={{}}
+            secondary={<LinearProgress className={classes.deviceLimitBar} variant="determinate" value={(registeredUsersCount * 100) / usersLimit} />}
+            notification={<LimitExpansionNotification type="users" />}
+          />
+        )}
         {!organization.trial && !isEnterprise && <OrganizationPaymentSettings />}
       </List>
       {cancelSubscriptionConfirmation && <CancelSubscriptionAlert />}

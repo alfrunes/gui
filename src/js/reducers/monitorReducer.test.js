@@ -56,6 +56,23 @@ describe('monitor reducer', () => {
         .byDeviceId[defaultState.devices.byId.a1.id].latest
     ).toEqual([123, 456]);
   });
+  it('should handle RECEIVE_DEVICE_ISSUE_COUNTS', async () => {
+    expect(
+      reducer(undefined, {
+        type: MonitorConstants.RECEIVE_DEVICE_ISSUE_COUNTS,
+        issueType: DEVICE_ISSUE_OPTIONS.offline.key,
+        counts: { filtered: 1, total: 3 }
+      }).issueCounts.byType[DEVICE_ISSUE_OPTIONS.offline.key]
+    ).toEqual({ filtered: 1, total: 3 });
+
+    expect(
+      reducer(initialState, {
+        type: MonitorConstants.RECEIVE_DEVICE_ISSUE_COUNTS,
+        issueType: DEVICE_ISSUE_OPTIONS.offline.key,
+        counts: { total: 3 }
+      }).issueCounts.byType[DEVICE_ISSUE_OPTIONS.offline.key]
+    ).toEqual({ total: 3 });
+  });
   it('should handle SET_ALERT_LIST_STATE', async () => {
     expect(reducer(undefined, { type: MonitorConstants.SET_ALERT_LIST_STATE, value: { total: 3 } }).alerts.alertList).toEqual({ total: 3 });
     expect(reducer(initialState, { type: MonitorConstants.SET_ALERT_LIST_STATE, value: 'something' }).alerts.alertList).toEqual('something');

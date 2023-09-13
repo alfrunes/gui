@@ -19,12 +19,10 @@ import { makeStyles } from 'tss-react/mui';
 
 import { setSnackbar } from '../../actions/appActions';
 import { TIMEOUTS } from '../../constants/appConstants';
-import { DEPLOYMENT_ROUTES } from '../../constants/deploymentConstants';
 import { onboardingSteps } from '../../constants/onboardingConstants';
 import { getCurrentUser, getOnboardingState } from '../../selectors';
 import { getOnboardingComponentFor } from '../../utils/onboardingmanager';
 import Loader from '../common/loader';
-import Deployments from './deployments';
 import Devices from './devices';
 import SoftwareDistribution from './software-distribution';
 
@@ -91,15 +89,7 @@ export const Dashboard = () => {
     };
   }, []);
 
-  const handleClick = params => {
-    let redirect = params.route;
-    if (params.route === 'deployments') {
-      let query = params.open ? ['open=true'] : [];
-      params.id ? query.push(`id=${params.id}`) : undefined;
-      redirect = `/deployments/${params.tab || DEPLOYMENT_ROUTES.active.key}?${query.join('&')}`;
-    }
-    navigate(redirect);
-  };
+  const handleClick = params => navigate(params.route);
 
   return (
     <>
@@ -110,7 +100,6 @@ export const Dashboard = () => {
             <Devices clickHandle={handleClick} />
             <SoftwareDistribution />
           </div>
-          <Deployments className={classes.right} clickHandle={handleClick} />
         </div>
       ) : (
         <div className="flexbox centered" style={{ height: '75%' }}>

@@ -13,82 +13,135 @@
 //    limitations under the License.
 import React from 'react';
 
+import {
+  Check as CheckIcon,
+  DeveloperBoard as DeveloperBoardIcon,
+  HelpOutline as HelpOutlineIcon,
+  InfoOutlined as InfoOutlineIcon,
+  Person as PersonIcon
+} from '@mui/icons-material';
+import { Tooltip } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 
 import { PLANS } from '../../constants/appConstants';
-import { isDarkMode } from '../../helpers.js';
-import InfoText from '../common/infotext';
 
 export const useStyles = makeStyles()(theme => ({
   planNote: { marginBottom: -11, fontSize: 'smaller' },
   planPanel: {
-    borderColor: theme.palette.background.lightgrey,
-    ['&.active,&:hover']: {
-      borderColor: theme.palette.grey[50],
-      boxShadow: '0 1px 6px rgba(0, 0, 0, 0.15)'
+    '&.planPanel': {
+      padding: 0,
+      maxWidth: 205,
+      marginRight: 18
     },
-    ['&.active']: {
-      backgroundColor: isDarkMode(theme.palette.mode) ? theme.palette.grey[50] : theme.palette.grey[400]
-    },
-    '&.addon': {
-      alignItems: 'center',
-      columnGap: 10,
-      display: 'grid',
-      gridTemplateColumns: 'max-content minmax(150px, min-content) 1fr max-content',
-      height: 'initial',
-      marginTop: 10,
-      minWidth: 550,
-      width: 'initial'
-    },
-    '&.addon.upgrade': {
-      gridTemplateColumns: 'max-content minmax(120px, min-content) minmax(120px, min-content) 1fr max-content'
+    borderColor: theme.palette.grey[300],
+    '&.trial .title': {
+      background: theme.palette.text.inactive
     }
   },
-  price: { fontSize: '1rem' }
+  price: {
+    display: 'flex',
+    alignItems: 'center',
+    'b': {
+      fontSize: 18,
+      letterSpacing: '0.15px'
+    },
+    'span': {
+      fontSize: 12,
+      color: theme.palette.greySecondary[600],
+      letterSpacing: '0.5px',
+      marginRight: theme.spacing(1)
+    }
+  },
+  title: {
+    background: theme.palette.primary.main,
+    color: theme.palette.surface.primary,
+    textAlign: 'center',
+    margin: 0,
+    padding: '11px 0px',
+    fontSize: 14,
+    fontWeight: 700,
+    borderRadius: '5px 5px 0px 0px'
+  },
+  body: {
+    padding: '11px 23px 25px 23px'
+  },
+  icons: {
+    color: theme.palette.primary.main,
+    fontSize: 16,
+    marginRight: 4
+  },
+  center: {
+    margin: '0 auto',
+    width: 'fit-content'
+  },
+  feature: {
+    display: 'flex',
+    alignItems: 'baseline',
+    marginBottom: 8
+  },
+  info: {
+    display: 'flex',
+    alignItems: 'baseline',
+    color: theme.palette.grey[900]
+  }
 }));
 
-export const PlanSelection = ({ currentPlan = 'os', isTrial, offerValid, offerTag, setUpdatedPlan, updatedPlan }) => {
+export const PlanSelection = ({ currentPlan = 'os', isTrial, offerValid, offerTag }) => {
   const { classes } = useStyles();
-  const canUpgrade = plan => Object.keys(PLANS).indexOf(plan) >= Object.keys(PLANS).indexOf(currentPlan);
-  const onPlanSelect = plan => (isTrial || canUpgrade(plan) ? setUpdatedPlan(plan) : undefined);
   return (
     <>
-      <h3 className="margin-top">{isTrial ? '1. Choose a plan' : 'Plans'}</h3>
-      <div className="flexbox space-between" style={{ paddingBottom: 15 }}>
-        {Object.values(PLANS).map(item => (
-          <div
-            key={item.value}
-            className={`planPanel ${classes.planPanel} ${updatedPlan === item.value ? 'active' : ''} ${isTrial || canUpgrade(item.value) ? '' : 'muted'}`}
-            onClick={() => onPlanSelect(item.value)}
-          >
-            {!isTrial && canUpgrade(item.value) && (
-              <div className={`uppercased align-center muted ${classes.planNote}`}>{item.value === currentPlan ? 'current plan' : 'upgrade'}</div>
-            )}
-            <h4>
-              {item.name} {item.offer && isTrial && offerValid ? offerTag : null}
-            </h4>
-            <div>
-              {item.offer && isTrial && offerValid ? (
-                <>
-                  <div className={`link-color bold ${classes.price}`}>{item.offerprice}</div>
-                  <div className="pre-line">{item.price2}</div>
-                </>
-              ) : (
-                <>
-                  <div className={`link-color bold ${classes.price}`}>{item.price}</div>
-                  <div>{item.deviceCount}</div>
-                </>
-              )}
+      <h2 className="margin-top-xl margin-bottom">Our plans</h2>
+      <div className="margin-bottom-small">Your current plan: {PLANS[currentPlan]?.name}</div>
+      <div className="flexbox" style={{ paddingBottom: 15 }}>
+        {Object.values(PLANS)
+          .filter(item => isTrial || !item.isTrial)
+          .map(item => (
+            <div key={item.value} className={`planPanel ${classes.planPanel} ${item.isTrial ? 'trial' : ''}`}>
+              <h4 className={`${classes.title} title`}>
+                {item.name} {item.offer && isTrial && offerValid ? offerTag : null}
+              </h4>
+              <div className={classes.body}>
+                <div>
+                  <div className={`${classes.center} ${classes.price}`}>
+                    {!item.isTrial && <span>From</span>} <b className="price">{item.price}</b>
+                  </div>
+                  <div className={classes.center} style={{ marginTop: 17, marginBottom: 30 }}>
+                    <div className="flexbox center-aligned">
+                      <PersonIcon className={classes.icons} />
+                      {item.usersCount}
+                    </div>
+                    <div className="margin-top-xs flexbox center-aligned">
+                      <DeveloperBoardIcon className={classes.icons} /> {item.deviceCount}
+                    </div>
+                  </div>
+                </div>
+                <ul className="unstyled">
+                  {item.features.map((item, index) => (
+                    <li key={`${item.value}-feature-${index}`}>
+                      <div className={classes.feature}>
+                        <CheckIcon className={classes.icons} />
+                        {item.feature}
+                        {item?.explanation && (
+                          <Tooltip arrow placement="bottom" title={item.explanation}>
+                            <HelpOutlineIcon className="margin-left-small muted" fontSize="16" />
+                          </Tooltip>
+                        )}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+                <div>
+                  <b>{item?.additionalFeatures}</b>
+                </div>
+                {item?.info && (
+                  <div className={classes.info}>
+                    <InfoOutlineIcon style={{ fontSize: 16, marginRight: 4 }} />
+                    {item.info}
+                  </div>
+                )}
+              </div>
             </div>
-            <ul className="unstyled">
-              {item.features.map((feature, index) => (
-                <li key={`${item.value}-feature-${index}`}>
-                  <InfoText variant="dense">{feature}</InfoText>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+          ))}
       </div>
     </>
   );

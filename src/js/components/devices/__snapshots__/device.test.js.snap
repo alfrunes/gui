@@ -874,7 +874,7 @@ label+.emotion-36 {
 }
 
 .emotion-36:before {
-  border-bottom: 1px solid rgb(224, 224, 224);
+  border-bottom: 1px solid #F5F5F5;
 }
 
 .emotion-36:hover:not($disabled):before {
@@ -1357,7 +1357,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-37:focus::-ms-input-
 }
 
 .emotion-51:before {
-  border-bottom: 1px solid rgb(224, 224, 224);
+  border-bottom: 1px solid #F5F5F5;
 }
 
 .emotion-51:hover:not($disabled):before {
@@ -2034,8 +2034,8 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-37:focus::-ms-input-
                                 <label
                                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-colorPrimary Mui-focused MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard emotion-35"
                                   data-shrink="true"
-                                  for="mui-20"
-                                  id="mui-20-label"
+                                  for="mui-2"
+                                  id="mui-2-label"
                                 >
                                   Destination directory on the device where the file will be transferred
                                 </label>
@@ -2045,7 +2045,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-37:focus::-ms-input-
                                   <input
                                     aria-invalid="false"
                                     class="MuiInputBase-input MuiInput-input emotion-37"
-                                    id="mui-20"
+                                    id="mui-2"
                                     placeholder="Example: /opt/installed-by-single-file"
                                     style="margin-top: 16px;"
                                     type="text"
