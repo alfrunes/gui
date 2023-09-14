@@ -714,3 +714,11 @@ export const generateToken =
 
 export const revokeToken = token => dispatch =>
   GeneralApi.delete(`${useradmApiUrl}/settings/tokens/${token.id}`).then(() => Promise.resolve(dispatch(getTokens())));
+
+export const getUserLimit = () => dispatch =>
+  GeneralApi.get(`${useradmApiUrl}/limits`).then(res =>
+    dispatch({
+      type: UserConstants.SET_USER_LIMIT,
+      limit: res.data
+    })
+  );

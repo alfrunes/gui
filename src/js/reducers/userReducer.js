@@ -19,7 +19,7 @@ export const initialState = {
   customColumns: [],
   jwtToken: null,
   qrCode: null,
-  limit: 5, // @todo [ALV-107] replace with the real logic when backend will implement users limits
+  limit: 0,
   globalSettings: {
     id_attribute: undefined,
     previousFilters: [],
@@ -157,6 +157,8 @@ const userReducer = (state = initialState, action) => {
         ...state,
         showConnectDeviceDialog: action.show
       };
+    case UserConstants.SET_USER_LIMIT:
+      return { ...state, limit: action.limit };
     default:
       return state;
   }
