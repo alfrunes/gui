@@ -45,7 +45,7 @@ import {
 } from '../constants/deviceConstants';
 import { SET_DEMO_ARTIFACT_PORT, SET_ONBOARDING_COMPLETE } from '../constants/onboardingConstants';
 import { SET_ORGANIZATION } from '../constants/organizationConstants';
-import { RECEIVED_PERMISSION_SETS, RECEIVED_ROLES, SET_GLOBAL_SETTINGS, SET_SHOW_HELP, SET_USER_SETTINGS } from '../constants/userConstants';
+import { RECEIVED_PERMISSION_SETS, RECEIVED_ROLES, SET_GLOBAL_SETTINGS, SET_SHOW_HELP, SET_USER_LIMIT, SET_USER_SETTINGS } from '../constants/userConstants';
 import {
   commonErrorHandler,
   getLatestReleaseInfo,
@@ -256,6 +256,7 @@ describe('app actions', () => {
         }
       },
       { type: SET_DEVICE_LIMIT, limit: 500 },
+      { type: SET_USER_LIMIT, limit: 2 },
       { type: RECEIVED_PERMISSION_SETS, value: receivedPermissionSets },
       { type: RECEIVED_ROLES, value: receivedRoles },
       { type: SET_ORGANIZATION, organization: defaultState.organization.organization },

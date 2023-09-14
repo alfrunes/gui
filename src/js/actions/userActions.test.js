@@ -233,6 +233,7 @@ const appInitActions = [
   },
   // { type: SET_ONBOARDING_ARTIFACT_INCLUDED, value: true },
   { type: SET_DEVICE_LIMIT, limit: 500 },
+  { type: SET_USER_LIMIT, limit: 2 },
   { type: RECEIVED_PERMISSION_SETS, value: receivedPermissionSets },
   // {
   //   type: RECEIVE_EXTERNAL_DEVICE_INTEGRATIONS,
