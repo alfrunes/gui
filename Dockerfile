@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 COPY package-lock.json package.json ./
 RUN npm ci
 
-FROM mendersoftware/gui:base AS disclaim
+FROM registry.mender.io/northerntech/alvaldi-gui:base AS disclaim
 RUN npm run disclaim
 
 FROM base AS build
