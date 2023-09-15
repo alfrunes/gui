@@ -214,7 +214,7 @@ export const Integrations = () => {
   return (
     <div>
       <h2 className="margin-top-small">Integrations</h2>
-      <div className="margin-top">
+      <div style={{ maxWidth: 750 }} className="margin-top">
         Enabling the integration with Azure IoT Hub allows Alvaldi to synchronize device information. This does not automatically install the Alvaldi client on
         your devices. For more information about how to set up Alvaldi, read our <Link to="/help/get-started">getting started guide</Link>.
       </div>
