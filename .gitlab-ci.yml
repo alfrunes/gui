@@ -126,6 +126,10 @@ test:licenses:
   tags:
     - mender-qa-worker-generic-light
 
+test:check-commits:
+  except:
+    - /^(main|staging|production|saas-[a-zA-Z0-9.]+)$/
+
 .template:test:acceptance:
   stage: e2e-test
   image: tiangolo/docker-with-compose
@@ -449,6 +453,10 @@ publish:image:saas:
   rules:
     - when: never
 
+trigger:saas:sync-staging-component:
+  rules:
+    - when: never
+
 .trigger:helm-version-bump:
   stage: version-bump
   trigger:
@@ -462,7 +470,7 @@ trigger:helm-version-bump:staging:
   extends:
     - .trigger:helm-version-bump
   rules:
-    - if: '$CI_COMMIT_BRANCH =~ /^(main|production|saas-[a-zA-Z0-9.]+)$/'
+    - if: '$CI_COMMIT_BRANCH =~ /^(main|staging|production|saas-[a-zA-Z0-9.]+)$/'
     - if: '$CI_COMMIT_TAG =~ /^saas-[a-zA-Z0-9.]+$/'
   variables:
     SYNC_ENVIRONMENT: staging
