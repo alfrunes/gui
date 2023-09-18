@@ -4,19 +4,21 @@
 #       This file is supposed to be loaded by a parent Tiltfile.
 #       See git:northerntechhq/alvaldi-helm/develop/Tiltfile
 
-watch = local_resource(
-    "alvaldi-gui watch",
-    # Initial build if dist does not exist
-    cmd="test -d dist || npm run build",
-    # Command to run in the background
-    serve_cmd="npm run watch"
-)
 
-build = custom_build(
- "alvaldi-gui",
- "docker build -t $EXPECTED_REF --target unprivileged .",
- deps=["Dockerfile", "dist"],
- live_update=[
-    sync("dist", "/var/www/mender-gui/dist")
- ],
-)
+def build(name="gui", dir=".", labels=[]):
+    local_resource(
+        name,
+        # Initial build if dist does not exist
+        cmd="test -d dist || npm run build",
+        dir=dir,
+        # Command to run in the background
+        serve_cmd="npm run watch",
+        serve_dir=dir,
+        labels=labels,
+    )
+    custom_build(
+        name,
+        "docker build -t $EXPECTED_REF --target unprivileged %s" % dir,
+        deps=[os.path.join(dir, "Dockerfile"), os.path.join(dir, "dist")],
+        live_update=[sync(os.path.join(dir, "dist"), "/var/www/mender-gui/dist")],
+    )
