@@ -1,6 +1,4 @@
-# using fixed platform  in the base target
-# since the result is always static files
-FROM node:20.5.1-alpine AS base
+FROM --platform=$BUILDPLATFORM node:20.5.1-alpine AS base
 WORKDIR /usr/src/app
 COPY package-lock.json package.json ./
 RUN npm ci
@@ -8,10 +6,9 @@ RUN npm ci
 FROM registry.mender.io/northerntech/alvaldi-gui:base AS disclaim
 RUN npm run disclaim
 
-FROM base AS build
+FROM --platform=$BUILDPLATFORM base AS build
 COPY . ./
 RUN npm run build
-
 
 FROM nginxinc/nginx-unprivileged:1.25.2-alpine AS unprivileged
 EXPOSE 8090
