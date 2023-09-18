@@ -92,13 +92,10 @@ export const PLANS = {
 export const TRIAL_DATA = {
   name: 'Free trial',
   isTrial: true,
-  offer: true,
   price: '6 months free',
   deviceCount: '10 devices',
   usersCount: '2 users',
   features: [{ feature: 'Access to core features of Alvaldi' }],
-  value: 'os',
-  logsDaysLimit: 2,
   info: 'Upgrade to a paid plan for additional users or devices'
 };
 
