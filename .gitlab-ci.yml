@@ -485,5 +485,6 @@ trigger:helm-version-bump:prod:
   variables:
     SYNC_ENVIRONMENT: prod
     HELM_PATCH_VERSION: ${CI_PIPELINE_ID}
+    DOCKER_PUBLISH_COMMIT_TAG: ${CI_COMMIT_REF_NAME}
   needs:
     - trigger:helm-version-bump:staging
