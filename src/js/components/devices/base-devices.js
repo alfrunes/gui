@@ -192,6 +192,7 @@ export const defaultHeaders = {
   },
   viewDevice: {
     title: 'View device',
+    attribute: {},
     component: ({ device }) => (
       <div>
         <DeviceLink className="flexbox centered" id={device.id}>
