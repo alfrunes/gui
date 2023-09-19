@@ -15,11 +15,11 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // material ui
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Tooltip } from '@mui/material';
 
 import { setSnackbar } from '../../../actions/appActions';
 import { createUser, editUser, getUserList, passwordResetStart, removeUser } from '../../../actions/userActions';
-import { getCurrentUser, getFeatures, getIsEnterprise, getRolesById, getUserCapabilities } from '../../../selectors';
+import { getCurrentUser, getFeatures, getIsEnterprise, getRolesById, getUserCapabilities, getUsersLimit } from '../../../selectors';
 import { UserDefinition } from './userdefinition';
 import UserForm from './userform';
 import UserList from './userlist';
@@ -63,6 +63,7 @@ export const UserManagement = () => {
   const currentUser = useSelector(getCurrentUser);
   const roles = useSelector(getRolesById);
   const users = useSelector(state => Object.values(state.users.byId));
+  const usersLimit = useSelector(getUsersLimit);
   const props = {
     canManageUsers,
     createUser: userData => dispatch(createUser(userData)),
@@ -121,13 +122,22 @@ export const UserManagement = () => {
     return dialogDismiss();
   };
 
+  const usersLimitReached = users.length > usersLimit;
+
   return (
     <div>
       <div className="flexbox centered space-between" style={{ marginLeft: '20px' }}>
         <h2>Users</h2>
-        <Button variant="contained" color="primary" onClick={setShowCreate}>
-          Create new user
-        </Button>
+        <Tooltip
+          title={usersLimitReached && `Your current plan allows for a maximum of ${usersLimit} users, and you have already reached this limit.`}
+          placement="left"
+        >
+          <span>
+            <Button disabled={usersLimitReached} variant="contained" color="primary" onClick={setShowCreate}>
+              Create new user
+            </Button>
+          </span>
+        </Tooltip>
       </div>
 
       <UserList {...props} editUser={openEdit} />
