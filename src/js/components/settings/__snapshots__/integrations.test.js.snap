@@ -526,6 +526,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-5:focus::-ms-input-p
   </h2>
   <div
     class="margin-top"
+    style="max-width: 750px;"
   >
     Enabling the integration with Azure IoT Hub allows Alvaldi to synchronize device information. This does not automatically install the Alvaldi client on your devices. For more information about how to set up Alvaldi, read our 
     <a

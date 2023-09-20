@@ -829,19 +829,6 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-18:focus::-ms-input-
         >
           Choose a device identity attribute to use to identify your devices throughout the UI.
         </div>
-        <div
-          class="margin-top-small margin-bottom-small"
-        >
-          <a
-            href="https://docs.mender.io/client-installation/identity"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Learn how to add custom identity attributes
-          </a>
-           
-          to your devices.
-        </div>
       </div>
     </div>
   </div>

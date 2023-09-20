@@ -127,7 +127,7 @@ exports[`Upgrade Component renders correctly 1`] = `
   </h2>
   <p>
     To get access to support, continue using Alvaldi, and add more users or devices, upgrade to one of our paid plans. Learn more about the different plans at
-
+     
     <a
       href="https://alvaldi.com/pricing"
       rel="noopener noreferrer"
@@ -136,7 +136,7 @@ exports[`Upgrade Component renders correctly 1`] = `
       alvaldi.com/pricing
     </a>
     . Prices change according to the number of users and devices, please see our
-
+     
     <a
       href="https://alvaldi.com/pricing#calculator"
       rel="noopener noreferrer"
@@ -144,7 +144,7 @@ exports[`Upgrade Component renders correctly 1`] = `
     >
       price calculator
     </a>
-
+     
     for more information.
   </p>
   <h2
@@ -155,7 +155,7 @@ exports[`Upgrade Component renders correctly 1`] = `
   <div
     class="margin-bottom-small"
   >
-    Your current plan:
+    Your current plan: 
     Free trial
   </div>
   <div
@@ -169,7 +169,7 @@ exports[`Upgrade Component renders correctly 1`] = `
         class="emotion-1 title"
       >
         Alvaldi Basic
-
+         
       </h4>
       <div
         class="emotion-2"
@@ -181,7 +181,7 @@ exports[`Upgrade Component renders correctly 1`] = `
             <span>
               From
             </span>
-
+             
             <b
               class="price"
             >
@@ -222,7 +222,7 @@ exports[`Upgrade Component renders correctly 1`] = `
                   d="M22 9V7h-2V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-2h2v-2h-2v-2h2v-2h-2V9h2zm-4 10H4V5h14v14zM6 13h5v4H6zm6-6h4v3h-4zM6 7h5v5H6zm6 4h4v6h-4z"
                 />
               </svg>
-
+               
               10+ devices
             </div>
           </div>
@@ -279,7 +279,7 @@ exports[`Upgrade Component renders correctly 1`] = `
         class="emotion-1 title"
       >
         Alvaldi Professional
-
+         
       </h4>
       <div
         class="emotion-2"
@@ -291,7 +291,7 @@ exports[`Upgrade Component renders correctly 1`] = `
             <span>
               From
             </span>
-
+             
             <b
               class="price"
             >
@@ -332,7 +332,7 @@ exports[`Upgrade Component renders correctly 1`] = `
                   d="M22 9V7h-2V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-2h2v-2h-2v-2h2v-2h-2V9h2zm-4 10H4V5h14v14zM6 13h5v4H6zm6-6h4v3h-4zM6 7h5v5H6zm6 4h4v6h-4z"
                 />
               </svg>
-
+               
               10+ devices
             </div>
           </div>
@@ -417,7 +417,7 @@ exports[`Upgrade Component renders correctly 1`] = `
     <span>
       Want to change your plan or simply have questions?
     </span>
-
+     
     <a
       class="margin-left-xs"
       href="https://alvaldi.com/contact"
@@ -443,9 +443,9 @@ exports[`smaller components renders PostUpgradeNote correctly 1`] = `
   <div>
     <p>
       <b>
-        Your upgrade was successful!
+        Your upgrade was successful! 
       </b>
-      You are now signed up to the
+      You are now signed up to the 
       <b />
        plan.
     </p>
@@ -519,7 +519,7 @@ exports[`smaller components renders PricingContactNote correctly 1`] = `
     />
   </svg>
   If you have any questions about the plan pricing or device limits,
-
+   
   <a
     href="mailto:contact@mender.io"
     rel="noopener noreferrer"
