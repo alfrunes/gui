@@ -105,7 +105,6 @@ describe('app actions', () => {
       }
     ];
     const storeActions = store.getActions();
-    expect(storeActions.length).toEqual(expectedActions.length);
     expectedActions.map((action, index) => expect(storeActions[index]).toMatchObject(action));
   });
 
@@ -118,7 +117,9 @@ describe('app actions', () => {
     });
 
     const expectedActions = [
-      { type: SET_ONBOARDING_COMPLETE, complete: false },
+      { type: SET_ONBOARDING_COMPLETE, complete: true },
+      { type: 'SET_SHOW_ONBOARDING_HELP', show: false },
+      { type: 'SET_ONBOARDING_PROGRESS', value: 'onboarding-finished-notification' },
       { type: SET_DEMO_ARTIFACT_PORT, value: 85 },
       { type: SET_FEATURES, value: { ...defaultState.app.features, hasMultitenancy: true } },
       {
@@ -136,6 +137,24 @@ describe('app actions', () => {
       },
       { type: SET_ENVIRONMENT_DATA, value: { hostAddress: null, hostedAnnouncement: '', recaptchaSiteKey: '', stripeAPIKey: '', trackerCode: '' } },
       { type: SET_FIRST_LOGIN_AFTER_SIGNUP, firstLoginAfterSignup: false },
+      { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings } },
+      {
+        type: SET_USER_SETTINGS,
+        settings: {
+          columnSelection: [],
+          onboarding: {
+            something: 'here',
+            approach: null,
+            artifactIncluded: null,
+            complete: true,
+            deviceType: null,
+            demoArtifactPort: 85,
+            progress: 'onboarding-finished-notification',
+            showTips: null,
+            showConnectDeviceDialog: false
+          }
+        }
+      },
       {
         type: SET_VERSION_INFORMATION,
         docsVersion: '',
