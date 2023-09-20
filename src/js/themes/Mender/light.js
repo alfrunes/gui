@@ -66,7 +66,7 @@ const palette = {
   text: {
     ...commonPalette.text,
     primary: '#212121',
-    entryLink: '#7adce6',
+    entryLink: '#DEFFF1',
     secondary: '#424242',
     inactive: '#616161'
   },
