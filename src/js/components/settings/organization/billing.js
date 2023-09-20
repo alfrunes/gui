@@ -11,7 +11,7 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -22,13 +22,10 @@ import { makeStyles } from 'tss-react/mui';
 
 import moment from 'moment';
 
-import { cancelRequest } from '../../../actions/organizationActions';
 import { getUserList } from '../../../actions/userActions.js';
 import { PLANS } from '../../../constants/appConstants';
-import { toggle } from '../../../helpers';
-import { getAcceptedDevices, getDeviceLimit, getIsEnterprise, getOrganization, getUserRoles, getUsersById, getUsersLimit } from '../../../selectors';
+import { getAcceptedDevices, getDeviceLimit, getIsEnterprise, getOrganization, getUsersById, getUsersLimit } from '../../../selectors';
 import Alert from '../../common/alert';
-import CancelRequestDialog from '../dialogs/cancelrequest';
 import OrganizationPaymentSettings from './organizationpaymentsettings';
 import OrganizationSettingsItem, { maxWidth } from './organizationsettingsitem';
 
@@ -83,9 +80,6 @@ export const CancelSubscriptionButton = ({ handleCancelSubscription, isTrial }) 
 );
 
 export const Billing = () => {
-  const [cancelSubscription, setCancelSubscription] = useState(false);
-  const [cancelSubscriptionConfirmation, setCancelSubscriptionConfirmation] = useState(false);
-  const { isAdmin } = useSelector(getUserRoles);
   const { total: acceptedDevices = 0 } = useSelector(getAcceptedDevices);
   const registeredUsersCount = Object.keys(useSelector(getUsersById)).length;
   const deviceLimit = useSelector(getDeviceLimit);
@@ -101,19 +95,6 @@ export const Billing = () => {
   }, []);
 
   const planName = PLANS[currentPlan].name;
-
-  const cancelSubscriptionSubmit = async reason =>
-    dispatch(cancelRequest(organization.id, reason)).then(() => {
-      setCancelSubscription(false);
-      setCancelSubscriptionConfirmation(true);
-    });
-
-  const handleCancelSubscription = e => {
-    if (e !== undefined) {
-      e.preventDefault();
-    }
-    setCancelSubscription(toggle);
-  };
 
   return (
     <div className={classes.wrapper}>
@@ -145,11 +126,6 @@ export const Billing = () => {
         )}
         {!organization.trial && !isEnterprise && <OrganizationPaymentSettings />}
       </List>
-      {cancelSubscriptionConfirmation && <CancelSubscriptionAlert />}
-      {isAdmin && !cancelSubscriptionConfirmation && (
-        <CancelSubscriptionButton handleCancelSubscription={handleCancelSubscription} isTrial={organization.trial} />
-      )}
-      {cancelSubscription && <CancelRequestDialog onCancel={() => setCancelSubscription(false)} onSubmit={cancelSubscriptionSubmit} />}
     </div>
   );
 };
