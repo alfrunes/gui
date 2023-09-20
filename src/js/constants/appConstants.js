@@ -58,8 +58,22 @@ export const locations = {
   eu: { key: 'eu', title: 'EU', location: 'eu.hosted.alvaldi.com', icon: FlagEU },
   us: { key: 'us', title: 'US', location: 'hosted.alvaldi.com', icon: FlagUS }
 };
-
+/**
+ * @todo [ALV-106] PLANS will be changed on the backend and should be adjusted here after the changes
+ */
 export const PLANS = {
+  os: {
+    name: 'Free trial',
+    isTrial: true,
+    offer: true,
+    price: '6 months free',
+    deviceCount: '10 devices',
+    usersCount: '2 users',
+    features: [{ feature: 'Access to core features of Alvaldi' }],
+    value: 'os',
+    logsDaysLimit: 2,
+    info: 'Upgrade to a paid plan for additional users or devices'
+  },
   professional: {
     name: 'Alvaldi Basic',
     offer: true,
@@ -88,17 +102,6 @@ export const PLANS = {
     additionalFeatures: '...and everything in Alvaldi Basic'
   }
 };
-
-export const TRIAL_DATA = {
-  name: 'Free trial',
-  isTrial: true,
-  price: '6 months free',
-  deviceCount: '10 devices',
-  usersCount: '2 users',
-  features: [{ feature: 'Access to core features of Alvaldi' }],
-  info: 'Upgrade to a paid plan for additional users or devices'
-};
-
 // the needs names need to be aligned with the name of the features in the appReducer, as they will be checked in the addonselection
 export const ADDONS = {
   configure: {

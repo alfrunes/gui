@@ -156,7 +156,7 @@ exports[`Upgrade Component renders correctly 1`] = `
     class="margin-bottom-small"
   >
     Your current plan: 
-    Alvaldi Basic
+    Free trial
   </div>
   <div
     class="flexbox"

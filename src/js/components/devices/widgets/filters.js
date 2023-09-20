@@ -20,7 +20,6 @@ import { Button, Chip, Collapse } from '@mui/material';
 
 import { getDeviceAttributes, setDeviceFilters, setDeviceListState } from '../../../actions/deviceActions';
 import { saveGlobalSettings } from '../../../actions/userActions';
-import { PLANS } from '../../../constants/appConstants.js';
 import { DEVICE_FILTERING_OPTIONS, emptyFilter } from '../../../constants/deviceConstants';
 import { deepCompare } from '../../../helpers';
 import { getDeviceFilters, getFilterAttributes, getIsEnterprise, getOrganization, getSelectedGroupInfo, getTenantCapabilities } from '../../../selectors';
@@ -41,7 +40,7 @@ export const Filters = ({ className = '', filters: propsFilters, isModification 
   const [currentFilters, setCurrentFilters] = useState([]);
   const [editedIndex, setEditedIndex] = useState(0);
   const dispatch = useDispatch();
-  const { plan = PLANS.professional.value } = useSelector(getOrganization);
+  const { plan = 'os' } = useSelector(getOrganization);
   const { groupFilters, selectedGroup } = useSelector(getSelectedGroupInfo);
   const attributes = useSelector(getFilterAttributes);
   const { hasFullFiltering: canFilterMultiple } = useSelector(getTenantCapabilities);

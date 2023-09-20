@@ -23,7 +23,7 @@ import {
 import { Tooltip } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 
-import { PLANS, TRIAL_DATA } from '../../constants/appConstants';
+import { PLANS } from '../../constants/appConstants';
 
 export const useStyles = makeStyles()(theme => ({
   planNote: { marginBottom: -11, fontSize: 'smaller' },
@@ -86,60 +86,62 @@ export const useStyles = makeStyles()(theme => ({
   }
 }));
 
-export const PlanSelection = ({ currentPlan = PLANS.professional.value, isTrial, offerValid, offerTag }) => {
+export const PlanSelection = ({ currentPlan = 'os', isTrial, offerValid, offerTag }) => {
   const { classes } = useStyles();
   return (
     <>
       <h2 className="margin-top-xl margin-bottom">Our plans</h2>
-      <div className="margin-bottom-small">Your current plan: {isTrial ? TRIAL_DATA.name : PLANS[currentPlan]?.name}</div>
+      <div className="margin-bottom-small">Your current plan: {PLANS[currentPlan]?.name}</div>
       <div className="flexbox" style={{ paddingBottom: 15 }}>
-        {Object.values(isTrial ? { TRIAL_DATA, ...PLANS } : PLANS).map(item => (
-          <div key={item.value} className={`planPanel ${classes.planPanel} ${item.isTrial ? 'trial' : ''}`}>
-            <h4 className={`${classes.title} title`}>
-              {item.name} {item.offer && isTrial && offerValid ? offerTag : null}
-            </h4>
-            <div className={classes.body}>
-              <div>
-                <div className={`${classes.center} ${classes.price}`}>
-                  {!item.isTrial && <span>From</span>} <b className="price">{item.price}</b>
-                </div>
-                <div className={classes.center} style={{ marginTop: 17, marginBottom: 30 }}>
-                  <div className="flexbox center-aligned">
-                    <PersonIcon className={classes.icons} />
-                    {item.usersCount}
+        {Object.values(PLANS)
+          .filter(item => isTrial || !item.isTrial)
+          .map(item => (
+            <div key={item.value} className={`planPanel ${classes.planPanel} ${item.isTrial ? 'trial' : ''}`}>
+              <h4 className={`${classes.title} title`}>
+                {item.name} {item.offer && isTrial && offerValid ? offerTag : null}
+              </h4>
+              <div className={classes.body}>
+                <div>
+                  <div className={`${classes.center} ${classes.price}`}>
+                    {!item.isTrial && <span>From</span>} <b className="price">{item.price}</b>
                   </div>
-                  <div className="margin-top-xs flexbox center-aligned">
-                    <DeveloperBoardIcon className={classes.icons} /> {item.deviceCount}
-                  </div>
-                </div>
-              </div>
-              <ul className="unstyled">
-                {item.features.map((item, index) => (
-                  <li key={`${item.value}-feature-${index}`}>
-                    <div className={classes.feature}>
-                      <CheckIcon className={classes.icons} />
-                      {item.feature}
-                      {item?.explanation && (
-                        <Tooltip arrow placement="bottom" title={item.explanation}>
-                          <HelpOutlineIcon className="margin-left-small muted" fontSize="16" />
-                        </Tooltip>
-                      )}
+                  <div className={classes.center} style={{ marginTop: 17, marginBottom: 30 }}>
+                    <div className="flexbox center-aligned">
+                      <PersonIcon className={classes.icons} />
+                      {item.usersCount}
                     </div>
-                  </li>
-                ))}
-              </ul>
-              <div>
-                <b>{item?.additionalFeatures}</b>
-              </div>
-              {item?.info && (
-                <div className={classes.info}>
-                  <InfoOutlineIcon style={{ fontSize: 16, marginRight: 4 }} />
-                  {item.info}
+                    <div className="margin-top-xs flexbox center-aligned">
+                      <DeveloperBoardIcon className={classes.icons} /> {item.deviceCount}
+                    </div>
+                  </div>
                 </div>
-              )}
+                <ul className="unstyled">
+                  {item.features.map((item, index) => (
+                    <li key={`${item.value}-feature-${index}`}>
+                      <div className={classes.feature}>
+                        <CheckIcon className={classes.icons} />
+                        {item.feature}
+                        {item?.explanation && (
+                          <Tooltip arrow placement="bottom" title={item.explanation}>
+                            <HelpOutlineIcon className="margin-left-small muted" fontSize="16" />
+                          </Tooltip>
+                        )}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+                <div>
+                  <b>{item?.additionalFeatures}</b>
+                </div>
+                {item?.info && (
+                  <div className={classes.info}>
+                    <InfoOutlineIcon style={{ fontSize: 16, marginRight: 4 }} />
+                    {item.info}
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
     </>
   );

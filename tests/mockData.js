@@ -355,7 +355,7 @@ export const defaultState = {
       addons: [],
       id: 1,
       name: 'test',
-      plan: 'professional',
+      plan: 'os',
       trial: false
     }
   },
