@@ -23,6 +23,7 @@ import pluralize from 'pluralize';
 import preauthImage from '../../../assets/img/preauthorize.png';
 import { DEVICE_STATES } from '../../constants/deviceConstants';
 import { rootfsImageVersion } from '../../constants/releaseConstants';
+import { backslashNonAlphaNumeric } from '../../helpers.js';
 import DeviceLink from '../common/device-link.js';
 import Time, { ApproximateRelativeDate } from '../common/time';
 import DeviceStatus from './device-status';
@@ -56,7 +57,8 @@ export const getDeviceIdentityText = ({ device = {}, idAttribute }) => {
 };
 
 export const AttributeRenderer = ({ content, textContent, style = {} }) => {
-  const highlight = useSelector(state => state.devices.highlight);
+  // Non-alphanumerics must have backslashes added, otherwise, the Highlighter component will fail because it will attempt to parse it as a regex.
+  const highlight = backslashNonAlphaNumeric(useSelector(state => state.devices.highlight));
   return (
     <div style={style} title={textContent}>
       {highlight ? (
