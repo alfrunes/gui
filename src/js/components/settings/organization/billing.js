@@ -86,7 +86,7 @@ export const Billing = () => {
   const usersLimit = useSelector(getUsersLimit);
   const isEnterprise = useSelector(getIsEnterprise);
   const organization = useSelector(getOrganization);
-  const { plan: currentPlan = PLANS.professional.value } = organization;
+  const { plan: currentPlan = 'os' } = organization;
   const dispatch = useDispatch();
   const { classes } = useStyles();
 
