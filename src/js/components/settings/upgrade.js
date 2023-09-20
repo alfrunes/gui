@@ -19,6 +19,7 @@ import { InfoOutlined as InfoOutlinedIcon, LocalOffer as LocalOfferIcon } from '
 import moment from 'moment';
 
 import { getUserOrganization } from '../../actions/organizationActions';
+import { PLANS } from '../../constants/appConstants.js';
 import { getOrganization } from '../../selectors';
 import InfoText from '../common/infotext';
 import Loader from '../common/loader';
@@ -56,7 +57,7 @@ export const PricingContactNote = () => (
 
 export const Upgrade = () => {
   const offerValid = moment().isBefore('2021-01-01');
-  const [updatedPlan, setUpdatedPlan] = useState('os');
+  const [updatedPlan, setUpdatedPlan] = useState(PLANS.professional.value);
   const dispatch = useDispatch();
   const org = useSelector(getOrganization);
 
@@ -64,7 +65,7 @@ export const Upgrade = () => {
     dispatch(getUserOrganization());
   }, []);
 
-  const { plan: currentPlan = 'os', trial: isTrial = true } = org;
+  const { plan: currentPlan = PLANS.professional.value, trial: isTrial = true } = org;
   return (
     <div style={{ maxWidth: 750 }} className="margin-top-small">
       <h2 style={{ marginTop: 15 }}>Upgrade now</h2>

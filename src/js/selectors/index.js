@@ -207,7 +207,7 @@ export const getDocsVersion = createSelector([getAppDocsVersion, getFeatures], (
 
 export const getIsEnterprise = createSelector(
   [getOrganization, getFeatures],
-  ({ plan = PLANS.os.value }, { isEnterprise, isHosted }) => isEnterprise || (isHosted && plan === PLANS.enterprise.value)
+  ({ plan = PLANS.professional.value }, { isEnterprise, isHosted }) => isEnterprise || (isHosted && plan === PLANS.enterprise.value)
 );
 
 export const getLogsDaysLimit = createSelector([getOrganization], ({ plan }) => PLANS[plan]?.logsDaysLimit || null);
@@ -222,10 +222,10 @@ export const getRolesList = createSelector([getRolesById], rolesById => Object.e
 
 export const getUserRoles = createSelector(
   [getCurrentUser, getRolesById, getIsEnterprise, getFeatures, getOrganization],
-  (currentUser, rolesById, isEnterprise, { isHosted, hasMultitenancy }, { plan = PLANS.os.value }) => {
+  (currentUser, rolesById, isEnterprise, { isHosted, hasMultitenancy }, { plan = PLANS.professional.value }) => {
     const isAdmin = currentUser.roles?.length
       ? currentUser.roles.some(role => role === rolesByName.admin)
-      : !(hasMultitenancy || isEnterprise || (isHosted && plan !== PLANS.os.value));
+      : !(hasMultitenancy || isEnterprise || (isHosted && plan !== PLANS.professional.value));
     const uiPermissions = isAdmin
       ? mapUserRolesToUiPermissions([rolesByName.admin], rolesById)
       : mapUserRolesToUiPermissions(currentUser.roles || [], rolesById);
