@@ -361,16 +361,21 @@ exports[`UserManagement Component renders correctly 1`] = `
     <h2>
       Users
     </h2>
-    <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium emotion-0"
-      tabindex="0"
-      type="button"
+    <span
+      class=""
+      data-mui-internal-clone-element="true"
     >
-      Create new user
-      <span
-        class="MuiTouchRipple-root emotion-1"
-      />
-    </button>
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium emotion-0"
+        tabindex="0"
+        type="button"
+      >
+        Create new user
+        <span
+          class="MuiTouchRipple-root emotion-1"
+        />
+      </button>
+    </span>
   </div>
   <table
     class="MuiTable-root margin-bottom  emotion-2"
