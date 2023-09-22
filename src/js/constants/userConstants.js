@@ -23,10 +23,11 @@ export { useradmApiUrlv1 as useradmApiUrl };
 export const SET_USER_LIMIT = 'SET_USER_LIMIT';
 
 const staticRolesByName = {
-  admin: 'RBAC_ROLE_PERMIT_ALL',
   readOnly: 'RBAC_ROLE_OBSERVER',
+  audit: 'RBAC_ROLE_AUDIT',
   terminalAccess: 'RBAC_ROLE_TERMINAL',
-  fileTransferAccess: 'RBAC_ROLE_FILE_TRANSFER'
+  fileTransferAccess: 'RBAC_ROLE_FILE_TRANSFER',
+  admin: 'RBAC_ROLE_PERMIT_ALL'
 };
 
 export const PermissionTypes = {
@@ -204,22 +205,10 @@ export const checkPermissionsObject = (permissions, requiredPermission, scopedAc
   permissions[scopedAccess]?.some(permission => checkSinglePermission(permission, requiredPermission));
 
 export const rolesById = Object.freeze({
-  [staticRolesByName.admin]: {
-    name: 'Admin',
-    value: staticRolesByName.admin,
-    description: 'Full access',
-    permissions: [], // permissions refers to the values returned from the backend
-    uiPermissions: {
-      ...emptyUiPermissions,
-      auditlog: uiPermissionsByArea.auditlog.uiPermissions.map(permissionMapper),
-      groups: { [ALL_DEVICES]: uiPermissionsByArea.groups.uiPermissions.map(permissionMapper) },
-      userManagement: uiPermissionsByArea.userManagement.uiPermissions.map(permissionMapper)
-    }
-  },
   [staticRolesByName.readOnly]: {
-    name: 'Read Access',
+    name: 'Read',
     value: staticRolesByName.readOnly,
-    description: 'Intended for team leaders or limited tech support accounts, this role can see all Devices but cannot make any changes.',
+    description: 'See information about devices, including groups and inventory.',
     permissions: [],
     uiPermissions: {
       ...emptyUiPermissions,
@@ -227,11 +216,22 @@ export const rolesById = Object.freeze({
       userManagement: [uiPermissionsById.read.value]
     }
   },
+  [staticRolesByName.audit]: {
+    name: 'Audit',
+    value: staticRolesByName.audit,
+    description: 'Read access to audit logs, including session playback and CSV export. Intended for security / compliance teams.',
+    permissions: [], // permissions refers to the values returned from the backend
+    uiPermissions: {
+      ...emptyUiPermissions,
+      auditlog: uiPermissionsByArea.auditlog.uiPermissions.map(permissionMapper),
+      groups: { [ALL_DEVICES]: [uiPermissionsById.read.value] },
+      userManagement: [uiPermissionsById.read.value]
+    }
+  },
   [staticRolesByName.terminalAccess]: {
-    name: 'Terminal access',
+    name: 'Terminal',
     value: staticRolesByName.terminalAccess,
-    description:
-      'Intended for engineers who need to troubleshoot and be able to make changes to devices, this role can open the remote terminal and run user-specified commands on all devices.',
+    description: 'Enables use of the terminal. Intended for engineers who need to troubleshoot and make changes to devices by running commands.',
     permissions: [],
     uiPermissions: {
       ...emptyUiPermissions,
@@ -239,13 +239,25 @@ export const rolesById = Object.freeze({
     }
   },
   [staticRolesByName.fileTransferAccess]: {
-    name: 'File transfer access',
+    name: 'File transfer',
     value: staticRolesByName.terminalAccess,
-    description: 'Commonly used together with the Terminal access role, enabling file transfer to / from devices (upload / download).\n',
+    description: 'Commonly used together with the Terminal role, enabling file upload / download.',
     permissions: [],
     uiPermissions: {
       ...emptyUiPermissions,
       groups: { [ALL_DEVICES]: [uiPermissionsById.fileTransfer.value] }
+    }
+  },
+  [staticRolesByName.admin]: {
+    name: 'Admin',
+    value: staticRolesByName.admin,
+    description: 'Full administrative access. Allows managing users, integrations and various settings.',
+    permissions: [], // permissions refers to the values returned from the backend
+    uiPermissions: {
+      ...emptyUiPermissions,
+      auditlog: uiPermissionsByArea.auditlog.uiPermissions.map(permissionMapper),
+      groups: { [ALL_DEVICES]: uiPermissionsByArea.groups.uiPermissions.map(permissionMapper) },
+      userManagement: uiPermissionsByArea.userManagement.uiPermissions.map(permissionMapper)
     }
   }
 });
