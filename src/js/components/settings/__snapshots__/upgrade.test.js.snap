@@ -129,16 +129,16 @@ exports[`Upgrade Component renders correctly 1`] = `
     To get access to support, continue using Alvaldi, and add more users or devices, upgrade to one of our paid plans. Learn more about the different plans at
      
     <a
-      href="https://alvaldi.com/plans/pricing"
+      href="https://alvaldi.com/pricing"
       rel="noopener noreferrer"
       target="_blank"
     >
-      alvaldi.com/plans/pricing
+      alvaldi.com/pricing
     </a>
     . Prices change according to the number of users and devices, please see our
      
     <a
-      href="https://alvaldi.com/plans/pricing#calculator"
+      href="https://alvaldi.com/pricing#calculator"
       rel="noopener noreferrer"
       target="_blank"
     >

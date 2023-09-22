@@ -21,7 +21,6 @@ import { makeStyles } from 'tss-react/mui';
 
 import { getDocsVersion, getFeatures } from '../../selectors';
 import LeftNav from '../common/left-nav';
-import Downloads from './downloads';
 import GetStarted from './getting-started';
 import Support from './support';
 
@@ -29,11 +28,6 @@ const components = {
   'get-started': {
     title: 'Getting started',
     component: GetStarted
-  },
-  downloads: {
-    title: 'Downloads',
-    component: Downloads,
-    hosted: true
   },
   support: {
     title: 'Contact support',

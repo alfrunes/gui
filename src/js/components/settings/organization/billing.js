@@ -103,7 +103,7 @@ export const Billing = () => {
         <OrganizationSettingsItem
           title="Current plan"
           content={{
-            action: { title: 'Compare product plans', internal: false, target: 'https://alvaldi.com/plans/pricing' },
+            action: { title: 'Compare product plans', internal: false, target: 'https://alvaldi.com/pricing' },
             description: organization.trial ? 'Trial' : planName
           }}
           notification={organization.trial ? <TrialExpirationNote trial_expiration={organization.trial_expiration} /> : null}

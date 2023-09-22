@@ -1037,7 +1037,7 @@ exports[`MyOrganization Component renders correctly 1`] = `
               </div>
               <a
                 class="align-right"
-                href="https://alvaldi.com/plans/pricing"
+                href="https://alvaldi.com/pricing"
                 rel="noopener noreferrer"
                 target="_blank"
               >

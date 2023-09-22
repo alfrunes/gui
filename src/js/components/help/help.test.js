@@ -23,7 +23,6 @@ import { defaultState, undefineds } from '../../../../tests/mockData';
 import { render } from '../../../../tests/setupTests';
 import { getConfiguredStore } from '../../reducers';
 import { light as lightTheme } from '../../themes/Mender';
-import { Downloads } from './downloads';
 import GettingStarted from './getting-started';
 import Help from './help';
 import MenderHub from './mender-hub';
@@ -62,7 +61,7 @@ describe('Help Component', () => {
   });
 
   describe('static components', () => {
-    [Downloads, GettingStarted, MenderHub, Support].forEach(Component => {
+    [GettingStarted, MenderHub, Support].forEach(Component => {
       it(`renders ${Component.displayName || Component.name} correctly`, () => {
         const { baseElement } = render(<Component {...helpProps} />, { preloadedState });
         const view = baseElement.firstChild.firstChild;

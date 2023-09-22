@@ -71,11 +71,11 @@ export const Upgrade = () => {
       <p>
         To get access to support, continue using Alvaldi, and add more users or devices, upgrade to one of our paid plans. Learn more about the different plans
         at{' '}
-        <a href="https://alvaldi.com/plans/pricing" target="_blank" rel="noopener noreferrer">
-          alvaldi.com/plans/pricing
+        <a href="https://alvaldi.com/pricing" target="_blank" rel="noopener noreferrer">
+          alvaldi.com/pricing
         </a>
         . Prices change according to the number of users and devices, please see our{' '}
-        <a href="https://alvaldi.com/plans/pricing#calculator" target="_blank" rel="noopener noreferrer">
+        <a href="https://alvaldi.com/pricing#calculator" target="_blank" rel="noopener noreferrer">
           price calculator
         </a>{' '}
         for more information.
