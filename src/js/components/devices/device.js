@@ -121,7 +121,7 @@ export const Device = () => {
       </div>
       <div className="flexbox devicePage-content padding-left">
         <div className="devicePage-content_troubleshooting">
-          <DeviceNotifications alerts={latestAlerts} device={device} isOffline={device.isOffline} />
+          <DeviceNotifications alerts={latestAlerts} device={device} isOffline={device.isOffline} isInactive={device.isInactive} />
           <Troubleshoot device={device} />
         </div>
         <div className="devicePage-content_info">

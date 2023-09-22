@@ -316,7 +316,8 @@ const reduceReceivedDevices = (devices, ids, state, status) =>
         identity_data: storedIdentity = {},
         monitor: storedMonitor = {},
         tags: storedTags = {},
-        group: storedGroup
+        group: storedGroup,
+        external_id: storedExternalId = {}
       } = stateDevice;
       const { identity, inventory, monitor, system = {}, tags } = mapDeviceAttributes(device.attributes);
       // all the other mapped attributes return as empty objects if there are no attributes to map, but identity will be initialized with an empty state
@@ -330,6 +331,8 @@ const reduceReceivedDevices = (devices, ids, state, status) =>
       device.created_ts = getEarliestTs(getEarliestTs(system.created_ts, device.created_ts), stateDevice.created_ts);
       device.updated_ts = getLatestTs(getLatestTs(system.updated_ts, device.updated_ts), stateDevice.updated_ts);
       device.isOffline = new Date(device.updated_ts) < new Date(state.app.offlineThreshold);
+      device.external_id = { ...storedExternalId, ...(device.external_id ? device.external_id : {}) };
+      device.isInactive = device.external_id.hasOwnProperty('active') && !device.external_id.active;
       accu.devicesById[device.id] = { ...stateDevice, ...device };
       accu.ids.push(device.id);
       return accu;
