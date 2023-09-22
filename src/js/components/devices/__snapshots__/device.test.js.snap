@@ -144,7 +144,7 @@ exports[`Device Component renders correctly 1`] = `
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   font-size: inherit;
-  color: #ab1000;
+  color: #A11100;
   margin-left: 8px;
   font-size: 18px;
 }
@@ -787,7 +787,7 @@ exports[`Device Component renders correctly 1`] = `
 }
 
 .emotion-35.Mui-error {
-  color: #ab1000;
+  color: #A11100;
 }
 
 .emotion-35.Mui-focused {
@@ -849,7 +849,7 @@ label+.emotion-36 {
 
 .emotion-36.Mui-error:before,
 .emotion-36.Mui-error:after {
-  border-bottom-color: #ab1000;
+  border-bottom-color: #A11100;
 }
 
 .emotion-36:before {
@@ -1348,7 +1348,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-37:focus::-ms-input-
 
 .emotion-51.Mui-error:before,
 .emotion-51.Mui-error:after {
-  border-bottom-color: #ab1000;
+  border-bottom-color: #A11100;
 }
 
 .emotion-51:before {

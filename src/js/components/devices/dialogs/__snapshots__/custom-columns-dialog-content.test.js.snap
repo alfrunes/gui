@@ -421,7 +421,7 @@ exports[`ColumnCustomizationDialogContent Component renders correctly 1`] = `
 }
 
 .emotion-14.Mui-error {
-  color: #ab1000;
+  color: #A11100;
 }
 
 .emotion-14.Mui-focused {
@@ -483,7 +483,7 @@ label+.emotion-15 {
 
 .emotion-15.Mui-error:before,
 .emotion-15.Mui-error:after {
-  border-bottom-color: #ab1000;
+  border-bottom-color: #A11100;
 }
 
 .emotion-15:before {

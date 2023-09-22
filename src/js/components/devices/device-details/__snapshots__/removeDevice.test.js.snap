@@ -36,7 +36,7 @@ exports[`RemoveDevice Component renders correctly 1`] = `
   color: inherit;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 0.8125rem;
+  font-size: 0.7656rem;
   line-height: 1.75;
   text-transform: uppercase;
   min-width: 64px;

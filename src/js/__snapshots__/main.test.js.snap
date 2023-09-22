@@ -49,7 +49,7 @@ exports[`Main Component renders correctly 1`] = `
             readonly=""
           >
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart Mui-readOnly MuiInputBase-readOnly mui-17okz0c-MuiInputBase-root-MuiInput-root"
+              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart Mui-readOnly MuiInputBase-readOnly mui-1bfu37w-MuiInputBase-root-MuiInput-root"
             >
               <div
                 class="MuiInputAdornment-root MuiInputAdornment-positionStart MuiInputAdornment-standard MuiInputAdornment-sizeSmall mui-ittuaa-MuiInputAdornment-root"
@@ -832,7 +832,7 @@ exports[`Main Component renders correctly 1`] = `
                   </div>
                   <div>
                     <div
-                      aria-label="This device has not communicated with the Mender backend for a while. Click on the row to see more details"
+                      aria-label="This device has not communicated with the Alvaldi backend for a while. Click on the row to see more details"
                       class="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorDefault MuiChip-outlinedDefault deviceStatus margin-right-small mui-niglpa-MuiChip-root"
                       data-mui-internal-clone-element="true"
                     >
@@ -939,7 +939,7 @@ exports[`Main Component renders correctly 1`] = `
                   </div>
                   <div>
                     <div
-                      aria-label="This device has not communicated with the Mender backend for a while. Click on the row to see more details"
+                      aria-label="This device has not communicated with the Alvaldi backend for a while. Click on the row to see more details"
                       class="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorDefault MuiChip-outlinedDefault deviceStatus margin-right-small mui-niglpa-MuiChip-root"
                       data-mui-internal-clone-element="true"
                     >

@@ -313,7 +313,7 @@ exports[`CreateGroup Component renders correctly 1`] = `
 }
 
 .emotion-8.Mui-error {
-  color: #ab1000;
+  color: #A11100;
 }
 
 .emotion-8.Mui-focused {
@@ -375,7 +375,7 @@ label+.emotion-9 {
 
 .emotion-9.Mui-error:before,
 .emotion-9.Mui-error:after {
-  border-bottom-color: #ab1000;
+  border-bottom-color: #A11100;
 }
 
 .emotion-9:before {
@@ -538,7 +538,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-10:focus::-ms-input-
 }
 
 .emotion-11.Mui-error {
-  color: #ab1000;
+  color: #A11100;
 }
 
 .emotion-12 {

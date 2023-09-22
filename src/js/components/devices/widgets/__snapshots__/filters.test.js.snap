@@ -211,7 +211,7 @@ exports[`Filters Component renders correctly 1`] = `
 }
 
 .emotion-5.Mui-error {
-  color: #ab1000;
+  color: #A11100;
 }
 
 .emotion-5.Mui-focused {
@@ -273,7 +273,7 @@ label+.emotion-6 {
 
 .emotion-6.Mui-error:before,
 .emotion-6.Mui-error:after {
-  border-bottom-color: #ab1000;
+  border-bottom-color: #A11100;
 }
 
 .emotion-6:before {
@@ -589,7 +589,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-7:focus::-ms-input-p
 
 .emotion-12.Mui-error:before,
 .emotion-12.Mui-error:after {
-  border-bottom-color: #ab1000;
+  border-bottom-color: #A11100;
 }
 
 .emotion-12:before {
@@ -889,7 +889,7 @@ label+.emotion-18 {
 
 .emotion-18.Mui-error:before,
 .emotion-18.Mui-error:after {
-  border-bottom-color: #ab1000;
+  border-bottom-color: #A11100;
 }
 
 .emotion-18:before {
