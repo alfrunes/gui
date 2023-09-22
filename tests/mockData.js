@@ -135,6 +135,8 @@ export const defaultState = {
         identity_data: { mac: defaultMacAddress },
         status: 'accepted',
         decommissioning: false,
+        external_id: {},
+        isInactive: false,
         created_ts: defaultCreationDate,
         updated_ts: '2019-01-01T09:25:00.000Z',
         auth_sets: [
