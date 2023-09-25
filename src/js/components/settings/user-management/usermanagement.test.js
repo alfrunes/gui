@@ -73,7 +73,7 @@ describe('UserManagement Component', () => {
     expect(screen.getByRole('button', { name: /Save/i })).toBeDisabled();
     await user.click(selectButton);
     listbox = document.body.querySelector(dropDownSelector);
-    const listItem = within(listbox).getByText(/read access/i);
+    const listItem = within(listbox).getByText(/read/i);
     await user.click(listItem);
     await user.type(listbox, '{Escape}');
     await user.click(screen.getByRole('button', { name: /Save/i }));
