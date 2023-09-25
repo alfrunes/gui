@@ -113,7 +113,9 @@ const { attributes, ...expectedDevice } = defaultState.devices.byId.a1;
 
 const offlineThreshold = { type: SET_OFFLINE_THRESHOLD, value: '2019-01-12T13:00:00.900Z' };
 const appInitActions = [
-  { type: SET_ONBOARDING_COMPLETE, complete: false },
+  { type: SET_ONBOARDING_COMPLETE, complete: true },
+  { type: 'SET_SHOW_ONBOARDING_HELP', show: false },
+  { type: 'SET_ONBOARDING_PROGRESS', value: 'onboarding-finished-notification' },
   { type: SET_DEMO_ARTIFACT_PORT, value: 85 },
   { type: SET_FEATURES, value: { ...defaultState.app.features, hasMultitenancy: true } },
   {
@@ -130,6 +132,24 @@ const appInitActions = [
   },
   { type: SET_ENVIRONMENT_DATA, value: { hostAddress: null, hostedAnnouncement: '', recaptchaSiteKey: '', stripeAPIKey: '', trackerCode: '' } },
   { type: SET_FIRST_LOGIN_AFTER_SIGNUP, firstLoginAfterSignup: false },
+  { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings } },
+  {
+    type: SET_USER_SETTINGS,
+    settings: {
+      columnSelection: [],
+      onboarding: {
+        something: 'here',
+        approach: null,
+        artifactIncluded: null,
+        complete: true,
+        deviceType: null,
+        demoArtifactPort: 85,
+        progress: 'onboarding-finished-notification',
+        showTips: null,
+        showConnectDeviceDialog: false
+      }
+    }
+  },
   { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings } },
   { type: SET_GLOBAL_SETTINGS, settings: { '2fa': 'enabled', previousFilters: [] } },
   offlineThreshold,
@@ -243,6 +263,14 @@ const appInitActions = [
   //   ]
   // },
   { type: RECEIVED_ROLES, value: receivedRoles },
+  {
+    type: 'SET_ORGANIZATION',
+    organization: { addons: [], id: 1, name: 'test', plan: 'os', trial: false }
+  },
+  {
+    type: 'SET_ANNOUNCEMENT',
+    announcement: 'The system detected there is a change in your plan or purchased add-ons. Please log out and log in again'
+  },
   {
     type: RECEIVE_DEVICES,
     devicesById: { [expectedDevice.id]: { ...defaultState.devices.byId.a1, isOffline: true, monitor: {}, tags: {} } }

@@ -94,6 +94,11 @@ export const parseEnvironmentInfo = () => (dispatch, getState) => {
       stripeAPIKey,
       trackerCode
     } = mender_environment;
+    /**
+     * isEnterprise should be true as long as all plans have the same features set
+     * @todo replace isEnterprise with more granular features that will be added with new plans API
+     */
+    features.isEnterprise = true;
     onboardingComplete = stringToBoolean(features.isEnterprise) || stringToBoolean(disableOnboarding) || onboardingComplete;
     demoArtifactPort = port || demoArtifactPort;
     environmentData = {

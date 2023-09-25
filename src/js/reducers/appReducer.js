@@ -41,7 +41,7 @@ export const initialState = {
     hasReporting: false,
     isDemoMode: false,
     isHosted: false,
-    isEnterprise: false
+    isEnterprise: true
   },
   firstLoginAfterSignup: false,
   hostedAnnouncement: '',
