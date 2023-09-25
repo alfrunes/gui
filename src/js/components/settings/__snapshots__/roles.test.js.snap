@@ -111,7 +111,7 @@ exports[`Roles Component renders correctly 1`] = `
   margin-right: 8px;
 }
 
-.emotion-32 {
+.emotion-37 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -181,28 +181,28 @@ exports[`Roles Component renders correctly 1`] = `
   cursor: pointer;
 }
 
-.emotion-32::-moz-focus-inner {
+.emotion-37::-moz-focus-inner {
   border-style: none;
 }
 
-.emotion-32.Mui-disabled {
+.emotion-37.Mui-disabled {
   pointer-events: none;
   cursor: default;
 }
 
 @media print {
-  .emotion-32 {
+  .emotion-37 {
     -webkit-print-color-adjust: exact;
     color-adjust: exact;
   }
 }
 
-.emotion-32.Mui-disabled {
+.emotion-37.Mui-disabled {
   opacity: 0.38;
   pointer-events: none;
 }
 
-.emotion-32 .MuiChip-avatar {
+.emotion-37 .MuiChip-avatar {
   margin-left: 5px;
   margin-right: -6px;
   width: 24px;
@@ -211,17 +211,17 @@ exports[`Roles Component renders correctly 1`] = `
   font-size: 0.6964rem;
 }
 
-.emotion-32 .MuiChip-avatarColorPrimary {
+.emotion-37 .MuiChip-avatarColorPrimary {
   color: #fff;
   background-color: rgb(14, 114, 57);
 }
 
-.emotion-32 .MuiChip-avatarColorSecondary {
+.emotion-37 .MuiChip-avatarColorSecondary {
   color: rgba(0, 0, 0, 0.87);
   background-color: rgb(178, 178, 178);
 }
 
-.emotion-32 .MuiChip-avatarSmall {
+.emotion-37 .MuiChip-avatarSmall {
   margin-left: 4px;
   margin-right: -4px;
   width: 18px;
@@ -229,13 +229,13 @@ exports[`Roles Component renders correctly 1`] = `
   font-size: 0.5804rem;
 }
 
-.emotion-32 .MuiChip-icon {
+.emotion-37 .MuiChip-icon {
   margin-left: 5px;
   margin-right: -6px;
   color: inherit;
 }
 
-.emotion-32 .MuiChip-deleteIcon {
+.emotion-37 .MuiChip-deleteIcon {
   -webkit-tap-highlight-color: transparent;
   color: rgba(255, 255, 255, 0.7);
   font-size: 22px;
@@ -243,33 +243,33 @@ exports[`Roles Component renders correctly 1`] = `
   margin: 0 5px 0 -6px;
 }
 
-.emotion-32 .MuiChip-deleteIcon:hover {
+.emotion-37 .MuiChip-deleteIcon:hover {
   color: rgba(33, 33, 33, 0.4);
 }
 
-.emotion-32 .MuiChip-deleteIcon:hover,
-.emotion-32 .MuiChip-deleteIcon:active {
+.emotion-37 .MuiChip-deleteIcon:hover,
+.emotion-37 .MuiChip-deleteIcon:active {
   color: #fff;
 }
 
-.emotion-32:hover {
+.emotion-37:hover {
   background-color: rgba(0, 0, 0, 0.12);
 }
 
-.emotion-32.Mui-focusVisible {
+.emotion-37.Mui-focusVisible {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.emotion-32:active {
+.emotion-37:active {
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
 }
 
-.emotion-32:hover,
-.emotion-32.Mui-focusVisible {
+.emotion-37:hover,
+.emotion-37.Mui-focusVisible {
   background-color: rgb(14, 114, 57);
 }
 
-.emotion-34 {
+.emotion-39 {
   overflow: hidden;
   text-overflow: ellipsis;
   padding-left: 12px;
@@ -277,7 +277,7 @@ exports[`Roles Component renders correctly 1`] = `
   white-space: nowrap;
 }
 
-.emotion-35 {
+.emotion-40 {
   overflow: hidden;
   pointer-events: none;
   position: absolute;
@@ -333,118 +333,152 @@ exports[`Roles Component renders correctly 1`] = `
         <td
           class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-8"
         >
+          Read
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-8"
+        >
+          See information about devices, including groups and inventory.
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-8"
+        >
+          <div
+            class="bold flexbox center-aligned link-color margin-right-small uppercased"
+            style="white-space: nowrap;"
+          >
+            view details 
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-11"
+              data-testid="ArrowRightAltIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z"
+              />
+            </svg>
+          </div>
+        </td>
+      </tr>
+      <tr
+        class="MuiTableRow-root MuiTableRow-hover clickable emotion-2"
+      >
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-8"
+        >
+          Audit
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-8"
+        >
+          Read access to audit logs, including session playback and CSV export. Intended for security / compliance teams.
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-8"
+        >
+          <div
+            class="bold flexbox center-aligned link-color margin-right-small uppercased"
+            style="white-space: nowrap;"
+          >
+            view details 
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-11"
+              data-testid="ArrowRightAltIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z"
+              />
+            </svg>
+          </div>
+        </td>
+      </tr>
+      <tr
+        class="MuiTableRow-root MuiTableRow-hover clickable emotion-2"
+      >
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-8"
+        >
+          Terminal
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-8"
+        >
+          Enables use of the terminal. Intended for engineers who need to troubleshoot and make changes to devices by running commands.
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-8"
+        >
+          <div
+            class="bold flexbox center-aligned link-color margin-right-small uppercased"
+            style="white-space: nowrap;"
+          >
+            view details 
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-11"
+              data-testid="ArrowRightAltIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z"
+              />
+            </svg>
+          </div>
+        </td>
+      </tr>
+      <tr
+        class="MuiTableRow-root MuiTableRow-hover clickable emotion-2"
+      >
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-8"
+        >
+          File transfer
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-8"
+        >
+          Commonly used together with the Terminal role, enabling file upload / download.
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-8"
+        >
+          <div
+            class="bold flexbox center-aligned link-color margin-right-small uppercased"
+            style="white-space: nowrap;"
+          >
+            view details 
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-11"
+              data-testid="ArrowRightAltIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z"
+              />
+            </svg>
+          </div>
+        </td>
+      </tr>
+      <tr
+        class="MuiTableRow-root MuiTableRow-hover clickable emotion-2"
+      >
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-8"
+        >
           Admin
         </td>
         <td
           class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-8"
         >
-          Full access
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-8"
-        >
-          <div
-            class="bold flexbox center-aligned link-color margin-right-small uppercased"
-            style="white-space: nowrap;"
-          >
-            view details 
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-11"
-              data-testid="ArrowRightAltIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z"
-              />
-            </svg>
-          </div>
-        </td>
-      </tr>
-      <tr
-        class="MuiTableRow-root MuiTableRow-hover clickable emotion-2"
-      >
-        <td
-          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-8"
-        >
-          Read Access
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-8"
-        >
-          Intended for team leaders or limited tech support accounts, this role can see all Devices but cannot make any changes.
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-8"
-        >
-          <div
-            class="bold flexbox center-aligned link-color margin-right-small uppercased"
-            style="white-space: nowrap;"
-          >
-            view details 
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-11"
-              data-testid="ArrowRightAltIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z"
-              />
-            </svg>
-          </div>
-        </td>
-      </tr>
-      <tr
-        class="MuiTableRow-root MuiTableRow-hover clickable emotion-2"
-      >
-        <td
-          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-8"
-        >
-          Terminal access
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-8"
-        >
-          Intended for engineers who need to troubleshoot and be able to make changes to devices, this role can open the remote terminal and run user-specified commands on all devices.
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-8"
-        >
-          <div
-            class="bold flexbox center-aligned link-color margin-right-small uppercased"
-            style="white-space: nowrap;"
-          >
-            view details 
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-11"
-              data-testid="ArrowRightAltIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z"
-              />
-            </svg>
-          </div>
-        </td>
-      </tr>
-      <tr
-        class="MuiTableRow-root MuiTableRow-hover clickable emotion-2"
-      >
-        <td
-          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-8"
-        >
-          File transfer access
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-8"
-        >
-          Commonly used together with the Terminal access role, enabling file transfer to / from devices (upload / download).
-
+          Full administrative access. Allows managing users, integrations and various settings.
         </td>
         <td
           class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium relative emotion-8"
@@ -506,7 +540,7 @@ exports[`Roles Component renders correctly 1`] = `
     </tbody>
   </table>
   <div
-    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary emotion-32"
+    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary emotion-37"
     role="button"
     tabindex="0"
   >
@@ -522,12 +556,12 @@ exports[`Roles Component renders correctly 1`] = `
       />
     </svg>
     <span
-      class="MuiChip-label MuiChip-labelMedium emotion-34"
+      class="MuiChip-label MuiChip-labelMedium emotion-39"
     >
       Add a role
     </span>
     <span
-      class="MuiTouchRipple-root emotion-35"
+      class="MuiTouchRipple-root emotion-40"
     />
   </div>
 </div>
