@@ -11,7 +11,7 @@ exports[`Roles Component renders correctly 1`] = `
 .emotion-0 caption {
   font-family: Lato,sans-serif;
   font-weight: 400;
-  font-size: 0.8125rem;
+  font-size: 0.7656rem;
   line-height: 1.43;
   padding: 16px;
   color: #424242;
@@ -57,8 +57,8 @@ exports[`Roles Component renders correctly 1`] = `
 .emotion-3 {
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 0.8125rem;
-  line-height: 1.3929rem;
+  font-size: 0.7656rem;
+  line-height: 1.3125rem;
   display: table-cell;
   vertical-align: inherit;
   border-bottom: 1px solid rgba(224, 224, 224, 1);
@@ -78,7 +78,7 @@ exports[`Roles Component renders correctly 1`] = `
 .emotion-8 {
   font-family: Lato,sans-serif;
   font-weight: 400;
-  font-size: 0.8125rem;
+  font-size: 0.7656rem;
   line-height: 1.43;
   display: table-cell;
   vertical-align: inherit;
@@ -88,6 +88,7 @@ exports[`Roles Component renders correctly 1`] = `
   color: #212121;
   padding: 0px 24px 0px 24px;
   height: 48px;
+  font-size: 14px;
 }
 
 .emotion-11 {
@@ -104,7 +105,7 @@ exports[`Roles Component renders correctly 1`] = `
   flex-shrink: 0;
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.3929rem;
+  font-size: 1.3125rem;
 }
 
 .emotion-11 iconButton {
@@ -144,41 +145,23 @@ exports[`Roles Component renders correctly 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   color: inherit;
-  max-width: 100%;
   font-family: Lato,sans-serif;
-  font-size: 0.7545rem;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  height: 32px;
+  font-weight: 500;
+  font-size: 0.7656rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 16px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   color: #fff;
   background-color: #14A452;
-  border-radius: 16px;
-  white-space: nowrap;
-  -webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  outline: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  border: 0;
-  padding: 0;
-  vertical-align: middle;
-  box-sizing: border-box;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-  cursor: pointer;
+  box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+  text-transform: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .emotion-37::-moz-focus-inner {
@@ -197,87 +180,42 @@ exports[`Roles Component renders correctly 1`] = `
   }
 }
 
-.emotion-37.Mui-disabled {
-  opacity: 0.38;
-  pointer-events: none;
-}
-
-.emotion-37 .MuiChip-avatar {
-  margin-left: 5px;
-  margin-right: -6px;
-  width: 24px;
-  height: 24px;
-  color: #bcbcbc;
-  font-size: 0.6964rem;
-}
-
-.emotion-37 .MuiChip-avatarColorPrimary {
-  color: #fff;
-  background-color: rgb(14, 114, 57);
-}
-
-.emotion-37 .MuiChip-avatarColorSecondary {
-  color: rgba(0, 0, 0, 0.87);
-  background-color: rgb(178, 178, 178);
-}
-
-.emotion-37 .MuiChip-avatarSmall {
-  margin-left: 4px;
-  margin-right: -4px;
-  width: 18px;
-  height: 18px;
-  font-size: 0.5804rem;
-}
-
-.emotion-37 .MuiChip-icon {
-  margin-left: 5px;
-  margin-right: -6px;
-  color: inherit;
-}
-
-.emotion-37 .MuiChip-deleteIcon {
-  -webkit-tap-highlight-color: transparent;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 22px;
-  cursor: pointer;
-  margin: 0 5px 0 -6px;
-}
-
-.emotion-37 .MuiChip-deleteIcon:hover {
-  color: rgba(33, 33, 33, 0.4);
-}
-
-.emotion-37 .MuiChip-deleteIcon:hover,
-.emotion-37 .MuiChip-deleteIcon:active {
-  color: #fff;
-}
-
 .emotion-37:hover {
-  background-color: rgba(0, 0, 0, 0.12);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgb(14, 114, 57);
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
 }
 
-.emotion-37.Mui-focusVisible {
-  background-color: rgba(0, 0, 0, 0.2);
+@media (hover: none) {
+  .emotion-37:hover {
+    background-color: #14A452;
+  }
 }
 
 .emotion-37:active {
-  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+  box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
 }
 
-.emotion-37:hover,
 .emotion-37.Mui-focusVisible {
-  background-color: rgb(14, 114, 57);
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
+}
+
+.emotion-37.Mui-disabled {
+  color: rgba(0, 0, 0, 0.26);
+  box-shadow: none;
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.emotion-37:hover {
+  colors: #14A452;
+}
+
+.emotion-37.MuiButton-text {
+  color: #212121;
 }
 
 .emotion-39 {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding-left: 12px;
-  padding-right: 12px;
-  white-space: nowrap;
-}
-
-.emotion-40 {
   overflow: hidden;
   pointer-events: none;
   position: absolute;
@@ -539,14 +477,14 @@ exports[`Roles Component renders correctly 1`] = `
       </tr>
     </tbody>
   </table>
-  <div
-    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary emotion-37"
-    role="button"
+  <button
+    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium emotion-37"
     tabindex="0"
+    type="button"
   >
     <svg
       aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiChip-icon MuiChip-iconMedium MuiChip-iconColorPrimary emotion-11"
+      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-11"
       data-testid="AddIcon"
       focusable="false"
       viewBox="0 0 24 24"
@@ -555,14 +493,10 @@ exports[`Roles Component renders correctly 1`] = `
         d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
       />
     </svg>
+     Add a role
     <span
-      class="MuiChip-label MuiChip-labelMedium emotion-39"
-    >
-      Add a role
-    </span>
-    <span
-      class="MuiTouchRipple-root emotion-40"
+      class="MuiTouchRipple-root emotion-39"
     />
-  </div>
+  </button>
 </div>
 `;

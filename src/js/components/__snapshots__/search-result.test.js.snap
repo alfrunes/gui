@@ -81,7 +81,7 @@ exports[`SearchResult Component renders correctly 1`] = `
   margin: 0;
   font-family: Lato,sans-serif;
   font-weight: 400;
-  font-size: 0.8125rem;
+  font-size: 0.7656rem;
   line-height: 1.43;
 }
 
@@ -122,7 +122,7 @@ exports[`SearchResult Component renders correctly 1`] = `
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  font-size: 1.3929rem;
+  font-size: 1.3125rem;
   padding: 8px;
   border-radius: 50%;
   overflow: visible;
@@ -130,7 +130,7 @@ exports[`SearchResult Component renders correctly 1`] = `
   -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   padding: 12px;
-  font-size: 1.625rem;
+  font-size: 1.5313rem;
   font-size: 1.2rem;
   color: #424242;
 }
@@ -180,7 +180,7 @@ exports[`SearchResult Component renders correctly 1`] = `
   flex-shrink: 0;
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.3929rem;
+  font-size: 1.3125rem;
 }
 
 .emotion-5 iconButton {

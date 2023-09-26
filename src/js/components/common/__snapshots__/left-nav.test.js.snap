@@ -17,7 +17,7 @@ exports[`LeftNav Component renders correctly 1`] = `
   color: #424242;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 0.8125rem;
+  font-size: 0.7656rem;
   padding-left: 16px;
   padding-right: 16px;
 }
@@ -84,8 +84,13 @@ exports[`LeftNav Component renders correctly 1`] = `
   border-bottom: 1px solid #d4e9e7;
 }
 
-.emotion-2.navLink .MuiListItemText-root {
-  color: #969696;
+.emotion-2.navLink .MuiListItemText-root color {
+  primary: #212121;
+  secondary: #424242;
+  hint: #424242;
+  inactive: #616161;
+  entry-link: #DEFFF1;
+  disabled: rgba(0, 0, 0, 0.38);
 }
 
 .emotion-2.navLink.active .MuiListItemText-root {
@@ -121,7 +126,7 @@ exports[`LeftNav Component renders correctly 1`] = `
   line-height: 1.5;
   font-family: Lato,sans-serif;
   font-weight: 400;
-  font-size: 0.9286rem;
+  font-size: 0.875rem;
   display: block;
 }
 

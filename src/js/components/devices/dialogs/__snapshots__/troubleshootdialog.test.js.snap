@@ -101,7 +101,7 @@ exports[`TroubleshootDialog Component renders correctly 1`] = `
   margin: 0;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 1.1607rem;
+  font-size: 1.0938rem;
   line-height: 1.6;
   padding: 16px 24px;
   -webkit-flex: 0 0 auto;
@@ -198,7 +198,7 @@ exports[`TroubleshootDialog Component renders correctly 1`] = `
   color: inherit;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 0.8125rem;
+  font-size: 0.7656rem;
   line-height: 1.25;
   text-transform: uppercase;
   max-width: 360px;
@@ -361,7 +361,7 @@ exports[`TroubleshootDialog Component renders correctly 1`] = `
   color: inherit;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 0.8125rem;
+  font-size: 0.7656rem;
   line-height: 1.75;
   text-transform: uppercase;
   min-width: 64px;
@@ -487,7 +487,7 @@ exports[`TroubleshootDialog Component renders correctly 1`] = `
   color: inherit;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 0.8125rem;
+  font-size: 0.7656rem;
   line-height: 1.75;
   text-transform: uppercase;
   min-width: 64px;
@@ -581,7 +581,7 @@ exports[`TroubleshootDialog Component renders correctly 1`] = `
           Troubleshoot -
         </div>
         <div
-          class="flexbox space-between"
+          class="flexbox space-between "
         >
           <div
             title="a1"

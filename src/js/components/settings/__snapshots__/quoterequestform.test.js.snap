@@ -23,7 +23,7 @@ exports[`QuoteRequestForm component renders correctly 1`] = `
   color: #424242;
   font-family: Lato,sans-serif;
   font-weight: 400;
-  font-size: 0.6964rem;
+  font-size: 0.6563rem;
   line-height: 1.66;
   text-align: left;
   margin-top: 3px;
@@ -63,7 +63,7 @@ exports[`QuoteRequestForm component renders correctly 1`] = `
   line-height: 1.4375em;
   font-family: Lato,sans-serif;
   font-weight: 400;
-  font-size: 0.9286rem;
+  font-size: 0.875rem;
   color: #212121;
   box-sizing: border-box;
   position: relative;
@@ -297,7 +297,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
   color: inherit;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 0.8125rem;
+  font-size: 0.7656rem;
   line-height: 1.75;
   text-transform: uppercase;
   min-width: 64px;

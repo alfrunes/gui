@@ -36,7 +36,7 @@ exports[`Device Component renders correctly 1`] = `
   color: inherit;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 0.8125rem;
+  font-size: 0.7656rem;
   line-height: 1.75;
   text-transform: uppercase;
   min-width: 64px;
@@ -110,7 +110,7 @@ exports[`Device Component renders correctly 1`] = `
   flex-shrink: 0;
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.3929rem;
+  font-size: 1.3125rem;
 }
 
 .emotion-1 iconButton {
@@ -227,7 +227,7 @@ exports[`Device Component renders correctly 1`] = `
   color: inherit;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 0.8125rem;
+  font-size: 0.7656rem;
   line-height: 1.75;
   text-transform: uppercase;
   min-width: 64px;
@@ -555,6 +555,7 @@ exports[`Device Component renders correctly 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  padding-right: 0;
 }
 
 .emotion-22 {
@@ -571,6 +572,10 @@ exports[`Device Component renders correctly 1`] = `
   .emotion-22 .MuiTabs-scrollButtons {
     display: none;
   }
+}
+
+.emotion-22 .MuiTabs-flexContainer {
+  border-bottom: 1px solid #E0E0E0;
 }
 
 .emotion-23 {
@@ -626,7 +631,7 @@ exports[`Device Component renders correctly 1`] = `
   color: inherit;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 0.8125rem;
+  font-size: 0.7656rem;
   line-height: 1.25;
   text-transform: uppercase;
   max-width: 360px;
@@ -686,7 +691,7 @@ exports[`Device Component renders correctly 1`] = `
 }
 
 .emotion-30 {
-  color: rgba(0, 0, 0, 0.38);
+  color: #424242;
   margin: 15px 0;
 }
 
@@ -708,7 +713,7 @@ exports[`Device Component renders correctly 1`] = `
   flex-shrink: 0;
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.3929rem;
+  font-size: 1.3125rem;
   font-size: 20px;
   vertical-align: middle;
   margin-top: -2px;
@@ -752,7 +757,7 @@ exports[`Device Component renders correctly 1`] = `
   line-height: 1.4375em;
   font-family: Lato,sans-serif;
   font-weight: 400;
-  font-size: 0.9286rem;
+  font-size: 0.875rem;
   padding: 0;
   position: relative;
   color: #424242;
@@ -793,7 +798,7 @@ exports[`Device Component renders correctly 1`] = `
   line-height: 1.4375em;
   font-family: Lato,sans-serif;
   font-weight: 400;
-  font-size: 0.9286rem;
+  font-size: 0.875rem;
   color: #212121;
   box-sizing: border-box;
   position: relative;
@@ -1026,7 +1031,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-37:focus::-ms-input-
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  font-size: 1.3929rem;
+  font-size: 1.3125rem;
   padding: 8px;
   border-radius: 50%;
   overflow: visible;
@@ -1034,7 +1039,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-37:focus::-ms-input-
   -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   padding: 12px;
-  font-size: 1.625rem;
+  font-size: 1.5313rem;
   font-size: 1.2rem;
   color: #424242;
 }
@@ -1084,7 +1089,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-37:focus::-ms-input-
   flex-shrink: 0;
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.3929rem;
+  font-size: 1.3125rem;
   color: #616161;
 }
 
@@ -1127,7 +1132,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-37:focus::-ms-input-
   color: inherit;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 0.8125rem;
+  font-size: 0.7656rem;
   line-height: 1.75;
   text-transform: uppercase;
   min-width: 64px;
@@ -1195,6 +1200,22 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-37:focus::-ms-input-
   color: #212121;
 }
 
+.emotion-42 {
+  overflow: hidden;
+  min-height: 48px;
+  -webkit-overflow-scrolling: touch;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media (max-width:599.95px) {
+  .emotion-42 .MuiTabs-scrollButtons {
+    display: none;
+  }
+}
+
 .emotion-45 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -1230,7 +1251,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-37:focus::-ms-input-
   color: inherit;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 0.8125rem;
+  font-size: 0.7656rem;
   line-height: 1.25;
   text-transform: uppercase;
   max-width: 360px;
@@ -1279,7 +1300,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-37:focus::-ms-input-
   line-height: 1.4375em;
   font-family: Lato,sans-serif;
   font-weight: 400;
-  font-size: 0.9286rem;
+  font-size: 0.875rem;
   color: #212121;
   box-sizing: border-box;
   position: relative;
@@ -1421,7 +1442,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-37:focus::-ms-input-
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  font-size: 1.3929rem;
+  font-size: 1.3125rem;
   padding: 8px;
   border-radius: 50%;
   overflow: visible;
@@ -1429,7 +1450,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-37:focus::-ms-input-
   -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   padding: 5px;
-  font-size: 1.0446rem;
+  font-size: 0.9844rem;
   font-size: 1.2rem;
   color: #424242;
 }
@@ -1479,7 +1500,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-37:focus::-ms-input-
   flex-shrink: 0;
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.3929rem;
+  font-size: 1.3125rem;
   font-size: 1.25rem;
 }
 
@@ -1501,7 +1522,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-37:focus::-ms-input-
   flex-shrink: 0;
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.1607rem;
+  font-size: 1.0938rem;
   color: #14A452;
 }
 
@@ -1544,7 +1565,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-37:focus::-ms-input-
   color: inherit;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 0.7545rem;
+  font-size: 0.7109rem;
   line-height: 1.75;
   text-transform: uppercase;
   min-width: 64px;
@@ -1648,7 +1669,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-37:focus::-ms-input-
         >
           Device information for 
           <div
-            class="flexbox space-between"
+            class="flexbox space-between "
           >
             <div
               title="a1"
@@ -2100,7 +2121,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-37:focus::-ms-input-
           class="devicePage-content_info"
         >
           <div
-            class="MuiTabs-root emotion-22"
+            class="MuiTabs-root emotion-42"
           >
             <div
               class="MuiTabs-scroller MuiTabs-fixed emotion-23"

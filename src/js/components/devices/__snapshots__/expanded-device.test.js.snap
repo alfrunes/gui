@@ -100,7 +100,7 @@ exports[`ExpandedDevice Component renders correctly 1`] = `
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  font-size: 1.3929rem;
+  font-size: 1.3125rem;
   padding: 8px;
   border-radius: 50%;
   overflow: visible;
@@ -108,7 +108,7 @@ exports[`ExpandedDevice Component renders correctly 1`] = `
   -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   padding: 12px;
-  font-size: 1.625rem;
+  font-size: 1.5313rem;
   font-size: 1.2rem;
   color: #424242;
 }
@@ -158,7 +158,7 @@ exports[`ExpandedDevice Component renders correctly 1`] = `
   flex-shrink: 0;
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.3929rem;
+  font-size: 1.3125rem;
 }
 
 .emotion-4 iconButton {
@@ -212,7 +212,7 @@ exports[`ExpandedDevice Component renders correctly 1`] = `
   color: inherit;
   max-width: 100%;
   font-family: Lato,sans-serif;
-  font-size: 0.7545rem;
+  font-size: 0.7109rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -276,7 +276,7 @@ exports[`ExpandedDevice Component renders correctly 1`] = `
   width: 24px;
   height: 24px;
   color: #bcbcbc;
-  font-size: 0.6964rem;
+  font-size: 0.6563rem;
 }
 
 .emotion-6 .MuiChip-avatarColorPrimary {
@@ -294,7 +294,7 @@ exports[`ExpandedDevice Component renders correctly 1`] = `
   margin-right: -4px;
   width: 18px;
   height: 18px;
-  font-size: 0.5804rem;
+  font-size: 0.5469rem;
 }
 
 .emotion-6 .MuiChip-icon {
@@ -434,7 +434,7 @@ exports[`ExpandedDevice Component renders correctly 1`] = `
   color: inherit;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 0.8125rem;
+  font-size: 0.7656rem;
   line-height: 1.25;
   text-transform: uppercase;
   max-width: 360px;
@@ -507,7 +507,7 @@ exports[`ExpandedDevice Component renders correctly 1`] = `
   line-height: 1.4375em;
   font-family: Lato,sans-serif;
   font-weight: 400;
-  font-size: 0.9286rem;
+  font-size: 0.875rem;
   color: #212121;
   box-sizing: border-box;
   position: relative;
@@ -753,7 +753,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-33:focus::-ms-input-
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  font-size: 1.3929rem;
+  font-size: 1.3125rem;
   padding: 8px;
   border-radius: 50%;
   overflow: visible;
@@ -761,7 +761,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-33:focus::-ms-input-
   -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   padding: 5px;
-  font-size: 1.0446rem;
+  font-size: 0.9844rem;
   font-size: 1.2rem;
   color: #424242;
 }
@@ -811,7 +811,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-33:focus::-ms-input-
   flex-shrink: 0;
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.3929rem;
+  font-size: 1.3125rem;
   font-size: 1.25rem;
 }
 
@@ -833,7 +833,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-33:focus::-ms-input-
   flex-shrink: 0;
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.1607rem;
+  font-size: 1.0938rem;
   color: #14A452;
 }
 
@@ -876,7 +876,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-33:focus::-ms-input-
   color: inherit;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 0.7545rem;
+  font-size: 0.7109rem;
   line-height: 1.75;
   text-transform: uppercase;
   min-width: 64px;
@@ -1038,7 +1038,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-33:focus::-ms-input-
   color: inherit;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 0.8125rem;
+  font-size: 0.7656rem;
   line-height: 1.75;
   text-transform: uppercase;
   min-height: 36px;
@@ -1170,7 +1170,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-33:focus::-ms-input-
   line-height: 1.5;
   font-family: Lato,sans-serif;
   font-weight: 400;
-  font-size: 0.9286rem;
+  font-size: 0.875rem;
   background-color: #fff;
   border-radius: 4px;
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
@@ -1214,7 +1214,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-33:focus::-ms-input-
   color: inherit;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 0.8125rem;
+  font-size: 0.7656rem;
   line-height: 1.75;
   text-transform: uppercase;
   min-height: 36px;
@@ -1343,7 +1343,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-33:focus::-ms-input-
           >
             Device information for 
             <div
-              class="flexbox space-between"
+              class="flexbox space-between "
             >
               <div
                 style="margin-left: 4px;"

@@ -14,7 +14,7 @@ exports[`Main Component renders correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mui-e9dld4-MuiSvgIcon-root-redAnnouncementIcon"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mui-lzk61r-MuiSvgIcon-root-redAnnouncementIcon"
           data-testid="AnnouncementIcon"
           focusable="false"
           style="margin-right: 4px; min-width: 24px;"
@@ -29,7 +29,7 @@ exports[`Main Component renders correctly 1`] = `
         />
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-xoiq4u-MuiSvgIcon-root-demoAnnouncementIcon"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-xn91t4-MuiSvgIcon-root-demoAnnouncementIcon"
           data-testid="CloseIcon"
           focusable="false"
           style="margin-left: 4px; cursor: pointer;"
@@ -43,16 +43,13 @@ exports[`Main Component renders correctly 1`] = `
       <div
         class="flexbox space-between"
       >
-        <div
-          class="flexbox center-aligned"
-        />
         <div>
           <div
             class="MuiFormControl-root MuiTextField-root mui-vlhsld-MuiFormControl-root-MuiTextField-root-root"
             readonly=""
           >
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart Mui-readOnly MuiInputBase-readOnly mui-ronqc2-MuiInputBase-root-MuiInput-root"
+              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart Mui-readOnly MuiInputBase-readOnly mui-17okz0c-MuiInputBase-root-MuiInput-root"
             >
               <div
                 class="MuiInputAdornment-root MuiInputAdornment-positionStart MuiInputAdornment-standard MuiInputAdornment-sizeSmall mui-ittuaa-MuiInputAdornment-root"
@@ -109,7 +106,7 @@ exports[`Main Component renders correctly 1`] = `
               </span>
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1o67yj1-MuiSvgIcon-root"
                 data-testid="DeveloperBoardIcon"
                 focusable="false"
                 style="margin: 0px 7px 0px 10px; font-size: 20px;"
@@ -129,7 +126,7 @@ exports[`Main Component renders correctly 1`] = `
             </a>
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium header-dropdown mui-1uyor13-MuiButtonBase-root-MuiButton-root-dropDown"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium header-dropdown mui-wrwhcx-MuiButtonBase-root-MuiButton-root-dropDown"
             tabindex="0"
             type="button"
           >
@@ -138,7 +135,7 @@ exports[`Main Component renders correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-dax6cs-MuiSvgIcon-root-buttonColor"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lsa7lv-MuiSvgIcon-root-buttonColor"
                 data-testid="AccountCircleIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -154,7 +151,7 @@ exports[`Main Component renders correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1o67yj1-MuiSvgIcon-root"
                 data-testid="ArrowDropDownIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -193,7 +190,7 @@ exports[`Main Component renders correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1o67yj1-MuiSvgIcon-root"
             data-testid="DeveloperBoardIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -206,7 +203,7 @@ exports[`Main Component renders correctly 1`] = `
             class="MuiListItemText-root mui-1lghudc-MuiListItemText-root"
           >
             <span
-              class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-mon4qq-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-5c28v-MuiTypography-root"
             >
               Devices
             </span>
@@ -218,7 +215,7 @@ exports[`Main Component renders correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1o67yj1-MuiSvgIcon-root"
             data-testid="ListAltIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -231,7 +228,7 @@ exports[`Main Component renders correctly 1`] = `
             class="MuiListItemText-root mui-1lghudc-MuiListItemText-root"
           >
             <span
-              class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-mon4qq-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-5c28v-MuiTypography-root"
             >
               Audit log
             </span>
@@ -243,7 +240,7 @@ exports[`Main Component renders correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1o67yj1-MuiSvgIcon-root"
             data-testid="SettingsIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -256,7 +253,7 @@ exports[`Main Component renders correctly 1`] = `
             class="MuiListItemText-root mui-1lghudc-MuiListItemText-root"
           >
             <span
-              class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-mon4qq-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-5c28v-MuiTypography-root"
             >
               Settings
             </span>
@@ -274,7 +271,7 @@ exports[`Main Component renders correctly 1`] = `
             class="MuiListItemText-root mui-1lghudc-MuiListItemText-root"
           >
             <span
-              class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-mon4qq-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-5c28v-MuiTypography-root"
             >
               Help & support
             </span>
@@ -287,7 +284,7 @@ exports[`Main Component renders correctly 1`] = `
             class="MuiListItemText-root mui-1lghudc-MuiListItemText-root"
           >
             <span
-              class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-mon4qq-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-5c28v-MuiTypography-root"
             >
               <div
                 class="clickable"
@@ -307,7 +304,7 @@ exports[`Main Component renders correctly 1`] = `
           Feedback 
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeMedium mui-aus2gd-MuiSvgIcon-root-feedbackIcon"
+            class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeMedium mui-1fcmmq-MuiSvgIcon-root-feedbackIcon"
             data-testid="OpenInNewIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -346,7 +343,7 @@ exports[`Main Component renders correctly 1`] = `
                 class="MuiListItemText-root padding-left-large mui-1lghudc-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-mon4qq-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-5c28v-MuiTypography-root"
                 >
                   All devices
                 </span>
@@ -356,7 +353,7 @@ exports[`Main Component renders correctly 1`] = `
               />
             </div>
             <li
-              class="MuiListSubheader-root mui-1yjxp81-MuiListSubheader-root-header"
+              class="MuiListSubheader-root mui-1dbyx1k-MuiListSubheader-root-header"
             >
               <span
                 class="mui-1nyp150-groupHeading"
@@ -373,7 +370,7 @@ exports[`Main Component renders correctly 1`] = `
                 class="MuiListItemText-root padding-left-large mui-1lghudc-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-mon4qq-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-5c28v-MuiTypography-root"
                 >
                   testGroupDynamic
                 </span>
@@ -383,7 +380,7 @@ exports[`Main Component renders correctly 1`] = `
               />
             </div>
             <li
-              class="MuiListSubheader-root mui-1yjxp81-MuiListSubheader-root-header"
+              class="MuiListSubheader-root mui-1dbyx1k-MuiListSubheader-root-header"
             >
               <span
                 class="mui-1nyp150-groupHeading"
@@ -400,7 +397,7 @@ exports[`Main Component renders correctly 1`] = `
                 class="MuiListItemText-root padding-left-large mui-1lghudc-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-mon4qq-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-5c28v-MuiTypography-root"
                 >
                   testGroup
                 </span>
@@ -418,7 +415,7 @@ exports[`Main Component renders correctly 1`] = `
                 class="MuiListItemText-root padding-left-large mui-1lghudc-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-mon4qq-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-5c28v-MuiTypography-root"
                 >
                   Unassigned
                 </span>
@@ -435,7 +432,7 @@ exports[`Main Component renders correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1o67yj1-MuiSvgIcon-root"
                 data-testid="InfoIcon"
                 focusable="false"
                 style="margin-right: 8px;"
@@ -449,7 +446,7 @@ exports[`Main Component renders correctly 1`] = `
                 class="MuiListItemText-root mui-1lghudc-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-mon4qq-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-5c28v-MuiTypography-root"
                 >
                   Create a group
                 </span>
@@ -475,7 +472,7 @@ exports[`Main Component renders correctly 1`] = `
                 class="clickable margin-right onboard mui-klxwo1-default"
               >
                 <span
-                  class="mui-10smx4s-default "
+                  class="mui-1qj6n8h-default "
                 >
                   1
                    
@@ -517,7 +514,7 @@ exports[`Main Component renders correctly 1`] = `
                   >
                     Status:
                     <div
-                      class="MuiInputBase-root MuiInput-root MuiInputBase-colorPrimary  mui-1n7u1wx-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                      class="MuiInputBase-root MuiInput-root MuiInputBase-colorPrimary  mui-1dvfbrd-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                       style="font-size: 13px; margin-left: 8px; margin-top: 2px;"
                     >
                       <div
@@ -538,7 +535,7 @@ exports[`Main Component renders correctly 1`] = `
                       />
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard mui-dwvfc1-MuiSvgIcon-root-MuiSelect-icon"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard mui-qxx2qt-MuiSvgIcon-root-MuiSelect-icon"
                         data-testid="ArrowDropDownIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
@@ -559,7 +556,7 @@ exports[`Main Component renders correctly 1`] = `
                 class="flexbox centered filter-header "
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textSecondary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textSecondary MuiButton-sizeMedium MuiButton-textSizeMedium mui-m4scur-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textSecondary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textSecondary MuiButton-sizeMedium MuiButton-textSizeMedium mui-gsq1qf-MuiButtonBase-root-MuiButton-root"
                   style="background-color: transparent;"
                   tabindex="0"
                   type="button"
@@ -569,7 +566,7 @@ exports[`Main Component renders correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1o67yj1-MuiSvgIcon-root"
                       data-testid="FilterListIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
@@ -628,7 +625,7 @@ exports[`Main Component renders correctly 1`] = `
                       />
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1o67yj1-MuiSvgIcon-root"
                         data-testid="CheckBoxOutlineBlankIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
@@ -651,7 +648,7 @@ exports[`Main Component renders correctly 1`] = `
                       mac
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium sortIcon  true mui-1lqc678-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium sortIcon  true mui-1o67yj1-MuiSvgIcon-root"
                         data-testid="SortIcon"
                         focusable="false"
                         style="font-size: 16px;"
@@ -667,7 +664,7 @@ exports[`Main Component renders correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1o67yj1-MuiSvgIcon-root"
                         data-testid="SettingsIcon"
                         focusable="false"
                         style="font-size: 16px; margin-right: 4px;"
@@ -688,7 +685,7 @@ exports[`Main Component renders correctly 1`] = `
                       Device type
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium sortIcon  true mui-1lqc678-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium sortIcon  true mui-1o67yj1-MuiSvgIcon-root"
                         data-testid="SortIcon"
                         focusable="false"
                         style="font-size: 16px;"
@@ -716,7 +713,7 @@ exports[`Main Component renders correctly 1`] = `
                       Latest activity
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium sortIcon  true mui-1lqc678-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium sortIcon  true mui-1o67yj1-MuiSvgIcon-root"
                         data-testid="SortIcon"
                         focusable="false"
                         style="font-size: 16px;"
@@ -744,7 +741,7 @@ exports[`Main Component renders correctly 1`] = `
                       Status
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium sortIcon  true mui-1lqc678-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium sortIcon  true mui-1o67yj1-MuiSvgIcon-root"
                         data-testid="SortIcon"
                         focusable="false"
                         style="font-size: 16px;"
@@ -790,7 +787,7 @@ exports[`Main Component renders correctly 1`] = `
                       />
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1o67yj1-MuiSvgIcon-root"
                         data-testid="CheckBoxOutlineBlankIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
@@ -805,7 +802,7 @@ exports[`Main Component renders correctly 1`] = `
                     </span>
                   </div>
                   <div
-                    class="flexbox space-between"
+                    class="flexbox space-between mui-rxy87a-identityItem"
                   >
                     <div
                       title="dc:a6:32:12:ad:bf"
@@ -836,12 +833,12 @@ exports[`Main Component renders correctly 1`] = `
                   <div>
                     <div
                       aria-label="This device has not communicated with the Mender backend for a while. Click on the row to see more details"
-                      class="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorDefault MuiChip-outlinedDefault deviceStatus margin-right-small mui-k8bn0o-MuiChip-root"
+                      class="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorDefault MuiChip-outlinedDefault deviceStatus margin-right-small mui-niglpa-MuiChip-root"
                       data-mui-internal-clone-element="true"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiChip-icon MuiChip-iconSmall MuiChip-iconColorDefault mui-h560wp-MuiSvgIcon-root-warningIcon"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiChip-icon MuiChip-iconSmall MuiChip-iconColorDefault mui-la8rzj-MuiSvgIcon-root-warningIcon"
                         data-testid="ReportProblemOutlinedIcon"
                         focusable="false"
                         style="margin-left: 5px;"
@@ -870,7 +867,7 @@ exports[`Main Component renders correctly 1`] = `
                       View details 
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1o67yj1-MuiSvgIcon-root"
                         data-testid="ArrowForwardIcon"
                         focusable="false"
                         style="font-size: 16px; margin-left: 8px;"
@@ -897,7 +894,7 @@ exports[`Main Component renders correctly 1`] = `
                       />
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1o67yj1-MuiSvgIcon-root"
                         data-testid="CheckBoxOutlineBlankIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
@@ -912,7 +909,7 @@ exports[`Main Component renders correctly 1`] = `
                     </span>
                   </div>
                   <div
-                    class="flexbox space-between"
+                    class="flexbox space-between mui-rxy87a-identityItem"
                   >
                     <div
                       title="dc:a6:32:12:ad:bf"
@@ -943,12 +940,12 @@ exports[`Main Component renders correctly 1`] = `
                   <div>
                     <div
                       aria-label="This device has not communicated with the Mender backend for a while. Click on the row to see more details"
-                      class="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorDefault MuiChip-outlinedDefault deviceStatus margin-right-small mui-k8bn0o-MuiChip-root"
+                      class="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorDefault MuiChip-outlinedDefault deviceStatus margin-right-small mui-niglpa-MuiChip-root"
                       data-mui-internal-clone-element="true"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiChip-icon MuiChip-iconSmall MuiChip-iconColorDefault mui-h560wp-MuiSvgIcon-root-warningIcon"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiChip-icon MuiChip-iconSmall MuiChip-iconColorDefault mui-la8rzj-MuiSvgIcon-root-warningIcon"
                         data-testid="ReportProblemOutlinedIcon"
                         focusable="false"
                         style="margin-left: 5px;"
@@ -977,7 +974,7 @@ exports[`Main Component renders correctly 1`] = `
                       View details 
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1o67yj1-MuiSvgIcon-root"
                         data-testid="ArrowForwardIcon"
                         focusable="false"
                         style="font-size: 16px; margin-left: 8px;"
@@ -995,7 +992,7 @@ exports[`Main Component renders correctly 1`] = `
                 class="footer flexbox margin-top"
               >
                 <div
-                  class="MuiTablePagination-root flexbox margin-top margin-top-none mui-1ub9kgf-MuiTablePagination-root"
+                  class="MuiTablePagination-root flexbox margin-top margin-top-none mui-1yxxru8-MuiTablePagination-root"
                 >
                   <div
                     class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular MuiTablePagination-toolbar mui-78c6dr-MuiToolbar-root-MuiTablePagination-toolbar"
@@ -1004,13 +1001,13 @@ exports[`Main Component renders correctly 1`] = `
                       class="MuiTablePagination-spacer flexbox no-basis mui-1psng7p-MuiTablePagination-spacer"
                     />
                     <p
-                      class="MuiTablePagination-selectLabel mui-1ecnf2s-MuiTablePagination-selectLabel"
+                      class="MuiTablePagination-selectLabel mui-1vah30l-MuiTablePagination-selectLabel"
                       
                     >
                       Rows
                     </p>
                     <div
-                      class="MuiInputBase-root MuiInputBase-colorPrimary mui-1y7ceb0-MuiInputBase-root-MuiTablePagination-select"
+                      class="MuiInputBase-root MuiInputBase-colorPrimary mui-o64l95-MuiInputBase-root-MuiTablePagination-select"
                     >
                       <div
                         aria-expanded="false"
@@ -1032,7 +1029,7 @@ exports[`Main Component renders correctly 1`] = `
                       />
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiTablePagination-selectIcon MuiSelect-iconStandard mui-dwvfc1-MuiSvgIcon-root-MuiSelect-icon"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiTablePagination-selectIcon MuiSelect-iconStandard mui-qxx2qt-MuiSvgIcon-root-MuiSelect-icon"
                         data-testid="ArrowDropDownIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
@@ -1043,7 +1040,7 @@ exports[`Main Component renders correctly 1`] = `
                       </svg>
                     </div>
                     <p
-                      class="MuiTablePagination-displayedRows mui-cmytl3-MuiTablePagination-displayedRows"
+                      class="MuiTablePagination-displayedRows mui-1ly498j-MuiTablePagination-displayedRows"
                     />
                     <div
                       class="flexbox center-aligned"
@@ -1052,14 +1049,14 @@ exports[`Main Component renders correctly 1`] = `
                         1-2 of 2
                       </div>
                       <button
-                        class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeLarge mui-ky8r02-MuiButtonBase-root-MuiIconButton-root"
+                        class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeLarge mui-sdh1pq-MuiButtonBase-root-MuiIconButton-root"
                         disabled=""
                         tabindex="-1"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1o67yj1-MuiSvgIcon-root"
                           data-testid="KeyboardArrowLeftIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -1071,14 +1068,14 @@ exports[`Main Component renders correctly 1`] = `
                       </button>
                       <div>
                         <button
-                          class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeLarge mui-ky8r02-MuiButtonBase-root-MuiIconButton-root"
+                          class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeLarge mui-sdh1pq-MuiButtonBase-root-MuiIconButton-root"
                           disabled=""
                           tabindex="-1"
                           type="button"
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1o67yj1-MuiSvgIcon-root"
                             data-testid="KeyboardArrowRightIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
@@ -1101,7 +1098,7 @@ exports[`Main Component renders correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1lqc678-MuiSvgIcon-root"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1o67yj1-MuiSvgIcon-root"
                 data-testid="HelpIcon"
                 focusable="false"
                 viewBox="0 0 24 24"

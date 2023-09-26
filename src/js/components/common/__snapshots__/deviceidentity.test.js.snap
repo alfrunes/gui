@@ -2,7 +2,7 @@
 
 exports[`DeviceIdentityDisplay Component renders correctly 1`] = `
 <div
-  class="flexbox space-between"
+  class="flexbox space-between "
 >
   <div
     title="dc:a6:32:12:ad:bf"

@@ -100,7 +100,7 @@ exports[`MonitorLogDialog Component renders correctly 1`] = `
   margin: 0;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 1.1607rem;
+  font-size: 1.0938rem;
   line-height: 1.6;
   padding: 16px 24px;
   -webkit-flex: 0 0 auto;
@@ -319,7 +319,7 @@ exports[`MonitorLogDialog Component renders correctly 1`] = `
   flex-shrink: 0;
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.3929rem;
+  font-size: 1.3125rem;
 }
 
 .emotion-9 iconButton {
@@ -351,6 +351,7 @@ exports[`MonitorLogDialog Component renders correctly 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  padding-right: 0;
 }
 
 .emotion-20 {
@@ -367,7 +368,7 @@ exports[`MonitorLogDialog Component renders correctly 1`] = `
   flex-shrink: 0;
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.1607rem;
+  font-size: 1.0938rem;
 }
 
 .emotion-20 iconButton {
@@ -432,7 +433,7 @@ exports[`MonitorLogDialog Component renders correctly 1`] = `
   color: inherit;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 0.8125rem;
+  font-size: 0.7656rem;
   line-height: 1.75;
   text-transform: uppercase;
   min-width: 64px;
@@ -539,7 +540,7 @@ exports[`MonitorLogDialog Component renders correctly 1`] = `
   color: inherit;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 0.8125rem;
+  font-size: 0.7656rem;
   line-height: 1.75;
   text-transform: uppercase;
   min-width: 64px;
@@ -941,7 +942,7 @@ exports[`MonitorLogDialog Component renders correctly for description only 1`] =
   margin: 0;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 1.1607rem;
+  font-size: 1.0938rem;
   line-height: 1.6;
   padding: 16px 24px;
   -webkit-flex: 0 0 auto;
@@ -1040,7 +1041,7 @@ exports[`MonitorLogDialog Component renders correctly for description only 1`] =
   color: inherit;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 0.8125rem;
+  font-size: 0.7656rem;
   line-height: 1.75;
   text-transform: uppercase;
   min-width: 64px;
