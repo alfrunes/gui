@@ -101,7 +101,7 @@ exports[`CreateGroup Component renders correctly 1`] = `
   margin: 0;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 1.1607rem;
+  font-size: 1.0938rem;
   line-height: 1.6;
   padding: 16px 24px;
   -webkit-flex: 0 0 auto;
@@ -283,7 +283,7 @@ exports[`CreateGroup Component renders correctly 1`] = `
   line-height: 1.4375em;
   font-family: Lato,sans-serif;
   font-weight: 400;
-  font-size: 0.9286rem;
+  font-size: 0.875rem;
   padding: 0;
   position: relative;
   color: #424242;
@@ -324,7 +324,7 @@ exports[`CreateGroup Component renders correctly 1`] = `
   line-height: 1.4375em;
   font-family: Lato,sans-serif;
   font-weight: 400;
-  font-size: 0.9286rem;
+  font-size: 0.875rem;
   color: #212121;
   box-sizing: border-box;
   position: relative;
@@ -524,7 +524,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-10:focus::-ms-input-
   color: #424242;
   font-family: Lato,sans-serif;
   font-weight: 400;
-  font-size: 0.6964rem;
+  font-size: 0.6563rem;
   line-height: 1.66;
   text-align: left;
   margin-top: 3px;
@@ -599,7 +599,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-10:focus::-ms-input-
   color: inherit;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 0.8125rem;
+  font-size: 0.7656rem;
   line-height: 1.75;
   text-transform: uppercase;
   min-width: 64px;
@@ -706,7 +706,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-10:focus::-ms-input-
   color: inherit;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 0.8125rem;
+  font-size: 0.7656rem;
   line-height: 1.75;
   text-transform: uppercase;
   min-width: 64px;

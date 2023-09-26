@@ -51,7 +51,6 @@ import Tracking from '../../tracking';
 import { useDebounce } from '../../utils/debouncehook';
 import Search from '../common/search';
 import Announcement from './announcement';
-import DemoNotification from './demonotification';
 import DeviceNotifications from './devicenotifications.js';
 import OfferHeader from './offerheader';
 import TrialNotification from './trialnotification';
@@ -113,7 +112,7 @@ export const Header = () => {
   const firstLoginAfterSignup = useSelector(state => state.app.firstLoginAfterSignup);
   const { trackingConsentGiven: hasTrackingEnabled } = useSelector(getUserSettings);
   const isEnterprise = useSelector(getIsEnterprise);
-  const { isDemoMode: demo, hasMultitenancy, isHosted } = useSelector(getFeatures);
+  const { hasMultitenancy, isHosted } = useSelector(getFeatures);
   const isSearching = useSelector(state => state.app.searchState.isSearching);
   const multitenancy = hasMultitenancy || isEnterprise || isHosted;
   const showHelptips = useSelector(getShowHelptips);
@@ -189,9 +188,6 @@ export const Header = () => {
       )}
       {showOffer && <OfferHeader docsVersion={docsVersion} onHide={setHideOffer} />}
       <div className="flexbox space-between">
-        <div className="flexbox center-aligned">
-          {demo && <DemoNotification iconClassName={classes.demoAnnouncementIcon} sectionClassName={classes.demoTrialAnnouncement} docsVersion={docsVersion} />}
-        </div>
         <Search isSearching={isSearching} />
         <div className="flexbox center-aligned">
           {organization.trial && (

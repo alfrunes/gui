@@ -98,7 +98,7 @@ exports[`Roles Component renders correctly 1`] = `
   color: inherit;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 0.8125rem;
+  font-size: 0.7656rem;
   line-height: 1.75;
   text-transform: uppercase;
   min-width: 64px;
@@ -208,7 +208,7 @@ exports[`Roles Component renders correctly 1`] = `
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  font-size: 1.3929rem;
+  font-size: 1.3125rem;
   padding: 8px;
   border-radius: 50%;
   overflow: visible;
@@ -264,7 +264,7 @@ exports[`Roles Component renders correctly 1`] = `
   flex-shrink: 0;
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.3929rem;
+  font-size: 1.3125rem;
 }
 
 .emotion-6 iconButton {
@@ -323,7 +323,7 @@ exports[`Roles Component renders correctly 1`] = `
   line-height: 1.4375em;
   font-family: Lato,sans-serif;
   font-weight: 400;
-  font-size: 0.9286rem;
+  font-size: 0.875rem;
   padding: 0;
   position: relative;
   color: #424242;
@@ -364,7 +364,7 @@ exports[`Roles Component renders correctly 1`] = `
   line-height: 1.4375em;
   font-family: Lato,sans-serif;
   font-weight: 400;
-  font-size: 0.9286rem;
+  font-size: 0.875rem;
   color: #212121;
   box-sizing: border-box;
   position: relative;
@@ -563,7 +563,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-13:focus::-ms-input-
   line-height: 1.4375em;
   font-family: Lato,sans-serif;
   font-weight: 400;
-  font-size: 0.9286rem;
+  font-size: 0.875rem;
   color: #212121;
   box-sizing: border-box;
   position: relative;
@@ -766,7 +766,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-17:focus::-ms-input-
   line-height: 1.4375em;
   font-family: Lato,sans-serif;
   font-weight: 400;
-  font-size: 0.9286rem;
+  font-size: 0.875rem;
   padding: 0;
   position: relative;
   color: #424242;
@@ -816,7 +816,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-17:focus::-ms-input-
   flex-shrink: 0;
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.1607rem;
+  font-size: 1.0938rem;
 }
 
 .emotion-20 iconButton {
@@ -827,7 +827,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-17:focus::-ms-input-
   line-height: 1.4375em;
   font-family: Lato,sans-serif;
   font-weight: 400;
-  font-size: 0.9286rem;
+  font-size: 0.875rem;
   color: #212121;
   box-sizing: border-box;
   position: relative;
@@ -1090,7 +1090,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-24:focus::-ms-input-
   flex-shrink: 0;
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.3929rem;
+  font-size: 1.3125rem;
   position: absolute;
   right: 0;
   top: calc(50% - .5em);
@@ -1159,7 +1159,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-24:focus::-ms-input-
   color: inherit;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 0.8125rem;
+  font-size: 0.7656rem;
   line-height: 1.75;
   text-transform: uppercase;
   min-width: 64px;
@@ -1254,7 +1254,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-24:focus::-ms-input-
   color: inherit;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 0.8125rem;
+  font-size: 0.7656rem;
   line-height: 1.75;
   text-transform: uppercase;
   min-width: 64px;

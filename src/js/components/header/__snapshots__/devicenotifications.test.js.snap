@@ -27,7 +27,7 @@ exports[`DeviceNotifications Component renders correctly 1`] = `
   flex-shrink: 0;
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.3929rem;
+  font-size: 1.3125rem;
 }
 
 .emotion-1 iconButton {
@@ -89,7 +89,7 @@ exports[`DeviceNotifications Component renders correctly at limit 1`] = `
   flex-shrink: 0;
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.3929rem;
+  font-size: 1.3125rem;
 }
 
 .emotion-0 iconButton {
@@ -152,7 +152,7 @@ exports[`DeviceNotifications Component renders correctly close to limits 1`] = `
   flex-shrink: 0;
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.3929rem;
+  font-size: 1.3125rem;
 }
 
 .emotion-0 iconButton {
@@ -226,7 +226,7 @@ exports[`DeviceNotifications Component renders correctly with limits 1`] = `
   flex-shrink: 0;
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.3929rem;
+  font-size: 1.3125rem;
 }
 
 .emotion-1 iconButton {
@@ -300,7 +300,7 @@ exports[`DeviceNotifications Component renders correctly without limits 1`] = `
   flex-shrink: 0;
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.3929rem;
+  font-size: 1.3125rem;
 }
 
 .emotion-1 iconButton {

@@ -51,7 +51,7 @@ exports[`Search Component renders correctly 1`] = `
   line-height: 1.4375em;
   font-family: Lato,sans-serif;
   font-weight: 400;
-  font-size: 0.9286rem;
+  font-size: 0.875rem;
   color: #212121;
   box-sizing: border-box;
   position: relative;

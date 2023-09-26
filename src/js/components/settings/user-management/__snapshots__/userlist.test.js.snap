@@ -11,7 +11,7 @@ exports[`UserList Component renders correctly 1`] = `
 .emotion-0 caption {
   font-family: Lato,sans-serif;
   font-weight: 400;
-  font-size: 0.8125rem;
+  font-size: 0.7656rem;
   line-height: 1.43;
   padding: 16px;
   color: #424242;
@@ -57,8 +57,8 @@ exports[`UserList Component renders correctly 1`] = `
 .emotion-3 {
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 0.8125rem;
-  line-height: 1.3929rem;
+  font-size: 0.7656rem;
+  line-height: 1.3125rem;
   display: table-cell;
   vertical-align: inherit;
   border-bottom: 1px solid rgba(224, 224, 224, 1);

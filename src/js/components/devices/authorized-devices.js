@@ -78,7 +78,7 @@ const useStyles = makeStyles()(theme => ({
     borderStyle: 'solid',
     borderWidth: 1,
     borderRadius: 5,
-    borderColor: theme.palette.grey[100],
+    borderColor: theme.palette.border.colors.primary,
     background: theme.palette.background.default,
     [`.filter-list > .MuiChip-root`]: {
       marginBottom: theme.spacing()

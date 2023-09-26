@@ -152,7 +152,7 @@ exports[`Groups Component renders GroupItem correctly 1`] = `
   line-height: 1.5;
   font-family: Lato,sans-serif;
   font-weight: 400;
-  font-size: 0.9286rem;
+  font-size: 0.875rem;
   display: block;
 }
 
@@ -196,7 +196,7 @@ exports[`Groups Component renders GroupsSubheader correctly 1`] = `
   color: #424242;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 0.8125rem;
+  font-size: 0.7656rem;
   color: #424242;
   height: 48px;
   padding-left: 24px;
@@ -379,7 +379,7 @@ exports[`Groups Component renders correctly 1`] = `
   line-height: 1.5;
   font-family: Lato,sans-serif;
   font-weight: 400;
-  font-size: 0.9286rem;
+  font-size: 0.875rem;
   display: block;
 }
 
@@ -402,7 +402,7 @@ exports[`Groups Component renders correctly 1`] = `
   color: #424242;
   font-family: Lato,sans-serif;
   font-weight: 500;
-  font-size: 0.8125rem;
+  font-size: 0.7656rem;
   color: #424242;
   height: 48px;
   padding-left: 24px;
@@ -427,7 +427,7 @@ exports[`Groups Component renders correctly 1`] = `
   flex-shrink: 0;
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.3929rem;
+  font-size: 1.3125rem;
 }
 
 .emotion-18 iconButton {

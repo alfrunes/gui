@@ -187,7 +187,7 @@ exports[`TwoFactorAuthSetup Component renders correctly 1`] = `
 }
 
 .emotion-6 {
-  color: rgba(0, 0, 0, 0.38);
+  color: #424242;
   margin: 15px 0;
 }
 

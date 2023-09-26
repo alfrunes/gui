@@ -16,7 +16,7 @@ import React from 'react';
 import { makeStyles } from 'tss-react/mui';
 
 const useStyles = makeStyles()(theme => ({
-  default: { color: theme.palette.text.disabled, margin: '15px 0' }
+  default: { color: theme.palette.text.hint, margin: '15px 0' }
 }));
 
 export const InfoText = ({ children, className = '', variant = '', ...props }) => {

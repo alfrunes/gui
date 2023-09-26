@@ -162,7 +162,7 @@ exports[`GroupDefinition Component renders correctly 1`] = `
   line-height: 1.4375em;
   font-family: Lato,sans-serif;
   font-weight: 400;
-  font-size: 0.9286rem;
+  font-size: 0.875rem;
   padding: 0;
   position: relative;
   color: #424242;
@@ -203,7 +203,7 @@ exports[`GroupDefinition Component renders correctly 1`] = `
   line-height: 1.4375em;
   font-family: Lato,sans-serif;
   font-weight: 400;
-  font-size: 0.9286rem;
+  font-size: 0.875rem;
   color: #212121;
   box-sizing: border-box;
   position: relative;
@@ -403,7 +403,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
   color: #424242;
   font-family: Lato,sans-serif;
   font-weight: 400;
-  font-size: 0.6964rem;
+  font-size: 0.6563rem;
   line-height: 1.66;
   text-align: left;
   margin-top: 3px;
@@ -421,7 +421,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
 }
 
 .emotion-6 {
-  color: rgba(0, 0, 0, 0.38);
+  color: #424242;
   margin: 15px 0;
 }
 

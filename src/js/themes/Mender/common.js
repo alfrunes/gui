@@ -79,8 +79,8 @@ export const chartColorPalette = Object.values(generatedColors);
 
 const round = value => Math.round(value * 1e4) / 1e4;
 const htmlFontSize = 16;
-const fontSize = 13;
-const coef = fontSize / 14;
+const fontSize = 14;
+const coef = fontSize / 16;
 const pxToRem = size => `${round((size / htmlFontSize) * coef)}rem`;
 
 export const typography = {
@@ -168,7 +168,8 @@ export const overrides = {
   MuiAccordionDetails: {
     styleOverrides: {
       root: {
-        flexDirection: 'column'
+        flexDirection: 'column',
+        paddingRight: 0
       }
     }
   },

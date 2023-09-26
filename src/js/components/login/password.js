@@ -22,7 +22,6 @@ import TextInput from '../common/forms/textinput';
 
 export const PasswordScreenContainer = ({ children, title }) => (
   <>
-    <div></div>
     <div className="flexbox column content" id="login-box" style={{ marginTop: -200 }}>
       <LoginLogo alt="mender-logo" className="flexbox margin-bottom-large" style={{ maxWidth: 300, alignSelf: 'center' }} />
       <h1 className="align-center">{title}</h1>

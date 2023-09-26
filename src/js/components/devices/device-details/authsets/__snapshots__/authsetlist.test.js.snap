@@ -233,7 +233,7 @@ exports[`AuthsetList Component renders correctly 1`] = `
 .emotion-5 {
   max-width: 100%;
   font-family: Lato,sans-serif;
-  font-size: 0.7545rem;
+  font-size: 0.7109rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -273,7 +273,7 @@ exports[`AuthsetList Component renders correctly 1`] = `
   width: 24px;
   height: 24px;
   color: #bcbcbc;
-  font-size: 0.6964rem;
+  font-size: 0.6563rem;
 }
 
 .emotion-5 .MuiChip-avatarColorPrimary {
@@ -291,7 +291,7 @@ exports[`AuthsetList Component renders correctly 1`] = `
   margin-right: -4px;
   width: 18px;
   height: 18px;
-  font-size: 0.5804rem;
+  font-size: 0.5469rem;
 }
 
 .emotion-5 .MuiChip-icon {
@@ -353,6 +353,7 @@ exports[`AuthsetList Component renders correctly 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  padding-right: 0;
 }
 
 <div
