@@ -15,6 +15,7 @@ import React, { useEffect, useState } from 'react';
 
 import { FileCopy as CopyPasteIcon } from '@mui/icons-material';
 import { Button, IconButton, Tab, Tabs, TextField, Tooltip } from '@mui/material';
+import { tabsClasses } from '@mui/material/Tabs';
 import { makeStyles } from 'tss-react/mui';
 
 import { canAccess } from '../../../constants/appConstants';
@@ -32,6 +33,11 @@ const useStyles = makeStyles()(theme => ({
   column: { maxWidth },
   inputWrapper: { display: 'grid', gridTemplateColumns: 'auto 0px max-content', flexGrow: 1 },
   tab: { alignItems: 'flex-start' },
+  tabs: {
+    [`.${tabsClasses.flexContainer}`]: {
+      borderBottom: `1px solid ${theme.palette.border.colors.primary}`
+    }
+  },
   fileDestination: { marginTop: theme.spacing(2) },
   copyPasteIcon: { color: theme.palette.greySecondary[600] }
 }));
@@ -94,7 +100,7 @@ export const FileTransfer = ({
 
   return (
     <div className="tab-container file-transfer-container with-sub-panels" style={{ minHeight: '95%' }}>
-      <Tabs orientation="horizontal" className="leftFixed" onChange={(e, item) => setCurrentTab(item)} value={currentTab}>
+      <Tabs orientation="horizontal" className={`leftFixed ${classes.tabs}`} onChange={(e, item) => setCurrentTab(item)} value={currentTab}>
         {availableTabs.map(({ key }) => (
           <Tab className={`${classes.tab} capitalized`} key={key} label={key} value={key} />
         ))}

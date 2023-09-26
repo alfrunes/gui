@@ -77,7 +77,7 @@ const WrappedBaseline = withStyles(cssVariables)(CssBaseline);
 const useStyles = makeStyles()(() => ({
   public: {
     display: 'grid',
-    gridTemplateRows: 'max-content 1fr max-content',
+    gridTemplateRows: '1fr max-content',
     height: '100vh',
     '.content': {
       alignSelf: 'center',

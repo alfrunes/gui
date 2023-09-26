@@ -24,7 +24,7 @@ import { isDarkMode } from '../../helpers.js';
 const useStyles = makeStyles()(theme => ({
   list: {
     [`&.navLink .${listItemTextClasses.root}`]: {
-      color: isDarkMode(theme.palette.mode) ? theme.palette.text.primary : theme.palette.grey[900]
+      color: isDarkMode(theme.palette.mode) ? theme.palette.text.primary : theme.palette.text
     },
     [`&.navLink.active .${listItemTextClasses.root}`]: {
       color: isDarkMode(theme.palette.mode) ? theme.palette.grey[900] : theme.palette.text.primary

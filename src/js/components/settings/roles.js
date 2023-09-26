@@ -16,7 +16,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 // material ui
 import { Add as AddIcon, ArrowRightAlt as ArrowRightAltIcon } from '@mui/icons-material';
-import { Chip } from '@mui/material';
+import { Button } from '@mui/material';
 
 import { getDynamicGroups, getGroups } from '../../actions/deviceActions';
 import { createRole, editRole, getRoles, removeRole } from '../../actions/userActions';
@@ -99,7 +99,9 @@ export const RoleManagement = () => {
     <div>
       <h2 style={{ marginLeft: 20 }}>Roles</h2>
       <DetailsTable columns={columns} items={items} onItemClick={onEditRole} />
-      <Chip color="primary" icon={<AddIcon />} label="Add a role" onClick={addRole} />
+      <Button variant="contained" color="primary" onClick={addRole}>
+        <AddIcon /> Add a role
+      </Button>
       <RoleDefinition
         adding={adding}
         editing={editing}

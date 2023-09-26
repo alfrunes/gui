@@ -47,7 +47,7 @@ const adornments = [
 ];
 
 export const DeviceIdentityDisplay = props => {
-  const { device = {}, isEditable = true, hasAdornment = true } = props;
+  const { device = {}, isEditable = true, hasAdornment = true, className = '' } = props;
 
   const { attribute: idAttribute } = useSelector(getIdAttribute);
   const stateDevice = useSelector(state => state.devices.byId[device?.id]) || {};
@@ -61,7 +61,7 @@ export const DeviceIdentityDisplay = props => {
     [attributes.mender_is_gateway, attributes.mender_gateway_system_id]
   );
   return (
-    <div className="flexbox space-between">
+    <div className={`flexbox space-between ${className}`}>
       <Component {...props} value={idValue} />
       {hasAdornment && EndAdornment && <EndAdornment className={`${classes.gatewayIcon}`} />}
     </div>

@@ -28,6 +28,12 @@ const useStyles = makeStyles()(theme => ({
     [`> *`]: {
       backgroundColor: theme.palette.background.light
     }
+  },
+  identityItem: {
+    '.text-overflow': {
+      maxWidth: 200,
+      textOverflow: 'ellipsis'
+    }
   }
 }));
 
@@ -66,7 +72,7 @@ const DeviceListItem = ({ columnHeaders, device, idAttribute, index, onRowSelect
           <Checkbox checked={selected} onChange={handleRowSelect} />
         </div>
       )}
-      <DeviceIdentityDisplay device={device} isHovered={isHovering} />
+      <DeviceIdentityDisplay className={classes.identityItem} device={device} isHovered={isHovering} />
       {/* we'll skip the first column, since this is the id and that gets resolved differently in the lines above */}
       {columnHeaders.slice(1).map((column, index) => {
         let Component = column.component ? column.component : DefaultAttributeRenderer;

@@ -29,6 +29,9 @@ const useStyles = makeStyles()(() => ({
       marginBottom: -6
     },
     '.nonSortable': { cursor: 'initial' }
+  },
+  cell: {
+    fontSize: 14
   }
 }));
 
@@ -50,7 +53,7 @@ export const DetailsTable = ({ className = '', columns, items, onChangeSorting, 
         {items.map((item, index) => (
           <TableRow className={onItemClick ? 'clickable' : ''} hover key={item.id || index} onClick={() => (onItemClick ? onItemClick(item) : null)}>
             {columns.map(column => (
-              <TableCell className="relative" key={column.key}>
+              <TableCell className={`relative ${classes.cell}`} key={column.key}>
                 {column.render(item, column.extras)}
               </TableCell>
             ))}

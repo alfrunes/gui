@@ -47,12 +47,18 @@ const useStyles = makeStyles()(theme => ({
   textInput: {
     marginTop: 0,
     minWidth: 'initial'
+  },
+  helpText: {
+    fontSize: 14
+  },
+  inputLabel: {
+    transform: 'none'
   }
 }));
 
 export const IdAttributeSelection = ({ attributes, dialog, onCloseClick, onSaveClick, selectedAttribute = '' }) => {
   const [attributeSelection, setAttributeSelection] = useState('name');
-
+  const { classes } = useStyles();
   useEffect(() => {
     setAttributeSelection(selectedAttribute);
   }, [selectedAttribute]);
@@ -79,7 +85,7 @@ export const IdAttributeSelection = ({ attributes, dialog, onCloseClick, onSaveC
   return (
     <div className="flexbox space-between" style={{ alignItems: 'flex-start', maxWidth }}>
       <FormControl>
-        <InputLabel shrink id="device-id">
+        <InputLabel className={classes.inputLabel} shrink id="device-id">
           Device identity attribute
         </InputLabel>
         <Select value={attributeSelection} onChange={onChangeIdAttribute}>
@@ -89,7 +95,7 @@ export const IdAttributeSelection = ({ attributes, dialog, onCloseClick, onSaveC
             </MenuItem>
           ))}
         </Select>
-        <FormHelperText className="info" component="div">
+        <FormHelperText className={`info ${classes.helpText}`} component="div">
           <div className="margin-top-small margin-bottom-small">Choose a device identity attribute to use to identify your devices throughout the UI.</div>
         </FormHelperText>
       </FormControl>
@@ -163,7 +169,7 @@ export const GlobalSettingsDialog = ({
         onSaveClick={onSaveClick}
         selectedAttribute={selectedAttribute}
       />
-      <InputLabel className="margin-top" shrink id="offline-theshold">
+      <InputLabel className={`margin-top ${classes.inputLabel}`} shrink id="offline-theshold">
         Offline threshold
       </InputLabel>
       <div className={classes.threshold}>
@@ -188,7 +194,7 @@ export const GlobalSettingsDialog = ({
           {intervalErrorText}
         </FormHelperText>
       )}
-      <FormHelperText className="info" component="div">
+      <FormHelperText className={`info ${classes.helpText}`} component="div">
         Choose how long a device can go without reporting to the server before it is considered “offline”.
       </FormHelperText>
     </div>

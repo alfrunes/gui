@@ -34,6 +34,7 @@ const grey = {
 const green = {
   '100': '#E4F1E8',
   '200': 'rgba(154, 217, 173, 0.20)',
+  '300': '#9AD9AD',
   '800': '#00813B'
 };
 
@@ -83,6 +84,13 @@ export const light = {
   typography,
   components: {
     ...overrides,
+    MuiSnackbarContent: {
+      styleOverrides: {
+        action: {
+          color: palette.green[300]
+        }
+      }
+    },
     MuiCheckbox: {
       styleOverrides: {
         root: {
