@@ -20,6 +20,7 @@ import {
   SET_FEATURES,
   SET_FIRST_LOGIN_AFTER_SIGNUP,
   SET_OFFLINE_THRESHOLD,
+  SET_PLANS,
   SET_SEARCH_STATE,
   SET_SNACKBAR,
   SET_VERSION_INFORMATION,
@@ -32,19 +33,10 @@ import { SET_SHOW_HELP } from '../constants/userConstants';
 import { deepCompare, extractErrorMessage, preformatWithRequestID, stringToBoolean } from '../helpers';
 import { getCurrentUser, getOfflineThresholdSettings, getUserSettings as getUserSettingsSelector } from '../selectors';
 import { getOnboardingComponentFor } from '../utils/onboardingmanager';
-import {
-  getDeviceAttributes,
-  getDeviceById,
-  getDeviceLimit,
-  getDevicesByStatus,
-  getDynamicGroups,
-  getGroups,
-  searchDevices,
-  setDeviceListState
-} from './deviceActions';
+import { getDeviceAttributes, getDeviceById, getDevicesByStatus, getDynamicGroups, getGroups, searchDevices, setDeviceListState } from './deviceActions';
 import { setDemoArtifactPort, setOnboardingComplete } from './onboardingActions';
-import { getUserOrganization } from './organizationActions';
-import { getGlobalSettings, getRoles, getUserLimit, getUserSettings, saveGlobalSettings, saveUserSettings } from './userActions';
+import { getOrganizationPlan, getUserOrganization } from './organizationActions';
+import { getGlobalSettings, getRoles, getUserSettings, saveGlobalSettings, saveUserSettings } from './userActions';
 
 const cookies = new Cookies();
 
@@ -59,18 +51,7 @@ export const commonErrorHandler = (err, errorContext, dispatch, fallback, mightB
 
 const getComparisonCompatibleVersion = version => (isNaN(version.charAt(0)) && version !== 'next' ? 'master' : version);
 
-const featureFlags = [
-  'hasAddons',
-  'hasAuditlogs',
-  'hasMultitenancy',
-  'hasDeltaProgress',
-  'hasDeviceConfig',
-  'hasDeviceConnect',
-  'hasReleaseTags',
-  'hasReporting',
-  'hasMonitor',
-  'isEnterprise'
-];
+const featureFlags = ['hasAddons', 'hasMultitenancy', 'hasDeviceConfig', 'hasDeviceConnect', 'hasReporting'];
 export const parseEnvironmentInfo = () => (dispatch, getState) => {
   const state = getState();
   let onboardingComplete = state.onboarding.complete || !!JSON.parse(window.localStorage.getItem('onboardingComplete') ?? 'false');
@@ -160,6 +141,7 @@ export const initializeAppData = () => (dispatch, getState) => {
   let tasks = [
     dispatch(parseEnvironmentInfo()),
     dispatch(getUserSettings()),
+    dispatch(getOrganizationPlan()),
     dispatch(getGlobalSettings()),
     dispatch(getDeviceAttributes()),
     dispatch(getDevicesByStatus(DEVICE_STATES.accepted)),
@@ -168,9 +150,8 @@ export const initializeAppData = () => (dispatch, getState) => {
     dispatch(getDevicesByStatus(DEVICE_STATES.rejected)),
     dispatch(getDynamicGroups()),
     dispatch(getGroups()),
-    dispatch(getDeviceLimit()),
-    dispatch(getUserLimit()),
     dispatch(getRoles()),
+    dispatch(getPlans()),
     dispatch(setFirstLoginAfterSignup(stringToBoolean(cookies.get('firstLoginAfterSignup'))))
   ];
   const multitenancy = getState().app.features.hasMultitenancy || getState().app.features.isEnterprise || getState().app.features.isHosted;
@@ -368,3 +349,51 @@ export const cancelFileUpload = id => (dispatch, getState) => {
   current.cancelSource.abort();
   return Promise.resolve(dispatch({ type: UPLOAD_PROGRESS, uploads: remainder }));
 };
+
+/**
+ * @removeme
+ * [
+ *   {
+ *     "id": "806603def19d417d004a4b67e",
+ *     "product": "Alvaldi",
+ *     "name": "alvaldi-basic",
+ *     "display_name": "Alvaldi Basic",
+ *     "features": {
+ *       "rbac": true,
+ *       "audit_logs": true,
+ *       "dynamic_groups": true,
+ *       "terminal": true
+ *     },
+ *     "limits": {
+ *       "devices": 10,
+ *       "users": 2,
+ *       "audit_logs_days": 2
+ *     }
+ *   }
+ * ,
+ *   {
+ *     "id": "806603def19d417d004a4b67e",
+ *     "product": "Alvaldi",
+ *     "name": "alvaldi-professional",
+ *     "display_name": "Alvaldi Professional no limits",
+ *     "features": {
+ *       "rbac": true,
+ *       "audit_logs": true,
+ *       "dynamic_groups": true,
+ *       "terminal": true
+ *     },
+ *     "limits": {
+ *       "devices": 10,
+ *       "users": 2,
+ *       "audit_logs_days": 0
+ *     }
+ *   }
+ *
+ * ]
+ */
+export const getPlans = () => dispatch =>
+  GeneralApi.get(`/plans.json`)
+    .then(({ data: plans }) => {
+      return Promise.resolve(dispatch({ type: SET_PLANS, value: plans }));
+    })
+    .catch(err => commonErrorHandler(err, `There was an error retrieving plans:`, dispatch));

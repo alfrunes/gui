@@ -555,14 +555,6 @@ export const getDeviceCount = status => (dispatch, getState) =>
 export const getAllDeviceCounts = () => dispatch =>
   Promise.all([DEVICE_STATES.accepted, DEVICE_STATES.pending].map(status => dispatch(getDeviceCount(status))));
 
-export const getDeviceLimit = () => dispatch =>
-  GeneralApi.get(`${deviceAuthV2}/limits/max_devices`).then(res =>
-    dispatch({
-      type: DeviceConstants.SET_DEVICE_LIMIT,
-      limit: res.data.limit
-    })
-  );
-
 export const setDeviceListState =
   (selectionState, shouldSelectDevices = true) =>
   (dispatch, getState) => {

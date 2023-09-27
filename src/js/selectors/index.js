@@ -15,7 +15,6 @@ import { createSelector } from '@reduxjs/toolkit';
 
 import { defaultReports } from '../actions/deviceActions';
 import { mapUserRolesToUiPermissions } from '../actions/userActions';
-import { PLANS } from '../constants/appConstants';
 import {
   ALL_DEVICES,
   ATTRIBUTE_SCOPES,
@@ -33,6 +32,13 @@ const getAppDocsVersion = state => state.app.docsVersion;
 export const getFeatures = state => state.app.features;
 export const getRolesById = state => state.users.rolesById;
 export const getOrganization = state => state.organization.organization;
+export const getAppPlans = ({ app }) => app.plans;
+export const getPlanWithoutAuditologsLimit = createSelector([getAppPlans], plans => plans.find(plan => plan?.limits?.audit_logs_days === 0));
+export const getPlanWithDynamicGroups = createSelector([getAppPlans], plans => plans.find(plan => plan?.features?.dynamic_groups === true));
+export const getCurrentPlan = ({ organization }) => organization.plan;
+export const getCurrentPlanName = createSelector([getCurrentPlan, getOrganization], (plan, { trial: isTrial = false }) =>
+  isTrial ? 'Free trial' : plan?.display_name
+);
 export const getAcceptedDevices = state => state.devices.byStatus.accepted;
 const getDevicesByStatus = state => state.devices.byStatus;
 export const getDevicesById = state => state.devices.byId;
@@ -205,12 +211,9 @@ export const getDocsVersion = createSelector([getAppDocsVersion, getFeatures], (
   return isHosted ? '' : docsVersion;
 });
 
-export const getIsEnterprise = createSelector(
-  [getOrganization, getFeatures],
-  ({ plan = PLANS.os.value }, { isEnterprise, isHosted }) => isEnterprise || (isHosted && plan === PLANS.enterprise.value)
-);
+export const getIsEnterprise = createSelector([getFeatures], ({ isEnterprise }) => isEnterprise);
 
-export const getLogsDaysLimit = createSelector([getOrganization], ({ plan }) => PLANS[plan]?.logsDaysLimit || null);
+export const getLogsDaysLimit = createSelector([getCurrentPlan], ({ limits }) => limits?.audit_logs_days || null);
 
 export const getAttributesList = createSelector(
   [getFilteringAttributes, getFilteringAttributesFromConfig],
@@ -220,18 +223,45 @@ export const getAttributesList = createSelector(
 
 export const getRolesList = createSelector([getRolesById], rolesById => Object.entries(rolesById).map(([id, role]) => ({ id, ...role })));
 
-export const getUserRoles = createSelector(
-  [getCurrentUser, getRolesById, getIsEnterprise, getFeatures, getOrganization],
-  (currentUser, rolesById, isEnterprise, { isHosted, hasMultitenancy }, { plan = PLANS.os.value }) => {
-    const isAdmin = currentUser.roles?.length
-      ? currentUser.roles.some(role => role === rolesByName.admin)
-      : !(hasMultitenancy || isEnterprise || (isHosted && plan !== PLANS.os.value));
-    const uiPermissions = isAdmin
-      ? mapUserRolesToUiPermissions([rolesByName.admin], rolesById)
-      : mapUserRolesToUiPermissions(currentUser.roles || [], rolesById);
-    return { isAdmin, uiPermissions };
+export const getTenantCapabilities = createSelector(
+  [getFeatures, getOrganization, getIsEnterprise],
+  (
+    {
+      hasAddons,
+      hasAuditlogs,
+      hasRbac,
+      hasDynamicGroups,
+      hasDeviceConfig: isDeviceConfigEnabled,
+      hasDeviceConnect: isDeviceConnectEnabled,
+      hasMonitor: isMonitorEnabled,
+      isHosted
+    },
+    { addons = [] },
+    isEnterprise
+  ) => {
+    const hasDeviceConfig = hasAddons || (isDeviceConfigEnabled && (!isHosted || addons.some(addon => addon.name === 'configure' && Boolean(addon.enabled))));
+    const hasDeviceConnect =
+      hasAddons || (isDeviceConnectEnabled && (!isHosted || addons.some(addon => addon.name === 'troubleshoot' && Boolean(addon.enabled))));
+    const hasMonitor = hasAddons || (isMonitorEnabled && (!isHosted || addons.some(addon => addon.name === 'monitor' && Boolean(addon.enabled))));
+    return {
+      hasAuditlogs,
+      hasRbac,
+      hasDynamicGroups,
+      hasDeviceConfig,
+      hasDeviceConnect,
+      hasFullFiltering: isEnterprise,
+      hasMonitor,
+      isEnterprise
+    };
   }
 );
+
+export const getUserRoles = createSelector([getCurrentUser, getRolesById, getTenantCapabilities], (currentUser, rolesById, { hasRbac }) => {
+  // set isAdmin to true when user has admin role or RBAC is not available what means that every user is admin.
+  const isAdmin = currentUser.roles?.length ? currentUser.roles.some(role => role === rolesByName.admin) : !hasRbac;
+  const uiPermissions = isAdmin ? mapUserRolesToUiPermissions([rolesByName.admin], rolesById) : mapUserRolesToUiPermissions(currentUser.roles || [], rolesById);
+  return { isAdmin, uiPermissions };
+});
 
 const hasPermission = (thing, permission) => Object.values(thing).some(permissions => permissions.includes(permission));
 
@@ -276,40 +306,6 @@ export const getUserCapabilities = createSelector([getUserRoles], ({ uiPermissio
     releasesPermissions: uiPermissions.releases
   };
 });
-
-export const getTenantCapabilities = createSelector(
-  [getFeatures, getOrganization, getIsEnterprise],
-  (
-    {
-      hasAddons,
-      hasAuditlogs: isAuditlogEnabled,
-      hasDeviceConfig: isDeviceConfigEnabled,
-      hasDeviceConnect: isDeviceConnectEnabled,
-      hasMonitor: isMonitorEnabled,
-      isHosted
-    },
-    { addons = [], plan },
-    isEnterprise
-  ) => {
-    const canDelta = isEnterprise || plan === PLANS.professional.value;
-    const hasAuditlogs = isAuditlogEnabled && (!isHosted || isEnterprise || plan === PLANS.professional.value);
-    const hasDeviceConfig = hasAddons || (isDeviceConfigEnabled && (!isHosted || addons.some(addon => addon.name === 'configure' && Boolean(addon.enabled))));
-    const hasDeviceConnect =
-      hasAddons || (isDeviceConnectEnabled && (!isHosted || addons.some(addon => addon.name === 'troubleshoot' && Boolean(addon.enabled))));
-    const hasMonitor = hasAddons || (isMonitorEnabled && (!isHosted || addons.some(addon => addon.name === 'monitor' && Boolean(addon.enabled))));
-    return {
-      canDelta,
-      canRetry: canDelta,
-      canSchedule: canDelta,
-      hasAuditlogs,
-      hasDeviceConfig,
-      hasDeviceConnect,
-      hasFullFiltering: canDelta,
-      hasMonitor,
-      isEnterprise
-    };
-  }
-);
 
 export const getAvailableIssueOptionsByType = createSelector(
   [getFeatures, getTenantCapabilities, getIssueCountsByType],

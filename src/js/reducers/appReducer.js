@@ -32,6 +32,8 @@ export const initialState = {
   features: {
     hasAddons: false,
     hasAuditlogs: false,
+    hasRbac: false,
+    hasDynamicGroups: false,
     hasDeltaProgress: false,
     hasMultitenancy: false,
     hasDeviceConfig: false,
@@ -72,7 +74,8 @@ export const initialState = {
     GUI: 'latest',
     AlvaldiVersion: ''
   },
-  yesterday: undefined
+  yesterday: undefined,
+  plans: []
 };
 
 // exclude 'pendings-redirect' since this is expected to persist refreshes - the rest should be better to be redone
@@ -133,6 +136,11 @@ const appReducer = (state = initialState, action) => {
       return {
         ...state,
         ...action.value
+      };
+    case AppConstants.SET_PLANS:
+      return {
+        ...state,
+        plans: action.value
       };
     default:
       return state;

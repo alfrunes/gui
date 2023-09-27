@@ -17,8 +17,8 @@ import Cookies from 'universal-cookie';
 
 import Api, { apiUrl, headerNames } from '../api/general-api';
 import { getToken } from '../auth';
-import { SET_ANNOUNCEMENT, SORTING_OPTIONS, TIMEOUTS, locations } from '../constants/appConstants';
-import { DEVICE_LIST_DEFAULTS } from '../constants/deviceConstants';
+import { SET_ANNOUNCEMENT, SET_FEATURES, SORTING_OPTIONS, TIMEOUTS, locations } from '../constants/appConstants';
+import { DEVICE_LIST_DEFAULTS, SET_DEVICE_LIMIT } from '../constants/deviceConstants';
 import {
   RECEIVE_AUDIT_LOGS,
   RECEIVE_CURRENT_CARD,
@@ -27,8 +27,10 @@ import {
   RECEIVE_SETUP_INTENT,
   RECEIVE_WEBHOOK_EVENTS,
   SET_AUDITLOG_STATE,
-  SET_ORGANIZATION
+  SET_ORGANIZATION,
+  SET_PLAN
 } from '../constants/organizationConstants';
+import { SET_USER_LIMIT } from '../constants/userConstants.js';
 import { deepCompare } from '../helpers';
 import { getTenantCapabilities } from '../selectors';
 import { commonErrorFallback, commonErrorHandler, setFirstLoginAfterSignup, setSnackbar } from './appActions';
@@ -129,8 +131,8 @@ export const completeUpgrade = (tenantId, plan) => dispatch =>
 const prepareAuditlogQuery = ({ startDate, endDate, user: userFilter, type, detail: detailFilter, sort = {} }) => {
   const userId = userFilter?.id || userFilter;
   const detail = detailFilter?.id || detailFilter;
-  const createdAfter = endDate ? `&created_after=${Math.round(Date.parse(startDate) / 1000)}` : '';
-  const createdBefore = startDate ? `&created_before=${Math.round(Date.parse(endDate) / 1000)}` : '';
+  const createdAfter = startDate ? `&created_after=${Math.round(Date.parse(startDate) / 1000)}` : '';
+  const createdBefore = endDate ? `&created_before=${Math.round(Date.parse(endDate) / 1000)}` : '';
   const typeSearch = type ? `&object_type=${type.value}`.toLowerCase() : '';
   const userSearch = userId ? `&actor_id=${userId}` : '';
   const objectSearch = type && detail ? `&${type.queryParameter}=${encodeURIComponent(detail)}` : '';
@@ -317,3 +319,42 @@ export const getSamlConfigs = () => dispatch =>
         return dispatch({ type: RECEIVE_SAML_CONFIGS, value: configs });
       })
     );
+
+/**
+ * @removeMe, plan example
+ * {
+ *   "id": "806603def19d417d004a4b67e",
+ *   "product": "Alvaldi",
+ *   "name": "alvaldi-professional",
+ *   "display_name": "Alvaldi Professional",
+ *   "features": {
+ *     "rbac": false,
+ *     "audit_logs": false,
+ *     "dynamic_groups": true,
+ *     "terminal": true,
+ *   },
+ *   "limits": {`
+ *     "devices": 10,
+ *     "users": 2,
+ *     "audit_logs_days": 2
+ *   }
+ * }
+ */
+
+export const getOrganizationPlan = () => dispatch =>
+  Api.get(`/plan.json`)
+    .then(({ data: plan }) => {
+      const { features: planFeatures, limits } = plan;
+      const features = {
+        hasAuditlogs: planFeatures?.audit_logs,
+        hasRbac: planFeatures?.rbac,
+        hasDynamicGroups: planFeatures?.dynamic_groups
+      };
+      return Promise.all([
+        dispatch({ type: SET_PLAN, payload: plan }),
+        dispatch({ type: SET_FEATURES, value: features }),
+        dispatch({ type: SET_DEVICE_LIMIT, limit: limits?.devices }),
+        dispatch({ type: SET_USER_LIMIT, limit: limits?.users })
+      ]);
+    })
+    .catch(err => commonErrorHandler(err, `There was an error retrieving organization plan:`, dispatch));
