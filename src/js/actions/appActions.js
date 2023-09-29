@@ -110,7 +110,7 @@ export const parseEnvironmentInfo = () => (dispatch, getState) => {
     };
     environmentFeatures = {
       ...featureFlags.reduce((accu, flag) => ({ ...accu, [flag]: stringToBoolean(features[flag]) }), {}),
-      isHosted: stringToBoolean(features.isHosted) || window.location.hostname.includes('hosted.alvaldi.com'),
+      isHosted: stringToBoolean(features.isHosted) || window.location.hostname.includes('app.alvaldi.com'),
       isDemoMode: stringToBoolean(isDemoMode || features.isDemoMode)
     };
     versionInfo = {

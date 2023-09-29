@@ -32,7 +32,7 @@ describe('PhysicalDeviceOnboarding Component', () => {
   beforeEach(() => {
     window.location = {
       ...window.location,
-      hostname: 'hosted.alvaldi.com'
+      hostname: 'app.alvaldi.com'
     };
   });
   afterEach(() => {

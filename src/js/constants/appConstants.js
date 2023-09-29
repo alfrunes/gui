@@ -55,8 +55,8 @@ export const TIMEOUTS = {
   refreshDefault: 10 * oneSecond
 };
 export const locations = {
-  eu: { key: 'eu', title: 'EU', location: 'eu.hosted.alvaldi.com', icon: FlagEU },
-  us: { key: 'us', title: 'US', location: 'hosted.alvaldi.com', icon: FlagUS }
+  eu: { key: 'eu', title: 'EU', location: 'eu.app.alvaldi.com', icon: FlagEU },
+  us: { key: 'us', title: 'US', location: 'app.alvaldi.com', icon: FlagUS }
 };
 /**
  * @todo [ALV-106] PLANS will be changed on the backend and should be adjusted here after the changes
