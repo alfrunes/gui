@@ -82,7 +82,7 @@ exports[`TimeframePicker Component renders correctly 1`] = `
 }
 
 .emotion-1.Mui-error {
-  color: #ab1000;
+  color: #A11100;
 }
 
 .emotion-1.Mui-focused {

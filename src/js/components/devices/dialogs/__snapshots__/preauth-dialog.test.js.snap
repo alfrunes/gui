@@ -218,7 +218,7 @@ label+.emotion-8 {
 
 .emotion-8.Mui-error:before,
 .emotion-8.Mui-error:after {
-  border-bottom-color: #ab1000;
+  border-bottom-color: #A11100;
 }
 
 .emotion-8:before {

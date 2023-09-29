@@ -60,7 +60,7 @@ exports[`SelfUserManagement Component renders correctly 1`] = `
 }
 
 .emotion-2.Mui-error {
-  color: #ab1000;
+  color: #A11100;
 }
 
 .emotion-2.Mui-focused {
@@ -121,7 +121,7 @@ label+.emotion-3 {
 
 .emotion-3.Mui-error:before,
 .emotion-3.Mui-error:after {
-  border-bottom-color: #ab1000;
+  border-bottom-color: #A11100;
 }
 
 .emotion-3:before {

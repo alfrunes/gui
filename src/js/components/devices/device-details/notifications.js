@@ -14,11 +14,13 @@
 import React from 'react';
 
 import { CheckCircle as CheckIcon, Error as ErrorIcon, Help as HelpIcon, ArrowDropDownCircleOutlined as ScrollDownIcon } from '@mui/icons-material';
+import { buttonClasses } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 
 import pluralize from 'pluralize';
 
 import Time from '../../common/time';
+import RemoveDevice from './removeDevice.js';
 
 const errorIcon = <ErrorIcon className="red" />;
 const successIcon = <CheckIcon className="green" />;
@@ -64,6 +66,11 @@ const useStyles = makeStyles()(theme => ({
   },
   downButton: {
     marginBottom: theme.spacing(-0.5)
+  },
+  removeDeviceButton: {
+    [`&.${buttonClasses.root}`]: {
+      color: theme.palette.error.main
+    }
   }
 }));
 
@@ -77,8 +84,8 @@ export const BaseNotification = ({ bordered = true, className = '', children, se
       } ${className} ${onClick ? 'clickable' : ''}`}
       onClick={onClick}
     >
-      <span>{mappedSeverity.icon}</span>
-      <div className="flexbox center-aligned">{children}</div>
+      <span className="flexbox">{mappedSeverity.icon}</span>
+      <div className="flexbox flexbox-grow center-aligned">{children}</div>
     </div>
   );
 };
@@ -89,6 +96,19 @@ export const LastConnection = ({ updated_ts }) => {
   return (
     <BaseNotification severity={monitoringSeverities.CRITICAL}>
       Device has not connected to the server since <Time className={classes.textSpacing} value={updated_ts} />
+    </BaseNotification>
+  );
+};
+
+export const DeviceInactive = ({ device }) => {
+  const { classes } = useStyles();
+
+  return (
+    <BaseNotification severity={monitoringSeverities.CRITICAL}>
+      <span className="flexbox-grow">
+        Device has been inactive since <Time className={classes.textSpacing} value={device.updated_ts} />
+      </span>
+      <RemoveDevice className={classes.removeDeviceButton} device={device} />
     </BaseNotification>
   );
 };
@@ -121,11 +141,12 @@ export const DeviceOfflineHeaderNotification = ({ offlineThresholdSettings }) =>
   </BaseNotification>
 );
 
-export const DeviceNotifications = ({ alerts, device, isOffline, onClick }) => {
+export const DeviceNotifications = ({ alerts, device, isOffline, isInactive, onClick }) => {
   const { updated_ts = '' } = device;
   return (
     <>
-      {isOffline && <LastConnection updated_ts={updated_ts} />}
+      {isInactive && <DeviceInactive device={device} />}
+      {!isInactive && isOffline && <LastConnection updated_ts={updated_ts} />}
       {Boolean(alerts.length) && <ServiceNotification alerts={alerts} onClick={onClick} />}
     </>
   );

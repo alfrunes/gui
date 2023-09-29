@@ -88,7 +88,7 @@ exports[`GlobalSettings Component renders correctly 1`] = `
 }
 
 .emotion-4.Mui-error {
-  color: #ab1000;
+  color: #A11100;
 }
 
 .emotion-4.Mui-focused {
@@ -149,7 +149,7 @@ label+.emotion-5 {
 
 .emotion-5.Mui-error:before,
 .emotion-5.Mui-error:after {
-  border-bottom-color: #ab1000;
+  border-bottom-color: #A11100;
 }
 
 .emotion-5:before {
@@ -396,7 +396,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
 }
 
 .emotion-9.Mui-error {
-  color: #ab1000;
+  color: #A11100;
 }
 
 .emotion-10 {
@@ -435,7 +435,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
 }
 
 .emotion-10.Mui-error {
-  color: #ab1000;
+  color: #A11100;
 }
 
 .emotion-10.Mui-focused {
@@ -499,7 +499,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
 
 .emotion-12.Mui-error:before,
 .emotion-12.Mui-error:after {
-  border-bottom-color: #ab1000;
+  border-bottom-color: #A11100;
 }
 
 .emotion-12:before {
@@ -614,7 +614,7 @@ label+.emotion-17 {
 
 .emotion-17.Mui-error:before,
 .emotion-17.Mui-error:after {
-  border-bottom-color: #ab1000;
+  border-bottom-color: #A11100;
 }
 
 .emotion-17:before {

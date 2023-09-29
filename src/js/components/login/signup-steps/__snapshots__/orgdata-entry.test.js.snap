@@ -207,7 +207,7 @@ exports[`Form Component renders correctly 1`] = `
 }
 
 .emotion-7.Mui-error {
-  color: #ab1000;
+  color: #A11100;
 }
 
 .emotion-7.Mui-focused {
@@ -268,7 +268,7 @@ label+.emotion-8 {
 
 .emotion-8.Mui-error:before,
 .emotion-8.Mui-error:after {
-  border-bottom-color: #ab1000;
+  border-bottom-color: #A11100;
 }
 
 .emotion-8:before {
@@ -528,7 +528,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-9:focus::-ms-input-p
 }
 
 .emotion-14.Mui-error {
-  color: #ab1000;
+  color: #A11100;
 }
 
 .emotion-20 {
@@ -833,7 +833,7 @@ exports[`Login Component renders correctly 1`] = `
 }
 
 .emotion-1.Mui-error {
-  color: #ab1000;
+  color: #A11100;
 }
 
 .emotion-1.Mui-focused {
@@ -894,7 +894,7 @@ label+.emotion-2 {
 
 .emotion-2.Mui-error:before,
 .emotion-2.Mui-error:after {
-  border-bottom-color: #ab1000;
+  border-bottom-color: #A11100;
 }
 
 .emotion-2:before {
@@ -1057,7 +1057,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-3:focus::-ms-input-p
 }
 
 .emotion-4.Mui-error {
-  color: #ab1000;
+  color: #A11100;
 }
 
 .emotion-10 {

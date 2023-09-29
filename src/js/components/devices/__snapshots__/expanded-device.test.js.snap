@@ -555,7 +555,7 @@ exports[`ExpandedDevice Component renders correctly 1`] = `
 
 .emotion-32.Mui-error:before,
 .emotion-32.Mui-error:after {
-  border-bottom-color: #ab1000;
+  border-bottom-color: #A11100;
 }
 
 .emotion-32:before {

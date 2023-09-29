@@ -101,7 +101,7 @@ label+.emotion-1 {
 
 .emotion-1.Mui-error:before,
 .emotion-1.Mui-error:after {
-  border-bottom-color: #ab1000;
+  border-bottom-color: #A11100;
 }
 
 .emotion-1:before {

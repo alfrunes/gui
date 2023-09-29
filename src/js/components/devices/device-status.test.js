@@ -34,5 +34,9 @@ describe('DeviceStatus Component', () => {
     render(ui);
     await waitFor(() => rerender(ui));
     expect(screen.getAllByText(/offline/i)[0]).toBeInTheDocument();
+    ui = <DeviceStatus device={{ isInactive: true }} />;
+    render(ui);
+    await waitFor(() => rerender(ui));
+    expect(screen.getAllByText(/inactive/i)[0]).toBeInTheDocument();
   });
 });
