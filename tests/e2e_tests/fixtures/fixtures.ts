@@ -29,8 +29,8 @@ type TestFixtures = {
 
 const urls = {
   localhost: 'https://docker.mender.io/',
-  staging: 'https://staging.hosted.alvaldi.com/',
-  production: 'https://hosted.alvaldi.com/'
+  staging: 'https://staging.app.alvaldi.com/',
+  production: 'https://app.alvaldi.com/'
 };
 
 const defaultConfig = {

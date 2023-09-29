@@ -64,7 +64,7 @@ export const userHandlers = [
     }
     return res(ctx.status(200), ctx.json(token));
   }),
-  rest.get(`https://hosted.alvaldi.com${useradmApiUrl}/auth/magic/:id`, ({ params: { id } }, res, ctx) => {
+  rest.get(`https://app.alvaldi.com${useradmApiUrl}/auth/magic/:id`, ({ params: { id } }, res, ctx) => {
     if (id) {
       return res(ctx.text('test'), ctx.cookie('JWT', 'test'));
     }
