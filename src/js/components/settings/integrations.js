@@ -25,8 +25,10 @@ import { getExternalIntegrations, getIsPreview } from '../../selectors';
 import { useDebounce } from '../../utils/debouncehook';
 import Confirm from '../common/confirm';
 import InfoHint from '../common/info-hint';
+import { IntegrationEnabled } from '../common/set-up-guide.js';
 
 const maxWidth = 750;
+const newId = 'new';
 
 const useStyles = makeStyles()(theme => ({
   leftButton: { marginRight: theme.spacing() },
@@ -118,6 +120,7 @@ const providerConfigMap = {
 };
 
 export const IntegrationConfiguration = ({ integration, isLast, onCancel, onDelete, onSave }) => {
+  const [showIntegrationEnabledDialog, setShowIntegrationEnabledDialog] = useState(false);
   const { credentials = {}, provider } = integration;
   const [connectionConfig, setConnectionConfig] = useState(credentials);
   // eslint-disable-next-line no-unused-vars
@@ -146,14 +149,15 @@ export const IntegrationConfiguration = ({ integration, isLast, onCancel, onDele
     setIsDeleting(false);
   };
   const onEditClick = () => setIsEditing(true);
-  const onSaveClick = () =>
+  const onSaveClick = () => {
     onSave({
       ...integration,
       credentials: {
         type: EXTERNAL_PROVIDER[provider].credentialsType,
         ...connectionConfig
       }
-    });
+    }).then(() => setShowIntegrationEnabledDialog(integration.id === newId));
+  };
 
   const ConfigInput = providerConfigMap[provider];
   const { configHint, title } = EXTERNAL_PROVIDER[provider];
@@ -185,19 +189,20 @@ export const IntegrationConfiguration = ({ integration, isLast, onCancel, onDele
       </div>
       <InfoHint className={`margin-bottom ${classes.widthLimit}`} content={configHint} />
       {!isLast && <Divider className={`margin-bottom ${classes.widthLimit}`} />}
+      {showIntegrationEnabledDialog && <IntegrationEnabled />}
     </>
   );
 };
 
 export const Integrations = () => {
-  const [iotHubIntegration, setIotHubIntegration] = useState({ ...EXTERNAL_PROVIDER['iot-hub'], id: 'new' });
+  const [iotHubIntegration, setIotHubIntegration] = useState({ ...EXTERNAL_PROVIDER['iot-hub'], id: newId });
   const integrations = useSelector(getExternalIntegrations) ?? [];
   const isPreRelease = useSelector(getIsPreview);
   const dispatch = useDispatch();
 
   useEffect(() => {
     setIotHubIntegration(
-      integrations.find(integration => integration.provider === EXTERNAL_PROVIDER['iot-hub'].provider) || { ...EXTERNAL_PROVIDER['iot-hub'], id: 'new' }
+      integrations.find(integration => integration.provider === EXTERNAL_PROVIDER['iot-hub'].provider) || { ...EXTERNAL_PROVIDER['iot-hub'], id: newId }
     );
   }, [integrations, isPreRelease]);
 
@@ -206,7 +211,7 @@ export const Integrations = () => {
   }, []);
 
   const onSaveClick = integration => {
-    if (integration.id === 'new') {
+    if (integration.id === newId) {
       return dispatch(createIntegration(integration));
     }
     dispatch(changeIntegration(integration));

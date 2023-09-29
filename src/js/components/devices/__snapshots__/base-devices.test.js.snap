@@ -1,14 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`smaller components renders AcceptedEmptyState correctly 1`] = `
-<div
-  class="dashboard-placeholder"
->
-  <p>
-    No devices found
-  </p>
-</div>
-`;
+exports[`smaller components renders AcceptedEmptyState correctly 1`] = `null`;
 
 exports[`smaller components renders DefaultAttributeRenderer correctly 1`] = `
 <div

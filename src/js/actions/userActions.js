@@ -81,8 +81,8 @@ export const loginUser = (userData, stayLoggedIn) => dispatch =>
         })
         .then(() => {
           window.sessionStorage.removeItem('pendings-redirect');
-          if (window.location.pathname !== '/ui/') {
-            window.location.replace('/ui/');
+          if (window.location.pathname !== '/ui/devices/accepted') {
+            window.location.replace('/ui/devices/accepted');
           }
           return Promise.all([dispatch({ type: UserConstants.SUCCESSFULLY_LOGGED_IN, value: token }), dispatch(initializeAppData())]);
         });

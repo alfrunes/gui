@@ -64,7 +64,7 @@ describe('Signup Component', () => {
     await act(async () => jest.advanceTimersByTime(5000));
     await waitFor(() => rerender(ui));
     await waitFor(() =>
-      expect(cookies.set).toHaveBeenLastCalledWith('firstLoginAfterSignup', true, { domain: '.mender.io', maxAge: 60, path: '/', sameSite: false })
+      expect(cookies.set).toHaveBeenLastCalledWith('firstLoginAfterSignup', true, { domain: '.alvaldi.com', maxAge: 60, path: '/', sameSite: false })
     );
   }, 10000);
 });

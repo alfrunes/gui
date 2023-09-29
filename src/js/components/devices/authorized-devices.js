@@ -25,6 +25,7 @@ import { setSnackbar } from '../../actions/appActions';
 import { deleteAuthset, setDeviceFilters, setDeviceListState, updateDevicesAuth } from '../../actions/deviceActions';
 import { getIssueCountsByType } from '../../actions/monitorActions';
 import { advanceOnboarding } from '../../actions/onboardingActions';
+import { getIntegrations } from '../../actions/organizationActions.js';
 import { saveUserSettings, updateUserColumnSettings } from '../../actions/userActions';
 import { SORTING_OPTIONS, TIMEOUTS } from '../../constants/appConstants';
 import { ALL_DEVICES, DEVICE_ISSUE_OPTIONS, DEVICE_STATES, UNGROUPED_GROUP } from '../../constants/deviceConstants';
@@ -34,6 +35,7 @@ import {
   getAvailableIssueOptionsByType,
   getDeviceCountsByStatus,
   getDeviceFilters,
+  getExternalIntegrations,
   getFilterAttributes,
   getIdAttribute,
   getLimitMaxed,
@@ -196,6 +198,7 @@ export const Authorized = ({
   const userCapabilities = useSelector(getUserCapabilities);
   const dispatch = useDispatch();
   const dispatchedSetSnackbar = (...args) => dispatch(setSnackbar(...args));
+  const integrations = useSelector(getExternalIntegrations);
 
   const {
     refreshTrigger,
@@ -227,6 +230,7 @@ export const Authorized = ({
   const { classes } = useStyles();
 
   useEffect(() => {
+    dispatch(getIntegrations());
     clearAllRetryTimers(dispatchedSetSnackbar);
     if (!filters.length && selectedGroup && groupFilters.length) {
       dispatch(setDeviceFilters(groupFilters));
@@ -476,6 +480,7 @@ export const Authorized = ({
               devicePendingTip
             ) : (
               <EmptyState
+                integrationExists={integrations.length > 0}
                 allCount={allCount}
                 canManageDevices={canManageDevices}
                 filters={filters}
