@@ -1984,9 +1984,8 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-102:focus::-ms-input
             >
               <div
                 class="clickable"
-                data-mui-internal-clone-element="true"
               >
-                Version: next
+                Version: latest
               </div>
             </span>
           </div>
@@ -2189,7 +2188,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-102:focus::-ms-input
                       style="font-size: 13px; margin-left: 8px; margin-top: 2px;"
                     >
                       <div
-                        aria-controls="mui-7"
+                        aria-controls="mui-6"
                         aria-expanded="false"
                         aria-haspopup="listbox"
                         class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input emotion-61"
@@ -2674,7 +2673,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-102:focus::-ms-input
                     />
                     <p
                       class="MuiTablePagination-selectLabel emotion-100"
-                      id="mui-13"
+                      id="mui-12"
                     >
                       Rows
                     </p>
@@ -2682,12 +2681,12 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-102:focus::-ms-input
                       class="MuiInputBase-root MuiInputBase-colorPrimary MuiTablePagination-input emotion-101"
                     >
                       <div
-                        aria-controls="mui-11"
+                        aria-controls="mui-10"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-labelledby="mui-13 mui-12"
+                        aria-labelledby="mui-12 mui-11"
                         class="MuiSelect-select MuiTablePagination-select MuiSelect-standard MuiInputBase-input emotion-102"
-                        id="mui-12"
+                        id="mui-11"
                         role="combobox"
                         tabindex="0"
                       >

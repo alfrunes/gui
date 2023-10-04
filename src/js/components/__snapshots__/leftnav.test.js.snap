@@ -262,8 +262,10 @@ exports[`LeftNav Component renders correctly 1`] = `
         >
           <div
             class="clickable"
-            data-mui-internal-clone-element="true"
-          />
+          >
+            Version: 
+            1212-535.54
+          </div>
         </span>
       </div>
     </li>

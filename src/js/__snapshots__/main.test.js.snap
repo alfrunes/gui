@@ -288,9 +288,9 @@ exports[`Main Component renders correctly 1`] = `
             >
               <div
                 class="clickable"
-                data-mui-internal-clone-element="true"
               >
-                Version: master
+                Version: 
+                1212-535.54
               </div>
             </span>
           </div>
@@ -518,7 +518,7 @@ exports[`Main Component renders correctly 1`] = `
                       style="font-size: 13px; margin-left: 8px; margin-top: 2px;"
                     >
                       <div
-                        aria-controls="mui-11"
+                        aria-controls="mui-9"
                         aria-expanded="false"
                         aria-haspopup="listbox"
                         class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input mui-emq5k1-MuiSelect-select-MuiInputBase-input-MuiInput-input"
@@ -1011,7 +1011,7 @@ exports[`Main Component renders correctly 1`] = `
                       class="MuiInputBase-root MuiInputBase-colorPrimary MuiTablePagination-input mui-o64l95-MuiInputBase-root-MuiTablePagination-select"
                     >
                       <div
-                        aria-controls="mui-15"
+                        aria-controls="mui-13"
                         aria-expanded="false"
                         aria-haspopup="listbox"
                         
