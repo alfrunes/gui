@@ -13,8 +13,14 @@
 //    limitations under the License.
 import React from 'react';
 
-import { defaultState, undefineds } from '../../../tests/mockData';
+import { screen } from '@testing-library/react';
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+
+import { alvaldiVersion, defaultState, undefineds } from '../../../tests/mockData';
 import { render } from '../../../tests/setupTests';
+import { getGlobalSettings } from '../actions/userActions.js';
+import { SET_VERSION_INFORMATION } from '../constants/appConstants.js';
 import LeftNav from './leftnav';
 
 describe('LeftNav Component', () => {
@@ -38,5 +44,20 @@ describe('FeedbackLink Component', () => {
     const feedbackLink = getByText('Feedback');
     const hrefAttribute = feedbackLink.getAttribute('href');
     expect(hrefAttribute).toContain(currentUserEmail);
+  });
+});
+
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
+
+describe('VersionInfo Component', () => {
+  it('contains correct Alvaldi version', async () => {
+    const store = mockStore({ ...defaultState });
+    await store.dispatch(getGlobalSettings());
+    const storeActions = store.getActions();
+
+    expect(storeActions.filter(action => action.type === SET_VERSION_INFORMATION && action.value.AlvaldiVersion === alvaldiVersion).length).toEqual(1);
+    render(<LeftNav />);
+    expect(screen.getByText(`Version: ${alvaldiVersion}`)).toBeInTheDocument();
   });
 });
