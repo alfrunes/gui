@@ -69,7 +69,8 @@ export const initialState = {
     Deployments: '',
     Deviceauth: '',
     Inventory: '',
-    GUI: 'latest'
+    GUI: 'latest',
+    AlvaldiVersion: ''
   },
   yesterday: undefined
 };

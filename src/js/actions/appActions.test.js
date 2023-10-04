@@ -53,8 +53,7 @@ import {
   setFirstLoginAfterSignup,
   setOfflineThreshold,
   setSearchState,
-  setSnackbar,
-  setVersionInfo
+  setSnackbar
 } from './appActions';
 import { tenantDataDivergedMessage } from './organizationActions';
 
@@ -372,7 +371,6 @@ describe('app actions', () => {
   it('should set version information', async () => {
     const store = mockStore({ ...defaultState });
     const expectedActions = [{ type: SET_VERSION_INFORMATION, value: { Integration: 'next' } }];
-    await store.dispatch(setVersionInfo({ Integration: 'next' }));
     const storeActions = store.getActions();
     expect(storeActions.length).toEqual(expectedActions.length);
     expectedActions.map((action, index) => expect(storeActions[index]).toMatchObject(action));

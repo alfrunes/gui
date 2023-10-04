@@ -11,22 +11,22 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 
 import { ListAlt as AuditLogIcon, DeveloperBoard as DeveloperBoardIcon, OpenInNew as OpenInNewIcon, Settings as SettingsIcon } from '@mui/icons-material';
 // material ui
-import { List, ListItem, ListItemText, Tooltip } from '@mui/material';
+import { List, ListItem, ListItemText } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 
 import copy from 'copy-to-clipboard';
 
 import AlvaldiLogo from '../../assets/img/alvaldi-logo.svg';
-import { setSnackbar, setVersionInfo } from '../actions/appActions';
-import { FEEDBACK_LINK_DATA, TIMEOUTS } from '../constants/appConstants';
+import { setSnackbar } from '../actions/appActions';
+import { FEEDBACK_LINK_DATA } from '../constants/appConstants';
 import { onboardingSteps } from '../constants/onboardingConstants';
-import { getCurrentUser, getFeatures, getOnboardingState, getTenantCapabilities, getUserCapabilities, getVersionInformation } from '../selectors';
+import { getCurrentUser, getOnboardingState, getTenantCapabilities, getUserCapabilities, getVersionInformation } from '../selectors';
 import { getOnboardingComponentFor } from '../utils/onboardingmanager';
 
 const listItems = [
@@ -51,20 +51,11 @@ const listItems = [
   }
 ];
 
-const linkables = {
-  'Integration': 'integration',
-  'Alvaldi-Client': 'mender',
-  'GUI': 'gui'
-};
-
 const VersionInfo = () => {
-  const [clicks, setClicks] = useState(0);
   const timer = useRef();
 
   const dispatch = useDispatch();
-  const { isHosted } = useSelector(getFeatures);
-  // eslint-disable-next-line no-unused-vars
-  const { latestRelease, ...versionInformation } = useSelector(getVersionInformation);
+  const { AlvaldiVersion = '' } = useSelector(getVersionInformation);
 
   useEffect(() => {
     return () => {
@@ -73,56 +64,14 @@ const VersionInfo = () => {
   }, []);
 
   const onVersionClick = () => {
-    copy(JSON.stringify(versionInformation));
+    copy(AlvaldiVersion);
     dispatch(setSnackbar('Version information copied to clipboard'));
   };
 
-  const versions = (
-    <div className="versionsInfo">
-      {Object.entries(versionInformation).reduce((accu, [key, version]) => {
-        if (version) {
-          accu.push(
-            <React.Fragment key={key}>
-              {linkables[key] ? (
-                <a href={`https://github.com/mendersoftware/${linkables[key]}/tree/${version}`} target="_blank" rel="noopener noreferrer">
-                  {key}
-                </a>
-              ) : (
-                <div>{key}</div>
-              )}
-              <div className="align-right text-overflow" title={version}>
-                {version}
-              </div>
-            </React.Fragment>
-          );
-        }
-        return accu;
-      }, [])}
-    </div>
-  );
-
-  const onClick = () => {
-    setClicks(clicks + 1);
-    clearTimeout(timer.current);
-    timer.current = setTimeout(() => {
-      setClicks(0);
-    }, TIMEOUTS.threeSeconds);
-    if (clicks > 5) {
-      dispatch(setVersionInfo({ Integration: 'next' }));
-    }
-    onVersionClick();
-  };
-
-  let title = versionInformation.Integration ? `Version: ${versionInformation.Integration}` : '';
-  if (isHosted && versionInformation.Integration !== 'next') {
-    title = 'Version: latest';
-  }
   return (
-    <Tooltip title={versions} placement="top">
-      <div className="clickable" onClick={onClick}>
-        {title}
-      </div>
-    </Tooltip>
+    <div className="clickable" onClick={onVersionClick}>
+      Version: {AlvaldiVersion}
+    </div>
   );
 };
 

@@ -19,7 +19,8 @@ import { TIMEOUTS } from '../constants/appConstants';
 export const headerNames = {
   link: 'link',
   location: 'location',
-  total: 'x-total-count'
+  total: 'x-total-count',
+  alvaldiVersion: 'x-alvaldi-version'
 };
 
 export const apiRoot = '/api/management';
