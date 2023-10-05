@@ -48,7 +48,7 @@ export const cancelRequest = (tenantId, reason) => dispatch =>
   );
 
 const devLocations = ['localhost', 'docker.mender.io'];
-export const createOrganizationTrial = data => dispatch => {
+export const createOrganization = data => dispatch => {
   const { location } = locations[data.location];
   const targetLocation = devLocations.includes(window.location.hostname)
     ? ''

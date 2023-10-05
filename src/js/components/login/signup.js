@@ -13,7 +13,7 @@
 //    limitations under the License.
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate, useParams } from 'react-router-dom';
+import { Navigate, useParams, useSearchParams } from 'react-router-dom';
 
 import { formControlClasses } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
@@ -23,7 +23,7 @@ import Cookies from 'universal-cookie';
 import LoginLogo from '../../../assets/img/alvaldi-logo.svg';
 import SignupHero from '../../../assets/img/signuphero.svg';
 import { setSnackbar } from '../../actions/appActions';
-import { createOrganizationTrial } from '../../actions/organizationActions';
+import { createOrganization } from '../../actions/organizationActions';
 import { TIMEOUTS, locations } from '../../constants/appConstants';
 import { stringToBoolean } from '../../helpers';
 import Form from '../common/forms/form';
@@ -68,6 +68,8 @@ const useStyles = makeStyles()(theme => ({
     margin: '45px auto'
   }
 }));
+const TRIAL_SUBSCRIPTION_TYPE = 'trial';
+const AZURE_SUBSCRIPTION_TYPE = 'azure';
 
 export const Signup = () => {
   const [step, setStep] = useState(1);
@@ -88,8 +90,21 @@ export const Signup = () => {
   const recaptchaSiteKey = useSelector(state => state.app.recaptchaSiteKey);
   const dispatch = useDispatch();
   const { classes } = useStyles();
-
+  const [subscriptionToken, setSubscriptionToken] = useState(null);
+  const [subscriptionType, setSubscriptionType] = useState(TRIAL_SUBSCRIPTION_TYPE);
+  const [searchParams, setSearchParams] = useSearchParams();
   const dispatchedSetSnackbar = message => dispatch(setSnackbar(message));
+
+  useEffect(() => {
+    /**
+     * When Azure Marketplace redirects to the landing page, it sets a query parameter token, if present this token is
+     * passed as the subscription_token parameter in the request and the subscription_type needs to be set to as azure.
+     */
+    if (searchParams.has('token')) {
+      setSubscriptionToken(searchParams.get('token'));
+      setSubscriptionType(AZURE_SUBSCRIPTION_TYPE);
+    }
+  }, [searchParams, setSearchParams]);
 
   useEffect(() => {
     const usedOauthProvider = cookies.get('oauth');
@@ -117,7 +132,7 @@ export const Signup = () => {
     const { name, marketing, password, ...remainder } = formData;
     const actualEmail = formData.email != null ? formData.email : email;
     const credentials = oauthProvider ? { email: actualEmail, login: { [oauthProvider]: oauthId } } : { email: actualEmail, password };
-    const signup = {
+    let signup = {
       ...remainder,
       ...credentials,
       'g-recaptcha-response': recaptcha || 'empty',
@@ -127,9 +142,16 @@ export const Signup = () => {
       marketing: marketing == 'true',
       organization: name,
       plan: 'enterprise',
-      ts: captchaTimestamp
+      ts: captchaTimestamp,
+      subscription_type: subscriptionType,
+      subscription_token: subscriptionToken ? subscriptionToken : undefined
     };
-    return dispatch(createOrganizationTrial(signup)).catch(() => {
+
+    if (subscriptionToken !== null) {
+      signup.subscription_token = subscriptionToken;
+    }
+
+    return dispatch(createOrganization(signup)).catch(() => {
       setStep(1);
       setOrganization(formData.name);
       setTos(formData.tos);
