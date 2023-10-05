@@ -932,7 +932,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-9:focus::-ms-input-p
   flex: 0 0 auto;
 }
 
-.emotion-30>:not(:first-of-type) {
+.emotion-30>:not(style)~:not(style) {
   margin-left: 8px;
 }
 
@@ -980,7 +980,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-9:focus::-ms-input-p
             style="width: 400px;"
           >
             <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-standard MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-standard emotion-7"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-standard MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-standard emotion-7"
               data-shrink="false"
               for="email"
             >
@@ -1017,7 +1017,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-9:focus::-ms-input-p
                 style="width: 400px;"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard emotion-12"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-standard MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-standard emotion-12"
                   data-shrink="true"
                   for="password"
                 >
@@ -1115,7 +1115,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-9:focus::-ms-input-p
             class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd emotion-23"
           >
             <span
-              class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary emotion-24"
+              class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium emotion-24"
             >
               <input
                 class="PrivateSwitchBase-input emotion-25"

@@ -793,7 +793,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-18:focus::-ms-input-
       class="MuiFormControl-root emotion-3"
     >
       <label
-        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard emotion-4"
+        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-standard MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-standard emotion-4"
         data-shrink="true"
         id="device-id"
       >
@@ -803,10 +803,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-18:focus::-ms-input-
         class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl  emotion-5"
       >
         <div
+          aria-controls="mui-1"
           aria-expanded="false"
           aria-haspopup="listbox"
           class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input emotion-6"
-          role="button"
+          role="combobox"
           tabindex="0"
         >
           Device ID
@@ -855,10 +856,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-18:focus::-ms-input-
       class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary  emotion-12"
     >
       <div
+        aria-controls="mui-2"
         aria-expanded="false"
         aria-haspopup="listbox"
         class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input emotion-6"
-        role="button"
+        role="combobox"
         tabindex="0"
       >
         <div
@@ -895,7 +897,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-18:focus::-ms-input-
         <input
           aria-invalid="false"
           class="MuiInputBase-input MuiInput-input emotion-18"
-          id="mui-1"
+          id="mui-3"
           max="1000"
           min="1"
           type="number"
