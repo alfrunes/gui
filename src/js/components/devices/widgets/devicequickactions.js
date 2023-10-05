@@ -21,7 +21,7 @@ import {
   HighlightOffOutlined as HighlightOffOutlinedIcon,
   RemoveCircleOutline as RemoveCircleOutlineIcon
 } from '@mui/icons-material';
-import { SpeedDial, SpeedDialAction, SpeedDialIcon } from '@mui/material';
+import { ClickAwayListener, SpeedDial, SpeedDialAction, SpeedDialIcon } from '@mui/material';
 import { speedDialActionClasses } from '@mui/material/SpeedDialAction';
 import { makeStyles } from 'tss-react/mui';
 
@@ -122,6 +122,14 @@ export const DeviceQuickActions = ({ actionCallbacks, deviceId, selectedGroup },
   const devices = useSelector(state => getMappedDevicesList(state, 'deviceList'));
   const { classes } = useStyles();
 
+  const handleShowActions = () => {
+    setShowActions(!showActions);
+  };
+
+  const handleClickAway = () => {
+    setShowActions(false);
+  };
+
   const selectedDevices = deviceId ? [singleDevice] : selectedRows.map(row => devices[row]);
   const actions = Object.values(defaultActions).reduce((accu, action) => {
     if (selectedDevices.every(device => device && action.checkRelevance({ device, features, selectedGroup, tenantCapabilities, userCapabilities }))) {
@@ -134,25 +142,20 @@ export const DeviceQuickActions = ({ actionCallbacks, deviceId, selectedGroup },
   return (
     <div className={classes.container} ref={ref}>
       <div className={classes.label}>{deviceId ? 'Device actions' : `${selectedDevices.length} ${pluralized} selected`}</div>
-      <SpeedDial
-        className={classes.fab}
-        ariaLabel="device-actions"
-        icon={<SpeedDialIcon />}
-        onClose={() => setShowActions(false)}
-        onOpen={setShowActions}
-        open={Boolean(showActions)}
-      >
-        {actions.map(action => (
-          <SpeedDialAction
-            key={action.key}
-            aria-label={action.key}
-            icon={action.icon}
-            tooltipTitle={action.title(pluralized, selectedDevices.length)}
-            tooltipOpen
-            onClick={() => action.action({ ...actionCallbacks, selection: selectedDevices })}
-          />
-        ))}
-      </SpeedDial>
+      <ClickAwayListener onClickAway={handleClickAway}>
+        <SpeedDial className={classes.fab} ariaLabel="device-actions" icon={<SpeedDialIcon />} onClick={handleShowActions} open={Boolean(showActions)}>
+          {actions.map(action => (
+            <SpeedDialAction
+              key={action.key}
+              aria-label={action.key}
+              icon={action.icon}
+              tooltipTitle={action.title(pluralized, selectedDevices.length)}
+              tooltipOpen
+              onClick={() => action.action({ ...actionCallbacks, selection: selectedDevices })}
+            />
+          ))}
+        </SpeedDial>
+      </ClickAwayListener>
     </div>
   );
 };
