@@ -53,7 +53,7 @@ describe('Roles Component', () => {
     expect(screen.getByText(/For 'All devices',/)).toBeVisible();
 
     const permissionSelect = within(collapse).getByDisplayValue(ALL_DEVICES).parentElement?.parentElement?.parentElement;
-    const selectButton = within(within(permissionSelect).getByText(/read/i).parentElement?.parentElement).getByRole('button');
+    const selectButton = within(within(permissionSelect).getByText(/read/i).parentElement?.parentElement).getByRole('combobox');
     expect(selectButton).not.toBeDisabled();
     // Open the select dropdown
     // Get the dropdown element. We don't use getByRole() because it includes <select>s too.
