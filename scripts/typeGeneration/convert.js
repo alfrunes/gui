@@ -69,7 +69,7 @@ const sanitizeSchemas = (schemas, existingSchemas, service, counter = {}) =>
     { renamedSchemas: [], serviceSchemas: {}, counter }
   );
 
-const defaultManagementUrl = 'https://hosted.alvaldi.com/api/management';
+const defaultManagementUrl = 'https://app.alvaldi.com/api/management';
 const baseSpec = {
   openapi: '3.0.3',
   info: {

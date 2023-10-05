@@ -16,11 +16,13 @@ import Highlighter from 'react-highlight-words';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { ArrowForward as ArrowForwardIcon } from '@mui/icons-material';
+import { ArrowForward as ArrowForwardIcon, ErrorOutline as ErrorOutlineIcon } from '@mui/icons-material';
+import { makeStyles } from 'tss-react/mui';
 
 import pluralize from 'pluralize';
 
 import preauthImage from '../../../assets/img/preauthorize.png';
+import { EDGE_MODULE_LINK } from '../../constants/appConstants.js';
 import { DEVICE_STATES } from '../../constants/deviceConstants';
 import { rootfsImageVersion } from '../../constants/releaseConstants';
 import { backslashNonAlphaNumeric } from '../../helpers.js';
@@ -35,6 +37,16 @@ const propertyNameMap = {
   monitor: 'monitor',
   tags: 'tags'
 };
+
+const useStyles = makeStyles()(theme => ({
+  NoDevices: {
+    maxWidth: 444,
+    background: theme.palette.surface.primary,
+    margin: '0 auto',
+    padding: 24,
+    borderRadius: 4
+  }
+}));
 
 export const defaultTextRender = ({ column, device }) => {
   const propertyName = propertyNameMap[column.attribute.scope] ?? column.attribute.scope;
@@ -104,19 +116,33 @@ export const DeviceStatusRenderer = ({ device }) => (
   </div>
 );
 
-export const AcceptedEmptyState = ({ allCount }) => (
-  <div className="dashboard-placeholder">
-    <p>No devices found</p>
-    {!allCount && (
-      <>
-        <p>No devices have been authorized to connect to the Alvaldi yet.</p>
-        <p>
-          Visit the <Link to="/help/get-started">Help & support</Link> to learn how to connect devices to Alvaldi.
-        </p>
-      </>
-    )}
-  </div>
-);
+export const AcceptedEmptyState = ({ allCount, integrationExists }) => {
+  const { classes } = useStyles();
+  return (
+    <>
+      {!allCount && !integrationExists && (
+        <div className="dashboard-placeholder">
+          <p>No devices found</p>
+          <p>No devices have been authorized to connect to the Alvaldi yet.</p>
+          <p>
+            Visit the <Link to="/help/get-started">Help & support</Link> to learn how to connect devices to Alvaldi.
+          </p>
+        </div>
+      )}
+      {!allCount && integrationExists && (
+        <div className={classes.NoDevices}>
+          <div className="flexbox start">
+            <ErrorOutlineIcon className="margin-right-sx" size="20" />
+            It looks like Alvaldi is not installed. To get started, deploy the Alvaldi IoT Edge module in Azure:
+          </div>
+          <Link className="margin-top block align-right" to={EDGE_MODULE_LINK} rel="noopener noreferrer" target="_blank">
+            Go to Alvaldi Edge module page
+          </Link>
+        </div>
+      )}
+    </>
+  );
+};
 
 export const PreauthorizedEmptyState = ({ canManageDevices, limitMaxed, onClick }) => (
   <div className="dashboard-placeholder">

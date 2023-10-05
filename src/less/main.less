@@ -323,6 +323,10 @@ ul.link-list {
   padding-left: 5 * @defaultGutterWidth;;
 }
 
+.block {
+  display: block;
+}
+
 .inline-block {
   display: inline-block;
 }
@@ -487,6 +491,9 @@ ul.link-list {
   &.centered {
     align-items: center;
   }
+  &.start {
+    align-items: flex-start;
+  }
   &.centered {
     justify-content: center;
   }
@@ -498,6 +505,9 @@ ul.link-list {
   }
   &.no-basis {
     flex-basis: 0;
+  }
+  &-grow {
+    flex-grow: 1;
   }
 }
 

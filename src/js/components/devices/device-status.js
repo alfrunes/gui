@@ -13,7 +13,7 @@
 //    limitations under the License.
 import React from 'react';
 
-import { Error as ErrorIcon, ReportProblemOutlined } from '@mui/icons-material';
+import { DeveloperBoardOff as DeveloperBoardOffIcon, Error as ErrorIcon, ReportProblemOutlined } from '@mui/icons-material';
 import { Box, Chip, Tooltip } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 
@@ -38,7 +38,11 @@ const statusTypes = {
   },
   offline: {
     severity: 'error',
-    notification: { default: 'This device has not communicated with the Mender backend for a while. Click on the row to see more details' }
+    notification: { default: 'This device has not communicated with the Alvaldi backend for a while. Click on the row to see more details' }
+  },
+  inactive: {
+    severity: 'error',
+    notification: { default: 'This device has been removed from the Azure. Click on the row to see more details' }
   },
   updateFailed: { severity: 'warning', notification: {} }
 };
@@ -57,7 +61,7 @@ const useStyles = makeStyles()(theme => ({
   }
 }));
 
-const DeviceStatus = ({ device: { auth_sets = [], isOffline, monitor = {}, status: deviceStatus } }) => {
+const DeviceStatus = ({ device: { auth_sets = [], isOffline, isInactive, monitor = {}, status: deviceStatus } }) => {
   let notification = statusTypes.default.notification[deviceStatus] ?? '';
   const { classes } = useStyles();
   let label;
@@ -73,6 +77,10 @@ const DeviceStatus = ({ device: { auth_sets = [], isOffline, monitor = {}, statu
     icon = WarningIcon;
     notification = statusTypes.monitor.notification.default;
     label = 'monitoring';
+  } else if (isInactive) {
+    icon = <DeveloperBoardOffIcon color="text" style={{ marginLeft: 5 }} />;
+    notification = statusTypes.inactive.notification.default;
+    label = 'inactive';
   } else if (isOffline) {
     icon = WarningIcon;
     notification = statusTypes.offline.notification.default;

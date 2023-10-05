@@ -55,8 +55,8 @@ export const TIMEOUTS = {
   refreshDefault: 10 * oneSecond
 };
 export const locations = {
-  eu: { key: 'eu', title: 'EU', location: 'eu.hosted.alvaldi.com', icon: FlagEU },
-  us: { key: 'us', title: 'US', location: 'hosted.alvaldi.com', icon: FlagUS }
+  eu: { key: 'eu', title: 'EU', location: 'eu.app.alvaldi.com', icon: FlagEU },
+  us: { key: 'us', title: 'US', location: 'app.alvaldi.com', icon: FlagUS }
 };
 /**
  * @todo [ALV-106] PLANS will be changed on the backend and should be adjusted here after the changes
@@ -165,3 +165,8 @@ Please note that this is only for product feedback.
 If you need help, or have a question, open a support case at support.northern.tech.
 Alvaldi user: ${userEmail}`
 };
+
+/**
+ * @todo [ALV-137] replace the link when the module will be published
+ */
+export const EDGE_MODULE_LINK = 'https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=alvaldi&page=1';

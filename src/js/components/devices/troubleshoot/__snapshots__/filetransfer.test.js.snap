@@ -242,7 +242,7 @@ exports[`FileTransfer Component renders correctly 1`] = `
 }
 
 .emotion-13.Mui-error {
-  color: #ab1000;
+  color: #A11100;
 }
 
 .emotion-13.Mui-focused {
@@ -304,7 +304,7 @@ label+.emotion-14 {
 
 .emotion-14.Mui-error:before,
 .emotion-14.Mui-error:after {
-  border-bottom-color: #ab1000;
+  border-bottom-color: #A11100;
 }
 
 .emotion-14:before {

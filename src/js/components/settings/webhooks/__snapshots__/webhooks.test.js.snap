@@ -943,7 +943,7 @@ exports[`Webhooks Component static components renders WebhookCreation correctly 
 }
 
 .emotion-11.Mui-error {
-  color: #ab1000;
+  color: #A11100;
 }
 
 .emotion-11.Mui-focused {
@@ -1004,7 +1004,7 @@ label+.emotion-12 {
 
 .emotion-12.Mui-error:before,
 .emotion-12.Mui-error:after {
-  border-bottom-color: #ab1000;
+  border-bottom-color: #A11100;
 }
 
 .emotion-12:before {
@@ -1204,7 +1204,7 @@ label+.emotion-16 {
 
 .emotion-16.Mui-error:before,
 .emotion-16.Mui-error:after {
-  border-bottom-color: #ab1000;
+  border-bottom-color: #A11100;
 }
 
 .emotion-16:before {
@@ -2132,7 +2132,7 @@ exports[`Webhooks Component static components renders WebhookManagement correctl
 }
 
 .emotion-21.Mui-error {
-  color: #ab1000;
+  color: #A11100;
 }
 
 .emotion-21.Mui-focused {
@@ -2193,7 +2193,7 @@ label+.emotion-22 {
 
 .emotion-22.Mui-error:before,
 .emotion-22.Mui-error:after {
-  border-bottom-color: #ab1000;
+  border-bottom-color: #A11100;
 }
 
 .emotion-22:before {
@@ -2393,7 +2393,7 @@ label+.emotion-26 {
 
 .emotion-26.Mui-error:before,
 .emotion-26.Mui-error:after {
-  border-bottom-color: #ab1000;
+  border-bottom-color: #A11100;
 }
 
 .emotion-26:before {

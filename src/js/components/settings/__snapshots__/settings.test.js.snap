@@ -216,7 +216,7 @@ exports[`Settings Component renders correctly 1`] = `
 }
 
 .emotion-26.Mui-error {
-  color: #ab1000;
+  color: #A11100;
 }
 
 .emotion-26.Mui-focused {
@@ -277,7 +277,7 @@ label+.emotion-27 {
 
 .emotion-27.Mui-error:before,
 .emotion-27.Mui-error:after {
-  border-bottom-color: #ab1000;
+  border-bottom-color: #A11100;
 }
 
 .emotion-27:before {

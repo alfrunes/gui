@@ -18,7 +18,7 @@ exports[`DeviceNotifications Component renders correctly 1`] = `
 }
 
 .emotion-0.bordered.red {
-  border-color: #ab1000;
+  border-color: #A11100;
   background: rgba(93, 15, 67, 0.075);
 }
 
@@ -78,7 +78,9 @@ exports[`DeviceNotifications Component renders correctly 1`] = `
   <div
     class="flexbox center-aligned padding-small emotion-0 bordered   clickable"
   >
-    <span>
+    <span
+      class="flexbox"
+    >
       <svg
         aria-hidden="true"
         class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium red emotion-1"
@@ -92,7 +94,7 @@ exports[`DeviceNotifications Component renders correctly 1`] = `
       </svg>
     </span>
     <div
-      class="flexbox center-aligned"
+      class="flexbox flexbox-grow center-aligned"
     >
       1
        
@@ -142,7 +144,7 @@ exports[`tiny components renders DeviceOfflineHeaderNotification correctly 1`] =
 }
 
 .emotion-0.bordered.red {
-  border-color: #ab1000;
+  border-color: #A11100;
   background: rgba(93, 15, 67, 0.075);
 }
 
@@ -175,7 +177,9 @@ exports[`tiny components renders DeviceOfflineHeaderNotification correctly 1`] =
   <div
     class="flexbox center-aligned padding-small emotion-0  red column-data "
   >
-    <span>
+    <span
+      class="flexbox"
+    >
       <svg
         aria-hidden="true"
         class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium red emotion-1"
@@ -189,7 +193,7 @@ exports[`tiny components renders DeviceOfflineHeaderNotification correctly 1`] =
       </svg>
     </span>
     <div
-      class="flexbox center-aligned"
+      class="flexbox flexbox-grow center-aligned"
     >
       <div
         class="key muted margin-right-small"
@@ -226,7 +230,7 @@ exports[`tiny components renders LastConnection correctly 1`] = `
 }
 
 .emotion-0.bordered.red {
-  border-color: #ab1000;
+  border-color: #A11100;
   background: rgba(93, 15, 67, 0.075);
 }
 
@@ -264,7 +268,9 @@ exports[`tiny components renders LastConnection correctly 1`] = `
   <div
     class="flexbox center-aligned padding-small emotion-0 bordered red  "
   >
-    <span>
+    <span
+      class="flexbox"
+    >
       <svg
         aria-hidden="true"
         class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium red emotion-1"
@@ -278,7 +284,7 @@ exports[`tiny components renders LastConnection correctly 1`] = `
       </svg>
     </span>
     <div
-      class="flexbox center-aligned"
+      class="flexbox flexbox-grow center-aligned"
     >
       Device has not connected to the server since 
       <time
@@ -310,7 +316,7 @@ exports[`tiny components renders NoAlertsHeaderNotification correctly 1`] = `
 }
 
 .emotion-0.bordered.red {
-  border-color: #ab1000;
+  border-color: #A11100;
   background: rgba(93, 15, 67, 0.075);
 }
 
@@ -343,7 +349,9 @@ exports[`tiny components renders NoAlertsHeaderNotification correctly 1`] = `
   <div
     class="flexbox center-aligned padding-small emotion-0    "
   >
-    <span>
+    <span
+      class="flexbox"
+    >
       <svg
         aria-hidden="true"
         class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium green emotion-1"
@@ -357,7 +365,7 @@ exports[`tiny components renders NoAlertsHeaderNotification correctly 1`] = `
       </svg>
     </span>
     <div
-      class="flexbox center-aligned"
+      class="flexbox flexbox-grow center-aligned"
     >
       No reported issues
     </div>
@@ -383,7 +391,7 @@ exports[`tiny components renders ServiceNotification correctly 1`] = `
 }
 
 .emotion-0.bordered.red {
-  border-color: #ab1000;
+  border-color: #A11100;
   background: rgba(93, 15, 67, 0.075);
 }
 
@@ -443,7 +451,9 @@ exports[`tiny components renders ServiceNotification correctly 1`] = `
   <div
     class="flexbox center-aligned padding-small emotion-0 bordered   clickable"
   >
-    <span>
+    <span
+      class="flexbox"
+    >
       <svg
         aria-hidden="true"
         class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium red emotion-1"
@@ -457,7 +467,7 @@ exports[`tiny components renders ServiceNotification correctly 1`] = `
       </svg>
     </span>
     <div
-      class="flexbox center-aligned"
+      class="flexbox flexbox-grow center-aligned"
     >
       2
        
