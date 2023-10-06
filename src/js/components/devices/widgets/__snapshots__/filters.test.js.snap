@@ -961,7 +961,7 @@ label+.emotion-18 {
                 style="margin-top: 0px; margin-bottom: 15px;"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-standard MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-standard emotion-5"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-standard MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-standard emotion-5"
                   data-shrink="false"
                   for="filter-selection"
                   id="filter-selection-label"
@@ -1017,10 +1017,11 @@ label+.emotion-18 {
               class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary margin-left-small margin-right-small emotion-12"
             >
               <div
+                aria-controls="mui-1"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input emotion-13"
-                role="button"
+                role="combobox"
                 tabindex="0"
               >
                 equals
@@ -1049,10 +1050,10 @@ label+.emotion-18 {
               style="margin-top: 0px; margin-bottom: 15px;"
             >
               <label
-                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-standard MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-standard emotion-5"
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-standard MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-standard emotion-5"
                 data-shrink="false"
-                for="mui-1"
-                id="mui-1-label"
+                for="mui-2"
+                id="mui-2-label"
               >
                 Value
               </label>
@@ -1062,7 +1063,7 @@ label+.emotion-18 {
                 <input
                   aria-invalid="false"
                   class="MuiInputBase-input MuiInput-input emotion-7"
-                  id="mui-1"
+                  id="mui-2"
                   type="text"
                   value=""
                 />

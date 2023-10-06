@@ -80,15 +80,16 @@ exports[`DeviceList Component renders correctly 1`] = `
             Rows
           </p>
           <div
-            class="MuiInputBase-root MuiInputBase-colorPrimary css-o64l95-MuiInputBase-root-MuiTablePagination-select"
+            class="MuiInputBase-root MuiInputBase-colorPrimary MuiTablePagination-input css-o64l95-MuiInputBase-root-MuiTablePagination-select"
           >
             <div
+              aria-controls="mui-1"
               aria-expanded="false"
               aria-haspopup="listbox"
               
               class="MuiSelect-select MuiTablePagination-select MuiSelect-standard MuiInputBase-input css-194a1fa-MuiSelect-select-MuiInputBase-input"
               
-              role="button"
+              role="combobox"
               tabindex="0"
             >
               20

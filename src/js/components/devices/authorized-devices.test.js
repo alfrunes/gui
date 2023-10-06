@@ -98,7 +98,7 @@ describe('AuthorizedDevices Component', () => {
     await waitFor(() => expect(screen.getAllByRole('checkbox').length).toBeTruthy());
     await user.click(screen.getAllByRole('checkbox')[0]);
     expect(setListStateSpy).toHaveBeenCalledWith({ selection: [0, 1], setOnly: true });
-    await user.click(screen.getByRole('button', { name: /all/i }));
+    await user.click(screen.getByRole('menuitem', { name: 'all' }));
     await user.click(screen.getByRole('option', { name: /offline/i }));
     await user.keyboard('{Escape}');
     expect(setListStateSpy).toHaveBeenCalledWith({ page: 1, refreshTrigger: true, selectedIssues: ['offline'] });

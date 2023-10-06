@@ -782,7 +782,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-9:focus::-ms-input-p
   flex: 0 0 auto;
 }
 
-.emotion-17>:not(:first-of-type) {
+.emotion-17>:not(style)~:not(style) {
   margin-left: 8px;
 }
 
@@ -890,13 +890,13 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-9:focus::-ms-input-p
 }
 
 <div
-  aria-labelledby="mui-11"
+  aria-labelledby="mui-12"
   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm emotion-0"
   role="dialog"
 >
   <h2
     class="MuiTypography-root MuiTypography-h6 MuiDialogTitle-root emotion-1"
-    id="mui-11"
+    id="mui-12"
   >
     Create new token
   </h2>
@@ -914,7 +914,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-9:focus::-ms-input-p
             aria-invalid="false"
             class="MuiInputBase-input MuiInput-input Mui-disabled emotion-5"
             disabled=""
-            id="mui-12"
+            id="mui-13"
             placeholder="Name"
             type="text"
             value=""
@@ -927,7 +927,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-9:focus::-ms-input-p
         class="MuiFormControl-root emotion-6"
       >
         <label
-          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard emotion-7"
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-standard MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-standard emotion-7"
           data-shrink="true"
         >
           Expiration
@@ -936,11 +936,12 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-9:focus::-ms-input-p
           class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl  emotion-8"
         >
           <div
+            aria-controls="mui-14"
             aria-disabled="true"
             aria-expanded="false"
             aria-haspopup="listbox"
             class="MuiSelect-select MuiSelect-standard Mui-disabled MuiInputBase-input MuiInput-input Mui-disabled emotion-9"
-            role="button"
+            role="combobox"
           >
             a year
           </div>
@@ -1112,7 +1113,7 @@ exports[`UserManagement Component renders AccessTokenRevocationDialog correctly 
   flex: 0 0 auto;
 }
 
-.emotion-3>:not(:first-of-type) {
+.emotion-3>:not(style)~:not(style) {
   margin-left: 8px;
 }
 
@@ -1224,13 +1225,13 @@ exports[`UserManagement Component renders AccessTokenRevocationDialog correctly 
 }
 
 <div
-  aria-labelledby="mui-13"
+  aria-labelledby="mui-15"
   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm emotion-0"
   role="dialog"
 >
   <h2
     class="MuiTypography-root MuiTypography-h6 MuiDialogTitle-root emotion-1"
-    id="mui-13"
+    id="mui-15"
   >
     Revoke token
   </h2>

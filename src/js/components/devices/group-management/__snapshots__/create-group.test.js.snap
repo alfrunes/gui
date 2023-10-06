@@ -560,7 +560,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-10:focus::-ms-input-
   flex: 0 0 auto;
 }
 
-.emotion-12>:not(:first-of-type) {
+.emotion-12>:not(style)~:not(style) {
   margin-left: 8px;
 }
 
@@ -815,7 +815,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-10:focus::-ms-input-
             class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root emotion-7"
           >
             <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-standard MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-standard emotion-8"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-standard MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-standard emotion-8"
               data-shrink="false"
               for="group-creation-selection"
               id="group-creation-selection-label"

@@ -518,10 +518,11 @@ exports[`Main Component renders correctly 1`] = `
                       style="font-size: 13px; margin-left: 8px; margin-top: 2px;"
                     >
                       <div
+                        aria-controls="mui-11"
                         aria-expanded="false"
                         aria-haspopup="listbox"
                         class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input mui-emq5k1-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                        role="button"
+                        role="combobox"
                         tabindex="0"
                       >
                         accepted
@@ -616,7 +617,7 @@ exports[`Main Component renders correctly 1`] = `
                 >
                   <div>
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary mui-1mqafh3-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium mui-1mqafh3-MuiButtonBase-root-MuiCheckbox-root"
                     >
                       <input
                         class="PrivateSwitchBase-input mui-1m9pwf3"
@@ -778,7 +779,7 @@ exports[`Main Component renders correctly 1`] = `
                 >
                   <div>
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary mui-1mqafh3-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium mui-1mqafh3-MuiButtonBase-root-MuiCheckbox-root"
                     >
                       <input
                         class="PrivateSwitchBase-input mui-1m9pwf3"
@@ -833,7 +834,7 @@ exports[`Main Component renders correctly 1`] = `
                   <div>
                     <div
                       aria-label="This device has not communicated with the Alvaldi backend for a while. Click on the row to see more details"
-                      class="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorDefault MuiChip-outlinedDefault deviceStatus margin-right-small mui-niglpa-MuiChip-root"
+                      class="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorDefault MuiChip-outlinedDefault deviceStatus margin-right-small mui-pjj8fo-MuiChip-root"
                       data-mui-internal-clone-element="true"
                     >
                       <svg
@@ -885,7 +886,7 @@ exports[`Main Component renders correctly 1`] = `
                 >
                   <div>
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary mui-1mqafh3-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium mui-1mqafh3-MuiButtonBase-root-MuiCheckbox-root"
                     >
                       <input
                         class="PrivateSwitchBase-input mui-1m9pwf3"
@@ -940,7 +941,7 @@ exports[`Main Component renders correctly 1`] = `
                   <div>
                     <div
                       aria-label="This device has not communicated with the Alvaldi backend for a while. Click on the row to see more details"
-                      class="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorDefault MuiChip-outlinedDefault deviceStatus margin-right-small mui-niglpa-MuiChip-root"
+                      class="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorDefault MuiChip-outlinedDefault deviceStatus margin-right-small mui-pjj8fo-MuiChip-root"
                       data-mui-internal-clone-element="true"
                     >
                       <svg
@@ -1007,15 +1008,16 @@ exports[`Main Component renders correctly 1`] = `
                       Rows
                     </p>
                     <div
-                      class="MuiInputBase-root MuiInputBase-colorPrimary mui-o64l95-MuiInputBase-root-MuiTablePagination-select"
+                      class="MuiInputBase-root MuiInputBase-colorPrimary MuiTablePagination-input mui-o64l95-MuiInputBase-root-MuiTablePagination-select"
                     >
                       <div
+                        aria-controls="mui-15"
                         aria-expanded="false"
                         aria-haspopup="listbox"
                         
                         class="MuiSelect-select MuiTablePagination-select MuiSelect-standard MuiInputBase-input mui-194a1fa-MuiSelect-select-MuiInputBase-input"
                         
-                        role="button"
+                        role="combobox"
                         tabindex="0"
                       >
                         20

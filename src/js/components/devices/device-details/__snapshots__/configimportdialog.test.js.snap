@@ -400,7 +400,7 @@ exports[`ConfigImportDialog Component renders correctly 1`] = `
   flex: 0 0 auto;
 }
 
-.emotion-24>:not(:first-of-type) {
+.emotion-24>:not(style)~:not(style) {
   margin-left: 8px;
 }
 
@@ -645,7 +645,7 @@ exports[`ConfigImportDialog Component renders correctly 1`] = `
             style="margin-top: 0px;"
           >
             <span
-              class="MuiButtonBase-root MuiRadio-root MuiRadio-colorPrimary PrivateSwitchBase-root MuiRadio-root MuiRadio-colorPrimary Mui-checked MuiRadio-root MuiRadio-colorPrimary emotion-8"
+              class="MuiButtonBase-root MuiRadio-root MuiRadio-colorPrimary MuiRadio-sizeSmall PrivateSwitchBase-root MuiRadio-root MuiRadio-colorPrimary MuiRadio-sizeSmall Mui-checked MuiRadio-root MuiRadio-colorPrimary MuiRadio-sizeSmall emotion-8"
             >
               <input
                 checked=""
@@ -700,7 +700,7 @@ exports[`ConfigImportDialog Component renders correctly 1`] = `
             style="margin-top: 0px;"
           >
             <span
-              class="MuiButtonBase-root MuiRadio-root MuiRadio-colorPrimary PrivateSwitchBase-root MuiRadio-root MuiRadio-colorPrimary MuiRadio-root MuiRadio-colorPrimary emotion-8"
+              class="MuiButtonBase-root MuiRadio-root MuiRadio-colorPrimary MuiRadio-sizeSmall PrivateSwitchBase-root MuiRadio-root MuiRadio-colorPrimary MuiRadio-sizeSmall MuiRadio-root MuiRadio-colorPrimary MuiRadio-sizeSmall emotion-8"
             >
               <input
                 class="PrivateSwitchBase-input emotion-9"

@@ -1240,6 +1240,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-61:focus::-ms-input-
   white-space: nowrap;
   -webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  cursor: unset;
   outline: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -2188,10 +2189,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-102:focus::-ms-input
                       style="font-size: 13px; margin-left: 8px; margin-top: 2px;"
                     >
                       <div
+                        aria-controls="mui-7"
                         aria-expanded="false"
                         aria-haspopup="listbox"
                         class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input emotion-61"
-                        role="button"
+                        role="combobox"
                         tabindex="0"
                       >
                         accepted
@@ -2286,7 +2288,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-102:focus::-ms-input
                 >
                   <div>
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary emotion-68"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium emotion-68"
                     >
                       <input
                         class="PrivateSwitchBase-input emotion-69"
@@ -2448,7 +2450,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-102:focus::-ms-input
                 >
                   <div>
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary emotion-68"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium emotion-68"
                     >
                       <input
                         class="PrivateSwitchBase-input emotion-69"
@@ -2555,7 +2557,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-102:focus::-ms-input
                 >
                   <div>
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary emotion-68"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium emotion-68"
                     >
                       <input
                         class="PrivateSwitchBase-input emotion-69"
@@ -2672,20 +2674,21 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-102:focus::-ms-input
                     />
                     <p
                       class="MuiTablePagination-selectLabel emotion-100"
-                      id="mui-10"
+                      id="mui-13"
                     >
                       Rows
                     </p>
                     <div
-                      class="MuiInputBase-root MuiInputBase-colorPrimary emotion-101"
+                      class="MuiInputBase-root MuiInputBase-colorPrimary MuiTablePagination-input emotion-101"
                     >
                       <div
+                        aria-controls="mui-11"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-labelledby="mui-10 mui-9"
+                        aria-labelledby="mui-13 mui-12"
                         class="MuiSelect-select MuiTablePagination-select MuiSelect-standard MuiInputBase-input emotion-102"
-                        id="mui-9"
-                        role="button"
+                        id="mui-12"
+                        role="combobox"
                         tabindex="0"
                       >
                         20
