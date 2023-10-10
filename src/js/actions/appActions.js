@@ -272,6 +272,18 @@ const deductSaasState = (latestRelease, guiTags, saasReleases) => {
   return latestSaasRelease.date > latestRelease.release_date ? latestSaasRelease.tag : latestRelease.release;
 };
 
+export const setVersionInfo = info => (dispatch, getState) =>
+  Promise.resolve(
+    dispatch({
+      type: SET_VERSION_INFORMATION,
+      docsVersion: getState().app.docsVersion,
+      value: {
+        ...getState().app.versionInformation,
+        ...info
+      }
+    })
+  );
+
 export const getLatestReleaseInfo = () => (dispatch, getState) => {
   if (!getState().app.features.isHosted) {
     return Promise.resolve();

@@ -11,7 +11,7 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 
@@ -23,8 +23,8 @@ import { makeStyles } from 'tss-react/mui';
 import copy from 'copy-to-clipboard';
 
 import AlvaldiLogo from '../../assets/img/alvaldi-logo.svg';
-import { setSnackbar } from '../actions/appActions';
-import { FEEDBACK_LINK_DATA } from '../constants/appConstants';
+import { setSnackbar, setVersionInfo } from '../actions/appActions';
+import { FEEDBACK_LINK_DATA, TIMEOUTS } from '../constants/appConstants';
 import { onboardingSteps } from '../constants/onboardingConstants';
 import { getCurrentUser, getOnboardingState, getTenantCapabilities, getUserCapabilities, getVersionInformation } from '../selectors';
 import { getOnboardingComponentFor } from '../utils/onboardingmanager';
@@ -51,11 +51,14 @@ const listItems = [
   }
 ];
 
+const nextVersion = 'next';
+
 const VersionInfo = () => {
   const timer = useRef();
-
+  const [clicks, setClicks] = useState(0);
   const dispatch = useDispatch();
   const { AlvaldiVersion = '' } = useSelector(getVersionInformation);
+  const { ...versionInformation } = useSelector(getVersionInformation);
 
   useEffect(() => {
     return () => {
@@ -68,9 +71,21 @@ const VersionInfo = () => {
     dispatch(setSnackbar('Version information copied to clipboard'));
   };
 
+  const onClick = () => {
+    setClicks(clicks + 1);
+    clearTimeout(timer.current);
+    timer.current = setTimeout(() => {
+      setClicks(0);
+    }, TIMEOUTS.threeSeconds);
+    if (clicks > 5) {
+      dispatch(setVersionInfo({ Integration: nextVersion }));
+    }
+    onVersionClick();
+  };
+
   return (
-    <div className="clickable" onClick={onVersionClick}>
-      Version: {AlvaldiVersion}
+    <div className="clickable" onClick={onClick}>
+      Version: {versionInformation.Integration === nextVersion ? 'latest' : AlvaldiVersion}
     </div>
   );
 };
