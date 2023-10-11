@@ -1,7 +1,6 @@
 import autoprefixer from 'autoprefixer';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
-import { EsbuildPlugin } from 'esbuild-loader';
 import ESLintPlugin from 'eslint-webpack-plugin';
 import HtmlWebPackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -14,10 +13,15 @@ const require = createRequire(import.meta.url);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-export default (env, argv) => {
-  const devPlugins = argv.mode === 'production' ? [] : [new ESLintPlugin()];
+const modes = {
+  production: 'production',
+  development: 'development'
+};
+
+export default (env, { mode }) => {
+  const devPlugins = mode === modes.production ? [] : [new ESLintPlugin()];
   return {
-    devtool: 'source-map',
+    devtool: mode === modes.development ? 'source-map' : undefined,
     node: {
       global: true
     },
@@ -75,7 +79,7 @@ export default (env, argv) => {
       ]
     },
     optimization: {
-      minimize: argv.mode === 'production'
+      minimize: mode === modes.production
     },
     output: {
       filename: '[name].min.js',
@@ -91,7 +95,7 @@ export default (env, argv) => {
       new CopyWebpackPlugin({
         patterns: [
           { from: 'node_modules/monaco-editor/min/vs/', to: 'vs' },
-          argv.mode !== 'production' && { from: 'node_modules/monaco-editor/min-maps/vs/', to: 'min-maps/vs' }
+          mode !== modes.production && { from: 'node_modules/monaco-editor/min-maps/vs/', to: 'min-maps/vs' }
         ].filter(Boolean)
       }),
       new webpack.ProvidePlugin({
@@ -99,7 +103,7 @@ export default (env, argv) => {
         Buffer: ['buffer', 'Buffer']
       }),
       new webpack.DefinePlugin({
-        ENV: JSON.stringify(argv.mode),
+        ENV: JSON.stringify(mode),
         XTERM_VERSION: JSON.stringify(require('./package.json').dependencies.xterm),
         XTERM_FIT_VERSION: JSON.stringify(require('./package.json').dependencies['xterm-addon-fit']),
         XTERM_SEARCH_VERSION: JSON.stringify(require('./package.json').dependencies['xterm-addon-search'])
