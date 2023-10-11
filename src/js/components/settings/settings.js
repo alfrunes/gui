@@ -57,7 +57,7 @@ const sectionMap = {
   'role-management': {
     component: Roles,
     text: () => 'Roles',
-    canAccess: ({ currentUser, isEnterprise, userRoles: { isAdmin } }) => currentUser && isAdmin && isEnterprise
+    canAccess: ({ currentUser, tenantCapabilities: { hasRbac }, userRoles: { isAdmin } }) => currentUser && isAdmin && hasRbac
   },
   integrations: {
     component: Integrations,
