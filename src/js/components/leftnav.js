@@ -39,7 +39,7 @@ const listItems = [
   {
     route: '/auditlog',
     text: 'Audit log',
-    canAccess: ({ userCapabilities: { canAuditlog } }) => canAuditlog,
+    canAccess: ({ userCapabilities: { canAuditlog }, tenantCapabilities: { hasAuditlogs } }) => canAuditlog && hasAuditlogs,
     icon: <AuditLogIcon />
   },
   {
