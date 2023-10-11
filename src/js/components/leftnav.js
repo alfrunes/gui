@@ -57,8 +57,7 @@ const VersionInfo = () => {
   const timer = useRef();
   const [clicks, setClicks] = useState(0);
   const dispatch = useDispatch();
-  const { AlvaldiVersion = '' } = useSelector(getVersionInformation);
-  const { ...versionInformation } = useSelector(getVersionInformation);
+  const { AlvaldiVersion = '', Integration } = useSelector(getVersionInformation);
 
   useEffect(() => {
     return () => {
@@ -85,7 +84,7 @@ const VersionInfo = () => {
 
   return (
     <div className="clickable" onClick={onClick}>
-      Version: {versionInformation.Integration === nextVersion ? 'latest' : AlvaldiVersion}
+      Version: {Integration === nextVersion ? 'latest' : AlvaldiVersion}
     </div>
   );
 };
