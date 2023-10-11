@@ -44,6 +44,7 @@ export const menderEnvironment = {
     inventoryVersion: null
   }
 };
+export const alvaldiVersion = '1212-535.54';
 export const TEST_SESSION_DATETIME = '2019-01-13T13:00:00.000Z';
 const testDate = new Date(TEST_SESSION_DATETIME);
 export const mockDate = new Date(testDate.setMilliseconds(testDate.getMilliseconds() + 900));
@@ -121,7 +122,9 @@ export const defaultState = {
     },
     snackbar: {},
     uploadsById: {},
-    versionInformation: {}
+    versionInformation: {
+      AlvaldiVersion: alvaldiVersion
+    }
   },
   devices: {
     ...initialDevicesState,

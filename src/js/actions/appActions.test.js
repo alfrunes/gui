@@ -15,7 +15,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import { inventoryDevice } from '../../../tests/__mocks__/deviceHandlers';
-import { defaultState, receivedPermissionSets, receivedRoles } from '../../../tests/mockData';
+import { alvaldiVersion, defaultState, receivedPermissionSets, receivedRoles } from '../../../tests/mockData';
 import {
   SET_ANNOUNCEMENT,
   SET_ENVIRONMENT_DATA,
@@ -53,8 +53,7 @@ import {
   setFirstLoginAfterSignup,
   setOfflineThreshold,
   setSearchState,
-  setSnackbar,
-  setVersionInfo
+  setSnackbar
 } from './appActions';
 import { tenantDataDivergedMessage } from './organizationActions';
 
@@ -122,19 +121,6 @@ describe('app actions', () => {
       { type: 'SET_ONBOARDING_PROGRESS', value: 'onboarding-finished-notification' },
       { type: SET_DEMO_ARTIFACT_PORT, value: 85 },
       { type: SET_FEATURES, value: { ...defaultState.app.features, hasMultitenancy: true } },
-      {
-        type: SET_VERSION_INFORMATION,
-        docsVersion: '',
-        value: {
-          'Alvaldi-Client': 'next',
-          Deployments: '1.2.3',
-          Deviceauth: null,
-          GUI: undefined,
-          Integration: 'master',
-          Inventory: null,
-          'Meta-Mender': 'saas-123.34'
-        }
-      },
       { type: SET_ENVIRONMENT_DATA, value: { hostAddress: null, hostedAnnouncement: '', recaptchaSiteKey: '', stripeAPIKey: '', trackerCode: '' } },
       { type: SET_FIRST_LOGIN_AFTER_SIGNUP, firstLoginAfterSignup: false },
       { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings } },
@@ -159,6 +145,7 @@ describe('app actions', () => {
         type: SET_VERSION_INFORMATION,
         docsVersion: '',
         value: {
+          AlvaldiVersion: alvaldiVersion,
           GUI: latestSaasReleaseTag,
           Integration: '1.2.3',
           backend: latestSaasReleaseTag,
@@ -176,6 +163,12 @@ describe('app actions', () => {
       { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings } },
       { type: SET_GLOBAL_SETTINGS, settings: { ...defaultState.users.globalSettings } },
       { type: SET_OFFLINE_THRESHOLD, value: '2019-01-12T13:00:00.900Z' },
+      {
+        type: SET_VERSION_INFORMATION,
+        value: {
+          AlvaldiVersion: alvaldiVersion
+        }
+      },
       {
         type: SET_FILTER_ATTRIBUTES,
         attributes: {
@@ -365,14 +358,6 @@ describe('app actions', () => {
       }
     ];
     await store.dispatch(setSnackbar('test', 20));
-    const storeActions = store.getActions();
-    expect(storeActions.length).toEqual(expectedActions.length);
-    expectedActions.map((action, index) => expect(storeActions[index]).toMatchObject(action));
-  });
-  it('should set version information', async () => {
-    const store = mockStore({ ...defaultState });
-    const expectedActions = [{ type: SET_VERSION_INFORMATION, value: { Integration: 'next' } }];
-    await store.dispatch(setVersionInfo({ Integration: 'next' }));
     const storeActions = store.getActions();
     expect(storeActions.length).toEqual(expectedActions.length);
     expectedActions.map((action, index) => expect(storeActions[index]).toMatchObject(action));

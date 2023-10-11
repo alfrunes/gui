@@ -16,10 +16,11 @@
 import hashString from 'md5';
 import Cookies from 'universal-cookie';
 
-import GeneralApi, { apiRoot } from '../api/general-api';
+import GeneralApi, { apiRoot, headerNames } from '../api/general-api';
 import UsersApi from '../api/users-api';
 import { cleanUp, logout } from '../auth';
 import * as AppConstants from '../constants/appConstants';
+import { SET_VERSION_INFORMATION } from '../constants/appConstants';
 import { ALL_DEVICES } from '../constants/deviceConstants';
 import * as OnboardingConstants from '../constants/onboardingConstants';
 import * as UserConstants from '../constants/userConstants';
@@ -594,9 +595,14 @@ export const removeRole = roleId => (dispatch, getState) =>
   Global settings
 */
 export const getGlobalSettings = () => dispatch =>
-  GeneralApi.get(`${useradmApiUrl}/settings`).then(({ data: settings, headers: { etag } }) => {
+  GeneralApi.get(`${useradmApiUrl}/settings`).then(({ data: settings, headers }) => {
     window.sessionStorage.setItem(UserConstants.settingsKeys.initialized, true);
-    return Promise.all([dispatch({ type: UserConstants.SET_GLOBAL_SETTINGS, settings }), dispatch(setOfflineThreshold()), etag]);
+    return Promise.all([
+      dispatch({ type: UserConstants.SET_GLOBAL_SETTINGS, settings }),
+      dispatch(setOfflineThreshold()),
+      dispatch({ type: SET_VERSION_INFORMATION, value: { AlvaldiVersion: headers[headerNames.alvaldiVersion] } }),
+      headers.etag
+    ]);
   });
 
 export const saveGlobalSettings =

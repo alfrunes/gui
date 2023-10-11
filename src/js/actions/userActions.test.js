@@ -16,7 +16,7 @@ import thunk from 'redux-thunk';
 import Cookies from 'universal-cookie';
 
 import { inventoryDevice } from '../../../tests/__mocks__/deviceHandlers';
-import { accessTokens, defaultPassword, defaultState, receivedPermissionSets, receivedRoles, token, userId } from '../../../tests/mockData';
+import { accessTokens, alvaldiVersion, defaultPassword, defaultState, receivedPermissionSets, receivedRoles, token, userId } from '../../../tests/mockData';
 import {
   SET_ANNOUNCEMENT,
   SET_ENVIRONMENT_DATA,
@@ -118,18 +118,6 @@ const appInitActions = [
   { type: 'SET_ONBOARDING_PROGRESS', value: 'onboarding-finished-notification' },
   { type: SET_DEMO_ARTIFACT_PORT, value: 85 },
   { type: SET_FEATURES, value: { ...defaultState.app.features, hasMultitenancy: true } },
-  {
-    type: SET_VERSION_INFORMATION,
-    docsVersion: '',
-    value: {
-      Deployments: '1.2.3',
-      Deviceauth: null,
-      GUI: undefined,
-      Integration: 'master',
-      Inventory: null,
-      'Meta-Mender': 'saas-123.34'
-    }
-  },
   { type: SET_ENVIRONMENT_DATA, value: { hostAddress: null, hostedAnnouncement: '', recaptchaSiteKey: '', stripeAPIKey: '', trackerCode: '' } },
   { type: SET_FIRST_LOGIN_AFTER_SIGNUP, firstLoginAfterSignup: false },
   { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings } },
@@ -153,6 +141,12 @@ const appInitActions = [
   { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings } },
   { type: SET_GLOBAL_SETTINGS, settings: { '2fa': 'enabled', previousFilters: [] } },
   offlineThreshold,
+  {
+    type: SET_VERSION_INFORMATION,
+    value: {
+      AlvaldiVersion: alvaldiVersion
+    }
+  },
   {
     type: SET_FILTER_ATTRIBUTES,
     attributes: {
@@ -316,6 +310,12 @@ const appInitActions = [
   { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings, showHelptips: true } },
   { type: SET_GLOBAL_SETTINGS, settings: { '2fa': 'enabled', previousFilters: [] } },
   offlineThreshold,
+  {
+    type: SET_VERSION_INFORMATION,
+    value: {
+      AlvaldiVersion: alvaldiVersion
+    }
+  },
   { type: SET_GLOBAL_SETTINGS, settings: { '2fa': 'enabled', previousFilters: [] } },
   {
     type: RECEIVE_DEVICES,
@@ -664,6 +664,12 @@ describe('user actions', () => {
     const expectedActions = [
       { type: SET_GLOBAL_SETTINGS, settings: { ...retrievedSettings } },
       offlineThreshold,
+      {
+        type: SET_VERSION_INFORMATION,
+        value: {
+          AlvaldiVersion: alvaldiVersion
+        }
+      },
       { type: SET_GLOBAL_SETTINGS, settings: { ...defaultState.users.globalSettings, ...settings } }
     ];
     const store = mockStore({ ...defaultState });
@@ -679,6 +685,12 @@ describe('user actions', () => {
     const expectedActions = [
       { type: SET_GLOBAL_SETTINGS, settings: { ...retrievedSettings } },
       offlineThreshold,
+      {
+        type: SET_VERSION_INFORMATION,
+        value: {
+          AlvaldiVersion: alvaldiVersion
+        }
+      },
       { type: SET_GLOBAL_SETTINGS, settings: { ...defaultState.users.globalSettings, ...settings } },
       { type: SET_SNACKBAR, snackbar: { message: 'Settings saved successfully' } }
     ];

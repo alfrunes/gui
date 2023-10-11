@@ -77,7 +77,6 @@ export const parseEnvironmentInfo = () => (dispatch, getState) => {
   let demoArtifactPort = 85;
   let environmentData = {};
   let environmentFeatures = {};
-  let versionInfo = {};
   if (mender_environment) {
     const {
       features = {},
@@ -85,12 +84,8 @@ export const parseEnvironmentInfo = () => (dispatch, getState) => {
       disableOnboarding,
       hostAddress,
       hostedAnnouncement,
-      integrationVersion,
       isDemoMode,
-      menderVersion,
-      metaMenderVersion,
       recaptchaSiteKey,
-      services = {},
       stripeAPIKey,
       trackerCode
     } = mender_environment;
@@ -113,24 +108,11 @@ export const parseEnvironmentInfo = () => (dispatch, getState) => {
       isHosted: stringToBoolean(features.isHosted) || window.location.hostname.includes('app.alvaldi.com'),
       isDemoMode: stringToBoolean(isDemoMode || features.isDemoMode)
     };
-    versionInfo = {
-      docs: isNaN(integrationVersion.charAt(0)) ? '' : integrationVersion.split('.').slice(0, 2).join('.'),
-      remainder: {
-        Integration: getComparisonCompatibleVersion(integrationVersion),
-        'Alvaldi-Client': getComparisonCompatibleVersion(menderVersion),
-        'Meta-Mender': metaMenderVersion,
-        Deployments: services.deploymentsVersion,
-        Deviceauth: services.deviceauthVersion,
-        Inventory: services.inventoryVersion,
-        GUI: services.guiVersion
-      }
-    };
   }
   return Promise.all([
     dispatch(setOnboardingComplete(onboardingComplete)),
     dispatch(setDemoArtifactPort(demoArtifactPort)),
     dispatch({ type: SET_FEATURES, value: environmentFeatures }),
-    dispatch({ type: SET_VERSION_INFORMATION, docsVersion: versionInfo.docs, value: versionInfo.remainder }),
     dispatch({ type: SET_ENVIRONMENT_DATA, value: environmentData }),
     dispatch(getLatestReleaseInfo())
   ]);
@@ -271,18 +253,6 @@ export const setOfflineThreshold = () => (dispatch, getState) => {
   return Promise.resolve(dispatch({ type: SET_OFFLINE_THRESHOLD, value }));
 };
 
-export const setVersionInfo = info => (dispatch, getState) =>
-  Promise.resolve(
-    dispatch({
-      type: SET_VERSION_INFORMATION,
-      docsVersion: getState().app.docsVersion,
-      value: {
-        ...getState().app.versionInformation,
-        ...info
-      }
-    })
-  );
-
 const versionRegex = new RegExp(/\d+\.\d+/);
 const getLatestRelease = thing => {
   const latestKey = Object.keys(thing)
@@ -301,6 +271,18 @@ const deductSaasState = (latestRelease, guiTags, saasReleases) => {
   const latestSaasRelease = latestGuiTag.startsWith('saas-v') ? { date: latestGuiTag.split('-v')[1].replaceAll('.', '-'), tag: latestGuiTag } : saasReleases[0];
   return latestSaasRelease.date > latestRelease.release_date ? latestSaasRelease.tag : latestRelease.release;
 };
+
+export const setVersionInfo = info => (dispatch, getState) =>
+  Promise.resolve(
+    dispatch({
+      type: SET_VERSION_INFORMATION,
+      docsVersion: getState().app.docsVersion,
+      value: {
+        ...getState().app.versionInformation,
+        ...info
+      }
+    })
+  );
 
 export const getLatestReleaseInfo = () => (dispatch, getState) => {
   if (!getState().app.features.isHosted) {

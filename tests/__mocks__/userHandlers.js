@@ -13,8 +13,9 @@
 //    limitations under the License.
 import { rest } from 'msw';
 
+import { headerNames } from '../../src/js/api/general-api.js';
 import { defaultPermissionSets, useradmApiUrl, useradmApiUrlv2 } from '../../src/js/constants/userConstants';
-import { accessTokens, defaultPassword, defaultState, userId as defaultUserId, permissionSets, token } from '../mockData';
+import { accessTokens, alvaldiVersion, defaultPassword, defaultState, userId as defaultUserId, permissionSets, token } from '../mockData';
 
 export const roles = [
   {
@@ -166,7 +167,9 @@ export const userHandlers = [
     }
     return res(ctx.status(574));
   }),
-  rest.get(`${useradmApiUrl}/settings`, (req, res, ctx) => res(ctx.json(defaultState.users.globalSettings))),
+  rest.get(`${useradmApiUrl}/settings`, (req, res, ctx) =>
+    res(ctx.set(headerNames.alvaldiVersion, alvaldiVersion), ctx.json(defaultState.users.globalSettings))
+  ),
   rest.post(`${useradmApiUrl}/settings`, (req, res, ctx) => res(ctx.status(200))),
   rest.get(`${useradmApiUrl}/settings/me`, (req, res, ctx) => res(ctx.json(defaultState.users.userSettings))),
   rest.post(`${useradmApiUrl}/settings/me`, (req, res, ctx) => res(ctx.status(200))),
