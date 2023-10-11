@@ -53,7 +53,7 @@ export const createOrganization = data => dispatch => {
   const targetLocation = devLocations.includes(window.location.hostname)
     ? ''
     : `https://${window.location.hostname.startsWith('staging') ? 'staging.' : ''}${location}`;
-  const target = `${targetLocation}${tenantadmApiUrlv2}/signup`;
+  const target = `${targetLocation}${tenantadmApiUrlv2}/tenants/signup`;
   return Api.postUnauthorized(target, data)
     .catch(err => {
       if (err.response.status >= 400 && err.response.status < 500) {
