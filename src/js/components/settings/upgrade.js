@@ -19,7 +19,7 @@ import { InfoOutlined as InfoOutlinedIcon, LocalOffer as LocalOfferIcon } from '
 import moment from 'moment';
 
 import { getUserOrganization } from '../../actions/organizationActions';
-import { getOrganization } from '../../selectors';
+import { getCurrentPlanName, getOrganization } from '../../selectors';
 import InfoText from '../common/infotext';
 import Loader from '../common/loader';
 import PlanSelection from './planselection';
@@ -59,12 +59,13 @@ export const Upgrade = () => {
   const [updatedPlan, setUpdatedPlan] = useState('os');
   const dispatch = useDispatch();
   const org = useSelector(getOrganization);
+  const currentPlanName = useSelector(getCurrentPlanName);
 
   useEffect(() => {
     dispatch(getUserOrganization());
   }, []);
 
-  const { plan: currentPlan = 'os', trial: isTrial = true } = org;
+  const { trial: isTrial = true } = org;
   return (
     <div style={{ maxWidth: 750 }} className="margin-top-small">
       <h2 style={{ marginTop: 15 }}>Upgrade now</h2>
@@ -81,7 +82,7 @@ export const Upgrade = () => {
         for more information.
       </p>
       <PlanSelection
-        currentPlan={currentPlan}
+        currentPlanName={currentPlanName}
         isTrial={isTrial}
         offerValid={offerValid}
         offerTag={offerTag}

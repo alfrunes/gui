@@ -23,8 +23,7 @@ import { makeStyles } from 'tss-react/mui';
 import moment from 'moment';
 
 import { getUserList } from '../../../actions/userActions.js';
-import { PLANS } from '../../../constants/appConstants';
-import { getAcceptedDevices, getDeviceLimit, getIsEnterprise, getOrganization, getUsersById, getUsersLimit } from '../../../selectors';
+import { getAcceptedDevices, getCurrentPlanName, getDeviceLimit, getIsEnterprise, getOrganization, getUsersById, getUsersLimit } from '../../../selectors';
 import Alert from '../../common/alert';
 import OrganizationPaymentSettings from './organizationpaymentsettings';
 import OrganizationSettingsItem, { maxWidth } from './organizationsettingsitem';
@@ -85,16 +84,14 @@ export const Billing = () => {
   const deviceLimit = useSelector(getDeviceLimit);
   const usersLimit = useSelector(getUsersLimit);
   const isEnterprise = useSelector(getIsEnterprise);
+  const planName = useSelector(getCurrentPlanName);
   const organization = useSelector(getOrganization);
-  const { plan: currentPlan = 'os' } = organization;
   const dispatch = useDispatch();
   const { classes } = useStyles();
 
   useEffect(() => {
     dispatch(getUserList());
   }, []);
-
-  const planName = PLANS[currentPlan].name;
 
   return (
     <div className={classes.wrapper}>

@@ -86,12 +86,12 @@ export const useStyles = makeStyles()(theme => ({
   }
 }));
 
-export const PlanSelection = ({ currentPlan = 'os', isTrial, offerValid, offerTag }) => {
+export const PlanSelection = ({ currentPlanName = '', isTrial, offerValid, offerTag }) => {
   const { classes } = useStyles();
   return (
     <>
       <h2 className="margin-top-xl margin-bottom">Our plans</h2>
-      <div className="margin-bottom-small">Your current plan: {PLANS[currentPlan]?.name}</div>
+      <div className="margin-bottom-small">Your current plan: {currentPlanName}</div>
       <div className="flexbox" style={{ paddingBottom: 15 }}>
         {Object.values(PLANS)
           .filter(item => isTrial || !item.isTrial)
