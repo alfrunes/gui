@@ -88,8 +88,8 @@ export const organizationHandlers = [
   rest.get('/versions.json', (req, res, ctx) => res(ctx.json(releasesSample))),
   rest.get(`${tenantadmApiUrlv1}/user/tenant`, (req, res, ctx) => res(ctx.json(defaultState.organization.organization))),
   rest.post(`${tenantadmApiUrlv2}/tenants/:tenantId/cancel`, (req, res, ctx) => res(ctx.status(200))),
-  rest.post(`${tenantadmApiUrlv2}tenants/signup`, signupHandler),
-  rest.post(`https://app.alvaldi.com${tenantadmApiUrlv2}tenants/signup`, signupHandler),
+  rest.post(`${tenantadmApiUrlv2}/tenants/signup`, signupHandler),
+  rest.post(`https://app.alvaldi.com${tenantadmApiUrlv2}/tenants/signup`, signupHandler),
   rest.get(`${tenantadmApiUrlv2}/billing`, (req, res, ctx) => res(ctx.json({ card: { last4: '7890', exp_month: 1, exp_year: 2024, brand: 'testCorp' } }))),
   rest.post(`${tenantadmApiUrlv2}/billing/card`, (req, res, ctx) => res(ctx.json({ intent_id: defaultState.organization.intentId, secret: 'testSecret' }))),
   rest.post(`${tenantadmApiUrlv2}/billing/card/:intentId/confirm`, ({ params: { intentId } }, res, ctx) => {
