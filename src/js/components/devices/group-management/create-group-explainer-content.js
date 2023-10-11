@@ -12,19 +12,22 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { Autorenew, LockOutlined } from '@mui/icons-material';
 import { makeStyles } from 'tss-react/mui';
 
 import dynamicImage from '../../../../assets/img/dynamic-group-creation.gif';
 import staticImage from '../../../../assets/img/static-group-creation.gif';
+import { getPlanWithDynamicGroups } from '../../../selectors/index.js';
 import InfoText from '../../common/infotext';
 
 const useStyles = makeStyles()(theme => ({
   groupType: {
     flexGrow: 1,
     padding: 25,
-    ['&.non-enterprise']: {
+    ['&.no-dynamic-groups']: {
       backgroundColor: theme.palette.background.lightgrey
     }
   },
@@ -33,7 +36,8 @@ const useStyles = makeStyles()(theme => ({
   image: { maxWidth: '100%' }
 }));
 
-export const CreateGroupExplainerContent = ({ isEnterprise }) => {
+export const CreateGroupExplainerContent = ({ hasDynamicGroups }) => {
+  const planWithDynamicGroups = useSelector(getPlanWithDynamicGroups);
   const { classes } = useStyles();
   return (
     <div className="flexbox column">
@@ -50,14 +54,14 @@ export const CreateGroupExplainerContent = ({ isEnterprise }) => {
         </div>
         <img className={classes.image} src={staticImage} />
       </div>
-      <div className={`two-columns ${classes.groupType} ${isEnterprise ? '' : 'non-enterprise'}`}>
+      <div className={`two-columns ${classes.groupType} ${hasDynamicGroups ? '' : 'no-dynamic-groups'}`}>
         <div className="margin-right-large">
           <div className="flexbox center-aligned margin-bottom">
             <Autorenew className={classes.icon} fontSize="small" />
             <div className="bold margin-left-small margin-right">Dynamic group</div>
-            {!isEnterprise && (
+            {!hasDynamicGroups && (
               <InfoText className="uppercased" style={{ margin: 0 }} variant="dense">
-                Enterprise
+                Not available
               </InfoText>
             )}
           </div>
@@ -65,9 +69,10 @@ export const CreateGroupExplainerContent = ({ isEnterprise }) => {
             You can set filters based on device attributes, and save them as a group. At any point in time, all devices that match the filters will be part of
             this group. This means that new devices will automatically join the group if they match the filters.
           </p>
-          {!isEnterprise && (
+          {!hasDynamicGroups && (
             <InfoText>
-              Dynamic grouping is only available to Enterprise users. <a href="mailto:contact@mender.io">Contact us</a> to ask about upgrading.
+              Dynamic grouping is not available in the current plan. <Link to="/settings/upgrade">Upgrade to {planWithDynamicGroups?.display_name}</Link> to
+              have access.
             </InfoText>
           )}
         </div>
