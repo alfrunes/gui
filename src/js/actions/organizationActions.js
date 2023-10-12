@@ -48,12 +48,12 @@ export const cancelRequest = (tenantId, reason) => dispatch =>
   );
 
 const devLocations = ['localhost', 'docker.mender.io'];
-export const createOrganizationTrial = data => dispatch => {
+export const createOrganization = data => dispatch => {
   const { location } = locations[data.location];
   const targetLocation = devLocations.includes(window.location.hostname)
     ? ''
     : `https://${window.location.hostname.startsWith('staging') ? 'staging.' : ''}${location}`;
-  const target = `${targetLocation}${tenantadmApiUrlv2}/tenants/trial`;
+  const target = `${targetLocation}${tenantadmApiUrlv2}/tenants/signup`;
   return Api.postUnauthorized(target, data)
     .catch(err => {
       if (err.response.status >= 400 && err.response.status < 500) {

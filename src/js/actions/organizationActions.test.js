@@ -35,7 +35,7 @@ import {
   completeUpgrade,
   confirmCardUpdate,
   createIntegration,
-  createOrganizationTrial,
+  createOrganization,
   deleteIntegration,
   deleteSamlConfig,
   downloadLicenseReport,
@@ -85,7 +85,7 @@ describe('organization actions', () => {
     expect(store.getActions()).toHaveLength(0);
     const expectedActions = [{ type: SET_FIRST_LOGIN_AFTER_SIGNUP, firstLoginAfterSignup: true }];
     const result = store.dispatch(
-      createOrganizationTrial({
+      createOrganization({
         'g-recaptcha-response': 'test',
         email: 'test@test.com',
         location: 'us',
