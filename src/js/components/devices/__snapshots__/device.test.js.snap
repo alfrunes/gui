@@ -1897,7 +1897,6 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-37:focus::-ms-input-
                   />
                 </button>
               </div>
-              <div />
             </div>
             <hr
               class="MuiDivider-root MuiDivider-fullWidth margin-bottom-large emotion-12"
