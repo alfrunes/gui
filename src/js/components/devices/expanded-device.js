@@ -24,17 +24,7 @@ import copy from 'copy-to-clipboard';
 import GatewayConnectionIcon from '../../../assets/img/gateway-connection.svg';
 import GatewayIcon from '../../../assets/img/gateway.svg';
 import { setSnackbar } from '../../actions/appActions';
-import {
-  applyDeviceConfig,
-  decommissionDevice,
-  getDeviceInfo,
-  getDeviceTwin,
-  getGatewayDevices,
-  setDeviceConfig,
-  setDeviceTags,
-  setDeviceTwin
-} from '../../actions/deviceActions';
-import { saveGlobalSettings } from '../../actions/userActions';
+import { decommissionDevice, getDeviceInfo, getGatewayDevices, setDeviceTags } from '../../actions/deviceActions';
 import { TIMEOUTS, yes } from '../../constants/appConstants';
 import { DEVICE_STATES, EXTERNAL_PROVIDER } from '../../constants/deviceConstants';
 import { getDemoDeviceAddress, stringToBoolean } from '../../helpers';
@@ -278,23 +268,18 @@ export const ExpandedDevice = ({ actionCallbacks, deviceId, onClose, refreshDevi
   const { component: SelectedTab, value: selectedTab } = availableTabs.find(tab => tab.value === tabSelection) ?? tabs[0];
 
   const commonProps = {
-    applyDeviceConfig: (...args) => dispatch(applyDeviceConfig(...args)),
     classes,
     columnSelection,
     defaultConfig,
     device,
     docsVersion,
-    getDeviceTwin: (...args) => dispatch(getDeviceTwin(...args)),
     integrations,
     latestAlerts,
     launchTroubleshoot,
     onDecommissionDevice,
     refreshDevices,
-    saveGlobalSettings: settings => dispatch(saveGlobalSettings(settings)),
     setDetailsTab,
-    setDeviceConfig: (...args) => dispatch(setDeviceConfig(...args)),
     setDeviceTags: (...args) => dispatch(setDeviceTags(...args)),
-    setDeviceTwin: (...args) => dispatch(setDeviceTwin(...args)),
     setSnackbar: (...args) => dispatch(setSnackbar(...args)),
     setSocketClosed,
     setTroubleshootType,
