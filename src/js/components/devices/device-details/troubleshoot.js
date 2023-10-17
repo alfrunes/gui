@@ -27,15 +27,13 @@ import { setSnackbar } from '../../../actions/appActions';
 import { deviceFileUpload, getDeviceFileDownloadLink } from '../../../actions/deviceActions';
 import { TIMEOUTS } from '../../../constants/appConstants';
 import { createDownload } from '../../../helpers';
-import { getFeatures, getIsEnterprise, getIsPreview, getUserCapabilities } from '../../../selectors';
+import { getUserCapabilities } from '../../../selectors';
 import { useSession } from '../../../utils/sockethook';
 import { TwoColumns } from '../../common/configurationobject';
 import MaterialDesignIcon from '../../common/materialdesignicon.js';
 import { MaybeTime } from '../../common/time';
-import { getCode } from '../dialogs/make-gateway-dialog';
 import FileTransfer from '../troubleshoot/filetransfer';
 import Terminal from '../troubleshoot/terminal';
-import ListOptions from '../widgets/listoptions';
 
 momentDurationFormatSetup(moment);
 
@@ -66,15 +64,11 @@ export const Troubleshoot = ({ device }) => {
   const [socketInitialized, setSocketInitialized] = useState(false);
   const [startTime, setStartTime] = useState();
   const [uploadPath, setUploadPath] = useState('');
-  const [terminalInput, setTerminalInput] = useState('');
   const [snackbarAlreadySet, setSnackbarAlreadySet] = useState(false);
   const snackTimer = useRef();
   const timer = useRef();
   const termRef = useRef({ terminal: React.createRef(), terminalRef: React.createRef() });
   const { classes } = useStyles();
-  const { isHosted } = useSelector(getFeatures);
-  const isEnterprise = useSelector(getIsEnterprise);
-  const canPreview = useSelector(getIsPreview);
   const userCapabilities = useSelector(getUserCapabilities);
   const { canTroubleshoot, canTransferFiles } = userCapabilities;
   const dispatch = useDispatch();
@@ -187,12 +181,6 @@ export const Troubleshoot = ({ device }) => {
     setSocketInitialized(sessionState === WebSocket.OPEN && sessionId);
   }, [sessionId, sessionState]);
 
-  const onMakeGatewayClick = () => {
-    const code = getCode(canPreview);
-    setTerminalInput(code);
-  };
-
-  const commandHandlers = isHosted && isEnterprise ? [{ key: 'thing', onClick: onMakeGatewayClick, title: 'Promote to Mender gateway' }] : [];
   const duration = moment.duration(elapsed.diff(moment(startTime)));
   return (
     <div>
@@ -219,7 +207,6 @@ export const Troubleshoot = ({ device }) => {
                   setSnackbar={dispatchedSetSnackbar}
                   socketInitialized={socketInitialized}
                   style={{ position: 'absolute', width: '100%', height: '100%' }}
-                  textInput={terminalInput}
                   xtermRef={termRef}
                 />
               </div>
@@ -238,7 +225,6 @@ export const Troubleshoot = ({ device }) => {
       </div>
       <div className="flexbox space-between margin-top-small">
         <div>{!device.isOffline && <Button onClick={onConnectionToggle}>{socketInitialized ? 'Disconnect' : 'Connect'} Terminal</Button>}</div>
-        <div>{socketInitialized && !!commandHandlers.length && <ListOptions options={commandHandlers} title="Quick commands" />}</div>
       </div>
       {canTransferFiles && (
         <>
