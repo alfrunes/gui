@@ -214,5 +214,8 @@ export const organizationHandlers = [
       return res(ctx.status(552));
     }
     return res(ctx.status(200));
-  })
+  }),
+  // @todo replace with real API endpoints
+  rest.get(`/plans.json`, (req, res, ctx) => res(ctx.json(defaultState.app.plans))),
+  rest.get(`/plan.json`, (req, res, ctx) => res(ctx.json(defaultState.organization.plan)))
 ];

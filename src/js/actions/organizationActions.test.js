@@ -146,7 +146,7 @@ describe('organization actions', () => {
       .dispatch(
         requestPlanChange(defaultState.organization.organization.id, {
           current_plan: PLANS.professional.name,
-          requested_plan: PLANS.enterprise.name,
+          requested_plan: PLANS.basic.name,
           current_addons: 'something,extra',
           requested_addons: 'something,extra,special',
           user_message: 'more please'
@@ -188,7 +188,7 @@ describe('organization actions', () => {
       { organization: defaultState.organization.organization, type: SET_ORGANIZATION },
       { type: SET_ANNOUNCEMENT, announcement: tenantDataDivergedMessage }
     ];
-    await store.dispatch(completeUpgrade(defaultState.organization.organization.id, 'enterprise')).then(() => {
+    await store.dispatch(completeUpgrade(defaultState.organization.organization.id, 'basic')).then(() => {
       const storeActions = store.getActions();
       expect(storeActions).toHaveLength(expectedActions.length);
       expectedActions.map((action, index) => expect(storeActions[index]).toMatchObject(action));

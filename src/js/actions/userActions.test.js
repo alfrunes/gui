@@ -23,6 +23,7 @@ import {
   SET_FEATURES,
   SET_FIRST_LOGIN_AFTER_SIGNUP,
   SET_OFFLINE_THRESHOLD,
+  SET_PLANS,
   SET_SNACKBAR,
   SET_VERSION_INFORMATION,
   SORTING_OPTIONS
@@ -81,7 +82,6 @@ import {
   getRoles,
   getTokens,
   getUser,
-  getUserLimit,
   getUserList,
   loginUser,
   logoutUser,
@@ -101,6 +101,7 @@ import {
   verifyEmailComplete,
   verifyEmailStart
 } from './userActions';
+import { SET_PLAN } from '../constants/organizationConstants.js';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -117,7 +118,18 @@ const appInitActions = [
   { type: 'SET_SHOW_ONBOARDING_HELP', show: false },
   { type: 'SET_ONBOARDING_PROGRESS', value: 'onboarding-finished-notification' },
   { type: SET_DEMO_ARTIFACT_PORT, value: 85 },
-  { type: SET_FEATURES, value: { ...defaultState.app.features, hasMultitenancy: true } },
+  {
+    type: SET_FEATURES,
+    value: {
+      hasAddons: false,
+      hasMultitenancy: true,
+      hasDeviceConfig: false,
+      hasDeviceConnect: false,
+      hasReporting: false,
+      isHosted: false,
+      isDemoMode: false
+    }
+  },
   { type: SET_ENVIRONMENT_DATA, value: { hostAddress: null, hostedAnnouncement: '', recaptchaSiteKey: '', stripeAPIKey: '', trackerCode: '' } },
   { type: SET_FIRST_LOGIN_AFTER_SIGNUP, firstLoginAfterSignup: false },
   { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings } },
@@ -139,6 +151,13 @@ const appInitActions = [
     }
   },
   { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings } },
+  {
+    type: SET_PLAN,
+    payload: defaultState.organization.plan
+  },
+  { type: SET_FEATURES, value: { hasAuditlogs: true, hasRbac: true, hasDynamicGroups: true } },
+  { type: SET_DEVICE_LIMIT, limit: 8 },
+  { type: SET_USER_LIMIT, limit: 3 },
   { type: SET_GLOBAL_SETTINGS, settings: { '2fa': 'enabled', previousFilters: [] } },
   offlineThreshold,
   {
@@ -246,8 +265,6 @@ const appInitActions = [
     }
   },
   // { type: SET_ONBOARDING_ARTIFACT_INCLUDED, value: true },
-  { type: SET_DEVICE_LIMIT, limit: 500 },
-  { type: SET_USER_LIMIT, limit: 2 },
   { type: RECEIVED_PERMISSION_SETS, value: receivedPermissionSets },
   // {
   //   type: RECEIVE_EXTERNAL_DEVICE_INTEGRATIONS,
@@ -257,6 +274,10 @@ const appInitActions = [
   //   ]
   // },
   { type: RECEIVED_ROLES, value: receivedRoles },
+  {
+    type: SET_PLANS,
+    value: defaultState.app.plans
+  },
   {
     type: 'SET_ORGANIZATION',
     organization: { addons: [], id: 1, name: 'test', plan: 'os', trial: false }
@@ -771,14 +792,6 @@ describe('user actions', () => {
     const expectedActions = [{ type: UPDATED_USER, userId: 'a1', user: { tokens: accessTokens } }];
     const store = mockStore({ ...defaultState });
     await store.dispatch(revokeToken({ id: 'some-id-1' }));
-    const storeActions = store.getActions();
-    expect(storeActions.length).toEqual(expectedActions.length);
-    expectedActions.map((action, index) => expect(storeActions[index]).toMatchObject(action));
-  });
-  it('should allow limit retrieval', async () => {
-    const store = mockStore({ ...defaultState });
-    const expectedActions = [{ type: SET_USER_LIMIT, limit: defaultState.users.limit }];
-    await store.dispatch(getUserLimit());
     const storeActions = store.getActions();
     expect(storeActions.length).toEqual(expectedActions.length);
     expectedActions.map((action, index) => expect(storeActions[index]).toMatchObject(action));

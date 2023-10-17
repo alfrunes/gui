@@ -124,7 +124,43 @@ export const defaultState = {
     uploadsById: {},
     versionInformation: {
       AlvaldiVersion: alvaldiVersion
-    }
+    },
+    plans: [
+      {
+        'id': '806603def19d417d004a4b67e',
+        'product': 'Alvaldi',
+        'name': 'alvaldi-basic',
+        'display_name': 'Alvaldi Basic',
+        'features': {
+          'rbac': true,
+          'audit_logs': true,
+          'dynamic_groups': false,
+          'terminal': true
+        },
+        'limits': {
+          'devices': 10,
+          'users': 2,
+          'audit_logs_days': 2
+        }
+      },
+      {
+        'id': '806603def19d417d004a4b67e',
+        'product': 'Alvaldi',
+        'name': 'alvaldi-professional',
+        'display_name': 'Alvaldi Professional',
+        'features': {
+          'rbac': true,
+          'audit_logs': true,
+          'dynamic_groups': true,
+          'terminal': true
+        },
+        'limits': {
+          'devices': 10,
+          'users': 2,
+          'audit_logs_days': 0
+        }
+      }
+    ]
   },
   devices: {
     ...initialDevicesState,
@@ -362,6 +398,19 @@ export const defaultState = {
       name: 'test',
       plan: 'os',
       trial: false
+    },
+    plan: {
+      id: '806603def19d417d004a4b67e',
+      product: 'Alvaldi',
+      name: 'alvaldi-basic',
+      display_name: 'Alvaldi Basic',
+      features: {
+        rbac: true,
+        audit_logs: true,
+        dynamic_groups: true,
+        terminal: true
+      },
+      limits: { devices: 8, users: 3, audit_logs_days: 0 }
     }
   },
   users: {

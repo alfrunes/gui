@@ -29,7 +29,6 @@ import {
   getDeviceCount,
   getDeviceFileDownloadLink,
   getDeviceInfo,
-  getDeviceLimit,
   getDeviceTwin,
   getDevicesByStatus,
   getDevicesWithAuth,
@@ -212,14 +211,6 @@ describe('overall device information retrieval', () => {
     expectedActions.map((action, index) => expect(storeActions[index]).toMatchObject(action));
   });
 
-  it('should allow limit retrieval', async () => {
-    const store = mockStore({ ...defaultState });
-    const expectedActions = [{ type: DeviceConstants.SET_DEVICE_LIMIT, limit: defaultState.devices.limit }];
-    await store.dispatch(getDeviceLimit());
-    const storeActions = store.getActions();
-    expect(storeActions.length).toEqual(expectedActions.length);
-    expectedActions.map((action, index) => expect(storeActions[index]).toMatchObject(action));
-  });
   it('should allow attribute retrieval and group results', async () => {
     const store = mockStore({ ...defaultState });
     const expectedActions = [{ type: DeviceConstants.SET_FILTER_ATTRIBUTES, attributes: {} }];

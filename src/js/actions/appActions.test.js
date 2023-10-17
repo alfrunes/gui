@@ -22,6 +22,7 @@ import {
   SET_FEATURES,
   SET_FIRST_LOGIN_AFTER_SIGNUP,
   SET_OFFLINE_THRESHOLD,
+  SET_PLANS,
   SET_SEARCH_STATE,
   SET_SNACKBAR,
   SET_VERSION_INFORMATION,
@@ -44,7 +45,7 @@ import {
   UNGROUPED_GROUP
 } from '../constants/deviceConstants';
 import { SET_DEMO_ARTIFACT_PORT, SET_ONBOARDING_COMPLETE } from '../constants/onboardingConstants';
-import { SET_ORGANIZATION } from '../constants/organizationConstants';
+import { SET_ORGANIZATION, SET_PLAN } from '../constants/organizationConstants';
 import { RECEIVED_PERMISSION_SETS, RECEIVED_ROLES, SET_GLOBAL_SETTINGS, SET_SHOW_HELP, SET_USER_LIMIT, SET_USER_SETTINGS } from '../constants/userConstants';
 import {
   commonErrorHandler,
@@ -120,7 +121,18 @@ describe('app actions', () => {
       { type: 'SET_SHOW_ONBOARDING_HELP', show: false },
       { type: 'SET_ONBOARDING_PROGRESS', value: 'onboarding-finished-notification' },
       { type: SET_DEMO_ARTIFACT_PORT, value: 85 },
-      { type: SET_FEATURES, value: { ...defaultState.app.features, hasMultitenancy: true } },
+      {
+        type: SET_FEATURES,
+        value: {
+          hasAddons: false,
+          hasMultitenancy: true,
+          hasDeviceConfig: false,
+          hasDeviceConnect: false,
+          hasReporting: false,
+          isHosted: false,
+          isDemoMode: false
+        }
+      },
       { type: SET_ENVIRONMENT_DATA, value: { hostAddress: null, hostedAnnouncement: '', recaptchaSiteKey: '', stripeAPIKey: '', trackerCode: '' } },
       { type: SET_FIRST_LOGIN_AFTER_SIGNUP, firstLoginAfterSignup: false },
       { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings } },
@@ -161,6 +173,13 @@ describe('app actions', () => {
         }
       },
       { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings } },
+      {
+        type: SET_PLAN,
+        payload: defaultState.organization.plan
+      },
+      { type: SET_FEATURES, value: { hasAuditlogs: true, hasRbac: true, hasDynamicGroups: true } },
+      { type: SET_DEVICE_LIMIT, limit: 8 },
+      { type: SET_USER_LIMIT, limit: 3 },
       { type: SET_GLOBAL_SETTINGS, settings: { ...defaultState.users.globalSettings } },
       { type: SET_OFFLINE_THRESHOLD, value: '2019-01-12T13:00:00.900Z' },
       {
@@ -267,10 +286,12 @@ describe('app actions', () => {
           }
         }
       },
-      { type: SET_DEVICE_LIMIT, limit: 500 },
-      { type: SET_USER_LIMIT, limit: 2 },
       { type: RECEIVED_PERMISSION_SETS, value: receivedPermissionSets },
       { type: RECEIVED_ROLES, value: receivedRoles },
+      {
+        type: SET_PLANS,
+        value: defaultState.app.plans
+      },
       { type: SET_ORGANIZATION, organization: defaultState.organization.organization },
       { type: SET_ANNOUNCEMENT, announcement: tenantDataDivergedMessage },
       {
