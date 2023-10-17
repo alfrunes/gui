@@ -130,7 +130,7 @@ exports[`CreateGroupExplainer Component renders correctly 1`] = `
   padding: 25px;
 }
 
-.emotion-6.non-enterprise {
+.emotion-6.no-dynamic-groups {
   background-color: #f7f7f7;
 }
 
@@ -370,7 +370,7 @@ exports[`CreateGroupExplainer Component renders correctly 1`] = `
             />
           </div>
           <div
-            class="two-columns emotion-6 non-enterprise"
+            class="two-columns emotion-6 no-dynamic-groups"
           >
             <div
               class="margin-right-large"
@@ -398,7 +398,7 @@ exports[`CreateGroupExplainer Component renders correctly 1`] = `
                   class="emotion-11 uppercased"
                   style="margin: 0px;"
                 >
-                  Enterprise
+                  Not available
                 </span>
               </div>
               <p
@@ -409,13 +409,14 @@ exports[`CreateGroupExplainer Component renders correctly 1`] = `
               <p
                 class="emotion-11 "
               >
-                Dynamic grouping is only available to Enterprise users. 
+                Dynamic grouping is not available in the current plan. 
                 <a
-                  href="mailto:contact@mender.io"
+                  href="/settings/upgrade"
                 >
-                  Contact us
+                  Upgrade to 
+                  Alvaldi Professional
                 </a>
-                 to ask about upgrading.
+                 to have access.
               </p>
             </div>
             <img

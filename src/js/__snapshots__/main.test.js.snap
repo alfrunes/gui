@@ -102,7 +102,7 @@ exports[`Main Component renders correctly 1`] = `
                 id="limit"
               >
                 /
-                500
+                8
               </span>
               <svg
                 aria-hidden="true"
@@ -1011,7 +1011,7 @@ exports[`Main Component renders correctly 1`] = `
                       class="MuiInputBase-root MuiInputBase-colorPrimary MuiTablePagination-input mui-o64l95-MuiInputBase-root-MuiTablePagination-select"
                     >
                       <div
-                        aria-controls="mui-13"
+                        aria-controls="mui-14"
                         aria-expanded="false"
                         aria-haspopup="listbox"
                         
