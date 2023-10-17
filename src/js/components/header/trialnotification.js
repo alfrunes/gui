@@ -54,7 +54,7 @@ const TrialInformation = () => (
 );
 
 const TrialNotification = ({ sectionClassName, expiration }) => {
-  const expirationDate = moment().add('days', 59);
+  const expirationDate = moment().add(59, 'days');
   const duration = moment.duration(expirationDate.diff(moment(today)));
   const daysLeft = Math.floor(duration.asDays());
   const { classes } = useStyles();
