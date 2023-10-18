@@ -42,6 +42,7 @@ describe('Signup Component', () => {
     );
     const { container, rerender } = render(ui);
     expect(screen.getByText('Sign up with:')).toBeInTheDocument();
+    await user.click(screen.getByText(/Creating an account with username and password/i));
     await user.type(screen.getByLabelText(/Email/i), 'test@example.com');
     await user.type(screen.getByLabelText('Password *'), 'mysecretpassword!123');
     expect(screen.getByRole('button', { name: /sign up/i })).toBeDisabled();
