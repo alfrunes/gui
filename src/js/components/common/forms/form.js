@@ -108,7 +108,8 @@ export const Form = ({
   onSubmit,
   showButtons,
   submitButtonId,
-  submitLabel
+  submitLabel,
+  submitButtonFullWidth = false
 }) => {
   const methods = useForm({ mode: 'onChange', defaultValues });
   const theme = useTheme();
@@ -127,7 +128,7 @@ export const Form = ({
                 Cancel
               </Button>
             )}
-            <Button variant="contained" type="submit" disabled={!isValid} id={submitButtonId} color={buttonColor}>
+            <Button variant="contained" type="submit" fullWidth={submitButtonFullWidth} disabled={!isValid} id={submitButtonId} color={buttonColor}>
               {submitLabel}
             </Button>
           </div>

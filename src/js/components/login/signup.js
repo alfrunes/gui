@@ -44,7 +44,7 @@ const useStyles = makeStyles()(theme => ({
     },
     '> div': {
       display: 'grid',
-      gridTemplateColumns: 'minmax(min-content, 500px)',
+      gridTemplateColumns: 'minmax(465px, 500px)',
       placeContent: 'center'
     }
   },
@@ -66,6 +66,36 @@ const useStyles = makeStyles()(theme => ({
   svgContainer: {
     width: 'fit-content',
     margin: '45px auto'
+  },
+  helpFormText: {
+    color: theme.palette.text.inactive,
+    fontWeight: 500,
+    a: {
+      color: 'inherit',
+      textDecoration: 'underline',
+      fontWeight: 'inherit',
+      '&:hover': {
+        color: theme.palette.text.primary
+      }
+    },
+    svg: {
+      marginBottom: 3,
+      alignSelf: 'flex-end'
+    },
+    '&.msSignupText': {
+      maxWidth: 465,
+      a: {
+        color: theme.palette.blue[700]
+      },
+      svg: {
+        alignSelf: 'initial',
+        marginTop: 4
+      }
+    }
+  },
+  tooltip: {
+    maxWidth: 175,
+    color: 'red'
   }
 }));
 const TRIAL_SUBSCRIPTION_TYPE = 'trial';
@@ -92,6 +122,7 @@ export const Signup = () => {
   const { classes } = useStyles();
   const [subscriptionToken, setSubscriptionToken] = useState(null);
   const [subscriptionType, setSubscriptionType] = useState(TRIAL_SUBSCRIPTION_TYPE);
+  const [showForm, setShowForm] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const dispatchedSetSnackbar = message => dispatch(setSnackbar(message));
 
@@ -160,7 +191,7 @@ export const Signup = () => {
     });
   };
 
-  const onProgessClick = () => {
+  const onProgressClick = () => {
     setEmailVerified(true);
     setStep(2);
   };
@@ -170,7 +201,7 @@ export const Signup = () => {
   }
 
   const steps = {
-    1: <UserDataEntry classes={classes} onProgessClick={onProgessClick} />,
+    1: <UserDataEntry classes={classes} onProgressClick={onProgressClick} showForm={showForm} setShowForm={setShowForm} />,
     2: (
       <OrgDataEntry
         classes={classes}
@@ -187,7 +218,7 @@ export const Signup = () => {
   return (
     <>
       <LoginLogo className={classes.logo} />
-      <div className={`${classes.background} ${isStarting ? 'two-columns' : classes.orgData}`} id="signup-box">
+      <div className={`${classes.background} ${isStarting && !showForm ? 'two-columns' : classes.orgData}`} id="signup-box">
         <div>
           <Form
             defaultValues={{ email, tos, marketing, name: organization }}
@@ -196,12 +227,13 @@ export const Signup = () => {
             onSubmit={handleSignup}
             submitLabel={isStarting ? 'Sign up' : 'Complete signup'}
             submitButtonId="login_button"
+            submitButtonFullWidth={true}
           >
             {loading ? <Loader show style={{ marginTop: '40vh' }} /> : steps[step]}
           </Form>
           {!loading && <EntryLink target="login" />}
         </div>
-        {isStarting && (
+        {isStarting && !showForm && (
           <div className={classes.promo}>
             <h2>Connect up to 10 devices with 2 user accounts free for 6 months.</h2>
             <p>

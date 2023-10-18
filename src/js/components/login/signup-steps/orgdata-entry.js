@@ -26,11 +26,7 @@ export const OrgDataEntry = ({ emailVerified, recaptchaSiteKey = '', setCaptchaT
   return (
     <div>
       <h1 className="flexbox centered">Setting up your Account</h1>
-      <h2 className="flexbox centered margin-bottom-large">
-        To finish creating your account,
-        <br />
-        please fill in a few details
-      </h2>
+      <h2 className="flexbox align-center margin-bottom-large">To finish creating your account, please fill in a few details</h2>
       <TextInput hint="Company or organization name *" label="Company or organization name *" id="name" required validations="isLength:1" />
       {!emailVerified && <TextInput hint="Email *" label="Email *" id="email" required validations="isLength:1,isEmail" />}
       <FormCheckbox
@@ -41,7 +37,7 @@ export const OrgDataEntry = ({ emailVerified, recaptchaSiteKey = '', setCaptchaT
             <a href="https://northern.tech/legal/hosted-mender-agreement-10_10_2022-northern-tech-as.pdf" target="_blank" rel="noopener noreferrer">
               Terms of service
             </a>{' '}
-            and{' '}
+            and <br />
             <a href="https://northern.tech/legal/privacy-policy" target="_blank" rel="noopener noreferrer">
               Privacy Policy
             </a>{' '}

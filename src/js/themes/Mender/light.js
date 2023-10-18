@@ -38,10 +38,15 @@ const green = {
   '800': '#00813B'
 };
 
+const blue = {
+  '700': '#1D71D3'
+};
+
 const palette = {
   ...commonPalette,
   mode: LIGHT_MODE,
   grey,
+  blue,
   green,
   orange: '#E27E00',
   greySecondary: {
@@ -172,6 +177,9 @@ export const light = {
       styleOverrides: {
         tooltip: {
           backgroundColor: palette.background.dark
+        },
+        arrow: {
+          color: palette.background.dark
         }
       }
     }
