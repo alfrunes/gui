@@ -317,6 +317,7 @@ const reduceReceivedDevices = (devices, ids, state, status) =>
         monitor: storedMonitor = {},
         tags: storedTags = {},
         group: storedGroup,
+        status: storedStatus,
         external_id: storedExternalId = {}
       } = stateDevice;
       const { identity, inventory, monitor, system = {}, tags } = mapDeviceAttributes(device.attributes);
@@ -327,7 +328,7 @@ const reduceReceivedDevices = (devices, ids, state, status) =>
       device.group = system.group ?? storedGroup;
       device.monitor = { ...storedMonitor, ...monitor };
       device.identity_data = { ...storedIdentity, ...identity, ...(device.identity_data ? device.identity_data : {}) };
-      device.status = status ? status : device.status || identity.status;
+      device.status = status ? status : device.status || identity.status || storedStatus;
       device.created_ts = getEarliestTs(getEarliestTs(system.created_ts, device.created_ts), stateDevice.created_ts);
       device.updated_ts = getLatestTs(getLatestTs(system.updated_ts, device.updated_ts), stateDevice.updated_ts);
       device.isOffline = new Date(device.updated_ts) < new Date(state.app.offlineThreshold);
