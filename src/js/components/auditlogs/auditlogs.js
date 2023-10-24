@@ -24,10 +24,10 @@ import moment from 'moment';
 import historyImage from '../../../assets/img/history.png';
 import { getAuditLogsCsvLink, setAuditlogsState } from '../../actions/organizationActions';
 import { getUserList } from '../../actions/userActions';
-import { SORTING_OPTIONS, TIMEOUTS } from '../../constants/appConstants';
+import { PLANS, SORTING_OPTIONS, TIMEOUTS } from '../../constants/appConstants';
 import { AUDIT_LOGS_TYPES } from '../../constants/organizationConstants';
 import { createDownload, getISOStringBoundaries } from '../../helpers';
-import { getGroupNames, getLogsDaysLimit, getPlanWithoutAuditologsLimit, getTenantCapabilities, getUserCapabilities } from '../../selectors';
+import { getGroupNames, getLogsDaysLimit, getTenantCapabilities, getUserCapabilities } from '../../selectors';
 import { useDebounce } from '../../utils/debouncehook';
 import { useLocationParams } from '../../utils/liststatehook';
 import Loader from '../common/loader';
@@ -114,7 +114,6 @@ export const AuditLogs = props => {
   });
   const { classes } = useStyles();
   const dispatch = useDispatch();
-  const planWithNoLimit = useSelector(getPlanWithoutAuditologsLimit);
   const events = useSelector(state => state.organization.auditlog.events);
   const groups = useSelector(getGroupNames);
   const selectionState = useSelector(state => state.organization.auditlog.selectionState);
@@ -329,7 +328,7 @@ export const AuditLogs = props => {
         {logsDaysLimit && (
           <Link className={classes.upgradeLink} to="/settings/upgrade">
             <ErrorOutlineIcon className="margin-right-sx" />
-            You are only seeing audit log entries from the last {logsDaysLimit} days, upgrade to {planWithNoLimit?.display_name} to see full history.
+            You are only seeing audit log entries from the last {logsDaysLimit} days, upgrade to {PLANS.professional.name} to see full history.
           </Link>
         )}
         <Loader show={csvLoading} />

@@ -33,7 +33,6 @@ export const getFeatures = state => state.app.features;
 export const getRolesById = state => state.users.rolesById;
 export const getOrganization = state => state.organization.organization;
 export const getAppPlans = ({ app }) => app.plans;
-export const getPlanWithoutAuditologsLimit = createSelector([getAppPlans], plans => plans.find(plan => plan?.limits?.audit_logs_days === 0));
 export const getPlanWithDynamicGroups = createSelector([getAppPlans], plans => plans.find(plan => plan?.features?.dynamic_groups === true));
 export const getCurrentPlan = ({ organization }) => organization.plan;
 export const getCurrentPlanName = createSelector([getCurrentPlan, getOrganization], (plan, { trial: isTrial = false }) =>
