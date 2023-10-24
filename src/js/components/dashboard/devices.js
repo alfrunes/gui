@@ -16,7 +16,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { getDeviceCount } from '../../actions/deviceActions';
-import { getIssueCountsByType } from '../../actions/monitorActions';
 import { advanceOnboarding } from '../../actions/onboardingActions';
 import { setShowConnectingDialog } from '../../actions/userActions';
 import { DEVICE_STATES } from '../../constants/deviceConstants';
@@ -65,11 +64,8 @@ export const Devices = ({ clickHandle }) => {
     if (loading) {
       return;
     }
-    const issueRequests = Object.keys(availableIssueOptions).map(key => dispatch(getIssueCountsByType(key, { filters: [], selectedIssues: [key] })));
     setLoading(true);
-    return Promise.all([dispatch(getDeviceCount(DEVICE_STATES.accepted)), dispatch(getDeviceCount(DEVICE_STATES.pending)), ...issueRequests]).finally(() =>
-      setLoading(false)
-    );
+    return Promise.all([dispatch(getDeviceCount(DEVICE_STATES.accepted)), dispatch(getDeviceCount(DEVICE_STATES.pending))]).finally(() => setLoading(false));
   };
 
   const onConnectClick = () => {
