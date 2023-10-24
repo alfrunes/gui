@@ -29,7 +29,7 @@ import {
 } from '../constants/appConstants';
 import { DEVICE_STATES } from '../constants/deviceConstants';
 import { onboardingSteps } from '../constants/onboardingConstants';
-import { SET_SHOW_HELP } from '../constants/userConstants';
+import { SET_SHOW_HELP, useradmApiUrl } from '../constants/userConstants';
 import { deepCompare, extractErrorMessage, preformatWithRequestID, stringToBoolean } from '../helpers';
 import { getCurrentUser, getOfflineThresholdSettings, getUserSettings as getUserSettingsSelector } from '../selectors';
 import { getOnboardingComponentFor } from '../utils/onboardingmanager';
@@ -350,49 +350,8 @@ export const cancelFileUpload = id => (dispatch, getState) => {
   return Promise.resolve(dispatch({ type: UPLOAD_PROGRESS, uploads: remainder }));
 };
 
-/**
- * @removeme
- * [
- *   {
- *     "id": "806603def19d417d004a4b67e",
- *     "product": "Alvaldi",
- *     "name": "alvaldi-basic",
- *     "display_name": "Alvaldi Basic",
- *     "features": {
- *       "rbac": true,
- *       "audit_logs": true,
- *       "dynamic_groups": true,
- *       "terminal": true
- *     },
- *     "limits": {
- *       "devices": 10,
- *       "users": 2,
- *       "audit_logs_days": 2
- *     }
- *   }
- * ,
- *   {
- *     "id": "806603def19d417d004a4b67e",
- *     "product": "Alvaldi",
- *     "name": "alvaldi-professional",
- *     "display_name": "Alvaldi Professional no limits",
- *     "features": {
- *       "rbac": true,
- *       "audit_logs": true,
- *       "dynamic_groups": true,
- *       "terminal": true
- *     },
- *     "limits": {
- *       "devices": 10,
- *       "users": 2,
- *       "audit_logs_days": 0
- *     }
- *   }
- *
- * ]
- */
 export const getPlans = () => dispatch =>
-  GeneralApi.get(`/plans.json`)
+  GeneralApi.get(`${useradmApiUrl}/plans`)
     .then(({ data: plans }) => {
       return Promise.resolve(dispatch({ type: SET_PLANS, value: plans }));
     })

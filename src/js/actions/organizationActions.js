@@ -30,7 +30,7 @@ import {
   SET_ORGANIZATION,
   SET_PLAN
 } from '../constants/organizationConstants';
-import { SET_USER_LIMIT } from '../constants/userConstants.js';
+import { SET_USER_LIMIT, useradmApiUrl } from '../constants/userConstants.js';
 import { deepCompare } from '../helpers';
 import { getTenantCapabilities } from '../selectors';
 import { commonErrorFallback, commonErrorHandler, setFirstLoginAfterSignup, setSnackbar } from './appActions';
@@ -320,41 +320,20 @@ export const getSamlConfigs = () => dispatch =>
       })
     );
 
-/**
- * @removeMe, plan example
- * {
- *   "id": "806603def19d417d004a4b67e",
- *   "product": "Alvaldi",
- *   "name": "alvaldi-professional",
- *   "display_name": "Alvaldi Professional",
- *   "features": {
- *     "rbac": false,
- *     "audit_logs": false,
- *     "dynamic_groups": true,
- *     "terminal": true,
- *   },
- *   "limits": {`
- *     "devices": 10,
- *     "users": 2,
- *     "audit_logs_days": 2
- *   }
- * }
- */
-
 export const getOrganizationPlan = () => dispatch =>
-  Api.get(`/plan.json`)
+  Api.get(`${useradmApiUrl}/plan_binding`)
     .then(({ data: plan }) => {
-      const { features: planFeatures, limits } = plan;
+      const { features: planFeatures = {}, limits = {} } = plan;
       const features = {
-        hasAuditlogs: planFeatures?.audit_logs,
-        hasRbac: planFeatures?.rbac,
-        hasDynamicGroups: planFeatures?.dynamic_groups
+        hasAuditlogs: planFeatures.audit_logs,
+        hasRbac: planFeatures.rbac,
+        hasDynamicGroups: planFeatures.dynamic_groups
       };
       return Promise.all([
         dispatch({ type: SET_PLAN, payload: plan }),
         dispatch({ type: SET_FEATURES, value: features }),
-        dispatch({ type: SET_DEVICE_LIMIT, limit: limits?.devices }),
-        dispatch({ type: SET_USER_LIMIT, limit: limits?.users })
+        dispatch({ type: SET_DEVICE_LIMIT, limit: limits.devices }),
+        dispatch({ type: SET_USER_LIMIT, limit: limits.users })
       ]);
     })
     .catch(err => commonErrorHandler(err, `There was an error retrieving organization plan:`, dispatch));
