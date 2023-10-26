@@ -951,19 +951,44 @@ exports[`Login Component renders correctly 1`] = `
     class="test"
   >
     <div>
+      <div
+        class="flexbox undefined"
+      >
+        <div>
+          <svg
+            id="Lightbulb"
+          />
+        </div>
+         
+        <div
+          class="align-center"
+        >
+          Alvaldi is currently only available for Azure IoT Edge devices. See our
+           
+          <a
+            href="https://docs.alvaldi.com/reference/faq/#is-alvaldi-only-available-to-azure-users"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            FAQ
+          </a>
+           
+          for more information.
+        </div>
+      </div>
       <h1
-        class="flexbox centered"
+        class="flexbox centered margin-bottom-xxl"
       >
         Create your account
       </h1>
       <div
-        class="flexbox centered margin-bottom"
+        class="flexbox centered margin-bottom-large"
       >
         Sign up
          with:
       </div>
       <div
-        class="flexbox centered"
+        class="flexbox centered margin-bottom-large"
       >
         <a
           class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium oauth-provider emotion-0"
@@ -991,7 +1016,7 @@ exports[`Login Component renders correctly 1`] = `
         </a>
       </div>
       <div
-        class="margin-top-large align-center margin-bottom flexbox undefined"
+        class="align-center flexbox undefined"
       >
         <span>
           Signing up with your existing Microsoft account makes it easier for you to upgrade later.
