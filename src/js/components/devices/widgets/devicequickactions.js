@@ -28,9 +28,7 @@ import { makeStyles } from 'tss-react/mui';
 import { mdiTrashCanOutline as TrashCan } from '@mdi/js';
 import pluralize from 'pluralize';
 
-import GatewayIcon from '../../../../assets/img/gateway.svg';
 import { DEVICE_STATES, UNGROUPED_GROUP } from '../../../constants/deviceConstants';
-import { stringToBoolean } from '../../../helpers';
 import { getDeviceById, getFeatures, getMappedDevicesList, getTenantCapabilities, getUserCapabilities } from '../../../selectors';
 import MaterialDesignIcon from '../../common/materialdesignicon';
 
@@ -79,14 +77,6 @@ const defaultActions = {
     title: pluralized => `Remove selected ${pluralized} from this group`,
     action: ({ onRemoveDevicesFromGroup, selection }) => onRemoveDevicesFromGroup(selection),
     checkRelevance: ({ selectedGroup, userCapabilities: { canWriteDevices } }) => canWriteDevices && selectedGroup && selectedGroup !== UNGROUPED_GROUP.id
-  },
-  promoteToGateway: {
-    icon: <GatewayIcon style={{ width: 20 }} />,
-    key: 'promote-to-gateway',
-    title: () => 'Promote to gateway',
-    action: ({ onPromoteGateway, selection }) => onPromoteGateway(selection),
-    checkRelevance: ({ device, features, tenantCapabilities: { isEnterprise } }) =>
-      features.isHosted && isEnterprise && !stringToBoolean(device.attributes?.mender_is_gateway) && device.status === DEVICE_STATES.accepted
   }
 };
 

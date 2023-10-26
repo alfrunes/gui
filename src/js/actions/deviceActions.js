@@ -26,7 +26,6 @@ import {
   getUserSettings
 } from '../selectors';
 import { chartColorPalette } from '../themes/Mender';
-import { getDeviceMonitorConfig, getLatestDeviceAlerts } from './monitorActions';
 
 const { DEVICE_FILTERING_OPTIONS, DEVICE_STATES, DEVICE_LIST_DEFAULTS, UNGROUPED_GROUP, emptyFilter } = DeviceConstants;
 const { page: defaultPage, perPage: defaultPerPage } = DEVICE_LIST_DEFAULTS;
@@ -489,7 +488,7 @@ export const getDeviceById = id => (dispatch, getState) =>
 
 export const getDeviceInfo = deviceId => (dispatch, getState) => {
   const device = getState().devices.byId[deviceId] || {};
-  const { hasDeviceConfig, hasDeviceConnect, hasMonitor } = getTenantCapabilities(getState());
+  const { hasDeviceConfig, hasDeviceConnect } = getTenantCapabilities(getState());
   const { canConfigure } = getUserCapabilities(getState());
   const integrations = getDeviceTwinIntegrations(getState());
   let tasks = [dispatch(getDeviceAuth(deviceId)), ...integrations.map(integration => dispatch(getDeviceTwin(deviceId, integration)))];
@@ -501,10 +500,6 @@ export const getDeviceInfo = deviceId => (dispatch, getState) => {
     tasks.push(dispatch(getDeviceById(deviceId)));
     if (hasDeviceConnect) {
       tasks.push(dispatch(getDeviceConnect(deviceId)));
-    }
-    if (hasMonitor) {
-      tasks.push(dispatch(getLatestDeviceAlerts(deviceId)));
-      tasks.push(dispatch(getDeviceMonitorConfig(deviceId)));
     }
   }
   return Promise.all(tasks);
