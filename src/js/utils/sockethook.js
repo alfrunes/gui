@@ -114,7 +114,7 @@ export const useSession = ({ onClose, onHealthCheckFailed, onMessageReceived, on
 
   const onSocketError = useCallback(
     error => {
-      onNotify(`WebSocket error: ${error.message}`);
+      onNotify(`Failed to connect, ${error.message || 'device appears to be offline'}.`);
       close();
     },
     [close, onNotify]
