@@ -23,12 +23,11 @@ import { makeStyles } from 'tss-react/mui';
 
 import { setSnackbar } from '../../actions/appActions';
 import { deleteAuthset, setDeviceFilters, setDeviceListState, updateDevicesAuth } from '../../actions/deviceActions';
-import { getIssueCountsByType } from '../../actions/monitorActions';
 import { advanceOnboarding } from '../../actions/onboardingActions';
 import { getIntegrations } from '../../actions/organizationActions.js';
 import { saveUserSettings, updateUserColumnSettings } from '../../actions/userActions';
 import { SORTING_OPTIONS, TIMEOUTS } from '../../constants/appConstants';
-import { ALL_DEVICES, DEVICE_ISSUE_OPTIONS, DEVICE_STATES, UNGROUPED_GROUP } from '../../constants/deviceConstants';
+import { ALL_DEVICES, DEVICE_STATES, UNGROUPED_GROUP } from '../../constants/deviceConstants';
 import { onboardingSteps } from '../../constants/onboardingConstants';
 import { duplicateFilter, toggle } from '../../helpers';
 import {
@@ -296,13 +295,6 @@ export const Authorized = ({
       refreshDeviceLength
     );
   }, [devicesInitialized, refreshTrigger]);
-
-  useEffect(() => {
-    Object.keys(availableIssueOptions).map(key => dispatch(getIssueCountsByType(key, { filters, group: selectedGroup, state: selectedState })));
-    availableIssueOptions[DEVICE_ISSUE_OPTIONS.authRequests.key]
-      ? dispatch(getIssueCountsByType(DEVICE_ISSUE_OPTIONS.authRequests.key, { filters: [] }))
-      : undefined;
-  }, [selectedIssues, availableIssueOptions, selectedState, selectedGroup]);
 
   /*
    * Devices
