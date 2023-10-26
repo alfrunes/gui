@@ -33,7 +33,6 @@ import { clearAllRetryTimers } from '../../utils/retrytimer';
 import Form from '../common/forms/form';
 import PasswordInput from '../common/forms/passwordinput';
 import TextInput from '../common/forms/textinput';
-import LinedHeader from '../common/lined-header';
 import { MenderTooltipClickable } from '../common/mendertooltip';
 import { OAuth2Providers } from './oauth2providers';
 
@@ -134,7 +133,6 @@ export const OAuthHeader = ({ buttonProps, type }) => (
         );
       })}
     </div>
-    <LinedHeader className="margin-top-large flexbox centered" heading="or your email address" innerStyle={{ padding: 15, top: -24 }} />
   </>
 );
 

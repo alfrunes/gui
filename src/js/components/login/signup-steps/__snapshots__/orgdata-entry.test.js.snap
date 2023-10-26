@@ -1221,11 +1221,9 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-3:focus::-ms-input-p
       Setting up your Account
     </h1>
     <h2
-      class="flexbox centered margin-bottom-large"
+      class="flexbox align-center margin-bottom-large"
     >
-      To finish creating your account,
-      <br />
-      please fill in a few details
+      To finish creating your account, please fill in a few details
     </h2>
     <div
       class="MuiFormControl-root  required emotion-0"
@@ -1330,8 +1328,8 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-3:focus::-ms-input-p
             Terms of service
           </a>
            
-          and
-           
+          and 
+          <br />
           <a
             href="https://northern.tech/legal/privacy-policy"
             rel="noopener noreferrer"

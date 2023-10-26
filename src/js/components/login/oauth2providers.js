@@ -23,9 +23,10 @@ export const genericProvider = {
   icon: <MaterialDesignIcon path={mdiAccountKey} />
 };
 
+export const microsoftOAuth2ProviderId = 'microsoft';
 export const OAuth2Providers = [
   {
-    id: 'microsoft',
+    id: microsoftOAuth2ProviderId,
     name: 'Microsoft',
     icon: <MaterialDesignIcon path={mdiMicrosoft} />
   }
