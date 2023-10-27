@@ -19,10 +19,9 @@ import { Button, Tooltip } from '@mui/material';
 import PasswordInput from '../../common/forms/passwordinput';
 import TextInput from '../../common/forms/textinput';
 import { OAuthHeader } from '../login';
-import { InfoOutlined as InfoOutlinedIcon } from '@mui/icons-material';
+import { LightbulbOutlined as LightbulbOutlinedIcon, InfoOutlined as InfoOutlinedIcon } from '@mui/icons-material';
 import { microsoftOAuth2ProviderId } from '../oauth2providers.js';
 import { useradmApiUrl } from '../../../constants/userConstants.js';
-import Lightbulb from '../../../../assets/img/lightbulb.svg';
 
 export const UserDataEntry = ({ classes, onProgressClick, showForm, setShowForm }) => {
   const { isValid } = useFormState();
@@ -40,7 +39,7 @@ export const UserDataEntry = ({ classes, onProgressClick, showForm, setShowForm 
         <div>
           <div className={`flexbox ${classes.onlyEdgeMessage}`}>
             <div>
-              <Lightbulb />
+              <LightbulbOutlinedIcon color="primary" />
             </div>{' '}
             <div className="align-center">
               Alvaldi is currently only available for Azure IoT Edge devices. See our{' '}
