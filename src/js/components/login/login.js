@@ -93,7 +93,7 @@ const entryText = {
 };
 
 export const EntryLink = ({ className = '', target = 'signup' }) => (
-  <div className={`margin-top margin-bottom flexbox centered ${className}`}>
+  <div className={`margin-top-large margin-bottom flexbox centered ${className}`}>
     <div className="margin-right">{entryText[target].question}</div>
     <Link className="flexbox center-aligned" to={entryText[target].target}>
       {entryText[target].linkText} <ChevronRight fontSize="small" />
@@ -122,8 +122,8 @@ export const LocationWarning = () => {
 
 export const OAuthHeader = ({ buttonProps, type }) => (
   <>
-    <div className="flexbox centered margin-bottom">{type} with:</div>
-    <div className="flexbox centered">
+    <div className="flexbox centered margin-bottom-large">{type} with:</div>
+    <div className="flexbox centered margin-bottom-large">
       {OAuth2Providers.map(provider => {
         const props = buttonProps ? buttonProps : { href: `${useradmApiUrl}/oauth2/${provider.id}` };
         return (

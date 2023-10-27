@@ -96,6 +96,17 @@ const useStyles = makeStyles()(theme => ({
   tooltip: {
     maxWidth: 175,
     color: 'red'
+  },
+  onlyEdgeMessage: {
+    background: theme.palette.green[50],
+    color: theme.palette.text.inactive,
+    padding: '16px 51px',
+    marginBottom: 58,
+    a: {
+      color: theme.palette.text.inactive,
+      textDecoration: 'underline',
+      fontWeight: 'normal'
+    }
   }
 }));
 const TRIAL_SUBSCRIPTION_TYPE = 'trial';

@@ -40,6 +40,20 @@ exports[`Signup Component renders correctly 1`] = `
 }
 
 .emotion-3 {
+  background: #E4F4E9;
+  color: #616161;
+  padding: 16px 51px;
+  margin-bottom: 58px;
+}
+
+.emotion-3 a {
+  color: #616161;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  font-weight: normal;
+}
+
+.emotion-4 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -91,23 +105,23 @@ exports[`Signup Component renders correctly 1`] = `
   font-weight: bold;
 }
 
-.emotion-3::-moz-focus-inner {
+.emotion-4::-moz-focus-inner {
   border-style: none;
 }
 
-.emotion-3.Mui-disabled {
+.emotion-4.Mui-disabled {
   pointer-events: none;
   cursor: default;
 }
 
 @media print {
-  .emotion-3 {
+  .emotion-4 {
     -webkit-print-color-adjust: exact;
     color-adjust: exact;
   }
 }
 
-.emotion-3:hover {
+.emotion-4:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
   background-color: rgb(14, 114, 57);
@@ -115,44 +129,44 @@ exports[`Signup Component renders correctly 1`] = `
 }
 
 @media (hover: none) {
-  .emotion-3:hover {
+  .emotion-4:hover {
     background-color: #14A452;
   }
 }
 
-.emotion-3:active {
+.emotion-4:active {
   box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
 }
 
-.emotion-3.Mui-focusVisible {
+.emotion-4.Mui-focusVisible {
   box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
 }
 
-.emotion-3.Mui-disabled {
+.emotion-4.Mui-disabled {
   color: rgba(0, 0, 0, 0.26);
   box-shadow: none;
   background-color: rgba(0, 0, 0, 0.12);
 }
 
-.emotion-3:hover {
+.emotion-4:hover {
   colors: #14A452;
 }
 
-.emotion-3.MuiButton-text {
+.emotion-4.MuiButton-text {
   color: #212121;
 }
 
-.emotion-4 {
+.emotion-5 {
   display: inherit;
   margin-right: 8px;
   margin-left: -4px;
 }
 
-.emotion-4>*:nth-of-type(1) {
+.emotion-5>*:nth-of-type(1) {
   font-size: 20px;
 }
 
-.emotion-5 {
+.emotion-6 {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -169,11 +183,11 @@ exports[`Signup Component renders correctly 1`] = `
   font-size: inherit;
 }
 
-.emotion-5 iconButton {
+.emotion-6 iconButton {
   margin-right: 8px;
 }
 
-.emotion-6 {
+.emotion-7 {
   overflow: hidden;
   pointer-events: none;
   position: absolute;
@@ -185,62 +199,42 @@ exports[`Signup Component renders correctly 1`] = `
   border-radius: inherit;
 }
 
-.emotion-7 {
+.emotion-8 {
   color: #616161;
   font-weight: 500;
 }
 
-.emotion-7 a {
+.emotion-8 a {
   color: inherit;
   -webkit-text-decoration: underline;
   text-decoration: underline;
   font-weight: inherit;
 }
 
-.emotion-7 a:hover {
+.emotion-8 a:hover {
   color: #212121;
 }
 
-.emotion-7 svg {
+.emotion-8 svg {
   margin-bottom: 3px;
   -webkit-align-self: flex-end;
   -ms-flex-item-align: flex-end;
   align-self: flex-end;
 }
 
-.emotion-7.msSignupText {
+.emotion-8.msSignupText {
   max-width: 465px;
 }
 
-.emotion-7.msSignupText a {
+.emotion-8.msSignupText a {
   color: #1D71D3;
 }
 
-.emotion-7.msSignupText svg {
+.emotion-8.msSignupText svg {
   -webkit-align-self: initial;
   -ms-flex-item-align: initial;
   align-self: initial;
   margin-top: 4px;
-}
-
-.emotion-8 {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  fill: currentColor;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-}
-
-.emotion-8 iconButton {
-  margin-right: 8px;
 }
 
 .emotion-9 {
@@ -257,7 +251,6 @@ exports[`Signup Component renders correctly 1`] = `
   flex-shrink: 0;
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.0938rem;
 }
 
 .emotion-9 iconButton {
@@ -265,12 +258,33 @@ exports[`Signup Component renders correctly 1`] = `
 }
 
 .emotion-10 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.0938rem;
+}
+
+.emotion-10 iconButton {
+  margin-right: 8px;
+}
+
+.emotion-11 {
   background: #E4F1E8;
   grid-template-rows: min-content min-content min-content;
   padding: 80px 0;
 }
 
-.emotion-11 {
+.emotion-12 {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -295,31 +309,56 @@ exports[`Signup Component renders correctly 1`] = `
           class="emotion-2"
         >
           <div>
+            <div
+              class="flexbox emotion-3"
+            >
+              <div>
+                <svg
+                  id="Lightbulb"
+                />
+              </div>
+               
+              <div
+                class="align-center"
+              >
+                Alvaldi is currently only available for Azure IoT Edge devices. See our
+                 
+                <a
+                  href="https://docs.alvaldi.com/reference/faq/#is-alvaldi-only-available-to-azure-users"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  FAQ
+                </a>
+                 
+                for more information.
+              </div>
+            </div>
             <h1
-              class="flexbox centered"
+              class="flexbox centered margin-bottom-xxl"
             >
               Create your account
             </h1>
             <div
-              class="flexbox centered margin-bottom"
+              class="flexbox centered margin-bottom-large"
             >
               Sign up
                with:
             </div>
             <div
-              class="flexbox centered"
+              class="flexbox centered margin-bottom-large"
             >
               <a
-                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium oauth-provider emotion-3"
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium oauth-provider emotion-4"
                 href="/api/management/v1/useradm/oauth2/microsoft"
                 tabindex="0"
               >
                 <span
-                  class="MuiButton-startIcon MuiButton-iconSizeMedium emotion-4"
+                  class="MuiButton-startIcon MuiButton-iconSizeMedium emotion-5"
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit emotion-5"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit emotion-6"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
@@ -330,12 +369,12 @@ exports[`Signup Component renders correctly 1`] = `
                 </span>
                 Microsoft
                 <span
-                  class="MuiTouchRipple-root emotion-6"
+                  class="MuiTouchRipple-root emotion-7"
                 />
               </a>
             </div>
             <div
-              class="margin-top-large align-center margin-bottom flexbox emotion-7"
+              class="align-center flexbox emotion-8"
             >
               <span>
                 Signing up with your existing Microsoft account makes it easier for you to upgrade later.
@@ -348,7 +387,7 @@ exports[`Signup Component renders correctly 1`] = `
               <svg
                 aria-hidden="true"
                 aria-label="If you sign up with username and password, you will have to contact us or create a new account when you want to upgrade to a paid plan."
-                class="MuiSvgIcon-root MuiSvgIcon-fontSize16 emotion-8"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSize16 emotion-9"
                 data-mui-internal-clone-element="true"
                 data-testid="InfoOutlinedIcon"
                 focusable="false"
@@ -363,7 +402,7 @@ exports[`Signup Component renders correctly 1`] = `
         </div>
       </form>
       <div
-        class="margin-top margin-bottom flexbox centered "
+        class="margin-top-large margin-bottom flexbox centered "
       >
         <div
           class="margin-right"
@@ -378,7 +417,7 @@ exports[`Signup Component renders correctly 1`] = `
            
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall emotion-9"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall emotion-10"
             data-testid="ChevronRightIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -391,7 +430,7 @@ exports[`Signup Component renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="emotion-10"
+      class="emotion-11"
     >
       <h2>
         Connect up to 10 devices with 2 user accounts free for 6 months.
@@ -400,7 +439,7 @@ exports[`Signup Component renders correctly 1`] = `
         Alvaldi provides a secure way to remotely access and efficiently troubleshoot issues on your devices. Whether they are in customer's homes, factories, or geographically remote locations, you have a tested way of resolving issues.
       </p>
       <div
-        class="emotion-11"
+        class="emotion-12"
       >
         <svg
           id="Signuphero"

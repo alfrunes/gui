@@ -22,6 +22,7 @@ import { OAuthHeader } from '../login';
 import { InfoOutlined as InfoOutlinedIcon } from '@mui/icons-material';
 import { microsoftOAuth2ProviderId } from '../oauth2providers.js';
 import { useradmApiUrl } from '../../../constants/userConstants.js';
+import Lightbulb from '../../../../assets/img/lightbulb.svg';
 
 export const UserDataEntry = ({ classes, onProgressClick, showForm, setShowForm }) => {
   const { isValid } = useFormState();
@@ -37,9 +38,21 @@ export const UserDataEntry = ({ classes, onProgressClick, showForm, setShowForm 
     <div className={classes.userData} onKeyDown={handleKeyPress}>
       {!showForm ? (
         <div>
-          <h1 className="flexbox centered">Create your account</h1>
+          <div className={`flexbox ${classes.onlyEdgeMessage}`}>
+            <div>
+              <Lightbulb />
+            </div>{' '}
+            <div className="align-center">
+              Alvaldi is currently only available for Azure IoT Edge devices. See our{' '}
+              <a rel="noopener noreferrer" target="_blank" href="https://docs.alvaldi.com/reference/faq/#is-alvaldi-only-available-to-azure-users">
+                FAQ
+              </a>{' '}
+              for more information.
+            </div>
+          </div>
+          <h1 className="flexbox centered margin-bottom-xxl">Create your account</h1>
           <OAuthHeader type="Sign up" />
-          <div className={`margin-top-large align-center margin-bottom flexbox ${classes.helpFormText}`}>
+          <div className={`align-center flexbox ${classes.helpFormText}`}>
             <span>
               Signing up with your existing Microsoft account makes it easier for you to upgrade later.{' '}
               <a onClick={() => setShowForm(true)}>Creating an account with username and password</a> is also possible.
@@ -57,7 +70,7 @@ export const UserDataEntry = ({ classes, onProgressClick, showForm, setShowForm 
       ) : (
         <div>
           <h1 className="flexbox centered">Create a new account</h1>
-          <div className={`flexbox margin-top margin-bottom msSignupText ${classes.helpFormText}`}>
+          <div className={`flexbox margin-bottom-large msSignupText ${classes.helpFormText}`}>
             <InfoOutlinedIcon className="margin-right-sx" fontSize="16" />
             <span>
               For an optimal experience with Alvaldi, we kindly suggest using <a href={`${useradmApiUrl}/oauth2/${microsoftOAuth2ProviderId}`}>Microsoft</a> to

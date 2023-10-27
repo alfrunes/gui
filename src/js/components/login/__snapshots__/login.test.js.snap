@@ -793,13 +793,13 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-10:focus::-ms-input-
           Welcome back!
         </h1>
         <div
-          class="flexbox centered margin-bottom"
+          class="flexbox centered margin-bottom-large"
         >
           Log in
            with:
         </div>
         <div
-          class="flexbox centered"
+          class="flexbox centered margin-bottom-large"
         >
           <button
             class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium oauth-provider emotion-2"
@@ -1021,7 +1021,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-10:focus::-ms-input-
         </form>
       </div>
       <div
-        class="margin-top margin-bottom flexbox centered emotion-37"
+        class="margin-top-large margin-bottom flexbox centered emotion-37"
       >
         <div
           class="margin-right"
