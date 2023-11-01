@@ -108,7 +108,6 @@ export const Form = ({
   initialValues = {},
   onSubmit,
   showButtons,
-  submitButtonId,
   submitLabel,
   submitButtonFullWidth = false
 }) => {
@@ -136,7 +135,7 @@ export const Form = ({
                 Cancel
               </Button>
             )}
-            <Button variant="contained" type="submit" fullWidth={submitButtonFullWidth} disabled={!isValid} id={submitButtonId} color={buttonColor}>
+            <Button variant="contained" type="submit" fullWidth={submitButtonFullWidth} disabled={!isValid} color={buttonColor}>
               {submitLabel}
             </Button>
           </div>
