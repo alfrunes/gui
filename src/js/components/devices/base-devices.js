@@ -136,7 +136,7 @@ export const AcceptedEmptyState = ({ allCount, integrationExists }) => {
             It looks like Alvaldi is not installed. To get started, deploy the Alvaldi IoT Edge module in Azure:
           </div>
           <Link className="margin-top block align-right" to={EDGE_MODULE_LINK} rel="noopener noreferrer" target="_blank">
-            Go to Alvaldi Edge module page
+            Learn how
           </Link>
         </div>
       )}
