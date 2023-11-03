@@ -40,9 +40,7 @@ include:
 test:lint:
   stage: test
   rules:
-    - if: $CI_COMMIT_BRANCH =~ /^(staging|saas-[a-zA-Z0-9.]+)$/
-      when: never
-    - when: on_success
+    - if: $CI_COMMIT_REF_NAME !~ /^(staging|saas-[a-zA-Z0-9.]+)$/
   needs: []
   cache:
     key:
@@ -107,9 +105,7 @@ test:licenses:
   image: denoland/deno:alpine
   stage: test
   rules:
-    - if: $CI_COMMIT_BRANCH =~ /^(staging|saas-[a-zA-Z0-9.]+)$/
-      when: never
-    - when: on_success
+    - if: $CI_COMMIT_REF_NAME !~ /^(staging|saas-[a-zA-Z0-9.]+)$/
   needs: []
   cache:
     key:
@@ -159,9 +155,7 @@ test:check-commits:
 .test:acceptance:
   extends: .template:test:acceptance
   rules:
-    - if: $CI_COMMIT_BRANCH =~ /^(staging|saas-[a-zA-Z0-9.]+)$/
-      when: never
-    - when: on_success
+    - if: $CI_COMMIT_REF_NAME !~ /^(staging|saas-[a-zA-Z0-9.]+)$/
   script:
     - GUI_REPOSITORY=$(pwd) INTEGRATION_PATH=$(pwd)/integration ./tests/e2e_tests/run
     - docker rmi $DOCKER_REPOSITORY:pr
@@ -206,9 +200,7 @@ test:check-commits:
 test:unit:
   stage: test
   rules:
-    - if: $CI_COMMIT_BRANCH =~ /^(staging|saas-[a-zA-Z0-9.]+)$/
-      when: never
-    - when: on_success
+    - if: $CI_COMMIT_REF_NAME !~ /^(staging|saas-[a-zA-Z0-9.]+)$/
   needs: []
   cache:
     key:
@@ -237,9 +229,7 @@ test:docs-links:
   stage: test
   needs: []
   rules:
-    - if: $CI_COMMIT_BRANCH =~ /^(staging|saas-[a-zA-Z0-9.]+)$/
-      when: never
-    - when: on_success
+    - if: $CI_COMMIT_REF_NAME !~ /^(staging|saas-[a-zA-Z0-9.]+)$/
   before_script:
     - apk add --no-cache curl
   script:
@@ -360,9 +350,7 @@ test:staging-deployment:webkit:
 .publish:tests:
   extends: .template:publish:tests
   rules:
-    - if: $CI_COMMIT_BRANCH =~ /^(staging|saas-[a-zA-Z0-9.]+)$/
-      when: never
-    - when: on_success
+    - if: $CI_COMMIT_REF_NAME !~ /^(staging|saas-[a-zA-Z0-9.]+)$/
   needs:
     - test:unit
   script:
