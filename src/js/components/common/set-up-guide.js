@@ -82,7 +82,7 @@ export const IntegrationEnabled = () => {
           <MarketplaceImage />
           <Link rel="noopener noreferrer" target="_blank" to={EDGE_MODULE_LINK}>
             <Button className="margin-top" variant="contained" color="primary" onClick={closeHandler}>
-              Go to Alvaldi Edge module page
+              Learn how
             </Button>
           </Link>
         </div>

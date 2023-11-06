@@ -166,7 +166,4 @@ If you need help, or have a question, open a support case at support.northern.te
 Alvaldi user: ${userEmail}`
 };
 
-/**
- * @todo [ALV-137] replace the link when the module will be published
- */
-export const EDGE_MODULE_LINK = 'https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=alvaldi&page=1';
+export const EDGE_MODULE_LINK = 'https://docs.alvaldi.com/getting-started/setup/#step-3---installing-the-azure-iot-edge-module';
