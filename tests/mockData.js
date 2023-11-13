@@ -67,6 +67,17 @@ const commonEndpoints = {
   deviceManagement: '^/api/management/(v[1-9])/(devauth|inventory)/'
 };
 
+const currentPlan = {
+  name: 'alvaldi-basic',
+  display_name: 'Alvaldi Basic',
+  features: {
+    rbac: true,
+    audit_logs: true,
+    dynamic_groups: false,
+    terminal: true
+  }
+};
+
 export const token =
   'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJjZTNkMGY4Yy1hZWRlLTQwMzAtYjM5MS03ZDUwMjBlYjg3M2UiLCJzdWIiOiJhMzBhNzgwYi1iODQzLTUzNDQtODBlMy0wZmQ5NWE0ZjZmYzMiLCJleHAiOjE2MDY4MTUzNjksImlhdCI6MTYwNjIxMDU2OSwibWVuZGVyLnRlbmFudCI6IjVmODVjMTdiY2U2MmI3ZmE3ZjVmNzA0MCIsIm1lbmRlci51c2VyIjp0cnVlLCJpc3MiOiJNZW5kZXIgVXNlcnMiLCJzY3AiOiJtZW5kZXIuKiIsIm1lbmRlci5wbGFuIjoicHJvZmVzc2lvbmFsIiwibmJmIjoxNjA2MjEwNTY5fQ.qVgYdCzLTf8OdK9uUctqqaY_HWkIiwpekuGvuGQAXCEgOv4bRNDlZRN_ZRSbxQoARG3pquhScbQrjBV9tcF4irTUPlTn3yrsXNO17DpcbTVeKRkb88RDtIKiRw3orVZ_GlIb-ckTQ5dS-Nqlyyf3Fmrhca-gwt6m_xv2UrmJK6eYYTMfggdRRWb-4u7mEkBI_pHPMTQrT8kJ2BeX-vHgazH9AoH0k85LHtFZQXD7pXHlDZRnLxJXukncwMGDmF17374gavYAIyDIzcC8sEBMDnVXgpikeA1sauzirqix6mAVs6XmxdQO7aF0wfXO1_PTYUA3Nk1oQfMYNlEI3U9uLRJRZIq2L8fmrrBryhstKd4y0KlBbGAQrx8NtRkgajjd1ljMfPBUEZrb7uSerVjneiO-aIBO76CuH0zdklphIjpGJeogkBhe8pAYNggp1XsZHgpZfl7IE5faKaDkMGnutaea--Czor6bhqUNCuY4tR0cpQJbNwy6LS9o1CFy4Log';
 
@@ -127,14 +138,7 @@ export const defaultState = {
       {
         'id': '806603def19d417d004a4b67e',
         'product': 'Alvaldi',
-        'name': 'alvaldi-basic',
-        'display_name': 'Alvaldi Basic',
-        'features': {
-          'rbac': true,
-          'audit_logs': true,
-          'dynamic_groups': false,
-          'terminal': true
-        },
+        ...currentPlan,
         'limits': {
           'devices': 10,
           'users': 2,
@@ -398,16 +402,11 @@ export const defaultState = {
       trial: false
     },
     plan: {
-      id: '806603def19d417d004a4b67e',
-      product: 'Alvaldi',
-      name: 'alvaldi-basic',
-      display_name: 'Alvaldi Basic',
-      features: {
-        rbac: true,
-        audit_logs: true,
-        dynamic_groups: true,
-        terminal: true
-      },
+      ...currentPlan,
+      limits: { devices: 8, users: 3, audit_logs_days: 0 }
+    },
+    plan_binding: {
+      plan: currentPlan,
       limits: { devices: 8, users: 3, audit_logs_days: 0 }
     }
   },

@@ -218,5 +218,5 @@ export const organizationHandlers = [
   }),
 
   rest.get(`${useradmApiUrl}/plans`, (req, res, ctx) => res(ctx.json(defaultState.app.plans))),
-  rest.get(`${useradmApiUrl}/plan_binding`, (req, res, ctx) => res(ctx.json(defaultState.organization.plan)))
+  rest.get(`${useradmApiUrl}/plan_binding`, (req, res, ctx) => res(ctx.json(defaultState.organization.plan_binding)))
 ];

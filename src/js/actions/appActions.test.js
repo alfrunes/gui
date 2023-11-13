@@ -174,7 +174,7 @@ describe('app actions', () => {
         type: SET_PLAN,
         payload: defaultState.organization.plan
       },
-      { type: SET_FEATURES, value: { hasAuditlogs: true, hasDeviceConnect: true, hasRbac: true, hasDynamicGroups: true } },
+      { type: SET_FEATURES, value: { hasAuditlogs: true, hasDeviceConnect: true, hasRbac: true, hasDynamicGroups: false } },
       { type: SET_DEVICE_LIMIT, limit: 8 },
       { type: SET_USER_LIMIT, limit: 3 },
       { type: SET_GLOBAL_SETTINGS, settings: { ...defaultState.users.globalSettings } },

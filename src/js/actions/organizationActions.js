@@ -322,8 +322,12 @@ export const getSamlConfigs = () => dispatch =>
 
 export const getOrganizationPlan = () => dispatch =>
   Api.get(`${useradmApiUrl}/plan_binding`)
-    .then(({ data: plan }) => {
-      const { features: planFeatures = {}, limits = {} } = plan;
+    .then(({ data: { plan = {}, limits = {} } }) => {
+      const { features: planFeatures = {} } = plan;
+      const payload = {
+        ...plan,
+        limits
+      };
       const features = {
         hasDeviceConnect: planFeatures.terminal,
         hasAuditlogs: planFeatures.audit_logs,
@@ -331,7 +335,7 @@ export const getOrganizationPlan = () => dispatch =>
         hasDynamicGroups: planFeatures.dynamic_groups
       };
       return Promise.all([
-        dispatch({ type: SET_PLAN, payload: plan }),
+        dispatch({ type: SET_PLAN, payload }),
         dispatch({ type: SET_FEATURES, value: features }),
         dispatch({ type: SET_DEVICE_LIMIT, limit: limits.devices }),
         dispatch({ type: SET_USER_LIMIT, limit: limits.users })
