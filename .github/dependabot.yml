@@ -20,6 +20,8 @@ updates:
         patterns:
           - '@emotion*'
           - '@mui*'
+    reviewers:
+      - "NorthernTechHQ/frontend-dependabot-reviewers"
   - commit-message:
       prefix: chore
     directory: /
@@ -27,6 +29,8 @@ updates:
     schedule:
       interval: monthly
       day: saturday
+    reviewers:
+      - "NorthernTechHQ/frontend-dependabot-reviewers"
   - commit-message:
       prefix: chore
     directory: /tests/e2e_tests
@@ -39,3 +43,5 @@ updates:
       e2e-test-dependencies:
         exclude-patterns:
           - '*'
+    reviewers:
+      - "NorthernTechHQ/frontend-dependabot-reviewers"
