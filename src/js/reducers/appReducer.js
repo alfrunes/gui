@@ -35,7 +35,6 @@ export const initialState = {
     hasRbac: false,
     hasDynamicGroups: false,
     hasDeltaProgress: false,
-    hasMultitenancy: false,
     hasDeviceConfig: false,
     hasDeviceConnect: false,
     hasMonitor: false,

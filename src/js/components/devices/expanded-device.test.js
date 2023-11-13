@@ -26,8 +26,7 @@ const preloadedState = {
       ...defaultState.app.features,
       hasDeviceConfig: true,
       hasDeviceConnect: true,
-      hasMonitor: true,
-      hasMultitenancy: true
+      hasMonitor: true
     }
   },
   devices: {

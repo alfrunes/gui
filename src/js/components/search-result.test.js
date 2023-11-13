@@ -27,7 +27,6 @@ describe('SearchResult Component', () => {
           ...defaultState.app.features,
           hasDeviceConfig: true,
           hasDeviceConnect: true,
-          hasMultitenancy: true,
           isHosted: true
         },
         searchState: {

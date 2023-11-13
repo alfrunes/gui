@@ -154,10 +154,7 @@ export const initializeAppData = () => (dispatch, getState) => {
     dispatch(getPlans()),
     dispatch(setFirstLoginAfterSignup(stringToBoolean(cookies.get('firstLoginAfterSignup'))))
   ];
-  const multitenancy = getState().app.features.hasMultitenancy || getState().app.features.isEnterprise || getState().app.features.isHosted;
-  if (multitenancy) {
-    tasks.push(dispatch(getUserOrganization()));
-  }
+  tasks.push(dispatch(getUserOrganization()));
   return Promise.all(tasks).then(() => {
     const state = getState();
     const user = getCurrentUser(state);

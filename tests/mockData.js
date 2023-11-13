@@ -32,9 +32,7 @@ import { roles as rbacRoles } from '../tests/__mocks__/userHandlers';
 
 export const undefineds = /undefined|\[object Object\]/;
 export const menderEnvironment = {
-  features: {
-    hasMultitenancy: true
-  },
+  features: {},
   integrationVersion: 'saas-123.34',
   menderVersion: 'next',
   metaMenderVersion: 'saas-123.34',
