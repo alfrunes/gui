@@ -51,7 +51,7 @@ export const commonErrorHandler = (err, errorContext, dispatch, fallback, mightB
 
 const getComparisonCompatibleVersion = version => (isNaN(version.charAt(0)) && version !== 'next' ? 'master' : version);
 
-const featureFlags = ['hasAddons', 'hasMultitenancy', 'hasDeviceConfig', 'hasDeviceConnect', 'hasReporting'];
+const featureFlags = ['hasDeviceConnect', 'hasReporting'];
 export const parseEnvironmentInfo = () => (dispatch, getState) => {
   const state = getState();
   let onboardingComplete = state.onboarding.complete || !!JSON.parse(window.localStorage.getItem('onboardingComplete') ?? 'false');
