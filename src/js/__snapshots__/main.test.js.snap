@@ -617,7 +617,7 @@ exports[`Main Component renders correctly 1`] = `
                 >
                   <div>
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium mui-1mqafh3-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium mui-uw3eg3-MuiButtonBase-root-MuiCheckbox-root"
                     >
                       <input
                         class="PrivateSwitchBase-input mui-1m9pwf3"
@@ -779,7 +779,7 @@ exports[`Main Component renders correctly 1`] = `
                 >
                   <div>
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium mui-1mqafh3-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium mui-uw3eg3-MuiButtonBase-root-MuiCheckbox-root"
                     >
                       <input
                         class="PrivateSwitchBase-input mui-1m9pwf3"
@@ -850,7 +850,7 @@ exports[`Main Component renders correctly 1`] = `
                         />
                       </svg>
                       <span
-                        class="MuiChip-label MuiChip-labelSmall mui-wjsjww-MuiChip-label"
+                        class="MuiChip-label MuiChip-labelSmall mui-rrn746-MuiChip-label"
                       >
                         <div
                           class="uppercased"
@@ -886,7 +886,7 @@ exports[`Main Component renders correctly 1`] = `
                 >
                   <div>
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium mui-1mqafh3-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium mui-uw3eg3-MuiButtonBase-root-MuiCheckbox-root"
                     >
                       <input
                         class="PrivateSwitchBase-input mui-1m9pwf3"
@@ -957,7 +957,7 @@ exports[`Main Component renders correctly 1`] = `
                         />
                       </svg>
                       <span
-                        class="MuiChip-label MuiChip-labelSmall mui-wjsjww-MuiChip-label"
+                        class="MuiChip-label MuiChip-labelSmall mui-rrn746-MuiChip-label"
                       >
                         <div
                           class="uppercased"

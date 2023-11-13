@@ -27,7 +27,7 @@ exports[`Auditlogs Component renders correctly 1`] = `
             class="flexbox"
           >
             <div
-              class="MuiFormControl-root MuiTextField-root css-11jnc1k-MuiFormControl-root-MuiTextField-root"
+              class="MuiFormControl-root MuiTextField-root css-1j32equ-MuiFormControl-root-MuiTextField-root"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-standard MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-standard css-dv3hq2-MuiFormLabel-root-MuiInputLabel-root"
@@ -78,7 +78,7 @@ exports[`Auditlogs Component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root css-11jnc1k-MuiFormControl-root-MuiTextField-root"
+              class="MuiFormControl-root MuiTextField-root css-1j32equ-MuiFormControl-root-MuiTextField-root"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-standard MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-standard css-dv3hq2-MuiFormLabel-root-MuiInputLabel-root"

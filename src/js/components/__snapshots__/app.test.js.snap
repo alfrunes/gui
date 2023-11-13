@@ -1364,8 +1364,8 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-61:focus::-ms-input-
 .emotion-86 {
   overflow: hidden;
   text-overflow: ellipsis;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding-left: 7px;
+  padding-right: 7px;
   white-space: nowrap;
 }
 
