@@ -325,6 +325,7 @@ export const getOrganizationPlan = () => dispatch =>
     .then(({ data: plan }) => {
       const { features: planFeatures = {}, limits = {} } = plan;
       const features = {
+        hasDeviceConnect: planFeatures.terminal,
         hasAuditlogs: planFeatures.audit_logs,
         hasRbac: planFeatures.rbac,
         hasDynamicGroups: planFeatures.dynamic_groups

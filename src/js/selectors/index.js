@@ -225,22 +225,11 @@ export const getRolesList = createSelector([getRolesById], rolesById => Object.e
 export const getTenantCapabilities = createSelector(
   [getFeatures, getOrganization, getIsEnterprise],
   (
-    {
-      hasAddons,
-      hasAuditlogs,
-      hasRbac,
-      hasDynamicGroups,
-      hasDeviceConfig: isDeviceConfigEnabled,
-      hasDeviceConnect: isDeviceConnectEnabled,
-      hasMonitor: isMonitorEnabled,
-      isHosted
-    },
+    { hasAddons, hasAuditlogs, hasRbac, hasDynamicGroups, hasDeviceConfig: isDeviceConfigEnabled, hasDeviceConnect, hasMonitor: isMonitorEnabled, isHosted },
     { addons = [] },
     isEnterprise
   ) => {
     const hasDeviceConfig = hasAddons || (isDeviceConfigEnabled && (!isHosted || addons.some(addon => addon.name === 'configure' && Boolean(addon.enabled))));
-    const hasDeviceConnect =
-      hasAddons || (isDeviceConnectEnabled && (!isHosted || addons.some(addon => addon.name === 'troubleshoot' && Boolean(addon.enabled))));
     const hasMonitor = hasAddons || (isMonitorEnabled && (!isHosted || addons.some(addon => addon.name === 'monitor' && Boolean(addon.enabled))));
     return {
       hasAuditlogs,
