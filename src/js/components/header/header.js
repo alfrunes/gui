@@ -41,7 +41,6 @@ import {
   getDeviceLimit,
   getDocsVersion,
   getFeatures,
-  getIsEnterprise,
   getOrganization,
   getShowHelptips,
   getUserCapabilities,
@@ -112,10 +111,8 @@ export const Header = () => {
   const docsVersion = useSelector(getDocsVersion);
   const firstLoginAfterSignup = useSelector(state => state.app.firstLoginAfterSignup);
   const { trackingConsentGiven: hasTrackingEnabled } = useSelector(getUserSettings);
-  const isEnterprise = useSelector(getIsEnterprise);
-  const { hasMultitenancy, isHosted } = useSelector(getFeatures);
+  const { isHosted } = useSelector(getFeatures);
   const isSearching = useSelector(state => state.app.searchState.isSearching);
-  const multitenancy = hasMultitenancy || isEnterprise || isHosted;
   const showHelptips = useSelector(getShowHelptips);
   const user = useSelector(getCurrentUser);
   const { pending: pendingDevices } = useSelector(getDeviceCountsByStatus);
@@ -233,11 +230,9 @@ export const Header = () => {
             <MenuItem component={Link} to="/settings/my-profile">
               My profile
             </MenuItem>
-            {multitenancy && (
-              <MenuItem component={Link} to="/settings/organization-and-billing">
-                My organization
-              </MenuItem>
-            )}
+            <MenuItem component={Link} to="/settings/organization-and-billing">
+              My organization
+            </MenuItem>
             {allowUserManagement && (
               <MenuItem component={Link} to="/settings/user-management">
                 User management

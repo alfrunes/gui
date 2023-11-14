@@ -24,7 +24,6 @@ const preloadedState = {
     features: {
       ...defaultState.app.features,
       hasReporting: true,
-      hasMultitenancy: true,
       isEnterprise: true,
       isHosted: true
     }

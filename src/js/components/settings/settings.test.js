@@ -34,8 +34,7 @@ describe('Settings Component', () => {
           ...defaultState.app,
           features: {
             ...defaultState.app.features,
-            isHosted: false,
-            hasMultitenancy: true
+            isHosted: false
           }
         },
         organization: {

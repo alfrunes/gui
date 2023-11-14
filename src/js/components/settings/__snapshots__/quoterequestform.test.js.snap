@@ -371,9 +371,9 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
   <h3
     class="margin-top-large"
   >
-    Request a quote from our team
+    Request a change to your plan
   </h3>
-  You are requesting a quote for the following subscription:
+  You are requesting the following changes:
   <div>
     <p>
       Plan: 
@@ -402,7 +402,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
           aria-invalid="false"
           class="MuiInputBase-input MuiInput-input MuiInputBase-inputMultiline emotion-4"
           id="mui-1"
-          placeholder="If you have any notes about your requirements or device fleet size, leave a message and we'll respond as soon as we can"
+          placeholder="If you have any questions regarding plan pricing or device limits, leave us a message and we'll respond as soon as we can."
           style="height: 0px; overflow: hidden;"
         />
         <textarea
@@ -416,7 +416,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
     </div>
   </div>
   <p>
-    After we receive your request, we'll be in touch to discuss your needs and provide a quote.
+    We'll send you a confirmation of any changes to your subscription.
   </p>
   <button
     class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium margin-top margin-bottom emotion-6"

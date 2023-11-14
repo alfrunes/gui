@@ -46,7 +46,6 @@ import {
   getDocsVersion,
   getFeatures,
   getGroups as getGroupsSelector,
-  getIsEnterprise,
   getIsPreview,
   getLimitMaxed,
   getSelectedGroupInfo,
@@ -99,7 +98,6 @@ export const DeviceGroups = () => {
   const { pending: pendingCount } = useSelector(getDeviceCountsByStatus);
   const showDeviceConnectionDialog = useSelector(state => state.users.showConnectDeviceDialog);
   const showHelptips = useSelector(getShowHelptips);
-  const isEnterprise = useSelector(getIsEnterprise);
   const dispatch = useDispatch();
 
   const [locationParams, setLocationParams] = useLocationParams('devices', {
@@ -294,7 +292,9 @@ export const DeviceGroups = () => {
             onClose={onCreateGroupClose}
           />
         )}
-        {createGroupExplanation && <CreateGroupExplainer isEnterprise={isEnterprise} onClose={() => setCreateGroupExplanation(false)} />}
+        {createGroupExplanation && (
+          <CreateGroupExplainer hasDynamicGroups={tenantCapabilities.hasDynamicGroups} onClose={() => setCreateGroupExplanation(false)} />
+        )}
         {openIdDialog && (
           <Dialog open>
             <DialogTitle>Default device identity attribute</DialogTitle>

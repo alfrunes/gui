@@ -21,7 +21,8 @@ import {
   RECEIVE_SETUP_INTENT,
   RECEIVE_WEBHOOK_EVENTS,
   SET_AUDITLOG_STATE,
-  SET_ORGANIZATION
+  SET_ORGANIZATION,
+  SET_PLAN
 } from '../constants/organizationConstants';
 
 export const initialState = {
@@ -59,7 +60,8 @@ export const initialState = {
     // for now:
     events: [],
     eventsTotal: 0
-  }
+  },
+  plan: {}
 };
 
 const organizationReducer = (state = initialState, action) => {
@@ -119,6 +121,11 @@ const organizationReducer = (state = initialState, action) => {
           events: action.value,
           eventsTotal: action.total
         }
+      };
+    case SET_PLAN:
+      return {
+        ...state,
+        plan: action.payload
       };
     default:
       return state;

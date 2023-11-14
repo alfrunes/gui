@@ -25,6 +25,7 @@ export const SET_ORGANIZATION = 'SET_ORGANIZATION';
 export const RECEIVE_EXTERNAL_DEVICE_INTEGRATIONS = 'RECEIVE_EXTERNAL_DEVICE_INTEGRATIONS';
 export const RECEIVE_SAML_CONFIGS = 'RECEIVE_SAML_CONFIGS';
 export const RECEIVE_WEBHOOK_EVENTS = 'RECEIVE_WEBHOOK_EVENTS';
+export const SET_PLAN = 'SET_PLAN';
 export const emptyWebhook = {
   description: '',
   enabled: true,

@@ -21,7 +21,6 @@ import { TIMEOUTS, canAccess } from '../../constants/appConstants';
 import { versionCompare } from '../../helpers';
 import {
   getCurrentUser,
-  getFeatures,
   getIsEnterprise,
   getOrganization,
   getTenantCapabilities,
@@ -47,7 +46,7 @@ const sectionMap = {
   'organization-and-billing': {
     component: Organization,
     text: () => 'Organization and billing',
-    canAccess: ({ hasMultitenancy }) => hasMultitenancy
+    canAccess: () => true
   },
   'user-management': {
     component: UserManagement,
@@ -57,7 +56,7 @@ const sectionMap = {
   'role-management': {
     component: Roles,
     text: () => 'Roles',
-    canAccess: ({ currentUser, isEnterprise, userRoles: { isAdmin } }) => currentUser && isAdmin && isEnterprise
+    canAccess: ({ currentUser, tenantCapabilities: { hasRbac }, userRoles: { isAdmin } }) => currentUser && isAdmin && hasRbac
   },
   integrations: {
     component: Integrations,
@@ -67,14 +66,13 @@ const sectionMap = {
   upgrade: {
     component: Upgrade,
     text: () => 'Upgrade your plan',
-    canAccess: ({ hasMultitenancy }) => hasMultitenancy
+    canAccess: () => true
   }
 };
 
 export const Settings = () => {
   const currentUser = useSelector(getCurrentUser);
   const isEnterprise = useSelector(getIsEnterprise);
-  const { hasMultitenancy } = useSelector(getFeatures);
   const { trial: isTrial = false } = useSelector(getOrganization);
   const stripeAPIKey = useSelector(state => state.app.stripeAPIKey);
   const tenantCapabilities = useSelector(getTenantCapabilities);
@@ -101,7 +99,7 @@ export const Settings = () => {
   }, [stripeAPIKey]);
 
   const checkDenyAccess = item =>
-    currentUser.id && !item.canAccess({ currentUser, hasMultitenancy, isEnterprise, isTrial, tenantCapabilities, userCapabilities, userRoles, version });
+    currentUser.id && !item.canAccess({ currentUser, isEnterprise, isTrial, tenantCapabilities, userCapabilities, userRoles, version });
 
   const getCurrentSection = (sections, section = sectionParam) => {
     if (!sections.hasOwnProperty(section) || checkDenyAccess(sections[section])) {

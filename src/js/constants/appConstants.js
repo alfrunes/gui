@@ -38,6 +38,7 @@ export const SET_SEARCH_STATE = 'SET_SEARCH_STATE';
 export const SET_SNACKBAR = 'SET_SNACKBAR';
 export const SET_VERSION_INFORMATION = 'SET_VERSION_INFORMATION';
 export const SET_OFFLINE_THRESHOLD = 'SET_OFFLINE_THRESHOLD';
+export const SET_PLANS = 'SET_PLANS';
 export const UPLOAD_PROGRESS = 'UPLOAD_PROGRESS';
 export const SORTING_OPTIONS = {
   asc: 'asc',
@@ -58,33 +59,27 @@ export const locations = {
   eu: { key: 'eu', title: 'EU', location: 'eu.app.alvaldi.com', icon: FlagEU },
   us: { key: 'us', title: 'US', location: 'app.alvaldi.com', icon: FlagUS }
 };
-/**
- * @todo [ALV-106] PLANS will be changed on the backend and should be adjusted here after the changes
- */
+
 export const PLANS = {
-  os: {
+  trial: {
     name: 'Free trial',
     isTrial: true,
-    offer: true,
     price: '6 months free',
     deviceCount: '10 devices',
     usersCount: '2 users',
     features: [{ feature: 'Access to core features of Alvaldi' }],
-    value: 'os',
-    logsDaysLimit: 2,
+    value: 'trial',
     info: 'Upgrade to a paid plan for additional users or devices'
   },
-  professional: {
+  basic: {
     name: 'Alvaldi Basic',
-    offer: true,
     price: '3$ / month',
     deviceCount: '10+ devices',
     usersCount: '2+ users',
     features: [{ feature: 'Access to core features of Alvaldi' }, { feature: 'Technical support' }],
-    value: 'professional',
-    logsDaysLimit: 2
+    value: 'basic'
   },
-  enterprise: {
+  professional: {
     name: 'Alvaldi Professional',
     price: '8$ / month',
     deviceCount: '10+ devices',
@@ -97,8 +92,7 @@ export const PLANS = {
       },
       { feature: 'Data localization guaranteed', explanation: 'You can choose whether you want your data to be stored and processed in the EU or US.' }
     ],
-    value: 'enterprise',
-    logsDaysLimit: null,
+    value: 'professional',
     additionalFeatures: '...and everything in Alvaldi Basic'
   }
 };

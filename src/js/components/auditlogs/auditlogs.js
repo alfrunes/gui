@@ -328,7 +328,7 @@ export const AuditLogs = props => {
         {logsDaysLimit && (
           <Link className={classes.upgradeLink} to="/settings/upgrade">
             <ErrorOutlineIcon className="margin-right-sx" />
-            You are only seeing audit log entries from the last {logsDaysLimit} days, upgrade to Alvaldi {PLANS.professional.name} to see full history.
+            You are only seeing audit log entries from the last {logsDaysLimit} days, upgrade to {PLANS.professional.name} to see full history.
           </Link>
         )}
         <Loader show={csvLoading} />

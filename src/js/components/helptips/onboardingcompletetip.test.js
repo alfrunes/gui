@@ -32,7 +32,6 @@ describe('OnboardingCompleteTip Component', () => {
           ...defaultState.app,
           features: {
             ...defaultState.app.features,
-            hasMultitenancy: true,
             isHosted: true
           }
         }

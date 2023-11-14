@@ -32,9 +32,7 @@ import { roles as rbacRoles } from '../tests/__mocks__/userHandlers';
 
 export const undefineds = /undefined|\[object Object\]/;
 export const menderEnvironment = {
-  features: {
-    hasMultitenancy: true
-  },
+  features: {},
   integrationVersion: 'saas-123.34',
   menderVersion: 'next',
   metaMenderVersion: 'saas-123.34',
@@ -67,6 +65,17 @@ const commonEndpoints = {
   artifacts: '^/api/management/v1/deployments/artifacts',
   artifactDetails: '^/api/management/v1/deployments/artifacts/[^/]+',
   deviceManagement: '^/api/management/(v[1-9])/(devauth|inventory)/'
+};
+
+const currentPlan = {
+  name: 'alvaldi-basic',
+  display_name: 'Alvaldi Basic',
+  features: {
+    rbac: true,
+    audit_logs: true,
+    dynamic_groups: false,
+    terminal: true
+  }
 };
 
 export const token =
@@ -124,7 +133,36 @@ export const defaultState = {
     uploadsById: {},
     versionInformation: {
       AlvaldiVersion: alvaldiVersion
-    }
+    },
+    plans: [
+      {
+        'id': '806603def19d417d004a4b67e',
+        'product': 'Alvaldi',
+        ...currentPlan,
+        'limits': {
+          'devices': 10,
+          'users': 2,
+          'audit_logs_days': 2
+        }
+      },
+      {
+        'id': '806603def19d417d004a4b67e',
+        'product': 'Alvaldi',
+        'name': 'alvaldi-professional',
+        'display_name': 'Alvaldi Professional',
+        'features': {
+          'rbac': true,
+          'audit_logs': true,
+          'dynamic_groups': true,
+          'terminal': true
+        },
+        'limits': {
+          'devices': 10,
+          'users': 2,
+          'audit_logs_days': 0
+        }
+      }
+    ]
   },
   devices: {
     ...initialDevicesState,
@@ -362,6 +400,14 @@ export const defaultState = {
       name: 'test',
       plan: 'os',
       trial: false
+    },
+    plan: {
+      ...currentPlan,
+      limits: { devices: 8, users: 3, audit_logs_days: 0 }
+    },
+    plan_binding: {
+      plan: currentPlan,
+      limits: { devices: 8, users: 3, audit_logs_days: 0 }
     }
   },
   users: {

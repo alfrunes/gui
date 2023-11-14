@@ -20,6 +20,7 @@ import {
   SET_FEATURES,
   SET_FIRST_LOGIN_AFTER_SIGNUP,
   SET_OFFLINE_THRESHOLD,
+  SET_PLANS,
   SET_SEARCH_STATE,
   SET_SNACKBAR,
   SET_VERSION_INFORMATION,
@@ -28,23 +29,14 @@ import {
 } from '../constants/appConstants';
 import { DEVICE_STATES } from '../constants/deviceConstants';
 import { onboardingSteps } from '../constants/onboardingConstants';
-import { SET_SHOW_HELP } from '../constants/userConstants';
+import { SET_SHOW_HELP, useradmApiUrl } from '../constants/userConstants';
 import { deepCompare, extractErrorMessage, preformatWithRequestID, stringToBoolean } from '../helpers';
 import { getCurrentUser, getOfflineThresholdSettings, getUserSettings as getUserSettingsSelector } from '../selectors';
 import { getOnboardingComponentFor } from '../utils/onboardingmanager';
-import {
-  getDeviceAttributes,
-  getDeviceById,
-  getDeviceLimit,
-  getDevicesByStatus,
-  getDynamicGroups,
-  getGroups,
-  searchDevices,
-  setDeviceListState
-} from './deviceActions';
+import { getDeviceAttributes, getDeviceById, getDevicesByStatus, getDynamicGroups, getGroups, searchDevices, setDeviceListState } from './deviceActions';
 import { setDemoArtifactPort, setOnboardingComplete } from './onboardingActions';
-import { getUserOrganization } from './organizationActions';
-import { getGlobalSettings, getRoles, getUserLimit, getUserSettings, saveGlobalSettings, saveUserSettings } from './userActions';
+import { getOrganizationPlan, getUserOrganization } from './organizationActions';
+import { getGlobalSettings, getRoles, getUserSettings, saveGlobalSettings, saveUserSettings } from './userActions';
 
 const cookies = new Cookies();
 
@@ -59,18 +51,7 @@ export const commonErrorHandler = (err, errorContext, dispatch, fallback, mightB
 
 const getComparisonCompatibleVersion = version => (isNaN(version.charAt(0)) && version !== 'next' ? 'master' : version);
 
-const featureFlags = [
-  'hasAddons',
-  'hasAuditlogs',
-  'hasMultitenancy',
-  'hasDeltaProgress',
-  'hasDeviceConfig',
-  'hasDeviceConnect',
-  'hasReleaseTags',
-  'hasReporting',
-  'hasMonitor',
-  'isEnterprise'
-];
+const featureFlags = ['hasDeviceConnect', 'hasReporting'];
 export const parseEnvironmentInfo = () => (dispatch, getState) => {
   const state = getState();
   let onboardingComplete = state.onboarding.complete || !!JSON.parse(window.localStorage.getItem('onboardingComplete') ?? 'false');
@@ -160,6 +141,7 @@ export const initializeAppData = () => (dispatch, getState) => {
   let tasks = [
     dispatch(parseEnvironmentInfo()),
     dispatch(getUserSettings()),
+    dispatch(getOrganizationPlan()),
     dispatch(getGlobalSettings()),
     dispatch(getDeviceAttributes()),
     dispatch(getDevicesByStatus(DEVICE_STATES.accepted)),
@@ -168,15 +150,11 @@ export const initializeAppData = () => (dispatch, getState) => {
     dispatch(getDevicesByStatus(DEVICE_STATES.rejected)),
     dispatch(getDynamicGroups()),
     dispatch(getGroups()),
-    dispatch(getDeviceLimit()),
-    dispatch(getUserLimit()),
     dispatch(getRoles()),
+    dispatch(getPlans()),
     dispatch(setFirstLoginAfterSignup(stringToBoolean(cookies.get('firstLoginAfterSignup'))))
   ];
-  const multitenancy = getState().app.features.hasMultitenancy || getState().app.features.isEnterprise || getState().app.features.isHosted;
-  if (multitenancy) {
-    tasks.push(dispatch(getUserOrganization()));
-  }
+  tasks.push(dispatch(getUserOrganization()));
   return Promise.all(tasks).then(() => {
     const state = getState();
     const user = getCurrentUser(state);
@@ -368,3 +346,10 @@ export const cancelFileUpload = id => (dispatch, getState) => {
   current.cancelSource.abort();
   return Promise.resolve(dispatch({ type: UPLOAD_PROGRESS, uploads: remainder }));
 };
+
+export const getPlans = () => dispatch =>
+  GeneralApi.get(`${useradmApiUrl}/plans`)
+    .then(({ data: plans }) => {
+      return Promise.resolve(dispatch({ type: SET_PLANS, value: plans }));
+    })
+    .catch(err => commonErrorHandler(err, `There was an error retrieving plans:`, dispatch));

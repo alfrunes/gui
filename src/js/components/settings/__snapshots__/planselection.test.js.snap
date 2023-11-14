@@ -126,7 +126,7 @@ exports[`PlanSelection component renders correctly 1`] = `
     class="margin-bottom-small"
   >
     Your current plan: 
-    Free trial
+    
   </div>
   <div
     class="flexbox"

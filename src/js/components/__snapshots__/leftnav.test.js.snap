@@ -114,11 +114,11 @@ exports[`LeftNav Component renders correctly 1`] = `
   display: block;
 }
 
-.emotion-20 {
+.emotion-16 {
   color: #14A452;
 }
 
-.emotion-21 {
+.emotion-17 {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -138,7 +138,7 @@ exports[`LeftNav Component renders correctly 1`] = `
   margin-left: 4px;
 }
 
-.emotion-21 iconButton {
+.emotion-17 iconButton {
   margin-right: 8px;
 }
 
@@ -180,31 +180,6 @@ exports[`LeftNav Component renders correctly 1`] = `
           class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary emotion-4"
         >
           Devices
-        </span>
-      </div>
-    </a>
-    <a
-      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding navLink leftNav emotion-1"
-      href="/auditlog"
-    >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-2"
-        data-testid="ListAltIcon"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M19 5v14H5V5h14m1.1-2H3.9c-.5 0-.9.4-.9.9v16.2c0 .4.4.9.9.9h16.2c.4 0 .9-.5.9-.9V3.9c0-.5-.5-.9-.9-.9zM11 7h6v2h-6V7zm0 4h6v2h-6v-2zm0 4h6v2h-6zM7 7h2v2H7zm0 4h2v2H7zm0 4h2v2H7z"
-        />
-      </svg>
-      <div
-        class="MuiListItemText-root emotion-3"
-      >
-        <span
-          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary emotion-4"
-        >
-          Audit log
         </span>
       </div>
     </a>
@@ -270,7 +245,7 @@ exports[`LeftNav Component renders correctly 1`] = `
       </div>
     </li>
     <a
-      class="emotion-20 flexbox center-aligned padding-none"
+      class="emotion-16 flexbox center-aligned padding-none"
       href="mailto:feedback@alvaldi.com?subject=Feedback%20on%20Alvaldi&body=Write%20your%20feedback%20here...%0A%0A---%0A%0APlease%20note%20that%20this%20is%20only%20for%20product%20feedback.%0AIf%20you%20need%20help,%20or%20have%20a%20question,%20open%20a%20support%20case%20at%20support.northern.tech.%0AAlvaldi%20user:%20a@b.com"
       rel="noreferrer"
       target="_blank"
@@ -278,7 +253,7 @@ exports[`LeftNav Component renders correctly 1`] = `
       Feedback 
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeMedium emotion-21"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeMedium emotion-17"
         data-testid="OpenInNewIcon"
         focusable="false"
         viewBox="0 0 24 24"

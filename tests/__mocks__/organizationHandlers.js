@@ -19,6 +19,7 @@ import { headerNames } from '../../src/js/api/general-api';
 import { PLANS } from '../../src/js/constants/appConstants';
 import { EXTERNAL_PROVIDER } from '../../src/js/constants/deviceConstants';
 import { defaultState, webhookEvents } from '../mockData';
+import { useradmApiUrl } from '../../src/js/constants/userConstants.js';
 
 const releasesSample = {
   lts: ['3.3'],
@@ -214,5 +215,8 @@ export const organizationHandlers = [
       return res(ctx.status(552));
     }
     return res(ctx.status(200));
-  })
+  }),
+
+  rest.get(`${useradmApiUrl}/plans`, (req, res, ctx) => res(ctx.json(defaultState.app.plans))),
+  rest.get(`${useradmApiUrl}/plan_binding`, (req, res, ctx) => res(ctx.json(defaultState.organization.plan_binding)))
 ];
