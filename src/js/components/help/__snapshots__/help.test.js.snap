@@ -258,7 +258,7 @@ exports[`Help Component renders correctly 1`] = `
             rel="noopener noreferrer"
             target="_blank"
           >
-            Get Started chapter in our documentation 
+            getting started tutorial in our documentation 
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall emotion-12"
@@ -314,7 +314,7 @@ exports[`Help Component static components renders GettingStarted correctly 1`] =
       rel="noopener noreferrer"
       target="_blank"
     >
-      Get Started chapter in our documentation 
+      getting started tutorial in our documentation 
       <svg
         aria-hidden="true"
         class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall emotion-0"
