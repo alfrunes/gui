@@ -23,7 +23,7 @@ const GettingStarted = () => (
     <p>
       To quickly get started with the common use cases of Alvaldi, follow the{' '}
       <a href={`https://docs.alvaldi.com/getting-started/`} target="_blank" rel="noopener noreferrer">
-        Get Started chapter in our documentation <InlineLaunchIcon />
+        getting started tutorial in our documentation <InlineLaunchIcon />
       </a>
       .
     </p>
