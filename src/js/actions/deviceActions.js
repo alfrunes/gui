@@ -40,8 +40,7 @@ export const iotManagerBaseURL = `${apiUrl.v1}/iot-manager`;
 
 const defaultAttributes = [
   { scope: 'identity', attribute: 'status' },
-  { scope: 'inventory', attribute: 'artifact_name' },
-  { scope: 'inventory', attribute: 'device_type' },
+  { scope: 'inventory', attribute: 'os' },
   { scope: 'inventory', attribute: 'mender_is_gateway' },
   { scope: 'inventory', attribute: 'mender_gateway_system_id' },
   { scope: 'inventory', attribute: rootfsImageVersion },

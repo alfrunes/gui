@@ -205,12 +205,12 @@ export const defaultHeaders = {
     sortable: true,
     textRender: defaultTextRender
   },
-  deviceType: {
-    title: 'Device type',
-    attribute: { name: 'device_type', scope: 'inventory' },
-    component: DeviceTypes,
+  os: {
+    title: 'OS',
+    attribute: { name: 'os', scope: 'inventory' },
+    component: DefaultAttributeRenderer,
     sortable: true,
-    textRender: getDeviceTypeText
+    textRender: defaultTextRender
   },
   lastCheckIn: {
     title: 'Latest activity',
@@ -240,8 +240,8 @@ const acceptedDevicesRoute = {
   route: `${baseDevicesRoute}/${DEVICE_STATES.accepted}`,
   title: () => DEVICE_STATES.accepted,
   emptyState: AcceptedEmptyState,
-  defaultHeaders: [defaultHeaders.deviceType, defaultHeaders.lastCheckIn],
-  defaultSearchHeaders: [defaultHeaders.deviceType, defaultHeaders.lastCheckIn]
+  defaultHeaders: [defaultHeaders.os, defaultHeaders.lastCheckIn],
+  defaultSearchHeaders: [defaultHeaders.os, defaultHeaders.lastCheckIn]
 };
 
 export const routes = {

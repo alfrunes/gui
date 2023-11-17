@@ -371,7 +371,7 @@ exports[`DeviceGroups Component renders correctly 1`] = `
                 <div
                   class="flexbox center-aligned"
                 >
-                  Device type
+                  OS
                   <svg
                     aria-hidden="true"
                     class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium sortIcon  true css-1o67yj1-MuiSvgIcon-root"
@@ -503,14 +503,10 @@ exports[`DeviceGroups Component renders correctly 1`] = `
                   </div>
                 </div>
               </div>
-              <div
-                title="raspberrypi4"
-              >
+              <div>
                 <div
                   class="text-overflow"
-                >
-                  raspberrypi4
-                </div>
+                />
               </div>
               <div>
                 <time
@@ -588,14 +584,10 @@ exports[`DeviceGroups Component renders correctly 1`] = `
                   </div>
                 </div>
               </div>
-              <div
-                title="qemux86-64"
-              >
+              <div>
                 <div
                   class="text-overflow"
-                >
-                  qemux86-64
-                </div>
+                />
               </div>
               <div>
                 <time

@@ -683,7 +683,7 @@ exports[`Main Component renders correctly 1`] = `
                     <div
                       class="flexbox center-aligned"
                     >
-                      Device type
+                      OS
                       <svg
                         aria-hidden="true"
                         class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium sortIcon  true mui-1o67yj1-MuiSvgIcon-root"
@@ -816,12 +816,12 @@ exports[`Main Component renders correctly 1`] = `
                     </div>
                   </div>
                   <div
-                    title="raspberrypi4"
+                    title="Raspbian GNU/Linux 10 (buster)"
                   >
                     <div
                       class="text-overflow"
                     >
-                      raspberrypi4
+                      Raspbian GNU/Linux 10 (buster)
                     </div>
                   </div>
                   <div>
@@ -923,12 +923,12 @@ exports[`Main Component renders correctly 1`] = `
                     </div>
                   </div>
                   <div
-                    title="raspberrypi4"
+                    title="Raspbian GNU/Linux 10 (buster)"
                   >
                     <div
                       class="text-overflow"
                     >
-                      raspberrypi4
+                      Raspbian GNU/Linux 10 (buster)
                     </div>
                   </div>
                   <div>
