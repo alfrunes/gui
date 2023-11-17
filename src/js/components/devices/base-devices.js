@@ -24,7 +24,6 @@ import pluralize from 'pluralize';
 import preauthImage from '../../../assets/img/preauthorize.png';
 import { EDGE_MODULE_LINK } from '../../constants/appConstants.js';
 import { DEVICE_STATES } from '../../constants/deviceConstants';
-import { rootfsImageVersion } from '../../constants/releaseConstants';
 import { backslashNonAlphaNumeric } from '../../helpers.js';
 import DeviceLink from '../common/device-link.js';
 import Time, { ApproximateRelativeDate } from '../common/time';
@@ -83,16 +82,6 @@ export const AttributeRenderer = ({ content, textContent, style = {} }) => {
 };
 export const DefaultAttributeRenderer = ({ column, device, idAttribute }) => (
   <AttributeRenderer content={column.textRender({ device, column, idAttribute })} textContent={column.textRender({ device, column, idAttribute })} />
-);
-
-export const getDeviceSoftwareText = (attributes = {}) => attributes[rootfsImageVersion] || attributes.artifact_name || '-';
-export const DeviceSoftware = ({ device }) => (
-  <AttributeRenderer content={getDeviceSoftwareText(device.attributes)} textContent={getDeviceSoftwareText(device.attributes)} />
-);
-
-export const getDeviceTypeText = (attributes = {}) => (attributes.device_type?.length ? attributes.device_type.join(',') : '-');
-export const DeviceTypes = ({ device }) => (
-  <AttributeRenderer content={getDeviceTypeText(device.attributes)} textContent={getDeviceTypeText(device.attributes)} />
 );
 
 export const RelativeDeviceTime = ({ device }) => (
@@ -179,13 +168,6 @@ export const RejectedEmptyState = ({ filters }) => (
 );
 
 export const defaultHeaders = {
-  currentSoftware: {
-    title: 'Current software',
-    attribute: { name: rootfsImageVersion, scope: 'inventory', alternative: 'artifact_name' },
-    component: DeviceSoftware,
-    sortable: true,
-    textRender: getDeviceSoftwareText
-  },
   deviceCreationTime: {
     title: 'First request',
     attribute: { name: 'created_ts', scope: 'system' },

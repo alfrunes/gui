@@ -276,12 +276,9 @@ export const mapDeviceAttributes = (attributes = []) =>
         ...accu[attribute.scope || ATTRIBUTE_SCOPES.inventory],
         [attribute.name]: attribute.value
       };
-      if (attribute.name === 'device_type' && attribute.scope === ATTRIBUTE_SCOPES.inventory) {
-        accu.inventory.device_type = [].concat(attribute.value);
-      }
       return accu;
     },
-    { inventory: { device_type: [], artifact_name: '' }, identity: {}, monitor: {}, system: {}, tags: {} }
+    { inventory: {}, identity: {}, monitor: {}, system: {}, tags: {} }
   );
 
 export const getFormattedSize = bytes => {

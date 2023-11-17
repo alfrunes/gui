@@ -41,8 +41,6 @@ export const iotManagerBaseURL = `${apiUrl.v1}/iot-manager`;
 const defaultAttributes = [
   { scope: 'identity', attribute: 'status' },
   { scope: 'inventory', attribute: 'os' },
-  { scope: 'inventory', attribute: 'mender_is_gateway' },
-  { scope: 'inventory', attribute: 'mender_gateway_system_id' },
   { scope: 'inventory', attribute: rootfsImageVersion },
   { scope: 'monitor', attribute: 'alerts' },
   { scope: 'system', attribute: 'created_ts' },
@@ -808,10 +806,10 @@ export const getReportsData = () => (dispatch, getState) => {
     const totalDeviceCount = devicesState.byStatus.accepted.total;
     const newReports = results.map(({ data, reportConfig }) => {
       let { items, other_count } = data[0];
-      const { attribute, group, software = '' } = reportConfig;
+      const { group, software = '' } = reportConfig;
       const dataCount = items.reduce((accu, item) => accu + item.count, 0);
       // the following is needed to show reports including both old (artifact_name) & current style (rootfs-image.version) device software
-      const otherCount = !group && (software === rootfsImageVersion || attribute === 'artifact_name') ? totalDeviceCount - dataCount : other_count;
+      const otherCount = !group && software === rootfsImageVersion ? totalDeviceCount - dataCount : other_count;
       return { items, otherCount, total: otherCount + dataCount };
     });
     return Promise.resolve(dispatch({ type: DeviceConstants.SET_DEVICE_REPORTS, reports: newReports }));
