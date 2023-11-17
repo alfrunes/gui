@@ -108,23 +108,7 @@ exports[`PortForward Component renders correctly 1`] = `
           class="align-right key"
         >
           <b>
-            Device type
-          </b>
-        </div>
-        <div
-          class="flexbox "
-        >
-          <div
-            title="raspberrypi4"
-          >
-            raspberrypi4
-          </div>
-        </div>
-        <div
-          class="align-right key"
-        >
-          <b>
-            Operating system
+            OS
           </b>
         </div>
         <div

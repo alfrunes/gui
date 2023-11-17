@@ -49,7 +49,7 @@ const deductOnboardingState = ({ devicesById, devicesByStatus, onboardingState, 
   let deviceType = onboardingState.deviceType ?? [];
   deviceType =
     !deviceType.length && acceptedDevices.length && devicesById[acceptedDevices[0]].hasOwnProperty('attributes')
-      ? devicesById[acceptedDevices[0]].attributes.device_type
+      ? devicesById[acceptedDevices[0]].attributes?.device_type ?? []
       : deviceType;
   const progress = applyOnboardingFallbacks(onboardingState.progress || determineProgress(acceptedDevices, pendingDevices, releases, pastDeployments));
   return {

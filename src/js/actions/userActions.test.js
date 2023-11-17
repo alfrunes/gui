@@ -170,7 +170,6 @@ const appInitActions = [
       inventoryAttributes: [
         'artifact_name',
         'cpu_model',
-        'device_type',
         'hostname',
         'ipv4_wlan0',
         'ipv6_wlan0',

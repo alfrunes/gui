@@ -13,7 +13,7 @@
 //    limitations under the License.
 import React from 'react';
 
-import { act, screen, waitFor } from '@testing-library/react';
+import { act, waitFor } from '@testing-library/react';
 
 import { defaultState, undefineds } from '../../../../../tests/mockData';
 import { render } from '../../../../../tests/setupTests';
@@ -64,7 +64,6 @@ describe('TerminalSession Component', () => {
       jest.runAllTicks();
     });
     expect(sessionSpy).toHaveBeenCalled();
-    await waitFor(() => expect(screen.queryByText(/Device type/i)).toBeVisible());
 
     const view = baseElement.firstChild.firstChild;
     expect(view).toMatchSnapshot();

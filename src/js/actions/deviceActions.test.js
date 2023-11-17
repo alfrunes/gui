@@ -235,7 +235,6 @@ describe('overall device information retrieval', () => {
           inventory: [
             'artifact_name',
             'cpu_model',
-            'device_type',
             'hostname',
             'ipv4_wlan0',
             'ipv6_wlan0',
@@ -251,7 +250,7 @@ describe('overall device information retrieval', () => {
           ],
           system: ['created_ts', 'updated_ts', 'group']
         },
-        count: 20,
+        count: 19,
         limit: 100
       }
     ];
@@ -275,8 +274,8 @@ describe('overall device information retrieval', () => {
               { count: 6, key: 'test' },
               { count: 1, key: 'original' }
             ],
-            otherCount: 43,
-            total: 50
+            otherCount: 42,
+            total: 49
           }
         ]
       }

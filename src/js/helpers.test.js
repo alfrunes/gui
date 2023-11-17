@@ -248,7 +248,7 @@ describe('unionizeStrings function', () => {
 
 describe('mapDeviceAttributes function', () => {
   const defaultAttributes = {
-    inventory: { device_type: [], artifact_name: '' },
+    inventory: {},
     identity: {},
     monitor: {},
     system: {},

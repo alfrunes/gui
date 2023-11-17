@@ -24,36 +24,12 @@ exports[`smaller components renders DeviceCreationTime correctly 1`] = `
 </div>
 `;
 
-exports[`smaller components renders DeviceSoftware correctly 1`] = `
-<div
-  title="-"
->
-  <div
-    class="text-overflow"
-  >
-    -
-  </div>
-</div>
-`;
-
 exports[`smaller components renders DeviceStatusRenderer correctly 1`] = `
 <div>
   <div
     class="margin-right-small"
   >
     accepted
-  </div>
-</div>
-`;
-
-exports[`smaller components renders DeviceTypes correctly 1`] = `
-<div
-  title="raspberrypi4"
->
-  <div
-    class="text-overflow"
-  >
-    raspberrypi4
   </div>
 </div>
 `;

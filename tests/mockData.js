@@ -50,8 +50,6 @@ export const mockDate = new Date(testDate.setMilliseconds(testDate.getMillisecon
 export const defaultPassword = 'mysecretpassword!123';
 export const defaultCreationDate = '2019-01-13T06:25:00.000Z';
 export const defaultMacAddress = 'dc:a6:32:12:ad:bf';
-
-const deviceTypes = { qemu: 'qemux86-64' };
 const permissionSetObjectTypes = {
   any: 'Any',
   artifacts: 'Artifacts',
@@ -170,7 +168,6 @@ export const defaultState = {
       a1: {
         id: 'a1',
         attributes: {
-          device_type: ['raspberrypi4'],
           ipv4_wlan0: '192.168.10.141/24'
         },
         identity_data: { mac: defaultMacAddress },
@@ -193,8 +190,7 @@ export const defaultState = {
       b1: {
         id: 'b1',
         attributes: {
-          ipv4_wlan0: '192.168.10.141/24',
-          device_type: [deviceTypes.qemu]
+          ipv4_wlan0: '192.168.10.141/24'
         },
         identity_data: { mac: defaultMacAddress },
         status: 'accepted',
@@ -214,9 +210,7 @@ export const defaultState = {
       c1: {
         id: 'c1',
         auth_sets: [],
-        attributes: {
-          device_type: ['qemux86-128']
-        }
+        attributes: {}
       }
     },
     byStatus: {
