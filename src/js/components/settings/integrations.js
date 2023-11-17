@@ -13,10 +13,12 @@
 //    limitations under the License.
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 
+import { Launch as LaunchIcon } from '@mui/icons-material';
 import { Button, Divider, TextField } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
+
+const InlineLaunchIcon = () => <LaunchIcon style={{ 'verticalAlign': 'text-bottom' }} fontSize="small" />;
 
 import { changeIntegration, createIntegration, deleteIntegration, getIntegrations } from '../../actions/organizationActions';
 import { TIMEOUTS } from '../../constants/appConstants';
@@ -221,7 +223,11 @@ export const Integrations = () => {
       <h2 className="margin-top-small">Integrations</h2>
       <div style={{ maxWidth: 750 }} className="margin-top">
         Enabling the integration with Azure IoT Hub allows Alvaldi to synchronize device information. This does not automatically install the Alvaldi client on
-        your devices. For more information about how to set up Alvaldi, read our <Link to="/help/get-started">getting started guide</Link>.
+        your devices. For more information about how to set up Alvaldi, read our
+        <a href="https://docs.alvaldi.com/getting-started/" target="_blank" rel="noopener noreferrer">
+          getting started guide <InlineLaunchIcon />
+        </a>
+        .
       </div>
 
       <IntegrationConfiguration
