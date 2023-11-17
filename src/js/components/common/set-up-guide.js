@@ -80,7 +80,7 @@ export const IntegrationEnabled = () => {
         <div>You now need to install Alvaldi on your devices. Follow the instructions below to get started with the Alvaldi IoT Edge module.</div>
         <div className={classes.DiagramContainer}>
           <MarketplaceImage />
-          <Link rel="noopener noreferrer" target="_blank" to={EDGE_MODULE_LINK}>
+          <Link rel="noopener noreferrer" className="block" target="_blank" to={EDGE_MODULE_LINK}>
             <Button className="margin-top" variant="contained" color="primary" onClick={closeHandler}>
               Learn how
             </Button>
