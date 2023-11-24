@@ -16,11 +16,17 @@ import ReCAPTCHA from 'react-google-recaptcha';
 
 import FormCheckbox from '../../common/forms/formcheckbox';
 import TextInput from '../../common/forms/textinput';
+import { useFormContext } from 'react-hook-form';
 
 export const OrgDataEntry = ({ emailVerified, recaptchaSiteKey = '', setCaptchaTimestamp, setRecaptcha }) => {
+  const { register, setValue, trigger } = useFormContext();
+  const captchaFieldName = 'captcha';
+
   const handleCaptchaChange = value => {
     setCaptchaTimestamp(new Date().getTime());
     setRecaptcha(value);
+    setValue(captchaFieldName, value ? 'validated' : '');
+    trigger(captchaFieldName);
   };
 
   return (
@@ -52,6 +58,7 @@ export const OrgDataEntry = ({ emailVerified, recaptchaSiteKey = '', setCaptchaT
       />
       {recaptchaSiteKey && (
         <div className="margin-top">
+          <input type="hidden" {...register(captchaFieldName, { required: 'reCAPTCHA is not completed' })} />
           <ReCAPTCHA sitekey={recaptchaSiteKey} onChange={handleCaptchaChange} />
         </div>
       )}
