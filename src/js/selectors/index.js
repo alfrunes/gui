@@ -307,21 +307,6 @@ export const getAvailableIssueOptionsByType = createSelector(
     }, {})
 );
 
-export const getDeviceTypes = createSelector([getAcceptedDevices, getDevicesById], ({ deviceIds = [] }, devicesById) =>
-  Object.keys(
-    deviceIds.slice(0, 200).reduce((accu, item) => {
-      const { device_type: deviceTypes = [] } = devicesById[item] ? devicesById[item].attributes : {};
-      accu = deviceTypes.reduce((deviceTypeAccu, deviceType) => {
-        if (deviceType.length > 1) {
-          deviceTypeAccu[deviceType] = deviceTypeAccu[deviceType] ? deviceTypeAccu[deviceType] + 1 : 1;
-        }
-        return deviceTypeAccu;
-      }, accu);
-      return accu;
-    }, {})
-  )
-);
-
 export const getGroupNames = createSelector([getGroupsById, getUserRoles, (_, options = {}) => options], (groupsById, { uiPermissions }, { staticOnly }) => {
   // eslint-disable-next-line no-unused-vars
   const { [UNGROUPED_GROUP.id]: ungrouped, ...groups } = groupsById;

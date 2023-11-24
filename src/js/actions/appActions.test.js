@@ -61,9 +61,6 @@ import { tenantDataDivergedMessage } from './organizationActions';
 export const attributeReducer = (accu, item) => {
   if (item.scope === 'inventory') {
     accu[item.name] = item.value;
-    if (item.name === 'device_type') {
-      accu[item.name] = [].concat(item.value);
-    }
   }
   return accu;
 };
@@ -192,7 +189,6 @@ describe('app actions', () => {
           inventoryAttributes: [
             'artifact_name',
             'cpu_model',
-            'device_type',
             'hostname',
             'ipv4_wlan0',
             'ipv6_wlan0',
