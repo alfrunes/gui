@@ -196,6 +196,7 @@ export const Signup = () => {
     return dispatch(createOrganization(signup)).catch(() => {
       setStep(1);
       setOrganization(formData.name);
+      setEmail(formData.email);
       setTos(formData.tos);
       setMarketing(formData.marketing);
       setLoading(false);
@@ -232,12 +233,12 @@ export const Signup = () => {
       <div className={`${classes.background} ${isStarting && !showForm ? 'two-columns' : classes.orgData}`} id="signup-box">
         <div>
           <Form
-            defaultValues={{ email, tos, marketing, name: organization }}
-            showButtons={!(isStarting || loading)}
             buttonColor="primary"
+            defaultValues={{ email: '', tos: false, marketing: false, name: '', captcha: '' }}
+            initialValues={{ email, tos, marketing, name: organization, captcha: '' }}
             onSubmit={handleSignup}
+            showButtons={!(isStarting || loading)}
             submitLabel={isStarting ? 'Sign up' : 'Complete signup'}
-            submitButtonId="login_button"
             submitButtonFullWidth={true}
           >
             {loading ? <Loader show style={{ marginTop: '40vh' }} /> : steps[step]}
