@@ -10,7 +10,7 @@ FROM --platform=$BUILDPLATFORM base AS build
 COPY . ./
 RUN npm run build
 
-FROM nginxinc/nginx-unprivileged:1.25.2-alpine AS unprivileged
+FROM nginxinc/nginx-unprivileged:1.25.3-alpine AS unprivileged
 EXPOSE 8090
 WORKDIR /var/www/mender-gui/dist
 ARG GIT_COMMIT_TAG
