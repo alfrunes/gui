@@ -122,7 +122,7 @@ export const UserManagement = () => {
     return dialogDismiss();
   };
 
-  const usersLimitReached = users.length > usersLimit;
+  const usersLimitReached = users.length >= usersLimit;
 
   return (
     <div>
