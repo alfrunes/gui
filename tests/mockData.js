@@ -410,7 +410,7 @@ export const defaultState = {
       a1: { email: 'a@b.com', id: 'a1', created_ts: '2019-01-01T10:30:00.000Z', roles: [rolesByName.admin], verified: true },
       [userId]: { email: 'a2@b.com', id: userId, created_ts: '2019-01-01T12:30:00.000Z', roles: [rolesByName.admin], tfa_status: twoFAStates.enabled }
     },
-    limit: 2,
+    limit: 3,
     currentUser: 'a1',
     globalSettings: { '2fa': 'enabled', id_attribute: undefined, previousFilters: [] },
     rolesById: {
