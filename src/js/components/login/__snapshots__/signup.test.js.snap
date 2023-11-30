@@ -4,6 +4,11 @@ exports[`Signup Component renders correctly 1`] = `
 .emotion-0 {
   margin-left: 5vw;
   margin-top: 45px;
+  z-index: 1;
+  display: block;
+}
+
+.emotion-0 svg {
   max-height: 50px;
 }
 
@@ -314,10 +319,14 @@ exports[`Signup Component renders correctly 1`] = `
 }
 
 <div>
-  <svg
+  <a
     class="emotion-0"
-    id="Alvaldilogo"
-  />
+    href="https://alvaldi.com/"
+  >
+    <svg
+      id="Alvaldilogo"
+    />
+  </a>
   <div
     class="emotion-1 two-columns"
     id="signup-box"

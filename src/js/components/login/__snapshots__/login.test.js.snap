@@ -778,11 +778,15 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-10:focus::-ms-input-
     <div
       class="flexbox column centered emotion-1"
     >
-      <svg
-        alt="mender-logo"
-        class="margin-bottom"
-        id="Loginlogo"
-      />
+      <a
+        href="https://alvaldi.com/"
+      >
+        <svg
+          alt="mender-logo"
+          class="margin-bottom"
+          id="Loginlogo"
+        />
+      </a>
       <div
         class="flexbox column"
         id="login-box"
