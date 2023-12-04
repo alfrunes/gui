@@ -202,7 +202,7 @@ export const Login = () => {
       <div className={`content ${classes.background}`}>
         <div className={`flexbox column centered ${classes.reset}`}>
           <Link to="https://alvaldi.com/">
-            <LoginLogo alt="mender-logo" id="login-logo" className="margin-bottom" />
+            <LoginLogo alt="alvaldi-logo" id="login-logo" className="margin-bottom" />
           </Link>
           <div className="flexbox column" id="login-box">
             <h1 className="flexbox centered">Welcome back!</h1>
