@@ -13,7 +13,7 @@
 //    limitations under the License.
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate, useParams, useSearchParams } from 'react-router-dom';
+import { Link, Navigate, useParams, useSearchParams } from 'react-router-dom';
 
 import { formControlClasses } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
@@ -62,7 +62,7 @@ const useStyles = makeStyles()(theme => ({
     gridTemplateRows: 'min-content min-content min-content',
     padding: '80px 0'
   },
-  logo: { marginLeft: '5vw', marginTop: 45, maxHeight: 50 },
+  logo: { marginLeft: '5vw', marginTop: 45, zIndex: 1, display: 'block', svg: { maxHeight: 50 } },
   svgContainer: {
     width: 'fit-content',
     margin: '45px auto'
@@ -229,7 +229,9 @@ export const Signup = () => {
   const isStarting = step === 1;
   return (
     <>
-      <LoginLogo className={classes.logo} />
+      <Link className={classes.logo} to="https://alvaldi.com/">
+        <LoginLogo />
+      </Link>
       <div className={`${classes.background} ${isStarting && !showForm ? 'two-columns' : classes.orgData}`} id="signup-box">
         <div>
           <Form
