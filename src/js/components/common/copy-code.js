@@ -20,13 +20,18 @@ import { makeStyles } from 'tss-react/mui';
 
 import { TIMEOUTS } from '../../constants/appConstants';
 
-const buttonStyle = { float: 'right', margin: '-20px 0 0 10px' };
-
 const useStyles = makeStyles()(theme => ({
   code: {
     border: '1px solid',
     borderColor: theme.palette.background.lightgrey,
-    backgroundColor: theme.palette.background.lightgrey
+    backgroundColor: theme.palette.background.lightgrey,
+    button: {
+      float: 'right',
+      margin: '0 0 0 10px',
+      background: 'white',
+      border: `1px solid ${theme.palette.grey[450]}`,
+      padding: 7
+    }
   }
 }));
 
@@ -39,7 +44,7 @@ export const Code = ({ className = '', children, style = {} }) => {
   );
 };
 
-export const CopyCode = ({ code, onCopy, withDescription }) => {
+export const CopyCode = ({ code, onCopy, withDescription, className = '' }) => {
   const [copied, setCopied] = useState(false);
 
   const onCopied = (_text, result) => {
@@ -52,14 +57,12 @@ export const CopyCode = ({ code, onCopy, withDescription }) => {
 
   return (
     <>
-      <Code>
+      <Code className={className}>
         <CopyToClipboard text={code} onCopy={onCopied}>
           {withDescription ? (
-            <Button style={buttonStyle} startIcon={<CopyPasteIcon />}>
-              Copy to clipboard
-            </Button>
+            <Button startIcon={<CopyPasteIcon />}>Copy to clipboard</Button>
           ) : (
-            <IconButton style={buttonStyle} size="large">
+            <IconButton size="large">
               <CopyPasteIcon />
             </IconButton>
           )}
