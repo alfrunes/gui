@@ -107,6 +107,12 @@ exports[`CreateGroupExplainerContent Component renders correctly 1`] = `
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.emotion-4 .MuiIconButton-root {
+  color: #9E9E9E;
 }
 
 .emotion-5 {
@@ -126,6 +132,14 @@ exports[`CreateGroupExplainerContent Component renders correctly 1`] = `
   border: 1px solid;
   border-color: #f7f7f7;
   background-color: #f7f7f7;
+}
+
+.emotion-6 button {
+  float: right;
+  margin: 0 0 0 10px;
+  background: white;
+  border: 1px solid #9E9E9E;
+  padding: 7px;
 }
 
 .emotion-7 {
@@ -444,7 +458,6 @@ exports[`CreateGroupExplainerContent Component renders correctly 1`] = `
         >
           <button
             class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-7"
-            style="float: right; margin: -20px 0px 0px 10px;"
             tabindex="0"
             type="button"
           >

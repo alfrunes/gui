@@ -45,6 +45,12 @@ exports[`UserManagement Component renders AccessTokenCreationDialog correctly 1`
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.emotion-1 .MuiIconButton-root {
+  color: #9E9E9E;
 }
 
 .emotion-2 {
@@ -649,6 +655,14 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-9:focus::-ms-input-p
   background-color: #f7f7f7;
 }
 
+.emotion-13 button {
+  float: right;
+  margin: 0 0 0 10px;
+  background: white;
+  border: 1px solid #9E9E9E;
+  padding: 7px;
+}
+
 .emotion-14 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -986,7 +1000,6 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-9:focus::-ms-input-p
       >
         <button
           class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeLarge emotion-14"
-          style="float: right; margin: -20px 0px 0px 10px;"
           tabindex="0"
           type="button"
         >
@@ -1079,6 +1092,12 @@ exports[`UserManagement Component renders AccessTokenRevocationDialog correctly 
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.emotion-1 .MuiIconButton-root {
+  color: #9E9E9E;
 }
 
 .emotion-2 {

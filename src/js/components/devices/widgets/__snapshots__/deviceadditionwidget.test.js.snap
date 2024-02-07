@@ -7,6 +7,8 @@ exports[`DeviceAdditionWidget Component renders correctly 1`] = `
   display: -ms-inline-flexbox;
   display: inline-flex;
   border-radius: 4px;
+  border: 1px solid #14A452;
+  border-radius: 4px;
 }
 
 .emotion-0 .MuiButtonGroup-grouped {
@@ -30,6 +32,14 @@ exports[`DeviceAdditionWidget Component renders correctly 1`] = `
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   margin-left: -1px;
+}
+
+.emotion-0 button {
+  padding: 5px 8px;
+}
+
+.emotion-0 button:last-child {
+  border-left: 1px solid #14A452;
 }
 
 .emotion-1 {
@@ -82,6 +92,9 @@ exports[`DeviceAdditionWidget Component renders correctly 1`] = `
   font-weight: bold;
   padding: 10px 15px;
   text-transform: none;
+  color: #14A452!important;
+  padding: 8px;
+  font-weight: 500;
 }
 
 .emotion-1::-moz-focus-inner {
@@ -126,6 +139,10 @@ exports[`DeviceAdditionWidget Component renders correctly 1`] = `
 
 .emotion-1:hover {
   background: #F5F5F5;
+}
+
+.emotion-1:hover {
+  background: none;
 }
 
 .emotion-2 {
@@ -190,6 +207,9 @@ exports[`DeviceAdditionWidget Component renders correctly 1`] = `
   font-weight: bold;
   padding: 10px 15px;
   text-transform: none;
+  color: #14A452!important;
+  padding: 8px;
+  font-weight: 500;
 }
 
 .emotion-3::-moz-focus-inner {
@@ -236,6 +256,10 @@ exports[`DeviceAdditionWidget Component renders correctly 1`] = `
   background: #F5F5F5;
 }
 
+.emotion-3:hover {
+  background: none;
+}
+
 .emotion-4 {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -258,7 +282,7 @@ exports[`DeviceAdditionWidget Component renders correctly 1`] = `
 }
 
 <div
-  class="MuiButtonGroup-root MuiButtonGroup-outlined muted device-addition-widget emotion-0"
+  class="MuiButtonGroup-root MuiButtonGroup-outlined  emotion-0"
   role="group"
 >
   <button
@@ -266,7 +290,7 @@ exports[`DeviceAdditionWidget Component renders correctly 1`] = `
     tabindex="0"
     type="button"
   >
-    Connect a new device
+    Add a new device
     <span
       class="MuiTouchRipple-root emotion-2"
     />
@@ -279,12 +303,12 @@ exports[`DeviceAdditionWidget Component renders correctly 1`] = `
     <svg
       aria-hidden="true"
       class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
-      data-testid="ArrowDropDownIcon"
+      data-testid="ExpandMoreIcon"
       focusable="false"
       viewBox="0 0 24 24"
     >
       <path
-        d="m7 10 5 5 5-5z"
+        d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
       />
     </svg>
     <span

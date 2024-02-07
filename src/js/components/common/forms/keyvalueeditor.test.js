@@ -29,7 +29,7 @@ describe('KeyValueEditor Component', () => {
     expect(view).toMatchSnapshot();
     expect(view).toEqual(expect.not.stringMatching(undefineds));
   });
-  const fabSelector = '.MuiFab-root';
+  const fabSelector = '.MuiIconButton-root';
   it('works as intended', async () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const submitMock = jest.fn();

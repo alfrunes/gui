@@ -50,7 +50,7 @@ describe('PreauthDialog Component', () => {
       />
     );
     const { rerender } = render(ui);
-    expect(screen.getByText(/upload a public key file/i)).toBeInTheDocument();
+    expect(screen.getByText(/Drag here or browse/i)).toBeInTheDocument();
     // container.querySelector doesn't work in this scenario for some reason -> but querying document seems to work
     const uploadInput = document.querySelector(dropzone);
     await act(async () => {
@@ -61,7 +61,7 @@ describe('PreauthDialog Component', () => {
     expect(uploadInput.files).toHaveLength(1);
     await waitFor(() => expect(document.querySelector(dropzone)).not.toBeInTheDocument());
     expect(screen.getByDisplayValue('test.pem')).toBeInTheDocument();
-    const fabSelector = '.MuiFab-root';
+    const fabSelector = '.key-value-container .MuiIconButton-root';
     expect(document.querySelector(fabSelector)).toBeDisabled();
     await act(async () => {
       await user.type(screen.getByPlaceholderText(/key/i), 'testKey');

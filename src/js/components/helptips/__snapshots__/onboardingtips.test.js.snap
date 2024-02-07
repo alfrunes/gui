@@ -269,7 +269,7 @@ exports[`OnboardingTips Components tiny onboarding tips renders DashboardOnboard
 
 exports[`OnboardingTips Components tiny onboarding tips renders DashboardOnboardingState correctly 1`] = `
 <div>
-  This should be your device, asking for permission to join the server. Inspect its identity details, then check it to accept it!
+  Your device has requested to join the server. Click the row to view the device details.
 </div>
 `;
 
@@ -293,17 +293,12 @@ exports[`OnboardingTips Components tiny onboarding tips renders DeploymentsPastC
 
 exports[`OnboardingTips Components tiny onboarding tips renders DevicesAcceptedOnboarding correctly 1`] = `
 <div>
-  <b>
-    Good job! Your first device is connected!
-  </b>
+  <h3>
+    Welcome to Alvaldi
+  </h3>
   <p>
-    Your device is now 
-    <b>
-      accepted
-    </b>
-    ! It's now going to share device details with the server.
+    Click on a device to learn more about the core features of Alvaldi.
   </p>
-  Click to expand the device and see more
 </div>
 `;
 

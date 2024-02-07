@@ -32,14 +32,13 @@ describe('DeviceConnectionDialog Component', () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     render(<DeviceConnectionDialog onCancel={jest.fn} />);
     await act(async () => {
-      await user.click(screen.getByText(/get started/i));
+      await user.click(screen.getByText(/Raspberry Pi quick start/i));
     });
-    expect(screen.getByText(/Enter your device type/i)).toBeInTheDocument();
     await act(async () => {
       await user.click(screen.getByRole('button', { name: /back/i }));
     });
     await act(async () => {
-      await user.click(screen.getByText(/Try a virtual device/i));
+      await user.click(screen.getByText(/Use a virtual device/i));
     });
     expect(screen.getByText(/run the following command to start the virtual device/i)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /Waiting for device/i })).toBeInTheDocument();

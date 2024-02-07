@@ -531,11 +531,10 @@ exports[`Device Component renders correctly 1`] = `
 }
 
 .emotion-18 {
-  height: 0;
-  overflow: hidden;
+  height: auto;
+  overflow: visible;
   -webkit-transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  visibility: hidden;
 }
 
 .emotion-19 {
@@ -2430,23 +2429,23 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-37:focus::-ms-input-
               style="margin-top: 9px;"
             />
             <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters accordion emotion-13"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters accordion emotion-13"
             >
               <div
-                aria-expanded="false"
-                class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters accordion-summary emotion-14"
+                aria-expanded="true"
+                class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded MuiAccordionSummary-gutters accordion-summary emotion-14"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters emotion-15"
+                  class="MuiAccordionSummary-content Mui-expanded MuiAccordionSummary-contentGutters emotion-15"
                 >
                   <h2>
                     File transfer
                   </h2>
                 </div>
                 <div
-                  class="MuiAccordionSummary-expandIconWrapper emotion-16"
+                  class="MuiAccordionSummary-expandIconWrapper Mui-expanded emotion-16"
                 >
                   <svg
                     aria-hidden="true"
@@ -2463,7 +2462,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-37:focus::-ms-input-
                 </div>
               </div>
               <div
-                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-18"
+                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-entered emotion-18"
                 style="min-height: 0px;"
               >
                 <div

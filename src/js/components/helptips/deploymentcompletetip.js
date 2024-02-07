@@ -20,7 +20,7 @@ import { Button } from '@mui/material';
 import { withStyles } from 'tss-react/mui';
 
 import { getDevicesByStatus } from '../../actions/deviceActions';
-import { advanceOnboarding, setOnboardingComplete, setShowCreateArtifactDialog } from '../../actions/onboardingActions';
+import { advanceOnboarding, setOnboardingComplete } from '../../actions/onboardingActions';
 import * as DeviceConstants from '../../constants/deviceConstants';
 import { onboardingSteps } from '../../constants/onboardingConstants';
 import { getDemoDeviceAddress } from '../../selectors';
@@ -52,7 +52,6 @@ export const DeploymentCompleteTip = ({ anchor, targetUrl }) => {
     window.open(parametrizedAddress, '_blank');
     dispatch(advanceOnboarding(onboardingSteps.DEPLOYMENTS_PAST_COMPLETED_FAILURE));
     dispatch(setOnboardingComplete(false));
-    dispatch(setShowCreateArtifactDialog(true));
     navigate('/releases');
   };
 

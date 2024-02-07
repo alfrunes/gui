@@ -36,6 +36,14 @@ exports[`EventDetailsDrawer Component renders correctly 1`] = `
   background-color: #f7f7f7;
 }
 
+.emotion-1 button {
+  float: right;
+  margin: 0 0 0 10px;
+  background: white;
+  border: 1px solid #9E9E9E;
+  padding: 7px;
+}
+
 <div
   class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation16 MuiDrawer-paper MuiDrawer-paperAnchorRight emotion-0"
   tabindex="-1"

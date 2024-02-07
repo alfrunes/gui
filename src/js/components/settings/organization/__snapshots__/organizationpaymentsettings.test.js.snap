@@ -59,8 +59,8 @@ exports[`OrganizationPaymentSettings Component renders correctly 1`] = `
 }
 
 .emotion-0.leftNav.active {
-  border-top: 1px solid #d4e9e7;
-  border-bottom: 1px solid #d4e9e7;
+  border-top: 1px solid #F5F5F5;
+  border-bottom: 1px solid #F5F5F5;
 }
 
 .emotion-1 {

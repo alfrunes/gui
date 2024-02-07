@@ -25,7 +25,6 @@ exports[`DeploymentCompleteTip Component renders correctly 1`] = `
 .emotion-1 {
   z-index: 1500;
   pointer-events: auto;
-  opacity: 0.9;
 }
 
 .emotion-2 {
@@ -40,13 +39,13 @@ exports[`DeploymentCompleteTip Component renders correctly 1`] = `
   word-wrap: break-word;
   font-weight: 500;
   background-color: rgb(50, 50, 50);
-  background-color: #14A452;
+  background-color: #0F8843;
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
-  color: #e9e9e9;
+  color: #F5F5F5;
   font-size: 14px;
-  max-width: 350px;
-  padding: 12px 18px;
-  width: 350px;
+  max-width: 330px;
+  padding: 21px 16px;
+  width: 330px;
 }
 
 .MuiTooltip-popper[data-popper-placement*="left"] .emotion-2 {
@@ -69,26 +68,41 @@ exports[`DeploymentCompleteTip Component renders correctly 1`] = `
   margin-top: 14px;
 }
 
-.emotion-2 a {
-  color: #e9e9e9;
+.emotion-2 h3 {
+  font-size: 22px;
+  margin-top: 0;
+}
+
+.emotion-2 a,
+.emotion-2 a:hover {
+  color: #F5F5F5;
+  font-weight: 500;
 }
 
 .emotion-2.MuiTooltip-tooltipPlacementTop {
-  margin-left: 30px;
+  margin-left: 34px;
   margin-bottom: 0;
-  margin-top: calc(30 + 12px);
+  -webkit-transform: translateY(34px)!important;
+  -moz-transform: translateY(34px)!important;
+  -ms-transform: translateY(34px)!important;
+  transform: translateY(34px)!important;
 }
 
 .emotion-2.MuiTooltip-tooltipPlacementRight {
-  margin-top: 15px;
+  margin-top: 17px;
 }
 
 .emotion-2.MuiTooltip-tooltipPlacementBottom {
-  margin-left: 30px;
+  margin-left: 34px;
 }
 
 .emotion-2.MuiTooltip-tooltipPlacementLeft {
-  margin-top: 15px;
+  margin-top: 34px;
+  -webkit-transform: translateX(34px)!important;
+  -moz-transform: translateX(34px)!important;
+  -ms-transform: translateX(34px)!important;
+  transform: translateX(34px)!important;
+  padding-right: 20px;
 }
 
 .emotion-3 {

@@ -2,12 +2,36 @@
 
 exports[`VirtualDeviceOnboarding Component renders correctly 1`] = `
 .emotion-0 {
+  letter-spacing: 0.25px;
+  word-break: break-all;
+}
+
+.emotion-0 a {
+  color: #212121;
+  font-weight: 400;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-1 {
   border: 1px solid;
   border-color: #f7f7f7;
   background-color: #f7f7f7;
 }
 
-.emotion-1 {
+.emotion-1 button {
+  float: right;
+  margin: 0 0 0 10px;
+  background: white;
+  border: 1px solid #9E9E9E;
+  padding: 7px;
+}
+
+.emotion-2 {
+  max-height: 221px;
+}
+
+.emotion-3 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -58,61 +82,61 @@ exports[`VirtualDeviceOnboarding Component renders correctly 1`] = `
   padding: 10px 15px;
 }
 
-.emotion-1::-moz-focus-inner {
+.emotion-3::-moz-focus-inner {
   border-style: none;
 }
 
-.emotion-1.Mui-disabled {
+.emotion-3.Mui-disabled {
   pointer-events: none;
   cursor: default;
 }
 
 @media print {
-  .emotion-1 {
+  .emotion-3 {
     -webkit-print-color-adjust: exact;
     color-adjust: exact;
   }
 }
 
-.emotion-1:hover {
+.emotion-3:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
   background-color: rgba(20, 164, 82, 0.04);
 }
 
 @media (hover: none) {
-  .emotion-1:hover {
+  .emotion-3:hover {
     background-color: transparent;
   }
 }
 
-.emotion-1.Mui-disabled {
+.emotion-3.Mui-disabled {
   color: rgba(0, 0, 0, 0.26);
 }
 
-.emotion-1:hover {
+.emotion-3:hover {
   colors: #14A452;
 }
 
-.emotion-1.MuiButton-text {
+.emotion-3.MuiButton-text {
   color: #212121;
 }
 
-.emotion-1:hover {
+.emotion-3:hover {
   background: #F5F5F5;
 }
 
-.emotion-2 {
+.emotion-4 {
   display: inherit;
   margin-right: 8px;
   margin-left: -4px;
 }
 
-.emotion-2>*:nth-of-type(1) {
+.emotion-4>*:nth-of-type(1) {
   font-size: 20px;
 }
 
-.emotion-3 {
+.emotion-5 {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -129,11 +153,11 @@ exports[`VirtualDeviceOnboarding Component renders correctly 1`] = `
   font-size: 1.3125rem;
 }
 
-.emotion-3 iconButton {
+.emotion-5 iconButton {
   margin-right: 8px;
 }
 
-.emotion-4 {
+.emotion-6 {
   overflow: hidden;
   pointer-events: none;
   position: absolute;
@@ -157,26 +181,25 @@ exports[`VirtualDeviceOnboarding Component renders correctly 1`] = `
       To start a virtual device, change directory into the folder where you cloned Mender integration.
     </p>
   </div>
-  <p>
-    <b>
-      2. Copy & paste and run the following command to start the virtual device:
-    </b>
+  <p
+    class="emotion-0"
+  >
+    2. Copy & paste and run the following command to start the virtual device:
   </p>
   <div
-    class="code emotion-0 "
+    class="code emotion-1 emotion-2"
   >
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-1"
-      style="float: right; margin: -20px 0px 0px 10px;"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-3"
       tabindex="0"
       type="button"
     >
       <span
-        class="MuiButton-startIcon MuiButton-iconSizeMedium emotion-2"
+        class="MuiButton-startIcon MuiButton-iconSizeMedium emotion-4"
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-3"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-5"
           data-testid="FileCopyIcon"
           focusable="false"
           viewBox="0 0 24 24"
@@ -188,7 +211,7 @@ exports[`VirtualDeviceOnboarding Component renders correctly 1`] = `
       </span>
       Copy to clipboard
       <span
-        class="MuiTouchRipple-root emotion-4"
+        class="MuiTouchRipple-root emotion-6"
       />
     </button>
     <span
@@ -200,19 +223,6 @@ exports[`VirtualDeviceOnboarding Component renders correctly 1`] = `
   <p />
   <p>
     The device should appear in the Pending devices view in a couple of minutes.
-  </p>
-  <p>
-    Visit
-     
-    <a
-      href="https://docs.mender.io/development/get-started/preparation/prepare-a-virtual-device"
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      our documentation
-    </a>
-     
-    for more information on managing the virtual device.
   </p>
 </div>
 `;

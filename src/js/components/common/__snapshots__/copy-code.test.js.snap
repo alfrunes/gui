@@ -7,6 +7,14 @@ exports[`CopyCode Component renders correctly 1`] = `
   background-color: #f7f7f7;
 }
 
+.emotion-0 button {
+  float: right;
+  margin: 0 0 0 10px;
+  background: white;
+  border: 1px solid #9E9E9E;
+  padding: 7px;
+}
+
 .emotion-1 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -128,7 +136,6 @@ exports[`CopyCode Component renders correctly 1`] = `
     >
       <button
         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeLarge emotion-1"
-        style="float: right; margin: -20px 0px 0px 10px;"
         tabindex="0"
         type="button"
       >

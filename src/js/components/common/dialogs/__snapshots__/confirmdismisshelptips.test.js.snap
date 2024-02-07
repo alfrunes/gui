@@ -106,6 +106,12 @@ exports[`ConfirmDismissHelptips Component renders correctly 1`] = `
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.emotion-4 .MuiIconButton-root {
+  color: #9E9E9E;
 }
 
 .emotion-5 {
