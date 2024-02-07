@@ -70,6 +70,10 @@ export const WelcomeSnackTip = React.forwardRef(({ progress, setSnackbar }, ref)
 });
 WelcomeSnackTip.displayName = 'WelcomeSnackTip';
 
+export const DevicesPendingDelayed = () => (
+  <div>If your device still isn&apos;t showing, try following the connection steps again or see our documentation for more.</div>
+);
+
 const DevicePendingTipComponent = ({ setShowConnectingDialog, setShowDismissOnboardingTipsDialog }) => (
   <div style={{ display: 'grid', placeItems: 'center' }}>
     <MenderTooltipClickable
@@ -105,8 +109,13 @@ export const DevicePendingTip = connect(null, mappedActionCreators)(DevicePendin
 
 export const GetStartedTip = () => <div>Click here to get started!</div>;
 
-export const DashboardOnboardingState = () => (
-  <div>This should be your device, asking for permission to join the server. Inspect its identity details, then check it to accept it!</div>
+export const DashboardOnboardingState = () => <div>Your device has requested to join the server. Click the row to view the device details.</div>;
+
+export const OnboardingStart = () => (
+  <div>
+    <h3>Welcome to Alvaldi</h3>
+    <p>We can help you get started with adding your first device and using the terminal.</p>
+  </div>
 );
 
 export const DevicesPendingAcceptingOnboarding = () => <div>If you recognize this device as your own, you can accept it</div>;
@@ -115,11 +124,36 @@ export const DashboardOnboardingPendings = () => <div>Next accept your device</d
 
 export const DevicesAcceptedOnboarding = () => (
   <div>
-    <b>Good job! Your first device is connected!</b>
-    <p>
-      Your device is now <b>accepted</b>! It&apos;s now going to share device details with the server.
-    </p>
-    Click to expand the device and see more
+    <h3>Welcome to Alvaldi</h3>
+    <p>Click on a device to learn more about the core features of Alvaldi.</p>
+  </div>
+);
+
+export const DeviceAuthOnboarding = () => (
+  <div>
+    <h3>Accepting a device</h3>
+    <p>To use the terminal and other features, the device needs to be authorized. If you haven’t already, click “Accept” here to authorize.</p>
+  </div>
+);
+
+export const DeviceInventoryOnboarding = () => (
+  <div>
+    <h3>Inventory information</h3>
+    <p>Here you can find useful information about the device.</p>
+  </div>
+);
+
+export const DeviceTerminalOnboarding = () => (
+  <div>
+    <h3>Starting the terminal</h3>
+    <p>Click Connect to device to start a terminal session and run commands on the device.</p>
+  </div>
+);
+
+export const DeviceFilesTransferringOnboarding = () => (
+  <div>
+    <h3>Transferring files</h3>
+    <p>Upload and download files, such as log files and scripts, to and from the device.</p>
   </div>
 );
 

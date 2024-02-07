@@ -12,7 +12,7 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton } from '@mui/material';
@@ -21,11 +21,7 @@ import { makeStyles } from 'tss-react/mui';
 import docker from '../../../../assets/img/docker.png';
 import iotHub from '../../../../assets/img/iot-hub.png';
 import raspberryPi from '../../../../assets/img/raspberrypi.png';
-import { setDeviceListState } from '../../../actions/deviceActions';
-import { advanceOnboarding } from '../../../actions/onboardingActions';
-import { TIMEOUTS } from '../../../constants/appConstants';
-import { DEVICE_STATES } from '../../../constants/deviceConstants';
-import { onboardingSteps } from '../../../constants/onboardingConstants';
+
 import { getDeviceCountsByStatus, getDocsVersion, getOnboardingState, getTenantCapabilities } from '../../../selectors';
 import PhysicalDeviceOnboarding from './physicaldeviceonboarding';
 import VirtualDeviceOnboarding from './virtualdeviceonboarding';
@@ -36,10 +32,6 @@ const useStyles = makeStyles()(theme => ({
     backgroundColor: theme.palette.grey[50]
   },
   virtualLogo: { marginRight: theme.spacing(2) },
-  dialogTitle: {
-    fontSize: 20,
-    fontWeight: 700
-  },
   card: {
     '&:hover': {
       boxShadow: '0px 4px 12px 3px rgba(0, 0, 0, 0.30)',
@@ -48,9 +40,6 @@ const useStyles = makeStyles()(theme => ({
     h3: {
       fontSize: 14
     }
-  },
-  closeIcon: {
-    color: theme.palette.grey[450]
   },
   code: {
     background: theme.palette.grey[50],
@@ -112,22 +101,11 @@ export const DeviceConnectionDialog = ({ onCancel }) => {
   const [hasMoreDevices, setHasMoreDevices] = useState(false);
   const docsVersion = useSelector(getDocsVersion);
   const { hasMonitor } = useSelector(getTenantCapabilities);
-  const { complete: onboardingComplete} = useSelector(getOnboardingState);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const { classes } = useStyles();
+  const { complete: onboardingComplete } = useSelector(getOnboardingState);
 
   useEffect(() => {
     setHasMoreDevices(pendingCount > pendingDevicesCount);
   }, [pendingDevicesCount, pendingCount]);
-
-  useEffect(() => {
-    if ((virtualDevice || progress >= 2) && hasMoreDevices && !window.location.hash.includes('pending')) {
-      dispatch(advanceOnboarding(onboardingSteps.DASHBOARD_ONBOARDING_START));
-      dispatch(setDeviceListState({ state: DEVICE_STATES.pending }));
-      navigate('/devices/pending');
-    }
-  }, [advanceOnboarding, hasMoreDevices, progress, virtualDevice]);
 
   const onBackClick = () => {
     let updatedProgress = progress - 1;
@@ -137,11 +115,6 @@ export const DeviceConnectionDialog = ({ onCancel }) => {
       setVirtualDevice(false);
     }
     setProgress(updatedProgress);
-  };
-
-  const onAdvance = () => {
-    dispatch(advanceOnboarding(onboardingSteps.DASHBOARD_ONBOARDING_START));
-    setProgress(progress + 1);
   };
 
   let content = (
@@ -159,16 +132,13 @@ export const DeviceConnectionDialog = ({ onCancel }) => {
     content = <VirtualDeviceOnboarding />;
   }
 
-  if (hasMoreDevices && !onboardingComplete) {
-    setTimeout(onCancel, TIMEOUTS.twoSeconds);
-  }
   const dialogTitle = !(onDevice || virtualDevice) ? 'Add a device' : onDevice ? 'Rasberry Pi quick start' : 'Use a virtual device';
   return (
     <Dialog open={true} onClose={onCancel} PaperProps={{ sx: { maxWidth: '600px' } }}>
-      <DialogTitle className={`flexbox space-between center-aligned ${classes.dialogTitle}`}>
+      <DialogTitle className="flexbox space-between center-aligned">
         <Box>{dialogTitle}</Box>
         <IconButton onClick={onCancel}>
-          <CloseIcon className={classes.closeIcon} />
+          <CloseIcon />
         </IconButton>
       </DialogTitle>
       <DialogContent className="onboard-dialog">{content}</DialogContent>
@@ -176,8 +146,8 @@ export const DeviceConnectionDialog = ({ onCancel }) => {
         {(onDevice || virtualDevice) && (
           <div className="flexbox space-between flexbox-grow">
             <Button onClick={onBackClick}>Back</Button>
-            <Button disabled={!onboardingComplete} onClick={onCancel}>
-              {onboardingComplete ? 'Cancel' : 'Waiting for devices...'}
+            <Button disabled={!onboardingComplete && !hasMoreDevices} onClick={onCancel}>
+              {onboardingComplete ? 'Close' : hasMoreDevices ? 'Show device' : 'Waiting for device'}
             </Button>
           </div>
         )}

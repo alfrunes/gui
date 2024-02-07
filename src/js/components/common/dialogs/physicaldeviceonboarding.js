@@ -16,7 +16,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { Help as HelpIcon, InfoOutlined as InfoIcon } from '@mui/icons-material';
-import { Autocomplete, Box, TextField } from '@mui/material';
+import { Autocomplete, TextField } from '@mui/material';
 import { createFilterOptions } from '@mui/material/useAutocomplete';
 
 import { advanceOnboarding, setOnboardingApproach, setOnboardingDeviceType } from '../../../actions/onboardingActions';
@@ -26,7 +26,6 @@ import { getDebConfigurationCode, versionCompare } from '../../../helpers';
 import { getDocsVersion, getFeatures, getIsEnterprise, getIsPreview, getOnboardingState, getOrganization, getVersionInformation } from '../../../selectors';
 import CopyCode from '../copy-code';
 import { MenderTooltipClickable } from '../mendertooltip';
-import { LoginDialog } from '../../login/login.js';
 import { makeStyles } from 'tss-react/mui';
 
 const filter = createFilterOptions();
@@ -189,8 +188,7 @@ export const DeviceTypeSelectionStep = ({
 };
 
 export const InstallationStep = ({ advanceOnboarding, selection, onboardingState, ...remainingProps }) => {
-  const [codeToCopy, setCodeToDeploy] = useState(undefined);
-  // const codeToCopy = getDebConfigurationCode({ ...remainingProps, deviceType: selection, isOnboarding: !onboardingState.complete });
+  const codeToCopy = getDebConfigurationCode({ ...remainingProps, deviceType: selection, isOnboarding: !onboardingState.complete });
   const { classes } = useStyles();
   return (
     <>
@@ -199,23 +197,12 @@ export const InstallationStep = ({ advanceOnboarding, selection, onboardingState
         <br />
         Copy & paste and run this command on your device:
       </p>
-      {codeToCopy ? (
-        <CopyCode
-          className={classes.copyCode}
-          code={codeToCopy}
-          onCopy={() => advanceOnboarding(onboardingSteps.DASHBOARD_ONBOARDING_START)}
-          withDescription={true}
-        />
-      ) : (
-        <Box className={classes.codeBlock}>
-          <LoginDialog
-            setToken={token => {
-              setCodeToDeploy(getDebConfigurationCode({ ...remainingProps, deviceType: selection, isOnboarding: !onboardingState.complete, token }));
-            }}
-          />
-        </Box>
-      )}
-
+      <CopyCode
+        className={classes.copyCode}
+        code={codeToCopy}
+        onCopy={() => advanceOnboarding(onboardingSteps.DASHBOARD_ONBOARDING_START)}
+        withDescription={true}
+      />
       <p>This downloads the Alvaldi client on the device, sets the configuration and starts the client.</p>
       <p>
         Once the client has started, your device will attempt to connect to the server. It will then appear in your Pending devices tab and you can continue.

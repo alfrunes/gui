@@ -695,26 +695,16 @@ ul.link-list {
 }
 
 .onboard-icon {
-  background: @mendergreen;
+  background: white;
   border-radius: 50%;
-  height: 2 * @defaultGutterWidth;
-  width: 2 * @defaultGutterWidth;
+  height: 3 * @defaultGutterWidth;
+  width: 3 * @defaultGutterWidth;
   align-items: center;
   justify-content: center;
   display: flex;
   z-index: 1000;
-  color: @placeholder;
+  color: @text;
   border: white 1px solid;
-  &.top,
-  &.bottom {
-    .animation(bouncedownup 1.3s infinite);
-  }
-  &.left {
-    .animation(bouncerightleft 1.3s infinite);
-  }
-  &.right {
-    .animation(bounceleftright 1.3s infinite);
-  }
 }
 
 .dialog-content {
@@ -758,7 +748,6 @@ ul.link-list {
 }
 .MuiTooltip-tooltip .content {
   > div:first-of-type {
-    padding-top: @defaultGutterWidth;
     padding-bottom: 10px;
   }
   .flexbox {

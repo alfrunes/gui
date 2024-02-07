@@ -32,19 +32,22 @@ const useStyles = makeStyles()(theme => ({
   deviceAdditionWidget: {
     border: `1px solid ${theme.palette.primary.main}`,
     borderRadius: 4,
+    button: {
+      padding: '5px 8px'
+    },
     'button:last-child': {
       borderLeft: `1px solid ${theme.palette.primary.main}`
     }
   }
 }));
 
-export const DeviceAdditionWidget = ({ features, onConnectClick, onPreauthClick, tenantCapabilities }) => {
+export const DeviceAdditionWidget = ({ features, innerRef, onConnectClick, onPreauthClick, tenantCapabilities, className = '' }) => {
   const [anchorEl, setAnchorEl] = useState();
   const [selectedIndex, setSelectedIndex] = useState(0);
   const { classes } = useStyles();
 
   const options = [
-    { action: onConnectClick, title: 'Connect a new device', value: 'connect', canAccess },
+    { action: onConnectClick, title: 'Add a new device', value: 'connect', canAccess },
     { action: onPreauthClick, title: 'Preauthorize a device', value: 'preauth', canAccess },
     {
       href: `https://docs.alvaldi.com/getting-started/setup/`,
@@ -69,7 +72,7 @@ export const DeviceAdditionWidget = ({ features, onConnectClick, onPreauthClick,
 
   return (
     <>
-      <ButtonGroup className={classes.deviceAdditionWidget}>
+      <ButtonGroup ref={innerRef} className={`${classes.deviceAdditionWidget} ${className}`}>
         <Button className={classes.buttonStyle} onClick={options[selectedIndex].action} variant="text">
           {options[selectedIndex].title}
         </Button>

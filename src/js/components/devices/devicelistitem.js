@@ -22,6 +22,9 @@ import { DEVICE_STATES } from '../../constants/deviceConstants';
 import { deepCompare } from '../../helpers';
 import DeviceIdentityDisplay from '../common/deviceidentity';
 import { DefaultAttributeRenderer } from './base-devices';
+import { useDispatch } from 'react-redux';
+import { advanceOnboarding } from '../../actions/onboardingActions.js';
+import { onboardingSteps } from '../../constants/onboardingConstants.js';
 
 const useStyles = makeStyles()(theme => ({
   active: {
@@ -40,6 +43,7 @@ const useStyles = makeStyles()(theme => ({
 const DeviceListItem = ({ columnHeaders, device, idAttribute, index, onRowSelect, selectable, selected }) => {
   const [isHovering, setIsHovering] = useState(false);
   const { classes } = useStyles();
+  const dispatch = useDispatch();
 
   const onMouseOut = () => setIsHovering(false);
   const onMouseOver = () => setIsHovering(true);
@@ -49,6 +53,7 @@ const DeviceListItem = ({ columnHeaders, device, idAttribute, index, onRowSelect
       if (event && event.target.closest('input')?.hasOwnProperty('checked')) {
         return;
       }
+      dispatch(advanceOnboarding(onboardingSteps.DEVICES_ACCEPTED_ONBOARDING));
       navigate(`/devices/${device.id}`);
     },
     [device.id]

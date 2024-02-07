@@ -27,13 +27,16 @@ import { setSnackbar } from '../../../actions/appActions';
 import { deviceFileUpload, getDeviceFileDownloadLink } from '../../../actions/deviceActions';
 import { TIMEOUTS } from '../../../constants/appConstants';
 import { createDownload } from '../../../helpers';
-import { getUserCapabilities } from '../../../selectors';
+import { getOnboardingState, getUserCapabilities } from '../../../selectors';
 import { useSession } from '../../../utils/sockethook';
 import { TwoColumns } from '../../common/configurationobject';
 import MaterialDesignIcon from '../../common/materialdesignicon.js';
 import { MaybeTime } from '../../common/time';
 import FileTransfer from '../troubleshoot/filetransfer';
 import Terminal from '../troubleshoot/terminal';
+import { getOnboardingComponentFor } from '../../../utils/onboardingmanager.js';
+import { onboardingSteps } from '../../../constants/onboardingConstants.js';
+import { advanceOnboarding } from '../../../actions/onboardingActions.js';
 
 momentDurationFormatSetup(moment);
 
@@ -73,6 +76,9 @@ export const Troubleshoot = ({ device }) => {
   const { canTroubleshoot, canTransferFiles } = userCapabilities;
   const dispatch = useDispatch();
   const dispatchedSetSnackbar = (...args) => dispatch(setSnackbar(...args));
+
+  const connectTerminalButtonRef = useRef();
+  const filesTransferRef = useRef();
 
   useEffect(() => {
     if (socketInitialized === undefined) {
@@ -214,6 +220,40 @@ export const Troubleshoot = ({ device }) => {
     return close;
   }, [close, sessionState]);
 
+  const onboardingState = useSelector(getOnboardingState);
+  let onboardingComponent;
+  if (connectTerminalButtonRef.current) {
+    const vwTermOffset = connectTerminalButtonRef.current.getBoundingClientRect();
+    const anchor = {
+      top: vwTermOffset.top + connectTerminalButtonRef.current.offsetHeight / 2 + 20,
+      left: vwTermOffset.left + connectTerminalButtonRef.current.offsetWidth / 2
+    };
+
+    onboardingComponent = getOnboardingComponentFor(
+      onboardingSteps.DEVICE_TERMINAL,
+      onboardingState,
+      { anchor, place: 'top' },
+      onboardingComponent,
+      <a onClick={() => dispatch(advanceOnboarding(onboardingSteps.DEVICE_TERMINAL))}>Next</a>
+    );
+  }
+
+  if (filesTransferRef.current) {
+    const vwFileOffset = filesTransferRef.current.getBoundingClientRect();
+    const anchor = {
+      top: vwFileOffset.top - 40,
+      left: vwFileOffset.left + filesTransferRef.current.offsetWidth / 2
+    };
+
+    onboardingComponent = getOnboardingComponentFor(
+      onboardingSteps.DEVICE_FILES_TRANSFERRING,
+      onboardingState,
+      { anchor, place: 'bottom' },
+      onboardingComponent,
+      <a onClick={() => dispatch(advanceOnboarding(onboardingSteps.DEVICE_FILES_TRANSFERRING))}>Done!</a>
+    );
+  }
+
   const duration = moment.duration(elapsed.diff(moment(startTime)));
   return (
     <div>
@@ -246,7 +286,7 @@ export const Troubleshoot = ({ device }) => {
           {!socketInitialized && (
             <div className={`flexbox centered ${classes.connectionButton}`}>
               {!device.isOffline && (
-                <Button variant="contained" color="secondary" onClick={onConnectionToggle}>
+                <Button ref={connectTerminalButtonRef} variant="contained" color="secondary" onClick={onConnectionToggle}>
                   Connect Terminal
                 </Button>
               )}
@@ -260,7 +300,7 @@ export const Troubleshoot = ({ device }) => {
       {canTransferFiles && (
         <>
           <Divider className="margin-bottom-large" style={{ marginTop: 9 }} />
-          <Accordion className="accordion">
+          <Accordion expanded={true} className="accordion">
             <AccordionSummary className="accordion-summary" expandIcon={<ExpandIcon style={{ fontSize: 24 }} />}>
               <h2>File transfer</h2>
             </AccordionSummary>
@@ -277,9 +317,11 @@ export const Troubleshoot = ({ device }) => {
                 setUploadPath={setUploadPath}
                 uploadPath={uploadPath}
                 userCapabilities={userCapabilities}
+                innerRef={filesTransferRef}
               />
             </AccordionDetails>
           </Accordion>
+          {onboardingComponent}
         </>
       )}
     </div>

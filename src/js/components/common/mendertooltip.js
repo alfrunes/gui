@@ -81,30 +81,32 @@ export const MenderTooltipClickable = ({ children, onboarding, startOpen = false
   );
 };
 
-const iconWidth = 30;
+const iconWidth = 34;
 
 export const OnboardingTooltip = withStyles(Tooltip, theme => ({
   arrow: {
     color: theme.palette.primary.main
   },
   tooltip: {
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.green[850],
     boxShadow: theme.shadows[1],
-    color: theme.palette.grey[500],
+    color: theme.palette.grey[50],
     fontSize: 14,
-    maxWidth: 350,
-    padding: '12px 18px',
-    width: 350,
-    '& a': {
-      color: theme.palette.grey[500]
+    maxWidth: 330,
+    padding: '21px 16px',
+    width: 330,
+    h3: {
+      fontSize: 22,
+      marginTop: 0
     },
-    '&.MuiTooltip-tooltipPlacementTop': { marginLeft: iconWidth, marginBottom: 0, marginTop: `calc(${iconWidth} + ${theme.spacing(1.5)})` },
+    'a, a:hover': {
+      color: theme.palette.grey[50],
+      fontWeight: 500
+    },
+    '&.MuiTooltip-tooltipPlacementTop': { marginLeft: iconWidth, marginBottom: 0, transform: `translateY(${iconWidth}px) !important` },
     '&.MuiTooltip-tooltipPlacementRight': { marginTop: iconWidth / 2 },
     '&.MuiTooltip-tooltipPlacementBottom': { marginLeft: iconWidth },
-    '&.MuiTooltip-tooltipPlacementLeft': { marginTop: iconWidth / 2 }
-  },
-  popper: {
-    opacity: 0.9
+    '&.MuiTooltip-tooltipPlacementLeft': { marginTop: iconWidth, transform: `translateX(${iconWidth}px) !important`, paddingRight: 20 }
   }
 }));
 export default MenderTooltip;
