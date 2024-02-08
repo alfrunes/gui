@@ -39,7 +39,7 @@ describe('getDemoDeviceCreationCommand function', () => {
     expect(code).toMatch('./demo --client up');
     code = getDemoDeviceCreationCommand(token);
     expect(code).toMatch(
-      `TENANT_TOKEN='${token}'\ndocker run -it -p 85:85 -e SERVER_URL='https://localhost' \\\n-e TENANT_TOKEN=$TENANT_TOKEN --pull=always mendersoftware/mender-client-qemu`
+      `docker run -it \\\n-e CONNECT_SERVER_URL='https://localhost' \\\n-e CONNECT_TENANT_TOKEN='${token}' \\\n--pull=always northerntech/nt-connect:latest`
     );
   });
 });
