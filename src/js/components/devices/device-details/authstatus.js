@@ -17,7 +17,7 @@ import { Block as BlockIcon, CheckCircle as CheckCircleIcon, Check as CheckIcon 
 import { Chip, Icon } from '@mui/material';
 
 import pendingIcon from '../../../../assets/img/pending_status.png';
-import { DEVICE_STATES } from '../../../constants/deviceConstants';
+import { DEVICE_STATES, IDENTITY_IOT_HUB_DEVICE_ID_KEY } from '../../../constants/deviceConstants';
 import { AuthButton } from '../../helptips/helptooltips';
 import DeviceDataCollapse from './devicedatacollapse';
 
@@ -32,7 +32,7 @@ const states = {
 };
 
 export const AuthStatus = ({ device, showHelptips }) => {
-  const { auth_sets = [], status = DEVICE_STATES.accepted } = device;
+  const { auth_sets = [], status = DEVICE_STATES.accepted, identity_data = {} } = device;
 
   let hasPending = '';
   if (status === DEVICE_STATES.accepted && auth_sets.length > 1) {
@@ -60,7 +60,7 @@ export const AuthStatus = ({ device, showHelptips }) => {
         </div>
       }
     >
-      <div className="greyed">This device is managed through Azure.</div>
+      {identity_data[IDENTITY_IOT_HUB_DEVICE_ID_KEY] && <div className="greyed">This device is managed through Azure.</div>}
     </DeviceDataCollapse>
   );
 };
