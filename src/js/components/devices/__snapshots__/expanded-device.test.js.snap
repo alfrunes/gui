@@ -1756,11 +1756,6 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-33:focus::-ms-input-
           />
         </div>
         <div />
-        <div
-          class="greyed"
-        >
-          This device is managed through Azure.
-        </div>
       </div>
       <div
         class="margin-bottom "

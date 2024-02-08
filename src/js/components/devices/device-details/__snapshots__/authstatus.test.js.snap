@@ -170,10 +170,5 @@ exports[`AuthStatus Component renders correctly 1`] = `
     />
   </div>
   <div />
-  <div
-    class="greyed"
-  >
-    This device is managed through Azure.
-  </div>
 </div>
 `;
