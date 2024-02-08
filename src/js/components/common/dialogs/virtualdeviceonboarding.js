@@ -15,7 +15,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { setOnboardingApproach } from '../../../actions/onboardingActions';
-import { initialState as onboardingReducerState } from '../../../reducers/onboardingReducer';
 import { getFeatures, getOrganization } from '../../../selectors';
 import CopyCode from '../copy-code';
 
@@ -38,7 +37,7 @@ const useStyles = makeStyles()(theme => ({
 
 export const getDemoDeviceCreationCommand = tenantToken =>
   tenantToken
-    ? `TENANT_TOKEN='${tenantToken}'\ndocker run -it -p ${onboardingReducerState.demoArtifactPort}:${onboardingReducerState.demoArtifactPort} -e SERVER_URL='https://${window.location.hostname}' \\\n-e TENANT_TOKEN=$TENANT_TOKEN --pull=always mendersoftware/mender-client-qemu`
+    ? `docker run -it \\\n-e CONNECT_SERVER_URL='https://${window.location.hostname}' \\\n-e CONNECT_TENANT_TOKEN='${tenantToken}' \\\n--pull=always northerntech/nt-connect:latest`
     : './demo --client up';
 
 export const VirtualDeviceOnboarding = () => {
@@ -68,10 +67,10 @@ export const VirtualDeviceOnboarding = () => {
         </div>
       ) : (
         <div>
-          <b>1. Prerequisites</b>
-          <p>
-            As you are running Mender on-premise, for these instructions we assume that you already have Docker installed and the Mender integration environment
-            up and running on your machine.
+          <p className={classes.paragraph}>
+            1. Get Docker Engine <br />
+            If you do not have it already, please install Docker on your local machine. For example if you are using Ubuntu follow this tutorial:
+            https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
           </p>
           <p>To start a virtual device, change directory into the folder where you cloned Mender integration.</p>
         </div>
