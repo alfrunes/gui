@@ -16,6 +16,8 @@ import React from 'react';
 import { adminUserCapabilities, defaultState, undefineds } from '../../../../../tests/mockData';
 import { render } from '../../../../../tests/setupTests';
 import AuthStatus from './authstatus';
+import { IDENTITY_IOT_HUB_DEVICE_ID_KEY } from '../../../constants/deviceConstants.js';
+import { screen } from '@testing-library/react';
 
 describe('AuthStatus Component', () => {
   it('renders correctly', async () => {
@@ -38,5 +40,20 @@ describe('AuthStatus Component', () => {
     const view = baseElement.firstChild.firstChild;
     expect(view).toMatchSnapshot();
     expect(view).toEqual(expect.not.stringMatching(undefineds));
+  });
+  it('shows device managed by Azure when device has iot hub identity', async () => {
+    render(
+      <AuthStatus
+        device={{
+          ...defaultState.devices.byId.a1,
+          identity_data: {
+            ...defaultState.devices.byId.a1.identity_data,
+            [IDENTITY_IOT_HUB_DEVICE_ID_KEY]: 'azure-device-id'
+          }
+        }}
+        userCapabilities={adminUserCapabilities}
+      />
+    );
+    expect(screen.getByText(/device is managed through Azure/i)).toBeInTheDocument();
   });
 });
