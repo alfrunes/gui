@@ -231,3 +231,5 @@ export const ATTRIBUTE_SCOPES = {
 };
 export const ALL_DEVICES = 'All devices';
 export const UNGROUPED_GROUP = { id: '*|=ungrouped=|*', name: 'Unassigned' };
+
+export const IDENTITY_IOT_HUB_DEVICE_ID_KEY = 'iothub:device_id';
