@@ -13,25 +13,24 @@
 //    limitations under the License.
 import React from 'react';
 
-import { Block as BlockIcon, CheckCircle as CheckCircleIcon, Check as CheckIcon } from '@mui/icons-material';
-import { Chip, Icon } from '@mui/material';
+import { Block as BlockIcon, CheckCircle as CheckCircleIcon, Check as CheckIcon, Pending as PendingIcon } from '@mui/icons-material';
+import { Chip } from '@mui/material';
 
-import pendingIcon from '../../../../assets/img/pending_status.png';
 import { DEVICE_STATES, IDENTITY_IOT_HUB_DEVICE_ID_KEY } from '../../../constants/deviceConstants';
-import { AuthButton } from '../../helptips/helptooltips';
 import DeviceDataCollapse from './devicedatacollapse';
+import Authsets from './authsets/authsets.js';
 
 const iconStyle = { margin: 12 };
 
 const states = {
-  default: <Icon style={iconStyle} component="img" src={pendingIcon} />,
-  pending: <Icon style={iconStyle} component="img" src={pendingIcon} />,
+  default: <PendingIcon style={iconStyle} />,
+  pending: <PendingIcon style={iconStyle} />,
   accepted: <CheckCircleIcon className="green" style={iconStyle} />,
   rejected: <BlockIcon className="red" style={iconStyle} />,
   preauthorized: <CheckIcon style={iconStyle} />
 };
 
-export const AuthStatus = ({ device, showHelptips }) => {
+export const AuthStatus = ({ decommission, device }) => {
   const { auth_sets = [], status = DEVICE_STATES.accepted, identity_data = {} } = device;
 
   let hasPending = '';
@@ -54,12 +53,10 @@ export const AuthStatus = ({ device, showHelptips }) => {
             {statusIcon}
           </div>
           {requestNotification}
-          {showHelptips && (
-            <div style={{ position: 'relative', width: 50, height: 30 }}>{status === DEVICE_STATES.pending && <AuthButton highlightHelp={true} />}</div>
-          )}
         </div>
       }
     >
+      <Authsets decommission={decommission} device={device} />
       {identity_data[IDENTITY_IOT_HUB_DEVICE_ID_KEY] && <div className="greyed">This device is managed through Azure.</div>}
     </DeviceDataCollapse>
   );

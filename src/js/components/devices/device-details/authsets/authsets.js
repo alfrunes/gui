@@ -15,7 +15,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // material ui
-import { Button } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, Button } from '@mui/material';
+import { accordionClasses } from '@mui/material/Accordion';
 import { makeStyles } from 'tss-react/mui';
 
 import pluralize from 'pluralize';
@@ -26,21 +27,33 @@ import { getAcceptedDevices, getDeviceLimit, getLimitMaxed, getUserCapabilities 
 import { DeviceLimitWarning } from '../../dialogs/preauth-dialog';
 import Confirm from './../../../common/confirm';
 import Authsetlist from './authsetlist';
+import { ExpandMore as ExpandIcon } from '@mui/icons-material';
 
 const useStyles = makeStyles()(theme => ({
-  decommission: { justifyContent: 'flex-end', marginTop: theme.spacing(2) },
+  decommission: {
+    '&.MuiButton-text': {
+      color: theme.palette.red[600],
+      border: `1px solid ${theme.palette.red[600]}`,
+      padding: '6px 8px'
+    }
+  },
   wrapper: {
-    borderColor: theme.palette.grey[500],
+    borderColor: theme.palette.grey[550],
+    background: theme.palette.grey[350],
     borderStyle: 'solid',
     borderWidth: 1,
     marginBottom: theme.spacing(2),
-    minWidth: 'auto',
-    width: 560,
-    padding: theme.spacing(2)
+    maxWidth: 350,
+    [`&.${accordionClasses.expanded}`]: {
+      margin: `0 0 ${theme.spacing(2)} 0`
+    }
+  },
+  accordionSummary: {
+    justifyContent: 'space-between'
   }
 }));
 
-export const Authsets = ({ decommission, device, deviceListRefresh, showHelptips }) => {
+export const Authsets = ({ decommission, device, showHelptips }) => {
   const [confirmDecommission, setConfirmDecomission] = useState(false);
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
@@ -54,7 +67,6 @@ export const Authsets = ({ decommission, device, deviceListRefresh, showHelptips
   const updateDeviceAuthStatus = (device_id, auth_id, status) => {
     setLoading(auth_id);
     const postUpdateSteps = () => {
-      deviceListRefresh();
       setLoading(null);
     };
 
@@ -77,32 +89,35 @@ export const Authsets = ({ decommission, device, deviceListRefresh, showHelptips
   const { canManageDevices } = userCapabilities;
   const { classes } = useStyles();
   return (
-    <div className={classes.wrapper}>
-      <div className="margin-bottom-small">
+    <Accordion defaultExpanded={true} className={classes.wrapper}>
+      <AccordionSummary className={classes.accordionSummary} expandIcon={<ExpandIcon style={{ fontSize: 24 }} />}>
         {status === DEVICE_STATES.pending ? `Authorization ${pluralize('request', auth_sets.length)}` : 'Authorization sets'}
-      </div>
-      <Authsetlist
-        limitMaxed={limitMaxed}
-        total={auth_sets.length}
-        confirm={updateDeviceAuthStatus}
-        loading={loading}
-        device={device}
-        showHelptips={showHelptips}
-        userCapabilities={userCapabilities}
-      />
-      {limitMaxed && <DeviceLimitWarning acceptedDevices={acceptedDevices} deviceLimit={deviceLimit} hasContactInfo />}
-      {![DEVICE_STATES.preauth, DEVICE_STATES.pending].includes(device.status) && canManageDevices && (
-        <div className={`flexbox ${classes.decommission}`}>
-          {confirmDecommission ? (
-            <Confirm action={() => decommission(device.id)} cancel={() => setConfirmDecomission(false)} type="decommissioning" />
-          ) : (
-            <Button color="secondary" onClick={setConfirmDecomission}>
-              Decommission device
-            </Button>
-          )}
-        </div>
-      )}
-    </div>
+      </AccordionSummary>
+      <AccordionDetails className="accordion-details">
+        <Authsetlist
+          limitMaxed={limitMaxed}
+          total={auth_sets.length}
+          confirm={updateDeviceAuthStatus}
+          loading={loading}
+          device={device}
+          showHelptips={showHelptips}
+          userCapabilities={userCapabilities}
+        />
+
+        {limitMaxed && <DeviceLimitWarning acceptedDevices={acceptedDevices} deviceLimit={deviceLimit} hasContactInfo />}
+        {![DEVICE_STATES.preauth, DEVICE_STATES.pending].includes(device.status) && canManageDevices && (
+          <div className="flexbox">
+            {confirmDecommission ? (
+              <Confirm action={() => decommission(device.id)} cancel={() => setConfirmDecomission(false)} type="decommissioning" />
+            ) : (
+              <Button className={classes.decommission} onClick={setConfirmDecomission}>
+                Decommission device
+              </Button>
+            )}
+          </div>
+        )}
+      </AccordionDetails>
+    </Accordion>
   );
 };
 
