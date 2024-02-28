@@ -152,7 +152,7 @@ exports[`Confirm Component renders correctly 1`] = `
   >
     <svg
       aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium red emotion-1"
+      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-1"
       data-testid="CancelIcon"
       focusable="false"
       viewBox="0 0 24 24"
