@@ -911,9 +911,9 @@ describe('troubleshooting related actions', () => {
   });
 
   it('should allow device file transfers', async () => {
-    const link = await getDeviceFileDownloadLink('aDeviceId', '/tmp/file')();
-    expect(link).toBe('/api/management/v1/deviceconnect/devices/aDeviceId/download?path=%2Ftmp%2Ffile');
     const store = mockStore({ ...defaultState });
+    const link = await store.dispatch(getDeviceFileDownloadLink('aDeviceId', '/tmp/file'));
+    expect(link).toBe('/api/management/v1/deviceconnect/devices/aDeviceId/download?path=%2Ftmp%2Ffile');
     const expectedActions = [
       { type: SET_SNACKBAR, snackbar: { message: 'Uploading file' } },
       {
