@@ -252,7 +252,7 @@ label+.emotion-24 {
   margin-top: 16px;
 }
 
-.emotion-24:after {
+.emotion-24::after {
   border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
@@ -275,12 +275,12 @@ label+.emotion-24 {
   transform: scaleX(1) translateX(0);
 }
 
-.emotion-24.Mui-error:before,
-.emotion-24.Mui-error:after {
+.emotion-24.Mui-error::before,
+.emotion-24.Mui-error::after {
   border-bottom-color: #A11100;
 }
 
-.emotion-24:before {
+.emotion-24::before {
   border-bottom: 1px solid rgba(0, 0, 0, 0.42);
   left: 0;
   bottom: 0;

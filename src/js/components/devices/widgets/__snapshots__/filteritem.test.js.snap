@@ -229,7 +229,7 @@ label+.emotion-3 {
   margin-top: 16px;
 }
 
-.emotion-3:after {
+.emotion-3::after {
   border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
@@ -252,12 +252,12 @@ label+.emotion-3 {
   transform: scaleX(1) translateX(0);
 }
 
-.emotion-3.Mui-error:before,
-.emotion-3.Mui-error:after {
+.emotion-3.Mui-error::before,
+.emotion-3.Mui-error::after {
   border-bottom-color: #A11100;
 }
 
-.emotion-3:before {
+.emotion-3::before {
   border-bottom: 1px solid rgba(0, 0, 0, 0.42);
   left: 0;
   bottom: 0;
@@ -402,7 +402,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
 .emotion-5 {
   position: absolute;
   right: 0;
-  top: calc(50% - 14px);
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
 }
 
 .emotion-6 {
@@ -545,7 +549,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
   cursor: default;
 }
 
-.emotion-9:after {
+.emotion-9::after {
   border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
@@ -568,12 +572,12 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
   transform: scaleX(1) translateX(0);
 }
 
-.emotion-9.Mui-error:before,
-.emotion-9.Mui-error:after {
+.emotion-9.Mui-error::before,
+.emotion-9.Mui-error::after {
   border-bottom-color: #A11100;
 }
 
-.emotion-9:before {
+.emotion-9::before {
   border-bottom: 1px solid rgba(0, 0, 0, 0.42);
   left: 0;
   bottom: 0;
@@ -845,7 +849,7 @@ label+.emotion-15 {
   margin-top: 16px;
 }
 
-.emotion-15:after {
+.emotion-15::after {
   border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
@@ -868,12 +872,12 @@ label+.emotion-15 {
   transform: scaleX(1) translateX(0);
 }
 
-.emotion-15.Mui-error:before,
-.emotion-15.Mui-error:after {
+.emotion-15.Mui-error::before,
+.emotion-15.Mui-error::after {
   border-bottom-color: #A11100;
 }
 
-.emotion-15:before {
+.emotion-15::before {
   border-bottom: 1px solid rgba(0, 0, 0, 0.42);
   left: 0;
   bottom: 0;
@@ -1149,7 +1153,7 @@ label+.emotion-15 {
       viewBox="0 0 24 24"
     >
       <path
-        d="M14.59 8 12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+        d="M14.59 8 12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
       />
     </svg>
     <span

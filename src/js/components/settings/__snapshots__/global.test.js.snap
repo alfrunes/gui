@@ -124,7 +124,7 @@ label+.emotion-5 {
   margin-top: 16px;
 }
 
-.emotion-5:after {
+.emotion-5::after {
   border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
@@ -147,12 +147,12 @@ label+.emotion-5 {
   transform: scaleX(1) translateX(0);
 }
 
-.emotion-5.Mui-error:before,
-.emotion-5.Mui-error:after {
+.emotion-5.Mui-error::before,
+.emotion-5.Mui-error::after {
   border-bottom-color: #A11100;
 }
 
-.emotion-5:before {
+.emotion-5::before {
   border-bottom: 1px solid rgba(0, 0, 0, 0.42);
   left: 0;
   bottom: 0;
@@ -474,7 +474,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
   cursor: default;
 }
 
-.emotion-12:after {
+.emotion-12::after {
   border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
@@ -497,12 +497,12 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
   transform: scaleX(1) translateX(0);
 }
 
-.emotion-12.Mui-error:before,
-.emotion-12.Mui-error:after {
+.emotion-12.Mui-error::before,
+.emotion-12.Mui-error::after {
   border-bottom-color: #A11100;
 }
 
-.emotion-12:before {
+.emotion-12::before {
   border-bottom: 1px solid rgba(0, 0, 0, 0.42);
   left: 0;
   bottom: 0;
@@ -589,7 +589,7 @@ label+.emotion-17 {
   margin-top: 16px;
 }
 
-.emotion-17:after {
+.emotion-17::after {
   border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
@@ -612,12 +612,12 @@ label+.emotion-17 {
   transform: scaleX(1) translateX(0);
 }
 
-.emotion-17.Mui-error:before,
-.emotion-17.Mui-error:after {
+.emotion-17.Mui-error::before,
+.emotion-17.Mui-error::after {
   border-bottom-color: #A11100;
 }
 
-.emotion-17:before {
+.emotion-17::before {
   border-bottom: 1px solid rgba(0, 0, 0, 0.42);
   left: 0;
   bottom: 0;
@@ -780,7 +780,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-18:focus::-ms-input-
       viewBox="0 0 24 24"
     >
       <path
-        d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+        d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
       />
     </svg>
     These settings apply to all users, so changes made here may affect other users' experience.
