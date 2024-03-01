@@ -248,7 +248,7 @@ label+.emotion-6 {
   margin-top: 16px;
 }
 
-.emotion-6:after {
+.emotion-6::after {
   border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
@@ -271,12 +271,12 @@ label+.emotion-6 {
   transform: scaleX(1) translateX(0);
 }
 
-.emotion-6.Mui-error:before,
-.emotion-6.Mui-error:after {
+.emotion-6.Mui-error::before,
+.emotion-6.Mui-error::after {
   border-bottom-color: #A11100;
 }
 
-.emotion-6:before {
+.emotion-6::before {
   border-bottom: 1px solid rgba(0, 0, 0, 0.42);
   left: 0;
   bottom: 0;
@@ -421,7 +421,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-7:focus::-ms-input-p
 .emotion-8 {
   position: absolute;
   right: 0;
-  top: calc(50% - 14px);
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
 }
 
 .emotion-9 {
@@ -564,7 +568,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-7:focus::-ms-input-p
   cursor: default;
 }
 
-.emotion-12:after {
+.emotion-12::after {
   border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
@@ -587,12 +591,12 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-7:focus::-ms-input-p
   transform: scaleX(1) translateX(0);
 }
 
-.emotion-12.Mui-error:before,
-.emotion-12.Mui-error:after {
+.emotion-12.Mui-error::before,
+.emotion-12.Mui-error::after {
   border-bottom-color: #A11100;
 }
 
-.emotion-12:before {
+.emotion-12::before {
   border-bottom: 1px solid rgba(0, 0, 0, 0.42);
   left: 0;
   bottom: 0;
@@ -864,7 +868,7 @@ label+.emotion-18 {
   margin-top: 16px;
 }
 
-.emotion-18:after {
+.emotion-18::after {
   border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
@@ -887,12 +891,12 @@ label+.emotion-18 {
   transform: scaleX(1) translateX(0);
 }
 
-.emotion-18.Mui-error:before,
-.emotion-18.Mui-error:after {
+.emotion-18.Mui-error::before,
+.emotion-18.Mui-error::after {
   border-bottom-color: #A11100;
 }
 
-.emotion-18:before {
+.emotion-18::before {
   border-bottom: 1px solid rgba(0, 0, 0, 0.42);
   left: 0;
   bottom: 0;

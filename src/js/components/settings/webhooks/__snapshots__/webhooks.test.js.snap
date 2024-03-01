@@ -260,7 +260,7 @@ exports[`Webhooks Component static components renders WebhookActivity correctly 
   padding: 0;
 }
 
-.emotion-1:before {
+.emotion-1::before {
   position: absolute;
   left: 0;
   top: -1px;
@@ -273,11 +273,11 @@ exports[`Webhooks Component static components renders WebhookActivity correctly 
   transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-.emotion-1:first-of-type:before {
+.emotion-1:first-of-type::before {
   display: none;
 }
 
-.emotion-1.Mui-expanded:before {
+.emotion-1.Mui-expanded::before {
   opacity: 0;
 }
 
@@ -289,7 +289,7 @@ exports[`Webhooks Component static components renders WebhookActivity correctly 
   margin-bottom: 0;
 }
 
-.emotion-1.Mui-expanded+.emotion-1.Mui-expanded:before {
+.emotion-1.Mui-expanded+.emotion-1.Mui-expanded::before {
   display: none;
 }
 
@@ -536,7 +536,7 @@ exports[`Webhooks Component static components renders WebhookActivity correctly 
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2z"
+                    d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2"
                   />
                 </svg>
                 <div
@@ -619,7 +619,7 @@ exports[`Webhooks Component static components renders WebhookActivity correctly 
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2z"
+                    d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2"
                   />
                 </svg>
                 <div
@@ -979,7 +979,7 @@ label+.emotion-12 {
   margin-top: 16px;
 }
 
-.emotion-12:after {
+.emotion-12::after {
   border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
@@ -1002,12 +1002,12 @@ label+.emotion-12 {
   transform: scaleX(1) translateX(0);
 }
 
-.emotion-12.Mui-error:before,
-.emotion-12.Mui-error:after {
+.emotion-12.Mui-error::before,
+.emotion-12.Mui-error::after {
   border-bottom-color: #A11100;
 }
 
-.emotion-12:before {
+.emotion-12::before {
   border-bottom: 1px solid rgba(0, 0, 0, 0.42);
   left: 0;
   bottom: 0;
@@ -1179,7 +1179,7 @@ label+.emotion-16 {
   margin-top: 16px;
 }
 
-.emotion-16:after {
+.emotion-16::after {
   border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
@@ -1202,12 +1202,12 @@ label+.emotion-16 {
   transform: scaleX(1) translateX(0);
 }
 
-.emotion-16.Mui-error:before,
-.emotion-16.Mui-error:after {
+.emotion-16.Mui-error::before,
+.emotion-16.Mui-error::after {
   border-bottom-color: #A11100;
 }
 
-.emotion-16:before {
+.emotion-16::before {
   border-bottom: 1px solid rgba(0, 0, 0, 0.42);
   left: 0;
   bottom: 0;
@@ -1523,7 +1523,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-17:focus::-ms-input-
           viewBox="0 0 24 24"
         >
           <path
-            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
           />
         </svg>
         Webhooks are triggered when a device's status is updated, or a device is decommissioned or provisioned.
@@ -2168,7 +2168,7 @@ label+.emotion-22 {
   margin-top: 16px;
 }
 
-.emotion-22:after {
+.emotion-22::after {
   border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
@@ -2191,12 +2191,12 @@ label+.emotion-22 {
   transform: scaleX(1) translateX(0);
 }
 
-.emotion-22.Mui-error:before,
-.emotion-22.Mui-error:after {
+.emotion-22.Mui-error::before,
+.emotion-22.Mui-error::after {
   border-bottom-color: #A11100;
 }
 
-.emotion-22:before {
+.emotion-22::before {
   border-bottom: 1px solid rgba(0, 0, 0, 0.42);
   left: 0;
   bottom: 0;
@@ -2368,7 +2368,7 @@ label+.emotion-26 {
   margin-top: 16px;
 }
 
-.emotion-26:after {
+.emotion-26::after {
   border-bottom: 2px solid #14A452;
   left: 0;
   bottom: 0;
@@ -2391,12 +2391,12 @@ label+.emotion-26 {
   transform: scaleX(1) translateX(0);
 }
 
-.emotion-26.Mui-error:before,
-.emotion-26.Mui-error:after {
+.emotion-26.Mui-error::before,
+.emotion-26.Mui-error::after {
   border-bottom-color: #A11100;
 }
 
-.emotion-26:before {
+.emotion-26::before {
   border-bottom: 1px solid rgba(0, 0, 0, 0.42);
   left: 0;
   bottom: 0;
@@ -2776,7 +2776,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-27:focus::-ms-input-
           viewBox="0 0 24 24"
         >
           <path
-            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
           />
         </svg>
         Webhooks are triggered when a device's status is updated, or a device is decommissioned or provisioned.
