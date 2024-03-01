@@ -1531,6 +1531,469 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-37:focus::-ms-input-
 }
 
 .emotion-62 {
+  background-color: #fff;
+  color: #212121;
+  -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 4px;
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+  position: relative;
+  -webkit-transition: margin 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: margin 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  overflow-anchor: none;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  border-color: #E6E6E6;
+  background: #F6F6F6;
+  border-style: solid;
+  border-width: 1px;
+  margin-bottom: 16px;
+  max-width: 350px;
+}
+
+.emotion-62:before {
+  position: absolute;
+  left: 0;
+  top: -1px;
+  right: 0;
+  height: 1px;
+  content: "";
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.12);
+  -webkit-transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.emotion-62:first-of-type:before {
+  display: none;
+}
+
+.emotion-62.Mui-expanded:before {
+  opacity: 0;
+}
+
+.emotion-62.Mui-expanded:first-of-type {
+  margin-top: 0;
+}
+
+.emotion-62.Mui-expanded:last-of-type {
+  margin-bottom: 0;
+}
+
+.emotion-62.Mui-expanded+.emotion-62.Mui-expanded:before {
+  display: none;
+}
+
+.emotion-62.Mui-disabled {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.emotion-62:first-of-type {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.emotion-62:last-of-type {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+@supports (-ms-ime-align: auto) {
+  .emotion-62:last-of-type {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.emotion-62.Mui-expanded {
+  margin: 16px 0;
+}
+
+.emotion-62:before {
+  display: none;
+}
+
+.emotion-62.Mui-expanded {
+  margin: auto;
+}
+
+.emotion-62.Mui-expanded {
+  margin: 0 0 16px 0;
+}
+
+.emotion-63 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 48px;
+  padding: 0px 16px;
+  -webkit-transition: min-height 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: min-height 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  margin-bottom: 0;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  height: 48px;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.emotion-63::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-63.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-63 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-63.Mui-focusVisible {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.emotion-63.Mui-disabled {
+  opacity: 0.38;
+}
+
+.emotion-63:hover:not(.Mui-disabled) {
+  cursor: pointer;
+}
+
+.emotion-63.Mui-expanded {
+  min-height: 64px;
+}
+
+.emotion-63.Mui-expanded {
+  height: 48px;
+  min-height: 48px;
+}
+
+.emotion-67 {
+  height: auto;
+  overflow: visible;
+  -webkit-transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.emotion-71 .action-buttons div,
+.emotion-71 .action-buttons a {
+  margin-bottom: 16px;
+}
+
+.emotion-72 {
+  background-color: #fff;
+  color: #212121;
+  -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+  position: relative;
+  -webkit-transition: margin 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: margin 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  overflow-anchor: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  background: none;
+}
+
+.emotion-72:before {
+  position: absolute;
+  left: 0;
+  top: -1px;
+  right: 0;
+  height: 1px;
+  content: "";
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.12);
+  -webkit-transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.emotion-72:first-of-type:before {
+  display: none;
+}
+
+.emotion-72.Mui-expanded:before {
+  opacity: 0;
+}
+
+.emotion-72.Mui-expanded:first-of-type {
+  margin-top: 0;
+}
+
+.emotion-72.Mui-expanded:last-of-type {
+  margin-bottom: 0;
+}
+
+.emotion-72.Mui-expanded+.emotion-72.Mui-expanded:before {
+  display: none;
+}
+
+.emotion-72.Mui-disabled {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.emotion-72.Mui-expanded {
+  margin: 16px 0;
+}
+
+.emotion-72:before {
+  display: none;
+}
+
+.emotion-72.Mui-expanded {
+  margin: auto;
+}
+
+.emotion-73 {
+  max-width: 100%;
+  font-family: Lato,sans-serif;
+  font-size: 0.7109rem;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  height: 24px;
+  color: #212121;
+  background-color: rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  white-space: nowrap;
+  -webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  cursor: unset;
+  outline: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  border: 0;
+  padding: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 2px;
+  background-color: rgba(252, 195, 53, 0.20);
+  padding: 4px 6px;
+}
+
+.emotion-73.Mui-disabled {
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+.emotion-73 .MuiChip-avatar {
+  margin-left: 5px;
+  margin-right: -6px;
+  width: 24px;
+  height: 24px;
+  color: #bcbcbc;
+  font-size: 0.6563rem;
+}
+
+.emotion-73 .MuiChip-avatarColorPrimary {
+  color: #fff;
+  background-color: rgb(14, 114, 57);
+}
+
+.emotion-73 .MuiChip-avatarColorSecondary {
+  color: rgba(0, 0, 0, 0.87);
+  background-color: rgb(178, 178, 178);
+}
+
+.emotion-73 .MuiChip-avatarSmall {
+  margin-left: 4px;
+  margin-right: -4px;
+  width: 18px;
+  height: 18px;
+  font-size: 0.5469rem;
+}
+
+.emotion-73 .MuiChip-icon {
+  margin-left: 4px;
+  margin-right: -4px;
+  font-size: 18px;
+  color: #bcbcbc;
+}
+
+.emotion-73 .MuiChip-deleteIcon {
+  -webkit-tap-highlight-color: transparent;
+  color: rgba(33, 33, 33, 0.26);
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 5px 0 -6px;
+  margin-right: 4px;
+  margin-left: -4px;
+}
+
+.emotion-73 .MuiChip-deleteIcon:hover {
+  color: rgba(33, 33, 33, 0.4);
+}
+
+.emotion-74 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 8px;
+  padding-right: 8px;
+  white-space: nowrap;
+}
+
+.emotion-75.two-columns {
+  row-gap: 12px;
+  border-bottom: 1px solid #E6E6E6;
+  grid-template-columns: 1fr 1.6fr;
+}
+
+.emotion-81 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  font-family: Lato,sans-serif;
+  font-weight: 500;
+  font-size: 0.7656rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: #14A452;
+  text-transform: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 15px;
+}
+
+.emotion-81::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-81.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-81 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-81:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(20, 164, 82, 0.04);
+}
+
+@media (hover: none) {
+  .emotion-81:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-81.Mui-disabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.emotion-81:hover {
+  colors: #14A452;
+}
+
+.emotion-81.MuiButton-text {
+  color: #212121;
+}
+
+.emotion-81:hover {
+  background: #F5F5F5;
+}
+
+.emotion-81.MuiButton-text {
+  color: #D74936;
+  border: 1px solid #D74936;
+  padding: 6px 8px;
+}
+
+.emotion-83 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -1581,57 +2044,57 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-37:focus::-ms-input-
   padding: 10px 15px;
 }
 
-.emotion-62::-moz-focus-inner {
+.emotion-83::-moz-focus-inner {
   border-style: none;
 }
 
-.emotion-62.Mui-disabled {
+.emotion-83.Mui-disabled {
   pointer-events: none;
   cursor: default;
 }
 
 @media print {
-  .emotion-62 {
+  .emotion-83 {
     -webkit-print-color-adjust: exact;
     color-adjust: exact;
   }
 }
 
-.emotion-62:hover {
+.emotion-83:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
   background-color: rgba(20, 164, 82, 0.04);
 }
 
 @media (hover: none) {
-  .emotion-62:hover {
+  .emotion-83:hover {
     background-color: transparent;
   }
 }
 
-.emotion-62.Mui-disabled {
+.emotion-83.Mui-disabled {
   color: rgba(0, 0, 0, 0.26);
 }
 
-.emotion-62:hover {
+.emotion-83:hover {
   colors: #14A452;
 }
 
-.emotion-62.MuiButton-text {
+.emotion-83.MuiButton-text {
   color: #212121;
 }
 
-.emotion-62:hover {
+.emotion-83:hover {
   background: #F5F5F5;
 }
 
-.emotion-63 {
+.emotion-84 {
   display: inherit;
   margin-right: -2px;
   margin-left: 8px;
 }
 
-.emotion-63>*:nth-of-type(1) {
+.emotion-84>*:nth-of-type(1) {
   font-size: 18px;
 }
 
@@ -2354,15 +2817,209 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-37:focus::-ms-input-
                     />
                   </svg>
                 </div>
-                <div
-                  style="position: relative; width: 50px; height: 30px;"
-                />
               </div>
               <div
                 class="flexbox centered"
               />
             </div>
             <div />
+            <div
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters emotion-62"
+            >
+              <div
+                aria-expanded="true"
+                class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded MuiAccordionSummary-gutters emotion-63"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="MuiAccordionSummary-content Mui-expanded MuiAccordionSummary-contentGutters emotion-15"
+                >
+                  Authorization sets
+                </div>
+                <div
+                  class="MuiAccordionSummary-expandIconWrapper Mui-expanded emotion-16"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-1"
+                    data-testid="ExpandMoreIcon"
+                    focusable="false"
+                    style="font-size: 24px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div
+                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-entered emotion-67"
+                style="min-height: 0px;"
+              >
+                <div
+                  class="MuiCollapse-wrapper MuiCollapse-vertical emotion-19"
+                >
+                  <div
+                    class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-20"
+                  >
+                    <div
+                      class="MuiAccordion-region"
+                      role="region"
+                    >
+                      <div
+                        class="MuiAccordionDetails-root accordion-details emotion-21"
+                      >
+                        <div
+                          class="authsets emotion-71"
+                        >
+                          <div
+                            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation1 MuiAccordion-root MuiAccordion-gutters margin-bottom-medium emotion-72"
+                          >
+                            <div
+                              class="margin-top-medium"
+                            >
+                              <div
+                                class="MuiChip-root MuiChip-filled MuiChip-sizeSmall MuiChip-colorDefault MuiChip-filledDefault margin-bottom-small emotion-73"
+                              >
+                                <span
+                                  class="MuiChip-label MuiChip-labelSmall emotion-74"
+                                >
+                                  Active
+                                </span>
+                              </div>
+                              <div
+                                class="break-all two-columns  emotion-75 emotion-6"
+                              >
+                                <div
+                                  class="align-right key"
+                                >
+                                  <b>
+                                    Status
+                                  </b>
+                                </div>
+                                <div
+                                  class="flexbox "
+                                >
+                                  <div
+                                    class="capitalized"
+                                  >
+                                    accepted
+                                  </div>
+                                </div>
+                                <div
+                                  class="align-right key"
+                                >
+                                  <b>
+                                    Public key
+                                  </b>
+                                </div>
+                                <div
+                                  class="flexbox "
+                                >
+                                  <a>
+                                    show key
+                                  </a>
+                                </div>
+                                <div
+                                  class="align-right key"
+                                >
+                                  <b>
+                                    Time of request
+                                  </b>
+                                </div>
+                                <div
+                                  class="flexbox "
+                                >
+                                  <time
+                                    datetime="2019-01-13T06:25:00+00:00"
+                                  >
+                                    2019-01-13 06:25
+                                  </time>
+                                </div>
+                                <div
+                                  class="align-right key"
+                                >
+                                  <b>
+                                    Actions
+                                  </b>
+                                </div>
+                                <div
+                                  class="flexbox "
+                                >
+                                  <div
+                                    class="action-buttons"
+                                  >
+                                    <div>
+                                      Accept
+                                    </div>
+                                    <a
+                                      class="block"
+                                    >
+                                      Reject
+                                    </a>
+                                    <a
+                                      class="block"
+                                    >
+                                      Dismiss
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-18"
+                              style="min-height: 0px;"
+                            >
+                              <div
+                                class="MuiCollapse-wrapper MuiCollapse-vertical emotion-19"
+                              >
+                                <div
+                                  class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-20"
+                                >
+                                  <div
+                                    class="MuiAccordion-region"
+                                    role="region"
+                                  >
+                                    <div
+                                      class="MuiAccordionDetails-root emotion-21"
+                                    >
+                                      <div
+                                        style="flex-grow: 1;"
+                                      />
+                                      <p
+                                        class="bold expanded"
+                                      >
+                                         Are you sure you want to continue?
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="flexbox"
+                        >
+                          <button
+                            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-81"
+                            tabindex="0"
+                            type="button"
+                          >
+                            Decommission device
+                            <span
+                              class="MuiTouchRipple-root emotion-2"
+                            />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div
             class="margin-bottom "
@@ -2383,13 +3040,13 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-37:focus::-ms-input-
                     Tags
                   </h4>
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall greyed emotion-62"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall greyed emotion-83"
                     tabindex="0"
                     type="button"
                   >
                     Edit
                     <span
-                      class="MuiButton-endIcon MuiButton-iconSizeSmall emotion-63"
+                      class="MuiButton-endIcon MuiButton-iconSizeSmall emotion-84"
                     >
                       <svg
                         aria-hidden="true"

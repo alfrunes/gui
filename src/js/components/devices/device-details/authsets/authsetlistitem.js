@@ -16,13 +16,14 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 
 import { FileCopy as CopyPasteIcon } from '@mui/icons-material';
 // material ui
-import { Accordion, AccordionActions, AccordionDetails, AccordionSummary, Button, Chip, Divider, IconButton } from '@mui/material';
+import { Accordion, AccordionActions, AccordionDetails, Button, Chip, Divider, IconButton } from '@mui/material';
 
 import { TIMEOUTS } from '../../../../constants/appConstants';
 import { DEVICE_DISMISSAL_STATE, DEVICE_STATES } from '../../../../constants/deviceConstants';
 import { formatTime } from '../../../../helpers';
 import Loader from '../../../common/loader';
 import Time from '../../../common/time';
+import { TwoColumns } from '../../../common/configurationobject.js';
 
 const padder = <div key="padder" style={{ flexGrow: 1 }}></div>;
 
@@ -64,7 +65,7 @@ export const getConfirmationMessage = (status, device, authset) => {
       }
       return message;
     case DEVICE_STATES.rejected:
-      message = 'The device with this identity data and public key will be rejected, and blocked from communicating with the Mender server.';
+      message = 'The device with this identity data and public key will be rejected, and blocked from communicating with the Alvaldi server.';
       if (device.status === DEVICE_STATES.accepted && authset.status !== DEVICE_STATES.accepted) {
         // if device is accepted but you are rejecting an authset that is not accepted, device status is unaffected:
         return `${message} Rejecting this request will not affect the device status as it is using a different key. `;
@@ -81,14 +82,15 @@ export const getConfirmationMessage = (status, device, authset) => {
 
 const LF = '\n';
 
-const AuthSetStatus = ({ authset, device }) => {
+const AuthSetStatus = ({ authset, device, classes }) => {
+  let label;
   if (authset.status === device.status) {
-    return <div className="capitalized">Active</div>;
+    label = 'Active';
   }
   if (authset.status === DEVICE_STATES.pending) {
-    return <Chip size="small" label="new" color="primary" style={{ justifySelf: 'flex-start' }} />;
+    label = 'New';
   }
-  return <div />;
+  return <Chip className={`margin-bottom-small ${classes.status}`} size="small" label={label} />;
 };
 
 const ActionButtons = ({ authset, confirmMessage, newStatus, limitMaxed, onAcceptClick, onDismissClick, onRequestConfirm, userCapabilities }) => {
@@ -99,18 +101,24 @@ const ActionButtons = ({ authset, confirmMessage, newStatus, limitMaxed, onAccep
   return confirmMessage.length ? (
     <div>Set to: {newStatus}?</div>
   ) : (
-    <div className="action-buttons flexbox">
+    <div className="action-buttons">
       {authset.status !== DEVICE_STATES.accepted && authset.status !== DEVICE_STATES.preauth && !limitMaxed ? (
-        <a onClick={onAcceptClick}>Accept</a>
+        <a className="block" onClick={onAcceptClick}>
+          Accept
+        </a>
       ) : (
         <div>Accept</div>
       )}
       {authset.status !== DEVICE_STATES.rejected && authset.status !== DEVICE_STATES.preauth ? (
-        <a onClick={() => onRequestConfirm(DEVICE_STATES.rejected)}>Reject</a>
+        <a className="block" onClick={() => onRequestConfirm(DEVICE_STATES.rejected)}>
+          Reject
+        </a>
       ) : (
         <div>Reject</div>
       )}
-      <a onClick={onDismissClick}>Dismiss</a>
+      <a className="block" onClick={onDismissClick}>
+        Dismiss
+      </a>
     </div>
   );
 };
@@ -204,43 +212,58 @@ const AuthsetListItem = ({ authset, classes, columns, confirm, device, isExpande
             <CopyPasteIcon />
           </IconButton>
         </CopyToClipboard>
-        <code className="pre-line">{endKey}</code>
+        <code className="pre-line break-word">{endKey}</code>
         {copied && <p className="green fadeIn">Copied key to clipboard.</p>}
         <Divider className={classes.divider} />
         <div title="SHA256">
           Checksum
           <br />
-          <code>{keyHash}</code>
+          <code className="break-word">{keyHash}</code>
         </div>
       </div>,
       padder
     ];
     key = <a onClick={() => onShowKey(false)}>hide key</a>;
   }
+
+  const authSetData = {
+    status: <div className="capitalized">{authset.status}</div>,
+    publicKey: key,
+    timeOfRequest: <Time value={formatTime(authset.ts)} />,
+    actions:
+      loading === authset.id ? (
+        <div>
+          Updating status <Loader table={true} waiting={true} show={true} style={{ height: '4px', marginLeft: '10px' }} />
+        </div>
+      ) : (
+        <ActionButtons
+          authset={authset}
+          confirmMessage={confirmMessage}
+          newStatus={newStatus}
+          limitMaxed={limitMaxed}
+          onAcceptClick={onAcceptClick}
+          onDismissClick={onDismissClick}
+          onRequestConfirm={onRequestConfirm}
+          userCapabilities={userCapabilities}
+        />
+      )
+  };
+
+  const availableAuthSetData = Object.keys(columns).reduce((accu, key) => {
+    const data = authSetData[key];
+    if (!data) {
+      return accu;
+    }
+    accu[columns[key].title] = data;
+    return accu;
+  }, {});
+
   return (
-    <Accordion className={classes.accordion} square expanded={isExpanded}>
-      <AccordionSummary className={`columns-${columns.length}`}>
-        <AuthSetStatus authset={authset} device={device} />
-        <div className="capitalized">{authset.status}</div>
-        {key}
-        <Time value={formatTime(authset.ts)} />
-        {loading === authset.id ? (
-          <div>
-            Updating status <Loader table={true} waiting={true} show={true} style={{ height: '4px', marginLeft: '10px' }} />
-          </div>
-        ) : (
-          <ActionButtons
-            authset={authset}
-            confirmMessage={confirmMessage}
-            newStatus={newStatus}
-            limitMaxed={limitMaxed}
-            onAcceptClick={onAcceptClick}
-            onDismissClick={onDismissClick}
-            onRequestConfirm={onRequestConfirm}
-            userCapabilities={userCapabilities}
-          />
-        )}
-      </AccordionSummary>
+    <Accordion square className={`margin-bottom-medium ${classes.accordion}`} expanded={isExpanded}>
+      <div className="margin-top-medium">
+        <AuthSetStatus authset={authset} device={device} classes={classes} />
+        <TwoColumns className={classes.twoColumns} items={availableAuthSetData} />
+      </div>
       <AccordionDetails>{content}</AccordionDetails>
       {isExpanded && !showKey && (
         <AccordionActions className="margin-right-small">

@@ -82,10 +82,10 @@ gnr0OSIDwEL31l+12DbAQ9+ANv6TLpWNfLpX0E6IStkZAgMBAAE=
       'By accepting, the device with this identity data and public key will be granted authentication by the server. The previously accepted public key will be rejected automatically in favor of this new key.'
     );
     expect(getConfirmationMessage(DEVICE_STATES.rejected, { status: DEVICE_STATES.accepted, auth_sets: [1] }, { status: DEVICE_STATES.accepted })).toEqual(
-      'The device with this identity data and public key will be rejected, and blocked from communicating with the Mender server.'
+      'The device with this identity data and public key will be rejected, and blocked from communicating with the Alvaldi server.'
     );
     expect(getConfirmationMessage(DEVICE_STATES.rejected, { status: DEVICE_STATES.accepted, auth_sets: [1] }, { status: DEVICE_STATES.pending })).toEqual(
-      'The device with this identity data and public key will be rejected, and blocked from communicating with the Mender server. Rejecting this request will not affect the device status as it is using a different key. '
+      'The device with this identity data and public key will be rejected, and blocked from communicating with the Alvaldi server. Rejecting this request will not affect the device status as it is using a different key. '
     );
     expect(getConfirmationMessage('dismiss', { status: DEVICE_STATES.accepted, auth_sets: [1] }, { status: DEVICE_STATES.preauth })).toEqual(
       'The device authentication set will be removed from the preauthorization list.'

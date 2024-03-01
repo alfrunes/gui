@@ -39,7 +39,7 @@ describe('Confirm Component', () => {
     await user.click(container.querySelector('.green'));
     expect(actionCheck).toHaveBeenCalledTimes(1);
     expect(screen.queryByText(/removing/i)).toBeInTheDocument();
-    await user.click(container.querySelector('.red'));
+    await user.click(container.querySelector('svg[data-testid="CancelIcon"]'));
     expect(cancelCheck).toHaveBeenCalledTimes(1);
   });
 });

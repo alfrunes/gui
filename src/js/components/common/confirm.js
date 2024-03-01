@@ -77,7 +77,7 @@ export const Confirm = ({ action, cancel, classes = '', message = '', style = {}
         <CheckCircleIcon className="green" />
       </IconButton>
       <IconButton onClick={handleCancel} size="large">
-        <CancelIcon className="red" />
+        <CancelIcon />
       </IconButton>
     </div>
   );

@@ -23,12 +23,18 @@ const grey = {
   '800': '#424242',
   '700': '#bcbcbc',
   '600': '#cfcfcf',
+  '550': '#E6E6E6',
   '500': '#e9e9e9',
   '400': '#f7f7f7',
+  '350': '#F6F6F6',
   '300': '#e6f2f1',
   '200': '#ddedec',
   '100': '#d8ebe9',
   '50': '#d4e9e7'
+};
+
+const red = {
+  '600': '#D74936'
 };
 
 const green = {
@@ -49,6 +55,7 @@ const palette = {
   grey,
   blue,
   green,
+  red,
   orange: '#E27E00',
   greySecondary: {
     '600': '#616161'
