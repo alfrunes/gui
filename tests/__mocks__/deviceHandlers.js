@@ -290,6 +290,7 @@ export const deviceHandlers = [
     }
     return res(ctx.status(512));
   }),
+  rest.head(`${deviceConnect}/devices/:deviceId/download`, (req, res, ctx) => res(ctx.status(201))),
   rest.get(`${iotManagerBaseURL}/devices/:deviceId/state`, ({ params: { deviceId } }, res, ctx) => {
     if (defaultState.devices.byId[deviceId]) {
       return res(ctx.status(200), ctx.json({}));

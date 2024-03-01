@@ -9,7 +9,7 @@ import { v4 as uuid } from 'uuid';
 import { cleanUpUpload, commonErrorFallback, commonErrorHandler, progress, setSnackbar } from '../actions/appActions';
 import { auditLogsApiUrl } from '../actions/organizationActions';
 import { saveGlobalSettings } from '../actions/userActions';
-import GeneralApi, { MAX_PAGE_SIZE, apiUrl, headerNames } from '../api/general-api';
+import GeneralApi, { MAX_PAGE_SIZE, apiUrl, headerNames, httpStatues } from '../api/general-api';
 import { routes, sortingAlternatives } from '../components/devices/base-devices';
 import { SORTING_OPTIONS, UPLOAD_PROGRESS, emptyChartSelection, yes } from '../constants/appConstants';
 import * as DeviceConstants from '../constants/deviceConstants';
@@ -892,8 +892,23 @@ export const getSessionDetails = (sessionId, deviceId, userId, startDate, endDat
   );
 };
 
-export const getDeviceFileDownloadLink = (deviceId, path) => () =>
-  Promise.resolve(`${deviceConnect}/devices/${deviceId}/download?path=${encodeURIComponent(path)}`);
+export const getDeviceFileDownloadLink = (deviceId, path) => dispatch => {
+  const url = `${deviceConnect}/devices/${deviceId}/download?path=${encodeURIComponent(path)}`;
+
+  return Promise.resolve(GeneralApi.head(url))
+    .then(() => Promise.resolve(url))
+    .catch(err => {
+      const { response: { status } = {} } = err;
+      /**
+       * @todo change bad request to the proper status code when ALV-209 will be done
+       *
+       * now 400 response on any error even if the file does not exist
+       */
+      const message = status === httpStatues.badRequest ? 'Requested file is not found.' : err.message;
+      dispatch(setSnackbar(message, 5000));
+      return Promise.reject(err);
+    });
+};
 
 export const deviceFileUpload = (deviceId, path, file) => (dispatch, getState) => {
   var formData = new FormData();

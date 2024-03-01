@@ -23,6 +23,11 @@ export const headerNames = {
   alvaldiVersion: 'x-alvaldi-version'
 };
 
+export const httpStatues = {
+  unauthorized: 401,
+  badRequest: 400
+};
+
 export const apiRoot = '/api/management';
 export const apiUrl = {
   v1: `${apiRoot}/v1`,
@@ -32,7 +37,7 @@ export const apiUrl = {
 export const MAX_PAGE_SIZE = 500;
 
 const unauthorizedRedirect = error => {
-  if (!isCancel(error) && error.response?.status === 401) {
+  if (!isCancel(error) && error.response?.status === httpStatues.unauthorized) {
     logout();
   }
   return Promise.reject(error);
@@ -51,6 +56,7 @@ const Api = {
   get: authenticatedRequest.get,
   delete: (url, data) => authenticatedRequest.request({ method: 'delete', url, data }),
   patch: authenticatedRequest.patch,
+  head: authenticatedRequest.head,
   post: authenticatedRequest.post,
   postUnauthorized: (url, data, config = {}) => axios.post(url, data, { ...commonRequestConfig, ...config }),
   put: authenticatedRequest.put,
