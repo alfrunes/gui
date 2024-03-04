@@ -1,415 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PhysicalDeviceOnboarding Component renders correctly 1`] = `
-.emotion-0.Mui-focused .MuiAutocomplete-clearIndicator {
-  visibility: visible;
+.emotion-0 {
+  border: 1px solid;
+  border-color: #f7f7f7;
+  background-color: #f7f7f7;
 }
 
-@media (pointer: fine) {
-  .emotion-0:hover .MuiAutocomplete-clearIndicator {
-    visibility: visible;
-  }
-}
-
-.emotion-0 .MuiAutocomplete-tag {
-  margin: 3px;
-  max-width: calc(100% - 6px);
-}
-
-.emotion-0 .MuiAutocomplete-inputRoot {
-  -webkit-box-flex-wrap: wrap;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-
-.MuiAutocomplete-hasPopupIcon.emotion-0 .MuiAutocomplete-inputRoot,
-.MuiAutocomplete-hasClearIcon.emotion-0 .MuiAutocomplete-inputRoot {
-  padding-right: 30px;
-}
-
-.MuiAutocomplete-hasPopupIcon.MuiAutocomplete-hasClearIcon.emotion-0 .MuiAutocomplete-inputRoot {
-  padding-right: 56px;
-}
-
-.emotion-0 .MuiAutocomplete-inputRoot .MuiAutocomplete-input {
-  width: 0;
-  min-width: 30px;
-}
-
-.emotion-0 .MuiInput-root {
-  padding-bottom: 1px;
-}
-
-.emotion-0 .MuiInput-root .MuiInput-input {
-  padding: 4px 4px 4px 0px;
-}
-
-.emotion-0 .MuiInput-root.MuiInputBase-sizeSmall .MuiInput-input {
-  padding: 2px 4px 3px 0;
-}
-
-.emotion-0 .MuiOutlinedInput-root {
-  padding: 9px;
-}
-
-.MuiAutocomplete-hasPopupIcon.emotion-0 .MuiOutlinedInput-root,
-.MuiAutocomplete-hasClearIcon.emotion-0 .MuiOutlinedInput-root {
-  padding-right: 39px;
-}
-
-.MuiAutocomplete-hasPopupIcon.MuiAutocomplete-hasClearIcon.emotion-0 .MuiOutlinedInput-root {
-  padding-right: 65px;
-}
-
-.emotion-0 .MuiOutlinedInput-root .MuiAutocomplete-input {
-  padding: 7.5px 4px 7.5px 5px;
-}
-
-.emotion-0 .MuiOutlinedInput-root .MuiAutocomplete-endAdornment {
-  right: 9px;
-}
-
-.emotion-0 .MuiOutlinedInput-root.MuiInputBase-sizeSmall {
-  padding-top: 6px;
-  padding-bottom: 6px;
-  padding-left: 6px;
-}
-
-.emotion-0 .MuiOutlinedInput-root.MuiInputBase-sizeSmall .MuiAutocomplete-input {
-  padding: 2.5px 4px 2.5px 8px;
-}
-
-.emotion-0 .MuiFilledInput-root {
-  padding-top: 19px;
-  padding-left: 8px;
-}
-
-.MuiAutocomplete-hasPopupIcon.emotion-0 .MuiFilledInput-root,
-.MuiAutocomplete-hasClearIcon.emotion-0 .MuiFilledInput-root {
-  padding-right: 39px;
-}
-
-.MuiAutocomplete-hasPopupIcon.MuiAutocomplete-hasClearIcon.emotion-0 .MuiFilledInput-root {
-  padding-right: 65px;
-}
-
-.emotion-0 .MuiFilledInput-root .MuiFilledInput-input {
-  padding: 7px 4px;
-}
-
-.emotion-0 .MuiFilledInput-root .MuiAutocomplete-endAdornment {
-  right: 9px;
-}
-
-.emotion-0 .MuiFilledInput-root.MuiInputBase-sizeSmall {
-  padding-bottom: 1px;
-}
-
-.emotion-0 .MuiFilledInput-root.MuiInputBase-sizeSmall .MuiFilledInput-input {
-  padding: 2.5px 4px;
-}
-
-.emotion-0 .MuiInputBase-hiddenLabel {
-  padding-top: 8px;
-}
-
-.emotion-0 .MuiFilledInput-root.MuiInputBase-hiddenLabel {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.emotion-0 .MuiFilledInput-root.MuiInputBase-hiddenLabel .MuiAutocomplete-input {
-  padding-top: 16px;
-  padding-bottom: 17px;
-}
-
-.emotion-0 .MuiFilledInput-root.MuiInputBase-hiddenLabel.MuiInputBase-sizeSmall .MuiAutocomplete-input {
-  padding-top: 8px;
-  padding-bottom: 9px;
-}
-
-.emotion-0 .MuiAutocomplete-input {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  text-overflow: ellipsis;
-  opacity: 1;
+.emotion-0 button {
+  float: right;
+  margin: 0 0 0 10px;
+  background: white;
+  border: 1px solid #9E9E9E;
+  padding: 7px;
 }
 
 .emotion-1 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  position: relative;
-  min-width: 0;
-  padding: 0;
-  margin: 0;
-  border: 0;
-  vertical-align: top;
-  width: 100%;
-  margin-top: 18px;
-  min-width: 240px;
+  height: 260px;
+  background-color: #F5F5F5;
+}
+
+.emotion-1 button {
+  background: white;
+  border: 1px solid #9E9E9E;
+  padding: 7px;
 }
 
 .emotion-2 {
-  color: #424242;
-  line-height: 1.4375em;
-  font-family: Lato,sans-serif;
-  font-weight: 400;
-  font-size: 0.875rem;
-  padding: 0;
-  position: relative;
-  color: #424242;
-  display: block;
-  transform-origin: top left;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  -webkit-transform: translate(0, 20px) scale(1);
-  -moz-transform: translate(0, 20px) scale(1);
-  -ms-transform: translate(0, 20px) scale(1);
-  transform: translate(0, 20px) scale(1);
-  -webkit-transition: color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,-webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-}
-
-.emotion-2.Mui-focused {
-  color: #14A452;
-}
-
-.emotion-2.Mui-disabled {
-  color: rgba(0, 0, 0, 0.38);
-}
-
-.emotion-2.Mui-error {
-  color: #A11100;
-}
-
-.emotion-2.Mui-focused {
-  color: #14A452;
-}
-
-.emotion-3 {
-  line-height: 1.4375em;
-  font-family: Lato,sans-serif;
-  font-weight: 400;
-  font-size: 0.875rem;
-  color: #212121;
-  box-sizing: border-box;
-  position: relative;
-  cursor: text;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 100%;
-  position: relative;
-}
-
-.emotion-3.Mui-disabled {
-  color: rgba(0, 0, 0, 0.38);
-  cursor: default;
-}
-
-label+.emotion-3 {
-  margin-top: 16px;
-}
-
-.emotion-3::after {
-  border-bottom: 2px solid #14A452;
-  left: 0;
-  bottom: 0;
-  content: "";
-  position: absolute;
-  right: 0;
-  -webkit-transform: scaleX(0);
-  -moz-transform: scaleX(0);
-  -ms-transform: scaleX(0);
-  transform: scaleX(0);
-  -webkit-transition: -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  pointer-events: none;
-}
-
-.emotion-3.Mui-focused:after {
-  -webkit-transform: scaleX(1) translateX(0);
-  -moz-transform: scaleX(1) translateX(0);
-  -ms-transform: scaleX(1) translateX(0);
-  transform: scaleX(1) translateX(0);
-}
-
-.emotion-3.Mui-error::before,
-.emotion-3.Mui-error::after {
-  border-bottom-color: #A11100;
-}
-
-.emotion-3::before {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
-  left: 0;
-  bottom: 0;
-  content: "\\00a0";
-  position: absolute;
-  right: 0;
-  -webkit-transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  pointer-events: none;
-}
-
-.emotion-3:hover:not(.Mui-disabled, .Mui-error):before {
-  border-bottom: 2px solid #212121;
-}
-
-@media (hover: none) {
-  .emotion-3:hover:not(.Mui-disabled, .Mui-error):before {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.42);
-  }
-}
-
-.emotion-3.Mui-disabled:before {
-  border-bottom-style: dotted;
-}
-
-.emotion-3:before {
-  border-bottom: 1px solid #F5F5F5;
-}
-
-.emotion-3:hover:not($disabled):before {
-  border-bottom: 2px solid #14A452!important;
-}
-
-.emotion-3:after {
-  border-bottom: 2px solid #14A452;
-}
-
-.emotion-4 {
-  font: inherit;
-  letter-spacing: inherit;
-  color: currentColor;
-  padding: 4px 0 5px;
-  border: 0;
-  box-sizing: content-box;
-  background: none;
-  height: 1.4375em;
-  margin: 0;
-  -webkit-tap-highlight-color: transparent;
-  display: block;
-  min-width: 0;
-  width: 100%;
-  -webkit-animation-name: mui-auto-fill-cancel;
-  animation-name: mui-auto-fill-cancel;
-  -webkit-animation-duration: 10ms;
-  animation-duration: 10ms;
-}
-
-.emotion-4::-webkit-input-placeholder {
-  color: currentColor;
-  opacity: 0.42;
-  -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-}
-
-.emotion-4::-moz-placeholder {
-  color: currentColor;
-  opacity: 0.42;
-  -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-}
-
-.emotion-4:-ms-input-placeholder {
-  color: currentColor;
-  opacity: 0.42;
-  -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-}
-
-.emotion-4::-ms-input-placeholder {
-  color: currentColor;
-  opacity: 0.42;
-  -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-}
-
-.emotion-4:focus {
-  outline: 0;
-}
-
-.emotion-4:invalid {
-  box-shadow: none;
-}
-
-.emotion-4::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-4::-webkit-input-placeholder {
-  opacity: 0!important;
-}
-
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-4::-moz-placeholder {
-  opacity: 0!important;
-}
-
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:-ms-input-placeholder {
-  opacity: 0!important;
-}
-
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-4::-ms-input-placeholder {
-  opacity: 0!important;
-}
-
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-webkit-input-placeholder {
-  opacity: 0.42;
-}
-
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-moz-placeholder {
-  opacity: 0.42;
-}
-
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus:-ms-input-placeholder {
-  opacity: 0.42;
-}
-
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-placeholder {
-  opacity: 0.42;
-}
-
-.emotion-4.Mui-disabled {
-  opacity: 1;
-  -webkit-text-fill-color: rgba(0, 0, 0, 0.38);
-}
-
-.emotion-4:-webkit-autofill {
-  -webkit-animation-duration: 5000s;
-  animation-duration: 5000s;
-  -webkit-animation-name: mui-auto-fill;
-  animation-name: mui-auto-fill;
-}
-
-.emotion-5 {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  -webkit-transform: translate(0, -50%);
-  -moz-transform: translate(0, -50%);
-  -ms-transform: translate(0, -50%);
-  transform: translate(0, -50%);
-}
-
-.emotion-6 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -442,56 +59,79 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
   -webkit-text-decoration: none;
   text-decoration: none;
   color: inherit;
-  text-align: center;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  font-size: 1.3125rem;
-  padding: 8px;
-  border-radius: 50%;
-  overflow: visible;
-  color: rgba(0, 0, 0, 0.54);
-  -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.2rem;
-  color: #424242;
-  margin-right: -2px;
-  padding: 4px;
-  visibility: hidden;
+  font-family: Lato,sans-serif;
+  font-weight: 500;
+  font-size: 0.7656rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: #14A452;
+  text-transform: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 15px;
 }
 
-.emotion-6::-moz-focus-inner {
+.emotion-2::-moz-focus-inner {
   border-style: none;
 }
 
-.emotion-6.Mui-disabled {
+.emotion-2.Mui-disabled {
   pointer-events: none;
   cursor: default;
 }
 
 @media print {
-  .emotion-6 {
+  .emotion-2 {
     -webkit-print-color-adjust: exact;
     color-adjust: exact;
   }
 }
 
-.emotion-6:hover {
-  background-color: rgba(0, 0, 0, 0.04);
+.emotion-2:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(20, 164, 82, 0.04);
 }
 
 @media (hover: none) {
-  .emotion-6:hover {
+  .emotion-2:hover {
     background-color: transparent;
   }
 }
 
-.emotion-6.Mui-disabled {
-  background-color: transparent;
+.emotion-2.Mui-disabled {
   color: rgba(0, 0, 0, 0.26);
 }
 
-.emotion-7 {
+.emotion-2:hover {
+  colors: #14A452;
+}
+
+.emotion-2.MuiButton-text {
+  color: #212121;
+}
+
+.emotion-2:hover {
+  background: #F5F5F5;
+}
+
+.emotion-3 {
+  display: inherit;
+  margin-right: 8px;
+  margin-left: -4px;
+}
+
+.emotion-3>*:nth-of-type(1) {
+  font-size: 20px;
+}
+
+.emotion-4 {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -505,14 +145,14 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
   flex-shrink: 0;
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.0938rem;
+  font-size: 1.3125rem;
 }
 
-.emotion-7 iconButton {
+.emotion-4 iconButton {
   margin-right: 8px;
 }
 
-.emotion-8 {
+.emotion-5 {
   overflow: hidden;
   pointer-events: none;
   position: absolute;
@@ -524,118 +164,55 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
   border-radius: inherit;
 }
 
-.emotion-9 {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  fill: currentColor;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.3125rem;
-}
-
-.emotion-9 iconButton {
-  margin-right: 8px;
-}
-
 <div>
-  <h4>
-    Enter your device type
-  </h4>
-  <p>
-    Setting this attribute on the device ensures that the device will only receive updates for compatible software releases.
+  <p
+    class="margin-bottom"
+  >
+    Log into your device and install the Alvaldi client
+    <br />
+    Copy & paste and run this command on your device:
   </p>
   <div
-    style="display: grid; grid-template-columns: max-content 50px 150px; justify-items: center;"
+    class="code emotion-0 emotion-1"
   >
-    <div
-      class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon emotion-0"
-      style="max-width: 300px;"
+    <button
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-2"
+      tabindex="0"
+      type="button"
     >
-      <div
-        class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root emotion-1"
-        style="margin-top: 0px;"
+      <span
+        class="MuiButton-startIcon MuiButton-iconSizeMedium emotion-3"
       >
-        <label
-          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-standard MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-standard emotion-2"
-          data-shrink="false"
-          for="device-type-selection"
-          id="device-type-selection-label"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
+          data-testid="FileCopyIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          Device type
-        </label>
-        <div
-          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiAutocomplete-inputRoot emotion-3"
-        >
-          <input
-            aria-autocomplete="list"
-            aria-expanded="false"
-            aria-invalid="false"
-            autocapitalize="none"
-            autocomplete="off"
-            class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused emotion-4"
-            id="device-type-selection"
-            placeholder="Choose a device type"
-            role="combobox"
-            spellcheck="false"
-            type="text"
-            value=""
+          <path
+            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12zm-1 4 6 6v10c0 1.1-.9 2-2 2H7.99C6.89 23 6 22.1 6 21l.01-14c0-1.1.89-2 1.99-2zm-1 7h5.5L14 6.5z"
           />
-          <div
-            class="MuiAutocomplete-endAdornment emotion-5"
-          >
-            <button
-              aria-label="Clear"
-              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-clearIndicator emotion-6"
-              tabindex="-1"
-              title="Clear"
-              type="button"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall emotion-7"
-                data-testid="CloseIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                />
-              </svg>
-              <span
-                class="MuiTouchRipple-root emotion-8"
-              />
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div />
-    <div
-      class="clickable flexbox muted"
-      data-mui-internal-clone-element="true"
-      style="align-items: end; margin-bottom: 3px;"
+        </svg>
+      </span>
+      Copy to clipboard
+      <span
+        class="MuiTouchRipple-root emotion-5"
+      />
+    </button>
+    <span
+      style="white-space: pre-wrap; word-break: break-word;"
     >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-9"
-        data-testid="InfoOutlinedIcon"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
-        />
-      </svg>
-    </div>
+      curl -L https://staging.app.alvaldi.com/nt-connect/install.sh -O && sudo -E /bin/sh install.sh
+    </span>
   </div>
+  <p />
+  <p>
+    This downloads the Alvaldi client on the device, sets the configuration and starts the client.
+  </p>
+  <p>
+    Once the client has started, your device will attempt to connect to the server. It will then appear in your Pending devices tab and you can continue.
+  </p>
 </div>
 `;
 
@@ -1471,7 +1048,26 @@ exports[`PhysicalDeviceOnboarding Component tiny onboarding tips renders Install
   background-color: #f7f7f7;
 }
 
+.emotion-0 button {
+  float: right;
+  margin: 0 0 0 10px;
+  background: white;
+  border: 1px solid #9E9E9E;
+  padding: 7px;
+}
+
 .emotion-1 {
+  height: 260px;
+  background-color: #F5F5F5;
+}
+
+.emotion-1 button {
+  background: white;
+  border: 1px solid #9E9E9E;
+  padding: 7px;
+}
+
+.emotion-2 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -1522,61 +1118,61 @@ exports[`PhysicalDeviceOnboarding Component tiny onboarding tips renders Install
   padding: 10px 15px;
 }
 
-.emotion-1::-moz-focus-inner {
+.emotion-2::-moz-focus-inner {
   border-style: none;
 }
 
-.emotion-1.Mui-disabled {
+.emotion-2.Mui-disabled {
   pointer-events: none;
   cursor: default;
 }
 
 @media print {
-  .emotion-1 {
+  .emotion-2 {
     -webkit-print-color-adjust: exact;
     color-adjust: exact;
   }
 }
 
-.emotion-1:hover {
+.emotion-2:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
   background-color: rgba(20, 164, 82, 0.04);
 }
 
 @media (hover: none) {
-  .emotion-1:hover {
+  .emotion-2:hover {
     background-color: transparent;
   }
 }
 
-.emotion-1.Mui-disabled {
+.emotion-2.Mui-disabled {
   color: rgba(0, 0, 0, 0.26);
 }
 
-.emotion-1:hover {
+.emotion-2:hover {
   colors: #14A452;
 }
 
-.emotion-1.MuiButton-text {
+.emotion-2.MuiButton-text {
   color: #212121;
 }
 
-.emotion-1:hover {
+.emotion-2:hover {
   background: #F5F5F5;
 }
 
-.emotion-2 {
+.emotion-3 {
   display: inherit;
   margin-right: 8px;
   margin-left: -4px;
 }
 
-.emotion-2>*:nth-of-type(1) {
+.emotion-3>*:nth-of-type(1) {
   font-size: 20px;
 }
 
-.emotion-3 {
+.emotion-4 {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -1593,11 +1189,11 @@ exports[`PhysicalDeviceOnboarding Component tiny onboarding tips renders Install
   font-size: 1.3125rem;
 }
 
-.emotion-3 iconButton {
+.emotion-4 iconButton {
   margin-right: 8px;
 }
 
-.emotion-4 {
+.emotion-5 {
   overflow: hidden;
   pointer-events: none;
   position: absolute;
@@ -1610,31 +1206,27 @@ exports[`PhysicalDeviceOnboarding Component tiny onboarding tips renders Install
 }
 
 <div>
-  <h4>
+  <p
+    class="margin-bottom"
+  >
     Log into your device and install the Alvaldi client
-  </h4>
-  <p>
-    Copy & paste and run this command 
-    <b>
-      on your device
-    </b>
-    :
+    <br />
+    Copy & paste and run this command on your device:
   </p>
   <div
-    class="code emotion-0 "
+    class="code emotion-0 emotion-1"
   >
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-1"
-      style="float: right; margin: -20px 0px 0px 10px;"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-2"
       tabindex="0"
       type="button"
     >
       <span
-        class="MuiButton-startIcon MuiButton-iconSizeMedium emotion-2"
+        class="MuiButton-startIcon MuiButton-iconSizeMedium emotion-3"
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-3"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="FileCopyIcon"
           focusable="false"
           viewBox="0 0 24 24"
@@ -1646,15 +1238,16 @@ exports[`PhysicalDeviceOnboarding Component tiny onboarding tips renders Install
       </span>
       Copy to clipboard
       <span
-        class="MuiTouchRipple-root emotion-4"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <span
       style="white-space: pre-wrap; word-break: break-word;"
     >
-      JWT_TOKEN="eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJjZTNkMGY4Yy1hZWRlLTQwMzAtYjM5MS03ZDUwMjBlYjg3M2UiLCJzdWIiOiJhMzBhNzgwYi1iODQzLTUzNDQtODBlMy0wZmQ5NWE0ZjZmYzMiLCJleHAiOjE2MDY4MTUzNjksImlhdCI6MTYwNjIxMDU2OSwibWVuZGVyLnRlbmFudCI6IjVmODVjMTdiY2U2MmI3ZmE3ZjVmNzA0MCIsIm1lbmRlci51c2VyIjp0cnVlLCJpc3MiOiJNZW5kZXIgVXNlcnMiLCJzY3AiOiJtZW5kZXIuKiIsIm1lbmRlci5wbGFuIjoicHJvZmVzc2lvbmFsIiwibmJmIjoxNjA2MjEwNTY5fQ.qVgYdCzLTf8OdK9uUctqqaY_HWkIiwpekuGvuGQAXCEgOv4bRNDlZRN_ZRSbxQoARG3pquhScbQrjBV9tcF4irTUPlTn3yrsXNO17DpcbTVeKRkb88RDtIKiRw3orVZ_GlIb-ckTQ5dS-Nqlyyf3Fmrhca-gwt6m_xv2UrmJK6eYYTMfggdRRWb-4u7mEkBI_pHPMTQrT8kJ2BeX-vHgazH9AoH0k85LHtFZQXD7pXHlDZRnLxJXukncwMGDmF17374gavYAIyDIzcC8sEBMDnVXgpikeA1sauzirqix6mAVs6XmxdQO7aF0wfXO1_PTYUA3Nk1oQfMYNlEI3U9uLRJRZIq2L8fmrrBryhstKd4y0KlBbGAQrx8NtRkgajjd1ljMfPBUEZrb7uSerVjneiO-aIBO76CuH0zdklphIjpGJeogkBhe8pAYNggp1XsZHgpZfl7IE5faKaDkMGnutaea--Czor6bhqUNCuY4tR0cpQJbNwy6LS9o1CFy4Log"
+      SESSION_TOKEN="eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJjZTNkMGY4Yy1hZWRlLTQwMzAtYjM5MS03ZDUwMjBlYjg3M2UiLCJzdWIiOiJhMzBhNzgwYi1iODQzLTUzNDQtODBlMy0wZmQ5NWE0ZjZmYzMiLCJleHAiOjE2MDY4MTUzNjksImlhdCI6MTYwNjIxMDU2OSwibWVuZGVyLnRlbmFudCI6IjVmODVjMTdiY2U2MmI3ZmE3ZjVmNzA0MCIsIm1lbmRlci51c2VyIjp0cnVlLCJpc3MiOiJNZW5kZXIgVXNlcnMiLCJzY3AiOiJtZW5kZXIuKiIsIm1lbmRlci5wbGFuIjoicHJvZmVzc2lvbmFsIiwibmJmIjoxNjA2MjEwNTY5fQ.qVgYdCzLTf8OdK9uUctqqaY_HWkIiwpekuGvuGQAXCEgOv4bRNDlZRN_ZRSbxQoARG3pquhScbQrjBV9tcF4irTUPlTn3yrsXNO17DpcbTVeKRkb88RDtIKiRw3orVZ_GlIb-ckTQ5dS-Nqlyyf3Fmrhca-gwt6m_xv2UrmJK6eYYTMfggdRRWb-4u7mEkBI_pHPMTQrT8kJ2BeX-vHgazH9AoH0k85LHtFZQXD7pXHlDZRnLxJXukncwMGDmF17374gavYAIyDIzcC8sEBMDnVXgpikeA1sauzirqix6mAVs6XmxdQO7aF0wfXO1_PTYUA3Nk1oQfMYNlEI3U9uLRJRZIq2L8fmrrBryhstKd4y0KlBbGAQrx8NtRkgajjd1ljMfPBUEZrb7uSerVjneiO-aIBO76CuH0zdklphIjpGJeogkBhe8pAYNggp1XsZHgpZfl7IE5faKaDkMGnutaea--Czor6bhqUNCuY4tR0cpQJbNwy6LS9o1CFy4Log"
 TENANT_TOKEN="testtoken"
-wget -O- https://get.mender.io | sudo bash -s -- --demo --commercial --jwt-token $JWT_TOKEN -- --quiet --device-type "raspberrypi7" --tenant-token $TENANT_TOKEN --demo --server-url https://app.alvaldi.com --server-cert=""
+SERVER_URL="https://app.alvaldi.com"
+curl -L https://staging.app.alvaldi.com/nt-connect/install.sh -O && sudo -E /bin/sh install.sh
     </span>
   </div>
   <p />

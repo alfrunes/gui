@@ -13,8 +13,6 @@
 //    limitations under the License.
 import React from 'react';
 
-import Cookies from 'universal-cookie';
-
 import { defaultState, token, undefineds, userId } from '../../tests/mockData';
 import { render } from '../../tests/setupTests';
 import { DARK_MODE, LIGHT_MODE } from './constants/appConstants.js';
@@ -117,114 +115,18 @@ describe('getDebConfigurationCode function', () => {
   let code;
   describe('configuring devices for hosted mender', () => {
     beforeEach(() => {
-      code = getDebConfigurationCode({ ipAddress: '192.168.7.41', isDemoMode: true, deviceType: 'raspberrypi3' });
+      code = getDebConfigurationCode({ tenantToken: 't3nanttok3n' });
     });
     afterEach(postTestCleanUp);
     it('should not contain any template string leftovers', async () => {
       expect(code).not.toMatch(/\$\{([^}]+)\}/);
     });
     it('should return a sane result', async () => {
-      expect(code).toMatch(`wget -O- https://get.mender.io | sudo bash -s -- --demo -- --quiet --device-type "raspberrypi3" --demo --server-ip 192.168.7.41`);
-    });
-    it('should not contain tenant information for OS calls', async () => {
-      expect(code).not.toMatch(/tenant/);
-      expect(code).not.toMatch(/token/);
-      expect(code).not.toMatch(/TENANT/);
-      expect(code).not.toMatch(/TOKEN/);
-    });
-  });
-  describe('configuring devices for hosted mender', () => {
-    beforeEach(() => {
-      window.location = {
-        ...window.location,
-        hostname: 'app.alvaldi.com'
-      };
-      jest.clearAllMocks();
-      const cookies = new Cookies();
-      cookies.get.mockReturnValue('omnomnom');
-      cookies.set.mockReturnValueOnce();
-    });
-    afterEach(postTestCleanUp);
-
-    it('should contain sane information for hosted calls', async () => {
-      code = getDebConfigurationCode({ isHosted: true, isOnboarding: true, tenantToken: 'token', deviceType: 'raspberrypi3' });
-      expect(code).toMatch(
-        `JWT_TOKEN="omnomnom"
-TENANT_TOKEN="token"
-wget -O- https://get.mender.io | sudo bash -s -- --demo --commercial --jwt-token $JWT_TOKEN -- --quiet --device-type "raspberrypi3" --tenant-token $TENANT_TOKEN --demo --server-url https://app.alvaldi.com --server-cert=""`
-      );
-    });
-  });
-  describe('configuring devices for staging.hosted.mender', () => {
-    beforeEach(() => {
-      window.location = {
-        ...window.location,
-        hostname: 'staging.app.alvaldi.com'
-      };
-      jest.clearAllMocks();
-      const cookies = new Cookies();
-      cookies.get.mockReturnValue('omnomnom');
-      cookies.set.mockReturnValueOnce();
-    });
-    afterEach(postTestCleanUp);
-
-    it('should contain sane information for staging preview calls', async () => {
-      code = getDebConfigurationCode({ isHosted: true, isOnboarding: true, tenantToken: 'token', deviceType: 'raspberrypi3', isPreRelease: true });
-      expect(code).toMatch(
-        `JWT_TOKEN="omnomnom"
-TENANT_TOKEN="token"
-wget -O- https://get.mender.io/staging | sudo bash -s -- --demo -c experimental --commercial --jwt-token $JWT_TOKEN -- --quiet --device-type "raspberrypi3" --tenant-token $TENANT_TOKEN --demo --server-url https://staging.app.alvaldi.com --server-cert=""`
-      );
-    });
-  });
-  describe('configuring devices for fancy.enterprise.on.prem', () => {
-    beforeEach(() => {
-      window.location = {
-        ...window.location,
-        hostname: 'fancy.enterprise.on.prem'
-      };
-      jest.clearAllMocks();
-      const cookies = new Cookies();
-      cookies.get.mockReturnValue('omnomnom');
-      cookies.set.mockReturnValueOnce();
-    });
-    afterEach(postTestCleanUp);
-
-    it('should contain sane information for enterprise demo on-prem calls', async () => {
-      code = getDebConfigurationCode({ ipAddress: '1.2.3.4', isDemoMode: true, tenantToken: 'token', deviceType: 'raspberrypi3' });
-      expect(code).toMatch(
-        `TENANT_TOKEN="token"
-wget -O- https://get.mender.io | sudo bash -s -- --demo -- --quiet --device-type "raspberrypi3" --tenant-token $TENANT_TOKEN --demo --server-ip 1.2.3.4`
-      );
-    });
-    it('should contain sane information for enterprise production on-prem calls', async () => {
-      code = getDebConfigurationCode({ ipAddress: '1.2.3.4', isDemoMode: false, tenantToken: 'token', deviceType: 'raspberrypi3' });
-      expect(code).toMatch(
-        `TENANT_TOKEN="token"
-wget -O- https://get.mender.io | sudo bash -s -- --demo -- --quiet --device-type "raspberrypi3" --tenant-token $TENANT_TOKEN --retry-poll 300 --update-poll 1800 --inventory-poll 28800 --server-url https://fancy.enterprise.on.prem --server-cert=""`
-      );
-    });
-  });
-  describe('configuring devices for fancy.opensource.on.prem', () => {
-    beforeEach(() => {
-      window.location = {
-        ...window.location,
-        hostname: 'fancy.opensource.on.prem'
-      };
-    });
-    afterEach(postTestCleanUp);
-
-    it('should contain sane information for OS demo on-prem calls', async () => {
-      code = getDebConfigurationCode({ ipAddress: '1.2.3.4', isDemoMode: true, tenantToken: 'token', deviceType: 'raspberrypi3' });
-      expect(code).toMatch(
-        `wget -O- https://get.mender.io | sudo bash -s -- --demo -- --quiet --device-type "raspberrypi3" --tenant-token $TENANT_TOKEN --demo --server-ip 1.2.3.4`
-      );
-    });
-    it('should contain sane information for OS production on-prem calls', async () => {
-      code = getDebConfigurationCode({ ipAddress: '1.2.3.4', isDemoMode: false, tenantToken: 'token', deviceType: 'raspberrypi3' });
-      expect(code).toMatch(
-        `wget -O- https://get.mender.io | sudo bash -s -- --demo -- --quiet --device-type "raspberrypi3" --tenant-token $TENANT_TOKEN --retry-poll 300 --update-poll 1800 --inventory-poll 28800 --server-url https://fancy.opensource.on.prem --server-cert=""`
-      );
+      expect(code)
+        .toMatch(`CONNECT_SESSION_TOKEN="eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJjZTNkMGY4Yy1hZWRlLTQwMzAtYjM5MS03ZDUwMjBlYjg3M2UiLCJzdWIiOiJhMzBhNzgwYi1iODQzLTUzNDQtODBlMy0wZmQ5NWE0ZjZmYzMiLCJleHAiOjE2MDY4MTUzNjksImlhdCI6MTYwNjIxMDU2OSwibWVuZGVyLnRlbmFudCI6IjVmODVjMTdiY2U2MmI3ZmE3ZjVmNzA0MCIsIm1lbmRlci51c2VyIjp0cnVlLCJpc3MiOiJNZW5kZXIgVXNlcnMiLCJzY3AiOiJtZW5kZXIuKiIsIm1lbmRlci5wbGFuIjoicHJvZmVzc2lvbmFsIiwibmJmIjoxNjA2MjEwNTY5fQ.qVgYdCzLTf8OdK9uUctqqaY_HWkIiwpekuGvuGQAXCEgOv4bRNDlZRN_ZRSbxQoARG3pquhScbQrjBV9tcF4irTUPlTn3yrsXNO17DpcbTVeKRkb88RDtIKiRw3orVZ_GlIb-ckTQ5dS-Nqlyyf3Fmrhca-gwt6m_xv2UrmJK6eYYTMfggdRRWb-4u7mEkBI_pHPMTQrT8kJ2BeX-vHgazH9AoH0k85LHtFZQXD7pXHlDZRnLxJXukncwMGDmF17374gavYAIyDIzcC8sEBMDnVXgpikeA1sauzirqix6mAVs6XmxdQO7aF0wfXO1_PTYUA3Nk1oQfMYNlEI3U9uLRJRZIq2L8fmrrBryhstKd4y0KlBbGAQrx8NtRkgajjd1ljMfPBUEZrb7uSerVjneiO-aIBO76CuH0zdklphIjpGJeogkBhe8pAYNggp1XsZHgpZfl7IE5faKaDkMGnutaea--Czor6bhqUNCuY4tR0cpQJbNwy6LS9o1CFy4Log"
+CONNECT_TENANT_TOKEN="t3nanttok3n"
+CONNECT_SERVER_URL="https://app.alvaldi.com"
+curl -L https://staging.app.alvaldi.com/nt-connect/install.sh -O && sudo -E /bin/sh install.sh`);
     });
   });
 });
