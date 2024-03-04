@@ -18,6 +18,9 @@ import { Button, ButtonGroup, Menu, MenuItem } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 
 import { canAccess } from '../../../constants/appConstants';
+import { useDispatch } from 'react-redux';
+import { onboardingSteps } from '../../../constants/onboardingConstants.js';
+import { advanceOnboarding } from '../../../actions/onboardingActions.js';
 
 const useStyles = makeStyles()(theme => ({
   buttonStyle: {
@@ -45,6 +48,7 @@ export const DeviceAdditionWidget = ({ features, innerRef, onConnectClick, onPre
   const [anchorEl, setAnchorEl] = useState();
   const [selectedIndex, setSelectedIndex] = useState(0);
   const { classes } = useStyles();
+  const dispatch = useDispatch();
 
   const options = [
     { action: onConnectClick, title: 'Add a new device', value: 'connect', canAccess },
@@ -62,12 +66,14 @@ export const DeviceAdditionWidget = ({ features, innerRef, onConnectClick, onPre
   const handleToggle = event => {
     const anchor = anchorEl ? null : event?.currentTarget.parentElement;
     setAnchorEl(anchor);
+    dispatch(advanceOnboarding(onboardingSteps.ONBOARDING_START));
   };
 
   const handleSelection = index => {
     setSelectedIndex(index);
     handleToggle();
     options[index].action(true);
+    dispatch(advanceOnboarding(onboardingSteps.ONBOARDING_START));
   };
 
   return (
