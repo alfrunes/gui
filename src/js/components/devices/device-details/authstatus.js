@@ -64,6 +64,10 @@ export const AuthStatus = ({ decommission, device }) => {
     }, hasPending);
   }
 
+  if (status === DEVICE_STATES.accepted && onboardingState.progress === onboardingSteps.DEVICE_AUTH) {
+    dispatch(advanceOnboarding(onboardingSteps.DEVICE_AUTH));
+  }
+
   const statusIcon = states[status] ? states[status] : states.default;
   const requestNotification = !!hasPending && <Chip size="small" label="new request" color="primary" />;
 
@@ -80,7 +84,9 @@ export const AuthStatus = ({ decommission, device }) => {
         </div>
       }
     >
-      <Authsets decommission={decommission} device={device} />
+      <div ref={authRef}>
+        <Authsets decommission={decommission} device={device} />
+      </div>
       {identity_data[IDENTITY_IOT_HUB_DEVICE_ID_KEY] && <div className="greyed">This device is managed through Azure.</div>}
       {onboardingComponent}
     </DeviceDataCollapse>
