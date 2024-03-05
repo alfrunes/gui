@@ -12,7 +12,7 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
+import { thunk } from 'redux-thunk';
 
 import { defaultState, webhookEvents } from '../../../tests/mockData';
 import { PLANS, SET_ANNOUNCEMENT, SET_FIRST_LOGIN_AFTER_SIGNUP, SET_SNACKBAR } from '../constants/appConstants';

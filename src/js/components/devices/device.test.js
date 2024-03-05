@@ -17,7 +17,7 @@ import { Provider } from 'react-redux';
 import Router from 'react-router-dom';
 
 import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
+import { thunk } from 'redux-thunk';
 
 import { defaultState, undefineds } from '../../../../tests/mockData';
 import { render } from '../../../../tests/setupTests';
