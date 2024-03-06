@@ -61,7 +61,7 @@ export const Troubleshoot = ({ device }) => {
   const [downloadPath, setDownloadPath] = useState('');
   const [elapsed, setElapsed] = useState(moment());
   const [file, setFile] = useState();
-  const [socketInitialized, setSocketInitialized] = useState(false);
+  const [socketInitialized, setSocketInitialized] = useState(undefined);
   const [startTime, setStartTime] = useState();
   const [uploadPath, setUploadPath] = useState('');
   const [snackbarAlreadySet, setSnackbarAlreadySet] = useState(false);
@@ -103,12 +103,13 @@ export const Troubleshoot = ({ device }) => {
       dispatch(setSnackbar('You do not have enough permissions to connect to the device.', 5000));
       return;
     }
-
-    if (socketInitialized) {
-      close();
+    if (sessionState === WebSocket.CLOSED) {
+      setStartTime();
+      setSocketInitialized(undefined);
+      connect(device.id);
     } else {
       setSocketInitialized(false);
-      connect(device.id);
+      close();
     }
   };
 
@@ -119,57 +120,65 @@ export const Troubleshoot = ({ device }) => {
     }
   };
 
-  const onDownloadClick = path => {
-    setDownloadPath(path);
-    dispatch(getDeviceFileDownloadLink(device.id, path)).then(address => {
-      const filename = path.substring(path.lastIndexOf('/') + 1) || 'file';
-      createDownload(address, filename);
-    });
-  };
+  const onDownloadClick = useCallback(
+    path => {
+      setDownloadPath(path);
+      dispatch(setSnackbar('Downloading file'));
+      dispatch(getDeviceFileDownloadLink(device.id, path)).then(address => {
+        const filename = path.substring(path.lastIndexOf('/') + 1) || 'file';
+        createDownload(address, filename);
+      });
+    },
+    [dispatch, device.id]
+  );
 
   const onSocketOpen = () => {
     setSocketInitialized(true);
     dispatch(setSnackbar('Connection with the device established.', 5000));
   };
 
-  const onNotify = content => {
-    setSnackbarAlreadySet(true);
-    dispatch(setSnackbar(content, 5000));
-    snackTimer.current = setTimeout(() => setSnackbarAlreadySet(false), TIMEOUTS.fiveSeconds + TIMEOUTS.debounceShort);
-  };
+  const onNotify = useCallback(
+    content => {
+      if (snackbarAlreadySet) {
+        return;
+      }
+      setSnackbarAlreadySet(true);
+      dispatch(setSnackbar(content, TIMEOUTS.threeSeconds));
+      snackTimer.current = setTimeout(() => setSnackbarAlreadySet(false), TIMEOUTS.threeSeconds + TIMEOUTS.debounceShort);
+    },
+    [setSnackbar, snackbarAlreadySet, dispatch]
+  );
 
-  const onHealthCheckFailed = () => {
-    if (snackbarAlreadySet) {
+  const onHealthCheckFailed = useCallback(() => {
+    if (!socketInitialized) {
       return;
     }
     onNotify('Health check failed: connection with the device lost.');
-  };
+  }, [onNotify, socketInitialized]);
 
-  const onSocketClose = event => {
-    if (snackbarAlreadySet) {
-      return;
-    }
-    if (event.wasClean) {
-      onNotify(`Connection with the device closed.`);
-    } else if (event.code == 1006) {
-      // 1006: abnormal closure
-      onNotify('Connection to the remote terminal is forbidden.');
-    } else {
-      onNotify('Connection with the device died.');
-    }
-  };
-
-  const onMessageReceived = useCallback(
-    message => {
-      if (!termRef.current.terminal) {
-        return;
+  const onSocketClose = useCallback(
+    event => {
+      if (event.wasClean) {
+        onNotify(`Connection with the device closed.`);
+      } else if (event.code == 1006) {
+        // 1006: abnormal closure
+        onNotify('Connection to the remote terminal is forbidden.');
+      } else {
+        onNotify('Connection with the device died.');
       }
-      termRef.current.terminal.write(new Uint8Array(message));
+      setSocketInitialized(false);
     },
-    [termRef.current]
+    [onNotify, setSocketInitialized, socketInitialized]
   );
 
-  const [connect, sendMessage, close, sessionState, sessionId] = useSession({
+  const onMessageReceived = useCallback(message => {
+    if (!termRef.current.terminal.current) {
+      return;
+    }
+    termRef.current.terminal.current.write(new Uint8Array(message));
+  }, []);
+
+  const [connect, sendMessage, close, sessionState] = useSession({
     onClose: onSocketClose,
     onHealthCheckFailed,
     onMessageReceived,
@@ -178,8 +187,32 @@ export const Troubleshoot = ({ device }) => {
   });
 
   useEffect(() => {
-    setSocketInitialized(sessionState === WebSocket.OPEN && sessionId);
-  }, [sessionId, sessionState]);
+    if (socketInitialized === undefined) {
+      return;
+    }
+    if (socketInitialized) {
+      setStartTime(new Date());
+      setSnackbar('Connection with the device established.', TIMEOUTS.fiveSeconds);
+    } else {
+      close();
+    }
+  }, [close, setSnackbar, socketInitialized]);
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(snackTimer.current);
+      if (socketInitialized !== undefined) {
+        close();
+      }
+    };
+  }, [close, socketInitialized]);
+
+  useEffect(() => {
+    if (sessionState !== WebSocket.OPEN) {
+      return;
+    }
+    return close;
+  }, [close, sessionState]);
 
   const duration = moment.duration(elapsed.diff(moment(startTime)));
   return (
@@ -203,8 +236,6 @@ export const Troubleshoot = ({ device }) => {
                 <Terminal
                   onDownloadClick={onDownloadClick}
                   sendMessage={sendMessage}
-                  sessionId={sessionId}
-                  setSnackbar={dispatchedSetSnackbar}
                   socketInitialized={socketInitialized}
                   style={{ position: 'absolute', width: '100%', height: '100%' }}
                   xtermRef={termRef}
