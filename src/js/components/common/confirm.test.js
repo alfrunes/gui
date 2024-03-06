@@ -13,7 +13,7 @@
 //    limitations under the License.
 import React from 'react';
 
-import { screen } from '@testing-library/react';
+import { act, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { undefineds } from '../../../../tests/mockData';
@@ -36,10 +36,14 @@ describe('Confirm Component', () => {
     const { container } = render(<Confirm type="chartRemoval" action={actionCheck} cancel={cancelCheck} />);
 
     expect(screen.queryByText(/remove this chart\?/i)).toBeInTheDocument();
-    await user.click(container.querySelector('.green'));
+    await act(async () => {
+      await user.click(container.querySelector('.green'));
+    });
     expect(actionCheck).toHaveBeenCalledTimes(1);
     expect(screen.queryByText(/removing/i)).toBeInTheDocument();
-    await user.click(container.querySelector('svg[data-testid="CancelIcon"]'));
+    await act(async () => {
+      await user.click(container.querySelector('svg[data-testid="CancelIcon"]'));
+    });
     expect(cancelCheck).toHaveBeenCalledTimes(1);
   });
 });

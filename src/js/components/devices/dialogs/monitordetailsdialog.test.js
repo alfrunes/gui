@@ -13,7 +13,7 @@
 //    limitations under the License.
 import React from 'react';
 
-import { screen, waitFor } from '@testing-library/react';
+import { act, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { undefineds } from '../../../../../tests/mockData';
@@ -65,11 +65,15 @@ describe('MonitorLogDialog Component', () => {
     const { rerender } = render(ui);
     expect(screen.getByText(/show previous/i)).toBeInTheDocument();
     expect(screen.getByText(/137/i)).not.toBeVisible();
-    await user.click(screen.getByText(/show previous/i));
+    await act(async () => {
+      await user.click(screen.getByText(/show previous/i));
+    });
     await waitFor(() => rerender(ui));
     expect(screen.getByText(/137/i)).toBeVisible();
     window.open = jest.fn();
-    await user.click(screen.getByRole('button', { name: /export/i }));
+    await act(async () => {
+      await user.click(screen.getByRole('button', { name: /export/i }));
+    });
     expect(window.open).toHaveBeenCalledWith(
       'data:application/octet-stream,0000%20%20%20Jul%2022%2010%3A40%3A57%20raspberrypi%20sshd%5B32031%5D%3A%20pam_unix(sshd%3Asession)%3A%20session%20closed%20for%20user%20root%0A0137%20%20%20Jul%2022%2010%3A40%3A58%20raspberrypi%20sshd%5B32031%5D%3A%20pam_unix(sshd%3Asession)%3A%20session%20closed%20for%20user%20root%0A1234%20%20%20Jul%2022%2010%3A40%3A56%20raspberrypi%20sshd%5B32031%5D%3A%20pam_unix(sshd%3Asession)%3A%20session%20closed%20for%20user%20root',
       'Mender-Monitor-SSH_Daemon_is_not_running.log'

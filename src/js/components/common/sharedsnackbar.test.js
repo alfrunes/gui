@@ -13,7 +13,7 @@
 //    limitations under the License.
 import React from 'react';
 
-import { screen } from '@testing-library/react';
+import { act, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { undefineds } from '../../../../tests/mockData';
@@ -37,7 +37,9 @@ describe('SharedSnackbar Component', () => {
 
     render(<SharedSnackbar snackbar={{ maxWidth: 200, open: true, message: 'test' }} setSnackbar={actionCheck} />);
     expect(screen.queryByText(/test/i)).toBeInTheDocument();
-    await user.click(screen.getByText(/test/i));
+    await act(async () => {
+      await user.click(screen.getByText(/test/i));
+    });
     expect(actionCheck).toHaveBeenCalled();
     expect(copyCheck).toHaveBeenCalled();
   });
@@ -50,7 +52,9 @@ describe('SharedSnackbar Component', () => {
     document.execCommand = copyCheck;
 
     render(<SharedSnackbar snackbar={{ maxWidth: 200, open: true, message: 'test', onClick: onClickCheck }} setSnackbar={actionCheck} />);
-    await user.click(screen.getByText(/test/i));
+    await act(async () => {
+      await user.click(screen.getByText(/test/i));
+    });
     expect(actionCheck).not.toHaveBeenCalled();
     expect(copyCheck).not.toHaveBeenCalled();
     expect(onClickCheck).toHaveBeenCalled();

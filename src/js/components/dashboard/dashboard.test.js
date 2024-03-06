@@ -14,7 +14,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { screen, waitFor } from '@testing-library/react';
+import { act, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { defaultState, undefineds } from '../../../../tests/mockData';
@@ -59,7 +59,9 @@ describe('Dashboard Component', () => {
     await waitFor(() => expect(reportsSpy).toHaveBeenCalled());
     await waitFor(() => rerender(ui));
     store.dispatch({ type: SET_ACCEPTED_DEVICES_COUNT, status: 'accepted', count: 0 });
-    await user.click(screen.getByText(/pending devices/i));
+    await act(async () => {
+      await user.click(screen.getByText(/pending devices/i));
+    });
     await waitFor(() => screen.queryByText(/pendings route/i));
     expect(screen.getByText(/pendings route/i)).toBeVisible();
     reportsSpy.mockClear();
@@ -73,10 +75,14 @@ describe('Dashboard Component', () => {
         <Route path="/devices/*" element={<div>accepted devices route</div>} />
       </Routes>
     );
+    await act(async () => {});
     const { rerender } = render(ui);
     await waitFor(() => expect(reportsSpy).toHaveBeenCalled());
     await waitFor(() => rerender(ui));
-    await user.click(screen.getByText(/Accepted devices/i));
+    await act(async () => {});
+    await act(async () => {
+      await user.click(screen.getByText(/Accepted devices/i));
+    });
     await waitFor(() => screen.queryByText(/accepted devices route/i));
     expect(screen.getByText(/accepted devices route/i)).toBeVisible();
     reportsSpy.mockClear();

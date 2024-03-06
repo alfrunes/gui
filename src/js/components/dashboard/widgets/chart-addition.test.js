@@ -13,7 +13,7 @@
 //    limitations under the License.
 import React from 'react';
 
-import { screen } from '@testing-library/react';
+import { act, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { defaultState, undefineds } from '../../../../../tests/mockData';
@@ -39,11 +39,15 @@ describe('ChartAdditionWidget Component', () => {
     const submitCheck = jest.fn();
     render(<ChartAdditionWidget groups={defaultState.devices.groups.byId} onAdditionClick={submitCheck} software={software} />);
     expect(screen.queryByText(/Device group/i)).not.toBeInTheDocument();
-    await user.click(screen.getByText(/Add a widget/i));
+    await act(async () => {
+      await user.click(screen.getByText(/Add a widget/i));
+    });
     expect(screen.queryAllByText(/Device group/i).length).toBeTruthy();
     const element = screen.getByRole('combobox', { name: /Device group/i });
     await selectMaterialUiSelectOption(element, 'testGroup', user);
-    await user.click(screen.getByRole('button', { name: /Save/i }));
+    await act(async () => {
+      await user.click(screen.getByRole('button', { name: /Save/i }));
+    });
     expect(submitCheck).toHaveBeenCalled();
     expect(screen.queryByText(/Device group/i)).not.toBeInTheDocument();
   });

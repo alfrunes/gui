@@ -13,7 +13,7 @@
 //    limitations under the License.
 import React from 'react';
 
-import { screen } from '@testing-library/react';
+import { act, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { undefineds } from '../../../../tests/mockData';
@@ -33,7 +33,9 @@ describe('DeviceStatusNotification Component', () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const clickMock = jest.fn();
     render(<DeviceStatusNotification deviceCount={1} onClick={clickMock} state={DEVICE_STATES.pending} />);
-    await user.click(screen.getByText(/pending authorization/i));
+    await act(async () => {
+      await user.click(screen.getByText(/pending authorization/i));
+    });
     expect(clickMock).toHaveBeenCalled();
   });
 });

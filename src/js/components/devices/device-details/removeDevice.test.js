@@ -18,6 +18,7 @@ import userEvent from '@testing-library/user-event';
 import { defaultState, undefineds } from '../../../../../tests/mockData';
 import { render } from '../../../../../tests/setupTests';
 import RemoveDevice from './removeDevice.js';
+import { act } from '@testing-library/react';
 
 describe('RemoveDevice Component', () => {
   it('renders correctly', async () => {
@@ -29,7 +30,9 @@ describe('RemoveDevice Component', () => {
   test('opens dialog on remove button click', async () => {
     const { getByText } = render(<RemoveDevice device={defaultState.devices.byId.c1} />);
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
-    await user.click(getByText(/Remove device/i));
+    await act(async () => {
+      await user.click(getByText(/Remove device/i));
+    });
     const removeDeviceDialogText = getByText('Are you sure you want to remove this device?');
     expect(removeDeviceDialogText).toBeInTheDocument();
   });

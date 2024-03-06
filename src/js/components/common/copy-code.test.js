@@ -37,7 +37,9 @@ describe('CopyCode Component', () => {
     const { rerender } = render(ui);
 
     expect(screen.queryByText(/Copied to clipboard/i)).not.toBeInTheDocument();
-    await user.click(screen.getByRole('button', { name: /Copy to clipboard/i }));
+    await act(async () => {
+      await user.click(screen.getByRole('button', { name: /Copy to clipboard/i }));
+    });
     expect(submitCheck).toHaveBeenCalledTimes(1);
     expect(document.execCommand).toHaveBeenCalledTimes(1);
     expect(screen.queryByText(/Copied to clipboard/i)).toBeInTheDocument();

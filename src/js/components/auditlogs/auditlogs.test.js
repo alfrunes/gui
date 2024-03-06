@@ -20,7 +20,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 
 import { prettyDOM } from '@testing-library/dom';
-import { screen, render as testingLibRender, waitFor } from '@testing-library/react';
+import { screen, render as testingLibRender, waitFor, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { defaultState, undefineds } from '../../../../tests/mockData';
@@ -55,8 +55,10 @@ describe('Auditlogs Component', () => {
       </LocalizationProvider>,
       { preloadedState }
     );
-    await user.click(screen.getByRole('button', { name: /Download results as csv/i }));
-    await user.click(screen.getByText(/open_terminal/i));
+    await act(async () => {
+      await user.click(screen.getByRole('button', { name: /Download results as csv/i }));
+      await user.click(screen.getByText(/open_terminal/i));
+    });
   });
 
   it.skip('allows navigating by url as expected', async () => {
@@ -76,6 +78,8 @@ describe('Auditlogs Component', () => {
     );
     const { rerender } = testingLibRender(ui);
     await waitFor(() => rerender(ui));
-    await user.click(screen.getByText(/clear filter/i));
+    await act(async () => {
+      await user.click(screen.getByText(/clear filter/i));
+    });
   });
 });

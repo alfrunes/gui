@@ -13,7 +13,7 @@
 //    limitations under the License.
 import React from 'react';
 
-import { screen, waitFor } from '@testing-library/react';
+import { act, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { undefineds } from '../../../../../tests/mockData';
@@ -53,7 +53,9 @@ describe('PreauthDialog Component', () => {
     expect(screen.getByText(/upload a public key file/i)).toBeInTheDocument();
     // container.querySelector doesn't work in this scenario for some reason -> but querying document seems to work
     const uploadInput = document.querySelector(dropzone);
-    await user.upload(uploadInput, menderFile);
+    await act(async () => {
+      await user.upload(uploadInput, menderFile);
+    });
     await waitFor(() => rerender(ui));
 
     expect(uploadInput.files).toHaveLength(1);
@@ -61,19 +63,29 @@ describe('PreauthDialog Component', () => {
     expect(screen.getByDisplayValue('test.pem')).toBeInTheDocument();
     const fabSelector = '.MuiFab-root';
     expect(document.querySelector(fabSelector)).toBeDisabled();
-    await user.type(screen.getByPlaceholderText(/key/i), 'testKey');
-    await user.type(screen.getByPlaceholderText(/value/i), 'testValue');
+    await act(async () => {
+      await user.type(screen.getByPlaceholderText(/key/i), 'testKey');
+      await user.type(screen.getByPlaceholderText(/value/i), 'testValue');
+    });
     expect(document.querySelector(fabSelector)).not.toBeDisabled();
-    await user.click(document.querySelector(fabSelector));
+    await act(async () => {
+      await user.click(document.querySelector(fabSelector));
+    });
     await waitFor(() => rerender(ui));
     await waitFor(() => expect(screen.queryByText(errorText)).not.toBeInTheDocument());
-    await user.click(screen.getByRole('button', { name: 'Save' }));
+    await act(async () => {
+      await user.click(screen.getByRole('button', { name: 'Save' }));
+    });
     await waitFor(() => expect(screen.queryAllByText(errorText)).toBeTruthy());
     uploadMock.mockClear();
-    await user.type(screen.getByDisplayValue('testValue'), 'testValues');
+    await act(async () => {
+      await user.type(screen.getByDisplayValue('testValue'), 'testValues');
+    });
     await waitFor(() => expect(screen.queryByText(errorText)).not.toBeInTheDocument());
     uploadMock.mockResolvedValue(true);
-    await user.click(screen.getByRole('button', { name: 'Save and add another' }));
+    await act(async () => {
+      await user.click(screen.getByRole('button', { name: 'Save and add another' }));
+    });
     await waitFor(() => rerender(ui));
     expect(uploadMock).toHaveBeenCalled();
   });
@@ -85,10 +97,14 @@ describe('PreauthDialog Component', () => {
     const { rerender } = render(ui);
     // container.querySelector doesn't work in this scenario for some reason -> but querying document seems to work
     const uploadInput = document.querySelector(dropzone);
-    await user.upload(uploadInput, menderFile);
+    await act(async () => {
+      await user.upload(uploadInput, menderFile);
+    });
     await waitFor(() => rerender(ui));
-    await user.type(screen.getByPlaceholderText(/key/i), 'testKey');
-    await user.type(screen.getByPlaceholderText(/value/i), 'testValue');
+    await act(async () => {
+      await user.type(screen.getByPlaceholderText(/key/i), 'testKey');
+      await user.type(screen.getByPlaceholderText(/value/i), 'testValue');
+    });
     await waitFor(() => rerender(ui));
     expect(screen.getByText(/You have reached your limit/i)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Save' })).toBeDisabled();

@@ -14,7 +14,7 @@
 import React from 'react';
 
 import { prettyDOM } from '@testing-library/dom';
-import { screen } from '@testing-library/react';
+import { act, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { defaultState, undefineds } from '../../../../tests/mockData';
@@ -105,11 +105,17 @@ describe('DeviceList Component', () => {
       />
     );
     render(ui);
-    await user.click(screen.getByText(devices[0].id));
+    await act(async () => {
+      await user.click(screen.getByText(devices[0].id));
+    });
 
-    await user.click(screen.getAllByRole('checkbox')[0]);
+    await act(async () => {
+      await user.click(screen.getAllByRole('checkbox')[0]);
+    });
     expect(onSelect).toHaveBeenCalledWith([0, 1]);
-    await user.click(screen.getAllByRole('checkbox')[2]);
+    await act(async () => {
+      await user.click(screen.getAllByRole('checkbox')[2]);
+    });
     expect(onSelect).toHaveBeenCalledWith([1]);
   }, 30000);
 });

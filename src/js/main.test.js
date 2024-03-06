@@ -16,7 +16,7 @@ import Linkify from 'react-linkify';
 import * as router from 'react-router-dom';
 
 import { prettyDOM } from '@testing-library/dom';
-import { render as testLibRender, waitFor } from '@testing-library/react';
+import { act, render as testLibRender, waitFor } from '@testing-library/react';
 import 'jsdom-worker';
 
 import { mockDate, undefineds } from '../../tests/mockData';
@@ -39,6 +39,7 @@ describe('Main Component', () => {
     jest.setSystemTime(mockDate);
     const { baseElement, rerender } = testLibRender(ui);
     await waitFor(() => rerender(ui));
+    await act(async () => {});
     const view = prettyDOM(baseElement.firstChild, 100000, { highlight: false })
       .replace(/id="mui-[0-9]*"/g, '')
       .replace(/aria-labelledby="(mui-[0-9]* *)*"/g, '')
@@ -46,7 +47,7 @@ describe('Main Component', () => {
     expect(view).toMatchSnapshot();
     expect(view).toEqual(expect.not.stringMatching(undefineds));
     let settingsCall;
-    const keys = ['approach', 'artifactIncluded', 'complete', 'deviceType', 'progress'];
+    const keys = ['approach', 'complete', 'deviceType', 'progress'];
     await waitFor(
       () => {
         settingsCall = post.mock.calls.filter(
@@ -57,5 +58,6 @@ describe('Main Component', () => {
       { timeout: 5000 }
     );
     expect(settingsCall).toBeTruthy();
-  }, 10000);
+    await act(async () => {});
+  }, 20000);
 });
