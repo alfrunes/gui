@@ -146,7 +146,8 @@
       "text"
     ],
     "setupFiles": [
-      "jest-canvas-mock"
+      "jest-canvas-mock",
+      "<rootDir>/tests/jest.polyfills.js"
     ],
     "setupFilesAfterEnv": [
       "<rootDir>/tests/setupTests.js"
@@ -167,7 +168,7 @@
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tests/assetsTransformer.js"
     },
     "transformIgnorePatterns": [
-      "<rootDir>/node_modules/(?!xterm-for-react)"
+      "<rootDir>/node_modules/(?!xterm-for-react|react-leaflet|@react-leaflet|node-fetch|jsdom-worker|data-uri-to-buffer|fetch-blob|formdata-polyfill)"
     ],
     "moduleNameMapper": {
       "\\.(css|less)$": "<rootDir>/tests/cssTransform.js"
