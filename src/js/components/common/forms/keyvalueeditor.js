@@ -13,8 +13,8 @@
 //    limitations under the License.
 import React, { createRef, useEffect, useRef, useState } from 'react';
 
-import { Clear as ClearIcon, Add as ContentAddIcon } from '@mui/icons-material';
-import { Fab, FormControl, FormHelperText, IconButton, Input } from '@mui/material';
+import { Clear as ClearIcon, AddCircle as ContentAddIcon } from '@mui/icons-material';
+import { FormControl, FormHelperText, IconButton, Input } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
 const emptyInput = { helptip: null, key: '', value: '' };
@@ -117,15 +117,13 @@ export const KeyValueEditor = ({ disabled, errortext, input = {}, inputHelpTipsM
       })}
       <div className="key-value-container">
         <div style={{ minWidth: theme.spacing(30) }}>
-          <Fab
+          <IconButton
             disabled={disabled || !inputs[inputs.length - 1].key || !inputs[inputs.length - 1].value}
             style={{ marginBottom: 10 }}
-            color="secondary"
-            size="small"
             onClick={addKeyValue}
           >
             <ContentAddIcon />
-          </Fab>
+          </IconButton>
         </div>
         <div style={{ minWidth: theme.spacing(30) }} />
         {inputs.length > 1 ? (

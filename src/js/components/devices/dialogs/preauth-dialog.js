@@ -14,12 +14,24 @@
 import React, { useState } from 'react';
 
 // material ui
-import { InfoOutlined as InfoIcon } from '@mui/icons-material';
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
+import { Close as CloseIcon, InfoOutlined as InfoIcon } from '@mui/icons-material';
+import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton } from '@mui/material';
 
 import { isEmpty } from '../../../helpers';
 import FileUpload from '../../common/forms/fileupload';
 import KeyValueEditor from '../../common/forms/keyvalueeditor';
+import { makeStyles } from 'tss-react/mui';
+
+const useStyles = makeStyles()(theme => ({
+  p: {
+    fontSize: 16,
+    fontWeight: 400
+  },
+  uploadPlaceholder: {
+    fontWeight: 700,
+    color: theme.palette.text.primary
+  }
+}));
 
 export const DeviceLimitWarning = ({ acceptedDevices, deviceLimit, hasContactInfo }) => (
   <div className="margin-bottom-small margin-top-small warning">
@@ -37,6 +49,7 @@ export const PreauthDialog = ({ acceptedDevices, deviceLimit, limitMaxed, onCanc
   const [errortext, setErrortext] = useState(null);
   const [jsonIdentity, setJsonIdentity] = useState(null);
   const [publicKey, setPublicKey] = useState(null);
+  const { classes } = useStyles();
 
   const convertIdentityToJSON = jsonIdentity => {
     setErrortext(null);
@@ -55,18 +68,25 @@ export const PreauthDialog = ({ acceptedDevices, deviceLimit, limitMaxed, onCanc
 
   const isSubmitDisabled = !publicKey || isEmpty(jsonIdentity) || !!limitMaxed;
   return (
-    <Dialog open>
-      <DialogTitle>Preauthorize devices</DialogTitle>
+    <Dialog onClose={onCancel} open={true} PaperProps={{ sx: { maxWidth: '600px' } }}>
+      <DialogTitle className={`flexbox space-between center-aligned`}>
+        <Box>Preauthorize a device</Box>
+        <IconButton onClick={onCancel}>
+          <CloseIcon />
+        </IconButton>
+      </DialogTitle>
       <DialogContent style={{ overflow: 'hidden' }}>
-        <p>You can preauthorize a device by adding its authentication dataset here.</p>
-        <p>This means when a device with the matching key and identity data comes online, it will automatically be authorized to connect to the server.</p>
+        <p className={classes.p}>You can preauthorize a device by adding its authentication dataset here.</p>
+        <p className={classes.p}>
+          This means when a device with the matching key and identity data comes online, it will automatically be authorized to connect to the server.
+        </p>
 
         <h4 className="margin-top margin-bottom-small">Public key</h4>
         <FileUpload
           placeholder={
-            <>
-              Drag here or <a>browse</a> to upload a public key file
-            </>
+            <div className={classes.uploadPlaceholder}>
+              Drag here or browse to <a>upload</a> a file
+            </div>
           }
           onFileChange={setPublicKey}
           setSnackbar={setSnackbar}

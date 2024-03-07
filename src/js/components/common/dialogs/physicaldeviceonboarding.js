@@ -26,6 +26,7 @@ import { getDebConfigurationCode, versionCompare } from '../../../helpers';
 import { getDocsVersion, getFeatures, getIsEnterprise, getIsPreview, getOnboardingState, getOrganization, getVersionInformation } from '../../../selectors';
 import CopyCode from '../copy-code';
 import { MenderTooltipClickable } from '../mendertooltip';
+import { makeStyles } from 'tss-react/mui';
 
 const filter = createFilterOptions();
 
@@ -33,6 +34,33 @@ const types = [
   { title: 'Raspberry Pi 3', value: 'raspberrypi3' },
   { title: 'Raspberry Pi 4', value: 'raspberrypi4' }
 ];
+
+const useStyles = makeStyles()(theme => ({
+  codeBlock: {
+    backgroundColor: theme.palette.grey[50],
+    height: 260,
+    borderRadius: 4,
+    position: 'relative',
+    button: {
+      background: 'white',
+      border: `1px solid ${theme.palette.grey[450]}`,
+      padding: 8,
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)'
+    }
+  },
+  copyCode: {
+    height: 260,
+    backgroundColor: theme.palette.grey[50],
+    button: {
+      background: 'white',
+      border: `1px solid ${theme.palette.grey[450]}`,
+      padding: 7
+    }
+  }
+}));
 
 export const ConvertedImageNote = ({ docsVersion }) => (
   <p>
@@ -161,13 +189,20 @@ export const DeviceTypeSelectionStep = ({
 
 export const InstallationStep = ({ advanceOnboarding, selection, onboardingState, ...remainingProps }) => {
   const codeToCopy = getDebConfigurationCode({ ...remainingProps, deviceType: selection, isOnboarding: !onboardingState.complete });
+  const { classes } = useStyles();
   return (
     <>
-      <h4>Log into your device and install the Alvaldi client</h4>
-      <p>
-        Copy & paste and run this command <b>on your device</b>:
+      <p className="margin-bottom">
+        Log into your device and install the Alvaldi client
+        <br />
+        Copy & paste and run this command on your device:
       </p>
-      <CopyCode code={codeToCopy} onCopy={() => advanceOnboarding(onboardingSteps.DASHBOARD_ONBOARDING_START)} withDescription={true} />
+      <CopyCode
+        className={classes.copyCode}
+        code={codeToCopy}
+        onCopy={() => advanceOnboarding(onboardingSteps.DASHBOARD_ONBOARDING_START)}
+        withDescription={true}
+      />
       <p>This downloads the Alvaldi client on the device, sets the configuration and starts the client.</p>
       <p>
         Once the client has started, your device will attempt to connect to the server. It will then appear in your Pending devices tab and you can continue.
@@ -176,14 +211,9 @@ export const InstallationStep = ({ advanceOnboarding, selection, onboardingState
   );
 };
 
-const steps = {
-  1: DeviceTypeSelectionStep,
-  2: InstallationStep
-};
-
 const integrationProvider = EXTERNAL_PROVIDER['iot-hub'].provider;
 
-export const PhysicalDeviceOnboarding = ({ progress }) => {
+export const PhysicalDeviceOnboarding = () => {
   const [selection, setSelection] = useState('');
   const hasExternalIntegration = useSelector(state => {
     const { credentials = {} } = state.organization.externalDeviceIntegrations.find(integration => integration.provider === integrationProvider) ?? {};
@@ -216,9 +246,8 @@ export const PhysicalDeviceOnboarding = ({ progress }) => {
 
   const hasConvertedImage = !!selection && selection.length && (selection.startsWith('raspberrypi3') || selection.startsWith('raspberrypi4'));
 
-  const ComponentToShow = steps[progress];
   return (
-    <ComponentToShow
+    <InstallationStep
       advanceOnboarding={step => dispatch(advanceOnboarding(step))}
       hasExternalIntegration={hasExternalIntegration}
       docsVersion={docsVersion}

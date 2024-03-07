@@ -17,6 +17,7 @@ import { formLabelClasses } from '@mui/material/FormLabel';
 
 import { LIGHT_MODE } from '../../constants/appConstants.js';
 import { palette as commonPalette, overrides, typography } from './common';
+import { iconButtonClasses } from '@mui/material/IconButton';
 
 const grey = {
   '900': '#969696',
@@ -25,12 +26,13 @@ const grey = {
   '600': '#cfcfcf',
   '550': '#E6E6E6',
   '500': '#e9e9e9',
+  '450': '#9E9E9E',
   '400': '#f7f7f7',
   '350': '#F6F6F6',
   '300': '#e6f2f1',
   '200': '#ddedec',
   '100': '#d8ebe9',
-  '50': '#d4e9e7'
+  '50': '#F5F5F5'
 };
 
 const red = {
@@ -42,7 +44,8 @@ const green = {
   '100': '#E4F1E8',
   '200': 'rgba(154, 217, 173, 0.20)',
   '300': '#9AD9AD',
-  '800': '#00813B'
+  '800': '#00813B',
+  '850': '#0F8843'
 };
 
 const blue = {
@@ -188,6 +191,16 @@ export const light = {
         },
         arrow: {
           color: palette.background.dark
+        }
+      }
+    },
+    MuiDialogTitle: {
+      styleOverrides: {
+        root: {
+          ...overrides.MuiDialogTitle.styleOverrides.root,
+          [`.${iconButtonClasses.root}`]: {
+            color: palette.grey[450]
+          }
         }
       }
     }

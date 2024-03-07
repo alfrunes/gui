@@ -14,25 +14,21 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
-import {
-  ArrowBack as ArrowBackIcon,
-  ArrowDownward as ArrowDownwardIcon,
-  ArrowForward as ArrowForwardIcon,
-  ArrowUpward as ArrowUpwardIcon
-} from '@mui/icons-material';
+import { ArrowBack as ArrowBackIcon, ArrowCircleRight as ArrowForwardIcon, ArrowCircleRight as ArrowCircleRightIcon } from '@mui/icons-material';
 
 import { bindActionCreators } from 'redux';
 
-import { setShowDismissOnboardingTipsDialog } from '../../actions/onboardingActions';
+import { setOnboardingComplete } from '../../actions/onboardingActions';
 import { toggle } from '../../helpers';
 import Tracking from '../../tracking';
 import { OnboardingTooltip } from '../common/mendertooltip';
 
 const iconWidth = 30;
+const iconStyle = { fontSize: 30 };
 
 export const orientations = {
   top: {
-    arrow: <ArrowUpwardIcon />,
+    arrow: <ArrowCircleRightIcon style={{ ...iconStyle, transform: 'rotate(270deg)' }} />,
     placement: 'bottom',
     offsetStyle: style => {
       style.left = style.left - iconWidth / 2;
@@ -40,7 +36,7 @@ export const orientations = {
     }
   },
   right: {
-    arrow: <ArrowBackIcon />,
+    arrow: <ArrowBackIcon style={iconStyle} />,
     placement: 'right',
     offsetStyle: style => {
       style.top = style.top - iconWidth / 2;
@@ -49,7 +45,7 @@ export const orientations = {
     }
   },
   bottom: {
-    arrow: <ArrowDownwardIcon />,
+    arrow: <ArrowCircleRightIcon style={{ ...iconStyle, transform: 'rotate(90deg)' }} />,
     placement: 'top',
     offsetStyle: style => {
       style.left = style.left - iconWidth / 2;
@@ -57,7 +53,7 @@ export const orientations = {
     }
   },
   left: {
-    arrow: <ArrowForwardIcon />,
+    arrow: <ArrowForwardIcon style={iconStyle} />,
     placement: 'left',
     offsetStyle: style => {
       style.top = style.top - iconWidth / 2;
@@ -78,9 +74,11 @@ const BaseOnboardingTipComponent = ({
   component,
   place = 'top',
   progress,
-  progressTotal = 3,
+  progressTotal = 4,
   id = '1',
-  setShowDismissOnboardingTipsDialog,
+  setOnboardingComplete,
+  actionButton = null,
+  dismissText = null,
   ...others
 }) => {
   const [open, setOpen] = useState(true);
@@ -119,10 +117,14 @@ const BaseOnboardingTipComponent = ({
       title={
         <div className="content">
           {React.cloneElement(component, others)}
-          <div className="flexbox">
-            {progress ? <div>{`Progress: step ${progress} of ${progressTotal}`}</div> : null}
-            <div style={{ flexGrow: 1 }} />
-            <a onClick={() => setShowDismissOnboardingTipsDialog(true)}>Dismiss</a>
+          <div className="flexbox space-between flexbox-grow">
+            {progress ? <div>{`Step ${progress} of ${progressTotal}`}</div> : null}
+            {!progress && (
+              <a style={{ fontSize: 12, fontWeight: 500 }} onClick={() => setOnboardingComplete(true)}>
+                {dismissText || 'No thanks, I don’t need help'}
+              </a>
+            )}
+            {actionButton}
           </div>
         </div>
       }
@@ -133,7 +135,7 @@ const BaseOnboardingTipComponent = ({
 };
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ setShowDismissOnboardingTipsDialog }, dispatch);
+  return bindActionCreators({ setOnboardingComplete }, dispatch);
 };
 
 export const BaseOnboardingTip = connect(null, mapDispatchToProps)(BaseOnboardingTipComponent);

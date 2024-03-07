@@ -48,9 +48,11 @@ import {
   getGroups as getGroupsSelector,
   getIsPreview,
   getLimitMaxed,
+  getOnboardingState,
   getSelectedGroupInfo,
   getShowHelptips,
-  getTenantCapabilities
+  getTenantCapabilities,
+  getUserCapabilities
 } from '../../selectors';
 import { useLocationParams } from '../../utils/liststatehook';
 import Global from '../settings/global';
@@ -62,8 +64,22 @@ import CreateGroup from './group-management/create-group';
 import CreateGroupExplainer from './group-management/create-group-explainer';
 import RemoveGroup from './group-management/remove-group';
 import Groups from './groups';
+import DeviceAdditionWidget from './widgets/deviceadditionwidget.js';
+import { setShowConnectingDialog } from '../../actions/userActions';
+import { getOnboardingComponentFor } from '../../utils/onboardingmanager.js';
+import { onboardingSteps } from '../../constants/onboardingConstants.js';
+import { makeStyles } from 'tss-react/mui';
+import { advanceOnboarding } from '../../actions/onboardingActions.js';
 
 const refreshLength = TIMEOUTS.refreshDefault;
+
+const useStyles = makeStyles()(theme => ({
+  addDevice: {
+    position: 'absolute',
+    right: theme.spacing(3),
+    top: 50
+  }
+}));
 
 export const DeviceGroups = () => {
   const [createGroupExplanation, setCreateGroupExplanation] = useState(false);
@@ -76,6 +92,8 @@ export const DeviceGroups = () => {
   const [tmpDevices, setTmpDevices] = useState([]);
   const deviceTimer = useRef();
   const { status: statusParam } = useParams();
+  const deviceConnectionRef = useRef();
+  const { classes } = useStyles();
 
   const { groupCount, selectedGroup, groupFilters = [] } = useSelector(getSelectedGroupInfo);
   const filteringAttributes = useSelector(state => ({
@@ -88,6 +106,7 @@ export const DeviceGroups = () => {
   const { total: acceptedCount = 0 } = useSelector(getAcceptedDevices);
   const authRequestCount = useSelector(state => state.monitor.issueCounts.byType[DEVICE_ISSUE_OPTIONS.authRequests.key].total);
   const canPreview = useSelector(getIsPreview);
+  const { canManageDevices } = useSelector(getUserCapabilities);
   const deviceLimit = useSelector(getDeviceLimit);
   const deviceListState = useSelector(state => state.devices.deviceList);
   const docsVersion = useSelector(getDocsVersion);
@@ -99,6 +118,7 @@ export const DeviceGroups = () => {
   const showDeviceConnectionDialog = useSelector(state => state.users.showConnectDeviceDialog);
   const showHelptips = useSelector(getShowHelptips);
   const dispatch = useDispatch();
+  const onboardingState = useSelector(getOnboardingState);
 
   const [locationParams, setLocationParams] = useLocationParams('devices', {
     filteringAttributes,
@@ -242,6 +262,22 @@ export const DeviceGroups = () => {
 
   const toggleMakeGatewayClick = () => setShowMakeGateway(toggle);
   const theme = useTheme();
+
+  let onboardingComponent;
+  if (deviceConnectionRef.current && !(pendingCount || acceptedCount)) {
+    const anchor = {
+      top: deviceConnectionRef.current.offsetTop + deviceConnectionRef.current.offsetHeight / 2 + 22,
+      left: deviceConnectionRef.current.offsetLeft + 20
+    };
+    onboardingComponent = getOnboardingComponentFor(
+      onboardingSteps.ONBOARDING_START,
+      onboardingState,
+      { anchor, place: 'top' },
+      null,
+      <a onClick={() => Promise.all([dispatch(setShowConnectingDialog(true)), dispatch(advanceOnboarding(onboardingSteps.ONBOARDING_START))])}>Get started!</a>
+    );
+  }
+
   return (
     <>
       <div className="tab-container with-sub-panels" style={{ padding: 0, height: '100%' }}>
@@ -270,6 +306,18 @@ export const DeviceGroups = () => {
               )}
             </div>
           </div>
+          {canManageDevices && (
+            <DeviceAdditionWidget
+              className={classes.addDevice}
+              features={features}
+              onConnectClick={() => dispatch(setShowConnectingDialog(true))}
+              onMakeGatewayClick={toggleMakeGatewayClick}
+              onPreauthClick={setOpenPreauth}
+              tenantCapabilities={tenantCapabilities}
+              innerRef={deviceConnectionRef}
+            />
+          )}
+          {onboardingComponent}
           {limitMaxed && <DeviceLimitWarning acceptedDevices={acceptedCount} deviceLimit={deviceLimit} />}
           <AuthorizedDevices
             addDevicesToGroup={addDevicesToGroup}

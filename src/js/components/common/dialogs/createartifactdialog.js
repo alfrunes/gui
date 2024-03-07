@@ -17,7 +17,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
 
-import { advanceOnboarding, setShowCreateArtifactDialog } from '../../../actions/onboardingActions';
+import { advanceOnboarding } from '../../../actions/onboardingActions';
 import { onboardingSteps } from '../../../constants/onboardingConstants';
 import { getOnboardingState } from '../../../selectors';
 import CopyCode from '../copy-code';
@@ -36,7 +36,6 @@ export const CreateArtifactDialog = () => {
 
   const onClose = () => {
     navigate('/releases');
-    dispatch(setShowCreateArtifactDialog(false));
     dispatch(advanceOnboarding(onboardingSteps.ARTIFACT_CREATION_DIALOG));
   };
 
@@ -55,7 +54,7 @@ export const CreateArtifactDialog = () => {
         </>
       </DialogContent>
       <DialogActions>
-        <Button onClick={() => setShowCreateArtifactDialog(false)}>Cancel</Button>
+        <Button>Cancel</Button>
         <div style={{ flexGrow: 1 }} />
         <Button variant="contained" onClick={onClose}>
           Next

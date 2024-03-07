@@ -350,35 +350,12 @@ export const getPhaseDeviceCount = (numberDevices = 1, batchSize, remainder, isL
 
 export const startTimeSort = (a, b) => (b.created > a.created) - (b.created < a.created);
 
-const getInstallScriptArgs = ({ isHosted, isPreRelease }) => {
-  let installScriptArgs = '--demo';
-  installScriptArgs = isPreRelease ? `${installScriptArgs} -c experimental` : installScriptArgs;
-  installScriptArgs = isHosted ? `${installScriptArgs} --commercial --jwt-token $JWT_TOKEN` : installScriptArgs;
-  return installScriptArgs;
-};
-
-const getSetupArgs = ({ deviceType = 'generic-armv6', ipAddress, isDemoMode, tenantToken, isOnboarding }) => {
-  let menderSetupArgs = `--quiet --device-type "${deviceType}"`;
-  menderSetupArgs = tenantToken ? `${menderSetupArgs} --tenant-token $TENANT_TOKEN` : menderSetupArgs;
-  // in production we use polling intervals from the client examples: https://github.com/mendersoftware/mender/blob/master/examples/mender.conf.production
-  menderSetupArgs = isDemoMode || isOnboarding ? `${menderSetupArgs} --demo` : `${menderSetupArgs} --retry-poll 300 --update-poll 1800 --inventory-poll 28800`;
-  if (isDemoMode) {
-    // Demo installation, either OS os Enterprise. Install demo cert and add IP to /etc/hosts
-    menderSetupArgs = `${menderSetupArgs}${ipAddress ? ` --server-ip ${ipAddress}` : ''}`;
-  } else {
-    // Production installation, either OS, HM, or Enterprise
-    menderSetupArgs = `${menderSetupArgs} --server-url https://${window.location.hostname} --server-cert=""`;
-  }
-  return menderSetupArgs;
-};
-
 export const getDebConfigurationCode = props => {
-  const { tenantToken, isPreRelease } = props;
-  const envVars = tenantToken ? `JWT_TOKEN="${getToken()}"\nTENANT_TOKEN="${tenantToken}"\n` : '';
-  const installScriptArgs = getInstallScriptArgs(props);
-  const scriptUrl = isPreRelease ? 'https://get.mender.io/staging' : 'https://get.mender.io';
-  const menderSetupArgs = getSetupArgs(props);
-  return `${envVars}wget -O- ${scriptUrl} | sudo bash -s -- ${installScriptArgs} -- ${menderSetupArgs}`;
+  const { tenantToken } = props;
+  const envVars = tenantToken
+    ? `CONNECT_SESSION_TOKEN="${getToken()}" \\\nCONNECT_TENANT_TOKEN="${tenantToken}" \\\nCONNECT_SERVER_URL="https://app.alvaldi.com" \\\n`
+    : '';
+  return `${envVars}curl -L https://staging.app.alvaldi.com/nt-connect/install.sh -O && sudo -E /bin/sh install.sh`;
 };
 
 export const getSnackbarMessage = (skipped, done) => {

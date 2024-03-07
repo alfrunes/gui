@@ -285,5 +285,13 @@ export const overrides = {
         padding: '30px 75px 5%'
       }
     }
+  },
+  MuiDialogTitle: {
+    styleOverrides: {
+      root: {
+        fontWeight: 700,
+        fontSize: 20
+      }
+    }
   }
 };

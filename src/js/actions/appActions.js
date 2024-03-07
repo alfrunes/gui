@@ -24,17 +24,14 @@ import {
   SET_SEARCH_STATE,
   SET_SNACKBAR,
   SET_VERSION_INFORMATION,
-  TIMEOUTS,
   UPLOAD_PROGRESS
 } from '../constants/appConstants';
 import { DEVICE_STATES } from '../constants/deviceConstants';
-import { onboardingSteps } from '../constants/onboardingConstants';
 import { SET_SHOW_HELP, useradmApiUrl } from '../constants/userConstants';
 import { deepCompare, extractErrorMessage, preformatWithRequestID, stringToBoolean } from '../helpers';
 import { getCurrentUser, getOfflineThresholdSettings, getUserSettings as getUserSettingsSelector } from '../selectors';
-import { getOnboardingComponentFor } from '../utils/onboardingmanager';
-import { getDeviceAttributes, getDeviceById, getDevicesByStatus, getDynamicGroups, getGroups, searchDevices, setDeviceListState } from './deviceActions';
-import { setDemoArtifactPort, setOnboardingComplete } from './onboardingActions';
+import { getDeviceAttributes, getDevicesByStatus, getDynamicGroups, getGroups, searchDevices, setDeviceListState } from './deviceActions';
+import { getOnboardingState, setDemoArtifactPort, setOnboardingComplete } from './onboardingActions';
 import { getOrganizationPlan, getUserOrganization } from './organizationActions';
 import { getGlobalSettings, getRoles, getUserSettings, saveGlobalSettings, saveUserSettings } from './userActions';
 
@@ -75,7 +72,7 @@ export const parseEnvironmentInfo = () => (dispatch, getState) => {
      * @todo replace isEnterprise with more granular features that will be added with new plans API
      */
     features.isEnterprise = true;
-    onboardingComplete = stringToBoolean(features.isEnterprise) || stringToBoolean(disableOnboarding) || onboardingComplete;
+    onboardingComplete = stringToBoolean(disableOnboarding) || onboardingComplete;
     demoArtifactPort = port || demoArtifactPort;
     environmentData = {
       hostedAnnouncement: hostedAnnouncement || state.app.hostedAnnouncement,
@@ -97,28 +94,6 @@ export const parseEnvironmentInfo = () => (dispatch, getState) => {
     dispatch({ type: SET_ENVIRONMENT_DATA, value: environmentData }),
     dispatch(getLatestReleaseInfo())
   ]);
-};
-
-const maybeAddOnboardingTasks = ({ devicesByStatus, dispatch, showHelptips, onboardingState, tasks }) => {
-  if (!(showHelptips && onboardingState.showTips) || onboardingState.complete) {
-    return tasks;
-  }
-  const welcomeTip = getOnboardingComponentFor(onboardingSteps.ONBOARDING_START, {
-    progress: onboardingState.progress,
-    complete: onboardingState.complete,
-    showHelptips,
-    showTips: onboardingState.showTips
-  });
-  if (welcomeTip) {
-    tasks.push(dispatch(setSnackbar('open', TIMEOUTS.refreshDefault, '', welcomeTip, () => {}, true)));
-  }
-  // try to retrieve full device details for onboarding devices to ensure ips etc. are available
-  // we only load the first few/ 20 devices, as it is possible the onboarding is left dangling
-  // and a lot of devices are present and we don't want to flood the backend for this
-  return devicesByStatus[DEVICE_STATES.accepted].deviceIds.reduce((accu, id) => {
-    accu.push(dispatch(getDeviceById(id)));
-    return accu;
-  }, tasks);
 };
 
 const processUserCookie = (user, showHelptips) => {
@@ -152,7 +127,8 @@ export const initializeAppData = () => (dispatch, getState) => {
     dispatch(getGroups()),
     dispatch(getRoles()),
     dispatch(getPlans()),
-    dispatch(setFirstLoginAfterSignup(stringToBoolean(cookies.get('firstLoginAfterSignup'))))
+    dispatch(setFirstLoginAfterSignup(stringToBoolean(cookies.get('firstLoginAfterSignup')))),
+    dispatch(getOnboardingState())
   ];
   tasks.push(dispatch(getUserOrganization()));
   return Promise.all(tasks).then(() => {
@@ -163,7 +139,6 @@ export const initializeAppData = () => (dispatch, getState) => {
     tasks.push(dispatch(setDeviceListState({ selectedAttributes: columnSelection.map(column => ({ attribute: column.key, scope: column.scope })) })));
     // checks if user id is set and if cookie for helptips exists for that user
     showHelptips = processUserCookie(user, showHelptips);
-    tasks = maybeAddOnboardingTasks({ devicesByStatus: state.devices.byStatus, dispatch, tasks, onboardingState: state.onboarding, showHelptips });
     tasks.push(dispatch({ type: SET_SHOW_HELP, show: showHelptips }));
     let settings = { showHelptips };
     if (cookies.get('_ga') && typeof hasTrackingEnabled === 'undefined') {

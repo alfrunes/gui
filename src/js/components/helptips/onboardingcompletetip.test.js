@@ -20,6 +20,8 @@ import { act, render as testingLibRender, waitFor } from '@testing-library/react
 import { defaultState, undefineds } from '../../../../tests/mockData';
 import { getConfiguredStore } from '../../reducers';
 import OnboardingCompleteTip from './onboardingcompletetip';
+import { ThemeProvider, createTheme } from '@mui/material';
+import { light as lightTheme } from '../../themes/Mender/index.js';
 
 describe('OnboardingCompleteTip Component', () => {
   let store;
@@ -40,12 +42,15 @@ describe('OnboardingCompleteTip Component', () => {
   });
 
   it('renders correctly', async () => {
+    const theme = createTheme(lightTheme);
     const ui = (
-      <MemoryRouter initialEntries={[`/password`]}>
-        <Provider store={store}>
-          <OnboardingCompleteTip targetUrl="https://test.com" />
-        </Provider>
-      </MemoryRouter>
+      <ThemeProvider theme={theme}>
+        <MemoryRouter initialEntries={[`/password`]}>
+          <Provider store={store}>
+            <OnboardingCompleteTip targetUrl="https://test.com" />
+          </Provider>
+        </MemoryRouter>
+      </ThemeProvider>
     );
     const { baseElement, rerender } = testingLibRender(ui);
     await act(async () => {});

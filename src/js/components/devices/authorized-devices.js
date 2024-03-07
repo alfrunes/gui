@@ -27,7 +27,7 @@ import { advanceOnboarding } from '../../actions/onboardingActions';
 import { getIntegrations } from '../../actions/organizationActions.js';
 import { saveUserSettings, updateUserColumnSettings } from '../../actions/userActions';
 import { SORTING_OPTIONS, TIMEOUTS } from '../../constants/appConstants';
-import { ALL_DEVICES, DEVICE_STATES, UNGROUPED_GROUP } from '../../constants/deviceConstants';
+import { ALL_DEVICES, UNGROUPED_GROUP } from '../../constants/deviceConstants';
 import { onboardingSteps } from '../../constants/onboardingConstants';
 import { duplicateFilter, toggle } from '../../helpers';
 import {
@@ -139,30 +139,20 @@ const calculateColumnSelectionSize = (changedColumns, customColumnSizes) =>
     { columnSizes: [], selectedAttributes: [] }
   );
 
-const OnboardingComponent = ({ authorizeRef, deviceListRef, onboardingState, selectedRows }) => {
+const OnboardingComponent = ({ deviceListRef, onboardingState }) => {
+  const dispatch = useDispatch();
   let onboardingComponent = null;
   if (deviceListRef.current) {
     const element = deviceListRef.current.querySelector('body .deviceListItem > div');
-    const anchor = { left: 200, top: element ? element.offsetTop + element.offsetHeight : 170 };
-    onboardingComponent = getOnboardingComponentFor(onboardingSteps.DEVICES_ACCEPTED_ONBOARDING, onboardingState, { anchor }, onboardingComponent);
-    onboardingComponent = getOnboardingComponentFor(onboardingSteps.DEPLOYMENTS_PAST_COMPLETED, onboardingState, { anchor }, onboardingComponent);
-    onboardingComponent = getOnboardingComponentFor(onboardingSteps.DEVICES_PENDING_ONBOARDING, onboardingState, { anchor }, onboardingComponent);
-  }
-  if (selectedRows && authorizeRef.current) {
-    const anchor = {
-      left: authorizeRef.current.offsetLeft - authorizeRef.current.offsetWidth,
-      top:
-        authorizeRef.current.offsetTop +
-        authorizeRef.current.offsetHeight -
-        authorizeRef.current.lastElementChild.offsetHeight +
-        authorizeRef.current.lastElementChild.firstElementChild.offsetHeight * 1.5
-    };
+    const anchor = { left: 200, top: element ? element.offsetTop + element.offsetHeight - 10 : 170 };
     onboardingComponent = getOnboardingComponentFor(
-      onboardingSteps.DEVICES_PENDING_ACCEPTING_ONBOARDING,
+      onboardingSteps.DEVICES_ACCEPTED_ONBOARDING,
       onboardingState,
-      { place: 'left', anchor },
-      onboardingComponent
+      { anchor },
+      onboardingComponent,
+      <a onClick={() => dispatch(advanceOnboarding(onboardingSteps.DEVICES_ACCEPTED_ONBOARDING))}>Got it!</a>
     );
+    onboardingComponent = getOnboardingComponentFor(onboardingSteps.DEVICES_PENDING_ONBOARDING, onboardingState, { anchor }, onboardingComponent);
   }
   return onboardingComponent;
 };
@@ -182,7 +172,7 @@ export const Authorized = ({
   const { selectedGroup, groupFilters = [] } = useSelector(getSelectedGroupInfo);
   const { columnSelection = [] } = useSelector(getUserSettings);
   const attributes = useSelector(getFilterAttributes);
-  const { accepted: acceptedCount, pending: pendingCount, rejected: rejectedCount } = useSelector(getDeviceCountsByStatus);
+  const { accepted: acceptedCount, rejected: rejectedCount } = useSelector(getDeviceCountsByStatus);
   const allCount = acceptedCount + rejectedCount;
   const availableIssueOptions = useSelector(getAvailableIssueOptionsByType);
   const customColumnSizes = useSelector(state => state.users.customColumns);
@@ -250,33 +240,6 @@ export const Authorized = ({
     setIsInitialized(isInitialized => isInitialized || (settingsInitialized && devicesInitialized && pageLoading === false));
     setDevicesInitialized(devicesInitialized => devicesInitialized || pageLoading === false);
   }, [settingsInitialized, devicesInitialized, pageLoading]);
-
-  useEffect(() => {
-    if (onboardingState.complete) {
-      return;
-    }
-    if (pendingCount) {
-      dispatch(advanceOnboarding(onboardingSteps.DEVICES_PENDING_ONBOARDING_START));
-      return;
-    }
-    if (!acceptedCount) {
-      return;
-    }
-    dispatch(advanceOnboarding(onboardingSteps.DEVICES_ACCEPTED_ONBOARDING));
-
-    if (acceptedCount < 2) {
-      if (!window.sessionStorage.getItem('pendings-redirect')) {
-        window.sessionStorage.setItem('pendings-redirect', true);
-        onDeviceStateSelectionChange(DEVICE_STATES.accepted);
-      }
-      setTimeout(() => {
-        const notification = getOnboardingComponentFor(onboardingSteps.DEVICES_ACCEPTED_ONBOARDING_NOTIFICATION, onboardingState, {
-          setSnackbar: dispatchedSetSnackbar
-        });
-        !!notification && dispatchedSetSnackbar('open', TIMEOUTS.refreshDefault, '', notification, () => {}, true);
-      }, 400);
-    }
-  }, [acceptedCount, allCount, pendingCount, onboardingState.complete]);
 
   useEffect(() => {
     setShowFilters(false);
@@ -361,9 +324,6 @@ export const Authorized = ({
     dispatch(setDeviceListState({ selectedIssues, page: 1, refreshTrigger: !refreshTrigger }));
 
   const onSelectionChange = (selection = []) => {
-    if (!onboardingState.complete && selection.length) {
-      dispatch(advanceOnboarding(onboardingSteps.DEVICES_PENDING_ACCEPTING_ONBOARDING));
-    }
     dispatch(setDeviceListState({ selection, setOnly: true }));
   };
 
@@ -494,9 +454,7 @@ export const Authorized = ({
         setDetailsTab={setDetailsTab}
         tabSelection={tabSelection}
       />
-      {!selectedId && (
-        <OnboardingComponent authorizeRef={authorizeRef} deviceListRef={deviceListRef} onboardingState={onboardingState} selectedRows={selectedRows} />
-      )}
+      {!selectedId && <OnboardingComponent deviceListRef={deviceListRef} onboardingState={onboardingState} />}
       {canManageDevices && !!selectedRows.length && (
         <DeviceQuickActions actionCallbacks={actionCallbacks} selectedGroup={selectedStaticGroup} ref={authorizeRef} />
       )}

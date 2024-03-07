@@ -15,7 +15,6 @@ import * as OnboardingConstants from '../constants/onboardingConstants';
 
 export const initialState = {
   approach: null,
-  artifactIncluded: null,
   complete: false,
   deviceType: null,
   demoArtifactPort: 85,
@@ -27,10 +26,10 @@ export const initialState = {
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case OnboardingConstants.SET_DEMO_ARTIFACT_PORT:
+    case OnboardingConstants.SET_ONBOARDING_STATE:
       return {
         ...state,
-        demoArtifactPort: action.value
+        ...action.value
       };
     case OnboardingConstants.SET_SHOW_CREATE_ARTIFACT:
       return {
@@ -67,12 +66,6 @@ const userReducer = (state = initialState, action) => {
         ...state,
         approach: action.value
       };
-    case OnboardingConstants.SET_ONBOARDING_ARTIFACT_INCLUDED:
-      return {
-        ...state,
-        artifactIncluded: action.value
-      };
-
     default:
       return state;
   }

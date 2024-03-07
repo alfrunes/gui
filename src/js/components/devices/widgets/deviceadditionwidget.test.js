@@ -33,7 +33,7 @@ describe('DeviceAdditionWidget Component', () => {
     const clickMock = jest.fn();
     render(<DeviceAdditionWidget docsVersion="" features={{}} onConnectClick={clickMock} tenantCapabilities={{}} />);
     await act(async () => {
-      await user.click(screen.getByRole('button', { name: /connect a new device/i }));
+      await user.click(screen.getByRole('button', { name: /Add a new device/i }));
     });
     expect(clickMock).toHaveBeenCalled();
   });

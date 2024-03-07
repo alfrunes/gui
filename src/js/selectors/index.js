@@ -27,6 +27,7 @@ import {
 } from '../constants/deviceConstants';
 import { rolesByName, twoFAStates, uiPermissionsById } from '../constants/userConstants';
 import { attributeDuplicateFilter, duplicateFilter, getDemoDeviceAddress as getDemoDeviceAddressHelper, versionCompare } from '../helpers';
+import { onboardingSteps } from '../utils/onboardingmanager.js';
 
 const getAppDocsVersion = state => state.app.docsVersion;
 export const getFeatures = state => state.app.features;
@@ -39,6 +40,7 @@ export const getCurrentPlanName = createSelector([getCurrentPlan, getOrganizatio
   isTrial ? 'Free trial' : plan?.display_name
 );
 export const getAcceptedDevices = state => state.devices.byStatus.accepted;
+export const getPendingDevices = state => state.devices.byStatus.pending;
 const getDevicesByStatus = state => state.devices.byStatus;
 export const getDevicesById = state => state.devices.byId;
 export const getDeviceReports = state => state.devices.reports;
@@ -196,13 +198,20 @@ export const getOfflineThresholdSettings = createSelector([getGlobalSettings], (
   intervalUnit: offlineThreshold?.intervalUnit || DEVICE_ONLINE_CUTOFF.intervalName
 }));
 
-export const getOnboardingState = createSelector([getOnboarding, getShowHelptips], ({ complete, progress, showTips, ...remainder }, showHelptips) => ({
-  ...remainder,
-  complete,
-  progress,
-  showHelptips,
-  showTips
-}));
+export const getOnboardingState = createSelector(
+  [getOnboarding, getUserSettings, getShowHelptips],
+  ({ complete, progress, showTips, ...remainder }, { onboarding = {} }, showHelptips) => ({
+    ...remainder,
+    ...onboarding,
+    complete: onboarding.complete || complete,
+    progress:
+      Object.keys(onboardingSteps).findIndex(step => step === progress) > Object.keys(onboardingSteps).findIndex(step => step === onboarding.progress)
+        ? progress
+        : onboarding.progress,
+    showTips: !onboarding.showTips ? onboarding.showTips : showTips,
+    showHelptips
+  })
+);
 
 export const getDocsVersion = createSelector([getAppDocsVersion, getFeatures], (appDocsVersion, { isHosted }) => {
   // if hosted, use latest docs version

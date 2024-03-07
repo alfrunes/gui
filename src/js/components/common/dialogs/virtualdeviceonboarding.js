@@ -15,20 +15,36 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { setOnboardingApproach } from '../../../actions/onboardingActions';
-import { initialState as onboardingReducerState } from '../../../reducers/onboardingReducer';
-import { getDocsVersion, getFeatures, getOrganization } from '../../../selectors';
+import { getFeatures, getOrganization } from '../../../selectors';
 import CopyCode from '../copy-code';
+
+import { makeStyles } from 'tss-react/mui';
+
+const useStyles = makeStyles()(theme => ({
+  paragraph: {
+    letterSpacing: 0.25,
+    wordBreak: 'break-all',
+    a: {
+      color: theme.palette.text.primary,
+      fontWeight: 400,
+      textDecoration: 'underline'
+    }
+  },
+  copyCode: {
+    maxHeight: 221
+  }
+}));
 
 export const getDemoDeviceCreationCommand = tenantToken =>
   tenantToken
-    ? `TENANT_TOKEN='${tenantToken}'\ndocker run -it -p ${onboardingReducerState.demoArtifactPort}:${onboardingReducerState.demoArtifactPort} -e SERVER_URL='https://${window.location.hostname}' \\\n-e TENANT_TOKEN=$TENANT_TOKEN --pull=always mendersoftware/mender-client-qemu`
+    ? `docker run -it \\\n-e CONNECT_SERVER_URL='https://${window.location.hostname}' \\\n-e CONNECT_TENANT_TOKEN='${tenantToken}' \\\n--pull=always northerntech/nt-connect:latest`
     : './demo --client up';
 
 export const VirtualDeviceOnboarding = () => {
   const dispatch = useDispatch();
-  const docsVersion = useSelector(getDocsVersion);
   const { isHosted } = useSelector(getFeatures);
   const { tenant_token: tenantToken } = useSelector(getOrganization);
+  const { classes } = useStyles();
 
   useEffect(() => {
     dispatch(setOnboardingApproach('virtual'));
@@ -40,10 +56,10 @@ export const VirtualDeviceOnboarding = () => {
     <div>
       {isHosted ? (
         <div>
-          <b>1. Get Docker Engine</b>
-          <p>If you do not have it already, please install Docker on your local machine.</p>
-          <p>
-            For example if you are using Ubuntu follow this tutorial:{' '}
+          <p className={classes.paragraph}>
+            1. Get Docker Engine
+            <br />
+            If you do not have it already, please install Docker on your local machine. For example if you are using Ubuntu follow this tutorial:{' '}
             <a href="https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/" target="_blank" rel="noopener noreferrer">
               https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
             </a>
@@ -51,26 +67,17 @@ export const VirtualDeviceOnboarding = () => {
         </div>
       ) : (
         <div>
-          <b>1. Prerequisites</b>
-          <p>
-            As you are running Mender on-premise, for these instructions we assume that you already have Docker installed and the Mender integration environment
-            up and running on your machine.
+          <p className={classes.paragraph}>
+            1. Get Docker Engine <br />
+            If you do not have it already, please install Docker on your local machine. For example if you are using Ubuntu follow this tutorial:
+            https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
           </p>
           <p>To start a virtual device, change directory into the folder where you cloned Mender integration.</p>
         </div>
       )}
-      <p>
-        <b>2. Copy & paste and run the following command to start the virtual device:</b>
-      </p>
-      <CopyCode code={codeToCopy} withDescription={true} />
+      <p className={classes.paragraph}>2. Copy & paste and run the following command to start the virtual device:</p>
+      <CopyCode code={codeToCopy} withDescription={true} className={classes.copyCode} />
       <p>The device should appear in the Pending devices view in a couple of minutes.</p>
-      <p>
-        Visit{' '}
-        <a href={`https://docs.mender.io/${docsVersion}get-started/preparation/prepare-a-virtual-device`} target="_blank" rel="noopener noreferrer">
-          our documentation
-        </a>{' '}
-        for more information on managing the virtual device.
-      </p>
     </div>
   );
 };

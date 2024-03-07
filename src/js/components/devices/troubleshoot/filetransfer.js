@@ -53,7 +53,8 @@ export const FileTransfer = ({
   setSnackbar,
   setUploadPath,
   uploadPath,
-  userCapabilities
+  userCapabilities,
+  innerRef = null
 }) => {
   const { classes } = useStyles();
   const [currentTab, setCurrentTab] = useState(tabs[0].key);
@@ -115,7 +116,7 @@ export const FileTransfer = ({
               onFileChange={() => undefined}
               onFileSelect={onFileSelect}
               placeholder={
-                <div className="infotext">
+                <div ref={innerRef} className="infotext">
                   Drag here or browse to <a>upload</a> a file
                 </div>
               }

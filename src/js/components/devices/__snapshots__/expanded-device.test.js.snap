@@ -2299,196 +2299,198 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-33:focus::-ms-input-
           />
         </div>
         <div />
-        <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters emotion-43"
-        >
+        <div>
           <div
-            aria-expanded="true"
-            class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded MuiAccordionSummary-gutters emotion-44"
-            role="button"
-            tabindex="0"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters emotion-43"
           >
             <div
-              class="MuiAccordionSummary-content Mui-expanded MuiAccordionSummary-contentGutters emotion-45"
-            >
-              Authorization sets
-            </div>
-            <div
-              class="MuiAccordionSummary-expandIconWrapper Mui-expanded emotion-46"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
-                data-testid="ExpandMoreIcon"
-                focusable="false"
-                style="font-size: 24px;"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div
-            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-entered emotion-48"
-            style="min-height: 0px;"
-          >
-            <div
-              class="MuiCollapse-wrapper MuiCollapse-vertical emotion-49"
+              aria-expanded="true"
+              class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded MuiAccordionSummary-gutters emotion-44"
+              role="button"
+              tabindex="0"
             >
               <div
-                class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-50"
+                class="MuiAccordionSummary-content Mui-expanded MuiAccordionSummary-contentGutters emotion-45"
+              >
+                Authorization sets
+              </div>
+              <div
+                class="MuiAccordionSummary-expandIconWrapper Mui-expanded emotion-46"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
+                  data-testid="ExpandMoreIcon"
+                  focusable="false"
+                  style="font-size: 24px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-entered emotion-48"
+              style="min-height: 0px;"
+            >
+              <div
+                class="MuiCollapse-wrapper MuiCollapse-vertical emotion-49"
               >
                 <div
-                  class="MuiAccordion-region"
-                  role="region"
+                  class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-50"
                 >
                   <div
-                    class="MuiAccordionDetails-root accordion-details emotion-51"
+                    class="MuiAccordion-region"
+                    role="region"
                   >
                     <div
-                      class="authsets emotion-52"
+                      class="MuiAccordionDetails-root accordion-details emotion-51"
                     >
                       <div
-                        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation1 MuiAccordion-root MuiAccordion-gutters margin-bottom-medium emotion-53"
+                        class="authsets emotion-52"
                       >
                         <div
-                          class="margin-top-medium"
+                          class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation1 MuiAccordion-root MuiAccordion-gutters margin-bottom-medium emotion-53"
                         >
                           <div
-                            class="MuiChip-root MuiChip-filled MuiChip-sizeSmall MuiChip-colorDefault MuiChip-filledDefault margin-bottom-small emotion-54"
-                          >
-                            <span
-                              class="MuiChip-label MuiChip-labelSmall emotion-55"
-                            >
-                              Active
-                            </span>
-                          </div>
-                          <div
-                            class="break-all two-columns  emotion-56 emotion-31"
+                            class="margin-top-medium"
                           >
                             <div
-                              class="align-right key"
+                              class="MuiChip-root MuiChip-filled MuiChip-sizeSmall MuiChip-colorDefault MuiChip-filledDefault margin-bottom-small emotion-54"
                             >
-                              <b>
-                                Status
-                              </b>
+                              <span
+                                class="MuiChip-label MuiChip-labelSmall emotion-55"
+                              >
+                                Active
+                              </span>
                             </div>
                             <div
-                              class="flexbox "
+                              class="break-all two-columns  emotion-56 emotion-31"
                             >
                               <div
-                                class="capitalized"
+                                class="align-right key"
                               >
-                                accepted
+                                <b>
+                                  Status
+                                </b>
                               </div>
-                            </div>
-                            <div
-                              class="align-right key"
-                            >
-                              <b>
-                                Public key
-                              </b>
-                            </div>
-                            <div
-                              class="flexbox "
-                            >
-                              <a>
-                                show key
-                              </a>
-                            </div>
-                            <div
-                              class="align-right key"
-                            >
-                              <b>
-                                Time of request
-                              </b>
-                            </div>
-                            <div
-                              class="flexbox "
-                            >
-                              <time
-                                datetime="2019-01-13T06:25:00+00:00"
-                              >
-                                2019-01-13 06:25
-                              </time>
-                            </div>
-                            <div
-                              class="align-right key"
-                            >
-                              <b>
-                                Actions
-                              </b>
-                            </div>
-                            <div
-                              class="flexbox "
-                            >
                               <div
-                                class="action-buttons"
-                              >
-                                <div>
-                                  Accept
-                                </div>
-                                <a
-                                  class="block"
-                                >
-                                  Reject
-                                </a>
-                                <a
-                                  class="block"
-                                >
-                                  Dismiss
-                                </a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-58"
-                          style="min-height: 0px;"
-                        >
-                          <div
-                            class="MuiCollapse-wrapper MuiCollapse-vertical emotion-49"
-                          >
-                            <div
-                              class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-50"
-                            >
-                              <div
-                                class="MuiAccordion-region"
-                                role="region"
+                                class="flexbox "
                               >
                                 <div
-                                  class="MuiAccordionDetails-root emotion-51"
+                                  class="capitalized"
+                                >
+                                  accepted
+                                </div>
+                              </div>
+                              <div
+                                class="align-right key"
+                              >
+                                <b>
+                                  Public key
+                                </b>
+                              </div>
+                              <div
+                                class="flexbox "
+                              >
+                                <a>
+                                  show key
+                                </a>
+                              </div>
+                              <div
+                                class="align-right key"
+                              >
+                                <b>
+                                  Time of request
+                                </b>
+                              </div>
+                              <div
+                                class="flexbox "
+                              >
+                                <time
+                                  datetime="2019-01-13T06:25:00+00:00"
+                                >
+                                  2019-01-13 06:25
+                                </time>
+                              </div>
+                              <div
+                                class="align-right key"
+                              >
+                                <b>
+                                  Actions
+                                </b>
+                              </div>
+                              <div
+                                class="flexbox "
+                              >
+                                <div
+                                  class="action-buttons"
+                                >
+                                  <div>
+                                    Accept
+                                  </div>
+                                  <a
+                                    class="block"
+                                  >
+                                    Reject
+                                  </a>
+                                  <a
+                                    class="block"
+                                  >
+                                    Dismiss
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-58"
+                            style="min-height: 0px;"
+                          >
+                            <div
+                              class="MuiCollapse-wrapper MuiCollapse-vertical emotion-49"
+                            >
+                              <div
+                                class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-50"
+                              >
+                                <div
+                                  class="MuiAccordion-region"
+                                  role="region"
                                 >
                                   <div
-                                    style="flex-grow: 1;"
-                                  />
-                                  <p
-                                    class="bold expanded"
+                                    class="MuiAccordionDetails-root emotion-51"
                                   >
-                                     Are you sure you want to continue?
-                                  </p>
+                                    <div
+                                      style="flex-grow: 1;"
+                                    />
+                                    <p
+                                      class="bold expanded"
+                                    >
+                                       Are you sure you want to continue?
+                                    </p>
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div
-                      class="flexbox"
-                    >
-                      <button
-                        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-62"
-                        tabindex="0"
-                        type="button"
+                      <div
+                        class="flexbox"
                       >
-                        Decommission device
-                        <span
-                          class="MuiTouchRipple-root emotion-5"
-                        />
-                      </button>
+                        <button
+                          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-62"
+                          tabindex="0"
+                          type="button"
+                        >
+                          Decommission device
+                          <span
+                            class="MuiTouchRipple-root emotion-5"
+                          />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>

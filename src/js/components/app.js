@@ -39,6 +39,8 @@ import Footer from './footer';
 import Header from './header/header';
 import LeftNav from './leftnav';
 import Uploads from './uploads';
+import { setDeviceListState } from '../actions/deviceActions.js';
+import { DEVICE_STATES } from '../constants/deviceConstants.js';
 
 const activationPath = '/activate';
 export const timeout = 900000; // 15 minutes idle time
@@ -169,7 +171,13 @@ export const AppRoot = () => {
             </div>
             {onboardingComponent ? onboardingComponent : null}
             {showDismissHelptipsDialog && <ConfirmDismissHelptips />}
-            {showDeviceConnectionDialog && <DeviceConnectionDialog onCancel={() => dispatch(setShowConnectingDialog(false))} />}
+            {showDeviceConnectionDialog && (
+              <DeviceConnectionDialog
+                onCancel={() =>
+                  Promise.all[(dispatch(setShowConnectingDialog(false)), dispatch(setDeviceListState({ state: DEVICE_STATES.pending, page: 1 })))]
+                }
+              />
+            )}
           </div>
         ) : (
           <div className={classes.public}>

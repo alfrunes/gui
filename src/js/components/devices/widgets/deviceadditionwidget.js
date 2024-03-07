@@ -13,32 +13,48 @@
 //    limitations under the License.
 import React, { useState } from 'react';
 
-import { ArrowDropDown as ArrowDropDownIcon, Launch as LaunchIcon } from '@mui/icons-material';
+import { ExpandMore as ArrowDropDownIcon, Launch as LaunchIcon } from '@mui/icons-material';
 import { Button, ButtonGroup, Menu, MenuItem } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 
 import { canAccess } from '../../../constants/appConstants';
+import { useDispatch } from 'react-redux';
+import { onboardingSteps } from '../../../constants/onboardingConstants.js';
+import { advanceOnboarding } from '../../../actions/onboardingActions.js';
 
-const useStyles = makeStyles()(() => ({
-  buttonStyle: { textTransform: 'none' }
+const useStyles = makeStyles()(theme => ({
+  buttonStyle: {
+    textTransform: 'none',
+    color: `${theme.palette.primary.main} !important`,
+    padding: 8,
+    fontWeight: 500,
+    '&:hover': {
+      background: 'none'
+    }
+  },
+  deviceAdditionWidget: {
+    border: `1px solid ${theme.palette.primary.main}`,
+    borderRadius: 4,
+    button: {
+      padding: '5px 8px'
+    },
+    'button:last-child': {
+      borderLeft: `1px solid ${theme.palette.primary.main}`
+    }
+  }
 }));
 
-export const DeviceAdditionWidget = ({ docsVersion, features, onConnectClick, onMakeGatewayClick, onPreauthClick, tenantCapabilities }) => {
+export const DeviceAdditionWidget = ({ features, innerRef, onConnectClick, onPreauthClick, tenantCapabilities, className = '' }) => {
   const [anchorEl, setAnchorEl] = useState();
   const [selectedIndex, setSelectedIndex] = useState(0);
   const { classes } = useStyles();
+  const dispatch = useDispatch();
 
   const options = [
-    { action: onConnectClick, title: 'Connect a new device', value: 'connect', canAccess },
+    { action: onConnectClick, title: 'Add a new device', value: 'connect', canAccess },
     { action: onPreauthClick, title: 'Preauthorize a device', value: 'preauth', canAccess },
     {
-      action: onMakeGatewayClick,
-      title: 'Promote a device to gateway',
-      value: 'makegateway',
-      canAccess: ({ features, tenantCapabilities }) => features.isHosted && tenantCapabilities.isEnterprise
-    },
-    {
-      href: `https://docs.mender.io/${docsVersion}client-installation/overview`,
+      href: `https://docs.alvaldi.com/getting-started/setup/`,
       rel: 'noopener noreferrer',
       target: '_blank',
       title: 'Learn how to connect devices',
@@ -50,17 +66,19 @@ export const DeviceAdditionWidget = ({ docsVersion, features, onConnectClick, on
   const handleToggle = event => {
     const anchor = anchorEl ? null : event?.currentTarget.parentElement;
     setAnchorEl(anchor);
+    dispatch(advanceOnboarding(onboardingSteps.ONBOARDING_START));
   };
 
   const handleSelection = index => {
     setSelectedIndex(index);
     handleToggle();
     options[index].action(true);
+    dispatch(advanceOnboarding(onboardingSteps.ONBOARDING_START));
   };
 
   return (
     <>
-      <ButtonGroup className="muted device-addition-widget">
+      <ButtonGroup ref={innerRef} className={`${classes.deviceAdditionWidget} ${className}`}>
         <Button className={classes.buttonStyle} onClick={options[selectedIndex].action} variant="text">
           {options[selectedIndex].title}
         </Button>
@@ -81,7 +99,7 @@ export const DeviceAdditionWidget = ({ docsVersion, features, onConnectClick, on
               <LaunchIcon style={{ fontSize: '10pt' }} />
             </MenuItem>
           ) : (
-            <MenuItem className={classes.buttonStyle} key={value} onClick={() => handleSelection(index)}>
+            <MenuItem key={value} component="a" onClick={() => handleSelection(index)}>
               {title}
             </MenuItem>
           );

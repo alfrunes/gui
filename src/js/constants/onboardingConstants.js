@@ -14,12 +14,17 @@
 export const onboardingSteps = {
   ONBOARDING_START: 'onboarding-start',
   DEVICES_PENDING_ONBOARDING_START: 'devices-pending-onboarding-start',
+  DEVICES_DELAYED_ONBOARDING: 'devices-delayed-onboarding',
   DASHBOARD_ONBOARDING_START: 'dashboard-onboarding-start',
   DASHBOARD_ONBOARDING_PENDINGS: 'dashboard-onboarding-pendings',
   DEVICES_PENDING_ONBOARDING: 'devices-pending-onboarding',
   DEVICES_ACCEPTED_ONBOARDING: 'devices-accepted-onboarding',
   DEVICES_PENDING_ACCEPTING_ONBOARDING: 'devices-pending-accepting-onboarding',
   DEVICES_ACCEPTED_ONBOARDING_NOTIFICATION: 'devices-accepted-onboarding-notification',
+  DEVICE_AUTH: 'device-auth',
+  DEVICE_INVENTORY: 'device-inventory',
+  DEVICE_TERMINAL: 'device-terminal',
+  DEVICE_FILES_TRANSFERRING: 'device-files-transferring',
   UPLOAD_PREPARED_ARTIFACT_TIP: 'upload-prepared-artifact-tip',
   APPLICATION_UPDATE_REMINDER_TIP: 'application-update-reminder-tip',
   ARTIFACT_INCLUDED_ONBOARDING: 'artifact-included-onboarding',
@@ -54,3 +59,4 @@ export const SET_ONBOARDING_ARTIFACT_INCLUDED = 'SET_ONBOARDING_ARTIFACT_INCLUDE
 export const SET_SHOW_CREATE_ARTIFACT = 'SET_SHOW_CREATE_ARTIFACT';
 export const SET_SHOW_ONBOARDING_HELP = 'SET_SHOW_ONBOARDING_HELP';
 export const SET_SHOW_ONBOARDING_HELP_DIALOG = 'SET_SHOW_ONBOARDING_HELP_DIALOG';
+export const SET_ONBOARDING_STATE = 'SET_ONBOARDING_STATE';

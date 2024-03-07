@@ -44,7 +44,14 @@ import {
   SET_REJECTED_DEVICES,
   UNGROUPED_GROUP
 } from '../constants/deviceConstants';
-import { SET_DEMO_ARTIFACT_PORT, SET_ONBOARDING_COMPLETE } from '../constants/onboardingConstants';
+import {
+  SET_DEMO_ARTIFACT_PORT,
+  SET_ONBOARDING_APPROACH,
+  SET_ONBOARDING_COMPLETE,
+  SET_ONBOARDING_DEVICE_TYPE,
+  SET_ONBOARDING_PROGRESS,
+  SET_SHOW_ONBOARDING_HELP
+} from '../constants/onboardingConstants';
 import { SET_ORGANIZATION, SET_PLAN } from '../constants/organizationConstants';
 import { RECEIVED_PERMISSION_SETS, RECEIVED_ROLES, SET_GLOBAL_SETTINGS, SET_SHOW_HELP, SET_USER_LIMIT, SET_USER_SETTINGS } from '../constants/userConstants';
 import {
@@ -114,9 +121,7 @@ describe('app actions', () => {
     });
 
     const expectedActions = [
-      { type: SET_ONBOARDING_COMPLETE, complete: true },
-      { type: 'SET_SHOW_ONBOARDING_HELP', show: false },
-      { type: 'SET_ONBOARDING_PROGRESS', value: 'onboarding-finished-notification' },
+      { type: SET_ONBOARDING_COMPLETE, complete: false },
       { type: SET_DEMO_ARTIFACT_PORT, value: 85 },
       {
         type: SET_FEATURES,
@@ -129,24 +134,6 @@ describe('app actions', () => {
       },
       { type: SET_ENVIRONMENT_DATA, value: { hostAddress: null, hostedAnnouncement: '', recaptchaSiteKey: '', stripeAPIKey: '', trackerCode: '' } },
       { type: SET_FIRST_LOGIN_AFTER_SIGNUP, firstLoginAfterSignup: false },
-      { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings } },
-      {
-        type: SET_USER_SETTINGS,
-        settings: {
-          columnSelection: [],
-          onboarding: {
-            something: 'here',
-            approach: null,
-            artifactIncluded: null,
-            complete: true,
-            deviceType: null,
-            demoArtifactPort: 85,
-            progress: 'onboarding-finished-notification',
-            showTips: null,
-            showConnectDeviceDialog: false
-          }
-        }
-      },
       {
         type: SET_VERSION_INFORMATION,
         docsVersion: '',
@@ -285,6 +272,20 @@ describe('app actions', () => {
         type: SET_PLANS,
         value: defaultState.app.plans
       },
+      {
+        type: SET_USER_SETTINGS,
+        settings: {
+          columnSelection: [],
+          onboarding: {
+            something: 'here'
+          }
+        }
+      },
+      { type: SET_ONBOARDING_COMPLETE, complete: false },
+      { type: SET_ONBOARDING_DEVICE_TYPE, value: [] },
+      { type: SET_ONBOARDING_APPROACH, value: null },
+      { type: SET_SHOW_ONBOARDING_HELP, show: true },
+      { type: SET_ONBOARDING_PROGRESS, value: 'devices-accepted-onboarding' },
       { type: SET_ORGANIZATION, organization: defaultState.organization.organization },
       { type: SET_ANNOUNCEMENT, announcement: tenantDataDivergedMessage },
       {
@@ -296,6 +297,26 @@ describe('app actions', () => {
         devicesById: { [expectedDevice.id]: { ...defaultState.devices.byId.a1, group: undefined, isOffline: true, monitor: {}, tags: {} } }
       },
       { type: RECEIVE_DEVICES, devicesById: { [expectedDevice.id]: { ...receivedInventoryDevice, group: 'test' } } },
+      { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings } },
+      {
+        type: SET_USER_SETTINGS,
+        settings: {
+          columnSelection: [],
+          onboarding: {
+            something: 'here',
+            approach: null,
+            complete: false,
+            demoArtifactPort: 85,
+            deviceType: [],
+            progress: 'devices-accepted-onboarding',
+            showConnectDeviceDialog: false,
+            showCreateArtifactDialog: false,
+            showHelptips: true,
+            showTips: true,
+            showTipsDialog: false
+          }
+        }
+      },
       {
         type: RECEIVE_DEVICES,
         devicesById: { [expectedDevice.id]: { ...defaultState.devices.byId.a1, group: undefined, isOffline: true, monitor: {}, tags: {} } }

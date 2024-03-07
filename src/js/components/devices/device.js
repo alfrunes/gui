@@ -22,11 +22,11 @@ import { setSnackbar } from '../../actions/appActions.js';
 import { getDeviceInfo, setDeviceTags } from '../../actions/deviceActions.js';
 import { saveGlobalSettings } from '../../actions/userActions.js';
 import { TIMEOUTS, yes } from '../../constants/appConstants.js';
-import { DEVICE_STATES } from '../../constants/deviceConstants.js';
 import {
   getDeviceTwinIntegrations,
   getDocsVersion,
   getIdAttribute,
+  getOnboardingState,
   getShowHelptips,
   getTenantCapabilities,
   getUserCapabilities
@@ -37,23 +37,25 @@ import DeviceInventory from './device-details/deviceinventory.js';
 import { IdentityTab } from './device-details/identity.js';
 import DeviceNotifications from './device-details/notifications.js';
 import Troubleshoot from './device-details/troubleshoot.js';
-
-const deviceStatusCheck = ({ device: { status = DEVICE_STATES.accepted } }, states = [DEVICE_STATES.accepted]) => states.includes(status);
-
-const tabs = [
-  { component: IdentityTab, title: () => 'Identity', value: 'identity', isApplicable: yes },
-  {
-    component: DeviceInventory,
-    title: () => 'Inventory',
-    value: 'inventory',
-    isApplicable: deviceStatusCheck
-  }
-];
+import { getOnboardingComponentFor } from '../../utils/onboardingmanager.js';
+import { onboardingSteps } from '../../constants/onboardingConstants.js';
+import { advanceOnboarding } from '../../actions/onboardingActions.js';
 
 const refreshDeviceLength = TIMEOUTS.refreshDefault;
 
 export const Device = () => {
   const { id: deviceId } = useParams();
+  const inventoryTabRef = useRef();
+  const tabs = [
+    { component: IdentityTab, title: () => 'Identity', value: 'identity', isApplicable: yes, ref: null },
+    {
+      component: DeviceInventory,
+      title: () => 'Inventory',
+      value: 'inventory',
+      isApplicable: yes,
+      ref: inventoryTabRef
+    }
+  ];
 
   const device = useSelector(state => state.devices.byId[deviceId] || {});
   const docsVersion = useSelector(getDocsVersion);
@@ -102,6 +104,24 @@ export const Device = () => {
     userCapabilities
   };
 
+  const onboardingState = useSelector(getOnboardingState);
+  let onboardingComponent;
+  if (inventoryTabRef.current) {
+    const vwOffset = inventoryTabRef.current.getBoundingClientRect();
+    const anchor = {
+      top: vwOffset.top + inventoryTabRef.current.offsetHeight / 2 + 20,
+      left: vwOffset.left + inventoryTabRef.current.offsetWidth / 2
+    };
+
+    onboardingComponent = getOnboardingComponentFor(
+      onboardingSteps.DEVICE_INVENTORY,
+      onboardingState,
+      { anchor, place: 'top' },
+      null,
+      <a onClick={() => dispatch(advanceOnboarding(onboardingSteps.DEVICE_INVENTORY))}>Next</a>
+    );
+  }
+
   return (
     <div className="devicePage">
       <div className="flexbox devicePage-header padding-left">
@@ -127,12 +147,13 @@ export const Device = () => {
         <div className="devicePage-content_info">
           <Tabs value={selectedTab} textColor="primary" onChange={(e, tab) => setSelectedTab(tab)}>
             {availableTabs.map(item => (
-              <Tab key={item.value} label={item.title({ integrations })} value={item.value} />
+              <Tab ref={item.ref} key={item.value} label={item.title({ integrations })} value={item.value} />
             ))}
           </Tabs>
           <SelectedTab {...commonProps} />
         </div>
       </div>
+      {onboardingComponent}
     </div>
   );
 };

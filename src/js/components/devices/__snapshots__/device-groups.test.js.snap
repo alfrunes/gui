@@ -18,7 +18,7 @@ exports[`DeviceGroups Component renders correctly 1`] = `
         class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
       >
         <div
-          class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button css-6i4nb8-MuiButtonBase-root-MuiListItem-root"
+          class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button css-9rsgis-MuiButtonBase-root-MuiListItem-root"
           role="button"
           tabindex="0"
         >
@@ -45,7 +45,7 @@ exports[`DeviceGroups Component renders correctly 1`] = `
           </span>
         </li>
         <div
-          class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button css-6i4nb8-MuiButtonBase-root-MuiListItem-root"
+          class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button css-9rsgis-MuiButtonBase-root-MuiListItem-root"
           role="button"
           tabindex="0"
         >
@@ -72,7 +72,7 @@ exports[`DeviceGroups Component renders correctly 1`] = `
           </span>
         </li>
         <div
-          class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button Mui-selected css-6i4nb8-MuiButtonBase-root-MuiListItem-root"
+          class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button Mui-selected css-9rsgis-MuiButtonBase-root-MuiListItem-root"
           role="button"
           tabindex="0"
         >
@@ -90,7 +90,7 @@ exports[`DeviceGroups Component renders correctly 1`] = `
           />
         </div>
         <div
-          class="MuiButtonBase-root MuiListItem-root grouplist padding-left MuiListItem-gutters MuiListItem-padding MuiListItem-button css-6i4nb8-MuiButtonBase-root-MuiListItem-root"
+          class="MuiButtonBase-root MuiListItem-root grouplist padding-left MuiListItem-gutters MuiListItem-padding MuiListItem-button css-9rsgis-MuiButtonBase-root-MuiListItem-root"
           role="button"
           style="margin-top: 30px;"
           tabindex="0"
@@ -135,6 +135,41 @@ exports[`DeviceGroups Component renders correctly 1`] = `
         >
           <div />
         </div>
+      </div>
+      <div
+        class="MuiButtonGroup-root MuiButtonGroup-outlined css-1p3di2u-MuiButtonGroup-root-deviceAdditionWidget-addDevice"
+        role="group"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonGroup-firstButton css-14vz5x5-MuiButtonBase-root-MuiButton-root-buttonStyle"
+          tabindex="0"
+          type="button"
+        >
+          Add a new device
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButtonGroup-lastButton css-15r6o2k-MuiButtonBase-root-MuiButton-root-buttonStyle"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1o67yj1-MuiSvgIcon-root"
+            data-testid="ExpandMoreIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
       </div>
       <div
         class="margin-left-small margin-bottom"
