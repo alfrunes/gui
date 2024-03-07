@@ -75,7 +75,7 @@ exports[`Main Component renders correctly 1`] = `
                 aria-invalid="false"
                 autocomplete="off"
                 class="MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart Mui-readOnly MuiInputBase-readOnly mui-nqgi9r-MuiInputBase-input-MuiInput-input"
-                
+                id=":rd:"
                 placeholder="Search devices"
                 readonly=""
                 type="text"
@@ -185,7 +185,8 @@ exports[`Main Component renders correctly 1`] = `
         style="padding: 0px;"
       >
         <a
-          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding navLink leftNav mui-v52pvc-MuiListItem-root"
+          aria-current="page"
+          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding navLink leftNav mui-v52pvc-MuiListItem-root active"
           href="/devices"
         >
           <svg
@@ -518,7 +519,7 @@ exports[`Main Component renders correctly 1`] = `
                       style="font-size: 13px; margin-left: 8px; margin-top: 2px;"
                     >
                       <div
-                        aria-controls="mui-9"
+                        aria-controls=":rl:"
                         aria-expanded="false"
                         aria-haspopup="listbox"
                         class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input mui-emq5k1-MuiSelect-select-MuiInputBase-input-MuiInput-input"
@@ -1003,7 +1004,7 @@ exports[`Main Component renders correctly 1`] = `
                     />
                     <p
                       class="MuiTablePagination-selectLabel mui-1vah30l-MuiTablePagination-selectLabel"
-                      
+                      id=":r11:"
                     >
                       Rows
                     </p>
@@ -1011,12 +1012,12 @@ exports[`Main Component renders correctly 1`] = `
                       class="MuiInputBase-root MuiInputBase-colorPrimary MuiTablePagination-input mui-o64l95-MuiInputBase-root-MuiTablePagination-select"
                     >
                       <div
-                        aria-controls="mui-14"
+                        aria-controls=":r13:"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        
+                        aria-labelledby=":r11: :r10:"
                         class="MuiSelect-select MuiTablePagination-select MuiSelect-standard MuiInputBase-input mui-194a1fa-MuiSelect-select-MuiInputBase-input"
-                        
+                        id=":r10:"
                         role="combobox"
                         tabindex="0"
                       >
