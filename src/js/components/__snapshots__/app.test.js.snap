@@ -580,8 +580,8 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-5:focus::-ms-input-p
 }
 
 .emotion-15.leftNav.active {
-  border-top: 1px solid #d4e9e7;
-  border-bottom: 1px solid #d4e9e7;
+  border-top: 1px solid #F5F5F5;
+  border-bottom: 1px solid #F5F5F5;
 }
 
 .emotion-17 {
@@ -763,8 +763,8 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-5:focus::-ms-input-p
 }
 
 .emotion-33.leftNav.active {
-  border-top: 1px solid #d4e9e7;
-  border-bottom: 1px solid #d4e9e7;
+  border-top: 1px solid #F5F5F5;
+  border-bottom: 1px solid #F5F5F5;
 }
 
 .emotion-37 {
@@ -803,6 +803,256 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-5:focus::-ms-input-p
 }
 
 .emotion-56 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  border-radius: 4px;
+  border: 1px solid #14A452;
+  border-radius: 4px;
+  position: absolute;
+  right: 24px;
+  top: 50px;
+}
+
+.emotion-56 .MuiButtonGroup-grouped {
+  min-width: 40px;
+}
+
+.emotion-56 .MuiButtonGroup-firstButton,
+.emotion-56 .MuiButtonGroup-middleButton {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right-color: transparent;
+}
+
+.emotion-56 .MuiButtonGroup-firstButton:hover,
+.emotion-56 .MuiButtonGroup-middleButton:hover {
+  border-right-color: currentColor;
+}
+
+.emotion-56 .MuiButtonGroup-lastButton,
+.emotion-56 .MuiButtonGroup-middleButton {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-left: -1px;
+}
+
+.emotion-56 button {
+  padding: 5px 8px;
+}
+
+.emotion-56 button:last-child {
+  border-left: 1px solid #14A452;
+}
+
+.emotion-57 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  font-family: Lato,sans-serif;
+  font-weight: 500;
+  font-size: 0.7656rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: #14A452;
+  text-transform: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 15px;
+  text-transform: none;
+  color: #14A452!important;
+  padding: 8px;
+  font-weight: 500;
+}
+
+.emotion-57::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-57.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-57 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-57:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(20, 164, 82, 0.04);
+}
+
+@media (hover: none) {
+  .emotion-57:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-57.Mui-disabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.emotion-57:hover {
+  colors: #14A452;
+}
+
+.emotion-57.MuiButton-text {
+  color: #212121;
+}
+
+.emotion-57:hover {
+  background: #F5F5F5;
+}
+
+.emotion-57:hover {
+  background: none;
+}
+
+.emotion-59 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  font-family: Lato,sans-serif;
+  font-weight: 500;
+  font-size: 0.7109rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 4px 5px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: #14A452;
+  text-transform: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 15px;
+  text-transform: none;
+  color: #14A452!important;
+  padding: 8px;
+  font-weight: 500;
+}
+
+.emotion-59::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-59.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-59 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-59:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(20, 164, 82, 0.04);
+}
+
+@media (hover: none) {
+  .emotion-59:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-59.Mui-disabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.emotion-59:hover {
+  colors: #14A452;
+}
+
+.emotion-59.MuiButton-text {
+  color: #212121;
+}
+
+.emotion-59:hover {
+  background: #F5F5F5;
+}
+
+.emotion-59:hover {
+  background: none;
+}
+
+.emotion-62 {
   line-height: 1.4375em;
   font-family: Lato,sans-serif;
   font-weight: 400;
@@ -822,12 +1072,12 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-5:focus::-ms-input-p
   position: relative;
 }
 
-.emotion-56.Mui-disabled {
+.emotion-62.Mui-disabled {
   color: rgba(0, 0, 0, 0.38);
   cursor: default;
 }
 
-.emotion-57 {
+.emotion-63 {
   -moz-appearance: none;
   -webkit-appearance: none;
   -webkit-user-select: none;
@@ -855,34 +1105,34 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-5:focus::-ms-input-p
   animation-duration: 10ms;
 }
 
-.emotion-57:focus {
+.emotion-63:focus {
   background-color: rgba(0, 0, 0, 0.05);
   border-radius: 0;
 }
 
-.emotion-57::-ms-expand {
+.emotion-63::-ms-expand {
   display: none;
 }
 
-.emotion-57.Mui-disabled {
+.emotion-63.Mui-disabled {
   cursor: default;
 }
 
-.emotion-57[multiple] {
+.emotion-63[multiple] {
   height: auto;
 }
 
-.emotion-57:not([multiple]) option,
-.emotion-57:not([multiple]) optgroup {
+.emotion-63:not([multiple]) option,
+.emotion-63:not([multiple]) optgroup {
   background-color: #fff;
 }
 
-.emotion-57.emotion-57.emotion-57 {
+.emotion-63.emotion-63.emotion-63 {
   padding-right: 24px;
   min-width: 16px;
 }
 
-.emotion-57.MuiSelect-select {
+.emotion-63.MuiSelect-select {
   height: auto;
   min-height: 1.4375em;
   text-overflow: ellipsis;
@@ -890,91 +1140,91 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-5:focus::-ms-input-p
   overflow: hidden;
 }
 
-.emotion-57::-webkit-input-placeholder {
+.emotion-63::-webkit-input-placeholder {
   color: currentColor;
   opacity: 0.42;
   -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-.emotion-57::-moz-placeholder {
+.emotion-63::-moz-placeholder {
   color: currentColor;
   opacity: 0.42;
   -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-.emotion-57:-ms-input-placeholder {
+.emotion-63:-ms-input-placeholder {
   color: currentColor;
   opacity: 0.42;
   -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-.emotion-57::-ms-input-placeholder {
+.emotion-63::-ms-input-placeholder {
   color: currentColor;
   opacity: 0.42;
   -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-.emotion-57:focus {
+.emotion-63:focus {
   outline: 0;
 }
 
-.emotion-57:invalid {
+.emotion-63:invalid {
   box-shadow: none;
 }
 
-.emotion-57::-webkit-search-decoration {
+.emotion-63::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-57::-webkit-input-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-63::-webkit-input-placeholder {
   opacity: 0!important;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-57::-moz-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-63::-moz-placeholder {
   opacity: 0!important;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-57:-ms-input-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-63:-ms-input-placeholder {
   opacity: 0!important;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-57::-ms-input-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-63::-ms-input-placeholder {
   opacity: 0!important;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-57:focus::-webkit-input-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-63:focus::-webkit-input-placeholder {
   opacity: 0.42;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-57:focus::-moz-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-63:focus::-moz-placeholder {
   opacity: 0.42;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-57:focus:-ms-input-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-63:focus:-ms-input-placeholder {
   opacity: 0.42;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-57:focus::-ms-input-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-63:focus::-ms-input-placeholder {
   opacity: 0.42;
 }
 
-.emotion-57.Mui-disabled {
+.emotion-63.Mui-disabled {
   opacity: 1;
   -webkit-text-fill-color: rgba(0, 0, 0, 0.38);
 }
 
-.emotion-57:-webkit-autofill {
+.emotion-63:-webkit-autofill {
   -webkit-animation-duration: 5000s;
   animation-duration: 5000s;
   -webkit-animation-name: mui-auto-fill;
   animation-name: mui-auto-fill;
 }
 
-.emotion-58 {
+.emotion-64 {
   bottom: 0;
   left: 0;
   position: absolute;
@@ -984,7 +1234,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-57:focus::-ms-input-
   box-sizing: border-box;
 }
 
-.emotion-59 {
+.emotion-65 {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -1006,15 +1256,15 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-57:focus::-ms-input-
   color: rgba(0, 0, 0, 0.54);
 }
 
-.emotion-59 iconButton {
+.emotion-65 iconButton {
   margin-right: 8px;
 }
 
-.emotion-59.Mui-disabled {
+.emotion-65.Mui-disabled {
   color: rgba(0, 0, 0, 0.26);
 }
 
-.emotion-60 {
+.emotion-66 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -1065,47 +1315,47 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-57:focus::-ms-input-
   padding: 10px 15px;
 }
 
-.emotion-60::-moz-focus-inner {
+.emotion-66::-moz-focus-inner {
   border-style: none;
 }
 
-.emotion-60.Mui-disabled {
+.emotion-66.Mui-disabled {
   pointer-events: none;
   cursor: default;
 }
 
 @media print {
-  .emotion-60 {
+  .emotion-66 {
     -webkit-print-color-adjust: exact;
     color-adjust: exact;
   }
 }
 
-.emotion-60:hover {
+.emotion-66:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
   background-color: rgba(255, 255, 255, 0.04);
 }
 
 @media (hover: none) {
-  .emotion-60:hover {
+  .emotion-66:hover {
     background-color: transparent;
   }
 }
 
-.emotion-60.Mui-disabled {
+.emotion-66.Mui-disabled {
   color: rgba(0, 0, 0, 0.26);
 }
 
-.emotion-60:hover {
+.emotion-66:hover {
   colors: #14A452;
 }
 
-.emotion-60.MuiButton-text {
+.emotion-66.MuiButton-text {
   color: #212121;
 }
 
-.emotion-60:hover {
+.emotion-66:hover {
   background: #F5F5F5;
 }
 
@@ -1516,6 +1766,41 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-57:focus::-ms-input-
             </div>
           </div>
           <div
+            class="MuiButtonGroup-root MuiButtonGroup-outlined emotion-56"
+            role="group"
+          >
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonGroup-firstButton emotion-57"
+              tabindex="0"
+              type="button"
+            >
+              Add a new device
+              <span
+                class="MuiTouchRipple-root emotion-13"
+              />
+            </button>
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButtonGroup-lastButton emotion-59"
+              tabindex="0"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-7"
+                data-testid="ExpandMoreIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root emotion-13"
+              />
+            </button>
+          </div>
+          <div
             class="margin-left-small margin-bottom"
           >
             <div
@@ -1538,14 +1823,14 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-57:focus::-ms-input-
                   >
                     Status:
                     <div
-                      class="MuiInputBase-root MuiInput-root MuiInputBase-colorPrimary  emotion-56"
+                      class="MuiInputBase-root MuiInput-root MuiInputBase-colorPrimary  emotion-62"
                       style="font-size: 13px; margin-left: 8px; margin-top: 2px;"
                     >
                       <div
                         aria-controls=":r5:"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input emotion-57"
+                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input emotion-63"
                         role="combobox"
                         tabindex="0"
                       >
@@ -1554,13 +1839,13 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-57:focus::-ms-input-
                       <input
                         aria-hidden="true"
                         aria-invalid="false"
-                        class="MuiSelect-nativeInput emotion-58"
+                        class="MuiSelect-nativeInput emotion-64"
                         tabindex="-1"
                         value="accepted"
                       />
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard emotion-59"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard emotion-65"
                         data-testid="ArrowDropDownIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
@@ -1581,7 +1866,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-57:focus::-ms-input-
                 class="flexbox centered filter-header "
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textSecondary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textSecondary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-60"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textSecondary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textSecondary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-66"
                   style="background-color: transparent;"
                   tabindex="0"
                   type="button"

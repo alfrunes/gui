@@ -186,7 +186,7 @@ exports[`Main Component renders correctly 1`] = `
       >
         <a
           aria-current="page"
-          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding navLink leftNav mui-v52pvc-MuiListItem-root active"
+          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding navLink leftNav mui-r88wlr-MuiListItem-root active"
           href="/devices"
         >
           <svg
@@ -211,7 +211,7 @@ exports[`Main Component renders correctly 1`] = `
           </div>
         </a>
         <a
-          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding navLink leftNav mui-v52pvc-MuiListItem-root"
+          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding navLink leftNav mui-r88wlr-MuiListItem-root"
           href="/auditlog"
         >
           <svg
@@ -236,7 +236,7 @@ exports[`Main Component renders correctly 1`] = `
           </div>
         </a>
         <a
-          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding navLink leftNav mui-v52pvc-MuiListItem-root"
+          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding navLink leftNav mui-r88wlr-MuiListItem-root"
           href="/settings"
         >
           <svg
@@ -265,7 +265,7 @@ exports[`Main Component renders correctly 1`] = `
         class="MuiList-root MuiList-padding leftNav-bottom mui-h4y409-MuiList-root"
       >
         <a
-          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding navLink leftNav mui-v52pvc-MuiListItem-root"
+          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding navLink leftNav mui-r88wlr-MuiListItem-root"
           href="/help"
         >
           <div
@@ -279,7 +279,7 @@ exports[`Main Component renders correctly 1`] = `
           </div>
         </a>
         <li
-          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding mui-v52pvc-MuiListItem-root"
+          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding mui-r88wlr-MuiListItem-root"
         >
           <div
             class="MuiListItemText-root mui-1lghudc-MuiListItemText-root"
@@ -336,7 +336,7 @@ exports[`Main Component renders correctly 1`] = `
             class="MuiList-root MuiList-padding mui-h4y409-MuiList-root"
           >
             <div
-              class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button Mui-selected mui-6i4nb8-MuiButtonBase-root-MuiListItem-root"
+              class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button Mui-selected mui-9rsgis-MuiButtonBase-root-MuiListItem-root"
               role="button"
               tabindex="0"
             >
@@ -363,7 +363,7 @@ exports[`Main Component renders correctly 1`] = `
               </span>
             </li>
             <div
-              class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button mui-6i4nb8-MuiButtonBase-root-MuiListItem-root"
+              class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button mui-9rsgis-MuiButtonBase-root-MuiListItem-root"
               role="button"
               tabindex="0"
             >
@@ -390,7 +390,7 @@ exports[`Main Component renders correctly 1`] = `
               </span>
             </li>
             <div
-              class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button mui-6i4nb8-MuiButtonBase-root-MuiListItem-root"
+              class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button mui-9rsgis-MuiButtonBase-root-MuiListItem-root"
               role="button"
               tabindex="0"
             >
@@ -408,7 +408,7 @@ exports[`Main Component renders correctly 1`] = `
               />
             </div>
             <div
-              class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button mui-6i4nb8-MuiButtonBase-root-MuiListItem-root"
+              class="MuiButtonBase-root MuiListItem-root grouplist MuiListItem-gutters MuiListItem-padding MuiListItem-button mui-9rsgis-MuiButtonBase-root-MuiListItem-root"
               role="button"
               tabindex="0"
             >
@@ -426,7 +426,7 @@ exports[`Main Component renders correctly 1`] = `
               />
             </div>
             <div
-              class="MuiButtonBase-root MuiListItem-root grouplist padding-left MuiListItem-gutters MuiListItem-padding MuiListItem-button mui-6i4nb8-MuiButtonBase-root-MuiListItem-root"
+              class="MuiButtonBase-root MuiListItem-root grouplist padding-left MuiListItem-gutters MuiListItem-padding MuiListItem-button mui-9rsgis-MuiButtonBase-root-MuiListItem-root"
               role="button"
               style="margin-top: 30px;"
               tabindex="0"
@@ -491,6 +491,41 @@ exports[`Main Component renders correctly 1`] = `
                 </b>
               </div>
             </div>
+          </div>
+          <div
+            class="MuiButtonGroup-root MuiButtonGroup-outlined mui-1p3di2u-MuiButtonGroup-root-deviceAdditionWidget-addDevice"
+            role="group"
+          >
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonGroup-firstButton mui-14vz5x5-MuiButtonBase-root-MuiButton-root-buttonStyle"
+              tabindex="0"
+              type="button"
+            >
+              Add a new device
+              <span
+                class="MuiTouchRipple-root mui-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButtonGroup-lastButton mui-15r6o2k-MuiButtonBase-root-MuiButton-root-buttonStyle"
+              tabindex="0"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1o67yj1-MuiSvgIcon-root"
+                data-testid="ExpandMoreIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root mui-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
           </div>
           <div
             class="margin-left-small margin-bottom"
@@ -1110,6 +1145,68 @@ exports[`Main Component renders correctly 1`] = `
                   d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m1 17h-2v-2h2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25"
                 />
               </svg>
+            </div>
+          </div>
+          <div
+            aria-labelledby="devices-accepted-onboarding"
+            class="onboard-tip"
+            data-mui-internal-clone-element="true"
+            style="left: 185px; top: -10px; overflow: initial;"
+          >
+            <div
+              class="tooltip onboard-icon bottom"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1o67yj1-MuiSvgIcon-root"
+                data-testid="ArrowCircleRightIcon"
+                focusable="false"
+                style="font-size: 30px; transform: rotate(270deg);"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12s4.48 10 10 10 10-4.48 10-10m-10 1H8v-2h4V8l4 4-4 4z"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="base-Popper-root MuiTooltip-popper MuiTooltip-popperInteractive mui-ykn06b-MuiPopper-root-MuiTooltip-popper"
+            data-popper-escaped=""
+            data-popper-placement="bottom"
+            data-popper-reference-hidden=""
+            id="devices-accepted-onboarding"
+            role="tooltip"
+            style="position: fixed; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);"
+          >
+            <div
+              class="MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom mui-eyq03h-MuiTooltip-tooltip-tooltip"
+              style="opacity: 1; transform: scale(1, 1); transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 133ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+            >
+              <div
+                class="content"
+              >
+                <div>
+                  <h3>
+                    Welcome to Alvaldi
+                  </h3>
+                  <p>
+                    Click on a device to learn more about the core features of Alvaldi.
+                  </p>
+                </div>
+                <div
+                  class="flexbox space-between flexbox-grow"
+                >
+                  <a
+                    style="font-size: 12px; font-weight: 500;"
+                  >
+                    No thanks, I don’t need help
+                  </a>
+                  <a>
+                    Got it!
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
