@@ -13,13 +13,13 @@ exports[`VirtualDeviceOnboarding Component renders correctly 1`] = `
   text-decoration: underline;
 }
 
-.emotion-1 {
+.emotion-2 {
   border: 1px solid;
   border-color: #f7f7f7;
   background-color: #f7f7f7;
 }
 
-.emotion-1 button {
+.emotion-2 button {
   float: right;
   margin: 0 0 0 10px;
   background: white;
@@ -27,11 +27,11 @@ exports[`VirtualDeviceOnboarding Component renders correctly 1`] = `
   padding: 7px;
 }
 
-.emotion-2 {
+.emotion-3 {
   max-height: 221px;
 }
 
-.emotion-3 {
+.emotion-4 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -82,61 +82,61 @@ exports[`VirtualDeviceOnboarding Component renders correctly 1`] = `
   padding: 10px 15px;
 }
 
-.emotion-3::-moz-focus-inner {
+.emotion-4::-moz-focus-inner {
   border-style: none;
 }
 
-.emotion-3.Mui-disabled {
+.emotion-4.Mui-disabled {
   pointer-events: none;
   cursor: default;
 }
 
 @media print {
-  .emotion-3 {
+  .emotion-4 {
     -webkit-print-color-adjust: exact;
     color-adjust: exact;
   }
 }
 
-.emotion-3:hover {
+.emotion-4:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
   background-color: rgba(20, 164, 82, 0.04);
 }
 
 @media (hover: none) {
-  .emotion-3:hover {
+  .emotion-4:hover {
     background-color: transparent;
   }
 }
 
-.emotion-3.Mui-disabled {
+.emotion-4.Mui-disabled {
   color: rgba(0, 0, 0, 0.26);
 }
 
-.emotion-3:hover {
+.emotion-4:hover {
   colors: #14A452;
 }
 
-.emotion-3.MuiButton-text {
+.emotion-4.MuiButton-text {
   color: #212121;
 }
 
-.emotion-3:hover {
+.emotion-4:hover {
   background: #F5F5F5;
 }
 
-.emotion-4 {
+.emotion-5 {
   display: inherit;
   margin-right: 8px;
   margin-left: -4px;
 }
 
-.emotion-4>*:nth-of-type(1) {
+.emotion-5>*:nth-of-type(1) {
   font-size: 20px;
 }
 
-.emotion-5 {
+.emotion-6 {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -153,11 +153,11 @@ exports[`VirtualDeviceOnboarding Component renders correctly 1`] = `
   font-size: 1.3125rem;
 }
 
-.emotion-5 iconButton {
+.emotion-6 iconButton {
   margin-right: 8px;
 }
 
-.emotion-6 {
+.emotion-7 {
   overflow: hidden;
   pointer-events: none;
   position: absolute;
@@ -171,11 +171,12 @@ exports[`VirtualDeviceOnboarding Component renders correctly 1`] = `
 
 <div>
   <div>
-    <b>
-      1. Prerequisites
-    </b>
-    <p>
-      As you are running Mender on-premise, for these instructions we assume that you already have Docker installed and the Mender integration environment up and running on your machine.
+    <p
+      class="emotion-0"
+    >
+      1. Get Docker Engine 
+      <br />
+      If you do not have it already, please install Docker on your local machine. For example if you are using Ubuntu follow this tutorial: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
     </p>
     <p>
       To start a virtual device, change directory into the folder where you cloned Mender integration.
@@ -187,19 +188,19 @@ exports[`VirtualDeviceOnboarding Component renders correctly 1`] = `
     2. Copy & paste and run the following command to start the virtual device:
   </p>
   <div
-    class="code emotion-1 emotion-2"
+    class="code emotion-2 emotion-3"
   >
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-3"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-4"
       tabindex="0"
       type="button"
     >
       <span
-        class="MuiButton-startIcon MuiButton-iconSizeMedium emotion-4"
+        class="MuiButton-startIcon MuiButton-iconSizeMedium emotion-5"
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-5"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-6"
           data-testid="FileCopyIcon"
           focusable="false"
           viewBox="0 0 24 24"
@@ -211,7 +212,7 @@ exports[`VirtualDeviceOnboarding Component renders correctly 1`] = `
       </span>
       Copy to clipboard
       <span
-        class="MuiTouchRipple-root emotion-6"
+        class="MuiTouchRipple-root emotion-7"
       />
     </button>
     <span
