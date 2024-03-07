@@ -758,8 +758,8 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-15:focus::-ms-input-
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-standard MuiFormLabel-colorPrimary Mui-focused MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-standard emotion-13"
             data-shrink="true"
-            for="mui-1"
-            id="mui-1-label"
+            for=":r0:"
+            id=":r0:-label"
           >
             Destination directory on the device where the file will be transferred
           </label>
@@ -769,7 +769,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-15:focus::-ms-input-
             <input
               aria-invalid="false"
               class="MuiInputBase-input MuiInput-input emotion-15"
-              id="mui-1"
+              id=":r0:"
               placeholder="Example: /opt/installed-by-single-file"
               style="margin-top: 16px;"
               type="text"

@@ -12,7 +12,7 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -60,8 +60,6 @@ Open an issue, or contribute a fix to:
 🚀 We like your curiosity! Help us improve Alvaldi by joining the team: https://northern.tech/careers
 `;
 
-export const Main = () => {
-  console.log(welcomeMessage);
-  render(<AppProviders />, document.getElementById('main') || document.createElement('div'));
-};
-Main();
+console.log(welcomeMessage);
+const root = ReactDOM.createRoot(document.getElementById('main') || document.createElement('div'));
+root.render(<AppProviders />);

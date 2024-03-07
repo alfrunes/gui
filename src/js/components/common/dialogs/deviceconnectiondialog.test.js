@@ -13,7 +13,7 @@
 //    limitations under the License.
 import React from 'react';
 
-import { screen } from '@testing-library/react';
+import { act, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { undefineds } from '../../../../../tests/mockData';
@@ -31,10 +31,16 @@ describe('DeviceConnectionDialog Component', () => {
   it('works as intended', async () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     render(<DeviceConnectionDialog onCancel={jest.fn} />);
-    await user.click(screen.getByText(/get started/i));
+    await act(async () => {
+      await user.click(screen.getByText(/get started/i));
+    });
     expect(screen.getByText(/Enter your device type/i)).toBeInTheDocument();
-    await user.click(screen.getByRole('button', { name: /back/i }));
-    await user.click(screen.getByText(/Try a virtual device/i));
+    await act(async () => {
+      await user.click(screen.getByRole('button', { name: /back/i }));
+    });
+    await act(async () => {
+      await user.click(screen.getByText(/Try a virtual device/i));
+    });
     expect(screen.getByText(/run the following command to start the virtual device/i)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /Waiting for device/i })).toBeInTheDocument();
   });

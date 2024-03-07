@@ -14,7 +14,7 @@
 import React from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 
-import { screen, waitFor } from '@testing-library/react';
+import { act, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { undefineds } from '../../../../../tests/mockData';
@@ -54,7 +54,9 @@ describe('Form Component', () => {
       </Form>
     );
     const { rerender } = render(ui);
-    await user.click(screen.getByRole('button', { name: /generate/i }));
+    await act(async () => {
+      await user.click(screen.getByRole('button', { name: /generate/i }));
+    });
     await waitFor(() => rerender(ui));
     expect(screen.getByRole('button', { name: /submit/i })).not.toBeDisabled();
   });

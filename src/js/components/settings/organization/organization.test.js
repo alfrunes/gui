@@ -13,7 +13,7 @@
 //    limitations under the License.
 import React from 'react';
 
-import { screen, waitFor } from '@testing-library/react';
+import { act, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { defaultState, undefineds } from '../../../../../tests/mockData';
@@ -96,23 +96,35 @@ describe('MyOrganization Component', () => {
     const ui = <MyOrganization />;
     const { rerender } = render(ui, { preloadedState });
     await waitFor(() => rerender(ui));
+    await act(async () => {});
     expect(screen.getByText(/text editor/i)).toBeVisible();
-    await user.click(screen.getByText(/text editor/i));
+    await act(async () => {
+      await user.click(screen.getByText(/text editor/i));
+    });
     await waitFor(() => rerender(ui));
-    expect(screen.getByText(/import from a file/i)).toBeVisible();
-    await user.upload(screen.getByText(/import from a file/i).previousSibling, file);
+    await act(async () => {});
+    await waitFor(() => expect(screen.getByText(/import from a file/i)).toBeVisible());
+    await act(async () => {
+      await user.upload(screen.getByText(/import from a file/i).previousSibling, file);
+    });
     await waitFor(() => expect(document.querySelector('.MuiDrawer-root')).toBeVisible());
-    await user.click(screen.getByTestId('CloseIcon'));
+    await act(async () => {
+      await user.click(screen.getByTestId('CloseIcon'));
+    });
     await waitFor(() => rerender(ui));
     await waitFor(() => expect(document.querySelector('.MuiDrawer-root')).not.toBeInTheDocument());
     await waitFor(() => expect(screen.getByRole('checkbox')).toBeChecked());
     while (screen.queryByText(/entity id/i)) {
-      await user.click(screen.getByRole('checkbox'));
-      await user.click(screen.getByRole('button', { name: /save/i }));
+      await act(async () => {
+        await user.click(screen.getByRole('checkbox'));
+        await user.click(screen.getByRole('button', { name: /save/i }));
+      });
       await waitFor(() => rerender(ui));
     }
     const input = document.querySelector('input[type=file]');
-    await user.upload(input, file);
+    await act(async () => {
+      await user.upload(input, file);
+    });
     await waitFor(() => rerender(ui));
     expect(screen.getByText(/Submit the metadata document/i)).toBeVisible();
   });

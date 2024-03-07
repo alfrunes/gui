@@ -13,7 +13,7 @@
 //    limitations under the License.
 import React from 'react';
 
-import { screen } from '@testing-library/react';
+import { act, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { undefineds } from '../../../../../tests/mockData';
@@ -32,7 +32,9 @@ describe('DeviceAdditionWidget Component', () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const clickMock = jest.fn();
     render(<DeviceAdditionWidget docsVersion="" features={{}} onConnectClick={clickMock} tenantCapabilities={{}} />);
-    await user.click(screen.getByRole('button', { name: /connect a new device/i }));
+    await act(async () => {
+      await user.click(screen.getByRole('button', { name: /connect a new device/i }));
+    });
     expect(clickMock).toHaveBeenCalled();
   });
 });

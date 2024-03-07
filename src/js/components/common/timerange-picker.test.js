@@ -13,7 +13,7 @@
 //    limitations under the License.
 import React from 'react';
 
-import { screen } from '@testing-library/react';
+import { act, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { mockDate, undefineds } from '../../../../tests/mockData';
@@ -51,9 +51,13 @@ describe('TimerangePicker Component', () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const changeListener = jest.fn();
     render(<TimerangePicker onChange={changeListener} />);
-    await user.click(screen.getByText(/last 7 days/i));
+    await act(async () => {
+      await user.click(screen.getByText(/last 7 days/i));
+    });
     expect(changeListener).toHaveBeenCalledWith('2019-01-07T00:00:00.000Z', '2019-01-13T23:59:59.999Z');
-    await user.click(screen.getByText(/yesterday/i));
+    await act(async () => {
+      await user.click(screen.getByText(/yesterday/i));
+    });
     expect(changeListener).toHaveBeenCalledWith('2019-01-12T00:00:00.000Z', '2019-01-12T23:59:59.999Z');
   });
 });

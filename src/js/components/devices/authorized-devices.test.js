@@ -13,7 +13,7 @@
 //    limitations under the License.
 import React from 'react';
 
-import { screen, waitFor } from '@testing-library/react';
+import { act, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { defaultState, undefineds } from '../../../../tests/mockData';
@@ -96,11 +96,19 @@ describe('AuthorizedDevices Component', () => {
     );
     render(ui, { preloadedState });
     await waitFor(() => expect(screen.getAllByRole('checkbox').length).toBeTruthy());
-    await user.click(screen.getAllByRole('checkbox')[0]);
+    await act(async () => {
+      await user.click(screen.getAllByRole('checkbox')[0]);
+    });
     expect(setListStateSpy).toHaveBeenCalledWith({ selection: [0, 1], setOnly: true });
-    await user.click(screen.getByRole('menuitem', { name: 'all' }));
-    await user.click(screen.getByRole('option', { name: /offline/i }));
-    await user.keyboard('{Escape}');
+    await act(async () => {
+      await user.click(screen.getByRole('menuitem', { name: 'all' }));
+    });
+    await act(async () => {
+      await user.click(screen.getByRole('option', { name: /offline/i }));
+    });
+    await act(async () => {
+      await user.keyboard('{Escape}');
+    });
     expect(setListStateSpy).toHaveBeenCalledWith({ page: 1, refreshTrigger: true, selectedIssues: ['offline'] });
   });
 });

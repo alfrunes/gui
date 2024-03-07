@@ -13,7 +13,7 @@
 //    limitations under the License.
 import React from 'react';
 
-import { screen, waitFor } from '@testing-library/react';
+import { act, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { undefineds } from '../../../../../tests/mockData';
@@ -36,13 +36,19 @@ describe('ConfigImportDialog Component', () => {
     const ui = <ConfigImportDialog onSubmit={submitMock} onCancel={jest.fn} setSnackbar={jest.fn} />;
     const { rerender } = render(ui);
     expect(screen.getByText(/the current default/i)).toBeInTheDocument();
-    await user.click(screen.getByText(/the current default/i));
-    await user.click(screen.getByRole('button', { name: 'Import' }));
+    await act(async () => {
+      await user.click(screen.getByText(/the current default/i));
+    });
+    await act(async () => {
+      await user.click(screen.getByRole('button', { name: 'Import' }));
+    });
     expect(submitMock).toHaveBeenCalledWith({ importType: 'default', config: null });
 
     // container.querySelector doesn't work in this scenario for some reason -> but querying document seems to work
     const uploadInput = document.querySelector('.dropzone input');
-    await user.upload(uploadInput, menderFile);
+    await act(async () => {
+      await user.upload(uploadInput, menderFile);
+    });
     await waitFor(() => rerender(ui));
     expect(uploadInput.files).toHaveLength(1);
   });

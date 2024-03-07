@@ -205,7 +205,7 @@ exports[`Devices Component renders correctly 1`] = `
   column-gap: 8px;
 }
 
-.emotion-11 {
+.emotion-12 {
   position: relative;
   overflow: hidden;
   display: block;
@@ -215,13 +215,13 @@ exports[`Devices Component renders correctly 1`] = `
 }
 
 @media print {
-  .emotion-11 {
+  .emotion-12 {
     -webkit-print-color-adjust: exact;
     color-adjust: exact;
   }
 }
 
-.emotion-12 {
+.emotion-13 {
   width: 100%;
   position: absolute;
   left: 0;
@@ -233,7 +233,7 @@ exports[`Devices Component renders correctly 1`] = `
   background-color: #14A452;
 }
 
-.emotion-15 {
+.emotion-18 {
   font-size: 1rem;
   cursor: pointer;
 }
@@ -332,28 +332,41 @@ exports[`Devices Component renders correctly 1`] = `
         >
           <div
             class="clickable emotion-9 "
-            title="undefined"
+            title="somethingMore"
           >
             <div
               class="text-overflow"
             >
-              undefined
+              somethingMore
             </div>
             <div>
-              1
+              20
             </div>
           </div>
           <div
             class="clickable emotion-9 "
-            title="raspotifyInstaller"
+            title="Other"
           >
             <div
               class="text-overflow"
             >
-              raspotifyInstaller
+              Other
             </div>
             <div>
-              1
+              12
+            </div>
+          </div>
+          <div
+            class="clickable emotion-9 "
+            title="something"
+          >
+            <div
+              class="text-overflow"
+            >
+              something
+            </div>
+            <div>
+              10
             </div>
           </div>
         </div>
@@ -363,38 +376,57 @@ exports[`Devices Component renders correctly 1`] = `
           <div
             class="clickable flexbox column barchart"
             style="justify-content: center;"
-            title="undefined"
+            title="somethingMore"
           >
             <span
               aria-valuemax="100"
               aria-valuemin="0"
-              aria-valuenow="0"
-              class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-determinate color-a31773 emotion-11"
+              aria-valuenow="48"
+              class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-determinate color-a31773 emotion-12"
               role="progressbar"
               style="height: 8px;"
             >
               <span
-                class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Determinate emotion-12"
-                style="transform: translateX(-100%);"
+                class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Determinate emotion-13"
+                style="transform: translateX(-52.38095238095239%);"
               />
             </span>
           </div>
           <div
             class="clickable flexbox column barchart"
             style="justify-content: center;"
-            title="raspotifyInstaller"
+            title="Other"
           >
             <span
               aria-valuemax="100"
               aria-valuemin="0"
-              aria-valuenow="0"
-              class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-determinate color-14A452 emotion-11"
+              aria-valuenow="29"
+              class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-determinate color-d5d5d5 emotion-12"
               role="progressbar"
               style="height: 8px;"
             >
               <span
-                class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Determinate emotion-12"
-                style="transform: translateX(-100%);"
+                class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Determinate emotion-13"
+                style="transform: translateX(-71.42857142857143%);"
+              />
+            </span>
+          </div>
+          <div
+            class="clickable flexbox column barchart"
+            style="justify-content: center;"
+            title="something"
+          >
+            <span
+              aria-valuemax="100"
+              aria-valuemin="0"
+              aria-valuenow="24"
+              class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-determinate color-14A452 emotion-12"
+              role="progressbar"
+              style="height: 8px;"
+            >
+              <span
+                class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Determinate emotion-13"
+                style="transform: translateX(-76.19047619047619%);"
               />
             </span>
           </div>
@@ -406,7 +438,7 @@ exports[`Devices Component renders correctly 1`] = `
     >
       <div />
       <div
-        class="flexbox centered muted emotion-15"
+        class="flexbox centered muted emotion-18"
       >
         <svg
           aria-hidden="true"
@@ -420,7 +452,7 @@ exports[`Devices Component renders correctly 1`] = `
           />
         </svg>
         <span
-          class="emotion-15"
+          class="emotion-18"
         >
           add a widget
         </span>

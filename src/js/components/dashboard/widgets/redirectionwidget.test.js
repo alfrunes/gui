@@ -13,7 +13,7 @@
 //    limitations under the License.
 import React from 'react';
 
-import { screen } from '@testing-library/react';
+import { act, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { undefineds } from '../../../../../tests/mockData';
@@ -34,10 +34,14 @@ describe('RedirectionWidget Component', () => {
     const submitCheck = jest.fn();
     render(<RedirectionWidget content={content} onClick={submitCheck} />);
 
-    await user.click(screen.getByText(content));
+    await act(async () => {
+      await user.click(screen.getByText(content));
+    });
     expect(screen.queryByText('redirected')).not.toBeInTheDocument();
     expect(submitCheck).toHaveBeenCalledTimes(1);
-    await user.click(screen.getByText(content));
+    await act(async () => {
+      await user.click(screen.getByText(content));
+    });
     expect(submitCheck).toHaveBeenCalledTimes(2);
   });
 });

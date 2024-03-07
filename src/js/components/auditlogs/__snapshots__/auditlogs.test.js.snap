@@ -32,8 +32,8 @@ exports[`Auditlogs Component renders correctly 1`] = `
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-standard MuiFormLabel-colorPrimary Mui-error MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-standard css-dv3hq2-MuiFormLabel-root-MuiInputLabel-root"
                 data-shrink="true"
-                for="mui-2"
-                id="mui-2-label"
+                for=":r0:"
+                id=":r0:-label"
               >
                 Start
               </label>
@@ -44,7 +44,7 @@ exports[`Auditlogs Component renders correctly 1`] = `
                   aria-invalid="true"
                   autocomplete="off"
                   class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd css-15e8ec1-MuiInputBase-input-MuiInput-input"
-                  
+                  id=":r0:"
                   inputmode="text"
                   placeholder="DD/MM/YYYY"
                   type="text"
@@ -83,8 +83,8 @@ exports[`Auditlogs Component renders correctly 1`] = `
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-standard MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-standard css-dv3hq2-MuiFormLabel-root-MuiInputLabel-root"
                 data-shrink="true"
-                for="mui-4"
-                id="mui-4-label"
+                for=":r2:"
+                id=":r2:-label"
               >
                 End
               </label>
@@ -95,7 +95,7 @@ exports[`Auditlogs Component renders correctly 1`] = `
                   aria-invalid="false"
                   autocomplete="off"
                   class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd css-15e8ec1-MuiInputBase-input-MuiInput-input"
-                  
+                  id=":r2:"
                   inputmode="text"
                   placeholder="DD/MM/YYYY"
                   type="text"
@@ -544,7 +544,7 @@ exports[`Auditlogs Component renders correctly 1`] = `
           />
           <p
             class="MuiTablePagination-selectLabel css-1vah30l-MuiTablePagination-selectLabel"
-            
+            id=":rb:"
           >
             Rows
           </p>
@@ -552,12 +552,12 @@ exports[`Auditlogs Component renders correctly 1`] = `
             class="MuiInputBase-root MuiInputBase-colorPrimary MuiTablePagination-input css-o64l95-MuiInputBase-root-MuiTablePagination-select"
           >
             <div
-              aria-controls="mui-5"
+              aria-controls=":rc:"
               aria-expanded="false"
               aria-haspopup="listbox"
-              
+              aria-labelledby=":rb: :ra:"
               class="MuiSelect-select MuiTablePagination-select MuiSelect-standard MuiInputBase-input css-194a1fa-MuiSelect-select-MuiInputBase-input"
-              
+              id=":ra:"
               role="combobox"
               tabindex="0"
             >

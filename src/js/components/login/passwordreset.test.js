@@ -18,7 +18,7 @@ import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { act, screen, render as testingLibRender, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
+import { thunk } from 'redux-thunk';
 
 import { defaultState, undefineds } from '../../../../tests/mockData';
 import { render } from '../../../../tests/setupTests';
@@ -67,17 +67,27 @@ describe('PasswordReset Component', () => {
     const { rerender } = testingLibRender(ui);
 
     const passwordInput = screen.getByLabelText('Password *');
-    await user.type(passwordInput, badPassword);
+    await act(async () => {
+      await user.type(passwordInput, badPassword);
+    });
     await waitFor(() => rerender(ui));
-    await user.type(passwordInput, badPassword);
-    await user.type(screen.getByLabelText(/confirm password \*/i), goodPassword);
+    await act(async () => {
+      await user.type(passwordInput, badPassword);
+      await user.type(screen.getByLabelText(/confirm password \*/i), goodPassword);
+    });
     await waitFor(() => rerender(ui));
     expect(screen.getByRole('button', { name: /Save password/i })).toBeDisabled();
     expect(screen.getByText('The passwords you provided do not match, please check again.')).toBeVisible();
-    await user.clear(passwordInput);
-    await user.type(passwordInput, goodPassword);
+    await act(async () => {
+      await user.clear(passwordInput);
+    });
+    await act(async () => {
+      await user.type(passwordInput, goodPassword);
+    });
     await waitFor(() => rerender(ui));
-    await user.click(screen.getByRole('button', { name: /Save password/i }));
+    await act(async () => {
+      await user.click(screen.getByRole('button', { name: /Save password/i }));
+    });
     await waitFor(() => expect(completeSpy).toHaveBeenCalledWith(secretHash, goodPassword));
     await act(async () => {
       jest.runAllTimers();

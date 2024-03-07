@@ -16,9 +16,7 @@ import { useIdleTimer, workerTimers } from 'react-idle-timer';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import { CssBaseline } from '@mui/material';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import withStyles from '@mui/styles/withStyles';
+import { CssBaseline, GlobalStyles, ThemeProvider, createTheme, styled } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 
 import Cookies from 'universal-cookie';
@@ -60,7 +58,7 @@ const reducePalette =
     return accu;
   };
 
-const cssVariables = ({ palette }) => {
+const cssVariables = ({ theme: { palette } }) => {
   const muiVariables = Object.entries(palette).reduce(reducePalette('--mui'), {});
   return {
     '@global': {
@@ -72,7 +70,7 @@ const cssVariables = ({ palette }) => {
   };
 };
 
-const WrappedBaseline = withStyles(cssVariables)(CssBaseline);
+const WrappedBaseline = styled(CssBaseline)(cssVariables);
 
 const useStyles = makeStyles()(() => ({
   public: {
@@ -153,10 +151,12 @@ export const AppRoot = () => {
   const theme = createTheme(isDarkMode(mode) ? darkTheme : lightTheme);
 
   const { classes } = useStyles();
+  const globalCssVars = cssVariables({ theme })['@global'];
 
   return (
     <ThemeProvider theme={theme}>
       <WrappedBaseline enableColorScheme />
+      <GlobalStyles styles={globalCssVars} />
       <>
         {getToken() ? (
           <div id="app">
