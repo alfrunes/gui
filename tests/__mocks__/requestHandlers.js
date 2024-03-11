@@ -11,11 +11,21 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+import { HttpResponse, http } from 'msw';
+
 import { deviceHandlers } from './deviceHandlers';
 import { monitorHandlers } from './monitorHandlers';
 import { organizationHandlers } from './organizationHandlers';
 import { userHandlers } from './userHandlers';
 
-const handlers = [...deviceHandlers, ...monitorHandlers, ...organizationHandlers, ...userHandlers];
+const testLocation = '/test';
 
+const baseHandlers = [
+  http.get(testLocation, () => new HttpResponse(null, { status: 200 })),
+  http.post(testLocation, () => HttpResponse.json({})),
+  http.put(testLocation, () => HttpResponse.json({})),
+  http.delete(testLocation, () => HttpResponse.json({}))
+];
+
+const handlers = [...baseHandlers, ...deviceHandlers, ...monitorHandlers, ...organizationHandlers, ...userHandlers];
 export default handlers;
