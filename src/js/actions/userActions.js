@@ -24,7 +24,7 @@ import { SET_VERSION_INFORMATION } from '../constants/appConstants';
 import { ALL_DEVICES } from '../constants/deviceConstants';
 import * as OnboardingConstants from '../constants/onboardingConstants';
 import * as UserConstants from '../constants/userConstants';
-import { duplicateFilter, extractErrorMessage, preformatWithRequestID } from '../helpers';
+import { duplicateFilter, extractErrorMessage, goToAcceptedDevices, preformatWithRequestID } from '../helpers';
 import { getCurrentUser, getOnboardingState, getUserSettings as getUserSettingsSelector } from '../selectors';
 import { clearAllRetryTimers } from '../utils/retrytimer';
 import { commonErrorFallback, commonErrorHandler, initializeAppData, setOfflineThreshold, setSnackbar } from './appActions';
@@ -83,7 +83,7 @@ export const loginUser = (userData, stayLoggedIn) => dispatch =>
         .then(() => {
           window.sessionStorage.removeItem('pendings-redirect');
           if (window.location.pathname !== '/ui/devices/accepted') {
-            window.location.replace('/ui/devices/accepted');
+            goToAcceptedDevices();
           }
           return Promise.all([dispatch({ type: UserConstants.SUCCESSFULLY_LOGGED_IN, value: token }), dispatch(initializeAppData())]);
         });

@@ -429,3 +429,5 @@ export const getISOStringBoundaries = (currentDate, daysToSubtract = 0) => ({
 export const isDarkMode = mode => mode === DARK_MODE;
 
 export const backslashNonAlphaNumeric = text => text.replace(/[^a-zA-Z0-9 ]/g, '\\$&');
+
+export const goToAcceptedDevices = () => window.location.replace('/ui/devices/accepted');

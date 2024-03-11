@@ -19,7 +19,7 @@ import { ArrowCircleLeftOutlined as ArrowCircleLeftIcon } from '@mui/icons-mater
 import { Button, Tab, Tabs } from '@mui/material';
 
 import { setSnackbar } from '../../actions/appActions.js';
-import { getDeviceInfo, setDeviceTags } from '../../actions/deviceActions.js';
+import { decommissionDevice, getDeviceInfo, setDeviceTags } from '../../actions/deviceActions.js';
 import { saveGlobalSettings } from '../../actions/userActions.js';
 import { TIMEOUTS, yes } from '../../constants/appConstants.js';
 import {
@@ -40,6 +40,7 @@ import Troubleshoot from './device-details/troubleshoot.js';
 import { getOnboardingComponentFor } from '../../utils/onboardingmanager.js';
 import { onboardingSteps } from '../../constants/onboardingConstants.js';
 import { advanceOnboarding } from '../../actions/onboardingActions.js';
+import { goToAcceptedDevices } from '../../helpers.js';
 
 const refreshDeviceLength = TIMEOUTS.refreshDefault;
 
@@ -91,11 +92,14 @@ export const Device = () => {
   const [tabSelection, setSelectedTab] = useState(tabs[0].value);
   const { component: SelectedTab, value: selectedTab } = availableTabs.find(tab => tab.value === tabSelection) ?? tabs[0];
 
+  const onDecommissionDevice = device_id => dispatch(decommissionDevice(device_id)).then(() => setTimeout(() => goToAcceptedDevices(), TIMEOUTS.oneSecond));
+
   const commonProps = {
     device,
     docsVersion,
     latestAlerts,
     integrations,
+    onDecommissionDevice,
     saveGlobalSettings: settings => dispatch(saveGlobalSettings(settings)),
     setDeviceTags: (...args) => dispatch(setDeviceTags(...args)),
     setSnackbar: (...args) => dispatch(setSnackbar(...args)),
