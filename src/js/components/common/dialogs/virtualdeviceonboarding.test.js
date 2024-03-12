@@ -16,6 +16,7 @@ import React from 'react';
 import { undefineds } from '../../../../../tests/mockData';
 import { render } from '../../../../../tests/setupTests';
 import VirtualDeviceOnboarding, { getDemoDeviceCreationCommand } from './virtualdeviceonboarding';
+import { act } from '@testing-library/react';
 
 describe('VirtualDeviceOnboarding Component', () => {
   it('renders correctly', async () => {
@@ -23,6 +24,7 @@ describe('VirtualDeviceOnboarding Component', () => {
     const view = baseElement.firstChild.firstChild;
     expect(view).toMatchSnapshot();
     expect(view).toEqual(expect.not.stringMatching(undefineds));
+    await act(async () => jest.runAllTicks());
   });
 });
 
@@ -33,6 +35,7 @@ describe('getDemoDeviceCreationCommand function', () => {
     expect(code).not.toMatch(/\$\{([^}]+)\}/);
     code = getDemoDeviceCreationCommand(token);
     expect(code).not.toMatch(/\$\{([^}]+)\}/);
+    await act(async () => jest.runAllTicks());
   });
   it('should return a sane result', async () => {
     let code = getDemoDeviceCreationCommand();
@@ -41,5 +44,6 @@ describe('getDemoDeviceCreationCommand function', () => {
     expect(code).toMatch(
       `docker run -it \\\n-e CONNECT_SERVER_URL='https://localhost' \\\n-e CONNECT_TENANT_TOKEN='${token}' \\\n--pull=always northerntech/nt-connect:latest`
     );
+    await act(async () => jest.runAllTicks());
   });
 });

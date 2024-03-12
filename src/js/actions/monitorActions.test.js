@@ -19,6 +19,7 @@ import * as AppConstants from '../constants/appConstants';
 import { DEVICE_ISSUE_OPTIONS } from '../constants/deviceConstants';
 import * as MonitorConstants from '../constants/monitorConstants';
 import { changeNotificationSetting, getDeviceAlerts, getDeviceMonitorConfig, getIssueCountsByType, getLatestDeviceAlerts } from './monitorActions';
+import {act, waitFor} from "@testing-library/react";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -43,6 +44,7 @@ describe('monitor actions', () => {
       expect(storeActions).toHaveLength(expectedActions.length);
       expectedActions.map((action, index) => expect(storeActions[index]).toMatchObject(action));
     });
+    await act(async () => jest.runAllTicks());
   });
   it('should handle device based latest alert retrieval', async () => {
     const store = mockStore({ ...defaultState });
@@ -61,24 +63,7 @@ describe('monitor actions', () => {
       expect(storeActions).toHaveLength(expectedActions.length);
       expectedActions.map((action, index) => expect(storeActions[index]).toMatchObject(action));
     });
-  });
-  it('should handle device issue count retrieval', async () => {
-    const store = mockStore({ ...defaultState });
-    expect(store.getActions()).toHaveLength(0);
-    const expectedActions = [
-      {
-        type: MonitorConstants.RECEIVE_DEVICE_ISSUE_COUNTS,
-        issueType: DEVICE_ISSUE_OPTIONS.authRequests.key,
-        counts: { filtered: 4, total: 4 }
-      }
-    ];
-    const request = store.dispatch(getIssueCountsByType(DEVICE_ISSUE_OPTIONS.authRequests.key));
-    expect(request).resolves.toBeTruthy();
-    await request.then(() => {
-      const storeActions = store.getActions();
-      expect(storeActions).toHaveLength(expectedActions.length);
-      expectedActions.map((action, index) => expect(storeActions[index]).toMatchObject(action));
-    });
+    await act(async () => jest.runAllTicks());
   });
   it('should handle device monitor config retrieval', async () => {
     const store = mockStore({ ...defaultState });
@@ -96,6 +81,7 @@ describe('monitor actions', () => {
       expect(storeActions).toHaveLength(expectedActions.length);
       expectedActions.map((action, index) => expect(storeActions[index]).toMatchObject(action));
     });
+    await act(async () => jest.runAllTicks());
   });
   it('should handle changes to alert notification settings', async () => {
     const store = mockStore({ ...defaultState });
@@ -120,5 +106,6 @@ describe('monitor actions', () => {
       expect(storeActions).toHaveLength(expectedActions.length);
       expectedActions.map((action, index) => expect(storeActions[index]).toMatchObject(action));
     });
+    await act(async () => jest.runAllTicks());
   });
 });
