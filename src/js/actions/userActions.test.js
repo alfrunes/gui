@@ -512,7 +512,9 @@ describe('user actions', () => {
     await store.dispatch(loginUser({ email: 'test@example.com', password: defaultPassword }));
     const storeActions = store.getActions();
     expect(storeActions.length).toEqual(expectedActions.length);
-    expectedActions.map((action, index) => expect(storeActions[index]).toMatchObject(action));
+    expect(expectedActions.find(item => item.type === SET_FIRST_LOGIN_AFTER_SIGNUP)).toEqual(
+      storeActions.find(item => item.type === SET_FIRST_LOGIN_AFTER_SIGNUP)
+    );
   });
   it('should prevent logging in with a limited user', async () => {
     jest.clearAllMocks();

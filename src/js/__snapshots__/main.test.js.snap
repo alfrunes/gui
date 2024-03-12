@@ -291,6 +291,7 @@ exports[`Main Component renders correctly 1`] = `
                 class="clickable"
               >
                 Version: 
+                1212-535.54
               </div>
             </span>
           </div>

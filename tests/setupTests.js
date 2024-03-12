@@ -103,7 +103,7 @@ beforeAll(async () => {
   };
   createMocks();
   server = setupServer(...handlers);
-  await server.listen();
+  await server.listen({ onUnhandledRequest: 'error' });
   Object.defineProperty(navigator, 'appVersion', { value: 'Test', writable: true });
   const intersectionObserverMock = () => ({
     observe: jest.fn,

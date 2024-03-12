@@ -119,10 +119,10 @@ export const userHandlers = [
     if (defaultState.users.byId[userId] && [email, password].some(value => Object.values(defaultState.users.byId[userId]).includes(value))) {
       return new HttpResponse(null, { status: 200 });
     }
-    return new HttpResponse(null, { status: 565 });
+    return new HttpResponse(null, { status: 400 });
   }),
   http.delete(`${useradmApiUrl}/users/:userId`, ({ params: { userId } }) => new HttpResponse(null, { status: defaultState.users.byId[userId] ? 200 : 566 })),
-  http.get(`${useradmApiUrl}/roles`, () => HttpResponse.json(rbacRoles)),
+  http.get(`${useradmApiUrl}/roles`, () => HttpResponse.json(roles)),
   http.post(`${useradmApiUrl}/roles`, async ({ request }) => {
     const { name, permissions } = await request.json();
     if (

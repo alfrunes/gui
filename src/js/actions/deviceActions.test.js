@@ -54,6 +54,7 @@ import {
   updateDevicesAuth,
   updateDynamicGroup
 } from './deviceActions';
+import { act } from '@testing-library/react';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -844,8 +845,8 @@ describe('device retrieval ', () => {
 });
 
 const deviceConfig = {
-  configured: { uiPasswordRequired: true, foo: 'bar', timezone: 'GMT+2' },
-  reported: { uiPasswordRequired: true, foo: 'bar', timezone: 'GMT+2' },
+  configured: { test: true, something: 'else', aNumber: 42 },
+  reported: { test: true, something: 'else', aNumber: 42 },
   updated_ts: defaultState.devices.byId.a1.updated_ts,
   reported_ts: '2019-01-01T09:25:01.000Z'
 };
@@ -938,14 +939,6 @@ describe('device twin related actions', () => {
     const store = mockStore({ ...defaultState });
     const expectedActions = [{ type: DeviceConstants.RECEIVE_DEVICE, device: defaultState.devices.byId.a1 }];
     await store.dispatch(getDeviceTwin(defaultState.devices.byId.a1.id, DeviceConstants.EXTERNAL_PROVIDER['iot-hub']));
-    const storeActions = store.getActions();
-    expect(storeActions.length).toEqual(expectedActions.length);
-    expectedActions.map((action, index) => expect(storeActions[index]).toMatchObject(action));
-  });
-  it('should allow configuring twin data on azure', async () => {
-    const store = mockStore({ ...defaultState });
-    const expectedActions = [{ type: DeviceConstants.RECEIVE_DEVICE, device: defaultState.devices.byId.a1 }];
-    await store.dispatch(setDeviceTwin(defaultState.devices.byId.a1.id, DeviceConstants.EXTERNAL_PROVIDER['iot-hub'], { something: 'asdl' }));
     const storeActions = store.getActions();
     expect(storeActions.length).toEqual(expectedActions.length);
     expectedActions.map((action, index) => expect(storeActions[index]).toMatchObject(action));

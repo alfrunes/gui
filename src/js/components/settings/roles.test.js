@@ -20,6 +20,7 @@ import { defaultState, undefineds } from '../../../../tests/mockData';
 import { render, selectMaterialUiSelectOption } from '../../../../tests/setupTests';
 import * as UserActions from '../../actions/userActions';
 import { ALL_DEVICES } from '../../constants/deviceConstants';
+import { ALL_RELEASES } from '../../constants/releaseConstants';
 import Roles from './roles';
 
 describe('Roles Component', () => {
@@ -47,9 +48,13 @@ describe('Roles Component', () => {
     });
     expect(screen.queryByText(/delete the role/i)).toBeInTheDocument();
     const dialog = screen.getByText(/delete role\?/i).parentElement.parentElement;
-    await user.click(within(dialog).getByRole('button', { name: /delete/i }));
+    await act(async () => {
+      await user.click(within(dialog).getByRole('button', { name: /delete/i }));
+    });
     expect(removeRoleSpy).toHaveBeenCalled();
-    await user.click(within(role).getByText(/view details/i));
+    await act(async () => {
+      await user.click(within(role).getByText(/view details/i));
+    });
     collapse = screen.getByText(/edit role/i).parentElement.parentElement;
     await act(async () => {
       await user.type(within(collapse).getByLabelText(/Description/i), 'something');
@@ -59,7 +64,7 @@ describe('Roles Component', () => {
     expect(screen.getByText(/For 'All devices',/)).toBeVisible();
 
     const permissionSelect = within(collapse).getByDisplayValue(ALL_DEVICES).parentElement?.parentElement?.parentElement;
-    const selectButton = within(within(permissionSelect).getByText(/read/i).parentElement?.parentElement).getByRole('combobox');
+    const selectButton = within(permissionSelect).getByText(/read/i).parentElement?.parentElement.querySelector('[role=combobox]');
     expect(selectButton).not.toBeDisabled();
     // Open the select dropdown
     // Get the dropdown element. We don't use getByRole() because it includes <select>s too.
