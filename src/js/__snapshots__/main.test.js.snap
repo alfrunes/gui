@@ -75,7 +75,7 @@ exports[`Main Component renders correctly 1`] = `
                 aria-invalid="false"
                 autocomplete="off"
                 class="MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart Mui-readOnly MuiInputBase-readOnly mui-nqgi9r-MuiInputBase-input-MuiInput-input"
-                id=":rd:"
+                id=":r1:"
                 placeholder="Search devices"
                 readonly=""
                 type="text"
@@ -291,7 +291,6 @@ exports[`Main Component renders correctly 1`] = `
                 class="clickable"
               >
                 Version: 
-                1212-535.54
               </div>
             </span>
           </div>
@@ -554,7 +553,7 @@ exports[`Main Component renders correctly 1`] = `
                       style="font-size: 13px; margin-left: 8px; margin-top: 2px;"
                     >
                       <div
-                        aria-controls=":rl:"
+                        aria-controls=":r9:"
                         aria-expanded="false"
                         aria-haspopup="listbox"
                         class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input mui-emq5k1-MuiSelect-select-MuiInputBase-input-MuiInput-input"
@@ -1039,7 +1038,7 @@ exports[`Main Component renders correctly 1`] = `
                     />
                     <p
                       class="MuiTablePagination-selectLabel mui-1vah30l-MuiTablePagination-selectLabel"
-                      id=":r11:"
+                      id=":rl:"
                     >
                       Rows
                     </p>
@@ -1047,12 +1046,12 @@ exports[`Main Component renders correctly 1`] = `
                       class="MuiInputBase-root MuiInputBase-colorPrimary MuiTablePagination-input mui-o64l95-MuiInputBase-root-MuiTablePagination-select"
                     >
                       <div
-                        aria-controls=":r13:"
+                        aria-controls=":rn:"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-labelledby=":r11: :r10:"
+                        aria-labelledby=":rl: :rk:"
                         class="MuiSelect-select MuiTablePagination-select MuiSelect-standard MuiInputBase-input mui-194a1fa-MuiSelect-select-MuiInputBase-input"
-                        id=":r10:"
+                        id=":rk:"
                         role="combobox"
                         tabindex="0"
                       >
@@ -1145,68 +1144,6 @@ exports[`Main Component renders correctly 1`] = `
                   d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m1 17h-2v-2h2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25"
                 />
               </svg>
-            </div>
-          </div>
-          <div
-            aria-labelledby="devices-accepted-onboarding"
-            class="onboard-tip"
-            data-mui-internal-clone-element="true"
-            style="left: 185px; top: -10px; overflow: initial;"
-          >
-            <div
-              class="tooltip onboard-icon bottom"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1o67yj1-MuiSvgIcon-root"
-                data-testid="ArrowCircleRightIcon"
-                focusable="false"
-                style="font-size: 30px; transform: rotate(270deg);"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12s4.48 10 10 10 10-4.48 10-10m-10 1H8v-2h4V8l4 4-4 4z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div
-            class="base-Popper-root MuiTooltip-popper MuiTooltip-popperInteractive mui-ykn06b-MuiPopper-root-MuiTooltip-popper"
-            data-popper-escaped=""
-            data-popper-placement="bottom"
-            data-popper-reference-hidden=""
-            id="devices-accepted-onboarding"
-            role="tooltip"
-            style="position: fixed; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);"
-          >
-            <div
-              class="MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom mui-eyq03h-MuiTooltip-tooltip-tooltip"
-              style="opacity: 1; transform: scale(1, 1); transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 133ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
-            >
-              <div
-                class="content"
-              >
-                <div>
-                  <h3>
-                    Welcome to Alvaldi
-                  </h3>
-                  <p>
-                    Click on a device to learn more about the core features of Alvaldi.
-                  </p>
-                </div>
-                <div
-                  class="flexbox space-between flexbox-grow"
-                >
-                  <a
-                    style="font-size: 12px; font-weight: 500;"
-                  >
-                    No thanks, I don’t need help
-                  </a>
-                  <a>
-                    Got it!
-                  </a>
-                </div>
-              </div>
             </div>
           </div>
         </div>
