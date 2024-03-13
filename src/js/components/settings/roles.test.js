@@ -20,7 +20,6 @@ import { defaultState, undefineds } from '../../../../tests/mockData';
 import { render, selectMaterialUiSelectOption } from '../../../../tests/setupTests';
 import * as UserActions from '../../actions/userActions';
 import { ALL_DEVICES } from '../../constants/deviceConstants';
-import { ALL_RELEASES } from '../../constants/releaseConstants';
 import Roles from './roles';
 
 describe('Roles Component', () => {

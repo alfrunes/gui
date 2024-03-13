@@ -49,12 +49,10 @@ import {
   setDeviceFilters,
   setDeviceListState,
   setDeviceTags,
-  setDeviceTwin,
   updateDeviceAuth,
   updateDevicesAuth,
   updateDynamicGroup
 } from './deviceActions';
-import { act } from '@testing-library/react';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
