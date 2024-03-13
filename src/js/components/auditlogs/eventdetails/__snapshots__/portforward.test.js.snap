@@ -115,9 +115,9 @@ exports[`PortForward Component renders correctly 1`] = `
           class="flexbox "
         >
           <div
-            title="-"
+            title="Raspbian GNU/Linux 10 (buster)"
           >
-            -
+            Raspbian GNU/Linux 10 (buster)
           </div>
         </div>
       </div>
