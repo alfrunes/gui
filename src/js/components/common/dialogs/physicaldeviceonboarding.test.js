@@ -13,7 +13,7 @@
 //    limitations under the License.
 import React from 'react';
 
-import { waitFor } from '@testing-library/react';
+import { act, waitFor } from '@testing-library/react';
 
 import { undefineds } from '../../../../../tests/mockData';
 import { render } from '../../../../../tests/setupTests';
@@ -45,7 +45,7 @@ describe('PhysicalDeviceOnboarding Component', () => {
   describe('tiny onboarding tips', () => {
     [DeviceTypeSelectionStep, InstallationStep, ConvertedImageNote, DeviceTypeTip, ExternalProviderTip, ExternalProviderTip].forEach(
       async (Component, index) => {
-        it(`renders ${Component.displayName || Component.name} correctly`, () => {
+        it(`renders ${Component.displayName || Component.name} correctly`, async () => {
           const { baseElement } = render(
             <Component
               advanceOnboarding={jest.fn}
@@ -67,6 +67,7 @@ describe('PhysicalDeviceOnboarding Component', () => {
           const view = baseElement.firstChild;
           expect(view).toMatchSnapshot();
           expect(view).toEqual(expect.not.stringMatching(undefineds));
+          await act(async () => jest.runAllTicks());
         });
       }
     );
@@ -78,5 +79,6 @@ describe('PhysicalDeviceOnboarding Component', () => {
     expect(view).toMatchSnapshot();
     expect(view).toEqual(expect.not.stringMatching(undefineds));
     await waitFor(() => expect(store.getState().onboarding.approach === 'physical').toBeTruthy());
+    await act(async () => jest.runAllTicks());
   });
 });

@@ -97,6 +97,72 @@ exports[`DeviceInventory Component renders correctly 1`] = `
         class="align-right key"
       >
         <b>
+          cpu_model
+        </b>
+      </div>
+      <div
+        class="flexbox clickable"
+      >
+        <div
+          title="ARMv7 Processor rev 3 (v7l)"
+        >
+          ARMv7 Processor rev 3 (v7l)
+        </div>
+        <svg
+          aria-hidden="true"
+          aria-label="Copy to clipboard"
+          class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeSmall margin-left-small fadeOut emotion-1"
+          data-mui-internal-clone-element="true"
+          data-testid="FileCopyOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11zM8 21V7h6v5h5v9z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="break-all two-columns compact column-data multiple emotion-0"
+    >
+      <div
+        class="align-right key"
+      >
+        <b>
+          hostname
+        </b>
+      </div>
+      <div
+        class="flexbox clickable"
+      >
+        <div
+          title="raspberrypi"
+        >
+          raspberrypi
+        </div>
+        <svg
+          aria-hidden="true"
+          aria-label="Copy to clipboard"
+          class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeSmall margin-left-small fadeOut emotion-1"
+          data-mui-internal-clone-element="true"
+          data-testid="FileCopyOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11zM8 21V7h6v5h5v9z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="break-all two-columns compact column-data multiple emotion-0"
+    >
+      <div
+        class="align-right key"
+      >
+        <b>
           ipv4_wlan0
         </b>
       </div>
@@ -107,6 +173,336 @@ exports[`DeviceInventory Component renders correctly 1`] = `
           title="192.168.10.141/24"
         >
           192.168.10.141/24
+        </div>
+        <svg
+          aria-hidden="true"
+          aria-label="Copy to clipboard"
+          class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeSmall margin-left-small fadeOut emotion-1"
+          data-mui-internal-clone-element="true"
+          data-testid="FileCopyOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11zM8 21V7h6v5h5v9z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="break-all two-columns compact column-data multiple emotion-0"
+    >
+      <div
+        class="align-right key"
+      >
+        <b>
+          ipv6_wlan0
+        </b>
+      </div>
+      <div
+        class="flexbox clickable"
+      >
+        <div
+          title="fe80::68d9:8453:3e9c:7c80/64"
+        >
+          fe80::68d9:8453:3e9c:7c80/64
+        </div>
+        <svg
+          aria-hidden="true"
+          aria-label="Copy to clipboard"
+          class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeSmall margin-left-small fadeOut emotion-1"
+          data-mui-internal-clone-element="true"
+          data-testid="FileCopyOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11zM8 21V7h6v5h5v9z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="break-all two-columns compact column-data multiple emotion-0"
+    >
+      <div
+        class="align-right key"
+      >
+        <b>
+          kernel
+        </b>
+      </div>
+      <div
+        class="flexbox clickable"
+      >
+        <div
+          title="Linux version 4.19.75-v7l+"
+        >
+          Linux version 4.19.75-v7l+
+        </div>
+        <svg
+          aria-hidden="true"
+          aria-label="Copy to clipboard"
+          class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeSmall margin-left-small fadeOut emotion-1"
+          data-mui-internal-clone-element="true"
+          data-testid="FileCopyOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11zM8 21V7h6v5h5v9z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="break-all two-columns compact column-data multiple emotion-0"
+    >
+      <div
+        class="align-right key"
+      >
+        <b>
+          mac_eth0
+        </b>
+      </div>
+      <div
+        class="flexbox clickable"
+      >
+        <div
+          title="dc:a6:32:12:ad:bf"
+        >
+          dc:a6:32:12:ad:bf
+        </div>
+        <svg
+          aria-hidden="true"
+          aria-label="Copy to clipboard"
+          class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeSmall margin-left-small fadeOut emotion-1"
+          data-mui-internal-clone-element="true"
+          data-testid="FileCopyOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11zM8 21V7h6v5h5v9z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="break-all two-columns compact column-data multiple emotion-0"
+    >
+      <div
+        class="align-right key"
+      >
+        <b>
+          mac_wlan0
+        </b>
+      </div>
+      <div
+        class="flexbox clickable"
+      >
+        <div
+          title="dc:a6:32:12:ad:c0"
+        >
+          dc:a6:32:12:ad:c0
+        </div>
+        <svg
+          aria-hidden="true"
+          aria-label="Copy to clipboard"
+          class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeSmall margin-left-small fadeOut emotion-1"
+          data-mui-internal-clone-element="true"
+          data-testid="FileCopyOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11zM8 21V7h6v5h5v9z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="break-all two-columns compact column-data multiple emotion-0"
+    >
+      <div
+        class="align-right key"
+      >
+        <b>
+          mem_total_kB
+        </b>
+      </div>
+      <div
+        class="flexbox clickable"
+      >
+        <div
+          title="1986024"
+        >
+          1986024
+        </div>
+        <svg
+          aria-hidden="true"
+          aria-label="Copy to clipboard"
+          class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeSmall margin-left-small fadeOut emotion-1"
+          data-mui-internal-clone-element="true"
+          data-testid="FileCopyOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11zM8 21V7h6v5h5v9z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="break-all two-columns compact column-data multiple emotion-0"
+    >
+      <div
+        class="align-right key"
+      >
+        <b>
+          mender_bootloader_integration
+        </b>
+      </div>
+      <div
+        class="flexbox clickable"
+      >
+        <div
+          title="unknown"
+        >
+          unknown
+        </div>
+        <svg
+          aria-hidden="true"
+          aria-label="Copy to clipboard"
+          class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeSmall margin-left-small fadeOut emotion-1"
+          data-mui-internal-clone-element="true"
+          data-testid="FileCopyOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11zM8 21V7h6v5h5v9z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="break-all two-columns compact column-data multiple emotion-0"
+    >
+      <div
+        class="align-right key"
+      >
+        <b>
+          mender_client_version
+        </b>
+      </div>
+      <div
+        class="flexbox clickable"
+      >
+        <div
+          title="2.1.0"
+        >
+          2.1.0
+        </div>
+        <svg
+          aria-hidden="true"
+          aria-label="Copy to clipboard"
+          class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeSmall margin-left-small fadeOut emotion-1"
+          data-mui-internal-clone-element="true"
+          data-testid="FileCopyOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11zM8 21V7h6v5h5v9z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="break-all two-columns compact column-data multiple emotion-0"
+    >
+      <div
+        class="align-right key"
+      >
+        <b>
+          network_interfaces
+        </b>
+      </div>
+      <div
+        class="flexbox clickable"
+      >
+        <div
+          title="eth0,wlan0"
+        >
+          eth0,wlan0
+        </div>
+        <svg
+          aria-hidden="true"
+          aria-label="Copy to clipboard"
+          class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeSmall margin-left-small fadeOut emotion-1"
+          data-mui-internal-clone-element="true"
+          data-testid="FileCopyOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11zM8 21V7h6v5h5v9z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="break-all two-columns compact column-data multiple emotion-0"
+    >
+      <div
+        class="align-right key"
+      >
+        <b>
+          os
+        </b>
+      </div>
+      <div
+        class="flexbox clickable"
+      >
+        <div
+          title="Raspbian GNU/Linux 10 (buster)"
+        >
+          Raspbian GNU/Linux 10 (buster)
+        </div>
+        <svg
+          aria-hidden="true"
+          aria-label="Copy to clipboard"
+          class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeSmall margin-left-small fadeOut emotion-1"
+          data-mui-internal-clone-element="true"
+          data-testid="FileCopyOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11zM8 21V7h6v5h5v9z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="break-all two-columns compact column-data multiple emotion-0"
+    >
+      <div
+        class="align-right key"
+      >
+        <b>
+          rootfs_type
+        </b>
+      </div>
+      <div
+        class="flexbox clickable"
+      >
+        <div
+          title="ext4"
+        >
+          ext4
         </div>
         <svg
           aria-hidden="true"

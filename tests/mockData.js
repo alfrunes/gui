@@ -168,15 +168,28 @@ export const defaultState = {
       a1: {
         id: 'a1',
         attributes: {
-          ipv4_wlan0: '192.168.10.141/24'
+          'artifact_name': 'raspotifyInstaller',
+          'cpu_model': 'ARMv7 Processor rev 3 (v7l)',
+          'hostname': 'raspberrypi',
+          'ipv4_wlan0': '192.168.10.141/24',
+          'ipv6_wlan0': 'fe80::68d9:8453:3e9c:7c80/64',
+          'kernel': 'Linux version 4.19.75-v7l+',
+          'mac_eth0': 'dc:a6:32:12:ad:bf',
+          'mac_wlan0': 'dc:a6:32:12:ad:c0',
+          'mem_total_kB': '1986024',
+          'mender_bootloader_integration': 'unknown',
+          'mender_client_version': '2.1.0',
+          'network_interfaces': ['eth0', 'wlan0'],
+          'os': 'Raspbian GNU/Linux 10 (buster)',
+          'rootfs_type': 'ext4'
         },
-        identity_data: { mac: defaultMacAddress },
+        identity_data: { mac: defaultMacAddress, status: 'accepted' },
         status: 'accepted',
         decommissioning: false,
         external_id: {},
         isInactive: false,
         created_ts: defaultCreationDate,
-        updated_ts: '2019-01-01T09:25:00.000Z',
+        updated_ts: '2019-01-01T10:25:00.000Z',
         auth_sets: [
           {
             id: 'auth1',

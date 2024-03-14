@@ -1,24 +1,228 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PortForward Component renders correctly 1`] = `
+.emotion-0 {
+  grid-template-columns: minmax(max-content, 150px) max-content;
+  row-gap: 20px;
+}
+
+.emotion-1.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  -webkit-column-gap: 16px;
+  column-gap: 16px;
+  row-gap: 8px;
+  color: #424242;
+}
+
+.emotion-1.two-columns .key b {
+  font-weight: 400;
+  color: #616161;
+}
+
+.emotion-2 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.3125rem;
+}
+
+.emotion-2 iconButton {
+  margin-right: 8px;
+}
+
 <div
-  class="loaderContainer"
+  class="flexbox column"
+  style="margin: 24px; min-width: min-content;"
 >
+  <div>
+    <div
+      class="flexbox column detail-information "
+    >
+      <b
+        class="margin-bottom-small capitalized-start"
+      >
+        device
+         
+        identity
+      </b>
+      <div
+        class="break-all two-columns  emotion-0 emotion-1"
+      >
+        <div
+          class="align-right key"
+        >
+          <b>
+            Device ID
+          </b>
+        </div>
+        <div
+          class="flexbox "
+        >
+          <div
+            class="flexbox center-aligned"
+          >
+            <div
+              class="flexbox space-between "
+            >
+              <div
+                title="a1"
+              >
+                <div
+                  class="text-overflow"
+                >
+                  a1
+                </div>
+              </div>
+            </div>
+            <a
+              class="flexbox margin-left-xs"
+              href="/devices/a1"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-2"
+                data-testid="OpenInNewIcon"
+                focusable="false"
+                style="font-size: 20px;"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div
+          class="align-right key"
+        >
+          <b>
+            OS
+          </b>
+        </div>
+        <div
+          class="flexbox "
+        >
+          <div
+            title="Raspbian GNU/Linux 10 (buster)"
+          >
+            Raspbian GNU/Linux 10 (buster)
+          </div>
+        </div>
+      </div>
+    </div>
+    <a
+      class="margin-top-large inline-block"
+      href="/auditlog?objectId=a1&objectType=device&startDate=2016-01-01"
+    >
+      List all log entries for this device
+    </a>
+  </div>
   <div
-    class="  loader"
+    class="flexbox column detail-information "
   >
-    <span
-      class="dot dot_1"
-    />
-    <span
-      class="dot dot_2"
-    />
-    <span
-      class="dot dot_3"
-    />
-    <span
-      class="dot dot_4"
-    />
+    <b
+      class="margin-bottom-small capitalized-start"
+    >
+      port forwarding
+       
+      details
+    </b>
+    <div
+      class="break-all two-columns  emotion-0 emotion-1"
+    >
+      <div
+        class="align-right key"
+      >
+        <b>
+          Session ID
+        </b>
+      </div>
+      <div
+        class="flexbox "
+      >
+        <div
+          title="abd313a8-ee88-48ab-9c99-fbcd80048e6e"
+        >
+          abd313a8-ee88-48ab-9c99-fbcd80048e6e
+        </div>
+      </div>
+      <div
+        class="align-right key"
+      >
+        <b>
+          Start time
+        </b>
+      </div>
+      <div
+        class="flexbox "
+      >
+        <time
+          datetime="2019-01-01T12:10:22+00:00"
+        >
+          2019-01-01 12:10
+        </time>
+      </div>
+      <div
+        class="align-right key"
+      >
+        <b>
+          End time
+        </b>
+      </div>
+      <div
+        class="flexbox "
+      >
+        <time
+          datetime="2019-01-01T12:16:22+00:00"
+        >
+          2019-01-01 12:16
+        </time>
+      </div>
+      <div
+        class="align-right key"
+      >
+        <b>
+          Duration
+        </b>
+      </div>
+      <div
+        class="flexbox "
+      >
+        <div
+          title="00:05:59:998"
+        >
+          00:05:59:998
+        </div>
+      </div>
+      <div
+        class="align-right key"
+      >
+        <b>
+          User
+        </b>
+      </div>
+      <div
+        class="flexbox "
+      >
+        <div
+          title="string@example.com"
+        >
+          string@example.com
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;

@@ -69,8 +69,9 @@ describe('UserManagement Component', () => {
     await act(async () => {
       await user.click(generateButton);
     });
+    await act(async () => {});
     await waitFor(() => rerender(ui));
-    expect(createSpy).toHaveBeenCalledWith({ expiresIn: 31536000, name: 'somename' });
+    await waitFor(() => expect(createSpy).toHaveBeenCalledWith({ expiresIn: 31536000, name: 'somename' }));
     await waitFor(() => expect(getSpy.mock.calls.length).toBeGreaterThanOrEqual(4));
     await act(async () => {
       jest.runOnlyPendingTimers();

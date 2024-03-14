@@ -100,11 +100,12 @@
     "less-loader": "^12.2.0",
     "lint-staged": "^15.2.2",
     "mini-css-extract-plugin": "^2.8.1",
-    "msw": "0.36.8",
+    "msw": "2.2.2",
     "postcss": "^8.4.31",
     "postcss-loader": "^8.1.1",
     "prettier": "^3.2.5",
     "redux-mock-store": "^1.5.4",
+    "undici": "^5.27.0",
     "util": "^0.12.5",
     "webpack": "^5.90.3",
     "webpack-cli": "^5.1.4",
@@ -146,7 +147,6 @@
       "text"
     ],
     "setupFiles": [
-      "jest-canvas-mock",
       "<rootDir>/tests/jest.polyfills.js"
     ],
     "setupFilesAfterEnv": [
@@ -163,12 +163,17 @@
     "fakeTimers": {
       "enableGlobally": true
     },
+    "testEnvironmentOptions": {
+      "customExportConditions": [
+        ""
+      ]
+    },
     "transform": {
       "\\.[j|t]sx?$": "babel-jest",
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tests/assetsTransformer.js"
     },
     "transformIgnorePatterns": [
-      "<rootDir>/node_modules/(?!xterm-for-react|react-leaflet|@react-leaflet|node-fetch|jsdom-worker|data-uri-to-buffer|fetch-blob|formdata-polyfill)"
+      "<rootDir>/node_modules/(?!xterm-for-react|node-fetch|jsdom-worker|data-uri-to-buffer|fetch-blob|formdata-polyfill)"
     ],
     "moduleNameMapper": {
       "\\.(css|less)$": "<rootDir>/tests/cssTransform.js"

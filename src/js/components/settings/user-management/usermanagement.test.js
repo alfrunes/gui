@@ -79,6 +79,12 @@ describe('UserManagement Component', () => {
       await user.click(screen.getByRole('checkbox', { name: /reset the password/i }));
       await user.click(screen.getByRole('checkbox', { name: /reset the password/i }));
     });
+
+    await act(async () => {
+      await user.clear(input);
+      await user.type(input, defaultState.users.byId[userId].email);
+    });
+
     const selectButton = screen.getByText(/roles/i).parentNode.querySelector('[role=combobox]');
     await act(async () => {
       await user.click(selectButton);

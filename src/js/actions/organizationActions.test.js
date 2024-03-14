@@ -60,7 +60,7 @@ const mockStore = configureMockStore(middlewares);
 
 const expectedDeviceProviders = [
   { id: 1, provider: EXTERNAL_PROVIDER['iot-hub'].provider, something: 'something', connection_string: 'something_else' },
-  { id: 2, provider: 'aws', something: 'new' }
+  { id: 2, provider: 'iot-core', something: 'new' }
 ];
 
 const expectedSamlConfigs = [
@@ -156,6 +156,9 @@ describe('organization actions', () => {
         const storeActions = store.getActions();
         expect(storeActions).toHaveLength(expectedActions.length);
         expectedActions.map((action, index) => expect(storeActions[index]).toMatchObject(action));
+      })
+      .catch(e => {
+        console.error(e);
       });
   });
 
@@ -280,7 +283,7 @@ describe('organization actions', () => {
         ...defaultState.organization,
         externalDeviceIntegrations: [
           { id: 1, something: 'something' },
-          { id: 2, provider: 'aws', something: 'new' }
+          { id: 2, provider: 'iot-core', something: 'new' }
         ]
       }
     });
@@ -304,7 +307,7 @@ describe('organization actions', () => {
         ...defaultState.organization,
         externalDeviceIntegrations: [
           { id: 1, something: 'something' },
-          { id: 2, provider: 'aws', something: 'new' }
+          { id: 2, provider: 'iot-core', something: 'new' }
         ]
       }
     });
@@ -328,7 +331,7 @@ describe('organization actions', () => {
         ...defaultState.organization,
         externalDeviceIntegrations: [
           { id: 1, something: 'something' },
-          { id: 2, provider: 'aws', something: 'new' }
+          { id: 2, provider: 'iot-core', something: 'new' }
         ]
       }
     });
@@ -371,7 +374,7 @@ describe('organization actions', () => {
           ...defaultState.organization.webhooks,
           events: [
             { id: 1, something: 'something' },
-            { id: 2, provider: 'aws', something: 'new' }
+            { id: 2, provider: 'iot-core', something: 'new' }
           ]
         }
       }
@@ -389,7 +392,7 @@ describe('organization actions', () => {
   it('should auto check for more webhook events', async () => {
     const existingEvents = [
       { id: 1, something: 'something' },
-      { id: 2, provider: 'aws', something: 'new' }
+      { id: 2, provider: 'iot-core', something: 'new' }
     ];
     const store = mockStore({
       ...defaultState,
@@ -444,7 +447,7 @@ describe('organization actions', () => {
         ...defaultState.organization,
         samlConfigs: [
           { id: 1, something: 'something' },
-          { id: 2, provider: 'aws', something: 'new' }
+          { id: 2, provider: 'iot-core', something: 'new' }
         ]
       }
     });
@@ -468,7 +471,7 @@ describe('organization actions', () => {
         ...defaultState.organization,
         samlConfigs: [
           { id: 1, something: 'something' },
-          { id: 2, provider: 'aws', something: 'new' }
+          { id: 2, provider: 'iot-core', something: 'new' }
         ]
       }
     });

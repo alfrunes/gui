@@ -21,7 +21,6 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import '@testing-library/jest-dom';
 import { act, cleanup, queryByRole, render, within } from '@testing-library/react';
 import { setupServer } from 'msw/node';
-import { TextEncoder } from 'util';
 import { MessageChannel } from 'worker_threads';
 
 import { yes } from '../src/js/constants/appConstants';
@@ -59,6 +58,9 @@ jest.mock('universal-cookie', () => {
 jest.mock('uuid', () => ({ v4: () => 'mock-uuid' }));
 
 jest.setSystemTime(mockDate);
+jest.useFakeTimers({ now: mockDate, doNotFake: ['queueMicrotask'] });
+
+global.HTMLCanvasElement.prototype.getContext = jest.fn();
 
 beforeAll(async () => {
   // Enable the mocking in tests.
@@ -87,7 +89,6 @@ beforeAll(async () => {
   window.ENV = 'test';
   global.AbortController = jest.fn().mockImplementation(() => mockAbortController);
   global.MessageChannel = MessageChannel;
-  global.TextEncoder = TextEncoder;
   global.ResizeObserver = jest.fn().mockImplementation(() => ({
     observe: jest.fn(),
     unobserve: jest.fn(),
@@ -102,7 +103,7 @@ beforeAll(async () => {
   };
   createMocks();
   server = setupServer(...handlers);
-  await server.listen();
+  await server.listen({ onUnhandledRequest: 'error' });
   Object.defineProperty(navigator, 'appVersion', { value: 'Test', writable: true });
   const intersectionObserverMock = () => ({
     observe: jest.fn,
@@ -132,12 +133,16 @@ export const selectMaterialUiSelectOption = async (element, optionText, user) =>
   // The button that opens the dropdown, which is a sibling of the input
   const selectButton = element.parentNode.querySelector('[role=combobox]');
   // Open the select dropdown
-  await user.click(selectButton);
+  await act(async () => {
+    await user.click(selectButton);
+  });
   // Get the dropdown element. We don't use getByRole() because it includes <select>s too.
   const listbox = document.body.querySelector('ul[role=listbox]');
   // Click the list item
   const listItem = within(listbox).getByText(optionText);
-  await user.click(listItem);
+  await act(async () => {
+    await user.click(listItem);
+  });
   // Wait for the listbox to be removed, so it isn't visible in subsequent calls
   await act(async () => jest.advanceTimersByTime(150));
   expect(queryByRole(document.documentElement, 'listbox')).not.toBeInTheDocument();

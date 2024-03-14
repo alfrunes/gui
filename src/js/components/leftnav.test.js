@@ -13,7 +13,7 @@
 //    limitations under the License.
 import React from 'react';
 
-import { screen } from '@testing-library/react';
+import { act, screen, waitFor } from '@testing-library/react';
 import configureMockStore from 'redux-mock-store';
 import { thunk } from 'redux-thunk';
 
@@ -56,8 +56,11 @@ describe('VersionInfo Component', () => {
     await store.dispatch(getGlobalSettings());
     const storeActions = store.getActions();
 
-    expect(storeActions.filter(action => action.type === SET_VERSION_INFORMATION && action.value.AlvaldiVersion === alvaldiVersion).length).toEqual(1);
+    await waitFor(() =>
+      expect(storeActions.filter(action => action.type === SET_VERSION_INFORMATION && action.value.AlvaldiVersion === alvaldiVersion).length).toEqual(1)
+    );
     render(<LeftNav />);
     expect(screen.getByText(`Version: ${alvaldiVersion}`)).toBeInTheDocument();
+    await act(async () => jest.runAllTicks());
   });
 });

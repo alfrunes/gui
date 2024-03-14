@@ -135,41 +135,6 @@ describe('app actions', () => {
       { type: SET_ENVIRONMENT_DATA, value: { hostAddress: null, hostedAnnouncement: '', recaptchaSiteKey: '', stripeAPIKey: '', trackerCode: '' } },
       { type: SET_FIRST_LOGIN_AFTER_SIGNUP, firstLoginAfterSignup: false },
       {
-        type: SET_VERSION_INFORMATION,
-        docsVersion: '',
-        value: {
-          AlvaldiVersion: alvaldiVersion,
-          GUI: latestSaasReleaseTag,
-          Integration: '1.2.3',
-          backend: latestSaasReleaseTag,
-          latestRelease: {
-            releaseDate: '2022-02-02',
-            repos: {
-              integration: '1.2.3',
-              mender: '3.2.1',
-              'other-service': '1.1.0',
-              service: '3.0.0'
-            }
-          }
-        }
-      },
-      { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings } },
-      {
-        type: SET_PLAN,
-        payload: defaultState.organization.plan
-      },
-      { type: SET_FEATURES, value: { hasAuditlogs: true, hasDeviceConnect: true, hasRbac: true, hasDynamicGroups: false } },
-      { type: SET_DEVICE_LIMIT, limit: 8 },
-      { type: SET_USER_LIMIT, limit: 3 },
-      { type: SET_GLOBAL_SETTINGS, settings: { ...defaultState.users.globalSettings } },
-      { type: SET_OFFLINE_THRESHOLD, value: '2019-01-12T13:00:00.900Z' },
-      {
-        type: SET_VERSION_INFORMATION,
-        value: {
-          AlvaldiVersion: alvaldiVersion
-        }
-      },
-      {
         type: SET_FILTER_ATTRIBUTES,
         attributes: {
           identityAttributes: ['status', 'mac'],
@@ -192,6 +157,113 @@ describe('app actions', () => {
           systemAttributes: ['created_ts', 'updated_ts', 'group'],
           tagAttributes: []
         }
+      },
+      {
+        type: RECEIVE_GROUPS,
+        groups: {
+          testGroup: defaultState.devices.groups.byId.testGroup,
+          testGroupDynamic: {
+            filters: [{ key: 'group', operator: '$eq', scope: 'system', value: 'things' }],
+            id: 'filter1'
+          }
+        }
+      },
+      {
+        type: RECEIVE_DYNAMIC_GROUPS,
+        groups: {
+          testGroup: defaultState.devices.groups.byId.testGroup,
+          testGroupDynamic: {
+            deviceIds: [],
+            filters: [
+              { key: 'id', operator: '$in', scope: 'identity', value: [defaultState.devices.byId.a1.id] },
+              { key: 'mac', operator: '$nexists', scope: 'identity', value: false },
+              { key: 'kernel', operator: '$exists', scope: 'identity', value: true }
+            ],
+            id: 'filter1',
+            total: 0
+          }
+        }
+      },
+      {
+        type: SET_VERSION_INFORMATION,
+        docsVersion: '',
+        value: {
+          AlvaldiVersion: alvaldiVersion,
+          GUI: latestSaasReleaseTag,
+          Integration: '1.2.3',
+          backend: latestSaasReleaseTag,
+          latestRelease: {
+            releaseDate: '2022-02-02',
+            repos: {
+              integration: '1.2.3',
+              mender: '3.2.1',
+              'other-service': '1.1.0',
+              service: '3.0.0'
+            }
+          }
+        }
+      },
+      { type: SET_ORGANIZATION, organization: defaultState.organization.organization },
+      { type: SET_ANNOUNCEMENT, announcement: tenantDataDivergedMessage },
+      {
+        type: SET_PLAN,
+        payload: defaultState.organization.plan
+      },
+      { type: SET_FEATURES, value: { hasAuditlogs: true, hasDeviceConnect: true, hasRbac: true, hasDynamicGroups: false } },
+      { type: SET_DEVICE_LIMIT, limit: 8 },
+      { type: SET_USER_LIMIT, limit: 3 },
+      {
+        type: SET_PLANS,
+        value: defaultState.app.plans
+      },
+      { type: SET_GLOBAL_SETTINGS, settings: { ...defaultState.users.globalSettings } },
+      { type: SET_OFFLINE_THRESHOLD, value: '2019-01-12T13:00:00.900Z' },
+      {
+        type: SET_VERSION_INFORMATION,
+        value: {
+          AlvaldiVersion: alvaldiVersion
+        }
+      },
+      { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings } },
+      {
+        type: SET_USER_SETTINGS,
+        settings: {
+          columnSelection: [],
+          onboarding: {
+            something: 'here'
+          }
+        }
+      },
+      { type: SET_ONBOARDING_COMPLETE, complete: false },
+      { type: SET_ONBOARDING_DEVICE_TYPE, value: [] },
+      { type: SET_ONBOARDING_APPROACH, value: null },
+      { type: SET_SHOW_ONBOARDING_HELP, show: true },
+      { type: SET_ONBOARDING_PROGRESS, value: 'devices-accepted-onboarding' },
+      { type: RECEIVED_PERMISSION_SETS, value: receivedPermissionSets },
+      { type: RECEIVED_ROLES, value: receivedRoles },
+      { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings } },
+      {
+        type: SET_USER_SETTINGS,
+        settings: {
+          columnSelection: [],
+          onboarding: {
+            something: 'here',
+            approach: null,
+            complete: false,
+            demoArtifactPort: 85,
+            deviceType: [],
+            progress: 'devices-accepted-onboarding',
+            showConnectDeviceDialog: false,
+            showCreateArtifactDialog: false,
+            showHelptips: true,
+            showTips: true,
+            showTipsDialog: false
+          }
+        }
+      },
+      {
+        type: RECEIVE_DEVICES,
+        devicesById: { [expectedDevice.id]: { ...defaultState.devices.byId.a1, group: 'test', isOffline: true, monitor: {}, tags: {} } }
       },
       {
         type: RECEIVE_DEVICES,
@@ -241,54 +313,6 @@ describe('app actions', () => {
       { type: RECEIVE_DEVICES, devicesById: {} },
       { type: SET_REJECTED_DEVICES, deviceIds: [], status: 'rejected', total: 0 },
       {
-        type: RECEIVE_DYNAMIC_GROUPS,
-        groups: {
-          testGroup: defaultState.devices.groups.byId.testGroup,
-          testGroupDynamic: {
-            deviceIds: [],
-            filters: [
-              { key: 'id', operator: '$in', scope: 'identity', value: [defaultState.devices.byId.a1.id] },
-              { key: 'mac', operator: '$nexists', scope: 'identity', value: false },
-              { key: 'kernel', operator: '$exists', scope: 'identity', value: true }
-            ],
-            id: 'filter1',
-            total: 0
-          }
-        }
-      },
-      {
-        type: RECEIVE_GROUPS,
-        groups: {
-          testGroup: defaultState.devices.groups.byId.testGroup,
-          testGroupDynamic: {
-            filters: [{ key: 'group', operator: '$eq', scope: 'system', value: 'things' }],
-            id: 'filter1'
-          }
-        }
-      },
-      { type: RECEIVED_PERMISSION_SETS, value: receivedPermissionSets },
-      { type: RECEIVED_ROLES, value: receivedRoles },
-      {
-        type: SET_PLANS,
-        value: defaultState.app.plans
-      },
-      {
-        type: SET_USER_SETTINGS,
-        settings: {
-          columnSelection: [],
-          onboarding: {
-            something: 'here'
-          }
-        }
-      },
-      { type: SET_ONBOARDING_COMPLETE, complete: false },
-      { type: SET_ONBOARDING_DEVICE_TYPE, value: [] },
-      { type: SET_ONBOARDING_APPROACH, value: null },
-      { type: SET_SHOW_ONBOARDING_HELP, show: true },
-      { type: SET_ONBOARDING_PROGRESS, value: 'devices-accepted-onboarding' },
-      { type: SET_ORGANIZATION, organization: defaultState.organization.organization },
-      { type: SET_ANNOUNCEMENT, announcement: tenantDataDivergedMessage },
-      {
         type: RECEIVE_DEVICES,
         devicesById: { [expectedDevice.id]: { ...defaultState.devices.byId.a1, isOffline: true, monitor: {}, tags: {} } }
       },
@@ -296,31 +320,7 @@ describe('app actions', () => {
         type: RECEIVE_DEVICES,
         devicesById: { [expectedDevice.id]: { ...defaultState.devices.byId.a1, group: undefined, isOffline: true, monitor: {}, tags: {} } }
       },
-      { type: RECEIVE_DEVICES, devicesById: { [expectedDevice.id]: { ...receivedInventoryDevice, group: 'test' } } },
-      { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings } },
-      {
-        type: SET_USER_SETTINGS,
-        settings: {
-          columnSelection: [],
-          onboarding: {
-            something: 'here',
-            approach: null,
-            complete: false,
-            demoArtifactPort: 85,
-            deviceType: [],
-            progress: 'devices-accepted-onboarding',
-            showConnectDeviceDialog: false,
-            showCreateArtifactDialog: false,
-            showHelptips: true,
-            showTips: true,
-            showTipsDialog: false
-          }
-        }
-      },
-      {
-        type: RECEIVE_DEVICES,
-        devicesById: { [expectedDevice.id]: { ...defaultState.devices.byId.a1, group: undefined, isOffline: true, monitor: {}, tags: {} } }
-      },
+      { type: RECEIVE_DEVICES, devicesById: { [expectedDevice.id]: { ...receivedInventoryDevice, group: undefined } } },
       {
         type: ADD_DYNAMIC_GROUP,
         groupName: UNGROUPED_GROUP.id,
@@ -342,6 +342,8 @@ describe('app actions', () => {
         }
       },
       { type: SET_SHOW_HELP, show: true },
+      { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings } },
+      { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings, showHelptips: true } },
       { type: RECEIVE_DEVICES, devicesById: { [expectedDevice.id]: { ...receivedInventoryDevice, group: 'test' } } },
       {
         type: SET_ACCEPTED_DEVICES,
@@ -349,8 +351,6 @@ describe('app actions', () => {
         status: DEVICE_STATES.accepted,
         total: defaultState.devices.byStatus.accepted.total
       },
-      { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings } },
-      { type: SET_USER_SETTINGS, settings: { ...defaultState.users.userSettings, showHelptips: true } },
       {
         type: RECEIVE_DEVICES,
         devicesById: { [expectedDevice.id]: { ...defaultState.devices.byId.a1, group: undefined, isOffline: true, monitor: {}, tags: {} } }
