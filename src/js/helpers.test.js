@@ -126,8 +126,8 @@ describe('getDebConfigurationCode function', () => {
     it('should return a sane result', async () => {
       expect(code).toMatch(`CONNECT_SESSION_TOKEN="${token}" \\
 CONNECT_TENANT_TOKEN="t3nanttok3n" \\
-CONNECT_SERVER_URL="https://app.alvaldi.com" \\
-curl -L https://staging.app.alvaldi.com/nt-connect/install.sh -O && sudo -E /bin/sh install.sh`);
+CONNECT_SERVER_URL="https://localhost" \\
+curl -L https://localhost/nt-connect/install.sh -O && sudo -E /bin/sh install.sh`);
     });
   });
 });

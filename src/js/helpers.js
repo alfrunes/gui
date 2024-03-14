@@ -353,9 +353,9 @@ export const startTimeSort = (a, b) => (b.created > a.created) - (b.created < a.
 export const getDebConfigurationCode = props => {
   const { tenantToken } = props;
   const envVars = tenantToken
-    ? `CONNECT_SESSION_TOKEN="${getToken()}" \\\nCONNECT_TENANT_TOKEN="${tenantToken}" \\\nCONNECT_SERVER_URL="https://app.alvaldi.com" \\\n`
+    ? `CONNECT_SESSION_TOKEN="${getToken()}" \\\nCONNECT_TENANT_TOKEN="${tenantToken}" \\\nCONNECT_SERVER_URL="https://${window.location.hostname}" \\\n`
     : '';
-  return `${envVars}curl -L https://staging.app.alvaldi.com/nt-connect/install.sh -O && sudo -E /bin/sh install.sh`;
+  return `${envVars}curl -L https://${window.location.hostname}/nt-connect/install.sh -O && sudo -E /bin/sh install.sh`;
 };
 
 export const getSnackbarMessage = (skipped, done) => {
