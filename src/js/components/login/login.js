@@ -134,7 +134,7 @@ export const OAuthHeader = ({ buttonProps, type }) => (
         );
       })}
     </div>
-    <LinedHeader className="margin-top flexbox centered" heading="or your email address" innerStyle={{ padding: 10, top: -20 }} />
+    <LinedHeader className="margin-top-large flexbox centered" heading="or your email address" style={{ paddingTop: 5, paddingBottom: 5 }} innerStyle={{ padding: 10, top: -10 }} />
   </>
 );
 
