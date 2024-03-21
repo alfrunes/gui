@@ -30,6 +30,7 @@ import { TIMEOUTS, locations } from '../../constants/appConstants';
 import { useradmApiUrl } from '../../constants/userConstants';
 import { getCurrentUser, getFeatures } from '../../selectors';
 import { clearAllRetryTimers } from '../../utils/retrytimer';
+import LinedHeader from '../common/lined-header';
 import Form from '../common/forms/form';
 import PasswordInput from '../common/forms/passwordinput';
 import TextInput from '../common/forms/textinput';
@@ -133,6 +134,7 @@ export const OAuthHeader = ({ buttonProps, type }) => (
         );
       })}
     </div>
+    <LinedHeader className="margin-top flexbox centered" heading="or your email address" innerStyle={{ padding: 10, top: -20 }} />
   </>
 );
 
